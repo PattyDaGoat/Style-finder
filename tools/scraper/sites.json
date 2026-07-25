@@ -1,0 +1,5835 @@
+{
+ "10 Deep": {
+  "brand": "10 Deep",
+  "entries": {
+   "f": [],
+   "m": [
+    "https://10deep.com/collections/discountable",
+    "https://10deep.com/collections/all-sorted-by-new",
+    "https://10deep.com/collections/t-shirts-tank-tops"
+   ]
+  },
+  "entry_cursor": 0,
+  "gender_source": "prior",
+  "health": {
+   "fail": 0,
+   "last": 1784999742.162879,
+   "last_found": 69,
+   "note": "rate-limited (429) \u2014 stopping this shop for now",
+   "ok": 2,
+   "status": "ok"
+  },
+  "host": "10deep.com",
+  "note": "auto-discovered"
+ },
+ "18 East": {
+  "brand": "18 East",
+  "entries": {
+   "f": [],
+   "m": [
+    "https://18east.co/collections/nj-tax-exempt",
+    "https://18east.co/collections/sale30",
+    "https://18east.co/collections/all"
+   ]
+  },
+  "entry_cursor": 1,
+  "gender_source": "prior",
+  "health": {
+   "fail": 0,
+   "last": 1784999808.866861,
+   "last_found": 32,
+   "note": "no products found on the page",
+   "ok": 2,
+   "status": "ok"
+  },
+  "host": "18east.co",
+  "note": "auto-discovered"
+ },
+ "3sixteen": {
+  "brand": "3sixteen",
+  "entries": {
+   "f": [],
+   "m": [
+    "https://www.3sixteen.com/collections/all",
+    "https://www.3sixteen.com/collections/featured",
+    "https://www.3sixteen.com/collections/complete-the-fit-tops"
+   ]
+  },
+  "entry_cursor": 2,
+  "gender_source": "prior",
+  "health": {
+   "fail": 0,
+   "last": 1784999874.6498141,
+   "last_found": 32,
+   "ok": 1,
+   "status": "ok"
+  },
+  "host": "www.3sixteen.com",
+  "note": "auto-discovered"
+ },
+ "A Kind of Guise": {
+  "brand": "A Kind of Guise",
+  "entries": {
+   "f": [
+    "https://www.akindofguise.com/collections/women",
+    "https://www.akindofguise.com/collections/womens-akog-exclusive",
+    "https://www.akindofguise.com/collections/womens-pants"
+   ],
+   "m": [
+    "https://www.akindofguise.com/collections/men",
+    "https://www.akindofguise.com/collections/mens-akog-exclusive",
+    "https://www.akindofguise.com/collections/mens-pants"
+   ]
+  },
+  "entry_cursor": 2,
+  "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1784999955.641855,
+   "last_found": 24,
+   "ok": 1,
+   "status": "ok"
+  },
+  "host": "www.akindofguise.com",
+  "note": "auto-discovered"
+ },
+ "Abercrombie & Fitch": {
+  "brand": "Abercrombie & Fitch",
+  "entries": {
+   "f": [
+    "https://www.abercrombie.com/shop/us/womens-dresses-and-jumpsuits",
+    "https://www.abercrombie.com/shop/us/womens-tops"
+   ],
+   "m": [
+    "https://www.abercrombie.com/shop/us/mens-tops",
+    "https://www.abercrombie.com/shop/us/mens-bottoms"
+   ]
+  },
+  "health": {
+   "fail": 1,
+   "last": 1784997700.591064,
+   "last_found": 0,
+   "note": "nothing usable \u2014 page title: ''",
+   "ok": 0,
+   "status": "blocked"
+  },
+  "host": "www.abercrombie.com",
+  "note": ""
+ },
+ "Adanola": {
+  "brand": "Adanola",
+  "entries": {
+   "f": [
+    "https://www.adanola.com/collections/staff",
+    "https://www.adanola.com/collections/all",
+    "https://www.adanola.com/collections/best-selling"
+   ],
+   "m": []
+  },
+  "entry_cursor": 1,
+  "gender_source": "prior",
+  "health": {
+   "fail": 0,
+   "last": 1784999992.349903,
+   "last_found": 33,
+   "note": "rate-limited (429) \u2014 stopping this shop for now",
+   "ok": 1,
+   "status": "ok"
+  },
+  "host": "www.adanola.com",
+  "note": "auto-discovered"
+ },
+ "Adsum": {
+  "brand": "Adsum",
+  "entries": {
+   "f": [],
+   "m": [
+    "https://www.adsumnyc.com/collections/fw-2021",
+    "https://www.adsumnyc.com/collections/outerwear",
+    "https://www.adsumnyc.com/collections/ss23"
+   ]
+  },
+  "entry_cursor": 2,
+  "gender_source": "prior",
+  "health": {
+   "fail": 1,
+   "last": 1785000043.1020842,
+   "last_found": 0,
+   "note": "no products found on the page",
+   "ok": 0,
+   "status": "blocked"
+  },
+  "host": "www.adsumnyc.com",
+  "note": "auto-discovered"
+ },
+ "Afends": {
+  "brand": "Afends",
+  "entries": {
+   "f": [
+    "https://afends.com/collections/half-baked-womens-best-picks",
+    "https://afends.com/collections/sept-capsule-womens",
+    "https://afends.com/collections/essentials-womens-tanks"
+   ],
+   "m": [
+    "https://afends.com/collections/all-mens-clothing",
+    "https://afends.com/collections/mens-tops-all",
+    "https://afends.com/collections/mens-tops-tees"
+   ]
+  },
+  "entry_cursor": 2,
+  "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1785000158.9647622,
+   "last_found": 62,
+   "ok": 1,
+   "status": "ok"
+  },
+  "host": "afends.com",
+  "note": "auto-discovered"
+ },
+ "Aim'n": {
+  "brand": "Aim'n",
+  "entries": {
+   "f": [
+    "https://aimn.com/collections/all-products",
+    "https://aimn.com/collections/bw-full-price-2",
+    "https://aimn.com/collections/personal"
+   ],
+   "m": []
+  },
+  "entry_cursor": 2,
+  "gender_source": "prior",
+  "health": {
+   "fail": 0,
+   "last": 1785000243.66184,
+   "last_found": 66,
+   "ok": 1,
+   "status": "ok"
+  },
+  "host": "aimn.com",
+  "note": "auto-discovered"
+ },
+ "Aje": {
+  "brand": "Aje",
+  "entries": {
+   "f": [
+    "https://ajeworld.com.au/collections/shop-all",
+    "https://ajeworld.com.au/collections/aje-1",
+    "https://ajeworld.com.au/collections/aje"
+   ],
+   "m": []
+  },
+  "entry_cursor": 2,
+  "gender_source": "prior",
+  "health": {
+   "fail": 1,
+   "last": 1785000424.934263,
+   "last_found": 0,
+   "ok": 0,
+   "status": "blocked"
+  },
+  "host": "ajeworld.com.au",
+  "note": "auto-discovered"
+ },
+ "Aje Athletica": {
+  "brand": "Aje Athletica",
+  "entries": {
+   "f": [
+    "https://ajeathletica.com/collections/shop-all",
+    "https://ajeathletica.com/collections/sneakers",
+    "https://ajeathletica.com/collections/bfcollection"
+   ],
+   "m": []
+  },
+  "entry_cursor": 2,
+  "gender_source": "prior",
+  "health": {
+   "fail": 0,
+   "last": 1785000606.508509,
+   "last_found": 1,
+   "ok": 1,
+   "status": "ok"
+  },
+  "host": "ajeathletica.com",
+  "note": "auto-discovered"
+ },
+ "Albam": {
+  "brand": "Albam",
+  "entries": {
+   "f": [],
+   "m": [
+    "https://www.albamclothing.com/collections/navy",
+    "https://www.albamclothing.com/collections/accessories",
+    "https://www.albamclothing.com/collections/knitwear"
+   ]
+  },
+  "entry_cursor": 2,
+  "gender_source": "prior",
+  "health": {
+   "fail": 0,
+   "last": 1785000646.524865,
+   "last_found": 13,
+   "ok": 1,
+   "status": "ok"
+  },
+  "host": "www.albamclothing.com",
+  "note": "auto-discovered"
+ },
+ "Albaray": {
+  "brand": "Albaray",
+  "entries": {
+   "f": [
+    "https://albaray.co.uk/collections/non-reloved",
+    "https://albaray.co.uk/collections/view-all",
+    "https://albaray.co.uk/collections/may-bank-holiday-offer"
+   ],
+   "m": []
+  },
+  "entry_cursor": 2,
+  "gender_source": "prior",
+  "health": {
+   "fail": 0,
+   "last": 1785000738.315213,
+   "last_found": 65,
+   "ok": 1,
+   "status": "ok"
+  },
+  "host": "albaray.co.uk",
+  "note": "auto-discovered"
+ },
+ "Alex Crane": {
+  "brand": "Alex Crane",
+  "entries": {
+   "f": [
+    "https://alexcrane.co/collections/women",
+    "https://alexcrane.co/collections/womens-collection",
+    "https://alexcrane.co/collections/womens-organic-cotton-copy"
+   ],
+   "m": [
+    "https://alexcrane.co/collections/men"
+   ]
+  },
+  "entry_cursor": 1,
+  "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1785000785.215106,
+   "last_found": 31,
+   "note": "rate-limited (429) \u2014 stopping this shop for now",
+   "ok": 1,
+   "status": "ok"
+  },
+  "host": "alexcrane.co",
+  "note": "auto-discovered"
+ },
+ "Alex Mill": {
+  "brand": "Alex Mill",
+  "entries": {
+   "f": [],
+   "m": [
+    "https://www.alexmill.com/collections/1-jacket-5-ways-by-our-mens-designer-jordan"
+   ]
+  },
+  "entry_cursor": 0,
+  "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1785000815.909878,
+   "last_found": 1,
+   "ok": 1,
+   "status": "ok"
+  },
+  "host": "www.alexmill.com",
+  "note": "auto-discovered"
+ },
+ "Aligne": {
+  "brand": "Aligne",
+  "entries": {
+   "f": [
+    "https://aligne.co/collections/womens-shirts"
+   ],
+   "m": []
+  },
+  "entry_cursor": 0,
+  "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1785000959.424599,
+   "last_found": 6,
+   "ok": 1,
+   "status": "ok"
+  },
+  "host": "aligne.co",
+  "note": "auto-discovered"
+ },
+ "All About Eve": {
+  "brand": "All About Eve",
+  "entries": {
+   "f": [
+    "https://allabouteve.com.au/collections/shop-all",
+    "https://allabouteve.com.au/collections/tops",
+    "https://allabouteve.com.au/collections/full-price"
+   ],
+   "m": []
+  },
+  "entry_cursor": 2,
+  "gender_source": "prior",
+  "health": {
+   "fail": 1,
+   "last": 1785000977.7015,
+   "last_found": 0,
+   "note": "nav failed: Page.goto: net::ERR_INTERNET_DISCONNECTED at https://allabouteve.com.au/collections/shop-all; nav failed: Page.goto: net::ERR_INTERNET_DISCONNECTED at https://allabouteve.com.au/collection",
+   "ok": 0,
+   "status": "blocked"
+  },
+  "host": "allabouteve.com.au",
+  "note": "auto-discovered"
+ },
+ "Allbirds": {
+  "brand": "Allbirds",
+  "entries": {
+   "f": [
+    "https://www.allbirds.com/collections/womens-runner-nz-deals",
+    "https://www.allbirds.com/collections/best-for-warm-weather-womens",
+    "https://www.allbirds.com/collections/womens-dasher-relay-deals"
+   ],
+   "m": [
+    "https://www.allbirds.com/collections/mens-apparel",
+    "https://www.allbirds.com/collections/mens-bestsellers",
+    "https://www.allbirds.com/collections/mens-active-shoes"
+   ]
+  },
+  "entry_cursor": 2,
+  "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1785001057.196918,
+   "last_found": 58,
+   "note": "nav failed: Page.goto: net::ERR_INTERNET_DISCONNECTED at https://www.allbirds.com/collections/mens-apparel",
+   "ok": 1,
+   "status": "ok"
+  },
+  "host": "www.allbirds.com",
+  "note": "auto-discovered"
+ },
+ "American Trench": {
+  "brand": "American Trench",
+  "entries": {
+   "f": [
+    "https://americantrench.com/collections/womens-socks-accessories"
+   ],
+   "m": []
+  },
+  "entry_cursor": 0,
+  "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1785001085.5963311,
+   "last_found": 13,
+   "ok": 1,
+   "status": "ok"
+  },
+  "host": "americantrench.com",
+  "note": "auto-discovered"
+ },
+ "Andie Swim": {
+  "brand": "Andie Swim",
+  "entries": {
+   "f": [
+    "https://andieswim.com/collections/beach-shirts-for-women"
+   ],
+   "m": []
+  },
+  "entry_cursor": 0,
+  "gender_source": "collection",
+  "health": {
+   "fail": 1,
+   "last": 1785001131.258707,
+   "last_found": 0,
+   "note": "no products found on the page",
+   "ok": 0,
+   "status": "blocked"
+  },
+  "host": "andieswim.com",
+  "note": ""
+ },
+ "Anti Social Social Club": {
+  "brand": "Anti Social Social Club",
+  "entries": {
+   "f": [],
+   "m": [
+    "https://antisocialsocialclub.com/collections/seasonal",
+    "https://antisocialsocialclub.com/collections/instant-gratification",
+    "https://antisocialsocialclub.com/collections/strange-day"
+   ]
+  },
+  "entry_cursor": 2,
+  "gender_source": "prior",
+  "health": {
+   "fail": 0,
+   "last": 1785001293.7390049,
+   "last_found": 4,
+   "ok": 1,
+   "status": "ok"
+  },
+  "host": "antisocialsocialclub.com",
+  "note": "auto-discovered"
+ },
+ "Aries": {
+  "brand": "Aries",
+  "entries": {
+   "f": [
+    "https://ariesarise.com/collections/new-arrivals-womens",
+    "https://ariesarise.com/collections/accessories-womens",
+    "https://ariesarise.com/collections/bags-womens"
+   ],
+   "m": [
+    "https://ariesarise.com/collections/mens",
+    "https://ariesarise.com/collections/new-arrivals-mens",
+    "https://ariesarise.com/collections/accessories-mens"
+   ]
+  },
+  "entry_cursor": 2,
+  "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1785001365.6940742,
+   "last_found": 56,
+   "ok": 1,
+   "status": "ok"
+  },
+  "host": "ariesarise.com",
+  "note": "auto-discovered"
+ },
+ "Aritzia": {
+  "brand": "Aritzia",
+  "entries": {
+   "f": [
+    "https://www.aritzia.com/us/en/clothing/dresses",
+    "https://www.aritzia.com/us/en/clothing/tops"
+   ],
+   "m": []
+  },
+  "entry_cursor": 0,
+  "health": {
+   "fail": 0,
+   "last": 1785001432.382587,
+   "last_found": 35,
+   "note": "no products found on the page",
+   "ok": 2,
+   "status": "ok"
+  },
+  "host": "www.aritzia.com",
+  "note": ""
+ },
+ "Arket": {
+  "brand": "Arket",
+  "entries": {
+   "f": [
+    "https://www.arket.com/en-us/women/dresses.html",
+    "https://www.arket.com/en-us/women/knitwear.html"
+   ],
+   "m": [
+    "https://www.arket.com/en-us/men/shirts.html",
+    "https://www.arket.com/en-us/men/knitwear.html"
+   ]
+  },
+  "health": {
+   "fail": 1,
+   "last": 1784997721.221803,
+   "last_found": 0,
+   "note": "nothing usable \u2014 page title: 'Access Denied'",
+   "ok": 0,
+   "status": "blocked"
+  },
+  "host": "www.arket.com",
+  "note": ""
+ },
+ "Arms of Eve": {
+  "brand": "Arms of Eve",
+  "entries": {
+   "f": [],
+   "m": [
+    "https://www.armsofeve.com/collections/arms-of-eve-man",
+    "https://www.armsofeve.com/collections/bracelets-mens",
+    "https://www.armsofeve.com/collections/necklaces-mens"
+   ]
+  },
+  "entry_cursor": 2,
+  "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1785001494.375423,
+   "last_found": 19,
+   "ok": 1,
+   "status": "ok"
+  },
+  "host": "www.armsofeve.com",
+  "note": "auto-discovered"
+ },
+ "Arpenteur": {
+  "brand": "Arpenteur",
+  "entries": {
+   "f": [],
+   "m": [
+    "https://arpenteur.fr/collections/all",
+    "https://arpenteur.fr/collections/new-arrivals",
+    "https://arpenteur.fr/collections/shirts"
+   ]
+  },
+  "entry_cursor": 2,
+  "gender_source": "prior",
+  "health": {
+   "fail": 0,
+   "last": 1785001560.84584,
+   "last_found": 2,
+   "ok": 1,
+   "status": "ok"
+  },
+  "host": "arpenteur.fr",
+  "note": "auto-discovered"
+ },
+ "Ash & Erie": {
+  "brand": "Ash & Erie",
+  "entries": {
+   "f": [],
+   "m": [
+    "https://ashanderie.com/collections/shop-all-clothes",
+    "https://ashanderie.com/collections/how-to-layer-winter-essential-fashion-for-short-men"
+   ]
+  },
+  "entry_cursor": 1,
+  "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1785001604.326538,
+   "last_found": 26,
+   "note": "rate-limited (429) \u2014 stopping this shop for now",
+   "ok": 1,
+   "status": "ok"
+  },
+  "host": "ashanderie.com",
+  "note": "auto-discovered"
+ },
+ "Assembly Label": {
+  "brand": "Assembly Label",
+  "entries": {
+   "f": [
+    "https://assemblylabel.com/collections/re-worn-women",
+    "https://assemblylabel.com/collections/womens-shop-all",
+    "https://assemblylabel.com/collections/womens-accessories"
+   ],
+   "m": [
+    "https://assemblylabel.com/collections/re-worn-men",
+    "https://assemblylabel.com/collections/mens-shop-all",
+    "https://assemblylabel.com/collections/mens-accessories"
+   ]
+  },
+  "entry_cursor": 2,
+  "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1785001697.8398888,
+   "last_found": 45,
+   "ok": 1,
+   "status": "ok"
+  },
+  "host": "assemblylabel.com",
+  "note": "auto-discovered"
+ },
+ "Auguste The Label": {
+  "brand": "Auguste The Label",
+  "entries": {
+   "f": [
+    "https://augustethelabel.com/collections/tops",
+    "https://augustethelabel.com/collections/dresses",
+    "https://augustethelabel.com/collections/swim"
+   ],
+   "m": []
+  },
+  "entry_cursor": 2,
+  "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1785001790.787186,
+   "last_found": 17,
+   "ok": 1,
+   "status": "ok"
+  },
+  "host": "augustethelabel.com",
+  "note": "auto-discovered"
+ },
+ "Aybl": {
+  "brand": "Aybl",
+  "entries": {
+   "f": [
+    "https://aybl.com/collections/athlete-collection",
+    "https://aybl.com/collections/colorset-aybl-strength-club-oversized-t-shirt-womens"
+   ],
+   "m": [
+    "https://aybl.com/collections/athlete-collection-mens",
+    "https://aybl.com/collections/active-mens"
+   ]
+  },
+  "entry_cursor": 2,
+  "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1785001849.596937,
+   "last_found": 42,
+   "ok": 1,
+   "status": "ok"
+  },
+  "host": "aybl.com",
+  "note": "auto-discovered"
+ },
+ "BBC Ice Cream": {
+  "brand": "BBC Ice Cream",
+  "entries": {
+   "f": [
+    "https://bbcicecream.com/collections/womens",
+    "https://bbcicecream.com/collections/womens-tops",
+    "https://bbcicecream.com/collections/icecream-womens"
+   ],
+   "m": [
+    "https://bbcicecream.com/collections/mens",
+    "https://bbcicecream.com/collections/mens-tops",
+    "https://bbcicecream.com/collections/mens-accessories"
+   ]
+  },
+  "entry_cursor": 2,
+  "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1785001921.093847,
+   "last_found": 55,
+   "ok": 1,
+   "status": "ok"
+  },
+  "host": "bbcicecream.com",
+  "note": "auto-discovered"
+ },
+ "Bad Birdie": {
+  "brand": "Bad Birdie",
+  "entries": {
+   "f": [
+    "https://badbirdiegolf.com/collections/new-womens-golf-apparel",
+    "https://badbirdiegolf.com/collections/spring-26-womens-polos",
+    "https://badbirdiegolf.com/collections/bad-weekend-womens"
+   ],
+   "m": [
+    "https://badbirdiegolf.com/collections/mens",
+    "https://badbirdiegolf.com/collections/mens2",
+    "https://badbirdiegolf.com/collections/mens-tops"
+   ]
+  },
+  "entry_cursor": 1,
+  "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1785001985.1164758,
+   "last_found": 35,
+   "note": "rate-limited (429) \u2014 stopping this shop for now",
+   "ok": 1,
+   "status": "ok"
+  },
+  "host": "badbirdiegolf.com",
+  "note": "auto-discovered"
+ },
+ "Banana Republic": {
+  "brand": "Banana Republic",
+  "entries": {
+   "f": [
+    "https://bananarepublic.gap.com/browse/category.do?cid=47516"
+   ],
+   "m": [
+    "https://bananarepublic.gap.com/browse/category.do?cid=47986"
+   ]
+  },
+  "health": {
+   "fail": 1,
+   "last": 1784997728.8992798,
+   "last_found": 0,
+   "note": "nothing usable \u2014 page title: ''",
+   "ok": 0,
+   "status": "blocked"
+  },
+  "host": "bananarepublic.gap.com",
+  "note": ""
+ },
+ "Barbell Apparel": {
+  "brand": "Barbell Apparel",
+  "entries": {
+   "f": [],
+   "m": [
+    "https://barbellapparel.com/collections/mens",
+    "https://barbellapparel.com/collections/shop-mens",
+    "https://barbellapparel.com/collections/mens-tops"
+   ]
+  },
+  "entry_cursor": 2,
+  "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1785002076.221449,
+   "last_found": 37,
+   "ok": 1,
+   "status": "ok"
+  },
+  "host": "barbellapparel.com",
+  "note": "auto-discovered"
+ },
+ "Barney Cools": {
+  "brand": "Barney Cools",
+  "entries": {
+   "f": [],
+   "m": [
+    "https://barneycools.com/collections/shop-all",
+    "https://barneycools.com/collections/q3-shop-all",
+    "https://barneycools.com/collections/klaviyo"
+   ]
+  },
+  "entry_cursor": 2,
+  "gender_source": "prior",
+  "health": {
+   "fail": 0,
+   "last": 1785002149.3315399,
+   "last_found": 50,
+   "ok": 1,
+   "status": "ok"
+  },
+  "host": "barneycools.com",
+  "note": "auto-discovered"
+ },
+ "Baserange": {
+  "brand": "Baserange",
+  "entries": {
+   "f": [],
+   "m": [
+    "https://baserange.com/collections/men"
+   ]
+  },
+  "entry_cursor": 0,
+  "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1785002173.7947772,
+   "last_found": 5,
+   "ok": 1,
+   "status": "ok"
+  },
+  "host": "baserange.com",
+  "note": "auto-discovered"
+ },
+ "Bassike": {
+  "brand": "Bassike",
+  "entries": {
+   "f": [
+    "https://www.bassike.com/collections/womens-clothing",
+    "https://www.bassike.com/collections/women-organic-jersey",
+    "https://www.bassike.com/collections/womens-t-shirts-tanks"
+   ],
+   "m": [
+    "https://www.bassike.com/collections/men",
+    "https://www.bassike.com/collections/men-organic-jersey",
+    "https://www.bassike.com/collections/mens-universal"
+   ]
+  },
+  "entry_cursor": 2,
+  "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1785002271.5055501,
+   "last_found": 17,
+   "ok": 1,
+   "status": "ok"
+  },
+  "host": "www.bassike.com",
+  "note": "auto-discovered"
+ },
+ "Bather": {
+  "brand": "Bather",
+  "entries": {
+   "f": [],
+   "m": [
+    "https://bather.com/collections/boxing-day-all-products",
+    "https://bather.com/collections/all",
+    "https://bather.com/collections/apparel"
+   ]
+  },
+  "entry_cursor": 2,
+  "gender_source": "prior",
+  "health": {
+   "fail": 0,
+   "last": 1785002364.6161191,
+   "last_found": 67,
+   "ok": 1,
+   "status": "ok"
+  },
+  "host": "bather.com",
+  "note": "auto-discovered"
+ },
+ "Battenwear": {
+  "brand": "Battenwear",
+  "entries": {
+   "f": [],
+   "m": [
+    "https://battenwear.com/collections/ss22-full-collection",
+    "https://battenwear.com/collections/ss21-full-collection",
+    "https://battenwear.com/collections/shirts"
+   ]
+  },
+  "entry_cursor": 2,
+  "gender_source": "prior",
+  "health": {
+   "fail": 1,
+   "last": 1785002416.5030348,
+   "last_found": 0,
+   "note": "no products found on the page; no products found on the page",
+   "ok": 0,
+   "status": "blocked"
+  },
+  "host": "battenwear.com",
+  "note": "auto-discovered"
+ },
+ "Baukjen": {
+  "brand": "Baukjen",
+  "entries": {
+   "f": [
+    "https://www.baukjen.com/collections/womens-sustainable-shirts",
+    "https://www.baukjen.com/collections/womens-sustainable-skirts",
+    "https://www.baukjen.com/collections/women-linen-clothing"
+   ],
+   "m": []
+  },
+  "entry_cursor": 1,
+  "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1785002453.71944,
+   "last_found": 30,
+   "note": "rate-limited (429) \u2014 stopping this shop for now",
+   "ok": 1,
+   "status": "ok"
+  },
+  "host": "www.baukjen.com",
+  "note": "auto-discovered"
+ },
+ "Beach Riot": {
+  "brand": "Beach Riot",
+  "entries": {
+   "f": [
+    "https://www.beachriot.com/collections/donna-tank"
+   ],
+   "m": []
+  },
+  "entry_cursor": 0,
+  "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1785002478.8920069,
+   "last_found": 1,
+   "ok": 1,
+   "status": "ok"
+  },
+  "host": "www.beachriot.com",
+  "note": "auto-discovered"
+ },
+ "Bearbottom": {
+  "brand": "Bearbottom",
+  "entries": {
+   "f": [],
+   "m": [
+    "https://bearbottomclothing.com/collections/casual",
+    "https://bearbottomclothing.com/collections/all-tops",
+    "https://bearbottomclothing.com/collections/all-bottoms"
+   ]
+  },
+  "entry_cursor": 2,
+  "gender_source": "prior",
+  "health": {
+   "fail": 0,
+   "last": 1785002573.007669,
+   "last_found": 70,
+   "ok": 1,
+   "status": "ok"
+  },
+  "host": "bearbottomclothing.com",
+  "note": "auto-discovered"
+ },
+ "Bec + Bridge": {
+  "brand": "Bec + Bridge",
+  "entries": {
+   "f": [
+    "https://becandbridge.com.au/collections/full-price",
+    "https://becandbridge.com.au/collections/white-and-black-dresses",
+    "https://becandbridge.com.au/collections/new-years-eve-dress"
+   ],
+   "m": []
+  },
+  "entry_cursor": 2,
+  "gender_source": "prior",
+  "health": {
+   "fail": 0,
+   "last": 1785002627.535758,
+   "last_found": 1,
+   "ok": 1,
+   "status": "ok"
+  },
+  "host": "becandbridge.com.au",
+  "note": "auto-discovered"
+ },
+ "Beginning Boutique": {
+  "brand": "Beginning Boutique",
+  "entries": {
+   "f": [
+    "https://www.beginningboutique.com/collections/bb-exclusives",
+    "https://www.beginningboutique.com/collections/beginning-boutique",
+    "https://www.beginningboutique.com/collections/4th-of-july"
+   ],
+   "m": []
+  },
+  "entry_cursor": 2,
+  "gender_source": "prior",
+  "health": {
+   "fail": 0,
+   "last": 1785002713.606446,
+   "last_found": 70,
+   "ok": 1,
+   "status": "ok"
+  },
+  "host": "www.beginningboutique.com",
+  "note": "auto-discovered"
+ },
+ "Bella Dahl": {
+  "brand": "Bella Dahl",
+  "entries": {
+   "f": [
+    "https://www.belladahl.com/collections/bottoms",
+    "https://www.belladahl.com/collections/tops",
+    "https://www.belladahl.com/collections/everyday-essentials"
+   ],
+   "m": []
+  },
+  "entry_cursor": 2,
+  "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1785002796.73601,
+   "last_found": 69,
+   "ok": 1,
+   "status": "ok"
+  },
+  "host": "www.belladahl.com",
+  "note": "auto-discovered"
+ },
+ "Berg & Berg": {
+  "brand": "Berg & Berg",
+  "entries": {
+   "f": [],
+   "m": [
+    "https://bergbergstore.com/collections/all",
+    "https://bergbergstore.com/collections/new-in",
+    "https://bergbergstore.com/collections/live-products"
+   ]
+  },
+  "entry_cursor": 2,
+  "gender_source": "prior",
+  "health": {
+   "fail": 0,
+   "last": 1785002891.867712,
+   "last_found": 17,
+   "ok": 1,
+   "status": "ok"
+  },
+  "host": "bergbergstore.com",
+  "note": "auto-discovered"
+ },
+ "Billy Reid": {
+  "brand": "Billy Reid",
+  "entries": {
+   "f": [],
+   "m": [
+    "https://www.billyreid.com/collections/color-swatch-mens-leather-gloves"
+   ]
+  },
+  "entry_cursor": 0,
+  "gender_source": "collection",
+  "health": {
+   "fail": 1,
+   "last": 1785002916.4689322,
+   "last_found": 0,
+   "ok": 0,
+   "status": "blocked"
+  },
+  "host": "www.billyreid.com",
+  "note": "auto-discovered"
+ },
+ "Birdies": {
+  "brand": "Birdies",
+  "entries": {
+   "f": [
+    "https://birdies.com/collections/womens-shoes-summer-woven",
+    "https://birdies.com/collections/womens-shoes-suede",
+    "https://birdies.com/collections/women-shoes-vegan-collection"
+   ],
+   "m": []
+  },
+  "entry_cursor": 2,
+  "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1785003028.703543,
+   "last_found": 44,
+   "ok": 1,
+   "status": "ok"
+  },
+  "host": "birdies.com",
+  "note": "auto-discovered"
+ },
+ "Birds of Condor": {
+  "brand": "Birds of Condor",
+  "entries": {
+   "f": [
+    "https://birdsofcondor.com/collections/womens",
+    "https://birdsofcondor.com/collections/womens-headwear",
+    "https://birdsofcondor.com/collections/womens-golf-tops"
+   ],
+   "m": [
+    "https://birdsofcondor.com/collections/mens",
+    "https://birdsofcondor.com/collections/mens-t-shirts"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "birdsofcondor.com",
+  "note": "auto-discovered"
+ },
+ "Birdwell": {
+  "brand": "Birdwell",
+  "entries": {
+   "f": [
+    "https://birdwell.com/collections/shop-womens",
+    "https://birdwell.com/collections/last-wave-womens",
+    "https://birdwell.com/collections/last-wave-womens-sweatshirts-hoodies"
+   ],
+   "m": [
+    "https://birdwell.com/collections/mens",
+    "https://birdwell.com/collections/last-wave-mens",
+    "https://birdwell.com/collections/mens-flexify-collection"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "birdwell.com",
+  "note": "auto-discovered"
+ },
+ "Boody": {
+  "brand": "Boody",
+  "entries": {
+   "f": [
+    "https://boody.com/collections/womens",
+    "https://boody.com/collections/womens-clothing",
+    "https://boody.com/collections/womens-underwear"
+   ],
+   "m": [
+    "https://boody.com/collections/mens",
+    "https://boody.com/collections/mens-clothing",
+    "https://boody.com/collections/mens-socks"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "boody.com",
+  "note": ""
+ },
+ "Born Primitive": {
+  "brand": "Born Primitive",
+  "entries": {
+   "f": [
+    "https://bornprimitive.com/collections/outdoor-womens-collection",
+    "https://bornprimitive.com/collections/outdoor-women-new-arrivals",
+    "https://bornprimitive.com/collections/spring-2023-womens"
+   ],
+   "m": [
+    "https://bornprimitive.com/collections/mens-tops",
+    "https://bornprimitive.com/collections/mens-training",
+    "https://bornprimitive.com/collections/mens-bottoms"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "bornprimitive.com",
+  "note": "auto-discovered"
+ },
+ "Boyish": {
+  "brand": "Boyish",
+  "entries": {
+   "f": [
+    "https://boyish.com/collections/boyish-jeans",
+    "https://boyish.com/collections/jeans",
+    "https://boyish.com/collections/shorts-skirts-tees"
+   ],
+   "m": []
+  },
+  "gender_source": "prior",
+  "host": "boyish.com",
+  "note": "auto-discovered"
+ },
+ "Brain Dead": {
+  "brand": "Brain Dead",
+  "entries": {
+   "f": [
+    "https://wearebraindead.com/collections/women"
+   ],
+   "m": []
+  },
+  "gender_source": "collection",
+  "host": "wearebraindead.com",
+  "note": "auto-discovered"
+ },
+ "Bridge & Burn": {
+  "brand": "Bridge & Burn",
+  "entries": {
+   "f": [
+    "https://bridgeandburn.com/collections/f24-bridge-burn-womens",
+    "https://bridgeandburn.com/collections/f25-womens-bridge-burn",
+    "https://bridgeandburn.com/collections/womens-hemlock-plaid"
+   ],
+   "m": [
+    "https://bridgeandburn.com/collections/men",
+    "https://bridgeandburn.com/collections/mens-cold-weather-goods",
+    "https://bridgeandburn.com/collections/fall-23-mens"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "bridgeandburn.com",
+  "note": "auto-discovered"
+ },
+ "Brixton": {
+  "brand": "Brixton",
+  "entries": {
+   "f": [
+    "https://www.brixton.com/collections/womens",
+    "https://www.brixton.com/collections/womens-best-sellers",
+    "https://www.brixton.com/collections/all-womens-product"
+   ],
+   "m": [
+    "https://www.brixton.com/collections/mens",
+    "https://www.brixton.com/collections/mens-clothing",
+    "https://www.brixton.com/collections/all-mens-product"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "www.brixton.com",
+  "note": "auto-discovered"
+ },
+ "Buddy Love": {
+  "brand": "Buddy Love",
+  "entries": {
+   "f": [
+    "https://www.buddylove.com/collections/womens-pajamas-loungewear",
+    "https://www.buddylove.com/collections/womens-boots",
+    "https://www.buddylove.com/collections/floral-dresses-for-women"
+   ],
+   "m": [
+    "https://www.buddylove.com/collections/mens"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "www.buddylove.com",
+  "note": "auto-discovered"
+ },
+ "Butter Goods": {
+  "brand": "Butter Goods",
+  "entries": {
+   "f": [],
+   "m": [
+    "https://buttergoods.com/collections/t-shirt",
+    "https://buttergoods.com/collections/hats",
+    "https://buttergoods.com/collections/fleece"
+   ]
+  },
+  "gender_source": "prior",
+  "host": "buttergoods.com",
+  "note": "auto-discovered"
+ },
+ "CDLP": {
+  "brand": "CDLP",
+  "entries": {
+   "f": [
+    "https://cdlp.com/collections/womens-shop-all",
+    "https://cdlp.com/collections/multipacks-woman",
+    "https://cdlp.com/collections/womens-essentials"
+   ],
+   "m": [
+    "https://cdlp.com/collections/multipacks-man",
+    "https://cdlp.com/collections/mens-shop-all",
+    "https://cdlp.com/collections/mens-underwear"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "cdlp.com",
+  "note": "auto-discovered"
+ },
+ "COS": {
+  "brand": "COS",
+  "entries": {
+   "f": [
+    "https://www.cos.com/en-us/women/womenswear/dresses",
+    "https://www.cos.com/en-us/women/womenswear/knitwear",
+    "https://www.cos.com/en-us/women/womenswear/tops"
+   ],
+   "m": [
+    "https://www.cos.com/en-us/men/menswear/shirts",
+    "https://www.cos.com/en-us/men/menswear/knitwear",
+    "https://www.cos.com/en-us/men/menswear/trousers"
+   ]
+  },
+  "health": {
+   "fail": 1,
+   "last": 1784997743.257882,
+   "last_found": 0,
+   "note": "nothing usable \u2014 page title: 'Access Denied'",
+   "ok": 0,
+   "status": "blocked"
+  },
+  "host": "www.cos.com",
+  "note": ""
+ },
+ "Camilla and Marc": {
+  "brand": "Camilla and Marc",
+  "entries": {
+   "f": [
+    "https://www.camillaandmarc.com/collections/all-clothing",
+    "https://www.camillaandmarc.com/collections/tops",
+    "https://www.camillaandmarc.com/collections/sets"
+   ],
+   "m": []
+  },
+  "gender_source": "prior",
+  "host": "www.camillaandmarc.com",
+  "note": "auto-discovered"
+ },
+ "Carhartt WIP": {
+  "brand": "Carhartt WIP",
+  "entries": {
+   "f": [
+    "https://us.carhartt-wip.com/en/women/clothing/tops",
+    "https://us.carhartt-wip.com/en/women/clothing/pants"
+   ],
+   "m": [
+    "https://us.carhartt-wip.com/en/men/clothing/shirts",
+    "https://us.carhartt-wip.com/en/men/clothing/pants"
+   ]
+  },
+  "health": {
+   "fail": 0,
+   "last": 1784997752.465516,
+   "last_found": 15,
+   "ok": 1,
+   "status": "ok"
+  },
+  "host": "us.carhartt-wip.com",
+  "note": ""
+ },
+ "Cherry LA": {
+  "brand": "Cherry LA",
+  "entries": {
+   "f": [
+    "https://www.cherryla.com/collections/womens",
+    "https://www.cherryla.com/collections/womens-1"
+   ],
+   "m": []
+  },
+  "gender_source": "collection",
+  "host": "www.cherryla.com",
+  "note": "auto-discovered"
+ },
+ "Christy Dawn": {
+  "brand": "Christy Dawn",
+  "entries": {
+   "f": [],
+   "m": [
+    "https://christydawn.com/collections/mens-collection"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "christydawn.com",
+  "note": "auto-discovered"
+ },
+ "Ciao Lucia": {
+  "brand": "Ciao Lucia",
+  "entries": {
+   "f": [
+    "https://ciaolucia.com/collections/shop-all",
+    "https://ciaolucia.com/collections/top-sellers",
+    "https://ciaolucia.com/collections/what-to-pack"
+   ],
+   "m": []
+  },
+  "gender_source": "prior",
+  "host": "ciaolucia.com",
+  "note": "auto-discovered"
+ },
+ "Clae": {
+  "brand": "Clae",
+  "entries": {
+   "f": [
+    "https://www.clae.com/collections/women-collection"
+   ],
+   "m": [
+    "https://www.clae.com/collections/shoes"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "www.clae.com",
+  "note": "auto-discovered"
+ },
+ "Cleobella": {
+  "brand": "Cleobella",
+  "entries": {
+   "f": [
+    "https://cleobella.com/collections/cleobella-branded",
+    "https://cleobella.com/collections/gots-collection",
+    "https://cleobella.com/collections/dresses"
+   ],
+   "m": []
+  },
+  "gender_source": "prior",
+  "host": "cleobella.com",
+  "note": "auto-discovered"
+ },
+ "Coalatree": {
+  "brand": "Coalatree",
+  "entries": {
+   "f": [
+    "https://coalatree.com/collections/women",
+    "https://coalatree.com/collections/womens-sweatshirts-hoodies",
+    "https://coalatree.com/collections/womens-pants"
+   ],
+   "m": [
+    "https://coalatree.com/collections/men",
+    "https://coalatree.com/collections/mens-tops",
+    "https://coalatree.com/collections/mens-sweatshirts-hoodies"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "coalatree.com",
+  "note": "auto-discovered"
+ },
+ "Cole Buxton": {
+  "brand": "Cole Buxton",
+  "entries": {
+   "f": [],
+   "m": [
+    "https://colebuxton.com/collections/discountable2",
+    "https://colebuxton.com/collections/all",
+    "https://colebuxton.com/collections/bestsellers"
+   ]
+  },
+  "gender_source": "prior",
+  "host": "colebuxton.com",
+  "note": "auto-discovered"
+ },
+ "Colorful Standard": {
+  "brand": "Colorful Standard",
+  "entries": {
+   "f": [
+    "https://colorfulstandard.com/collections/all-womens-apparel-accessories",
+    "https://colorfulstandard.com/collections/cs2052-women-classic-organic-crew-f",
+    "https://colorfulstandard.com/collections/cs2051-women-light-organic-tee-f"
+   ],
+   "m": [
+    "https://colorfulstandard.com/collections/all-mens-apparel-accessories",
+    "https://colorfulstandard.com/collections/mens-sweats-tees",
+    "https://colorfulstandard.com/collections/mens-organic-cotton-merino-wool-tops"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "colorfulstandard.com",
+  "note": "auto-discovered"
+ },
+ "Community Clothing": {
+  "brand": "Community Clothing",
+  "entries": {
+   "f": [
+    "https://communityclothing.co.uk/collections/womens-accessories",
+    "https://communityclothing.co.uk/collections/womens-crew-neck-jumpers",
+    "https://communityclothing.co.uk/collections/the-womens-olympic-collection"
+   ],
+   "m": [
+    "https://communityclothing.co.uk/collections/mens-odds-and-ends",
+    "https://communityclothing.co.uk/collections/mens-made-in-lancashire",
+    "https://communityclothing.co.uk/collections/mens-made-in-the-north"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "communityclothing.co.uk",
+  "note": "auto-discovered"
+ },
+ "Coney Island Picnic": {
+  "brand": "Coney Island Picnic",
+  "entries": {
+   "f": [
+    "https://coneyislandpicnic.com/collections/womens",
+    "https://coneyislandpicnic.com/collections/womens-tees",
+    "https://coneyislandpicnic.com/collections/womens-short-sleeve-tees"
+   ],
+   "m": [
+    "https://coneyislandpicnic.com/collections/mens",
+    "https://coneyislandpicnic.com/collections/tops",
+    "https://coneyislandpicnic.com/collections/mens-collection"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "coneyislandpicnic.com",
+  "note": "auto-discovered"
+ },
+ "Corridor NYC": {
+  "brand": "Corridor NYC",
+  "entries": {
+   "f": [],
+   "m": [
+    "https://www.corridornyc.com/collections/new-arrivals",
+    "https://www.corridornyc.com/collections/channable-collection",
+    "https://www.corridornyc.com/collections/shop-all"
+   ]
+  },
+  "gender_source": "prior",
+  "host": "www.corridornyc.com",
+  "note": "auto-discovered"
+ },
+ "Cotopaxi": {
+  "brand": "Cotopaxi",
+  "entries": {
+   "f": [
+    "https://www.cotopaxi.com/collections/fall-2024-womens",
+    "https://www.cotopaxi.com/collections/full-price-womens",
+    "https://www.cotopaxi.com/collections/complete-your-outfit-womens"
+   ],
+   "m": [
+    "https://www.cotopaxi.com/collections/mens",
+    "https://www.cotopaxi.com/collections/fall-2024-mens",
+    "https://www.cotopaxi.com/collections/mens-travel"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "www.cotopaxi.com",
+  "note": "auto-discovered"
+ },
+ "Cozy Earth": {
+  "brand": "Cozy Earth",
+  "entries": {
+   "f": [
+    "https://cozyearth.com/collections/all",
+    "https://cozyearth.com/collections/employee-eligible-collection",
+    "https://cozyearth.com/collections/apparel"
+   ],
+   "m": []
+  },
+  "gender_source": "prior",
+  "host": "cozyearth.com",
+  "note": "auto-discovered"
+ },
+ "Criquet": {
+  "brand": "Criquet",
+  "entries": {
+   "f": [],
+   "m": [
+    "https://criquetshirts.com/collections/men",
+    "https://criquetshirts.com/collections/all-men",
+    "https://criquetshirts.com/collections/view-all-men"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "criquetshirts.com",
+  "note": "auto-discovered"
+ },
+ "Cross Colours": {
+  "brand": "Cross Colours",
+  "entries": {
+   "f": [
+    "https://crosscolours.com/collections/womens",
+    "https://crosscolours.com/collections/womens-tops",
+    "https://crosscolours.com/collections/womens-bottoms"
+   ],
+   "m": []
+  },
+  "gender_source": "collection",
+  "host": "crosscolours.com",
+  "note": "auto-discovered"
+ },
+ "Cue": {
+  "brand": "Cue",
+  "entries": {
+   "f": [
+    "https://www.cue.cc/collections/all",
+    "https://www.cue.cc/collections/workwear",
+    "https://www.cue.cc/collections/the-office-edit"
+   ],
+   "m": []
+  },
+  "gender_source": "collection",
+  "host": "www.cue.cc",
+  "note": "auto-discovered"
+ },
+ "Cuyana": {
+  "brand": "Cuyana",
+  "entries": {
+   "f": [],
+   "m": [
+    "https://www.cuyana.com/collections/mens-essentials"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "www.cuyana.com",
+  "note": "auto-discovered"
+ },
+ "DFYNE": {
+  "brand": "DFYNE",
+  "entries": {
+   "f": [
+    "https://dfyne.com/collections/all-products-women",
+    "https://dfyne.com/collections/new-releases-womens",
+    "https://dfyne.com/collections/t-shirts-tops"
+   ],
+   "m": [
+    "https://dfyne.com/collections/all-products-men",
+    "https://dfyne.com/collections/new-releases-men",
+    "https://dfyne.com/collections/best-sellers-mens"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "dfyne.com",
+  "note": "auto-discovered"
+ },
+ "DL1961": {
+  "brand": "DL1961",
+  "entries": {
+   "f": [
+    "https://www.dl1961.com/collections/women-black-jeans",
+    "https://www.dl1961.com/collections/california-wildfire-relief-women",
+    "https://www.dl1961.com/collections/filter-women-ankle"
+   ],
+   "m": [
+    "https://www.dl1961.com/collections/chinos-shorts",
+    "https://www.dl1961.com/collections/california-wildfire-relief-men",
+    "https://www.dl1961.com/collections/mens-best-sellers"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "www.dl1961.com",
+  "note": "auto-discovered"
+ },
+ "Daisy Street": {
+  "brand": "Daisy Street",
+  "entries": {
+   "f": [
+    "https://www.daisystreet.co.uk/collections/all-clothing-x",
+    "https://www.daisystreet.co.uk/collections/all-x",
+    "https://www.daisystreet.co.uk/collections/new-in-x"
+   ],
+   "m": []
+  },
+  "gender_source": "prior",
+  "host": "www.daisystreet.co.uk",
+  "note": "auto-discovered"
+ },
+ "Damson Madder": {
+  "brand": "Damson Madder",
+  "entries": {
+   "f": [
+    "https://damsonmadder.com/collections/shop-all",
+    "https://damsonmadder.com/collections/not-magpie",
+    "https://damsonmadder.com/collections/all-products"
+   ],
+   "m": []
+  },
+  "gender_source": "prior",
+  "host": "damsonmadder.com",
+  "note": "auto-discovered"
+ },
+ "Dandy Del Mar": {
+  "brand": "Dandy Del Mar",
+  "entries": {
+   "f": [
+    "https://dandydelmar.com/collections/womens-apparel",
+    "https://dandydelmar.com/collections/end-of-season-savings-for-women",
+    "https://dandydelmar.com/collections/womens-departures"
+   ],
+   "m": [
+    "https://dandydelmar.com/collections/mens-apparel",
+    "https://dandydelmar.com/collections/mens-departures",
+    "https://dandydelmar.com/collections/mens-leisure-wear"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "dandydelmar.com",
+  "note": "auto-discovered"
+ },
+ "De Bonne Facture": {
+  "brand": "De Bonne Facture",
+  "entries": {
+   "f": [],
+   "m": [
+    "https://debonnefacture.fr/collections/knits",
+    "https://debonnefacture.fr/collections/edition-26",
+    "https://debonnefacture.fr/collections/fall-winter-edition-2024"
+   ]
+  },
+  "gender_source": "prior",
+  "host": "debonnefacture.fr",
+  "note": "auto-discovered"
+ },
+ "Dehen 1920": {
+  "brand": "Dehen 1920",
+  "entries": {
+   "f": [
+    "https://dehen.com/collections/women",
+    "https://dehen.com/collections/womens-knits",
+    "https://dehen.com/collections/womens-jackets"
+   ],
+   "m": []
+  },
+  "gender_source": "collection",
+  "host": "dehen.com",
+  "note": "auto-discovered"
+ },
+ "Del Toro": {
+  "brand": "Del Toro",
+  "entries": {
+   "f": [
+    "https://deltoroshoes.com/collections/all-womens",
+    "https://deltoroshoes.com/collections/all-womens-new-arrivals",
+    "https://deltoroshoes.com/collections/womens-footwear"
+   ],
+   "m": [
+    "https://deltoroshoes.com/collections/all-mens",
+    "https://deltoroshoes.com/collections/all-mens-footwear",
+    "https://deltoroshoes.com/collections/all-mens-new-arrivals"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "deltoroshoes.com",
+  "note": "auto-discovered"
+ },
+ "Deus Ex Machina": {
+  "brand": "Deus Ex Machina",
+  "entries": {
+   "f": [
+    "https://us.deuscustoms.com/collections/womens",
+    "https://us.deuscustoms.com/collections/womens-markdowns-80",
+    "https://us.deuscustoms.com/collections/season-w21-womens"
+   ],
+   "m": [
+    "https://us.deuscustoms.com/collections/mens",
+    "https://us.deuscustoms.com/collections/season-sp22-mens",
+    "https://us.deuscustoms.com/collections/eoys-2022-mens"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "us.deuscustoms.com",
+  "note": "auto-discovered"
+ },
+ "Devereux": {
+  "brand": "Devereux",
+  "entries": {
+   "f": [],
+   "m": [
+    "https://devereuxgolf.com/collections/mens",
+    "https://devereuxgolf.com/collections/tops",
+    "https://devereuxgolf.com/collections/happy-hour"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "devereuxgolf.com",
+  "note": "auto-discovered"
+ },
+ "Dime": {
+  "brand": "Dime",
+  "entries": {
+   "f": [
+    "https://dimemtl.com/collections/women",
+    "https://dimemtl.com/collections/women-tops",
+    "https://dimemtl.com/collections/holiday-25-women"
+   ],
+   "m": []
+  },
+  "gender_source": "collection",
+  "host": "dimemtl.com",
+  "note": "auto-discovered"
+ },
+ "Dissh": {
+  "brand": "Dissh",
+  "entries": {
+   "f": [
+    "https://dissh.com/collections/all-clothing",
+    "https://dissh.com/collections/dresses",
+    "https://dissh.com/collections/tops"
+   ],
+   "m": []
+  },
+  "gender_source": "prior",
+  "host": "dissh.com",
+  "note": "auto-discovered"
+ },
+ "Disturbia": {
+  "brand": "Disturbia",
+  "entries": {
+   "f": [
+    "https://www.disturbia.co.uk/collections/all-womens",
+    "https://www.disturbia.co.uk/collections/womens-all",
+    "https://www.disturbia.co.uk/collections/vm-test-womens"
+   ],
+   "m": []
+  },
+  "gender_source": "collection",
+  "host": "www.disturbia.co.uk",
+  "note": "auto-discovered"
+ },
+ "Doyoueven": {
+  "brand": "Doyoueven",
+  "entries": {
+   "f": [
+    "https://www.doyoueven.com/collections/womens",
+    "https://www.doyoueven.com/collections/all-womens",
+    "https://www.doyoueven.com/collections/womens-seamless"
+   ],
+   "m": [
+    "https://www.doyoueven.com/collections/mens",
+    "https://www.doyoueven.com/collections/all-mens",
+    "https://www.doyoueven.com/collections/mens-new-releases"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "www.doyoueven.com",
+  "note": "auto-discovered"
+ },
+ "Drake's": {
+  "brand": "Drake's",
+  "entries": {
+   "f": [],
+   "m": [
+    "https://www.drakes.com/collections/accessories",
+    "https://www.drakes.com/collections/clothing",
+    "https://www.drakes.com/collections/silk-accessories"
+   ]
+  },
+  "gender_source": "prior",
+  "host": "www.drakes.com",
+  "note": "auto-discovered"
+ },
+ "D\u00d4EN": {
+  "brand": "D\u00d4EN",
+  "entries": {
+   "f": [
+    "https://shopdoen.com/collections/hand-me-doen",
+    "https://shopdoen.com/collections/impact-organic",
+    "https://shopdoen.com/collections/cardigans"
+   ],
+   "m": []
+  },
+  "gender_source": "prior",
+  "host": "shopdoen.com",
+  "note": "auto-discovered"
+ },
+ "Eastside Golf": {
+  "brand": "Eastside Golf",
+  "entries": {
+   "f": [
+    "https://eastsidegolf.com/collections/golf-shirts-for-women",
+    "https://eastsidegolf.com/collections/golf-dresses",
+    "https://eastsidegolf.com/collections/esg-x-mercedes-benz"
+   ],
+   "m": [
+    "https://eastsidegolf.com/collections/all-mens-golf",
+    "https://eastsidegolf.com/collections/mens-collection",
+    "https://eastsidegolf.com/collections/mens-bottoms"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "eastsidegolf.com",
+  "note": "auto-discovered"
+ },
+ "Eberjey": {
+  "brand": "Eberjey",
+  "entries": {
+   "f": [
+    "https://eberjey.com/collections/women-lounge",
+    "https://eberjey.com/collections/women-new-arrivals",
+    "https://eberjey.com/collections/women-lingerie"
+   ],
+   "m": [
+    "https://eberjey.com/collections/mens-pajamas-lounge",
+    "https://eberjey.com/collections/mens-pajamas",
+    "https://eberjey.com/collections/mens-lounge"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "eberjey.com",
+  "note": "auto-discovered"
+ },
+ "Echt": {
+  "brand": "Echt",
+  "entries": {
+   "f": [
+    "https://echt.com.au/collections/core-styles",
+    "https://echt.com.au/collections/click-frenzy-november-2020-womens-collections",
+    "https://echt.com.au/collections/club-gradient-tee-womens"
+   ],
+   "m": [
+    "https://echt.com.au/collections/best-sellers-mens",
+    "https://echt.com.au/collections/core-styles-men-catalogue",
+    "https://echt.com.au/collections/july-frenzy-mens-2021"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "echt.com.au",
+  "note": "auto-discovered"
+ },
+ "Edikted": {
+  "brand": "Edikted",
+  "entries": {
+   "f": [
+    "https://edikted.com/collections/all-products",
+    "https://edikted.com/collections/all-but-unpublished",
+    "https://edikted.com/collections/all-products-excl-accessories-garage"
+   ],
+   "m": []
+  },
+  "gender_source": "prior",
+  "host": "edikted.com",
+  "note": "auto-discovered"
+ },
+ "Elk": {
+  "brand": "Elk",
+  "entries": {
+   "f": [
+    "https://www.elkthelabel.com/collections/womens-clothing",
+    "https://www.elkthelabel.com/collections/womens-jewellery",
+    "https://www.elkthelabel.com/collections/regular-fit"
+   ],
+   "m": []
+  },
+  "gender_source": "collection",
+  "host": "www.elkthelabel.com",
+  "note": "auto-discovered"
+ },
+ "Elka Collective": {
+  "brand": "Elka Collective",
+  "entries": {
+   "f": [
+    "https://www.elkacollective.com/collections/elka-collective",
+    "https://www.elkacollective.com/collections/brands",
+    "https://www.elkacollective.com/collections/sold-out"
+   ],
+   "m": []
+  },
+  "gender_source": "prior",
+  "host": "www.elkacollective.com",
+  "note": "auto-discovered"
+ },
+ "Everlane": {
+  "brand": "Everlane",
+  "entries": {
+   "f": [
+    "https://www.everlane.com/collections/womens-all",
+    "https://www.everlane.com/collections/womens-summer-uniform-classic-tees-shorts",
+    "https://www.everlane.com/collections/womens-dresses"
+   ],
+   "m": [
+    "https://www.everlane.com/collections/shop-all-mens-clothing",
+    "https://www.everlane.com/collections/mens-tshirts",
+    "https://www.everlane.com/collections/mens-tees-and-tanks"
+   ]
+  },
+  "entry_cursor": 3,
+  "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1784999159.873197,
+   "last_found": 30,
+   "note": "rate-limited (429) \u2014 stopping this shop for now",
+   "ok": 4,
+   "status": "ok"
+  },
+  "host": "www.everlane.com",
+  "note": ""
+ },
+ "Faherty": {
+  "brand": "Faherty",
+  "entries": {
+   "f": [
+    "https://fahertybrand.com/collections/all-womens",
+    "https://fahertybrand.com/collections/womens-linen-fabric",
+    "https://fahertybrand.com/collections/womens-dune-cotton-gauze-collection"
+   ],
+   "m": [
+    "https://fahertybrand.com/collections/mens",
+    "https://fahertybrand.com/collections/mens-beach-shop",
+    "https://fahertybrand.com/collections/mens-cold-weather"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "fahertybrand.com",
+  "note": "auto-discovered"
+ },
+ "Fair Harbor": {
+  "brand": "Fair Harbor",
+  "entries": {
+   "f": [],
+   "m": [
+    "https://fairharborclothing.com/collections/mens-all",
+    "https://fairharborclothing.com/collections/july-4th-collection-sans-mens-tops",
+    "https://fairharborclothing.com/collections/mens-bayberry-trunk-quiz"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "fairharborclothing.com",
+  "note": "auto-discovered"
+ },
+ "Faithfull the Brand": {
+  "brand": "Faithfull the Brand",
+  "entries": {
+   "f": [
+    "https://faithfullthebrand.com/collections/all_qty",
+    "https://faithfullthebrand.com/collections/all-except-pay-now-checkout",
+    "https://faithfullthebrand.com/collections/afterpayday"
+   ],
+   "m": []
+  },
+  "gender_source": "prior",
+  "host": "faithfullthebrand.com",
+  "note": "auto-discovered"
+ },
+ "Farah": {
+  "brand": "Farah",
+  "entries": {
+   "f": [],
+   "m": [
+    "https://www.farah.co.uk/collections/t-shirts",
+    "https://www.farah.co.uk/collections/shirts",
+    "https://www.farah.co.uk/collections/bottoms"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "www.farah.co.uk",
+  "note": "auto-discovered"
+ },
+ "Farm Rio": {
+  "brand": "Farm Rio",
+  "entries": {
+   "f": [
+    "https://www.farmrio.com/collections/all",
+    "https://www.farmrio.com/collections/early-access-labor-day",
+    "https://www.farmrio.com/collections/new-in-pos-store"
+   ],
+   "m": []
+  },
+  "gender_source": "prior",
+  "host": "www.farmrio.com",
+  "note": "auto-discovered"
+ },
+ "Finisterre": {
+  "brand": "Finisterre",
+  "entries": {
+   "f": [
+    "https://finisterre.com/collections/womens-clothing",
+    "https://finisterre.com/collections/womens",
+    "https://finisterre.com/collections/womens-view-all"
+   ],
+   "m": [
+    "https://finisterre.com/collections/mens-clothing",
+    "https://finisterre.com/collections/mens",
+    "https://finisterre.com/collections/mens-view-all"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "finisterre.com",
+  "note": "auto-discovered"
+ },
+ "Flag & Anthem": {
+  "brand": "Flag & Anthem",
+  "entries": {
+   "f": [
+    "https://flagandanthem.com/collections/women-1"
+   ],
+   "m": [
+    "https://flagandanthem.com/collections/men-1"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "flagandanthem.com",
+  "note": "auto-discovered"
+ },
+ "Folk": {
+  "brand": "Folk",
+  "entries": {
+   "f": [
+    "https://www.folkclothing.com/collections/womens-headwear-and-gloves",
+    "https://www.folkclothing.com/collections/womens-new-arrivals",
+    "https://www.folkclothing.com/collections/beanies-and-scarves"
+   ],
+   "m": [
+    "https://www.folkclothing.com/collections/new-arrivals",
+    "https://www.folkclothing.com/collections/trousers",
+    "https://www.folkclothing.com/collections/shirts"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "www.folkclothing.com",
+  "note": "auto-discovered"
+ },
+ "Frank & Eileen": {
+  "brand": "Frank & Eileen",
+  "entries": {
+   "f": [
+    "https://frankandeileen.com/collections/eileen",
+    "https://frankandeileen.com/collections/dresses-jumpsuits",
+    "https://frankandeileen.com/collections/brunch-dresses"
+   ],
+   "m": []
+  },
+  "gender_source": "prior",
+  "host": "frankandeileen.com",
+  "note": "auto-discovered"
+ },
+ "Frank And Oak": {
+  "brand": "Frank And Oak",
+  "entries": {
+   "f": [],
+   "m": [
+    "https://www.frankandoak.com/collections/mens-all",
+    "https://www.frankandoak.com/collections/mens-shirts",
+    "https://www.frankandoak.com/collections/mens-tees"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "www.frankandoak.com",
+  "note": "auto-discovered"
+ },
+ "Frankies Bikinis": {
+  "brand": "Frankies Bikinis",
+  "entries": {
+   "f": [
+    "https://frankiesbikinis.com/collections/4th-of-july-20",
+    "https://frankiesbikinis.com/collections/24sale70",
+    "https://frankiesbikinis.com/collections/23bfcm70"
+   ],
+   "m": []
+  },
+  "gender_source": "prior",
+  "host": "frankiesbikinis.com",
+  "note": "auto-discovered"
+ },
+ "Freda Salvador": {
+  "brand": "Freda Salvador",
+  "entries": {
+   "f": [
+    "https://fredasalvador.com/collections/all",
+    "https://fredasalvador.com/collections/all-products-dev",
+    "https://fredasalvador.com/collections/fff-discountokay"
+   ],
+   "m": []
+  },
+  "gender_source": "prior",
+  "host": "fredasalvador.com",
+  "note": "auto-discovered"
+ },
+ "Freenote Cloth": {
+  "brand": "Freenote Cloth",
+  "entries": {
+   "f": [],
+   "m": [
+    "https://freenotecloth.com/collections/frontpage",
+    "https://freenotecloth.com/collections/wovens",
+    "https://freenotecloth.com/collections/clothshop"
+   ]
+  },
+  "gender_source": "prior",
+  "host": "freenotecloth.com",
+  "note": "auto-discovered"
+ },
+ "Frescobol Carioca": {
+  "brand": "Frescobol Carioca",
+  "entries": {
+   "f": [],
+   "m": [
+    "https://frescobolcarioca.com/collections/full-priced-items",
+    "https://frescobolcarioca.com/collections/monochrome-edit-1",
+    "https://frescobolcarioca.com/collections/shop-all"
+   ]
+  },
+  "gender_source": "prior",
+  "host": "frescobolcarioca.com",
+  "note": "auto-discovered"
+ },
+ "Fresh Clean Threads": {
+  "brand": "Fresh Clean Threads",
+  "entries": {
+   "f": [
+    "https://freshcleanthreads.com/collections/womens-collection",
+    "https://freshcleanthreads.com/collections/womens-tees",
+    "https://freshcleanthreads.com/collections/womens-new-arrivals"
+   ],
+   "m": []
+  },
+  "gender_source": "collection",
+  "host": "freshcleanthreads.com",
+  "note": "auto-discovered"
+ },
+ "Gabicci": {
+  "brand": "Gabicci",
+  "entries": {
+   "f": [],
+   "m": [
+    "https://www.gabicci.com/collections/all",
+    "https://www.gabicci.com/collections/classic",
+    "https://www.gabicci.com/collections/vintage"
+   ]
+  },
+  "gender_source": "prior",
+  "host": "www.gabicci.com",
+  "note": "auto-discovered"
+ },
+ "Gap": {
+  "brand": "Gap",
+  "entries": {
+   "f": [
+    "https://www.gap.com/browse/category.do?cid=5664"
+   ],
+   "m": [
+    "https://www.gap.com/browse/category.do?cid=11900"
+   ]
+  },
+  "health": {
+   "fail": 0,
+   "last": 1784997768.605929,
+   "last_found": 2,
+   "ok": 1,
+   "status": "ok"
+  },
+  "host": "www.gap.com",
+  "note": ""
+ },
+ "Ghospell": {
+  "brand": "Ghospell",
+  "entries": {
+   "f": [
+    "https://ghospell.com/collections/dresses",
+    "https://ghospell.com/collections/all",
+    "https://ghospell.com/collections/tops"
+   ],
+   "m": []
+  },
+  "gender_source": "prior",
+  "host": "ghospell.com",
+  "note": "auto-discovered"
+ },
+ "Ginew": {
+  "brand": "Ginew",
+  "entries": {
+   "f": [
+    "https://ginewusa.com/collections/womens"
+   ],
+   "m": []
+  },
+  "gender_source": "collection",
+  "host": "ginewusa.com",
+  "note": "auto-discovered"
+ },
+ "Girlfriend Collective": {
+  "brand": "Girlfriend Collective",
+  "entries": {
+   "f": [
+    "https://girlfriend.com/collections/redeemable",
+    "https://girlfriend.com/collections/all",
+    "https://girlfriend.com/collections/online-store"
+   ],
+   "m": []
+  },
+  "gender_source": "prior",
+  "host": "girlfriend.com",
+  "note": "auto-discovered"
+ },
+ "Gitman Vintage": {
+  "brand": "Gitman Vintage",
+  "entries": {
+   "f": [],
+   "m": [
+    "https://gitman.com/collections/all",
+    "https://gitman.com/collections/shirts",
+    "https://gitman.com/collections/dress-classics"
+   ]
+  },
+  "gender_source": "prior",
+  "host": "gitman.com",
+  "note": "auto-discovered"
+ },
+ "Goodlife": {
+  "brand": "Goodlife",
+  "entries": {
+   "f": [],
+   "m": [
+    "https://goodlifeclothing.com/collections/mens-casual-tees-shirts-tanks",
+    "https://goodlifeclothing.com/collections/mens-travel-clothing",
+    "https://goodlifeclothing.com/collections/mens-sweaters-hoodies"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "goodlifeclothing.com",
+  "note": "auto-discovered"
+ },
+ "Gramicci": {
+  "brand": "Gramicci",
+  "entries": {
+   "f": [
+    "https://gramicci.com/collections/womens",
+    "https://gramicci.com/collections/womens-accessories",
+    "https://gramicci.com/collections/womens-urban"
+   ],
+   "m": [
+    "https://gramicci.com/collections/mens",
+    "https://gramicci.com/collections/mens-urban",
+    "https://gramicci.com/collections/mens-accessories"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "gramicci.com",
+  "note": "auto-discovered"
+ },
+ "Grayers": {
+  "brand": "Grayers",
+  "entries": {
+   "f": [
+    "https://grayers.com/collections/all-products-f",
+    "https://grayers.com/collections/graphene-test",
+    "https://grayers.com/collections/0-50"
+   ],
+   "m": []
+  },
+  "gender_source": "prior",
+  "host": "grayers.com",
+  "note": "auto-discovered"
+ },
+ "Greats": {
+  "brand": "Greats",
+  "entries": {
+   "f": [
+    "https://www.greats.com/collections/low-tops-womens",
+    "https://www.greats.com/collections/womens-leather-sneakers",
+    "https://www.greats.com/collections/womens-sneakers"
+   ],
+   "m": [
+    "https://www.greats.com/collections/mens-royale-style",
+    "https://www.greats.com/collections/mens-casual-lifestyle-sneakers",
+    "https://www.greats.com/collections/low-tops-sneakers"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "www.greats.com",
+  "note": "auto-discovered"
+ },
+ "Gym King": {
+  "brand": "Gym King",
+  "entries": {
+   "f": [
+    "https://www.gymking.com/collections/365-womens",
+    "https://www.gymking.com/collections/womens-established",
+    "https://www.gymking.com/collections/classics-women"
+   ],
+   "m": [
+    "https://www.gymking.com/collections/mens",
+    "https://www.gymking.com/collections/mens-tracksuits",
+    "https://www.gymking.com/collections/mens-gym-clothes"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "www.gymking.com",
+  "note": ""
+ },
+ "HUF Worldwide": {
+  "brand": "HUF Worldwide",
+  "entries": {
+   "f": [],
+   "m": [
+    "https://hufworldwide.co.uk/collections/huf-x-x-men"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "hufworldwide.co.uk",
+  "note": "auto-discovered"
+ },
+ "Hill House Home": {
+  "brand": "Hill House Home",
+  "entries": {
+   "f": [
+    "https://hillhousehome.com/collections/alexs-temporary-all-collection",
+    "https://hillhousehome.com/collections/alexs-temporary-collection",
+    "https://hillhousehome.com/collections/greenwich"
+   ],
+   "m": []
+  },
+  "gender_source": "prior",
+  "host": "hillhousehome.com",
+  "note": "auto-discovered"
+ },
+ "Homecore": {
+  "brand": "Homecore",
+  "entries": {
+   "f": [
+    "https://www.homecore.com/collections/collection-femme",
+    "https://www.homecore.com/collections/solde-femme-ss26",
+    "https://www.homecore.com/collections/pantalons-shorts-femme"
+   ],
+   "m": [
+    "https://www.homecore.com/collections/pantalons-shorts-homme",
+    "https://www.homecore.com/collections/collection-homme",
+    "https://www.homecore.com/collections/manteaux-vestes-homme"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "www.homecore.com",
+  "note": "auto-discovered"
+ },
+ "Huf": {
+  "brand": "Huf",
+  "entries": {
+   "f": [
+    "https://hufworldwide.com/collections/womens",
+    "https://hufworldwide.com/collections/holiday-21-womens",
+    "https://hufworldwide.com/collections/fall-22-womens"
+   ],
+   "m": [
+    "https://hufworldwide.com/collections/mens",
+    "https://hufworldwide.com/collections/mens-new-arrivals",
+    "https://hufworldwide.com/collections/mens-t-shirts"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "hufworldwide.com",
+  "note": "auto-discovered"
+ },
+ "In The Style": {
+  "brand": "In The Style",
+  "entries": {
+   "f": [
+    "https://www.inthestyle.com/collections/black-tops",
+    "https://www.inthestyle.com/collections/brown-tops",
+    "https://www.inthestyle.com/collections/grey-tops"
+   ],
+   "m": []
+  },
+  "gender_source": "collection",
+  "host": "www.inthestyle.com",
+  "note": "auto-discovered"
+ },
+ "Iron & Resin": {
+  "brand": "Iron & Resin",
+  "entries": {
+   "f": [
+    "https://ironandresin.com/collections/iron-resin-womens-gear-apparel"
+   ],
+   "m": [
+    "https://ironandresin.com/collections/mens-hoodies",
+    "https://ironandresin.com/collections/shorts",
+    "https://ironandresin.com/collections/mens-vests"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "ironandresin.com",
+  "note": "auto-discovered"
+ },
+ "Iron Heart": {
+  "brand": "Iron Heart",
+  "entries": {
+   "f": [],
+   "m": [
+    "https://www.ironheart.co.uk/collections/accessories",
+    "https://www.ironheart.co.uk/collections/relove-bottoms",
+    "https://www.ironheart.co.uk/collections/tops"
+   ]
+  },
+  "gender_source": "prior",
+  "host": "www.ironheart.co.uk",
+  "note": "auto-discovered"
+ },
+ "J.Crew": {
+  "brand": "J.Crew",
+  "entries": {
+   "f": [
+    "https://www.jcrew.com/plp/womens/categories/clothing/dresses",
+    "https://www.jcrew.com/plp/womens/categories/clothing/sweaters"
+   ],
+   "m": [
+    "https://www.jcrew.com/plp/mens/categories/clothing/shirts",
+    "https://www.jcrew.com/plp/mens/categories/clothing/sweaters"
+   ]
+  },
+  "health": {
+   "fail": 0,
+   "last": 1784997787.7841961,
+   "last_found": 12,
+   "ok": 1,
+   "status": "ok"
+  },
+  "host": "www.jcrew.com",
+  "note": ""
+ },
+ "Jack Erwin": {
+  "brand": "Jack Erwin",
+  "entries": {
+   "f": [
+    "https://www.jackerwin.com/collections/women-chelsea-boots",
+    "https://www.jackerwin.com/collections/womens-collection",
+    "https://www.jackerwin.com/collections/womens-black-boots"
+   ],
+   "m": [
+    "https://www.jackerwin.com/collections/mens",
+    "https://www.jackerwin.com/collections/mens-suede-shoes",
+    "https://www.jackerwin.com/collections/mens-new-arrivals"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "www.jackerwin.com",
+  "note": "auto-discovered"
+ },
+ "Jaded London": {
+  "brand": "Jaded London",
+  "entries": {
+   "f": [
+    "https://www.jadedldn.com/collections/festival",
+    "https://www.jadedldn.com/collections/womens-bikinis-bikini-sets",
+    "https://www.jadedldn.com/collections/holiday-womens-2026"
+   ],
+   "m": [
+    "https://www.jadedldn.com/collections/mens-all",
+    "https://www.jadedldn.com/collections/all-mens-bottoms",
+    "https://www.jadedldn.com/collections/all-tops-knits-mens"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "www.jadedldn.com",
+  "note": "auto-discovered"
+ },
+ "Janessa Leone": {
+  "brand": "Janessa Leone",
+  "entries": {
+   "f": [
+    "https://janessaleone.com/collections/hats",
+    "https://janessaleone.com/collections/all",
+    "https://janessaleone.com/collections/packable-hats"
+   ],
+   "m": []
+  },
+  "gender_source": "prior",
+  "host": "janessaleone.com",
+  "note": "auto-discovered"
+ },
+ "Janji": {
+  "brand": "Janji",
+  "entries": {
+   "f": [
+    "https://janji.com/collections/womens",
+    "https://janji.com/collections/womens-tops",
+    "https://janji.com/collections/womens-shorts"
+   ],
+   "m": [
+    "https://janji.com/collections/mens",
+    "https://janji.com/collections/mens-tops",
+    "https://janji.com/collections/mens-shorts"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "janji.com",
+  "note": "auto-discovered"
+ },
+ "Jenni Kayne": {
+  "brand": "Jenni Kayne",
+  "entries": {
+   "f": [
+    "https://www.jennikayne.com/collections/clothing-womens-workwear",
+    "https://www.jennikayne.com/collections/clothing-women-shop-all-sweaters"
+   ],
+   "m": []
+  },
+  "gender_source": "collection",
+  "host": "www.jennikayne.com",
+  "note": "auto-discovered"
+ },
+ "John Elliott": {
+  "brand": "John Elliott",
+  "entries": {
+   "f": [],
+   "m": [
+    "https://johnelliott.com/collections/all-products-birthday",
+    "https://johnelliott.com/collections/all",
+    "https://johnelliott.com/collections/bf-exclude-2021"
+   ]
+  },
+  "gender_source": "prior",
+  "host": "johnelliott.com",
+  "note": "auto-discovered"
+ },
+ "Johnnie-O": {
+  "brand": "Johnnie-O",
+  "entries": {
+   "f": [
+    "https://johnnie-o.com/collections/all-women-including-accessories",
+    "https://johnnie-o.com/collections/womens-coffee-run-collection",
+    "https://johnnie-o.com/collections/125th-u-s-open-womens"
+   ],
+   "m": [
+    "https://johnnie-o.com/collections/men",
+    "https://johnnie-o.com/collections/coffee-run-collection",
+    "https://johnnie-o.com/collections/men-s-course-tees"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "johnnie-o.com",
+  "note": "auto-discovered"
+ },
+ "Katin": {
+  "brand": "Katin",
+  "entries": {
+   "f": [],
+   "m": [
+    "https://katinusa.com/collections/trunks"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "katinusa.com",
+  "note": "auto-discovered"
+ },
+ "Kavu": {
+  "brand": "Kavu",
+  "entries": {
+   "f": [
+    "https://www.kavu.com/collections/view-all-womens",
+    "https://www.kavu.com/collections/womens-tops",
+    "https://www.kavu.com/collections/womens-bottoms"
+   ],
+   "m": [
+    "https://www.kavu.com/collections/view-all-mens",
+    "https://www.kavu.com/collections/mens-tops",
+    "https://www.kavu.com/collections/mens-shirts"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "www.kavu.com",
+  "note": "auto-discovered"
+ },
+ "Kestin": {
+  "brand": "Kestin",
+  "entries": {
+   "f": [],
+   "m": [
+    "https://kestin.co/collections/full-price-products",
+    "https://kestin.co/collections/all",
+    "https://kestin.co/collections/aw24-collection"
+   ]
+  },
+  "gender_source": "prior",
+  "host": "kestin.co",
+  "note": "auto-discovered"
+ },
+ "Killstar": {
+  "brand": "Killstar",
+  "entries": {
+   "f": [
+    "https://www.killstar.com/collections/womens-black-dresses",
+    "https://www.killstar.com/collections/best-selling-womens-tops-explore",
+    "https://www.killstar.com/collections/popular-womens-dresses"
+   ],
+   "m": [
+    "https://www.killstar.com/collections/all-mens",
+    "https://www.killstar.com/collections/all-mens-tops",
+    "https://www.killstar.com/collections/all-mens-loungewear"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "www.killstar.com",
+  "note": "auto-discovered"
+ },
+ "Kitri": {
+  "brand": "Kitri",
+  "entries": {
+   "f": [
+    "https://kitristudio.com/collections/race-day-dresses"
+   ],
+   "m": []
+  },
+  "gender_source": "collection",
+  "host": "kitristudio.com",
+  "note": "auto-discovered"
+ },
+ "Kivari": {
+  "brand": "Kivari",
+  "entries": {
+   "f": [
+    "https://kivari.com.au/collections/womens-autumn-fall-outfits-dresses",
+    "https://kivari.com.au/collections/womens-spring-dresses-outfits",
+    "https://kivari.com.au/collections/womens-summer-clothing-dresses"
+   ],
+   "m": []
+  },
+  "gender_source": "collection",
+  "host": "kivari.com.au",
+  "note": "auto-discovered"
+ },
+ "Koio": {
+  "brand": "Koio",
+  "entries": {
+   "f": [
+    "https://www.koio.co/collections/low-tops-womens",
+    "https://www.koio.co/collections/black-sneakers-women",
+    "https://www.koio.co/collections/womens-accessories"
+   ],
+   "m": [
+    "https://www.koio.co/collections/mens-capri",
+    "https://www.koio.co/collections/low-tops-mens",
+    "https://www.koio.co/collections/leather-collection-mens"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "www.koio.co",
+  "note": "auto-discovered"
+ },
+ "Kookai": {
+  "brand": "Kookai",
+  "entries": {
+   "f": [
+    "https://www.kookai.com.au/collections/basics",
+    "https://www.kookai.com.au/collections/bottoms",
+    "https://www.kookai.com.au/collections/basic-dresses"
+   ],
+   "m": []
+  },
+  "gender_source": "prior",
+  "host": "www.kookai.com.au",
+  "note": "auto-discovered"
+ },
+ "Ksubi": {
+  "brand": "Ksubi",
+  "entries": {
+   "f": [
+    "https://ksubi.com/collections/womens",
+    "https://ksubi.com/collections/womens-denim-clothing",
+    "https://ksubi.com/collections/womens-shorts"
+   ],
+   "m": [
+    "https://ksubi.com/collections/mens",
+    "https://ksubi.com/collections/mens-denim-clothing",
+    "https://ksubi.com/collections/mens-accessories-season-one"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "ksubi.com",
+  "note": "auto-discovered"
+ },
+ "Kulani Kinis": {
+  "brand": "Kulani Kinis",
+  "entries": {
+   "f": [
+    "https://kulanikinis.com/collections/all-womens-swimwear",
+    "https://kulanikinis.com/collections/womens-swimwear-bikini-bottoms"
+   ],
+   "m": [
+    "https://kulanikinis.com/collections/mens-swim-trunks",
+    "https://kulanikinis.com/collections/shop-all-mens",
+    "https://kulanikinis.com/collections/loop-returns-mens"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "kulanikinis.com",
+  "note": "auto-discovered"
+ },
+ "Kule": {
+  "brand": "Kule",
+  "entries": {
+   "f": [
+    "https://kule.com/collections/all-products-less-charity",
+    "https://kule.com/collections/clothing",
+    "https://kule.com/collections/altad"
+   ],
+   "m": []
+  },
+  "gender_source": "prior",
+  "host": "kule.com",
+  "note": "auto-discovered"
+ },
+ "L'Estrange": {
+  "brand": "L'Estrange",
+  "entries": {
+   "f": [],
+   "m": [
+    "https://lestrangelondon.com/collections/test-3",
+    "https://lestrangelondon.com/collections/all",
+    "https://lestrangelondon.com/collections/all-fp"
+   ]
+  },
+  "gender_source": "prior",
+  "host": "lestrangelondon.com",
+  "note": "auto-discovered"
+ },
+ "La Paz": {
+  "brand": "La Paz",
+  "entries": {
+   "f": [],
+   "m": [
+    "https://www.lapaz.pt/collections/all",
+    "https://www.lapaz.pt/collections/shop-ss26",
+    "https://www.lapaz.pt/collections/tees-sweats"
+   ]
+  },
+  "gender_source": "prior",
+  "host": "www.lapaz.pt",
+  "note": "auto-discovered"
+ },
+ "Lack of Color": {
+  "brand": "Lack of Color",
+  "entries": {
+   "f": [
+    "https://www.lackofcolor.com/collections/womens-sun-hats",
+    "https://www.lackofcolor.com/collections/all-womens-hats",
+    "https://www.lackofcolor.com/collections/womens-bucket-hats"
+   ],
+   "m": [
+    "https://www.lackofcolor.com/collections/all-mens-hats",
+    "https://www.lackofcolor.com/collections/mens-sun-hats",
+    "https://www.lackofcolor.com/collections/mens-fedora-hats"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "www.lackofcolor.com",
+  "note": "auto-discovered"
+ },
+ "Lady White Co": {
+  "brand": "Lady White Co",
+  "entries": {
+   "f": [],
+   "m": [
+    "https://ladywhiteco.com/collections/all-products",
+    "https://ladywhiteco.com/collections/t-shirts",
+    "https://ladywhiteco.com/collections/new-arrivals"
+   ]
+  },
+  "gender_source": "prior",
+  "host": "ladywhiteco.com",
+  "note": "auto-discovered"
+ },
+ "Le Alfr\u00e9": {
+  "brand": "Le Alfr\u00e9",
+  "entries": {
+   "f": [],
+   "m": [
+    "https://lealfre.com/collections/all-products",
+    "https://lealfre.com/collections/all-clothing",
+    "https://lealfre.com/collections/accessories"
+   ]
+  },
+  "gender_source": "prior",
+  "host": "lealfre.com",
+  "note": "auto-discovered"
+ },
+ "Left Field NYC": {
+  "brand": "Left Field NYC",
+  "entries": {
+   "f": [
+    "https://leftfieldnyc.com/collections/womens",
+    "https://leftfieldnyc.com/collections/womens-jeans"
+   ],
+   "m": []
+  },
+  "gender_source": "collection",
+  "host": "leftfieldnyc.com",
+  "note": "auto-discovered"
+ },
+ "Left On Friday": {
+  "brand": "Left On Friday",
+  "entries": {
+   "f": [
+    "https://leftonfriday.com/collections/thelineup",
+    "https://leftonfriday.com/collections/all-swim",
+    "https://leftonfriday.com/collections/swim-tops"
+   ],
+   "m": []
+  },
+  "gender_source": "prior",
+  "host": "leftonfriday.com",
+  "note": "auto-discovered"
+ },
+ "Lisa Says Gah": {
+  "brand": "Lisa Says Gah",
+  "entries": {
+   "f": [
+    "https://lisasaysgah.com/collections/all-style-except-frye",
+    "https://lisasaysgah.com/collections/all-products-excluding-ganni-shoes",
+    "https://lisasaysgah.com/collections/accessories"
+   ],
+   "m": []
+  },
+  "gender_source": "prior",
+  "host": "lisasaysgah.com",
+  "note": "auto-discovered"
+ },
+ "Local Authority LA": {
+  "brand": "Local Authority LA",
+  "entries": {
+   "f": [
+    "https://localauthorityla.com/collections/womens"
+   ],
+   "m": [
+    "https://localauthorityla.com/collections/mens"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "localauthorityla.com",
+  "note": "auto-discovered"
+ },
+ "Lorna Jane": {
+  "brand": "Lorna Jane",
+  "entries": {
+   "f": [
+    "https://www.lornajane.com/collections/all-products",
+    "https://www.lornajane.com/collections/full-price-product",
+    "https://www.lornajane.com/collections/clothing-sports-bras"
+   ],
+   "m": []
+  },
+  "gender_source": "prior",
+  "host": "www.lornajane.com",
+  "note": "auto-discovered"
+ },
+ "LoveShackFancy": {
+  "brand": "LoveShackFancy",
+  "entries": {
+   "f": [
+    "https://loveshackfancy.com/collections/havaianas-womens"
+   ],
+   "m": [
+    "https://loveshackfancy.com/collections/mens-swim"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "loveshackfancy.com",
+  "note": "auto-discovered"
+ },
+ "Lucy & Yak": {
+  "brand": "Lucy & Yak",
+  "entries": {
+   "f": [
+    "https://lucyandyak.com/collections/all-product-list",
+    "https://lucyandyak.com/collections/shop-everything",
+    "https://lucyandyak.com/collections/tall-range"
+   ],
+   "m": []
+  },
+  "gender_source": "prior",
+  "host": "lucyandyak.com",
+  "note": "auto-discovered"
+ },
+ "Luke 1977": {
+  "brand": "Luke 1977",
+  "entries": {
+   "f": [],
+   "m": [
+    "https://www.luke1977.com/collections/shop-all",
+    "https://www.luke1977.com/collections/mens-hoodies-sweatshirts",
+    "https://www.luke1977.com/collections/mens-plain-t-shirts-1"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "www.luke1977.com",
+  "note": "auto-discovered"
+ },
+ "Lululemon": {
+  "brand": "Lululemon",
+  "entries": {
+   "f": [
+    "https://shop.lululemon.com/c/women-tops/_/N-1z13ziuZ8un"
+   ],
+   "m": [
+    "https://shop.lululemon.com/c/men-tops/_/N-1z13ziqZ8t6"
+   ]
+  },
+  "health": {
+   "fail": 1,
+   "last": 1784997788.0534542,
+   "last_found": 0,
+   "note": "Error: Page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://shop.lulule",
+   "ok": 0,
+   "status": "blocked"
+  },
+  "host": "shop.lululemon.com",
+  "note": ""
+ },
+ "Lunya": {
+  "brand": "Lunya",
+  "entries": {
+   "f": [
+    "https://www.lunya.co/collections/womens-all",
+    "https://www.lunya.co/collections/womens-washable-silk",
+    "https://www.lunya.co/collections/womens-tops"
+   ],
+   "m": [
+    "https://www.lunya.co/collections/mens-all",
+    "https://www.lunya.co/collections/mens-washable-silk",
+    "https://www.lunya.co/collections/mens-accessories"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "www.lunya.co",
+  "note": "auto-discovered"
+ },
+ "Lurking Class": {
+  "brand": "Lurking Class",
+  "entries": {
+   "f": [
+    "https://lurkingclass.com/collections/womens",
+    "https://lurkingclass.com/collections/womens-tops",
+    "https://lurkingclass.com/collections/womens-bottoms"
+   ],
+   "m": [
+    "https://lurkingclass.com/collections/mens-shop-all",
+    "https://lurkingclass.com/collections/mens-tees",
+    "https://lurkingclass.com/collections/mens-hoodies"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "lurkingclass.com",
+  "note": "auto-discovered"
+ },
+ "Lyle and Scott": {
+  "brand": "Lyle and Scott",
+  "entries": {
+   "f": [
+    "https://www.lyleandscott.com/collections/womens"
+   ],
+   "m": [
+    "https://www.lyleandscott.com/collections/mens-shop-all",
+    "https://www.lyleandscott.com/collections/mens-t-shirts",
+    "https://www.lyleandscott.com/collections/mens-polo-shirts"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "www.lyleandscott.com",
+  "note": ""
+ },
+ "M.Gemi": {
+  "brand": "M.Gemi",
+  "entries": {
+   "f": [
+    "https://www.mgemi.com/collections/the-alessandra-belt-womens-belt"
+   ],
+   "m": [
+    "https://www.mgemi.com/collections/mens-italian-shoes",
+    "https://www.mgemi.com/collections/mens-slip-ons",
+    "https://www.mgemi.com/collections/mens-bestsellers"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "www.mgemi.com",
+  "note": "auto-discovered"
+ },
+ "MNML": {
+  "brand": "MNML",
+  "entries": {
+   "f": [],
+   "m": [
+    "https://www.mnml.la/collections/bfcm24-bottoms-flash",
+    "https://www.mnml.la/collections/bfcm24-denim-flash",
+    "https://www.mnml.la/collections/12-23-22-launch-1"
+   ]
+  },
+  "gender_source": "prior",
+  "host": "www.mnml.la",
+  "note": "auto-discovered"
+ },
+ "Mack Weldon": {
+  "brand": "Mack Weldon",
+  "entries": {
+   "f": [],
+   "m": [
+    "https://mackweldon.com/collections/all-mens-clothing",
+    "https://mackweldon.com/collections/mens-workwear"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "mackweldon.com",
+  "note": "auto-discovered"
+ },
+ "Madewell": {
+  "brand": "Madewell",
+  "entries": {
+   "f": [
+    "https://www.madewell.com/womens-dresses-and-jumpsuits",
+    "https://www.madewell.com/womens-tops"
+   ],
+   "m": [
+    "https://www.madewell.com/mens-clothing"
+   ]
+  },
+  "health": {
+   "fail": 0,
+   "last": 1784997809.039371,
+   "last_found": 6,
+   "ok": 1,
+   "status": "ok"
+  },
+  "host": "www.madewell.com",
+  "note": ""
+ },
+ "Malbon Golf": {
+  "brand": "Malbon Golf",
+  "entries": {
+   "f": [
+    "https://malbongolf.com/collections/fw24-womens",
+    "https://malbongolf.com/collections/studio-seoul-womens",
+    "https://malbongolf.com/collections/nike-women"
+   ],
+   "m": [
+    "https://malbongolf.com/collections/all",
+    "https://malbongolf.com/collections/mens-new-arrivals",
+    "https://malbongolf.com/collections/accessories"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "malbongolf.com",
+  "note": "auto-discovered"
+ },
+ "Mango": {
+  "brand": "Mango",
+  "entries": {
+   "f": [
+    "https://shop.mango.com/us/en/c/women/dresses-and-jumpsuits_0e1e4a1f",
+    "https://shop.mango.com/us/en/c/women/t-shirts-and-tops_5f0c0a3d"
+   ],
+   "m": [
+    "https://shop.mango.com/us/en/c/men/shirts_d5b3c1a2",
+    "https://shop.mango.com/us/en/c/men/t-shirts_2b6a1e7f"
+   ]
+  },
+  "health": {
+   "fail": 1,
+   "last": 1784997814.477298,
+   "last_found": 0,
+   "note": "nothing usable \u2014 page title: 'Access Denied'",
+   "ok": 0,
+   "status": "blocked"
+  },
+  "host": "shop.mango.com",
+  "note": ""
+ },
+ "Marine Layer": {
+  "brand": "Marine Layer",
+  "entries": {
+   "f": [
+    "https://www.marinelayer.com/collections/womens-sets",
+    "https://www.marinelayer.com/collections/womens-cloud-9",
+    "https://www.marinelayer.com/collections/womens-festival-edit"
+   ],
+   "m": [
+    "https://www.marinelayer.com/collections/mens-blue-green-collection",
+    "https://www.marinelayer.com/collections/mens-cloud-9",
+    "https://www.marinelayer.com/collections/mens-california-naturals"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "www.marinelayer.com",
+  "note": "auto-discovered"
+ },
+ "Massimo Dutti": {
+  "brand": "Massimo Dutti",
+  "entries": {
+   "f": [
+    "https://www.massimodutti.com/us/women/dresses-n1917"
+   ],
+   "m": [
+    "https://www.massimodutti.com/us/men/shirts-n1912"
+   ]
+  },
+  "health": {
+   "fail": 1,
+   "last": 1784997820.194131,
+   "last_found": 0,
+   "note": "nothing usable \u2014 page title: 'Access Denied'",
+   "ok": 0,
+   "status": "blocked"
+  },
+  "host": "www.massimodutti.com",
+  "note": ""
+ },
+ "Members Only": {
+  "brand": "Members Only",
+  "entries": {
+   "f": [
+    "https://membersonlyoriginal.com/collections/womens-members-only-jackets",
+    "https://membersonlyoriginal.com/collections/womens-jacket",
+    "https://membersonlyoriginal.com/collections/bestseller-jacket"
+   ],
+   "m": [
+    "https://membersonlyoriginal.com/collections/mens-members-only-jackets",
+    "https://membersonlyoriginal.com/collections/mens-spring-summer-jackets",
+    "https://membersonlyoriginal.com/collections/new-arrivals-for-men"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "membersonlyoriginal.com",
+  "note": "auto-discovered"
+ },
+ "Meshki": {
+  "brand": "Meshki",
+  "entries": {
+   "f": [
+    "https://meshki.com/collections/black-womens-dresses",
+    "https://meshki.com/collections/womens-heels",
+    "https://meshki.com/collections/femme-floral"
+   ],
+   "m": []
+  },
+  "gender_source": "collection",
+  "host": "meshki.com",
+  "note": "auto-discovered"
+ },
+ "Michael Stars": {
+  "brand": "Michael Stars",
+  "entries": {
+   "f": [
+    "https://www.michaelstars.com/collections/womens-new-arrivals"
+   ],
+   "m": []
+  },
+  "gender_source": "collection",
+  "host": "www.michaelstars.com",
+  "note": "auto-discovered"
+ },
+ "Mille": {
+  "brand": "Mille",
+  "entries": {
+   "f": [
+    "https://shopmille.com/collections/all",
+    "https://shopmille.com/collections/all-products",
+    "https://shopmille.com/collections/mille"
+   ],
+   "m": []
+  },
+  "gender_source": "prior",
+  "host": "shopmille.com",
+  "note": "auto-discovered"
+ },
+ "Minga London": {
+  "brand": "Minga London",
+  "entries": {
+   "f": [
+    "https://mingalondon.com/collections/femme-fatale"
+   ],
+   "m": [
+    "https://mingalondon.com/collections/men"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "mingalondon.com",
+  "note": "auto-discovered"
+ },
+ "Ministry of Supply": {
+  "brand": "Ministry of Supply",
+  "entries": {
+   "f": [
+    "https://ministryofsupply.com/collections/best-sellers-womens-tops",
+    "https://ministryofsupply.com/collections/exchange-womens-3d-print-knit-tank",
+    "https://ministryofsupply.com/collections/exchange-womens-bto-3d-print-knit-sweater-dress"
+   ],
+   "m": [
+    "https://ministryofsupply.com/collections/mens-aero-dress-shirt",
+    "https://ministryofsupply.com/collections/exchange-mens-apollo-polo",
+    "https://ministryofsupply.com/collections/exchange-mens-bto-dress-shirt"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "ministryofsupply.com",
+  "note": "auto-discovered"
+ },
+ "Montce": {
+  "brand": "Montce",
+  "entries": {
+   "f": [
+    "https://www.montce.com/collections/all-things-femme"
+   ],
+   "m": []
+  },
+  "gender_source": "collection",
+  "host": "www.montce.com",
+  "note": "auto-discovered"
+ },
+ "Montirex": {
+  "brand": "Montirex",
+  "entries": {
+   "f": [
+    "https://montirex.com/collections/all-womens-clothing",
+    "https://montirex.com/collections/womens-coats-jackets",
+    "https://montirex.com/collections/all-womens-accessories"
+   ],
+   "m": [
+    "https://montirex.com/collections/all-products",
+    "https://montirex.com/collections/jackets",
+    "https://montirex.com/collections/mens-light-jackets"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "montirex.com",
+  "note": ""
+ },
+ "Motel Rocks": {
+  "brand": "Motel Rocks",
+  "entries": {
+   "f": [
+    "https://www.motelrocks.com/collections/all-products",
+    "https://www.motelrocks.com/collections/clothing",
+    "https://www.motelrocks.com/collections/facebook-feed"
+   ],
+   "m": []
+  },
+  "gender_source": "prior",
+  "host": "www.motelrocks.com",
+  "note": "auto-discovered"
+ },
+ "Mott & Bow": {
+  "brand": "Mott & Bow",
+  "entries": {
+   "f": [
+    "https://mottandbow.com/collections/all-women-tees",
+    "https://mottandbow.com/collections/lightweight-summer-tees-for-women",
+    "https://mottandbow.com/collections/blue-jeans-for-women"
+   ],
+   "m": [
+    "https://mottandbow.com/collections/mens-jeans",
+    "https://mottandbow.com/collections/all-men-tees",
+    "https://mottandbow.com/collections/mens-tees"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "mottandbow.com",
+  "note": "auto-discovered"
+ },
+ "Mr Simple": {
+  "brand": "Mr Simple",
+  "entries": {
+   "f": [],
+   "m": [
+    "https://mrsimple.com.au/collections/all",
+    "https://mrsimple.com.au/collections/best-sellers",
+    "https://mrsimple.com.au/collections/mr-simple-swco-full-price"
+   ]
+  },
+  "gender_source": "prior",
+  "host": "mrsimple.com.au",
+  "note": "auto-discovered"
+ },
+ "Muji": {
+  "brand": "Muji",
+  "entries": {
+   "f": [
+    "https://www.muji.us/collections/womens-undershirts"
+   ],
+   "m": [
+    "https://www.muji.us/collections/mens",
+    "https://www.muji.us/collections/mens-bottom",
+    "https://www.muji.us/collections/mens-new-arrivals"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "www.muji.us",
+  "note": ""
+ },
+ "Muscle Nation": {
+  "brand": "Muscle Nation",
+  "entries": {
+   "f": [
+    "https://musclenation.org/collections/all-womens-wholesale",
+    "https://musclenation.org/collections/womens-leggings",
+    "https://musclenation.org/collections/bfcm25-november-womens"
+   ],
+   "m": [
+    "https://musclenation.org/collections/bfcm25-november-mens",
+    "https://musclenation.org/collections/all-in-stock-mens-copy",
+    "https://musclenation.org/collections/bf-mens-to-add"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "musclenation.org",
+  "note": "auto-discovered"
+ },
+ "Musier Paris": {
+  "brand": "Musier Paris",
+  "entries": {
+   "f": [
+    "https://musier-paris.com/collections/voir-tout",
+    "https://musier-paris.com/collections/new-in",
+    "https://musier-paris.com/collections/soldes"
+   ],
+   "m": []
+  },
+  "gender_source": "prior",
+  "host": "musier-paris.com",
+  "note": "auto-discovered"
+ },
+ "Myles Apparel": {
+  "brand": "Myles Apparel",
+  "entries": {
+   "f": [],
+   "m": [
+    "https://mylesapparel.com/collections/bottoms",
+    "https://mylesapparel.com/collections/tops",
+    "https://mylesapparel.com/collections/workout-shorts"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "mylesapparel.com",
+  "note": "auto-discovered"
+ },
+ "Nagnata": {
+  "brand": "Nagnata",
+  "entries": {
+   "f": [
+    "https://nagnata.com/collections/fees-products",
+    "https://nagnata.com/collections/all",
+    "https://nagnata.com/collections/all-aus"
+   ],
+   "m": []
+  },
+  "gender_source": "prior",
+  "host": "nagnata.com",
+  "note": "auto-discovered"
+ },
+ "Naked & Famous": {
+  "brand": "Naked & Famous",
+  "entries": {
+   "f": [
+    "https://www.nakedandfamousdenim.com/collections/fall-winter-2026-women",
+    "https://www.nakedandfamousdenim.com/collections/naked-famous-denim-women-high-skinny"
+   ],
+   "m": [
+    "https://www.nakedandfamousdenim.com/collections/all-mens",
+    "https://www.nakedandfamousdenim.com/collections/mens-latest-arrivals",
+    "https://www.nakedandfamousdenim.com/collections/core-menu"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "www.nakedandfamousdenim.com",
+  "note": "auto-discovered"
+ },
+ "Neff": {
+  "brand": "Neff",
+  "entries": {
+   "f": [
+    "https://neffheadwear.com/collections/womens-beanies"
+   ],
+   "m": []
+  },
+  "gender_source": "collection",
+  "host": "neffheadwear.com",
+  "note": "auto-discovered"
+ },
+ "Nena & Pasadena": {
+  "brand": "Nena & Pasadena",
+  "entries": {
+   "f": [],
+   "m": [
+    "https://nenaandpasadena.com/collections/mens-t-shirts",
+    "https://nenaandpasadena.com/collections/nxp-wrk-mens-workwear",
+    "https://nenaandpasadena.com/collections/mens-afl-t-shirts"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "nenaandpasadena.com",
+  "note": "auto-discovered"
+ },
+ "Never Fully Dressed": {
+  "brand": "Never Fully Dressed",
+  "entries": {
+   "f": [
+    "https://neverfullydressed.com/collections/womens-clothing-2",
+    "https://neverfullydressed.com/collections/womens-clothing-ads",
+    "https://neverfullydressed.com/collections/dresses-ads"
+   ],
+   "m": []
+  },
+  "gender_source": "collection",
+  "host": "neverfullydressed.com",
+  "note": "auto-discovered"
+ },
+ "Nimble Activewear": {
+  "brand": "Nimble Activewear",
+  "entries": {
+   "f": [
+    "https://nimbleactivewear.com/collections/bottoms",
+    "https://nimbleactivewear.com/collections/womens-running",
+    "https://nimbleactivewear.com/collections/womens-activewear"
+   ],
+   "m": []
+  },
+  "gender_source": "collection",
+  "host": "nimbleactivewear.com",
+  "note": "auto-discovered"
+ },
+ "Nisolo": {
+  "brand": "Nisolo",
+  "entries": {
+   "f": [
+    "https://nisolo.com/collections/cx-returns-collection-womens-shoes-accessories",
+    "https://nisolo.com/collections/womens-shoes",
+    "https://nisolo.com/collections/grin-womens-fw22"
+   ],
+   "m": [
+    "https://nisolo.com/collections/mens-shoes-and-accessories",
+    "https://nisolo.com/collections/mens-shoes",
+    "https://nisolo.com/collections/mens-accessories"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "nisolo.com",
+  "note": "auto-discovered"
+ },
+ "Noah": {
+  "brand": "Noah",
+  "entries": {
+   "f": [],
+   "m": [
+    "https://noahny.com/collections/tax-clothing",
+    "https://noahny.com/collections/all",
+    "https://noahny.com/collections/continue-shopping"
+   ]
+  },
+  "gender_source": "prior",
+  "host": "noahny.com",
+  "note": "auto-discovered"
+ },
+ "Nobody Denim": {
+  "brand": "Nobody Denim",
+  "entries": {
+   "f": [
+    "https://www.nobodydenim.com/collections/womens-denim",
+    "https://www.nobodydenim.com/collections/womens-knitwear",
+    "https://www.nobodydenim.com/collections/womens-straight-leg-jeans"
+   ],
+   "m": [
+    "https://www.nobodydenim.com/collections/mens-jeans",
+    "https://www.nobodydenim.com/collections/mens-skinny-leg-jeans",
+    "https://www.nobodydenim.com/collections/mens-black-jeans"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "www.nobodydenim.com",
+  "note": "auto-discovered"
+ },
+ "Nobody's Child": {
+  "brand": "Nobody's Child",
+  "entries": {
+   "f": [
+    "https://www.nobodyschild.com/collections/womens-black-dresses",
+    "https://www.nobodyschild.com/collections/orange-dresses"
+   ],
+   "m": []
+  },
+  "gender_source": "collection",
+  "host": "www.nobodyschild.com",
+  "note": "auto-discovered"
+ },
+ "Norse Projects": {
+  "brand": "Norse Projects",
+  "entries": {
+   "f": [],
+   "m": [
+    "https://www.norseprojects.com/collections/knitwear",
+    "https://www.norseprojects.com/collections/outerwear",
+    "https://www.norseprojects.com/collections/shirting"
+   ]
+  },
+  "gender_source": "prior",
+  "host": "www.norseprojects.com",
+  "note": "auto-discovered"
+ },
+ "Nude Lucy": {
+  "brand": "Nude Lucy",
+  "entries": {
+   "f": [
+    "https://www.nudelucy.com.au/collections/tops",
+    "https://www.nudelucy.com.au/collections/pants",
+    "https://www.nudelucy.com.au/collections/dresses"
+   ],
+   "m": []
+  },
+  "gender_source": "collection",
+  "host": "www.nudelucy.com.au",
+  "note": "auto-discovered"
+ },
+ "Obey": {
+  "brand": "Obey",
+  "entries": {
+   "f": [
+    "https://www.obeyclothing.com/collections/women",
+    "https://www.obeyclothing.com/collections/all-womens",
+    "https://www.obeyclothing.com/collections/womens-new-arrivals"
+   ],
+   "m": [
+    "https://www.obeyclothing.com/collections/mens-all",
+    "https://www.obeyclothing.com/collections/men",
+    "https://www.obeyclothing.com/collections/mens-t-shirts"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "www.obeyclothing.com",
+  "note": "auto-discovered"
+ },
+ "Oh Polly": {
+  "brand": "Oh Polly",
+  "entries": {
+   "f": [
+    "https://www.ohpolly.com/collections/femme-fatale"
+   ],
+   "m": []
+  },
+  "gender_source": "collection",
+  "host": "www.ohpolly.com",
+  "note": "auto-discovered"
+ },
+ "Oliver Cabell": {
+  "brand": "Oliver Cabell",
+  "entries": {
+   "f": [
+    "https://olivercabell.com/collections/low-1-womens",
+    "https://olivercabell.com/collections/new-arrivals-women",
+    "https://olivercabell.com/collections/low-2-womens"
+   ],
+   "m": [
+    "https://olivercabell.com/collections/non-distressed-w-loafers-men",
+    "https://olivercabell.com/collections/low-1-mens",
+    "https://olivercabell.com/collections/low-2-mens"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "olivercabell.com",
+  "note": "auto-discovered"
+ },
+ "Oliver Spencer": {
+  "brand": "Oliver Spencer",
+  "entries": {
+   "f": [],
+   "m": [
+    "https://oliverspencer.co.uk/collections/accessories",
+    "https://oliverspencer.co.uk/collections/all-products",
+    "https://oliverspencer.co.uk/collections/autumn-25"
+   ]
+  },
+  "gender_source": "prior",
+  "host": "oliverspencer.co.uk",
+  "note": "auto-discovered"
+ },
+ "Omnes": {
+  "brand": "Omnes",
+  "entries": {
+   "f": [
+    "https://omnes.com/collections/womens-autumn-clothing",
+    "https://omnes.com/collections/womens-dresses",
+    "https://omnes.com/collections/womens-knitted-cardigans"
+   ],
+   "m": []
+  },
+  "gender_source": "collection",
+  "host": "omnes.com",
+  "note": "auto-discovered"
+ },
+ "Oner Active": {
+  "brand": "Oner Active",
+  "entries": {
+   "f": [
+    "https://oneractive.com/collections/shop",
+    "https://oneractive.com/collections/custom",
+    "https://oneractive.com/collections/shop-by-activity"
+   ],
+   "m": []
+  },
+  "gender_source": "prior",
+  "host": "oneractive.com",
+  "note": "auto-discovered"
+ },
+ "Onia": {
+  "brand": "Onia",
+  "entries": {
+   "f": [
+    "https://onia.com/collections/shop-all-womens",
+    "https://onia.com/collections/womens-bikini-bottom",
+    "https://onia.com/collections/womens-bikini-top"
+   ],
+   "m": [
+    "https://onia.com/collections/mens-shop",
+    "https://onia.com/collections/mens-ready-to-wear",
+    "https://onia.com/collections/shop-all-mens"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "onia.com",
+  "note": "auto-discovered"
+ },
+ "Only NY": {
+  "brand": "Only NY",
+  "entries": {
+   "f": [],
+   "m": [
+    "https://onlyny.com/collections/shop-all",
+    "https://onlyny.com/collections/tees",
+    "https://onlyny.com/collections/nyc-collection"
+   ]
+  },
+  "gender_source": "prior",
+  "host": "onlyny.com",
+  "note": "auto-discovered"
+ },
+ "Organic Basics": {
+  "brand": "Organic Basics",
+  "entries": {
+   "f": [
+    "https://organicbasics.com/collections/all-womens-test",
+    "https://organicbasics.com/collections/all-womens-products",
+    "https://organicbasics.com/collections/womens-natural-fiber-clothes"
+   ],
+   "m": [
+    "https://organicbasics.com/collections/all-mens-products",
+    "https://organicbasics.com/collections/socks",
+    "https://organicbasics.com/collections/organic-cotton-95-100-mens-underwear"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "organicbasics.com",
+  "note": "auto-discovered"
+ },
+ "Orlebar Brown": {
+  "brand": "Orlebar Brown",
+  "entries": {
+   "f": [],
+   "m": [
+    "https://www.orlebarbrown.com/collections/mens-beach-resortwear-cruise",
+    "https://www.orlebarbrown.com/collections/mens-beach-resortwear-spring",
+    "https://www.orlebarbrown.com/collections/mens-swimming-trunks"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "www.orlebarbrown.com",
+  "note": "auto-discovered"
+ },
+ "Outdoor Voices": {
+  "brand": "Outdoor Voices",
+  "entries": {
+   "f": [
+    "https://www.outdoorvoices.com/collections/shop-women",
+    "https://www.outdoorvoices.com/collections/w-shorts-skorts",
+    "https://www.outdoorvoices.com/collections/womens-tops"
+   ],
+   "m": [
+    "https://www.outdoorvoices.com/collections/shop-men",
+    "https://www.outdoorvoices.com/collections/m-tops",
+    "https://www.outdoorvoices.com/collections/m-bestsellers"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "www.outdoorvoices.com",
+  "note": "auto-discovered"
+ },
+ "Outerknown": {
+  "brand": "Outerknown",
+  "entries": {
+   "f": [
+    "https://www.outerknown.com/collections/beach-bound-womens"
+   ],
+   "m": [
+    "https://www.outerknown.com/collections/men-active",
+    "https://www.outerknown.com/collections/beach-bound-mens"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "www.outerknown.com",
+  "note": "auto-discovered"
+ },
+ "Outland Denim": {
+  "brand": "Outland Denim",
+  "entries": {
+   "f": [
+    "https://outlanddenim.com/collections/womens",
+    "https://outlanddenim.com/collections/skirts-and-shorts",
+    "https://outlanddenim.com/collections/womens-new-arrivals"
+   ],
+   "m": [
+    "https://outlanddenim.com/collections/mens",
+    "https://outlanddenim.com/collections/best-sellers-mens",
+    "https://outlanddenim.com/collections/mens-jeans"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "outlanddenim.com",
+  "note": "auto-discovered"
+ },
+ "P.E Nation": {
+  "brand": "P.E Nation",
+  "entries": {
+   "f": [
+    "https://www.pe-nation.com/collections/low-impact",
+    "https://www.pe-nation.com/collections/training",
+    "https://www.pe-nation.com/collections/outerwear"
+   ],
+   "m": []
+  },
+  "gender_source": "collection",
+  "host": "www.pe-nation.com",
+  "note": "auto-discovered"
+ },
+ "POPFLEX": {
+  "brand": "POPFLEX",
+  "entries": {
+   "f": [
+    "https://popflexactive.com/collections/all",
+    "https://popflexactive.com/collections/everything-but-denim",
+    "https://popflexactive.com/collections/all-products-exc-planner"
+   ],
+   "m": []
+  },
+  "gender_source": "prior",
+  "host": "popflexactive.com",
+  "note": "auto-discovered"
+ },
+ "Passenger": {
+  "brand": "Passenger",
+  "entries": {
+   "f": [
+    "https://passenger-clothing.com/collections/womens",
+    "https://passenger-clothing.com/collections/womens-tops",
+    "https://passenger-clothing.com/collections/womens-t-shirts"
+   ],
+   "m": [
+    "https://passenger-clothing.com/collections/mens",
+    "https://passenger-clothing.com/collections/mens-tops",
+    "https://passenger-clothing.com/collections/mens-accessories"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "passenger-clothing.com",
+  "note": "auto-discovered"
+ },
+ "Patagonia": {
+  "brand": "Patagonia",
+  "entries": {
+   "f": [
+    "https://www.patagonia.com/shop/womens-tops",
+    "https://www.patagonia.com/shop/womens-dresses-skirts"
+   ],
+   "m": [
+    "https://www.patagonia.com/shop/mens-tops",
+    "https://www.patagonia.com/shop/mens-jackets-vests"
+   ]
+  },
+  "health": {
+   "fail": 1,
+   "last": 1784997843.78157,
+   "last_found": 0,
+   "note": "nothing usable \u2014 page title: ''",
+   "ok": 0,
+   "status": "blocked"
+  },
+  "host": "www.patagonia.com",
+  "note": ""
+ },
+ "Peppermayo": {
+  "brand": "Peppermayo",
+  "entries": {
+   "f": [
+    "https://www.peppermayo.com/collections/export-category",
+    "https://www.peppermayo.com/collections/dresses",
+    "https://www.peppermayo.com/collections/all-clothing"
+   ],
+   "m": []
+  },
+  "gender_source": "prior",
+  "host": "www.peppermayo.com",
+  "note": "auto-discovered"
+ },
+ "Percival": {
+  "brand": "Percival",
+  "entries": {
+   "f": [
+    "https://www.percivalclo.com/collections/womenswear"
+   ],
+   "m": [
+    "https://www.percivalclo.com/collections/accessories-1",
+    "https://www.percivalclo.com/collections/shirts",
+    "https://www.percivalclo.com/collections/trousers"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "www.percivalclo.com",
+  "note": ""
+ },
+ "Petal & Pup": {
+  "brand": "Petal & Pup",
+  "entries": {
+   "f": [
+    "https://www.petalandpup.com/collections/all-products-excl-tsc-collab",
+    "https://www.petalandpup.com/collections/facebook-feed-collection",
+    "https://www.petalandpup.com/collections/all-products"
+   ],
+   "m": []
+  },
+  "gender_source": "prior",
+  "host": "www.petalandpup.com",
+  "note": "auto-discovered"
+ },
+ "Petite Studio": {
+  "brand": "Petite Studio",
+  "entries": {
+   "f": [
+    "https://petitestudionyc.com/collections/tax-clothing",
+    "https://petitestudionyc.com/collections/shop-all",
+    "https://petitestudionyc.com/collections/currently-trending"
+   ],
+   "m": []
+  },
+  "gender_source": "prior",
+  "host": "petitestudionyc.com",
+  "note": "auto-discovered"
+ },
+ "Pink Lily": {
+  "brand": "Pink Lily",
+  "entries": {
+   "f": [
+    "https://www.pinklily.com/collections/accessories",
+    "https://www.pinklily.com/collections/swim-two-piece",
+    "https://www.pinklily.com/collections/jewelry"
+   ],
+   "m": []
+  },
+  "gender_source": "collection",
+  "host": "www.pinklily.com",
+  "note": "auto-discovered"
+ },
+ "Pistola": {
+  "brand": "Pistola",
+  "entries": {
+   "f": [
+    "https://pistoladenim.com/collections/all-products",
+    "https://pistoladenim.com/collections/vendor-test",
+    "https://pistoladenim.com/collections/full-price"
+   ],
+   "m": []
+  },
+  "gender_source": "prior",
+  "host": "pistoladenim.com",
+  "note": "auto-discovered"
+ },
+ "Pleasures": {
+  "brand": "Pleasures",
+  "entries": {
+   "f": [],
+   "m": [
+    "https://pleasuresnow.com/collections/all-store-products",
+    "https://pleasuresnow.com/collections/spring-26",
+    "https://pleasuresnow.com/collections/spring-25"
+   ]
+  },
+  "gender_source": "prior",
+  "host": "pleasuresnow.com",
+  "note": "auto-discovered"
+ },
+ "Polar Skate Co": {
+  "brand": "Polar Skate Co",
+  "entries": {
+   "f": [],
+   "m": [
+    "https://polarskateco.com/collections/tops",
+    "https://polarskateco.com/collections/bottoms"
+   ]
+  },
+  "health": {
+   "fail": 1,
+   "last": 1784997859.02396,
+   "last_found": 0,
+   "note": "nothing usable \u2014 page title: '404 Not Found \u2013 Polar Skate Co.'",
+   "ok": 0,
+   "status": "blocked"
+  },
+  "host": "polarskateco.com",
+  "note": ""
+ },
+ "Portuguese Flannel": {
+  "brand": "Portuguese Flannel",
+  "entries": {
+   "f": [],
+   "m": [
+    "https://portugueseflannel.com/collections/all",
+    "https://portugueseflannel.com/collections/live",
+    "https://portugueseflannel.com/collections/spring-summer-2024"
+   ]
+  },
+  "gender_source": "prior",
+  "host": "portugueseflannel.com",
+  "note": "auto-discovered"
+ },
+ "Posse": {
+  "brand": "Posse",
+  "entries": {
+   "f": [
+    "https://possethelabel.com/collections/jolie-femme"
+   ],
+   "m": []
+  },
+  "gender_source": "collection",
+  "host": "possethelabel.com",
+  "note": "auto-discovered"
+ },
+ "Pretty Green": {
+  "brand": "Pretty Green",
+  "entries": {
+   "f": [],
+   "m": [
+    "https://www.prettygreen.com/collections/exclusions-for-extra40",
+    "https://www.prettygreen.com/collections/under-gbp150",
+    "https://www.prettygreen.com/collections/bestsellers"
+   ]
+  },
+  "gender_source": "prior",
+  "host": "www.prettygreen.com",
+  "note": "auto-discovered"
+ },
+ "Primitive": {
+  "brand": "Primitive",
+  "entries": {
+   "f": [],
+   "m": [
+    "https://www.primitiveskate.com/collections/champions-2026-mens"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "www.primitiveskate.com",
+  "note": "auto-discovered"
+ },
+ "Princess Polly": {
+  "brand": "Princess Polly",
+  "entries": {
+   "f": [
+    "https://us.princesspolly.com/collections/all",
+    "https://us.princesspolly.com/collections/50-and-up-copy",
+    "https://us.princesspolly.com/collections/50-and-up"
+   ],
+   "m": []
+  },
+  "gender_source": "prior",
+  "host": "us.princesspolly.com",
+  "note": "auto-discovered"
+ },
+ "Profound": {
+  "brand": "Profound",
+  "entries": {
+   "f": [],
+   "m": [
+    "https://profoundco.com/collections/all-products",
+    "https://profoundco.com/collections/all-discountable-items",
+    "https://profoundco.com/collections/shop-all"
+   ]
+  },
+  "gender_source": "prior",
+  "host": "profoundco.com",
+  "note": "auto-discovered"
+ },
+ "Public Desire": {
+  "brand": "Public Desire",
+  "entries": {
+   "f": [
+    "https://www.publicdesire.com/collections/womens-handbags-and-bags",
+    "https://www.publicdesire.com/collections/womens-crossbody-and-shoulder-bags"
+   ],
+   "m": []
+  },
+  "gender_source": "collection",
+  "host": "www.publicdesire.com",
+  "note": "auto-discovered"
+ },
+ "Pursue Fitness": {
+  "brand": "Pursue Fitness",
+  "entries": {
+   "f": [
+    "https://pursuefitness.com/collections/womens-best-sellers",
+    "https://pursuefitness.com/collections/womens-all-products",
+    "https://pursuefitness.com/collections/womens-35-or-less"
+   ],
+   "m": [
+    "https://pursuefitness.com/collections/mens-all-products",
+    "https://pursuefitness.com/collections/mens-35-or-less",
+    "https://pursuefitness.com/collections/mens-best-sellers"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "pursuefitness.com",
+  "note": "auto-discovered"
+ },
+ "RIPNDIP": {
+  "brand": "RIPNDIP",
+  "entries": {
+   "f": [],
+   "m": [
+    "https://ripndipclothing.com/collections/all-product-subscribe",
+    "https://ripndipclothing.com/collections/all-apparel",
+    "https://ripndipclothing.com/collections/frontpage"
+   ]
+  },
+  "gender_source": "prior",
+  "host": "ripndipclothing.com",
+  "note": "auto-discovered"
+ },
+ "Rabbit": {
+  "brand": "Rabbit",
+  "entries": {
+   "f": [
+    "https://www.runinrabbit.com/collections/womens-leggy-smashems"
+   ],
+   "m": [
+    "https://www.runinrabbit.com/collections/mens",
+    "https://www.runinrabbit.com/collections/mens-bottoms",
+    "https://www.runinrabbit.com/collections/mens-best-sellers"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "www.runinrabbit.com",
+  "note": "auto-discovered"
+ },
+ "Radmor": {
+  "brand": "Radmor",
+  "entries": {
+   "f": [
+    "https://radmorgolf.com/collections/womens",
+    "https://radmorgolf.com/collections/all-women",
+    "https://radmorgolf.com/collections/womens-layers"
+   ],
+   "m": [
+    "https://radmorgolf.com/collections/mens",
+    "https://radmorgolf.com/collections/mens-best-sellers",
+    "https://radmorgolf.com/collections/mens-polos"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "radmorgolf.com",
+  "note": "auto-discovered"
+ },
+ "Railcar Fine Goods": {
+  "brand": "Railcar Fine Goods",
+  "entries": {
+   "f": [
+    "https://railcarfinegoods.com/collections/womens-clothing",
+    "https://railcarfinegoods.com/collections/shop-womens",
+    "https://railcarfinegoods.com/collections/pendleton-womens"
+   ],
+   "m": [
+    "https://railcarfinegoods.com/collections/shop-mens",
+    "https://railcarfinegoods.com/collections/pendleton",
+    "https://railcarfinegoods.com/collections/brixton-mens"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "railcarfinegoods.com",
+  "note": "auto-discovered"
+ },
+ "Rails": {
+  "brand": "Rails",
+  "entries": {
+   "f": [],
+   "m": [
+    "https://www.railsclothing.com/collections/all-products-welcome-codes",
+    "https://www.railsclothing.com/collections/2023-assortment",
+    "https://www.railsclothing.com/collections/charli-color"
+   ]
+  },
+  "gender_source": "prior",
+  "host": "www.railsclothing.com",
+  "note": "auto-discovered"
+ },
+ "Ramy Brook": {
+  "brand": "Ramy Brook",
+  "entries": {
+   "f": [
+    "https://www.ramybrook.com/collections/blue-dresses-jumpsuits-women"
+   ],
+   "m": []
+  },
+  "gender_source": "collection",
+  "host": "www.ramybrook.com",
+  "note": "auto-discovered"
+ },
+ "Rat & Boa": {
+  "brand": "Rat & Boa",
+  "entries": {
+   "f": [
+    "https://ratandboa.com/collections/all-af3ae4",
+    "https://ratandboa.com/collections/all-6855dd",
+    "https://ratandboa.com/collections/all"
+   ],
+   "m": []
+  },
+  "gender_source": "prior",
+  "host": "ratandboa.com",
+  "note": "auto-discovered"
+ },
+ "Reason Clothing": {
+  "brand": "Reason Clothing",
+  "entries": {
+   "f": [],
+   "m": [
+    "https://reasonclothing.com/collections/mens",
+    "https://reasonclothing.com/collections/reason-collection",
+    "https://reasonclothing.com/collections/mens-new-arrivals"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "reasonclothing.com",
+  "note": "auto-discovered"
+ },
+ "Rebellious Fashion": {
+  "brand": "Rebellious Fashion",
+  "entries": {
+   "f": [
+    "https://www.rebelliousfashion.co.uk/collections/bc-all",
+    "https://www.rebelliousfashion.co.uk/collections/all-products-protectmyorder-excluded",
+    "https://www.rebelliousfashion.co.uk/collections/autumn-winter"
+   ],
+   "m": []
+  },
+  "gender_source": "prior",
+  "host": "www.rebelliousfashion.co.uk",
+  "note": "auto-discovered"
+ },
+ "Red Dress": {
+  "brand": "Red Dress",
+  "entries": {
+   "f": [
+    "https://www.reddressboutique.com/collections/admin-thanksgiving-2020",
+    "https://www.reddressboutique.com/collections/admin-all-designers-excluded",
+    "https://www.reddressboutique.com/collections/all"
+   ],
+   "m": []
+  },
+  "gender_source": "prior",
+  "host": "www.reddressboutique.com",
+  "note": "auto-discovered"
+ },
+ "Reformation": {
+  "brand": "Reformation",
+  "entries": {
+   "f": [
+    "https://www.thereformation.com/categories/dresses",
+    "https://www.thereformation.com/categories/tops"
+   ],
+   "m": []
+  },
+  "health": {
+   "fail": 0,
+   "last": 1784997867.910967,
+   "last_found": 13,
+   "ok": 1,
+   "status": "ok"
+  },
+  "host": "www.thereformation.com",
+  "note": ""
+ },
+ "Reigning Champ": {
+  "brand": "Reigning Champ",
+  "entries": {
+   "f": [],
+   "m": [
+    "https://reigningchamp.com/collections/mens-all-clothing",
+    "https://reigningchamp.com/collections/mens-standard-fit",
+    "https://reigningchamp.com/collections/mens-classics-clothing"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "reigningchamp.com",
+  "note": "auto-discovered"
+ },
+ "Reistor": {
+  "brand": "Reistor",
+  "entries": {
+   "f": [
+    "https://reistor.com/collections/womens",
+    "https://reistor.com/collections/womens-day-collection"
+   ],
+   "m": []
+  },
+  "gender_source": "collection",
+  "host": "reistor.com",
+  "note": "auto-discovered"
+ },
+ "Represent": {
+  "brand": "Represent",
+  "entries": {
+   "f": [
+    "https://representclo.com/collections/247-womens-tops",
+    "https://representclo.com/collections/247-womens-gym-tops",
+    "https://representclo.com/collections/247-womens-shorts"
+   ],
+   "m": [
+    "https://representclo.com/collections/mens-247",
+    "https://representclo.com/collections/mens-fw20",
+    "https://representclo.com/collections/mens-blanks-all"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "representclo.com",
+  "note": "auto-discovered"
+ },
+ "Richer Poorer": {
+  "brand": "Richer Poorer",
+  "entries": {
+   "f": [
+    "https://richer-poorer.com/collections/womens-packs",
+    "https://richer-poorer.com/collections/womens-intimates",
+    "https://richer-poorer.com/collections/women-s-vintage-rib-collection"
+   ],
+   "m": [
+    "https://richer-poorer.com/collections/cotton-boxer-collection",
+    "https://richer-poorer.com/collections/boxer-briefs"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "richer-poorer.com",
+  "note": "auto-discovered"
+ },
+ "Rip Curl": {
+  "brand": "Rip Curl",
+  "entries": {
+   "f": [
+    "https://www.ripcurl.com/collections/womens-clothing",
+    "https://www.ripcurl.com/collections/womens-swimwear",
+    "https://www.ripcurl.com/collections/womens-accessories"
+   ],
+   "m": [
+    "https://www.ripcurl.com/collections/mens-clothing",
+    "https://www.ripcurl.com/collections/mens-tees-tanks",
+    "https://www.ripcurl.com/collections/mens-accessories"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "www.ripcurl.com",
+  "note": "auto-discovered"
+ },
+ "Rip N Dip": {
+  "brand": "Rip N Dip",
+  "entries": {
+   "f": [],
+   "m": [
+    "https://ripndip.com/collections/all-product-subscribe",
+    "https://ripndip.com/collections/all-apparel",
+    "https://ripndip.com/collections/frontpage"
+   ]
+  },
+  "gender_source": "prior",
+  "host": "ripndip.com",
+  "note": "auto-discovered"
+ },
+ "Rixo": {
+  "brand": "Rixo",
+  "entries": {
+   "f": [
+    "https://www.rixo.co.uk/collections/chosen-for-you",
+    "https://www.rixo.co.uk/collections/new-mock-all-clothing-copy",
+    "https://www.rixo.co.uk/collections/clothing"
+   ],
+   "m": []
+  },
+  "gender_source": "prior",
+  "host": "www.rixo.co.uk",
+  "note": "auto-discovered"
+ },
+ "Roark": {
+  "brand": "Roark",
+  "entries": {
+   "f": [
+    "https://www.roark.com/collections/artist-in-residence-the-bendik-womens-collection"
+   ],
+   "m": [
+    "https://www.roark.com/collections/alta-short-5-mens-shorts-rs302",
+    "https://www.roark.com/collections/5-day-mule-55l-mens-bags-ra209",
+    "https://www.roark.com/collections/atlas-chore-jacket-mens-jackets-rj233"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "www.roark.com",
+  "note": "auto-discovered"
+ },
+ "Rogue Territory": {
+  "brand": "Rogue Territory",
+  "entries": {
+   "f": [],
+   "m": [
+    "https://www.rogueterritory.com/collections/tops",
+    "https://www.rogueterritory.com/collections/shirts",
+    "https://www.rogueterritory.com/collections/discountable-products"
+   ]
+  },
+  "gender_source": "prior",
+  "host": "www.rogueterritory.com",
+  "note": "auto-discovered"
+ },
+ "Rothy's": {
+  "brand": "Rothy's",
+  "entries": {
+   "f": [
+    "https://rothys.com/collections/all-womens-shoes-bags",
+    "https://rothys.com/collections/womens-shoes",
+    "https://rothys.com/collections/womens-bags"
+   ],
+   "m": [
+    "https://rothys.com/collections/mens-shoes",
+    "https://rothys.com/collections/mens-loafers",
+    "https://rothys.com/collections/mens-sneakers"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "rothys.com",
+  "note": "auto-discovered"
+ },
+ "Rowie": {
+  "brand": "Rowie",
+  "entries": {
+   "f": [
+    "https://www.rowiethelabel.com/collections/womens-lace-dresses-and-skirts"
+   ],
+   "m": [
+    "https://www.rowiethelabel.com/collections/homme-menswear-22",
+    "https://www.rowiethelabel.com/collections/mens-shirts",
+    "https://www.rowiethelabel.com/collections/mens-bottoms"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "www.rowiethelabel.com",
+  "note": "auto-discovered"
+ },
+ "Rowing Blazers": {
+  "brand": "Rowing Blazers",
+  "entries": {
+   "f": [
+    "https://rowingblazers.com/collections/womens",
+    "https://rowingblazers.com/collections/shop-all-womens",
+    "https://rowingblazers.com/collections/siblings-womens-cotton-fairisle-cropped-sweater"
+   ],
+   "m": [
+    "https://rowingblazers.com/collections/mens",
+    "https://rowingblazers.com/collections/shop-all-mens",
+    "https://rowingblazers.com/collections/shop-all-mens-2"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "rowingblazers.com",
+  "note": "auto-discovered"
+ },
+ "Runaway The Label": {
+  "brand": "Runaway The Label",
+  "entries": {
+   "f": [
+    "https://www.runawaythelabel.com/collections/formal-dresses",
+    "https://www.runawaythelabel.com/collections/womens-race-day-dresses",
+    "https://www.runawaythelabel.com/collections/festival"
+   ],
+   "m": [
+    "https://www.runawaythelabel.com/collections/menswear",
+    "https://www.runawaythelabel.com/collections/mens",
+    "https://www.runawaythelabel.com/collections/mens-tops-1"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "www.runawaythelabel.com",
+  "note": "auto-discovered"
+ },
+ "Runway Scout": {
+  "brand": "Runway Scout",
+  "entries": {
+   "f": [
+    "https://www.runwayscout.com/collections/all",
+    "https://www.runwayscout.com/collections/all-clothing",
+    "https://www.runwayscout.com/collections/klaviyo"
+   ],
+   "m": []
+  },
+  "gender_source": "prior",
+  "host": "www.runwayscout.com",
+  "note": "auto-discovered"
+ },
+ "Rusty": {
+  "brand": "Rusty",
+  "entries": {
+   "f": [
+    "https://www.rusty.com.au/collections/womens",
+    "https://www.rusty.com.au/collections/womens-clothing",
+    "https://www.rusty.com.au/collections/womens-bottoms"
+   ],
+   "m": [
+    "https://www.rusty.com.au/collections/mens",
+    "https://www.rusty.com.au/collections/mens-clothing",
+    "https://www.rusty.com.au/collections/mens-new-arrivals"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "www.rusty.com.au",
+  "note": "auto-discovered"
+ },
+ "Ryderwear": {
+  "brand": "Ryderwear",
+  "entries": {
+   "f": [
+    "https://ryderwear.com/collections/womens-leggings",
+    "https://ryderwear.com/collections/womens-short-sleeve-t-shirts",
+    "https://ryderwear.com/collections/womens-mid-length-shorts"
+   ],
+   "m": [
+    "https://ryderwear.com/collections/mens",
+    "https://ryderwear.com/collections/mens-best-sellers",
+    "https://ryderwear.com/collections/mens-tops"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "ryderwear.com",
+  "note": "auto-discovered"
+ },
+ "SAXX": {
+  "brand": "SAXX",
+  "entries": {
+   "f": [],
+   "m": [
+    "https://www.saxxunderwear.com/collections/mens-clothing",
+    "https://www.saxxunderwear.com/collections/mens-underwear",
+    "https://www.saxxunderwear.com/collections/mens-boxer-briefs"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "www.saxxunderwear.com",
+  "note": "auto-discovered"
+ },
+ "SNDYS": {
+  "brand": "SNDYS",
+  "entries": {
+   "f": [
+    "https://sndys.com.au/collections/best-sellers-usa",
+    "https://sndys.com.au/collections/test-collection",
+    "https://sndys.com.au/collections/best-sellers-aus"
+   ],
+   "m": []
+  },
+  "gender_source": "prior",
+  "host": "sndys.com.au",
+  "note": ""
+ },
+ "Sabo": {
+  "brand": "Sabo",
+  "entries": {
+   "f": [
+    "https://saboskirt.com/collections/oversized-sweaters"
+   ],
+   "m": []
+  },
+  "gender_source": "collection",
+  "host": "saboskirt.com",
+  "note": "auto-discovered"
+ },
+ "Salty Crew": {
+  "brand": "Salty Crew",
+  "entries": {
+   "f": [
+    "https://saltycrew.com/collections/all-womens",
+    "https://saltycrew.com/collections/womens",
+    "https://saltycrew.com/collections/womens-clothing"
+   ],
+   "m": [
+    "https://saltycrew.com/collections/mens",
+    "https://saltycrew.com/collections/all-mens",
+    "https://saltycrew.com/collections/t-shirts"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "saltycrew.com",
+  "note": "auto-discovered"
+ },
+ "Sant And Abel": {
+  "brand": "Sant And Abel",
+  "entries": {
+   "f": [
+    "https://santandabel.com/collections/women",
+    "https://santandabel.com/collections/womens-best-seller",
+    "https://santandabel.com/collections/womens-poplin"
+   ],
+   "m": [
+    "https://santandabel.com/collections/men",
+    "https://santandabel.com/collections/mens-best-sellers",
+    "https://santandabel.com/collections/mens-sleepwear"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "santandabel.com",
+  "note": "auto-discovered"
+ },
+ "Sarah Flint": {
+  "brand": "Sarah Flint",
+  "entries": {
+   "f": [
+    "https://www.sarahflint.com/collections/full-price-styles",
+    "https://www.sarahflint.com/collections/all",
+    "https://www.sarahflint.com/collections/all-shoes"
+   ],
+   "m": []
+  },
+  "gender_source": "prior",
+  "host": "www.sarahflint.com",
+  "note": "auto-discovered"
+ },
+ "Saturdays NYC": {
+  "brand": "Saturdays NYC",
+  "entries": {
+   "f": [
+    "https://www.saturdaysnyc.com/collections/category-womens-pants-1",
+    "https://www.saturdaysnyc.com/collections/category-womens-pants",
+    "https://www.saturdaysnyc.com/collections/category-womens-sweats"
+   ],
+   "m": [
+    "https://www.saturdaysnyc.com/collections/mens-apparel",
+    "https://www.saturdaysnyc.com/collections/category-mens-shirts",
+    "https://www.saturdaysnyc.com/collections/category-mens-sweats"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "www.saturdaysnyc.com",
+  "note": "auto-discovered"
+ },
+ "Save Khaki United": {
+  "brand": "Save Khaki United",
+  "entries": {
+   "f": [
+    "https://savekhaki.com/collections/womens-new-arrivals",
+    "https://savekhaki.com/collections/womens-accessories",
+    "https://savekhaki.com/collections/womens-knits"
+   ],
+   "m": [
+    "https://savekhaki.com/collections/mens-new-arrivals",
+    "https://savekhaki.com/collections/mens-tees",
+    "https://savekhaki.com/collections/mens-lounge"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "savekhaki.com",
+  "note": "auto-discovered"
+ },
+ "Scotch & Soda": {
+  "brand": "Scotch & Soda",
+  "entries": {
+   "f": [
+    "https://www.scotch-soda.com/collections/whats-new-women-clothing",
+    "https://www.scotch-soda.com/collections/whats-new-women-clothing-tops-t-shirts",
+    "https://www.scotch-soda.com/collections/whats-new-women-clothing-hoodies-sweats"
+   ],
+   "m": [
+    "https://www.scotch-soda.com/collections/men",
+    "https://www.scotch-soda.com/collections/men-clothing",
+    "https://www.scotch-soda.com/collections/mens-back-to-campus"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "www.scotch-soda.com",
+  "note": "auto-discovered"
+ },
+ "Scuffers": {
+  "brand": "Scuffers",
+  "entries": {
+   "f": [],
+   "m": [
+    "https://scuffers.com/collections/all",
+    "https://scuffers.com/collections/geosort-us-all",
+    "https://scuffers.com/collections/geosort-sg-all"
+   ]
+  },
+  "gender_source": "prior",
+  "host": "scuffers.com",
+  "note": "auto-discovered"
+ },
+ "Seager": {
+  "brand": "Seager",
+  "entries": {
+   "f": [],
+   "m": [
+    "https://seagerco.com/collections/full-price",
+    "https://seagerco.com/collections/shop-all",
+    "https://seagerco.com/collections/clothing"
+   ]
+  },
+  "gender_source": "prior",
+  "host": "seagerco.com",
+  "note": "auto-discovered"
+ },
+ "Second Female": {
+  "brand": "Second Female",
+  "entries": {
+   "f": [
+    "https://secondfemale.com/collections/shirts-and-blouses",
+    "https://secondfemale.com/collections/knitwear-and-cardigans",
+    "https://secondfemale.com/collections/trousers-and-jeans"
+   ],
+   "m": []
+  },
+  "gender_source": "prior",
+  "host": "secondfemale.com",
+  "note": "auto-discovered"
+ },
+ "Selfie Leslie": {
+  "brand": "Selfie Leslie",
+  "entries": {
+   "f": [
+    "https://www.selfieleslie.com/collections/all-products",
+    "https://www.selfieleslie.com/collections/clothing",
+    "https://www.selfieleslie.com/collections/apparel"
+   ],
+   "m": []
+  },
+  "gender_source": "prior",
+  "host": "www.selfieleslie.com",
+  "note": "auto-discovered"
+ },
+ "Selkie": {
+  "brand": "Selkie",
+  "entries": {
+   "f": [
+    "https://selkiecollection.com/collections/electric-ladies"
+   ],
+   "m": []
+  },
+  "gender_source": "collection",
+  "host": "selkiecollection.com",
+  "note": "auto-discovered"
+ },
+ "Set Active": {
+  "brand": "Set Active",
+  "entries": {
+   "f": [
+    "https://setactive.co/collections/500k-applicable-product",
+    "https://setactive.co/collections/activewear",
+    "https://setactive.co/collections/all-tops"
+   ],
+   "m": []
+  },
+  "gender_source": "prior",
+  "host": "setactive.co",
+  "note": "auto-discovered"
+ },
+ "Shona Joy": {
+  "brand": "Shona Joy",
+  "entries": {
+   "f": [
+    "https://www.shonajoy.com/collections/all",
+    "https://www.shonajoy.com/collections/dresses",
+    "https://www.shonajoy.com/collections/autumn"
+   ],
+   "m": []
+  },
+  "gender_source": "prior",
+  "host": "www.shonajoy.com",
+  "note": "auto-discovered"
+ },
+ "Show Me Your Mumu": {
+  "brand": "Show Me Your Mumu",
+  "entries": {
+   "f": [
+    "https://www.showmeyourmumu.com/collections/exclude-collection-swatches",
+    "https://www.showmeyourmumu.com/collections/clothes",
+    "https://www.showmeyourmumu.com/collections/occasion-day"
+   ],
+   "m": []
+  },
+  "gender_source": "prior",
+  "host": "www.showmeyourmumu.com",
+  "note": "auto-discovered"
+ },
+ "Sik Silk": {
+  "brand": "Sik Silk",
+  "entries": {
+   "f": [
+    "https://siksilk.com/collections/women",
+    "https://siksilk.com/collections/new-arrivals-women",
+    "https://siksilk.com/collections/essentials-for-her"
+   ],
+   "m": [
+    "https://siksilk.com/collections/men",
+    "https://siksilk.com/collections/men-uk",
+    "https://siksilk.com/collections/t-shirts-men"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "siksilk.com",
+  "note": "auto-discovered"
+ },
+ "Silent Theory": {
+  "brand": "Silent Theory",
+  "entries": {
+   "f": [
+    "https://silenttheory.com.au/collections/womens",
+    "https://silenttheory.com.au/collections/womens-tops",
+    "https://silenttheory.com.au/collections/all-womens-basics"
+   ],
+   "m": [
+    "https://silenttheory.com.au/collections/mens",
+    "https://silenttheory.com.au/collections/mens-tops",
+    "https://silenttheory.com.au/collections/mens-tees-tanks"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "silenttheory.com.au",
+  "note": "auto-discovered"
+ },
+ "Sinners Attire": {
+  "brand": "Sinners Attire",
+  "entries": {
+   "f": [],
+   "m": [
+    "https://www.sinnersattire.com/collections/mens-trainers"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "www.sinnersattire.com",
+  "note": "auto-discovered"
+ },
+ "Sir the Label": {
+  "brand": "Sir the Label",
+  "entries": {
+   "f": [],
+   "m": [
+    "https://us.sirthelabel.com/collections/mens",
+    "https://us.sirthelabel.com/collections/mens-tops",
+    "https://us.sirthelabel.com/collections/mens-sweats"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "us.sirthelabel.com",
+  "note": "auto-discovered"
+ },
+ "Sister Jane": {
+  "brand": "Sister Jane",
+  "entries": {
+   "f": [],
+   "m": [
+    "https://www.sisterjane.com/collections/menswear-shirts",
+    "https://www.sisterjane.com/collections/menswear-bottoms",
+    "https://www.sisterjane.com/collections/menswear-jackets"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "www.sisterjane.com",
+  "note": "auto-discovered"
+ },
+ "Sixth June": {
+  "brand": "Sixth June",
+  "entries": {
+   "f": [
+    "https://www.sixthjune.com/collections/women",
+    "https://www.sixthjune.com/collections/women-new",
+    "https://www.sixthjune.com/collections/women-one-piece"
+   ],
+   "m": [
+    "https://www.sixthjune.com/collections/men",
+    "https://www.sixthjune.com/collections/men-new",
+    "https://www.sixthjune.com/collections/men-one-piece"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "www.sixthjune.com",
+  "note": "auto-discovered"
+ },
+ "Solid & Striped": {
+  "brand": "Solid & Striped",
+  "entries": {
+   "f": [
+    "https://www.solidandstriped.com/collections/all-products",
+    "https://www.solidandstriped.com/collections/solid-striped-collection",
+    "https://www.solidandstriped.com/collections/solid-striped"
+   ],
+   "m": []
+  },
+  "gender_source": "prior",
+  "host": "www.solidandstriped.com",
+  "note": "auto-discovered"
+ },
+ "Soulland": {
+  "brand": "Soulland",
+  "entries": {
+   "f": [
+    "https://soulland.com/collections/bottoms-womens",
+    "https://soulland.com/collections/knit-women",
+    "https://soulland.com/collections/logic-women"
+   ],
+   "m": [
+    "https://soulland.com/collections/logic-mens",
+    "https://soulland.com/collections/shop-app-men"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "soulland.com",
+  "note": "auto-discovered"
+ },
+ "Southern Tide": {
+  "brand": "Southern Tide",
+  "entries": {
+   "f": [
+    "https://southerntide.com/collections/womens-clothing",
+    "https://southerntide.com/collections/womens-sail-shop",
+    "https://southerntide.com/collections/womens-spring-collection"
+   ],
+   "m": [
+    "https://southerntide.com/collections/mens-clothing",
+    "https://southerntide.com/collections/men",
+    "https://southerntide.com/collections/mens-sail-shop"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "southerntide.com",
+  "note": "auto-discovered"
+ },
+ "Spell": {
+  "brand": "Spell",
+  "entries": {
+   "f": [
+    "https://spell.co/collections/low-inventory",
+    "https://spell.co/collections/okendo-apparel",
+    "https://spell.co/collections/view-all"
+   ],
+   "m": []
+  },
+  "gender_source": "prior",
+  "host": "spell.co",
+  "note": "auto-discovered"
+ },
+ "Splendid": {
+  "brand": "Splendid",
+  "entries": {
+   "f": [
+    "https://www.splendid.com/collections/new-arrivals-women",
+    "https://www.splendid.com/collections/women-best-sellers",
+    "https://www.splendid.com/collections/women-featured-relaxed-and-refined"
+   ],
+   "m": []
+  },
+  "gender_source": "collection",
+  "host": "www.splendid.com",
+  "note": "auto-discovered"
+ },
+ "Splits59": {
+  "brand": "Splits59",
+  "entries": {
+   "f": [
+    "https://splits59.com/collections/all-1",
+    "https://splits59.com/collections/all",
+    "https://splits59.com/collections/shop-all-styles"
+   ],
+   "m": []
+  },
+  "gender_source": "prior",
+  "host": "splits59.com",
+  "note": "auto-discovered"
+ },
+ "Stan Ray": {
+  "brand": "Stan Ray",
+  "entries": {
+   "f": [],
+   "m": [
+    "https://stanray.com/collections/all-products",
+    "https://stanray.com/collections/tops",
+    "https://stanray.com/collections/tops-ss26"
+   ]
+  },
+  "gender_source": "prior",
+  "host": "stanray.com",
+  "note": "auto-discovered"
+ },
+ "State and Liberty": {
+  "brand": "State and Liberty",
+  "entries": {
+   "f": [],
+   "m": [
+    "https://stateandliberty.com/collections/athletic-fit-jeans"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "stateandliberty.com",
+  "note": "auto-discovered"
+ },
+ "Staud": {
+  "brand": "Staud",
+  "entries": {
+   "f": [
+    "https://staud.clothing/collections/200-300",
+    "https://staud.clothing/collections/clothing-wo-custom",
+    "https://staud.clothing/collections/100-200"
+   ],
+   "m": []
+  },
+  "gender_source": "prior",
+  "host": "staud.clothing",
+  "note": "auto-discovered"
+ },
+ "Storets": {
+  "brand": "Storets",
+  "entries": {
+   "f": [
+    "https://www.storets.com/collections/flash_sale",
+    "https://www.storets.com/collections/all",
+    "https://www.storets.com/collections/festival"
+   ],
+   "m": []
+  },
+  "gender_source": "prior",
+  "host": "www.storets.com",
+  "note": "auto-discovered"
+ },
+ "Straight Down": {
+  "brand": "Straight Down",
+  "entries": {
+   "f": [
+    "https://straightdown.com/collections/womens-golf-clothing",
+    "https://straightdown.com/collections/womens-golf-tops",
+    "https://straightdown.com/collections/womens-golf-quarter-zips"
+   ],
+   "m": [
+    "https://straightdown.com/collections/mens-golf-clothing",
+    "https://straightdown.com/collections/mens-golf-tops",
+    "https://straightdown.com/collections/mens-golf-polos"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "straightdown.com",
+  "note": "auto-discovered"
+ },
+ "Suboo": {
+  "brand": "Suboo",
+  "entries": {
+   "f": [
+    "https://suboo.com.au/collections/resortwear",
+    "https://suboo.com.au/collections/clothing",
+    "https://suboo.com.au/collections/shop-all-winter"
+   ],
+   "m": []
+  },
+  "gender_source": "prior",
+  "host": "suboo.com.au",
+  "note": "auto-discovered"
+ },
+ "Sunday Swagger": {
+  "brand": "Sunday Swagger",
+  "entries": {
+   "f": [
+    "https://sundayswagger.com/collections/shop-womens-all",
+    "https://sundayswagger.com/collections/womens-golf-polos",
+    "https://sundayswagger.com/collections/womens-outerwear"
+   ],
+   "m": [
+    "https://sundayswagger.com/collections/shop-mens-all",
+    "https://sundayswagger.com/collections/mens-golf-polos-copy",
+    "https://sundayswagger.com/collections/mens-golf-polos"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "sundayswagger.com",
+  "note": "auto-discovered"
+ },
+ "Sundry": {
+  "brand": "Sundry",
+  "entries": {
+   "f": [
+    "https://sundryclothing.com/collections/women",
+    "https://sundryclothing.com/collections/tops",
+    "https://sundryclothing.com/collections/bottoms"
+   ],
+   "m": []
+  },
+  "gender_source": "collection",
+  "host": "sundryclothing.com",
+  "note": "auto-discovered"
+ },
+ "Sunspel": {
+  "brand": "Sunspel",
+  "entries": {
+   "f": [
+    "https://www.sunspel.com/collections/womens",
+    "https://www.sunspel.com/collections/womens-all",
+    "https://www.sunspel.com/collections/womens-clothing"
+   ],
+   "m": [
+    "https://www.sunspel.com/collections/mens",
+    "https://www.sunspel.com/collections/mens-all",
+    "https://www.sunspel.com/collections/mens-clothing"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "www.sunspel.com",
+  "note": "auto-discovered"
+ },
+ "Superga": {
+  "brand": "Superga",
+  "entries": {
+   "f": [
+    "https://www.superga-usa.com/collections/women",
+    "https://www.superga-usa.com/collections/all-sneakers",
+    "https://www.superga-usa.com/collections/platforms-copy"
+   ],
+   "m": [
+    "https://www.superga-usa.com/collections/mens",
+    "https://www.superga-usa.com/collections/all-mens-sneakers",
+    "https://www.superga-usa.com/collections/platforms-copy-1"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "www.superga-usa.com",
+  "note": "auto-discovered"
+ },
+ "TALA": {
+  "brand": "TALA",
+  "entries": {
+   "f": [
+    "https://www.wearetala.com/collections/all-1",
+    "https://www.wearetala.com/collections/activewear",
+    "https://www.wearetala.com/collections/all-tops"
+   ],
+   "m": []
+  },
+  "gender_source": "prior",
+  "host": "www.wearetala.com",
+  "note": "auto-discovered"
+ },
+ "Taylor Stitch": {
+  "brand": "Taylor Stitch",
+  "entries": {
+   "f": [
+    "https://www.taylorstitch.com/collections/womens"
+   ],
+   "m": [
+    "https://www.taylorstitch.com/collections/all-mens",
+    "https://www.taylorstitch.com/collections/mens-limited-shirts",
+    "https://www.taylorstitch.com/collections/mens-limited-outerwear"
+   ]
+  },
+  "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1784998379.000129,
+   "last_found": 52,
+   "ok": 1,
+   "status": "ok"
+  },
+  "host": "www.taylorstitch.com",
+  "note": ""
+ },
+ "Ted Baker": {
+  "brand": "Ted Baker",
+  "entries": {
+   "f": [
+    "https://www.tedbaker.com/collections/womens-clothing",
+    "https://www.tedbaker.com/collections/womens-accessories-bags",
+    "https://www.tedbaker.com/collections/womens-dresses"
+   ],
+   "m": [
+    "https://www.tedbaker.com/collections/mens-clothing",
+    "https://www.tedbaker.com/collections/mens-accessories-bags",
+    "https://www.tedbaker.com/collections/mens-offers-uk"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "www.tedbaker.com",
+  "note": ""
+ },
+ "Ten Thousand": {
+  "brand": "Ten Thousand",
+  "entries": {
+   "f": [],
+   "m": [
+    "https://www.tenthousand.cc/collections/mens-running-clothing",
+    "https://www.tenthousand.cc/collections/sleeveless-mens-hoodies",
+    "https://www.tenthousand.cc/collections/mens-zip-up-hoodies"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "www.tenthousand.cc",
+  "note": "auto-discovered"
+ },
+ "Tentree": {
+  "brand": "Tentree",
+  "entries": {
+   "f": [
+    "https://www.tentree.com/collections/womens",
+    "https://www.tentree.com/collections/womens-boxing-week",
+    "https://www.tentree.com/collections/womens-best-sellers"
+   ],
+   "m": [
+    "https://www.tentree.com/collections/mens",
+    "https://www.tentree.com/collections/mens-boxing-week",
+    "https://www.tentree.com/collections/mens-best-sellers"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "www.tentree.com",
+  "note": "auto-discovered"
+ },
+ "The Frankie Shop": {
+  "brand": "The Frankie Shop",
+  "entries": {
+   "f": [
+    "https://thefrankieshop.com/collections/women",
+    "https://thefrankieshop.com/collections/womens-clothing",
+    "https://thefrankieshop.com/collections/womens-best-sellers"
+   ],
+   "m": [
+    "https://thefrankieshop.com/collections/men",
+    "https://thefrankieshop.com/collections/mens-clothing",
+    "https://thefrankieshop.com/collections/mens-the-seasonal-shift"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "thefrankieshop.com",
+  "note": "auto-discovered"
+ },
+ "The Hundreds": {
+  "brand": "The Hundreds",
+  "entries": {
+   "f": [],
+   "m": [
+    "https://thehundreds.com/collections/greatest-hits-collection",
+    "https://thehundreds.com/collections/facebook",
+    "https://thehundreds.com/collections/apparel"
+   ]
+  },
+  "gender_source": "prior",
+  "host": "thehundreds.com",
+  "note": "auto-discovered"
+ },
+ "The Ragged Priest": {
+  "brand": "The Ragged Priest",
+  "entries": {
+   "f": [
+    "https://www.theraggedpriest.com/collections/womens-denim",
+    "https://www.theraggedpriest.com/collections/womens-new-arrivals",
+    "https://www.theraggedpriest.com/collections/womens-tops"
+   ],
+   "m": [
+    "https://www.theraggedpriest.com/collections/mens-shop-all",
+    "https://www.theraggedpriest.com/collections/mens-denim-studio",
+    "https://www.theraggedpriest.com/collections/mens-new-arrivals"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "www.theraggedpriest.com",
+  "note": "auto-discovered"
+ },
+ "Threads 4 Thought": {
+  "brand": "Threads 4 Thought",
+  "entries": {
+   "f": [
+    "https://threads4thought.com/collections/womens-cardigans-jackets"
+   ],
+   "m": [
+    "https://threads4thought.com/collections/mens-featherloop-tops",
+    "https://threads4thought.com/collections/all-mens-tees",
+    "https://threads4thought.com/collections/mens-activewear"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "threads4thought.com",
+  "note": "auto-discovered"
+ },
+ "Thrills": {
+  "brand": "Thrills",
+  "entries": {
+   "f": [
+    "https://thrills.co/collections/refresh-womens-jan-26",
+    "https://thrills.co/collections/new-womens-tops",
+    "https://thrills.co/collections/refresh-womens-tops-jan-26-copy"
+   ],
+   "m": [
+    "https://thrills.co/collections/mens-all",
+    "https://thrills.co/collections/mens-sustainable",
+    "https://thrills.co/collections/mens-tees"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "thrills.co",
+  "note": "auto-discovered"
+ },
+ "Thursday Boots": {
+  "brand": "Thursday Boots",
+  "entries": {
+   "f": [
+    "https://thursdayboots.com/collections/klaviyo-women-s-footwear",
+    "https://thursdayboots.com/collections/loop-womens-boots-do-not-delete",
+    "https://thursdayboots.com/collections/womens-sneakers-cross-sells"
+   ],
+   "m": [
+    "https://thursdayboots.com/collections/mens",
+    "https://thursdayboots.com/collections/staging-mens-boots",
+    "https://thursdayboots.com/collections/loop-mens-boots-do-not-delete"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "thursdayboots.com",
+  "note": "auto-discovered"
+ },
+ "Tiger Mist": {
+  "brand": "Tiger Mist",
+  "entries": {
+   "f": [
+    "https://www.tigermist.com/collections/femme-fatale"
+   ],
+   "m": []
+  },
+  "gender_source": "collection",
+  "host": "www.tigermist.com",
+  "note": "auto-discovered"
+ },
+ "Tommy John": {
+  "brand": "Tommy John",
+  "entries": {
+   "f": [
+    "https://tommyjohn.com/collections/vip-womens",
+    "https://tommyjohn.com/collections/explore-womens"
+   ],
+   "m": [
+    "https://tommyjohn.com/collections/mens-all",
+    "https://tommyjohn.com/collections/mens-packs",
+    "https://tommyjohn.com/collections/mens-packs-promo-excl-usf-and-best-of-tj"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "tommyjohn.com",
+  "note": "auto-discovered"
+ },
+ "Toms": {
+  "brand": "Toms",
+  "entries": {
+   "f": [
+    "https://www.toms.com/collections/women",
+    "https://www.toms.com/collections/womens-shoes",
+    "https://www.toms.com/collections/womens-leather-shoes"
+   ],
+   "m": [
+    "https://www.toms.com/collections/men",
+    "https://www.toms.com/collections/mens-shoes",
+    "https://www.toms.com/collections/mens-leather-shoes"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "www.toms.com",
+  "note": "auto-discovered"
+ },
+ "True Classic": {
+  "brand": "True Classic",
+  "entries": {
+   "f": [
+    "https://trueclassictees.com/collections/all-womens-products",
+    "https://trueclassictees.com/collections/all-womens-styles",
+    "https://trueclassictees.com/collections/all-womens-packs"
+   ],
+   "m": []
+  },
+  "gender_source": "collection",
+  "host": "trueclassictees.com",
+  "note": "auto-discovered"
+ },
+ "Tuckernuck": {
+  "brand": "Tuckernuck",
+  "entries": {
+   "f": [
+    "https://www.tnuck.com/collections/barbour\u00ae-for-ladies",
+    "https://www.tnuck.com/collections/ladies-black-tie"
+   ],
+   "m": []
+  },
+  "gender_source": "collection",
+  "host": "www.tnuck.com",
+  "note": "auto-discovered"
+ },
+ "UNTUCKit": {
+  "brand": "UNTUCKit",
+  "entries": {
+   "f": [],
+   "m": [
+    "https://www.untuckit.com/collections/mens-dress-shirts"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "www.untuckit.com",
+  "note": "auto-discovered"
+ },
+ "Uniqlo": {
+  "brand": "Uniqlo",
+  "entries": {
+   "f": [
+    "https://www.uniqlo.com/us/en/women/tops",
+    "https://www.uniqlo.com/us/en/women/bottoms",
+    "https://www.uniqlo.com/us/en/women/dresses-and-jumpsuits"
+   ],
+   "m": [
+    "https://www.uniqlo.com/us/en/men/tops",
+    "https://www.uniqlo.com/us/en/men/bottoms",
+    "https://www.uniqlo.com/us/en/men/outerwear"
+   ]
+  },
+  "entry_cursor": 3,
+  "health": {
+   "fail": 0,
+   "last": 1784999354.75547,
+   "last_found": 79,
+   "note": "no products found on the page",
+   "ok": 2,
+   "status": "ok"
+  },
+  "host": "www.uniqlo.com",
+  "note": ""
+ },
+ "United By Blue": {
+  "brand": "United By Blue",
+  "entries": {
+   "f": [
+    "https://unitedbyblue.com/collections/womens-dresses",
+    "https://unitedbyblue.com/collections/size-chart-womens-dresses-and-jumpsuits",
+    "https://unitedbyblue.com/collections/f22-womens-tops-size-chart"
+   ],
+   "m": [
+    "https://unitedbyblue.com/collections/mens",
+    "https://unitedbyblue.com/collections/mens-tops-size-chart",
+    "https://unitedbyblue.com/collections/mens-lounge"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "unitedbyblue.com",
+  "note": "auto-discovered"
+ },
+ "Universal Works": {
+  "brand": "Universal Works",
+  "entries": {
+   "f": [],
+   "m": [
+    "https://universalworks.co.uk/collections/clothing",
+    "https://universalworks.co.uk/collections/accessories",
+    "https://universalworks.co.uk/collections/military-chino"
+   ]
+  },
+  "gender_source": "prior",
+  "host": "universalworks.co.uk",
+  "note": "auto-discovered"
+ },
+ "Urban Outfitters": {
+  "brand": "Urban Outfitters",
+  "entries": {
+   "f": [
+    "https://www.urbanoutfitters.com/womens-dresses",
+    "https://www.urbanoutfitters.com/womens-tops"
+   ],
+   "m": [
+    "https://www.urbanoutfitters.com/mens-tops",
+    "https://www.urbanoutfitters.com/mens-pants"
+   ]
+  },
+  "health": {
+   "fail": 1,
+   "last": 1784997904.64159,
+   "last_found": 0,
+   "note": "nothing usable \u2014 page title: 'urbanoutfitters.com'",
+   "ok": 0,
+   "status": "blocked"
+  },
+  "host": "www.urbanoutfitters.com",
+  "note": ""
+ },
+ "Vanquish Fitness": {
+  "brand": "Vanquish Fitness",
+  "entries": {
+   "f": [
+    "https://vqfit.com/collections/womens-bottoms",
+    "https://vqfit.com/collections/ladies-spring-25",
+    "https://vqfit.com/collections/womens-all-in-one"
+   ],
+   "m": [
+    "https://vqfit.com/collections/mens",
+    "https://vqfit.com/collections/t-shirts",
+    "https://vqfit.com/collections/mens-new-in"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "vqfit.com",
+  "note": "auto-discovered"
+ },
+ "Verge Girl": {
+  "brand": "Verge Girl",
+  "entries": {
+   "f": [
+    "https://www.vergegirl.com/collections/all",
+    "https://www.vergegirl.com/collections/full-price",
+    "https://www.vergegirl.com/collections/en-route-vrg-grl-for-everyone-everywhere"
+   ],
+   "m": []
+  },
+  "gender_source": "prior",
+  "host": "www.vergegirl.com",
+  "note": "auto-discovered"
+ },
+ "Vessi": {
+  "brand": "Vessi",
+  "entries": {
+   "f": [
+    "https://vessi.com/collections/all-women-shoes",
+    "https://vessi.com/collections/pos-womens-collection",
+    "https://vessi.com/collections/product-womens-market-flat"
+   ],
+   "m": [
+    "https://vessi.com/collections/men",
+    "https://vessi.com/collections/mens-clothing",
+    "https://vessi.com/collections/all-men-shoes"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "vessi.com",
+  "note": "auto-discovered"
+ },
+ "Vici": {
+  "brand": "Vici",
+  "entries": {
+   "f": [
+    "https://www.vicicollection.com/collections/womens-clothing",
+    "https://www.vicicollection.com/collections/back-to-school"
+   ],
+   "m": []
+  },
+  "gender_source": "collection",
+  "host": "www.vicicollection.com",
+  "note": "auto-discovered"
+ },
+ "Viktoria & Woods": {
+  "brand": "Viktoria & Woods",
+  "entries": {
+   "f": [
+    "https://www.viktoriaandwoods.com.au/collections/womens-jackets",
+    "https://www.viktoriaandwoods.com.au/collections/womens-leather",
+    "https://www.viktoriaandwoods.com.au/collections/womens-long-sleeve-tops"
+   ],
+   "m": []
+  },
+  "gender_source": "collection",
+  "host": "www.viktoriaandwoods.com.au",
+  "note": "auto-discovered"
+ },
+ "Vissla": {
+  "brand": "Vissla",
+  "entries": {
+   "f": [],
+   "m": [
+    "https://vissla.com/collections/boardshorts",
+    "https://vissla.com/collections/shirts-flannels",
+    "https://vissla.com/collections/mens-full-suits"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "vissla.com",
+  "note": "auto-discovered"
+ },
+ "Vitamin A": {
+  "brand": "Vitamin A",
+  "entries": {
+   "f": [
+    "https://www.vitaminaswim.com/collections/swim",
+    "https://www.vitaminaswim.com/collections/eco-friendly-bikinis",
+    "https://www.vitaminaswim.com/collections/all-clothing"
+   ],
+   "m": []
+  },
+  "gender_source": "prior",
+  "host": "www.vitaminaswim.com",
+  "note": "auto-discovered"
+ },
+ "Vollebak": {
+  "brand": "Vollebak",
+  "entries": {
+   "f": [],
+   "m": [
+    "https://www.vollebak.com/collections/all-gear-copy",
+    "https://www.vollebak.com/collections/all",
+    "https://www.vollebak.com/collections/new-releases"
+   ]
+  },
+  "gender_source": "prior",
+  "host": "www.vollebak.com",
+  "note": "auto-discovered"
+ },
+ "Wahts": {
+  "brand": "Wahts",
+  "entries": {
+   "f": [],
+   "m": [
+    "https://wahts.com/collections/the-new-ss25-collection",
+    "https://wahts.com/collections/clothing",
+    "https://wahts.com/collections/sweat-collection-total"
+   ]
+  },
+  "gender_source": "prior",
+  "host": "wahts.com",
+  "note": "auto-discovered"
+ },
+ "Warp + Weft": {
+  "brand": "Warp + Weft",
+  "entries": {
+   "f": [
+    "https://warpweftworld.com/collections/59-denim-women",
+    "https://warpweftworld.com/collections/womens-black-jeans",
+    "https://warpweftworld.com/collections/best-sellers-women-00-14"
+   ],
+   "m": [
+    "https://warpweftworld.com/collections/dynamic-stretch-denim-men",
+    "https://warpweftworld.com/collections/core-collection-men",
+    "https://warpweftworld.com/collections/fall-hues-men"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "warpweftworld.com",
+  "note": "auto-discovered"
+ },
+ "Wax London": {
+  "brand": "Wax London",
+  "entries": {
+   "f": [],
+   "m": [
+    "https://waxlondon.com/collections/mens-summer-shirts",
+    "https://waxlondon.com/collections/mens-graphic-t-shirts",
+    "https://waxlondon.com/collections/mens-jumpers"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "waxlondon.com",
+  "note": ""
+ },
+ "Weekday": {
+  "brand": "Weekday",
+  "entries": {
+   "f": [
+    "https://www.weekday.com/en-us/women/dresses/",
+    "https://www.weekday.com/en-us/women/jeans/"
+   ],
+   "m": [
+    "https://www.weekday.com/en-us/men/tops/",
+    "https://www.weekday.com/en-us/men/jeans/"
+   ]
+  },
+  "health": {
+   "fail": 1,
+   "last": 1784997918.143758,
+   "last_found": 0,
+   "note": "nothing usable \u2014 page title: 'Access Denied'",
+   "ok": 0,
+   "status": "blocked"
+  },
+  "host": "www.weekday.com",
+  "note": ""
+ },
+ "Weekend Offender": {
+  "brand": "Weekend Offender",
+  "entries": {
+   "f": [],
+   "m": [
+    "https://www.weekendoffender.com/collections/mens-plain-t-shirts-tops",
+    "https://www.weekendoffender.com/collections/mens-black-t-shirts-tops",
+    "https://www.weekendoffender.com/collections/mens-white-t-shirts-tops"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "www.weekendoffender.com",
+  "note": "auto-discovered"
+ },
+ "Whimsy + Row": {
+  "brand": "Whimsy + Row",
+  "entries": {
+   "f": [
+    "https://whimsyandrow.com/collections/clothing",
+    "https://whimsyandrow.com/collections/jumpsuits"
+   ],
+   "m": []
+  },
+  "gender_source": "collection",
+  "host": "whimsyandrow.com",
+  "note": "auto-discovered"
+ },
+ "White Fox": {
+  "brand": "White Fox",
+  "entries": {
+   "f": [
+    "https://whitefoxboutique.com/collections/bc-all",
+    "https://whitefoxboutique.com/collections/discountable",
+    "https://whitefoxboutique.com/collections/discountable-us"
+   ],
+   "m": []
+  },
+  "gender_source": "prior",
+  "host": "whitefoxboutique.com",
+  "note": "auto-discovered"
+ },
+ "With Jean": {
+  "brand": "With Jean",
+  "entries": {
+   "f": [
+    "https://withjean.com/collections/all",
+    "https://withjean.com/collections/apparel",
+    "https://withjean.com/collections/tops"
+   ],
+   "m": []
+  },
+  "gender_source": "prior",
+  "host": "withjean.com",
+  "note": "auto-discovered"
+ },
+ "With Nothing Underneath": {
+  "brand": "With Nothing Underneath",
+  "entries": {
+   "f": [
+    "https://www.withnothingunderneath.com/collections/womens-shirts",
+    "https://www.withnothingunderneath.com/collections/womens-co-ords",
+    "https://www.withnothingunderneath.com/collections/linen-womens-wear"
+   ],
+   "m": []
+  },
+  "gender_source": "collection",
+  "host": "www.withnothingunderneath.com",
+  "note": "auto-discovered"
+ },
+ "Wolf & Shepherd": {
+  "brand": "Wolf & Shepherd",
+  "entries": {
+   "f": [
+    "https://wolfandshepherd.com/collections/womens-shoes",
+    "https://wolfandshepherd.com/collections/cruise-collection-women",
+    "https://wolfandshepherd.com/collections/womens-crossover"
+   ],
+   "m": [
+    "https://wolfandshepherd.com/collections/mens-all",
+    "https://wolfandshepherd.com/collections/all",
+    "https://wolfandshepherd.com/collections/mens-all-test"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "wolfandshepherd.com",
+  "note": "auto-discovered"
+ },
+ "Xirena": {
+  "brand": "Xirena",
+  "entries": {
+   "f": [
+    "https://www.xirena.com/collections/view-all",
+    "https://www.xirena.com/collections/shirts",
+    "https://www.xirena.com/collections/seasonal-prints"
+   ],
+   "m": []
+  },
+  "gender_source": "prior",
+  "host": "www.xirena.com",
+  "note": "auto-discovered"
+ },
+ "YMC": {
+  "brand": "YMC",
+  "entries": {
+   "f": [
+    "https://www.youmustcreate.com/collections/womens-clothing",
+    "https://www.youmustcreate.com/collections/womens-outerwear",
+    "https://www.youmustcreate.com/collections/womens-t-shirts"
+   ],
+   "m": [
+    "https://www.youmustcreate.com/collections/mens-clothing",
+    "https://www.youmustcreate.com/collections/mens-outerwear",
+    "https://www.youmustcreate.com/collections/mens-trousers"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "www.youmustcreate.com",
+  "note": "auto-discovered"
+ },
+ "Year of Ours": {
+  "brand": "Year of Ours",
+  "entries": {
+   "f": [
+    "https://www.yearofours.com/collections/low-stock",
+    "https://www.yearofours.com/collections/shop-all",
+    "https://www.yearofours.com/collections/tops"
+   ],
+   "m": []
+  },
+  "gender_source": "prior",
+  "host": "www.yearofours.com",
+  "note": "auto-discovered"
+ },
+ "YoungLA": {
+  "brand": "YoungLA",
+  "entries": {
+   "f": [],
+   "m": [
+    "https://www.youngla.com/collections/all-products-except-latte-and-sp",
+    "https://www.youngla.com/collections/all-for-her",
+    "https://www.youngla.com/collections/all-products-1"
+   ]
+  },
+  "gender_source": "prior",
+  "host": "www.youngla.com",
+  "note": "auto-discovered"
+ },
+ "Z Supply": {
+  "brand": "Z Supply",
+  "entries": {
+   "f": [
+    "https://zsupply.com/collections/dresses",
+    "https://zsupply.com/collections/bottoms",
+    "https://zsupply.com/collections/accessories"
+   ],
+   "m": []
+  },
+  "gender_source": "prior",
+  "host": "zsupply.com",
+  "note": "auto-discovered"
+ },
+ "Zanerobe": {
+  "brand": "Zanerobe",
+  "entries": {
+   "f": [],
+   "m": [
+    "https://www.zanerobe.com/collections/box-ss-tee",
+    "https://www.zanerobe.com/collections/box-ls-tee",
+    "https://www.zanerobe.com/collections/best-sellers"
+   ]
+  },
+  "gender_source": "prior",
+  "host": "www.zanerobe.com",
+  "note": "auto-discovered"
+ },
+ "Zulu & Zephyr": {
+  "brand": "Zulu & Zephyr",
+  "entries": {
+   "f": [
+    "https://zuluandzephyr.com/collections/all",
+    "https://zuluandzephyr.com/collections/all-1",
+    "https://zuluandzephyr.com/collections/shop-all"
+   ],
+   "m": []
+  },
+  "gender_source": "prior",
+  "host": "zuluandzephyr.com",
+  "note": "auto-discovered"
+ },
+ "iam gia": {
+  "brand": "iam gia",
+  "entries": {
+   "f": [
+    "https://iamgia.com/collections/algolia-test",
+    "https://iamgia.com/collections/search",
+    "https://iamgia.com/collections/all-excluding-accessories"
+   ],
+   "m": []
+  },
+  "gender_source": "prior",
+  "host": "iamgia.com",
+  "note": "auto-discovered"
+ }
+}

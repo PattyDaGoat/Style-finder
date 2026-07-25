@@ -3,8 +3,9 @@
 Swipe real clothing from 367 niche labels; the app learns your taste and recommends pieces you
 didn't see. 9,306 products, menswear and womenswear, no backend required.
 
-**Live preview:** `https://YOUR-USERNAME.github.io/style-finder/` — see `GITHUB-PAGES-PREVIEW.md`
-to turn this on (two one-time settings, ~2 minutes). Auto-updates on every push to `main`.
+**Live preview:** [`pattydagoat.github.io/Style-finder`](https://pattydagoat.github.io/Style-finder/) —
+the real, working app, no install. Auto-updates within a minute or two of every push to `main`.
+(How it's wired up: `GITHUB-PAGES-PREVIEW.md`.)
 
 **Run it locally:** open `dist/style-finder.html`. That's the whole app in one file.
 

@@ -1,5 +1,10 @@
 # Turning this into a clickable preview link (GitHub Pages)
 
+> **Status: already done for this repo.** It's live at
+> **https://pattydagoat.github.io/Style-finder/** — the two steps below are already completed.
+> This page is left in place as a reference for what was done, and in case you ever fork or
+> recreate the repo and need to redo it.
+
 This repo already contains a GitHub Actions workflow (`.github/workflows/deploy-pages.yml`) that
 builds the app and publishes it to GitHub Pages automatically, every time `main` is updated. Two
 one-time settings and it's live — nothing to run by hand, ever again.

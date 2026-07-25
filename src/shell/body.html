@@ -1,0 +1,250 @@
+</style>
+<script src="https://accounts.google.com/gsi/client" async defer></script>
+</head>
+<body>
+<div class="wrap">
+  <div id="appbar" class="appbar hidden">
+    <button class="ab-btn ab-restart" onclick="askReset()" title="Clear everything and set up from scratch">
+      <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg>
+      <span>Start over</span>
+    </button>
+    <button id="acctChip" class="ab-acct" onclick="toggleAcctMenu(event)" title="Your account"></button>
+    <div id="acctMenu" class="ab-menu hidden"></div>
+  </div>
+  <header class="top">
+    <h1>MAISON<span class="leaf">&nbsp;/&nbsp;</span>EDIT</h1>
+  </header>
+
+  <div id="auth" class="panel auth-panel hidden">
+    <h2 class="auth-logo">MAISON<span style="color:var(--green);font-weight:500">&nbsp;/&nbsp;</span>EDIT</h2>
+    <p class="auth-sub">Sign in to save your style profile, your likes and your cart &mdash; and pick up exactly where you left off.</p>
+
+    <div id="gReal" class="hidden">
+      <div id="gBtnHost"></div>
+      <div style="margin-top:12px"><button class="gbtn secondary" onclick="googleCreate()">Create a new account with Google</button></div>
+      <div class="auth-note" style="margin-top:14px">First time? The button above creates your MAISON&nbsp;/&nbsp;EDIT profile automatically &mdash; there's no separate password to make.</div>
+    </div>
+
+    <div id="gFallback" class="hidden">
+      <button class="gbtn" onclick="openLocalForm('signin')"><svg width="19" height="19" viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9.1 3.6l6.8-6.8C35.9 2.4 30.3 0 24 0 14.6 0 6.5 5.4 2.6 13.2l7.9 6.2C12.3 13.3 17.6 9.5 24 9.5z"/><path fill="#4285F4" d="M46.1 24.5c0-1.6-.1-2.8-.4-4.1H24v8.4h12.6c-.3 2.1-1.6 5.2-4.7 7.3l7.7 6c4.5-4.2 6.5-10.2 6.5-17.6z"/><path fill="#FBBC05" d="M10.5 28.6c-.5-1.4-.8-2.9-.8-4.6s.3-3.2.8-4.6l-7.9-6.2C1 16.2 0 20 0 24s1 7.8 2.6 10.8l7.9-6.2z"/><path fill="#34A853" d="M24 48c6.3 0 11.6-2.1 15.5-5.7l-7.7-6c-2.1 1.4-4.8 2.3-7.8 2.3-6.4 0-11.7-3.8-13.5-9.9l-7.9 6.2C6.5 42.6 14.6 48 24 48z"/></svg> <span>Sign in with Google</span></button>
+      <div style="margin-top:12px"><button class="gbtn secondary" onclick="openLocalForm('create')">Create a new account with Google</button></div>
+      <div class="auth-warn" id="authWarn">
+        <b>Real Google sign-in isn't switched on for this copy yet.</b><br>
+        Google only allows its sign-in button on a web address it has approved, and this page is currently opening straight off your disk. Until that's set up, these buttons make a <b>profile saved only in this browser</b> &mdash; everything else in the app works normally. Setup takes about 5 minutes: see <b>GOOGLE-SIGNIN-SETUP.md</b> next to this file.
+      </div>
+    </div>
+
+    <div id="localForm" class="auth-form hidden">
+      <div class="set-label" id="lfTitle">Your profile</div>
+      <div class="set-group" style="margin-bottom:12px">
+        <div class="set-label">Name</div>
+        <input id="lfName" class="set-input" placeholder="e.g. Patrick" autocomplete="name">
+      </div>
+      <div class="set-group" style="margin-bottom:14px">
+        <div class="set-label">Email <span style="text-transform:none;letter-spacing:0;font-weight:500">(optional &mdash; just labels the profile)</span></div>
+        <input id="lfEmail" class="set-input" type="email" placeholder="you@gmail.com" autocomplete="email">
+      </div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <button class="btn small" onclick="submitLocalForm()">Continue</button>
+        <button class="btn ghost small" onclick="closeLocalForm()">Cancel</button>
+      </div>
+    </div>
+
+    <div id="knownAccts" class="known-accts"></div>
+
+    <div class="auth-or">or</div>
+    <button class="auth-guest" onclick="signInGuest()">Continue as guest</button>
+    <div class="auth-note">Guest works fully &mdash; your swipes save in this browser, they're just not tied to a name. You can sign in later; guest swipes stay separate.</div>
+    <div class="auth-note" id="authNote" style="color:var(--red);font-weight:600"></div>
+  </div>
+
+  <div id="settings" class="panel settings-panel hidden">
+    <div class="set-eyebrow">Step 1 of 2</div>
+    <h2 class="set-h">About you</h2>
+    <div class="set-group">
+      <div class="set-label">Shopping for</div>
+      <div class="seg">
+        <button class="seg-btn" data-g="m" onclick="setGender('m',this)">Menswear</button>
+        <button class="seg-btn" data-g="f" onclick="setGender('f',this)">Womenswear</button>
+      </div>
+    </div>
+    <div class="set-group">
+      <div class="set-label">Top size</div>
+      <div class="size-chips" id="topSizes"></div>
+    </div>
+    <div class="set-row">
+      <div class="set-group"><div class="set-label">Waist / bottoms</div><input id="setWaist" class="set-input" placeholder="e.g. 32 or M"></div>
+      <div class="set-group"><div class="set-label">Shoe size</div><input id="setShoe" class="set-input" placeholder="e.g. US 10"></div>
+    </div>
+    <div class="set-group">
+      <div class="disp-label">Show me <button type="button" class="selectall-btn" id="catsAllBtn" onclick="toggleAllCats(this)">Select all</button></div>
+      <div class="disp-sub">What do you want to swipe? Leave blank for everything.</div>
+      <div class="chips setchips" id="setCats"></div>
+    </div>
+    <button class="btn set-start" onclick="goStep2()">Next &rarr;</button>
+  </div>
+
+  <div id="settings2" class="panel settings-panel hidden">
+    <div class="set-eyebrow">Step 2 of 2</div>
+    <h2 class="set-h">Occasion &amp; budget</h2>
+    <div class="set-group">
+      <div class="disp-label">Occasion</div>
+      <div class="disp-sub">What are you dressing for? <span class="optional-tag">(optional)</span></div>
+      <div class="chips setchips" id="setOcc"></div>
+    </div>
+    <div class="set-group">
+      <div class="disp-label">Budget</div>
+      <div class="disp-sub">Max you'd spend on a single piece.</div>
+      <div class="chips setchips" id="setBudget"></div>
+    </div>
+    <button class="btn set-start" onclick="startShopping()">Start shopping</button>
+    <div class="set-note" style="cursor:pointer" onclick="show('settings')">&larr; Back to sizing</div>
+  </div>
+
+  <div id="inspo" class="panel hidden">
+    <div class="set-eyebrow">Inspiration</div>
+    <h2 class="set-h">Your inspiration board</h2>
+    <p class="section-note">Give the picker a starting point. Add a Pinterest board or drop in a few photos of looks you love — it reads their colours &amp; vibe and uses that to shape what you swipe on. Your first 20 swipes then fine-tune the direction.</p>
+
+    <div class="set-label" style="margin-top:4px">Pinterest board link</div>
+    <p class="section-note" style="font-size:12.5px;margin:4px 0 6px">Paste a <b>public</b> board link and tap <b>Find pins</b> — it pulls the pins from the board and reads their colours on your device.</p>
+    <div class="pin-row">
+      <input id="pinBoard" type="url" class="pin-input" placeholder="pinterest.com/you/board-name/">
+      <button class="btn small" onclick="loadBoardLink()">Find pins</button>
+    </div>
+
+    <div class="set-label" style="margin-top:16px">Or paste pin image links</div>
+    <p class="section-note" style="font-size:12.5px;margin:4px 0 6px">Most reliable: on Pinterest, right-click a pin (or ••• → <b>Copy image address</b>), one per line.</p>
+    <textarea id="pinUrls" class="pin-textarea" placeholder="https://i.pinimg.com/564x/....jpg
+https://i.pinimg.com/564x/....jpg"></textarea>
+    <div style="margin-top:8px"><button class="btn small" onclick="addPinLinks()">Add pins</button></div>
+
+    <div id="pinStatus" class="section-note" style="margin-top:8px"></div>
+    <div class="section-note" style="font-size:11.5px;margin-top:4px;opacity:.75">The board link is read through a helper service (so a local file can reach Pinterest); only the link is sent. If a board is private or won't load, paste the pin image links instead — those are read fully on your device — or send me the link in chat.</div>
+
+    <div class="set-label" style="margin-top:18px">Or add photos</div>
+    <label class="dropzone"><input id="inspoInput" type="file" accept="image/*" multiple onchange="handleInspo(event)" style="display:none">
+      <div class="dz-inner"><b>+ Add inspo photos</b><div style="font-size:13px;color:var(--ink-soft);margin-top:3px">JPG or PNG — from your camera roll or saved pins</div></div>
+    </label>
+    <div id="inspoThumbs" class="inspo-thumbs"></div>
+    <div id="inspoDetected" class="hidden">
+      <div class="set-label" style="margin-top:16px">Colours we picked up <span style="font-weight:500;text-transform:none;letter-spacing:0">(tap to toggle)</span></div>
+      <div id="inspoColors" class="inspo-swatches"></div>
+      <div class="set-label" style="margin-top:16px">What's the vibe? (tap any)</div>
+      <div id="inspoVibes" class="chips" style="justify-content:flex-start;margin:8px 0 0"></div>
+      <button class="btn set-start" onclick="useInspoSeed()">Use this to shape my feed →</button>
+      <div style="text-align:center;margin-top:8px"><button class="inspo-link" onclick="findInspoMatches()">or just show me matching pieces now</button></div>
+    </div>
+    <div id="inspoResults" style="margin-top:16px"></div>
+    <div style="margin-top:14px"><button class="btn ghost small" onclick="backToDeck()">&larr; Back to swiping</button></div>
+  </div>
+
+  <div id="intro" class="panel center hidden">
+    <div style="max-width:660px;margin:0 auto;">
+      <h2 style="color:var(--green-2);margin:6px 0 8px;">Find your taste by reaction</h2>
+      <p style="color:var(--ink-soft);font-size:17px;">
+        You'll swipe real pieces from <b>16 niche menswear labels</b> — hit
+        <b style="color:var(--green-2)">Love</b>, <b style="color:var(--green)">Like</b>, or
+        <b style="color:var(--nope)">Skip</b>. It <b>keeps serving new pieces that match your
+        evolving taste</b>, so swipe as long as you like. Tap <b>🛒 Save</b> on anything you'd
+        wear to drop it in your cart, and hit <b>Done</b> anytime to see your <b>micro-styles</b>
+        (think "Ivy / Prep", "Gorpcore", "Raw Denim") and a set of brand-new matches.
+      </p>
+      <p style="color:var(--ink-soft);font-size:15px;margin-top:12px;">Warm up — tap any micro-styles that sound like you (optional):</p>
+      <div id="seedChips" class="chips"></div>
+      <button class="btn" onclick="startDeck()">Start swiping &rarr;</button>
+      <div id="resumeRow" class="hidden" style="margin-top:12px;">
+        <button class="btn ghost small" onclick="resumeResults()">See my last result</button>
+      </div>
+      <div class="foot">Real pieces &amp; live photos from each brand &bull; nothing sponsored &bull; everyday staples under $200 to designer sneakers beyond.</div>
+    </div>
+  </div>
+
+  <div id="deck" class="panel deck-panel hidden">
+    <div class="deck-genderbar">
+      <button class="gtoggle" data-g="m" onclick="setDeckGender('m')">Menswear</button>
+      <button class="gtoggle" data-g="f" onclick="setDeckGender('f')">Womenswear</button>
+    </div>
+    <div style="text-align:center;margin:-6px 0 10px"><button class="inspo-link" onclick="openInspo()">✦ Add inspiration (Pinterest or photos)</button></div>
+    <div style="text-align:center;margin:0 0 12px"><button id="noFastBtn" class="ff-toggle" onclick="toggleNoFast()"></button></div>
+    <!-- ===== SECTIONING: strict toggle — delete these 2 lines to revert ===== -->
+    <div style="text-align:center;margin:0 0 5px"><button id="strictBtn" class="ff-toggle" onclick="toggleStrictSect()"></button></div>
+    <div id="strictNote" class="sect-note"></div>
+    <div class="progress-label"><span id="deckCount"></span><span id="deckLoved"></span></div>
+    <div class="card-stage"><div id="cardHost"></div></div>
+    <div id="tagStrip" class="tag-strip"></div>
+    <div class="tinder-actions">
+      <button class="tbtn t-undo" id="undoBtn" onclick="undoLast()" title="Undo">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 14L4 9l5-5"/><path d="M4 9h10a6 6 0 0 1 0 12H9"/></svg></button>
+      <button class="tbtn t-skip" onclick="animateSwipe('skip')" title="Skip">
+        <svg viewBox="0 0 24 24" width="25" height="25" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+      <button class="tbtn t-like" onclick="animateSwipe('like')" title="Like">
+        <svg viewBox="0 0 24 24" width="25" height="25" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
+      <button class="tbtn t-love" onclick="animateSwipe('love')" title="Love">
+        <svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
+    </div>
+    <div class="deck-hint">Drag right to like, left to skip, up to love. The red heart counts double.</div>
+    <div class="focus-hint">Tap <b>Highlight the piece</b> on any photo to frame the item that's actually for sale.</div>
+    <div class="done-row"><button id="doneBtn" class="btn small hidden" onclick="finishDeck()">Done — show my results ✓</button></div>
+  </div>
+
+  <div id="results" class="hidden"></div>
+</div>
+
+<div id="gearBtn" class="gear-fab hidden" onclick="openSettings()" title="Profile">
+  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><line x1="2.5" y1="6" x2="21.5" y2="6"/><path d="M5.5 21 L7 6 M18.5 21 L17 6"/><path d="M4 21 H7 M17 21 H20"/><path d="M9.2 6.2 L8 11 H11 L9.8 6.2"/><path d="M15.2 6.2 L14 11 H17 L15.8 6.2"/></svg>
+  <span>Profile</span>
+</div>
+<div id="cartFab" class="cart-fab hidden" onclick="openCart('cart')" title="Cart — super-liked & added items">
+  <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8a3 3 0 0 1 6 0"/></svg>
+  <span id="cartFabN">0</span></div>
+<div id="likeFab" class="cart-fab heart hidden" onclick="openCart('likes')" title="Liked items">
+  <svg viewBox="0 0 24 24" width="19" height="19" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+  <span id="likeFabN">0</span></div>
+<div id="cartOverlay" class="cart-overlay hidden"></div>
+
+
+<!-- ===== UPGRADE 1: evaluation harness (dev only) — delete this block to revert ===== -->
+<button id="evFab" class="ev-fab hidden" onclick="evalOpen()">Algorithm test</button>
+<div id="evOverlay" class="ev-overlay hidden">
+  <div class="ev-panel">
+    <button class="ev-x" onclick="evalClose()">&times;</button>
+    <h2>Algorithm test<span class="ev-badge">dev only</span></h2>
+    <p class="ev-sub">Hides the last fifth of a swipe session, rebuilds the taste model from the rest, then
+      checks whether the pieces you actually liked come out on top. Gives every change a number instead of a feeling.</p>
+    <div class="ev-row">
+      <button class="btn small" onclick="evalRun('saved')">Test on my saved swipes</button>
+      <button class="btn ghost small" onclick="evalRun('synthetic')">Test on 3 simulated shoppers</button>
+      <button class="btn ghost small" onclick="evalCopy()">Copy results</button>
+    </div>
+    <div id="evResult"></div>
+    <div id="evLog" class="ev-log">Ready.</div>
+    <p class="ev-note"><b>How to read it.</b> <b>AUC</b> is the headline: take one piece you liked and one you
+      skipped, and it's how often the model ranks the liked one higher. 0.50 is a coin flip, 0.70 is decent,
+      0.80+ is strong. <b>P@10</b> is how many of its top 10 picks you actually liked. The two grey rows are
+      deliberately dumb baselines &mdash; if the real algorithm can't beat them, it isn't earning its keep.</p>
+  </div>
+</div>
+<!-- ===== end UPGRADE 1 ===== -->
+
+<div id="resetOverlay" class="modal-overlay hidden">
+  <div class="modal-card">
+    <h3>Start over?</h3>
+    <p>This wipes the profile for <b id="resetWho">you</b> and takes you back to the very first setup screen:</p>
+    <ul>
+      <li>Every swipe &mdash; and the algorithm it learned</li>
+      <li>Your liked items and your cart</li>
+      <li>Your inspiration board, colours and vibes</li>
+      <li>Your sizes, gender, categories, occasion and budget</li>
+    </ul>
+    <p style="margin-bottom:18px"><b>This can't be undone.</b> You'll stay signed in &mdash; only the style profile is cleared.</p>
+    <div class="modal-actions">
+      <button class="btn ghost small" onclick="closeReset()">Cancel</button>
+      <button class="btn small danger" onclick="doReset()">Yes, clear everything</button>
+    </div>
+  </div>
+</div>
+
+<div id="toast" class="toast hidden"></div>
+
+<script>

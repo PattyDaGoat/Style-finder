@@ -10,7 +10,7 @@ const chk=(n,c,e)=>(c?ok:bad).push(n+(e?' :: '+e:''));
 async function settle(p){await p.waitForLoadState('load').catch(()=>{});await p.waitForFunction("typeof storeKey==='function'",null,{timeout:30000});await p.waitForTimeout(400);}
 
 (async()=>{
- const b=await chromium.launch({executablePath:'/opt/pw-browsers/chromium'});
+ const b=await chromium.launch(process.env.PW_CHROMIUM ? { executablePath: process.env.PW_CHROMIUM } : {});
  const c=await b.newContext({viewport:{width:1150,height:1000}});
  const p=await c.newPage();
  const errs=[];

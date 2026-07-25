@@ -9,7 +9,7 @@ const ok=[],bad=[];
 const chk=(n,c,e)=>(c?ok:bad).push(n+(e?' :: '+e:''));
 async function settle(p){await p.waitForLoadState('load').catch(()=>{});await p.waitForFunction("typeof storeKey==='function'");await p.waitForTimeout(400);}
 (async()=>{
- const b=await chromium.launch({executablePath:'/opt/pw-browsers/chromium'});
+ const b=await chromium.launch(process.env.PW_CHROMIUM ? { executablePath: process.env.PW_CHROMIUM } : {});
  const p=await (await b.newContext({viewport:{width:1150,height:1050}})).newPage();
  const errs=[]; p.on('pageerror',e=>errs.push('PAGEERROR: '+e.message));
  p.on('console',m=>{if(m.type()==='error'&&!/net::|Failed to load|gsi\/client|ERR_/.test(m.text()))errs.push('CONSOLE: '+m.text());});

@@ -167,9 +167,10 @@ https://i.pinimg.com/564x/....jpg"></textarea>
     </div>
     <div style="text-align:center;margin:-6px 0 10px"><button class="inspo-link" onclick="openInspo()">✦ Add inspiration (Pinterest or photos)</button></div>
     <div style="text-align:center;margin:0 0 12px"><button id="noFastBtn" class="ff-toggle" onclick="toggleNoFast()"></button></div>
-    <!-- ===== SECTIONING: strict toggle — delete these 2 lines to revert ===== -->
-    <div style="text-align:center;margin:0 0 5px"><button id="strictBtn" class="ff-toggle" onclick="toggleStrictSect()"></button></div>
-    <div id="strictNote" class="sect-note"></div>
+    <!-- ===== SECTIONING: the strict-section toggle used to sit here. The
+         behaviour is now always on (STRICT_SECT in 15-sectioning.js); the
+         button and its explainer read as clutter between the filters and the
+         first card, so the UI is gone. ===== -->
     <div class="progress-label"><span id="deckCount"></span><span id="deckLoved"></span></div>
     <div class="card-stage"><div id="cardHost"></div></div>
     <div id="tagStrip" class="tag-strip"></div>

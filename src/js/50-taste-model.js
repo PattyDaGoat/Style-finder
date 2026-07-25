@@ -44,9 +44,10 @@ const FAST_FASHION=new Set(['white fox','oh polly','princess polly','motel rocks
 'sinners attire','aybl','kulani kinis','iam gia','jaded london']);
 function isFastFashion(p){return FAST_FASHION.has((p.b||'').toLowerCase());}
 
-/* the master feed filter: section + budget + categories + occasion + fast-fashion */
+/* the master feed filter: underwear + section + budget + categories + occasion + fast-fashion */
 function passesFilters(i){
   const p=CATALOG[i], st=S.settings||{};
+  if(underwearLock()[i]) return false;          // intimates never reach the deck (15-sectioning.js)
   if(p.g!==GENDER && p.g!=='u') return false;   // unisex pieces show in BOTH sections
   /* hard gate: an item the detector recognises as women's- or men's-only is locked to
      that section, whatever its tag says. This is what stops a mis-tagged dress or a

@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What you save by not buying fast fashion</title>
+<style>
+  .viz-root{
+    color-scheme: light;
+    --surface-1:#ffffff;
+    --plane:#f9f9f7;
+    --text-primary:#0b0b0b;
+    --text-secondary:#52514e;
+    --text-muted:#898781;
+    --grid:#e1e0d9;
+    --baseline:#c3c2b7;
+    --border:rgba(11,11,11,0.10);
+    --series-1:#0e7a48;
+    --series-2:#4a3aa7;
+    --cat-1:#1baf7a;
+    --cat-2:#eb6834;
+    --cat-3:#2a78d6;
+    --good:#006300;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:where(:not([data-theme="light"])) .viz-root{
+      color-scheme: dark;
+      --surface-1:#17211c;
+      --plane:#0d100e;
+      --text-primary:#ffffff;
+      --text-secondary:#c3c2b7;
+      --text-muted:#898781;
+      --grid:#2c322e;
+      --baseline:#38403a;
+      --border:rgba(255,255,255,0.10);
+      --series-1:#1baf7a;
+      --series-2:#9085e9;
+      --cat-1:#1baf7a;
+      --cat-2:#d95926;
+      --cat-3:#3987e5;
+      --good:#0ca30c;
+    }
+  }
+  :root[data-theme="dark"] .viz-root{
+    color-scheme: dark;
+    --surface-1:#17211c;
+    --plane:#0d100e;
+    --text-primary:#ffffff;
+    --text-secondary:#c3c2b7;
+    --text-muted:#898781;
+    --grid:#2c322e;
+    --baseline:#38403a;
+    --border:rgba(255,255,255,0.10);
+    --series-1:#1baf7a;
+    --series-2:#9085e9;
+    --cat-1:#1baf7a;
+    --cat-2:#d95926;
+    --cat-3:#3987e5;
+    --good:#0ca30c;
+  }
+
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{background:var(--plane);}
+  .viz-root{
+    font-family:system-ui,-apple-system,"Segoe UI",sans-serif;
+    background:var(--plane);
+    color:var(--text-primary);
+    min-height:100vh;
+    padding:34px 20px 64px;
+    font-size:15px;
+    line-height:1.55;
+  }
+  .wrap{max-width:1000px;margin:0 auto;}
+
+  .topline{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap;}
+  h1{font-size:31px;line-height:1.15;margin:0 0 8px;letter-spacing:-.4px;font-weight:700;max-width:19em;}
+  .standfirst{color:var(--text-secondary);font-size:16.5px;margin:0 0 4px;max-width:60em;}
+  .themebtn{margin-left:auto;border:1px solid var(--border);background:var(--surface-1);color:var(--text-secondary);
+    font-family:inherit;font-size:13px;font-weight:600;padding:8px 14px;border-radius:20px;cursor:pointer;white-space:nowrap;}
+  .themebtn:hover{color:var(--text-primary);}
+
+  .card{background:var(--surface-1);border:1px solid var(--border);border-radius:14px;padding:24px 24px 20px;margin-top:22px;}
+  .card > h2{font-size:19px;margin:0 0 5px;font-weight:700;letter-spacing:-.2px;}
+  .card > .note{color:var(--text-secondary);font-size:14px;margin:0 0 18px;max-width:66em;}
+  .card > .note.tight{margin-bottom:10px;}
+
+  /* KPI tiles */
+  .kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:22px;}
+  @media(max-width:760px){.kpis{grid-template-columns:1fr;}}
+  .kpi{background:var(--surface-1);border:1px solid var(--border);border-radius:14px;padding:20px 22px;}
+  .kpi .lab{font-size:12px;letter-spacing:.09em;text-transform:uppercase;color:var(--text-muted);font-weight:700;}
+  .kpi .val{font-size:36px;font-weight:700;letter-spacing:-1.2px;margin:5px 0 0;line-height:1.05;}
+  .kpi .val .u{font-size:19px;font-weight:600;letter-spacing:-.2px;color:var(--text-secondary);margin-left:3px;}
+  .kpi .eq{color:var(--text-secondary);font-size:13.5px;margin-top:7px;}
+  .kpi .pct{display:inline-block;font-size:12.5px;font-weight:700;color:var(--good);margin-top:8px;}
+
+  /* charts */
+  svg{display:block;width:100%;height:auto;overflow:visible;}
+  .ax{font-size:12px;fill:var(--text-muted);}
+  .rowlab{font-size:13px;fill:var(--text-primary);font-weight:600;}
+  .rowsub{font-size:11.5px;fill:var(--text-muted);}
+  .vallab{font-size:12.5px;fill:var(--text-primary);font-weight:700;font-variant-numeric:tabular-nums;}
+  .paneltitle{font-size:12px;fill:var(--text-muted);font-weight:700;letter-spacing:.07em;text-transform:uppercase;}
+  .gridline{stroke:var(--grid);stroke-width:1;}
+  .baseline{stroke:var(--baseline);stroke-width:1;}
+  .mark{cursor:default;}
+  .mark:hover{opacity:.82;}
+
+  .legend{display:flex;gap:18px;flex-wrap:wrap;margin:14px 0 2px;}
+  .legend .li{display:inline-flex;align-items:center;gap:7px;font-size:13.5px;color:var(--text-secondary);}
+  .legend .sw{width:11px;height:11px;border-radius:3px;flex:0 0 auto;}
+  .legend b{color:var(--text-primary);font-weight:700;}
+
+  /* tooltip */
+  #tip{position:fixed;z-index:99;pointer-events:none;opacity:0;transition:opacity .1s;
+    background:var(--text-primary);color:var(--surface-1);font-size:12.5px;font-weight:600;
+    padding:8px 11px;border-radius:8px;max-width:250px;line-height:1.4;box-shadow:0 4px 14px rgba(0,0,0,.22);}
+  #tip .t2{opacity:.75;font-weight:500;display:block;margin-top:2px;}
+
+  /* stats strip */
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);
+    border:1px solid var(--border);border-radius:14px;overflow:hidden;margin-top:22px;}
+  @media(max-width:860px){.stats{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:540px){.stats{grid-template-columns:1fr;}}
+  .stat{background:var(--surface-1);padding:20px;}
+  .stat .n{font-size:29px;font-weight:700;letter-spacing:-.8px;line-height:1.1;}
+  .stat .t{font-size:14px;color:var(--text-secondary);margin-top:5px;}
+  .stat .s{font-size:11.5px;color:var(--text-muted);margin-top:7px;}
+
+  /* table */
+  .tblbtn{border:1px solid var(--border);background:var(--surface-1);color:var(--text-secondary);
+    font-family:inherit;font-size:13px;font-weight:600;padding:7px 14px;border-radius:20px;cursor:pointer;}
+  .tblbtn:hover{color:var(--text-primary);}
+  table{border-collapse:collapse;width:100%;font-size:13.5px;margin-top:14px;}
+  caption{text-align:left;font-size:12px;letter-spacing:.07em;text-transform:uppercase;color:var(--text-muted);
+    font-weight:700;padding-bottom:8px;}
+  th,td{text-align:right;padding:8px 10px;border-bottom:1px solid var(--grid);font-variant-numeric:tabular-nums;}
+  th:first-child,td:first-child{text-align:left;font-variant-numeric:normal;}
+  thead th{color:var(--text-muted);font-weight:700;font-size:12px;letter-spacing:.04em;text-transform:uppercase;}
+  tbody tr:last-child td{border-bottom:none;}
+  .hidden{display:none;}
+
+  .method{color:var(--text-secondary);font-size:13.5px;}
+  .method h3{font-size:14.5px;color:var(--text-primary);margin:20px 0 6px;font-weight:700;}
+  .method h3:first-child{margin-top:0;}
+  .method p{margin:0 0 10px;max-width:70em;}
+  .method ul{margin:0 0 10px;padding-left:20px;}
+  .method li{margin-bottom:5px;}
+  .method a{color:var(--series-1);}
+  .method code{background:var(--plane);padding:1px 5px;border-radius:4px;font-size:12.5px;}
+  .caveat{border-left:3px solid var(--cat-2);padding:2px 0 2px 14px;margin:16px 0;}
+  /* narrow screens: keep chart text legible and scroll the plot instead of shrinking it */
+  .scrollx{overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;}
+  .scrollx::-webkit-scrollbar{height:7px;}
+  .scrollx::-webkit-scrollbar-thumb{background:var(--baseline);border-radius:4px;}
+  .swipehint{display:none;font-size:11.5px;color:var(--text-muted);margin-top:8px;}
+  @media(max-width:880px){
+    .scrollx svg{min-width:700px;}
+    .scrollx table{min-width:560px;}
+    .swipehint{display:block;}
+    h1{font-size:26px;}
+    .kpi .val{font-size:32px;}
+  }
+</style>
+</head>
+<body>
+<div class="viz-root" data-palette="#0e7a48,#4a3aa7">
+<div class="wrap">
+
+  <div class="topline">
+    <div style="flex:1 1 540px;min-width:0">
+      <h1>What one person saves by not buying fast fashion</h1>
+      <p class="standfirst">The average American buys <b>53 new garments a year</b>. Here is what that costs in water, carbon
+      and textile waste &mdash; and what changes if you buy 14 good pieces instead.</p>
+    </div>
+    <button class="themebtn" onclick="toggleTheme()" id="themebtn">Dark mode</button>
+  </div>
+
+  <div class="kpis" id="kpis"></div>
+
+  <div class="card">
+    <h2>One person's clothing footprint, per year</h2>
+    <p class="note">Same shopping mix each time &mdash; just fewer items. Three separate scales, because litres, kilograms of
+    CO₂e and kilograms of cloth cannot share an axis.</p>
+    <div class="scrollx"><div id="chart1"></div></div>
+    <div class="swipehint">Scroll the chart sideways to see all three panels →</div>
+  </div>
+
+  <div class="card">
+    <h2>The real lever isn't price &mdash; it's how many times you wear it</h2>
+    <p class="note tight">A garment's footprint is paid once, at manufacture. Every extra wear divides that same cost by a
+    bigger number. Wear a t&#8209;shirt 100 times instead of 5 and its water cost per wear drops 20&#8209;fold &mdash; the
+    garment didn't change, the habit did.</p>
+    <div class="legend" id="legend2"></div>
+    <div class="scrollx"><div id="chart2"></div></div>
+    <div class="swipehint">Scroll the chart sideways →</div>
+  </div>
+
+  <div class="card">
+    <h2>Where America's textiles actually end up</h2>
+    <p class="note tight">17 million tons of clothing, footwear and household textiles entered the US waste stream in 2018.
+    Two&#8209;thirds went straight into the ground.</p>
+    <div class="scrollx"><div id="chart3"></div></div>
+    <div class="legend" id="legend3"></div>
+  </div>
+
+  <div class="stats" id="stats"></div>
+
+  <div class="card">
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap">
+      <h2 style="margin:0">The numbers behind the charts</h2>
+      <button class="tblbtn" onclick="toggleTable()" id="tblbtn">Show data tables</button>
+    </div>
+    <div id="tables" class="hidden scrollx"></div>
+  </div>
+
+  <div class="card method">
+    <h3>How these numbers were built</h3>
+    <p>Three published anchors do the work, so you can check every figure yourself.</p>
+    <ul>
+      <li><b>Carbon.</b> The European Parliament reports that EU textile purchases produced <b>355&nbsp;kg of CO₂e per person</b>
+      from <b>19&nbsp;kg of textiles</b> bought in 2022. Divide one by the other and you get <code>18.7 kg CO₂e per kg of cloth</code>
+      &mdash; an intensity you can apply to any garment once you know roughly what it weighs. Shoes are the exception: they use
+      MIT's direct measurement of <b>13.6&nbsp;kg CO₂e per pair</b> of running shoes, because a sneaker is mostly synthetic
+      sole rather than fabric.</li>
+      <li><b>Water.</b> Per&#8209;garment total water footprints: <b>2,700&nbsp;litres</b> for a cotton t&#8209;shirt
+      (European Parliament, using Water Footprint Network method) and about <b>7,570&nbsp;litres</b> for a pair of jeans
+      (UNEP's "around 2,000 gallons"). Other categories sit between those two anchors, scaled by weight and fabric.</li>
+      <li><b>The basket.</b> 53 items split into a realistic year: 20 tops, 8 shirts, 7 pairs of trousers, 6 knits,
+      3 jackets, 5 pairs of shoes, 4 accessories. Buying less scales that same mix down, so the comparison changes one
+      variable only.</li>
+    </ul>
+
+    <div class="caveat">
+      <b>Read the water numbers carefully.</b> That 2,700&nbsp;litres is a <i>total</i> water footprint: it counts the
+      rain that fell on the cotton field, not just water pumped out of a river. Rain would have fallen anyway, so
+      "saving" it isn't the same as leaving water in a reservoir. It is the standard way the figure is published and it
+      is genuinely useful for scale &mdash; but a litre here and a litre from your tap are not the same thing. The carbon
+      and textile&#8209;mass numbers have no such asterisk.
+    </div>
+
+    <div class="caveat">
+      <b>And one honest limit on the whole exercise.</b> Not buying a garment doesn't unmake it &mdash; the shirt on the rack
+      already has its footprint spent. What these figures estimate is the demand you stop adding to, which is how
+      manufacturing volume eventually falls. It is a real effect, but an indirect and delayed one, and it only holds if
+      you don't simply buy something equally costly instead.
+    </div>
+
+    <h3>Sources</h3>
+    <ul>
+      <li>European Parliament (EPRS) &mdash; <a href="https://www.europarl.europa.eu/topics/en/article/20201208STO93327/fast-fashion-eu-laws-for-sustainable-textile-consumption">The impact of textile production and waste on the environment</a>: per&#8209;person CO₂e, textile kilos, water, the 2,700&nbsp;litre t&#8209;shirt, 1% recycling, 4&ndash;9% destroyed unused</li>
+      <li>UN Environment Programme &mdash; <a href="https://www.unep.org/news-and-stories/story/putting-brakes-fast-fashion">Putting the brakes on fast fashion</a> and <a href="https://www.unep.org/news-and-stories/press-release/unsustainable-fashion-and-textiles-focus-international-day-zero">Unsustainable fashion and textiles</a>: 92&nbsp;Mt of textile waste, 2&ndash;8% of global emissions, 2,000 gallons per pair of jeans, 11% of plastic waste, the garbage&#8209;truck&#8209;per&#8209;second figure</li>
+      <li>Ellen MacArthur Foundation &mdash; <a href="https://www.ellenmacarthurfoundation.org/a-new-textiles-economy">A New Textiles Economy</a>: production doubling to 100&nbsp;bn+ units, 73% landfilled or incinerated, utilisation down 36%, &lt;1% closed&#8209;loop recycling, USD&nbsp;460&nbsp;bn of value thrown away, half of fast fashion discarded inside a year</li>
+      <li>US EPA &mdash; <a href="https://www.epa.gov/facts-and-figures-about-materials-waste-and-recycling/textiles-material-specific-data">Textiles: Material-Specific Data</a> (2018): 17.03&nbsp;Mt generated, 11.3&nbsp;Mt landfilled, 3.22&nbsp;Mt combusted, 2.51&nbsp;Mt recycled, 14.7% recycling rate</li>
+      <li>MIT &mdash; <a href="https://news.mit.edu/2013/footwear-carbon-footprint-0522">Footwear's (carbon) footprint</a>: 30&nbsp;lb CO₂e per pair of running shoes</li>
+      <li>WRAP &mdash; <a href="https://www.wrap.ngo/resources/case-study/extending-product-lifetimes-wraps-work-clothing-durability">Extending product lifetimes</a>: nine extra months of wear cuts carbon, water and waste footprints by up to 20%</li>
+      <li>US EPA &mdash; <a href="https://www.epa.gov/greenvehicles/greenhouse-gas-emissions-typical-passenger-vehicle">Greenhouse gas emissions from a typical passenger vehicle</a>: 400&nbsp;g CO₂ per mile</li>
+      <li>FashionUnited, via <a href="https://pirg.org/articles/fast-fashion-by-the-numbers/">US PIRG</a>: 53 garments bought per American per year</li>
+    </ul>
+  </div>
+</div>
+<div id="tip"></div>
+</div>
+
+<script>
+/* ============================================================ DATA
+   Every figure below is either quoted from a source or derived by the model
+   described in the "How these numbers were built" section. Nothing is typed twice:
+   the charts, tiles and tables all read from here. */
+const D = {
+  intensity: 18.68,                       // kg CO2e per kg textile (355/19, European Parliament)
+  scenarios: [
+    {name:"Average US shopper", sub:"53 new items a year", items:53, water:180990, co2:389.4, mass:21.7},
+    {name:"Half as many",       sub:"27 items",            items:27, water:92202,  co2:198.4, mass:11.1},
+    {name:"Buy better, buy less",sub:"14 items",           items:14, water:47809,  co2:102.9, mass:5.7}
+  ],
+  perWear: {
+    wears:[5,10,25,50,100],
+    series:[
+      {key:"tshirt", label:"Cotton t-shirt", note:"2,700 L to make", v:[540,270,108,54,27]},
+      {key:"jeans",  label:"Pair of jeans",  note:"7,570 L to make", v:[1514,757,303,151,76]}
+    ]
+  },
+  epa: [
+    {name:"Landfilled",        mt:11.30, pct:66.4},
+    {name:"Burned for energy", mt:3.22,  pct:18.9},
+    {name:"Recycled",          mt:2.51,  pct:14.7}
+  ],
+  basket:[
+    {label:"T-shirts & tops",    n:20, mass:3.60, water:54000, co2:67.3},
+    {label:"Shirts",             n:8,  mass:2.00, water:20000, co2:37.4},
+    {label:"Jeans & trousers",   n:7,  mass:4.90, water:52990, co2:91.6},
+    {label:"Knitwear & sweats",  n:6,  mass:3.30, water:18000, co2:61.7},
+    {label:"Outerwear",          n:3,  mass:3.00, water:12000, co2:56.1},
+    {label:"Shoes",              n:5,  mass:4.50, water:22000, co2:68.0},
+    {label:"Caps & accessories", n:4,  mass:0.40, water:2000,  co2:7.5}
+  ],
+  stats:[
+    {n:"100bn+", t:"garments made a year — roughly double the ~50 billion of 2000, in 15 years.", s:"Ellen MacArthur Foundation"},
+    {n:"92m t",  t:"of textile waste created every year: a garbage truck of clothing landfilled or burned every second.", s:"UN Environment Programme"},
+    {n:"73%",    t:"of all fibre produced for clothing ends up landfilled or incinerated.", s:"Ellen MacArthur Foundation"},
+    {n:"<1%",    t:"of clothing material is recycled back into new clothing. Most “recycling” is downcycling.", s:"Ellen MacArthur Foundation"},
+    {n:"36%",    t:"fewer wears per garment than 15 years ago — we buy more and use each piece less.", s:"Ellen MacArthur Foundation"},
+    {n:"2–8%", t:"of all global greenhouse gas emissions come from making textiles.", s:"UN Environment Programme"}
+  ]
+};
+
+/* ============================================================ helpers */
+const SVGNS="http://www.w3.org/2000/svg";
+function el(t,a){const e=document.createElementNS(SVGNS,t);for(const k in (a||{}))e.setAttribute(k,a[k]);return e;}
+function fmt(n){return n.toLocaleString("en-US");}
+function fmt1(n){return n.toLocaleString("en-US",{minimumFractionDigits:1,maximumFractionDigits:1});}
+
+/* Horizontal bar: square at the baseline, 4px rounded at the data end. */
+function hBarPath(x,y,w,h,r){
+  r=Math.min(r,w,h/2);
+  if(w<=0.5) return `M${x} ${y}h0v${h}h0z`;
+  return `M${x} ${y}h${w-r}a${r} ${r} 0 0 1 ${r} ${r}v${h-2*r}a${r} ${r} 0 0 1 ${-r} ${r}h${-(w-r)}z`;
+}
+/* Vertical column: square at the baseline, 4px rounded at the top. */
+function vBarPath(x,yTop,w,h,r){
+  r=Math.min(r,h,w/2);
+  if(h<=0.5) return `M${x} ${yTop}h${w}v0h${-w}z`;
+  return `M${x} ${yTop+r}a${r} ${r} 0 0 1 ${r} ${-r}h${w-2*r}a${r} ${r} 0 0 1 ${r} ${r}v${h-r}h${-w}z`;
+}
+
+const tip=document.getElementById("tip");
+function bindTip(node,title,sub){
+  node.addEventListener("mousemove",e=>{
+    tip.innerHTML=title+(sub?`<span class="t2">${sub}</span>`:"");
+    tip.style.opacity="1";
+    const pad=14, w=tip.offsetWidth, h=tip.offsetHeight;
+    let x=e.clientX+pad, y=e.clientY-h-pad;
+    if(x+w>innerWidth-8) x=e.clientX-w-pad;
+    if(y<8) y=e.clientY+pad;
+    tip.style.left=x+"px"; tip.style.top=y+"px";
+  });
+  node.addEventListener("mouseleave",()=>{tip.style.opacity="0";});
+}
+
+/* ============================================================ KPI tiles */
+(function kpis(){
+  const a=D.scenarios[0], c=D.scenarios[2];
+  const dW=a.water-c.water, dC=a.co2-c.co2, dM=a.mass-c.mass;
+  const years=Math.round(dW/3/365);          // 3 L/day drinking water
+  const miles=Math.round(dC*1000/400);       // EPA: 400 g CO2 per mile
+  const lb=Math.round(dM*2.2046);
+  const pct=v=>Math.round(100*v)+"% less";
+  const tiles=[
+    {lab:"Water not used",   val:fmt(dW), u:"litres", eq:`About ${fmt(Math.round(dW/1000))} m³ — one person's drinking water for roughly ${years} years`, p:pct(dW/a.water)},
+    {lab:"Carbon not emitted",val:fmt(Math.round(dC)),      u:"kg CO₂e", eq:`The same as driving about ${fmt(miles)} miles`, p:pct(dC/a.co2)},
+    {lab:"Cloth not made",   val:fmt1(dM),                  u:"kg", eq:`About ${lb} lb of textile — roughly 39 fewer garments`, p:pct(dM/a.mass)}
+  ];
+  document.getElementById("kpis").innerHTML=tiles.map(t=>`
+    <div class="kpi">
+      <div class="lab">${t.lab}</div>
+      <div class="val">${t.val}<span class="u">${t.u}</span></div>
+      <div class="eq">${t.eq}</div>
+      <span class="pct">↓ ${t.p} a year</span>
+    </div>`).join("");
+})();
+
+/* ============================================================ CHART 1
+   Small multiples: three panels, one per unit. One series per panel -> one hue.
+   Row labels appear once, on the left, and the row order is shared. */
+(function chart1(){
+  const W=980, LAB=168, GAP=26, PANEL=(W-LAB-GAP*2)/3, BARMAX=PANEL-72;
+  const TOP=42, PITCH=62, BH=26, H=TOP+PITCH*3+10;
+  const svg=el("svg",{viewBox:`0 0 ${W} ${H}`,role:"img","aria-label":"Annual clothing footprint per person under three shopping habits"});
+
+  const panels=[
+    {title:"Water", unit:"litres", key:"water", f:v=>fmt(Math.round(v))},
+    {title:"Carbon", unit:"kg CO₂e", key:"co2", f:v=>fmt(Math.round(v))},
+    {title:"Cloth", unit:"kg", key:"mass", f:v=>fmt1(v)}
+  ];
+
+  D.scenarios.forEach((s,i)=>{
+    const y=TOP+PITCH*i;
+    const t=el("text",{x:0,y:y+BH/2-1,class:"rowlab"}); t.textContent=s.name; svg.appendChild(t);
+    const t2=el("text",{x:0,y:y+BH/2+15,class:"rowsub"}); t2.textContent=s.sub; svg.appendChild(t2);
+  });
+
+  panels.forEach((p,pi)=>{
+    const x0=LAB+pi*(PANEL+GAP);
+    const max=Math.max(...D.scenarios.map(s=>s[p.key]));
+    const pt=el("text",{x:x0,y:16,class:"paneltitle"}); pt.textContent=p.title; svg.appendChild(pt);
+    const pu=el("text",{x:x0,y:31,class:"ax"}); pu.textContent=p.unit; svg.appendChild(pu);
+    svg.appendChild(el("line",{x1:x0-0.5,y1:TOP-6,x2:x0-0.5,y2:TOP+PITCH*3-PITCH+BH+6,class:"baseline"}));
+
+    D.scenarios.forEach((s,i)=>{
+      const y=TOP+PITCH*i, v=s[p.key], w=Math.max(2,(v/max)*BARMAX);
+      const bar=el("path",{d:hBarPath(x0,y,w,BH,4),fill:"var(--series-1)",class:"mark"});
+      bindTip(bar,`${s.name} — ${p.f(v)} ${p.unit}`,`${s.items} new items a year`);
+      svg.appendChild(bar);
+      const vl=el("text",{x:x0+w+9,y:y+BH/2+4.5,class:"vallab"}); vl.textContent=p.f(v); svg.appendChild(vl);
+    });
+  });
+  document.getElementById("chart1").appendChild(svg);
+})();
+
+/* ============================================================ CHART 2
+   Grouped columns, 2 series -> categorical. Legend always present; endpoint
+   groups direct-labelled, the rest carried by the axis and the tooltip. */
+(function chart2(){
+  const W=980, L=64, R=16, T=26, B=54;
+  const H=352, PH=H-T-B, PW=W-L-R;
+  const wears=D.perWear.wears, ser=D.perWear.series;
+  const max=1600, ticks=[0,400,800,1200,1600];
+  const svg=el("svg",{viewBox:`0 0 ${W} ${H}`,role:"img","aria-label":"Litres of water per wear, by number of times a garment is worn"});
+  const y=v=>T+PH-(v/max)*PH;
+
+  ticks.forEach(t=>{
+    svg.appendChild(el("line",{x1:L,y1:y(t),x2:L+PW,y2:y(t),class:t===0?"baseline":"gridline"}));
+    const lb=el("text",{x:L-11,y:y(t)+4,class:"ax","text-anchor":"end"}); lb.textContent=fmt(t); svg.appendChild(lb);
+  });
+  const ylab=el("text",{x:L-11,y:T-10,class:"ax","text-anchor":"end"}); ylab.textContent="L / wear"; svg.appendChild(ylab);
+
+  const gw=PW/wears.length, BW=38, GAPBAR=2, groupW=BW*2+GAPBAR;
+  wears.forEach((w,i)=>{
+    const cx=L+gw*i+gw/2, gx=cx-groupW/2;
+    ser.forEach((s,si)=>{
+      const v=s.v[i], h=Math.max(1.5,(v/max)*PH), bx=gx+si*(BW+GAPBAR);
+      const bar=el("path",{d:vBarPath(bx,y(v),BW,h,4),fill:`var(--series-${si+1})`,class:"mark"});
+      bindTip(bar,`${s.label}: ${fmt(v)} L per wear`,`Worn ${w} times · ${s.note}`);
+      svg.appendChild(bar);
+      if(i===0||i===wears.length-1){
+        const vl=el("text",{x:bx+BW/2,y:y(v)-8,class:"vallab","text-anchor":"middle"});
+        vl.textContent=fmt(v); svg.appendChild(vl);
+      }
+    });
+    const xl=el("text",{x:cx,y:T+PH+22,class:"ax","text-anchor":"middle"}); xl.textContent=w; svg.appendChild(xl);
+  });
+  const xt=el("text",{x:L+PW/2,y:T+PH+44,class:"ax","text-anchor":"middle"});
+  xt.textContent="number of times the garment is worn"; svg.appendChild(xt);
+
+  document.getElementById("legend2").innerHTML=ser.map((s,i)=>
+    `<span class="li"><span class="sw" style="background:var(--series-${i+1})"></span><b>${s.label}</b> · ${s.note}</span>`).join("");
+  document.getElementById("chart2").appendChild(svg);
+})();
+
+/* ============================================================ CHART 3
+   Part-to-whole: one stacked bar, 2px surface gaps between segments.
+   Values live in the legend and the table, in text tokens — never in the fill. */
+(function chart3(){
+  const W=980, H=104, L=0, BH=44, TOP=18, GAPSEG=2;
+  const total=D.epa.reduce((a,b)=>a+b.mt,0);
+  const svg=el("svg",{viewBox:`0 0 ${W} ${H}`,role:"img","aria-label":"How US textile waste was handled in 2018"});
+  let x=L;
+  D.epa.forEach((d,i)=>{
+    const w=(d.mt/total)*(W-GAPSEG*(D.epa.length-1));
+    const first=i===0, last=i===D.epa.length-1;
+    let path;
+    if(first&&last)      path=hBarPath(x,TOP,w,BH,4);
+    else if(first)       path=`M${x+4} ${TOP}h${w-4}v${BH}h${-(w-4)}a4 4 0 0 1 -4 -4v${-(BH-8)}a4 4 0 0 1 4 -4z`;
+    else if(last)        path=hBarPath(x,TOP,w,BH,4);
+    else                 path=`M${x} ${TOP}h${w}v${BH}h${-w}z`;
+    const seg=el("path",{d:path,fill:`var(--cat-${i+1})`,class:"mark"});
+    bindTip(seg,`${d.name}: ${fmt1(d.mt)} million tons`,`${d.pct}% of the 17.03 Mt total`);
+    svg.appendChild(seg);
+    x+=w+GAPSEG;
+  });
+  const cap=el("text",{x:0,y:TOP+BH+26,class:"ax"});
+  cap.textContent="17.03 million tons of textiles in US municipal solid waste, 2018 (EPA)";
+  svg.appendChild(cap);
+  document.getElementById("chart3").appendChild(svg);
+  document.getElementById("legend3").innerHTML=D.epa.map((d,i)=>
+    `<span class="li"><span class="sw" style="background:var(--cat-${i+1})"></span><b>${d.name}</b> · ${fmt1(d.mt)} Mt · ${d.pct}%</span>`).join("");
+})();
+
+/* ============================================================ stats strip */
+document.getElementById("stats").innerHTML=D.stats.map(s=>
+  `<div class="stat"><div class="n">${s.n}</div><div class="t">${s.t}</div><div class="s">${s.s}</div></div>`).join("");
+
+/* ============================================================ table view */
+function toggleTable(){
+  const t=document.getElementById("tables"), b=document.getElementById("tblbtn");
+  const open=t.classList.toggle("hidden");
+  b.textContent=open?"Show data tables":"Hide data tables";
+}
+(function tables(){
+  const s=`<table><caption>Annual footprint per person, by shopping habit</caption>
+    <thead><tr><th>Habit</th><th>New items</th><th>Water (L)</th><th>Carbon (kg CO₂e)</th><th>Cloth (kg)</th></tr></thead><tbody>
+    ${D.scenarios.map(x=>`<tr><td>${x.name}</td><td>${x.items}</td><td>${fmt(x.water)}</td><td>${fmt1(x.co2)}</td><td>${fmt1(x.mass)}</td></tr>`).join("")}
+    </tbody></table>`;
+  const pw=`<table><caption>Litres of water per wear</caption>
+    <thead><tr><th>Times worn</th>${D.perWear.series.map(x=>`<th>${x.label}</th>`).join("")}</tr></thead><tbody>
+    ${D.perWear.wears.map((w,i)=>`<tr><td>${w}</td>${D.perWear.series.map(x=>`<td>${fmt(x.v[i])}</td>`).join("")}</tr>`).join("")}
+    </tbody></table>`;
+  const e=`<table><caption>US textile waste by destination, 2018 (EPA)</caption>
+    <thead><tr><th>Destination</th><th>Million tons</th><th>Share</th></tr></thead><tbody>
+    ${D.epa.map(x=>`<tr><td>${x.name}</td><td>${fmt1(x.mt)}</td><td>${x.pct}%</td></tr>`).join("")}
+    <tr><td><b>Total</b></td><td><b>17.0</b></td><td><b>100%</b></td></tr></tbody></table>`;
+  const b=`<table><caption>The 53-item basket, in detail</caption>
+    <thead><tr><th>Category</th><th>Items</th><th>Mass (kg)</th><th>Water (L)</th><th>Carbon (kg CO₂e)</th></tr></thead><tbody>
+    ${D.basket.map(x=>`<tr><td>${x.label}</td><td>${x.n}</td><td>${fmt1(x.mass)}</td><td>${fmt(x.water)}</td><td>${fmt1(x.co2)}</td></tr>`).join("")}
+    <tr><td><b>Total</b></td><td><b>53</b></td><td><b>21.7</b></td><td><b>180,990</b></td><td><b>389.4</b></td></tr></tbody></table>`;
+  document.getElementById("tables").innerHTML=s+pw+e+b;
+})();
+
+/* ============================================================ theme */
+function toggleTheme(){
+  const cur=document.documentElement.getAttribute("data-theme");
+  const dark=cur?cur==="dark":matchMedia("(prefers-color-scheme: dark)").matches;
+  document.documentElement.setAttribute("data-theme",dark?"light":"dark");
+  syncThemeBtn();
+}
+function syncThemeBtn(){
+  const cur=document.documentElement.getAttribute("data-theme");
+  const dark=cur?cur==="dark":matchMedia("(prefers-color-scheme: dark)").matches;
+  document.getElementById("themebtn").textContent=dark?"Light mode":"Dark mode";
+}
+syncThemeBtn();
+</script>
+</body>
+</html>

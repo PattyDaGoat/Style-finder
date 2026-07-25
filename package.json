@@ -1,0 +1,17 @@
+{
+  "name": "maison-edit-style-finder",
+  "version": "3.1.0",
+  "private": true,
+  "description": "Swipe-to-discover menswear/womenswear recommender. Modular source, single-file build.",
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs",
+    "check": "node build.mjs --check",
+    "test": "node test/run-all.mjs",
+    "eval": "echo 'open dist/style-finder.html?eval=1 and press Test on 3 simulated shoppers'",
+    "serve": "node -e \"process.stdout.write('serving dist/ on http://localhost:8000\\n')\" && cd dist && python3 -m http.server 8000"
+  },
+  "devDependencies": {
+    "playwright": "^1.40.0"
+  }
+}

@@ -4,6 +4,7 @@ const REPO = dirname(dirname(require('node:fs').realpathSync(__filename)));
 const DIST = join(REPO, 'dist', 'style-finder.html');
 const DIST_URL = 'file://' + DIST;
 require('node:fs').mkdirSync('/tmp/sf-shots', { recursive: true });
+require('node:fs').mkdirSync('/tmp/sf/work', { recursive: true });   /* suite C writes a patched copy here */
 
 const fs=require('fs');
 const ok=[],bad=[];
@@ -11,7 +12,7 @@ const chk=(n,c,e)=>(c?ok:bad).push(n+(e?' :: '+e:''));
 async function settle(p){await p.waitForLoadState('load').catch(()=>{});await p.waitForFunction("typeof storeKey==='function'",null,{timeout:30000});await p.waitForTimeout(500);}
 
 (async()=>{
- const b=await chromium.launch({executablePath:'/opt/pw-browsers/chromium'});
+ const b=await chromium.launch(process.env.PW_CHROMIUM ? { executablePath: process.env.PW_CHROMIUM } : {});
 
  // ---------- A. deck layout: top bar must not collide with the cart buttons ----------
  const c1=await b.newContext({viewport:{width:1100,height:1000}});

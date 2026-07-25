@@ -1,0 +1,30 @@
+  /* ===== end SECTIONING css ===== */
+
+  /* ===== UPGRADE 1: evaluation harness (dev only) — delete this block to revert ===== */
+  .ev-overlay{position:fixed;inset:0;z-index:120;background:rgba(10,30,20,.62);backdrop-filter:blur(2px);
+    display:flex;justify-content:center;align-items:flex-start;padding:26px 14px;overflow:auto;}
+  .ev-overlay.hidden{display:none;}
+  .ev-panel{background:#fff;border-radius:20px;max-width:860px;width:100%;padding:26px 26px 22px;
+    box-shadow:var(--shadow);position:relative;}
+  .ev-panel h2{font-family:var(--display);font-size:25px;margin:0 0 4px;font-weight:600;}
+  .ev-sub{color:var(--ink-soft);font-size:14.5px;margin:0 0 18px;line-height:1.5;}
+  .ev-x{position:absolute;top:14px;right:16px;cursor:pointer;font-size:26px;color:var(--ink-soft);
+    background:none;border:none;line-height:1;}
+  .ev-row{display:flex;gap:9px;flex-wrap:wrap;align-items:center;margin-bottom:14px;}
+  .ev-note{font-size:13px;color:var(--ink-soft);margin:10px 0 0;line-height:1.55;}
+  .ev-log{background:#f4faf6;border:1px solid var(--line);border-radius:12px;padding:12px 14px;
+    font-size:12.5px;color:var(--ink-soft);max-height:150px;overflow:auto;white-space:pre-wrap;
+    font-family:ui-monospace,SFMono-Regular,Menlo,monospace;margin-top:12px;}
+  table.ev{border-collapse:collapse;width:100%;font-size:14px;margin-top:6px;}
+  table.ev th,table.ev td{padding:9px 10px;border-bottom:1px solid var(--line);text-align:right;
+    font-variant-numeric:tabular-nums;}
+  table.ev th:first-child,table.ev td:first-child{text-align:left;font-variant-numeric:normal;}
+  table.ev thead th{font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);}
+  table.ev tr.best td{background:#eefaf3;font-weight:700;}
+  table.ev tr.base td{color:var(--ink-soft);}
+  .ev-badge{display:inline-block;font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;
+    background:var(--mint);color:var(--green-2);padding:3px 9px;border-radius:20px;margin-left:7px;}
+  .ev-fab{position:fixed;bottom:18px;right:18px;z-index:55;background:var(--ink);color:#fff;border:none;
+    font-family:inherit;font-size:13px;font-weight:700;padding:10px 15px;border-radius:30px;cursor:pointer;
+    box-shadow:var(--shadow-sm);}
+  .ev-fab.hidden{display:none;}

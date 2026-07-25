@@ -1,0 +1,62 @@
+  /* settings */
+  .settings-panel{max-width:520px;margin:8px auto 0;padding:30px 28px;}
+  .set-eyebrow{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--green);font-weight:700;}
+  .set-h{font-family:var(--display);font-size:32px;font-weight:600;color:var(--ink);margin:2px 0 22px;letter-spacing:-.2px;line-height:1.1;}
+  .disp-label{font-family:var(--sans);font-size:15px;font-weight:700;color:var(--ink);letter-spacing:.4px;text-transform:uppercase;}
+  .disp-sub{font-family:var(--sans);font-size:13px;color:var(--ink-soft);margin:3px 0 11px;}
+  /* plain bold text, not a chip — the pill styling read as a tappable button */
+  .optional-tag{font-weight:700;color:inherit;}
+  .selectall-btn{font-family:var(--sans);font-size:11.5px;font-weight:700;letter-spacing:.3px;text-transform:none;color:var(--green-2);background:var(--mint);border:1.5px solid var(--green);border-radius:20px;padding:3px 11px;margin-left:9px;cursor:pointer;vertical-align:middle;transition:.12s;}
+  .selectall-btn:hover{background:var(--mint-2);}
+  .selectall-btn.on{background:var(--green);color:#fff;border-color:var(--green);}
+  .set-group{margin-bottom:20px;}
+  .set-row{display:flex;gap:16px;}.set-row .set-group{flex:1;}
+  .set-label{font-size:12px;letter-spacing:1.4px;text-transform:uppercase;color:var(--ink-soft);font-weight:700;margin-bottom:9px;}
+  .seg{display:flex;border:1.5px solid var(--line);border-radius:12px;overflow:hidden;}
+  .seg-btn{flex:1;border:none;background:#fff;padding:14px;font-size:16px;font-weight:600;color:var(--ink-soft);cursor:pointer;font-family:inherit;transition:.12s;}
+  .seg-btn+.seg-btn{border-left:1.5px solid var(--line);}
+  .seg-btn.on{background:var(--green);color:#fff;}
+  .size-chips{display:flex;flex-wrap:wrap;gap:8px;}
+  .size-chip{min-width:52px;border:1.5px solid var(--line);background:#fff;border-radius:10px;padding:10px 8px;font-size:15px;font-weight:600;color:var(--ink);cursor:pointer;font-family:inherit;transition:.12s;}
+  .size-chip:hover{border-color:var(--green);}
+  .size-chip.on{background:var(--ink);color:#fff;border-color:var(--ink);}
+  .set-input{width:100%;border:1.5px solid var(--line);border-radius:10px;padding:12px 13px;font-size:15px;font-family:inherit;color:var(--ink);}
+  .set-input:focus{outline:none;border-color:var(--green);}
+  .setchips{justify-content:flex-start;gap:9px;margin-top:4px;}
+  .setchips .chip{font-size:15px;padding:9px 17px;border-radius:24px;}
+  .settings-panel{padding:34px 30px;}
+  .settings-panel .set-group{margin-bottom:24px;}
+  .set-start{width:100%;margin-top:6px;padding:15px;font-size:16px;border-radius:12px;}
+  .set-note{text-align:center;font-size:13px;color:var(--ink-soft);margin-top:12px;}
+  .gear-fab{position:fixed;bottom:18px;left:18px;z-index:50;background:#fff;color:var(--ink);border:1px solid var(--line);padding:9px 15px;border-radius:40px;box-shadow:var(--shadow-sm);cursor:pointer;display:flex;align-items:center;gap:7px;font-size:14px;font-weight:600;font-family:inherit;transition:background .12s;}
+  .gear-fab:hover{background:#f1f9f4;}
+  .gear-fab.hidden{display:none;}
+  .ff-toggle{border:1.5px solid var(--line);background:#fff;color:var(--ink-soft);padding:7px 15px;border-radius:30px;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;transition:.12s;display:inline-flex;align-items:center;gap:6px;letter-spacing:.2px;}
+  .ff-toggle:hover{border-color:var(--green);}
+  .ff-toggle.on{background:var(--green);border-color:var(--green);color:#fff;}
+  .deck-genderbar{display:flex;justify-content:center;margin:0 0 16px;}
+  .deck-genderbar .gtoggle{border:1.5px solid var(--line);background:#fff;padding:9px 22px;font-size:14px;font-weight:600;color:var(--ink-soft);cursor:pointer;font-family:inherit;transition:.12s;letter-spacing:.3px;}
+  .deck-genderbar .gtoggle:first-child{border-radius:30px 0 0 30px;}
+  .deck-genderbar .gtoggle:last-child{border-radius:0 30px 30px 0;border-left:none;}
+  .deck-genderbar .gtoggle.on{background:var(--ink);color:#fff;border-color:var(--ink);}
+  .inspo-link{background:none;border:none;color:var(--green-2);font-weight:700;font-size:14px;cursor:pointer;font-family:inherit;text-decoration:underline;text-underline-offset:3px;}
+  .inspo-link:hover{color:var(--green);}
+  .pin-row{display:flex;gap:8px;align-items:stretch;margin-top:6px;}
+  .pin-input{flex:1;min-width:0;border:1px solid var(--line);border-radius:11px;padding:12px 13px;font-size:14px;font-family:inherit;color:var(--ink);background:#fff;}
+  .pin-input:focus{outline:none;border-color:var(--green);}
+  .pin-row .btn{white-space:nowrap;}
+  .pin-textarea{width:100%;box-sizing:border-box;min-height:70px;resize:vertical;border:1px solid var(--line);border-radius:11px;padding:11px 13px;font-size:13px;font-family:inherit;color:var(--ink);background:#fff;}
+  .pin-textarea:focus{outline:none;border-color:var(--green);}
+  .dropzone{display:block;border:2px dashed var(--line);border-radius:14px;padding:26px;text-align:center;cursor:pointer;background:#fbfefc;transition:.12s;}
+  .dropzone:hover{border-color:var(--green);background:var(--mint);}
+  .dz-inner b{color:var(--green-2);font-size:17px;}
+  .inspo-thumbs{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px;}
+  .inspo-thumb img{width:70px;height:88px;object-fit:cover;border-radius:10px;border:1px solid var(--line);}
+  .inspo-swatches{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px;}
+  .inspo-sw{display:inline-flex;align-items:center;gap:6px;border:1.5px solid var(--line);background:#fff;border-radius:22px;padding:5px 12px 5px 6px;font-size:13px;font-weight:600;color:var(--ink-soft);cursor:pointer;font-family:inherit;}
+  .inspo-sw i{width:18px;height:18px;border-radius:50%;border:1px solid rgba(0,0,0,.08);}
+  .inspo-sw.on{border-color:var(--green);background:var(--mint);color:var(--green-2);}
+  .cart-fab{display:flex;align-items:center;gap:7px;}
+  @media(max-width:480px){body{font-size:17px;}.tinder-actions{gap:12px;}.tbtn{width:56px;height:56px;}.t-love{width:66px;height:66px;}}
+  /* ===== SECTIONING: strict gender toggle — delete this block to revert ===== */
+  .sect-note{text-align:center;font-size:12px;color:var(--ink-soft);margin:0 auto 12px;max-width:430px;line-height:1.45;}

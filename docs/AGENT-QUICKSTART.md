@@ -12,8 +12,7 @@ You're adding code to an existing project: **Style Finder**, a swipe-to-discover
 recommender app. Other agents may be working on this same repo at the same time. Follow this
 exactly.
 
-**Repo:** `<PASTE THE GITHUB URL HERE (see PUSH-TO-GITHUB.md) — or a local folder path if it
-hasn't been pushed to GitHub yet>`
+**Repo:** `https://github.com/PattyDaGoat/Style-finder`
 
 1. Clone it and read `CONTRIBUTING.md` at the repo root before writing any code. It maps which
    file handles which feature. State which file(s) you're about to touch before you start, so a
@@ -66,10 +65,15 @@ hasn't been pushed to GitHub yet>`
   can review it yourself, or point a second agent at the first agent's PR and ask it to check the
   work.
 
-### Fill in the repo line before you paste this anywhere
+### If the agent can't push
 
-Until `PUSH-TO-GITHUB.md` has been completed, there is no GitHub URL yet — use the local folder
-path instead, but only for an agent that runs *on this computer* (Claude Code in a terminal,
-Cursor, etc.). An agent running somewhere else — including another cloud Cowork session — cannot
-see this computer's disk at all and needs the real GitHub URL to reach the repo. That's the one
-thing worth double-checking before you copy this in.
+Step 6 assumes the agent has some way to push a branch to GitHub. That's automatic for an agent
+running *on this computer* (Claude Code in a terminal, Cursor, etc.) — it can use the same saved
+GitHub login this repo was pushed with. An agent running somewhere else (another cloud session, a
+teammate's machine) needs its own way in: either give it a GitHub personal access token with the
+`repo` scope (see `PUSH-TO-GITHUB.md` for how to make one), or, if you'd rather not hand out a
+token, let it finish the branch locally and have it tell you the exact `git push` command to run
+yourself.
+
+The repo is public, so any agent can clone it and read every file with no token at all — a token
+is only needed for the push in step 6.

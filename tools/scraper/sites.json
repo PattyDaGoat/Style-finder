@@ -9,15 +9,15 @@
     "https://10deep.com/collections/t-shirts-tank-tops"
    ]
   },
-  "entry_cursor": 0,
+  "entry_cursor": 2,
   "gender_source": "prior",
   "health": {
-   "fail": 0,
-   "last": 1784999742.162879,
-   "last_found": 69,
-   "note": "rate-limited (429) \u2014 stopping this shop for now",
+   "fail": 1,
+   "last": 1785013716.812129,
+   "last_found": 0,
+   "note": "no products found on the page; no products found on the page",
    "ok": 2,
-   "status": "ok"
+   "status": "blocked"
   },
   "host": "10deep.com",
   "note": "auto-discovered"
@@ -32,14 +32,14 @@
     "https://18east.co/collections/all"
    ]
   },
-  "entry_cursor": 1,
+  "entry_cursor": 0,
   "gender_source": "prior",
   "health": {
    "fail": 0,
-   "last": 1784999808.866861,
-   "last_found": 32,
+   "last": 1785013804.293205,
+   "last_found": 19,
    "note": "no products found on the page",
-   "ok": 2,
+   "ok": 3,
    "status": "ok"
   },
   "host": "18east.co",
@@ -55,13 +55,13 @@
     "https://www.3sixteen.com/collections/complete-the-fit-tops"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 1,
   "gender_source": "prior",
   "health": {
    "fail": 0,
-   "last": 1784999874.6498141,
-   "last_found": 32,
-   "ok": 1,
+   "last": 1785013886.733291,
+   "last_found": 34,
+   "ok": 2,
    "status": "ok"
   },
   "host": "www.3sixteen.com",
@@ -81,13 +81,13 @@
     "https://www.akindofguise.com/collections/mens-pants"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 4,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1784999955.641855,
+   "last": 1785014011.256594,
    "last_found": 24,
-   "ok": 1,
+   "ok": 2,
    "status": "ok"
   },
   "host": "www.akindofguise.com",
@@ -126,14 +126,14 @@
    ],
    "m": []
   },
-  "entry_cursor": 1,
+  "entry_cursor": 2,
   "gender_source": "prior",
   "health": {
    "fail": 0,
-   "last": 1784999992.349903,
-   "last_found": 33,
+   "last": 1785014062.4058838,
+   "last_found": 46,
    "note": "rate-limited (429) \u2014 stopping this shop for now",
-   "ok": 1,
+   "ok": 2,
    "status": "ok"
   },
   "host": "www.adanola.com",
@@ -176,13 +176,13 @@
     "https://afends.com/collections/mens-tops-tees"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 4,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1785000158.9647622,
-   "last_found": 62,
-   "ok": 1,
+   "last": 1785014234.618732,
+   "last_found": 119,
+   "ok": 2,
    "status": "ok"
   },
   "host": "afends.com",
@@ -198,13 +198,13 @@
    ],
    "m": []
   },
-  "entry_cursor": 2,
+  "entry_cursor": 1,
   "gender_source": "prior",
   "health": {
    "fail": 0,
-   "last": 1785000243.66184,
-   "last_found": 66,
-   "ok": 1,
+   "last": 1785014382.252288,
+   "last_found": 110,
+   "ok": 2,
    "status": "ok"
   },
   "host": "aimn.com",

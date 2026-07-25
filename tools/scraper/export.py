@@ -175,6 +175,12 @@ def shipped(exclude_titles):
 
 def append_to_catalog(rows, dry_run=False):
     """data/catalog.json is `[\\n{...},\\n...\\n{...}\\n]` — one product per line."""
+    # A crawl that finds nothing is normal (every shop rate-limited, or the pool
+    # is already fully exported). Appending zero rows used to write a trailing
+    # comma before the closing bracket, which is invalid JSON — and the next
+    # read of the file blew up. Nothing to add means leave the file alone.
+    if not rows:
+        return 0
     with open(CATALOG_JSON, encoding="utf-8") as fh:
         text = fh.read().rstrip()
     if not text.endswith("]"):
@@ -185,14 +191,21 @@ def append_to_catalog(rows, dry_run=False):
     lines = [json.dumps({k: r[k] for k in APP_FIELDS}, ensure_ascii=False,
                         separators=(",", ":")) for r in rows]
     new_text = body + ",\n" + ",\n".join(lines) + "\n]\n"
+    # Never hand the repo a file that doesn't parse. build.mjs splices this text
+    # in verbatim, so a malformed catalog is a broken app, not a failed build.
+    try:
+        json.loads(new_text)
+    except ValueError as exc:
+        sys.exit("refusing to write malformed catalog: {}".format(exc))
     if dry_run:
-        return
+        return len(rows)
     with open(CATALOG_JSON, "w", encoding="utf-8") as fh:
         fh.write(new_text)
     # the app owns them now — the crawler must not offer them again
     db.conn().executemany("UPDATE products SET in_app = 1 WHERE id = ?",
                           [(r["id"],) for r in rows])
     db.conn().commit()
+    return len(rows)
 
 
 def main():
@@ -230,6 +243,15 @@ def main():
     print("exporting {} rows  (m={} f={} u={}) from {} brands".format(
         len(rows), by_g.get("m", 0), by_g.get("f", 0), by_g.get("u", 0),
         len({r["b"] for r in rows})))
+
+    if not rows:
+        # Not an error. The crawl may have been rate-limited everywhere, or the
+        # pool may already be fully exported. Say so and leave with a clean exit
+        # so an automated run reports "nothing new" rather than failing.
+        print("nothing new to add — catalog left untouched at {} items".format(
+            len(catalog)))
+        return
+
     append_to_catalog(rows, args.dry_run)
     if args.dry_run:
         print("dry run — nothing written")

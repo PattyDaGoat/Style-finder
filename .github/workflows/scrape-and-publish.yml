@@ -92,11 +92,33 @@ jobs:
 
       - name: Crawl
         working-directory: tools/scraper
-        run: python3 browse.py --crawl --shops "${{ github.event.inputs.shops || 15 }}"
+        run: python3 browse.py --crawl --shops "${{ github.event.inputs.shops || 15 }}" --verbose
 
+      # Datacenter IPs get refused far more often than a home connection, so a
+      # run that finishes suspiciously fast usually means the shops blocked us,
+      # not that there was nothing to find. Surface that plainly — a silent
+      # "0 products added" is the confusing outcome.
       - name: Report what the crawl found
         working-directory: tools/scraper
-        run: python3 browse.py --audit || true
+        run: |
+          python3 browse.py --audit || true
+          python3 - <<'PY'
+          import sqlite3, os, json
+          if not os.path.exists('catalog.db'):
+              print('::warning::No crawl pool at all — the crawl step wrote nothing.')
+              raise SystemExit
+          c = sqlite3.connect('catalog.db')
+          n = c.execute("SELECT COUNT(*) FROM products WHERE via IS NOT NULL AND via != 'feed'").fetchone()[0]
+          fresh = c.execute("SELECT COUNT(*) FROM products WHERE in_app = 0 AND via IS NOT NULL AND via != 'feed'").fetchone()[0]
+          print('pool: {} browser-sourced rows, {} not yet exported'.format(n, fresh))
+          reg = json.load(open('sites.json'))
+          blocked = [b for b, s in reg.items() if (s.get('health') or {}).get('status') == 'blocked']
+          print('shops currently marked blocked: {} of {}'.format(len(blocked), len(reg)))
+          if fresh == 0:
+              print('::warning::Crawl produced nothing new. The usual cause is shops '
+                    'refusing GitHub-hosted runners (datacenter IPs). Running the '
+                    'scraper locally normally still works — see tools/scraper/README.md.')
+          PY
 
       - name: Bake the best of it into the catalog
         working-directory: tools/scraper

@@ -215,6 +215,26 @@ def _s(v):
     return ""
 
 
+# A shop's JSON-LD often gives brand as {"@type":"Brand","@id":"https://x.com#organization"}
+# with no name, and _s() will happily hand back that URL. Season codes and stray
+# markup end up there too. None of it is a brand, and a brand string is what the
+# app groups, filters and displays by — so anything that doesn't look like a name
+# is discarded and the shop's own name is used instead.
+def clean_brand(raw, fallback):
+    b = (raw or "").strip().strip('"“”')
+    if not b or len(b) < 2 or len(b) > 60:
+        return fallback
+    if b.lower().startswith(("http", "www.", "/")) or "#" in b or "://" in b:
+        return fallback
+    if not re.search(r"[A-Za-z]{2}", b):            # "SS26", "2607", "—"
+        return fallback
+    if re.fullmatch(r"(ss|aw|fw|pre)\s?\d{2,4}", b, re.I):   # season codes
+        return fallback
+    if re.search(r"[<>{}]|&[a-z]+;", b):            # leaked markup
+        return fallback
+    return b
+
+
 NAME_KEYS = ("name", "title", "productName", "displayName", "product_title")
 PRICE_KEYS = ("price", "listPrice", "salePrice", "currentPrice", "finalPrice",
               "priceValue", "amount", "minPrice", "value", "lowPrice")
@@ -901,8 +921,7 @@ def normalise(raw, site_brand, section, detail=None, brand_prior=None,
 
     desc = (detail.get("desc") or raw.get("desc") or "")[:3000]
     crumbs = detail.get("crumbs") or ""
-    brand = (raw.get("brand") or detail.get("brand") or site_brand or "").strip()
-    brand = brand[:60] or site_brand
+    brand = clean_brand(raw.get("brand") or detail.get("brand"), site_brand)
 
     # taxonomy: the title decides the category, but colour/fabric/micro-style get
     # the whole page, because that is where a shop actually says "washed olive

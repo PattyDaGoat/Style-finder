@@ -1,0 +1,6 @@
+# The crawl pool is a local artifact — tens of MB and machine-specific.
+# What ships is what export.py writes into data/catalog.json.
+catalog.db
+catalog.db-shm
+catalog.db-wal
+harvest.log

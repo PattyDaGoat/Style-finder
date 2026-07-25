@@ -1,0 +1,56 @@
+# Builds the app from source and publishes it to GitHub Pages on every push to main.
+# One-time setup required (see GITHUB-PAGES-PREVIEW.md): make the repo public, then set
+# Settings -> Pages -> Build and deployment -> Source to "GitHub Actions". After that this
+# runs on its own — nobody needs to redeploy by hand.
+#
+# Deliberately rebuilds from src/ + data/ instead of trusting the committed dist/ — so the
+# published preview is correct even if a commit forgot to rebuild first.
+name: Deploy preview to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:   # lets you trigger a redeploy manually from the Actions tab
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Only one deploy runs at a time; a new push waits for the current one instead of racing it.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Build the app from source
+        run: |
+          node build.mjs
+          mkdir -p _site
+          cp dist/style-finder.html _site/index.html
+          cp dist/style-finder.html _site/style-finder.html
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: ./_site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

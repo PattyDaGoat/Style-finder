@@ -17,7 +17,7 @@ async function settle(page) {
 function chk(name, cond, extra) { (cond ? ok : bad).push(name + (extra ? ' :: ' + extra : '')); }
 
 (async () => {
-  const browser = await chromium.launch({ executablePath: '/opt/pw-browsers/chromium' });
+  const browser = await chromium.launch(process.env.PW_CHROMIUM ? { executablePath: process.env.PW_CHROMIUM } : {});
   const ctx = await browser.newContext({ viewport: { width: 1100, height: 900 } });
   const page = await ctx.newPage();
   const errs = [];

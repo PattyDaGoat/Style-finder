@@ -129,19 +129,14 @@ async function settle(p){await p.waitForLoadState('load').catch(()=>{});await p.
  await p.reload({waitUntil:'domcontentloaded'}); await settle(p); await p.waitForTimeout(1400);
  chk('clearing the preference returns to full photo', await p.evaluate("FOCUS_ON===false"));
 
- // ---------- G. the strict toggle in the UI ----------
- chk('strict toggle visible on the deck', await p.isVisible('#strictBtn'));
- chk('strict is ON by default', await p.evaluate("STRICT_SECT===true"));
- chk('toggle explains itself', (await p.textContent('#strictNote')).length>40);
- const before=await p.evaluate("(()=>{let n=0;for(let i=0;i<CATALOG.length;i++)if(passesFilters(i))n++;return n;})()");
- await p.click('#strictBtn'); await p.waitForTimeout(900);
- const after=await p.evaluate("(()=>{let n=0;for(let i=0;i<CATALOG.length;i++)if(passesFilters(i))n++;return n;})()");
- chk('turning strict off widens the deck', after>before, before+' -> '+after);
- chk('label updates when relaxed', (await p.textContent('#strictBtn')).includes('unplaced'));
- await p.click('#strictBtn'); await p.waitForTimeout(900);
- chk('turning it back on narrows the deck again',
-     (await p.evaluate("(()=>{let n=0;for(let i=0;i<CATALOG.length;i++)if(passesFilters(i))n++;return n;})()"))===before);
- chk('deck still renders a card after toggling', (await p.$$('#cardHost .piece-card')).length>0);
+ // ---------- G. strict sectioning is always on, with no toggle to turn it off ----------
+ chk('strict toggle UI is gone from the deck', !(await p.$('#strictBtn')) && !(await p.$('#strictNote')));
+ chk('strict is ON', await p.evaluate("STRICT_SECT===true"));
+ chk('an old saved opt-out cannot resurrect it', await p.evaluate(
+     "(()=>{try{localStorage.setItem('styleDNA_strictSect','0');}catch(_){ } return typeof toggleStrictSect==='undefined';})()"));
+ chk('unplaceable pieces are held back from the deck', await p.evaluate(
+     "(()=>{const l=genderLock();for(let i=0;i<CATALOG.length;i++){if(l[i]===0&&passesFilters(i))return false;}return true;})()"));
+ chk('deck still renders a card', (await p.$$('#cardHost .piece-card')).length>0);
 
  // ---------- H. swipe the real deck: nothing cross-gender ----------
  const sweep=await p.evaluate(()=>{
@@ -155,6 +150,41 @@ async function settle(p){await p.waitForLoadState('load').catch(()=>{});await p.
  chk('swept '+sweep.n+' real menswear cards', sweep.n>=60);
  chk('none were confirmed womenswear', sweep.wrong===0);
  chk('none were unplaceable', sweep.unplaced===0, 'unplaced='+sweep.unplaced);
+
+ // ---------- E. underwear never reaches the deck ----------
+ const uw=await p.evaluate(()=>{
+   const probe=(n,cat)=>{                       // run one name through the same logic
+     const idx=CATALOG.length;                  // scratch row, removed right after
+     CATALOG.push({n:n,cat:cat||'tee',b:'X',g:'m',u:'https://x.com/products/p',img:'a.jpg'});
+     UWEAR=null; const hit=!!underwearLock()[idx];
+     CATALOG.pop(); UWEAR=null; return hit;
+   };
+   const blocked={
+     boxers: probe('Boxer Briefs 3-Pack','short'),
+     bra:    probe('Seamless Bralette'),
+     thong:  probe('Core Thong 6-Pack','short'),
+     lingerie: probe('Lace Lingerie Set')
+   };
+   const exempt={
+     sportsBra: probe('Movement Sports Bra'),
+     swimBrief: probe('Swim Briefs','short'),
+     flipFlops: probe('Freedom Thongs','short'),
+     thongSandal: probe('Earthen Heel Thong','shoe'),
+     boxerShirt: probe('Pop Boxer Overshirt','outer'),
+     bikini: probe('Thong Tie Side Bikini Bottom','short')
+   };
+   // and the live catalog: nothing the lock flags may pass the master filter
+   const lockArr=underwearLock();
+   let leaks=0;
+   for(let i=0;i<CATALOG.length;i++) if(lockArr[i]&&passesFilters(i)) leaks++;
+   return {blocked:blocked, exempt:exempt, leaks:leaks,
+           flagged:lockArr.reduce((a,v)=>a+v,0)};
+ });
+ chk('underwear names are flagged', Object.values(uw.blocked).every(v=>v===true), JSON.stringify(uw.blocked));
+ chk('activewear/swim/sandals/shirts are NOT flagged', Object.values(uw.exempt).every(v=>v===false), JSON.stringify(uw.exempt));
+ chk('catalog has flagged intimates ('+uw.flagged+') and none pass the deck filter', uw.flagged>0 && uw.leaks===0, 'leaks='+uw.leaks);
+ chk('strict-section toggle UI is gone', await p.evaluate("!document.getElementById('strictBtn') && !document.getElementById('strictNote')"));
+ chk('strict sectioning itself is still on', await p.evaluate("STRICT_SECT===true"));
 
  await p.screenshot({path:'/tmp/sf-shots/shot-sect.png'});
  await b.close();

@@ -130,6 +130,11 @@ function bootProfile(){
   const s=load();
   if(s){ if(Array.isArray(s.picks))S.picks=s.picks; if(Array.isArray(s.likes))S.likes=s.likes; if(s.settings)S.settings=s.settings; if(s.byGender)S.byGender=s.byGender; if(s.inspo)S.inspo=s.inspo; if(s.noFast)S.noFast=s.noFast; }
   S.likes=S.likes||[];
+  /* sessions saved before the underwear ban may hold intimates in the cart or
+     the liked list — they'd resurface on every shopping screen. Drop them. */
+  {const _uw=underwearLock();
+   S.picks=(S.picks||[]).filter(i=>!_uw[i]);
+   S.likes=(S.likes||[]).filter(i=>!_uw[i]);}
   S.byGender=S.byGender||{};
   // migrate an older single-settings save into the per-section store
   if(S.settings&&S.settings.gender&&!S.byGender[S.settings.gender]){

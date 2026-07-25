@@ -82,24 +82,14 @@ function gdLean(){
 
 /* Strict mode: a piece appears only in the section it was positively placed in, and
    anything the listing cannot place is held back from BOTH decks — because an
-   unplaced piece is exactly the one whose photo might show the wrong model. On by
-   default; there's a toggle under the deck because it costs real choice. */
+   unplaced piece is exactly the one whose photo might show the wrong model.
+
+   Always on. There used to be a toggle under the deck (and a saved preference);
+   the control read as clutter, and turning it off risks a wrong-gender photo, so
+   the safe setting is now simply the setting. syncStrictBtn stays as a no-op
+   shim because deck rendering calls it on every card. */
 let STRICT_SECT=true;
-(function(){try{if(localStorage.getItem("styleDNA_strictSect")==="0")STRICT_SECT=false;}catch(_){}})();
-function toggleStrictSect(){
-  STRICT_SECT=!STRICT_SECT;
-  try{localStorage.setItem("styleDNA_strictSect",STRICT_SECT?"1":"0");}catch(_){}
-  syncStrictBtn(); startDeck();
-}
-function syncStrictBtn(){
-  const b=document.getElementById("strictBtn"); if(!b)return;
-  b.classList.toggle("on",STRICT_SECT);
-  b.textContent=STRICT_SECT?"✓ Only pieces confirmed for this section":"Also show unplaced unisex pieces";
-  const n=document.getElementById("strictNote");
-  if(n)n.innerHTML=STRICT_SECT
-    ? "Showing only pieces the listing confirms belong here, so no wrong-gender photos get through."
-    : "Also showing pieces the listing doesn't place — more choice, but a few may be photographed on the other gender.";
-}
+function syncStrictBtn(){}
 /* ===== end SECTIONING ===== */
 
 function detectGender(p){ return detectSection(p).g; }
@@ -119,4 +109,29 @@ function genderLock(){
     GLOCK[i]= g==="f" ? 1 : g==="m" ? 2 : 0;
   }
   return GLOCK;
+}
+
+/* ---------- no underwear in the deck ----------
+   Intimates stay in the data (a past swipe on one is still taste signal) but are
+   never dealt, recommended, or restored into a cart. Two regexes because the
+   words need scrubbing first: a sports bra is activewear, swim briefs are
+   swimwear, a "boxer overshirt" is a shirt, and thong sandals are shoes — none
+   of those should vanish. "Thong" needs local knowledge beyond that: on a shoe
+   it's a sandal, next to bikini/swim it's swimwear, and the bare plural is
+   Australian for flip-flops ("Freedom Thongs", Rip Curl). Underwear listings
+   say Thong 3-Pack / seamless / invisible / cotton — those stay hidden. */
+const UW_SCRUB=/\b(sports?\s+bras?|swim\s+briefs?|bikini\s+bottoms?|thong\s+(sandals?|slides?|flip\s*-?\s*flops?)|(leather|heel|suede|toe)\s+thongs?|boxer\s+(overshirts?|shirts?|jackets?|hoodies?|sweat\w*|tees?|tops?|fit)|bras?\s+details?|bra[-\s]friendly|built[-\s]in\s+bras?)\b/gi;
+const UW_RE=/\b(underwear|undies|underpants|boxers?|boxer\s*briefs?|briefs?|jock\s*straps?|y-?fronts?|panty|panties|thongs?|g-?strings?|knickers|lingerie|negligees?|nighties?|nightgowns?|bras?|bralettes?|long\s*johns?)\b/i;
+let UWEAR=null;
+function underwearLock(){
+  if(UWEAR) return UWEAR;
+  UWEAR=new Uint8Array(CATALOG.length);
+  for(let i=0;i<CATALOG.length;i++){
+    const p=CATALOG[i];
+    let n=(p.n||"").replace(UW_SCRUB," ");
+    if(p.cat==="shoe" || /\b(bikini|swim)\b/i.test(p.n||"")) n=n.replace(/\bthongs?\b/gi," ");
+    else if(/\bthongs\b/i.test(n) && !/\b(packs?|multi\w*|seamless|invisible|cotton|underwear)\b/i.test(n)) n=n.replace(/\bthongs\b/gi," ");
+    UWEAR[i]=UW_RE.test(n)?1:0;
+  }
+  return UWEAR;
 }

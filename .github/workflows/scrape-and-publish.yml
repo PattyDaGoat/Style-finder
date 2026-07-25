@@ -1,0 +1,138 @@
+# Runs the headless-browser scraper on GitHub's machines, bakes what it finds into
+# data/catalog.json, and commits — which trips deploy-pages.yml and republishes the
+# site. So the catalog grows without anyone opening a terminal.
+#
+# GitHub Pages cannot do this itself: it is static file hosting, no server, no
+# Python. Actions is the part of GitHub that can actually run something.
+#
+# TRIGGERING: manual by default (Actions tab -> "Scrape new products" -> Run
+# workflow). There is a `schedule:` block below, commented out. Uncomment it to
+# have this run weekly on its own — read the note there first, because an
+# unattended job that commits to main deserves a deliberate decision.
+name: Scrape new products
+
+on:
+  workflow_dispatch:
+    inputs:
+      shops:
+        description: 'How many shops to crawl (each takes ~1-2 min)'
+        required: false
+        default: '15'
+      per_gender:
+        description: 'Products to add per gender'
+        required: false
+        default: '150'
+      dry_run:
+        description: 'Crawl and test, but do not commit'
+        type: boolean
+        required: false
+        default: false
+
+  # Weekly, Sunday 06:00 UTC. Uncomment to enable.
+  #
+  # Before you do: this commits to main unattended. It is gated on `npm test`
+  # passing, so a bad batch cannot publish — the job fails and nothing lands.
+  # But it does spend Actions minutes (~10-15 min a run) and it crawls shops
+  # from GitHub's IP ranges, which some retailers rate-limit harder than a home
+  # connection. Start with a few manual runs and see what you get.
+  #
+  # schedule:
+  #   - cron: '0 6 * * 0'
+
+permissions:
+  contents: write        # needed to commit the new products back
+
+concurrency:
+  group: scrape
+  cancel-in-progress: false
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      # The crawl pool carries which shops answered, where the rotation stopped,
+      # and every product seen so far — so a run picks up where the last one left
+      # off instead of re-crawling the same first pages forever. It is gitignored
+      # (tens of MB), so it lives in the Actions cache between runs.
+      - name: Restore the crawl pool
+        uses: actions/cache@v4
+        with:
+          path: tools/scraper/catalog.db
+          key: crawl-pool-${{ github.run_id }}
+          restore-keys: crawl-pool-
+
+      - name: Install dependencies
+        run: |
+          npm ci
+          python3 -m pip install --upgrade pip
+          python3 -m pip install playwright
+          python3 -m playwright install --with-deps chromium
+          npx playwright install chromium
+
+      # Shops rename collections constantly; this re-reads their real men's and
+      # women's department URLs. HTTP only, no browser, takes seconds.
+      - name: Refresh the shop list
+        working-directory: tools/scraper
+        run: python3 browse.py --discover --from-catalog
+
+      - name: Crawl
+        working-directory: tools/scraper
+        run: python3 browse.py --crawl --shops "${{ github.event.inputs.shops || 15 }}"
+
+      - name: Report what the crawl found
+        working-directory: tools/scraper
+        run: python3 browse.py --audit || true
+
+      - name: Bake the best of it into the catalog
+        working-directory: tools/scraper
+        run: python3 export.py --promote "${{ github.event.inputs.per_gender || 150 }}"
+
+      - name: Rebuild
+        run: node build.mjs
+
+      # The gate. If the new products break anything — a mis-categorised piece in
+      # the wrong deck, non-apparel slipping through, the recommender going
+      # unstable — this fails and nothing is committed.
+      - name: Test
+        run: npm test
+
+      - name: Commit and publish
+        if: ${{ github.event.inputs.dry_run != 'true' }}
+        run: |
+          if git diff --quiet -- data/catalog.json; then
+            echo "No new products this run — nothing to commit."
+            exit 0
+          fi
+          added=$(git diff --numstat -- data/catalog.json | awk '{print $1}')
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/catalog.json dist/style-finder.html tools/scraper/sites.json tools/scraper/stores.json
+          git commit -m "data: +${added} products from an automated crawl
+
+          Found by tools/scraper/browse.py and baked in by export.py.
+          npm test passed before this was committed."
+          git push
+          echo "Pushed ${added} new products — deploy-pages.yml will republish."
+
+      - name: Save the crawl log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: crawl-report
+          path: tools/scraper/sites.json
+          if-no-files-found: ignore

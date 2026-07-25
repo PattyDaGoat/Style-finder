@@ -106,6 +106,24 @@ def log(*a):
     print(*a, flush=True)
 
 
+def notify(title, message, sound="Glass"):
+    """Pop a macOS notification. A crawl runs for half an hour in silence, so it
+    should say when it is done rather than making you watch it. No-op off macOS,
+    and never fatal — a failed alert must not take the crawl down."""
+    if sys.platform != "darwin":
+        return
+    esc = lambda s: str(s).replace("\\", "\\\\").replace('"', '\\"')
+    try:
+        import subprocess
+        subprocess.run(
+            ["osascript", "-e",
+             'display notification "{}" with title "{}" sound name "{}"'.format(
+                 esc(message), esc(title), sound)],
+            timeout=10, capture_output=True)
+    except Exception:
+        pass
+
+
 # ------------------------------------------------------------------- money --
 
 def _to_float(raw):
@@ -1251,14 +1269,21 @@ async def run(args):
         finally:
             await browser.close()
 
+    mins = (time.time() - t0) / 60
     log("\n{} products seen, {} new, in {:.0f}s".format(
         totals["rows"], totals["added"], time.time() - t0))
     log("  gender split of the new rows:  m={}  f={}  u={}".format(
         totals["m"], totals["f"], totals["u"]))
+    ready = totals["added"]
     if not args.dry_run:
         s = db.stats()
         log("  pool now: {} bot rows across {} stores".format(
             s["bot_found"], s["stores"]))
+        log("\n  Next:  python3 export.py --promote 200")
+    if not args.no_notify:
+        notify("Style Finder — crawl finished",
+               "{} new products in {:.0f} min. Ready to export.".format(
+                   ready, mins))
 
 
 # ----------------------------------------------------------------- discover --
@@ -1769,6 +1794,8 @@ def main():
     ap.add_argument("--block-css", action="store_true",
                     help="faster, occasionally breaks a lazy grid")
     ap.add_argument("--headful", action="store_true", help="watch it work")
+    ap.add_argument("--no-notify", action="store_true",
+                    help="don't pop a notification when the crawl finishes")
     ap.add_argument("--dry-run", action="store_true")
     ap.add_argument("--verbose", "-v", action="store_true")
     args = ap.parse_args()

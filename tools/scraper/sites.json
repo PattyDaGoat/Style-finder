@@ -1111,13 +1111,14 @@
    ],
    "m": []
   },
-  "entry_cursor": 2,
+  "entry_cursor": 0,
   "gender_source": "prior",
   "health": {
    "fail": 0,
-   "last": 1785002713.606446,
-   "last_found": 70,
-   "ok": 1,
+   "last": 1785110278.5664556,
+   "last_found": 60,
+   "note": "rate-limited (429) \u2014 stopping this shop for now",
+   "ok": 2,
    "status": "ok"
   },
   "host": "www.beginningboutique.com",

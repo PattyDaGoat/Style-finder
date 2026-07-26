@@ -14,6 +14,11 @@
   "gender_prior": "m",
   "seen": 58
  },
+ "9.0 Swim": {
+  "domain": "www.beginningboutique.com",
+  "gender_prior": "f",
+  "seen": 4
+ },
  "A BATHING APE": {
   "domain": "www.a-ma-maniere.com",
   "gender_prior": "f",
@@ -27,7 +32,7 @@
  "A Kind of Guise": {
   "domain": "akindofguise.com",
   "gender_prior": "m",
-  "seen": 31
+  "seen": 32
  },
  "A Ma Maniere": {
   "domain": "www.a-ma-maniere.com",
@@ -47,7 +52,7 @@
  "AJE": {
   "domain": "ajeworld.com",
   "gender_prior": "f",
-  "seen": 15
+  "seen": 16
  },
  "ALIGNE": {
   "domain": "aligne.co",
@@ -117,7 +122,7 @@
  "Albaray": {
   "domain": "www.albaray.co.uk",
   "gender_prior": "f",
-  "seen": 70
+  "seen": 72
  },
  "Alex Crane": {
   "domain": "alexcrane.co",
@@ -212,7 +217,7 @@
  "Assembly Label": {
   "domain": "assemblylabel.com",
   "gender_prior": "u",
-  "seen": 53
+  "seen": 54
  },
  "Auguste The Label": {
   "domain": "augustethelabel.com",
@@ -242,7 +247,7 @@
  "BB Exclusive": {
   "domain": "www.beginningboutique.com",
   "gender_prior": "f",
-  "seen": 20
+  "seen": 23
  },
  "BBC Ice Cream": {
   "domain": "bbcicecream.com",
@@ -277,7 +282,7 @@
  "Bather": {
   "domain": "bather.com",
   "gender_prior": "m",
-  "seen": 31
+  "seen": 33
  },
  "Battenwear": {
   "domain": "battenwear.com",
@@ -287,7 +292,7 @@
  "Baukjen": {
   "domain": "www.baukjen.com",
   "gender_prior": "f",
-  "seen": 49
+  "seen": 52
  },
  "Baukjen Womenswear": {
   "domain": "www.baukjen.com",
@@ -302,12 +307,12 @@
  "Bearbottom": {
   "domain": "bearbottomclothing.com",
   "gender_prior": "m",
-  "seen": 48
+  "seen": 53
  },
  "Bearbottom Clothing": {
   "domain": "bearbottomclothing.com",
   "gender_prior": "m",
-  "seen": 16
+  "seen": 20
  },
  "Bec + Bridge": {
   "domain": "becandbridge.com.au",
@@ -322,7 +327,7 @@
  "Beckett Simonon": {
   "domain": "www.beckettsimonon.com",
   "gender_prior": "m",
-  "seen": 3
+  "seen": 7
  },
  "Beginning Boutique": {
   "domain": "www.beginningboutique.com",

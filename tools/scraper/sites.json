@@ -951,13 +951,13 @@
     "https://bather.com/collections/apparel"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 1,
   "gender_source": "prior",
   "health": {
    "fail": 0,
-   "last": 1785002364.6161191,
-   "last_found": 67,
-   "ok": 1,
+   "last": 1785100848.9388764,
+   "last_found": 114,
+   "ok": 2,
    "status": "ok"
   },
   "host": "bather.com",
@@ -996,14 +996,14 @@
    ],
    "m": []
   },
-  "entry_cursor": 1,
+  "entry_cursor": 0,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1785002453.71944,
-   "last_found": 30,
+   "last": 1785100933.7073114,
+   "last_found": 32,
    "note": "rate-limited (429) \u2014 stopping this shop for now",
-   "ok": 1,
+   "ok": 2,
    "status": "ok"
   },
   "host": "www.baukjen.com",
@@ -1020,11 +1020,12 @@
   "entry_cursor": 0,
   "gender_source": "collection",
   "health": {
-   "fail": 0,
-   "last": 1785002478.8920069,
-   "last_found": 1,
+   "fail": 1,
+   "last": 1785100969.3429637,
+   "last_found": 0,
+   "note": "no products found on the page",
    "ok": 1,
-   "status": "ok"
+   "status": "blocked"
   },
   "host": "www.beachriot.com",
   "note": "auto-discovered"
@@ -1039,13 +1040,13 @@
     "https://bearbottomclothing.com/collections/all-bottoms"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 1,
   "gender_source": "prior",
   "health": {
    "fail": 0,
-   "last": 1785002573.007669,
-   "last_found": 70,
-   "ok": 1,
+   "last": 1785101141.4896717,
+   "last_found": 100,
+   "ok": 2,
    "status": "ok"
   },
   "host": "bearbottomclothing.com",
@@ -1061,13 +1062,14 @@
    ],
    "m": []
   },
-  "entry_cursor": 2,
+  "entry_cursor": 1,
   "gender_source": "prior",
   "health": {
    "fail": 0,
-   "last": 1785002627.535758,
-   "last_found": 1,
-   "ok": 1,
+   "last": 1785101314.735877,
+   "last_found": 4,
+   "note": "no products found on the page",
+   "ok": 2,
    "status": "ok"
   },
   "host": "becandbridge.com.au",
@@ -1087,7 +1089,15 @@
     "https://beckettsimonon.com/collections/mens-dress-shoes"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "collection-handle",
+  "health": {
+   "fail": 0,
+   "last": 1785101668.7411578,
+   "last_found": 40,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "beckettsimonon.com",
   "note": "found by find_brands.py \u2014 footwear"
  },

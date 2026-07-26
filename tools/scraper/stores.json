@@ -12,7 +12,7 @@
  "3sixteen": {
   "domain": "www.3sixteen.com",
   "gender_prior": "m",
-  "seen": 56
+  "seen": 58
  },
  "A BATHING APE": {
   "domain": "www.a-ma-maniere.com",
@@ -27,7 +27,7 @@
  "A Kind of Guise": {
   "domain": "akindofguise.com",
   "gender_prior": "m",
-  "seen": 28
+  "seen": 31
  },
  "A Ma Maniere": {
   "domain": "www.a-ma-maniere.com",
@@ -62,7 +62,7 @@
  "APC": {
   "domain": "www.apc-us.com",
   "gender_prior": "m",
-  "seen": 11
+  "seen": 12
  },
  "ASICS": {
   "domain": "www.apc-us.com",
@@ -115,14 +115,14 @@
   "seen": 6
  },
  "Albaray": {
-  "domain": "albaray.co.uk",
+  "domain": "www.albaray.co.uk",
   "gender_prior": "f",
-  "seen": 58
+  "seen": 70
  },
  "Alex Crane": {
   "domain": "alexcrane.co",
   "gender_prior": "f",
-  "seen": 46
+  "seen": 47
  },
  "Alex Crane Store": {
   "domain": "alexcrane.co",
@@ -162,7 +162,7 @@
  "Amiri": {
   "domain": "amiri.com",
   "gender_prior": "m",
-  "seen": 15
+  "seen": 16
  },
  "Andie Swim": {
   "domain": "andieswim.com",
@@ -212,12 +212,12 @@
  "Assembly Label": {
   "domain": "assemblylabel.com",
   "gender_prior": "u",
-  "seen": 51
+  "seen": 53
  },
  "Auguste The Label": {
   "domain": "augustethelabel.com",
   "gender_prior": "f",
-  "seen": 42
+  "seen": 44
  },
  "Aviator Nation": {
   "domain": "aviatornation.com",
@@ -247,7 +247,7 @@
  "BBC Ice Cream": {
   "domain": "bbcicecream.com",
   "gender_prior": "m",
-  "seen": 56
+  "seen": 58
  },
  "Bad Birdie": {
   "domain": "badbirdiegolf.com",
@@ -257,7 +257,7 @@
  "Barbell Apparel": {
   "domain": "barbellapparel.com",
   "gender_prior": "m",
-  "seen": 54
+  "seen": 56
  },
  "Barney Cools": {
   "domain": "barneycools.com",
@@ -277,7 +277,7 @@
  "Bather": {
   "domain": "bather.com",
   "gender_prior": "m",
-  "seen": 27
+  "seen": 31
  },
  "Battenwear": {
   "domain": "battenwear.com",
@@ -287,7 +287,12 @@
  "Baukjen": {
   "domain": "www.baukjen.com",
   "gender_prior": "f",
-  "seen": 42
+  "seen": 49
+ },
+ "Baukjen Womenswear": {
+  "domain": "www.baukjen.com",
+  "gender_prior": "f",
+  "seen": 1
  },
  "Beach Riot": {
   "domain": "www.beachriot.com",
@@ -297,12 +302,12 @@
  "Bearbottom": {
   "domain": "bearbottomclothing.com",
   "gender_prior": "m",
-  "seen": 40
+  "seen": 48
  },
  "Bearbottom Clothing": {
   "domain": "bearbottomclothing.com",
   "gender_prior": "m",
-  "seen": 7
+  "seen": 16
  },
  "Bec + Bridge": {
   "domain": "becandbridge.com.au",
@@ -313,6 +318,11 @@
   "domain": "www.becandbridge.com",
   "gender_prior": "f",
   "seen": 1
+ },
+ "Beckett Simonon": {
+  "domain": "www.beckettsimonon.com",
+  "gender_prior": "m",
+  "seen": 3
  },
  "Beginning Boutique": {
   "domain": "www.beginningboutique.com",

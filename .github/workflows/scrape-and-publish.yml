@@ -1,14 +1,29 @@
-# Runs the headless-browser scraper on GitHub's machines, bakes what it finds into
-# data/catalog.json, and commits — which trips deploy-pages.yml and republishes the
-# site. So the catalog grows without anyone opening a terminal.
+# Runs the headless-browser scraper on GitHub's machines every 3 hours, bakes what
+# it finds into data/catalog.json once a day, and republishes the site. So the
+# catalog grows without anyone opening a terminal.
 #
 # GitHub Pages cannot do this itself: it is static file hosting, no server, no
 # Python. Actions is the part of GitHub that can actually run something.
 #
-# TRIGGERING: manual by default (Actions tab -> "Scrape new products" -> Run
-# workflow). There is a `schedule:` block below, commented out. Uncomment it to
-# have this run weekly on its own — read the note there first, because an
-# unattended job that commits to main deserves a deliberate decision.
+# WHY THE CRAWL AND THE PUBLISH RUN AT DIFFERENT RATES
+# ---------------------------------------------------
+# Crawling often is free and good: a deeper, more varied pool to pick from.
+# Publishing often is neither. Every export appends to data/catalog.json, which
+# nothing ever shrinks, and dist/style-finder.html is a single file users
+# download whole. At the old default of 150 per gender, exporting on all eight
+# daily runs would add 2,400 rows a day — catalog.json would cross GitHub's
+# 100 MB push limit in about four months and the app would stop being loadable
+# long before that.
+#
+# So: crawl on all 8 runs, export/commit/publish on one of them (10:37 UTC).
+# That is 30 rows a day, which roughly doubles the catalog over a year.
+#
+# TO PUBLISH ON EVERY RUN INSTEAD, set PUBLISH below to `true` and read the
+# growth note above first — you almost certainly also want a size ceiling.
+#
+# TRIGGERING: every 3 hours, plus manual (Actions tab -> "Scrape new products"
+# -> Run workflow). NOTE: `schedule:` is ignored on every branch except the
+# default one — this cron does nothing until it is merged to main.
 name: Scrape new products
 
 on:
@@ -21,27 +36,41 @@ on:
       per_gender:
         description: 'Products to add per gender'
         required: false
-        default: '150'
+        default: '15'
       dry_run:
         description: 'Crawl and test, but do not commit'
         type: boolean
         required: false
         default: false
 
-  # Weekly, Sunday 06:00 UTC. Uncomment to enable.
+  # Every 3 hours at :37 past the hour — 01:37, 04:37 … 22:37 UTC.
   #
-  # Before you do: this commits to main unattended. It is gated on `npm test`
-  # passing, so a bad batch cannot publish — the job fails and nothing lands.
-  # But it does spend Actions minutes (~10-15 min a run) and it crawls shops
-  # from GitHub's IP ranges, which some retailers rate-limit harder than a home
-  # connection. Start with a few manual runs and see what you get.
+  # Minute 37 rather than :00, because GitHub's own docs warn the schedule event
+  # is delayed "during periods of high loads", and name "the start of every
+  # hour" as one — adding that "some queued jobs may be dropped". :00, :15, :30
+  # and :45 are the minutes everyone else picks. Hours listed explicitly rather
+  # than */3 so that hour 0 is avoided too: 00:xx UTC carries every daily cron
+  # on the platform.
   #
-  # schedule:
-  #   - cron: '0 6 * * 0'
+  # Even so, treat this as "up to 8 times a day", never as a clock. Drift of
+  # hours is reported on busy days and the off-peak minute is a mitigation, not
+  # a guarantee. Nothing here does wall-clock arithmetic between runs.
+  #
+  # Two entries, not one, so the publish run can be told apart from the other
+  # seven by github.event.schedule below. The string has to match the cron
+  # CHARACTER FOR CHARACTER — if you edit one, edit the other in the same
+  # commit or the publish run quietly stops publishing.
+  schedule:
+    - cron: '37 1,4,7,13,16,19,22 * * *'   # crawl only (7 runs)
+    - cron: '37 10 * * *'                  # crawl + export + commit + publish
 
 permissions:
   contents: write        # needed to commit the new products back
+  actions: write         # needed to dispatch deploy-pages.yml after the push
 
+# One scrape at a time. The group holds one running plus one pending; a third
+# trigger drops the pending one, which is the behaviour we want — skip, don't
+# pile up. Without this block overlapping runs would go parallel instead.
 concurrency:
   group: scrape
   cancel-in-progress: false
@@ -50,6 +79,17 @@ jobs:
   scrape:
     runs-on: ubuntu-latest
     timeout-minutes: 60
+
+    env:
+      # github.event.inputs.* is null on a schedule, and null is falsy in GitHub
+      # expressions, so `||` supplies the scheduled value. Resolved once here so
+      # every step agrees, and so no dispatch input is interpolated into a
+      # shell line.
+      SHOPS:   ${{ github.event.inputs.shops      || 15 }}
+      PROMOTE: ${{ github.event.inputs.per_gender || 15 }}
+      DRY_RUN: ${{ github.event.inputs.dry_run == 'true' }}
+      # Manual runs always publish. Scheduled runs publish only on the 10:37 one.
+      PUBLISH: ${{ github.event_name != 'schedule' || github.event.schedule == '37 10 * * *' }}
 
     steps:
       - name: Checkout
@@ -65,23 +105,35 @@ jobs:
         with:
           python-version: '3.11'
 
-      # The crawl pool carries which shops answered, where the rotation stopped,
-      # and every product seen so far — so a run picks up where the last one left
-      # off instead of re-crawling the same first pages forever. It is gitignored
-      # (tens of MB), so it lives in the Actions cache between runs.
+      # The crawl pool carries which shops answered, where both rotations
+      # stopped, and every product seen so far — so a run picks up where the
+      # last one left off instead of re-crawling the same first pages forever.
+      #
+      # catalog.db is gitignored. sites.json is tracked, but browse.py rewrites
+      # it shop by shop during a crawl (that is where entry_cursor and the
+      # ok/blocked health flags live) and it is only committed on the daily
+      # publish run — so it has to ride the cache too, or the seven crawl-only
+      # runs would re-read the same two listing pages of every shop forever.
       - name: Restore the crawl pool
-        uses: actions/cache@v4
+        uses: actions/cache/restore@v4
         with:
-          path: tools/scraper/catalog.db
+          path: |
+            tools/scraper/catalog.db
+            tools/scraper/sites.json
           key: crawl-pool-${{ github.run_id }}
           restore-keys: crawl-pool-
 
-      - name: Install dependencies
+      - name: Install Python and the headless browser
         run: |
-          npm ci
           python3 -m pip install --upgrade pip
           python3 -m pip install playwright
           python3 -m playwright install --with-deps chromium
+
+      # Only the publish run builds and tests, so only it needs the Node side.
+      - name: Install Node dependencies
+        if: env.PUBLISH == 'true'
+        run: |
+          npm ci
           npx playwright install chromium
 
       # Brings in labels the app doesn't carry yet. Idempotent: candidates that
@@ -89,18 +141,24 @@ jobs:
       # "nothing new to probe" and costs seconds. --discover below only ever
       # finds more of the brands we already have; this is what adds new ones.
       - name: Look for brands the app doesn't carry yet
+        if: env.PUBLISH == 'true'
         working-directory: tools/scraper
         run: python3 find_brands.py --write || true
 
       # Shops rename collections constantly; this re-reads their real men's and
-      # women's department URLs. HTTP only, no browser, takes seconds.
+      # women's department URLs. HTTP only, no browser, takes seconds — but it
+      # sweeps every registered shop, so once a day rather than eight times.
       - name: Refresh the shop list
+        if: env.PUBLISH == 'true'
         working-directory: tools/scraper
         run: python3 browse.py --discover --from-catalog
 
+      # The one step every run does. browse.py commits to catalog.db shop by
+      # shop, so the step timeout costs at most the shop in flight.
       - name: Crawl
         working-directory: tools/scraper
-        run: python3 browse.py --crawl --shops "${{ github.event.inputs.shops || 15 }}" --verbose
+        timeout-minutes: 35
+        run: python3 browse.py --crawl --shops "$SHOPS" --verbose
 
       # Datacenter IPs get refused far more often than a home connection, so a
       # run that finishes suspiciously fast usually means the shops blocked us,
@@ -128,41 +186,112 @@ jobs:
                     'scraper locally normally still works — see tools/scraper/README.md.')
           PY
 
+      # --dry-run is passed through rather than only gating the commit: without
+      # it a "dry" run still writes catalog.json and marks rows in_app=1 in the
+      # cached pool. export.py returns before both writes when it is set.
       - name: Bake the best of it into the catalog
+        if: env.PUBLISH == 'true'
         working-directory: tools/scraper
-        run: python3 export.py --promote "${{ github.event.inputs.per_gender || 150 }}"
+        run: |
+          if [ "$DRY_RUN" = "true" ]; then
+            python3 export.py --promote "$PROMOTE" --dry-run
+          else
+            python3 export.py --promote "$PROMOTE"
+          fi
 
       - name: Rebuild
+        if: env.PUBLISH == 'true'
         run: node build.mjs
 
       # The gate. If the new products break anything — a mis-categorised piece in
       # the wrong deck, non-apparel slipping through, the recommender going
       # unstable — this fails and nothing is committed.
       - name: Test
+        if: env.PUBLISH == 'true'
         run: npm test
 
       - name: Commit and publish
-        if: ${{ github.event.inputs.dry_run != 'true' }}
+        id: commit
+        if: env.PUBLISH == 'true' && env.DRY_RUN != 'true'
         run: |
-          if git diff --quiet -- data/catalog.json; then
-            echo "No new products this run — nothing to commit."
+          if git diff --quiet -- data/catalog.json tools/scraper/sites.json; then
+            echo "No new products and no registry change — nothing to commit."
             exit 0
           fi
           added=$(git diff --numstat -- data/catalog.json | awk '{print $1}')
+          added=${added:-0}
+          if [ "$added" -gt 0 ]; then
+            subject="data: +${added} products from an automated crawl"
+          else
+            subject="data: refresh the shop registry from an automated crawl"
+          fi
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/catalog.json dist/style-finder.html tools/scraper/sites.json tools/scraper/stores.json
-          git commit -m "data: +${added} products from an automated crawl
+          git commit -m "${subject}
 
           Found by tools/scraper/browse.py and baked in by export.py.
           npm test passed before this was committed."
-          git push
-          echo "Pushed ${added} new products — deploy-pages.yml will republish."
+
+          # Retry against a branch that moved under us. `concurrency: scrape`
+          # already stops this workflow racing itself, so the other writer can
+          # only be a human and the rebase is normally clean. A conflict fails
+          # loudly on purpose: export.py appends at the tail of catalog.json so
+          # two appends conflict textually, and nothing is lost by stopping —
+          # pick() re-derives its exclusion set from the real catalog, so the
+          # abandoned rows are simply offered again next run.
+          for attempt in 1 2 3; do
+            if git push; then
+              echo "pushed=true" >> "$GITHUB_OUTPUT"
+              echo "Pushed: ${subject}"
+              exit 0
+            fi
+            echo "push rejected (attempt ${attempt}) — rebasing onto origin/${GITHUB_REF_NAME}"
+            git fetch origin "$GITHUB_REF_NAME"
+            git rebase "origin/${GITHUB_REF_NAME}" || {
+              git rebase --abort || true
+              echo "::error::Rebase conflict in data/catalog.json. Nothing published this run. The crawl pool is kept, so the next run re-picks these products."
+              exit 1
+            }
+          done
+          echo "::error::Could not push after 3 attempts."
+          exit 1
+
+      # A push made with GITHUB_TOKEN does not start another workflow run —
+      # GitHub blocks that to prevent recursion — so deploy-pages.yml's
+      # `on: push` never sees the commit above, and the site would silently
+      # never update. workflow_dispatch is one of the two documented exceptions,
+      # so dispatch it explicitly. Only from the default branch: dispatching it
+      # from a test branch would publish that branch to Pages.
+      # The scheduled case is checked first and on its own: GitHub only ever
+      # runs a schedule from the default branch, so that disjunct is always the
+      # true one on a cron run — and it does not depend on the event payload
+      # carrying `repository`. The branch comparison exists only to stop a
+      # manual dispatch-test from publishing a feature branch to Pages.
+      - name: Republish the site
+        if: steps.commit.outputs.pushed == 'true' && (github.event_name == 'schedule' || github.ref_name == github.event.repository.default_branch)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh workflow run deploy-pages.yml --ref "$GITHUB_REF_NAME"
+          echo "Dispatched deploy-pages.yml — the site will republish."
+
+      # Saved explicitly rather than by actions/cache@v4's post step, because
+      # that post step is skipped whenever an earlier step fails or the job is
+      # cancelled — one npm-test failure would bin the whole run's crawl.
+      - name: Save the crawl pool
+        if: always()
+        uses: actions/cache/save@v4
+        with:
+          path: |
+            tools/scraper/catalog.db
+            tools/scraper/sites.json
+          key: crawl-pool-${{ github.run_id }}
 
       - name: Save the crawl log
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: crawl-report
+          name: crawl-report-${{ github.run_id }}
           path: tools/scraper/sites.json
           if-no-files-found: ignore

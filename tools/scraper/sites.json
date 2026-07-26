@@ -9,11 +9,11 @@
     "https://10deep.com/collections/t-shirts-tank-tops"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 1,
   "gender_source": "prior",
   "health": {
-   "fail": 1,
-   "last": 1785013716.812129,
+   "fail": 2,
+   "last": 1785095598.5791116,
    "last_found": 0,
    "note": "no products found on the page; no products found on the page",
    "ok": 2,
@@ -32,14 +32,14 @@
     "https://18east.co/collections/all"
    ]
   },
-  "entry_cursor": 0,
+  "entry_cursor": 2,
   "gender_source": "prior",
   "health": {
    "fail": 0,
-   "last": 1785013804.293205,
-   "last_found": 19,
+   "last": 1785095672.5709102,
+   "last_found": 45,
    "note": "no products found on the page",
-   "ok": 3,
+   "ok": 4,
    "status": "ok"
   },
   "host": "18east.co",
@@ -55,13 +55,13 @@
     "https://www.3sixteen.com/collections/complete-the-fit-tops"
    ]
   },
-  "entry_cursor": 1,
+  "entry_cursor": 0,
   "gender_source": "prior",
   "health": {
    "fail": 0,
-   "last": 1785013886.733291,
-   "last_found": 34,
-   "ok": 2,
+   "last": 1785095748.7651336,
+   "last_found": 47,
+   "ok": 3,
    "status": "ok"
   },
   "host": "www.3sixteen.com",
@@ -81,17 +81,85 @@
     "https://www.akindofguise.com/collections/mens-pants"
    ]
   },
-  "entry_cursor": 4,
+  "entry_cursor": 0,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1785014011.256594,
-   "last_found": 24,
-   "ok": 2,
+   "last": 1785095832.9100025,
+   "last_found": 36,
+   "ok": 3,
    "status": "ok"
   },
   "host": "www.akindofguise.com",
   "note": "auto-discovered"
+ },
+ "A Ma Maniere": {
+  "brand": "A Ma Maniere",
+  "entries": {
+   "f": [
+    "https://www.amamaniere.com/collections/new-womens"
+   ],
+   "m": []
+  },
+  "entry_cursor": 0,
+  "gender_source": "collection-handle",
+  "health": {
+   "fail": 0,
+   "last": 1785095868.1319516,
+   "last_found": 20,
+   "ok": 1,
+   "status": "ok"
+  },
+  "host": "www.amamaniere.com",
+  "note": "found by find_brands.py \u2014 sneaker boutique"
+ },
+ "A.P.C.": {
+  "brand": "A.P.C.",
+  "entries": {
+   "f": [
+    "https://www.apc-us.com/collections/surplus-women-tops",
+    "https://www.apc-us.com/collections/women-dresses",
+    "https://www.apc-us.com/collections/women-blouses-shirts"
+   ],
+   "m": [
+    "https://www.apc-us.com/collections/men-pants-shorts",
+    "https://www.apc-us.com/collections/men-t-shirts-polos",
+    "https://www.apc-us.com/collections/surplus-men-tops"
+   ]
+  },
+  "entry_cursor": 2,
+  "gender_source": "collection-handle",
+  "health": {
+   "fail": 0,
+   "last": 1785095993.9861238,
+   "last_found": 33,
+   "ok": 1,
+   "status": "ok"
+  },
+  "host": "www.apc-us.com",
+  "note": "found by find_brands.py \u2014 designer"
+ },
+ "AMIRI": {
+  "brand": "AMIRI",
+  "entries": {
+   "f": [],
+   "m": [
+    "https://www.amiri.com/collections/mens-denim",
+    "https://www.amiri.com/collections/mens-shirts",
+    "https://www.amiri.com/collections/mens-shorts-sweatpants"
+   ]
+  },
+  "entry_cursor": 2,
+  "gender_source": "collection-handle",
+  "health": {
+   "fail": 0,
+   "last": 1785096165.246117,
+   "last_found": 46,
+   "ok": 1,
+   "status": "ok"
+  },
+  "host": "www.amiri.com",
+  "note": "found by find_brands.py \u2014 designer"
  },
  "Abercrombie & Fitch": {
   "brand": "Abercrombie & Fitch",
@@ -126,14 +194,14 @@
    ],
    "m": []
   },
-  "entry_cursor": 2,
+  "entry_cursor": 0,
   "gender_source": "prior",
   "health": {
    "fail": 0,
-   "last": 1785014062.4058838,
-   "last_found": 46,
+   "last": 1785096198.4738765,
+   "last_found": 24,
    "note": "rate-limited (429) \u2014 stopping this shop for now",
-   "ok": 2,
+   "ok": 3,
    "status": "ok"
   },
   "host": "www.adanola.com",
@@ -176,13 +244,13 @@
     "https://afends.com/collections/mens-tops-tees"
    ]
   },
-  "entry_cursor": 4,
+  "entry_cursor": 0,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1785014234.618732,
-   "last_found": 119,
-   "ok": 2,
+   "last": 1785096295.37003,
+   "last_found": 32,
+   "ok": 3,
    "status": "ok"
   },
   "host": "afends.com",
@@ -198,13 +266,13 @@
    ],
    "m": []
   },
-  "entry_cursor": 1,
+  "entry_cursor": 0,
   "gender_source": "prior",
   "health": {
    "fail": 0,
-   "last": 1785014382.252288,
-   "last_found": 110,
-   "ok": 2,
+   "last": 1785096383.667277,
+   "last_found": 44,
+   "ok": 3,
    "status": "ok"
   },
   "host": "aimn.com",
@@ -242,13 +310,13 @@
    ],
    "m": []
   },
-  "entry_cursor": 2,
+  "entry_cursor": 1,
   "gender_source": "prior",
   "health": {
    "fail": 0,
-   "last": 1785000606.508509,
-   "last_found": 1,
-   "ok": 1,
+   "last": 1785096503.2449074,
+   "last_found": 44,
+   "ok": 2,
    "status": "ok"
   },
   "host": "ajeathletica.com",
@@ -264,13 +332,13 @@
     "https://www.albamclothing.com/collections/knitwear"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 1,
   "gender_source": "prior",
   "health": {
    "fail": 0,
-   "last": 1785000646.524865,
-   "last_found": 13,
-   "ok": 1,
+   "last": 1785096549.400929,
+   "last_found": 19,
+   "ok": 2,
    "status": "ok"
   },
   "host": "www.albamclothing.com",
@@ -286,13 +354,13 @@
    ],
    "m": []
   },
-  "entry_cursor": 2,
+  "entry_cursor": 1,
   "gender_source": "prior",
   "health": {
    "fail": 0,
-   "last": 1785000738.315213,
-   "last_found": 65,
-   "ok": 1,
+   "last": 1785096644.0272193,
+   "last_found": 47,
+   "ok": 2,
    "status": "ok"
   },
   "host": "albaray.co.uk",
@@ -310,14 +378,14 @@
     "https://alexcrane.co/collections/men"
    ]
   },
-  "entry_cursor": 1,
+  "entry_cursor": 2,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1785000785.215106,
-   "last_found": 31,
+   "last": 1785096685.3647306,
+   "last_found": 24,
    "note": "rate-limited (429) \u2014 stopping this shop for now",
-   "ok": 1,
+   "ok": 2,
    "status": "ok"
   },
   "host": "alexcrane.co",
@@ -335,9 +403,9 @@
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1785000815.909878,
-   "last_found": 1,
-   "ok": 1,
+   "last": 1785096712.4908397,
+   "last_found": 6,
+   "ok": 2,
    "status": "ok"
   },
   "host": "www.alexmill.com",
@@ -355,9 +423,9 @@
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1785000959.424599,
-   "last_found": 6,
-   "ok": 1,
+   "last": 1785096740.0627613,
+   "last_found": 9,
+   "ok": 2,
    "status": "ok"
   },
   "host": "aligne.co",
@@ -400,18 +468,40 @@
     "https://www.allbirds.com/collections/mens-active-shoes"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 4,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1785001057.196918,
-   "last_found": 58,
+   "last": 1785096781.619846,
+   "last_found": 11,
    "note": "nav failed: Page.goto: net::ERR_INTERNET_DISCONNECTED at https://www.allbirds.com/collections/mens-apparel",
-   "ok": 1,
+   "ok": 2,
    "status": "ok"
   },
   "host": "www.allbirds.com",
   "note": "auto-discovered"
+ },
+ "Alo Yoga": {
+  "brand": "Alo Yoga",
+  "entries": {
+   "f": [
+    "https://www.aloyoga.com/collections/all-womens-for-search-facets"
+   ],
+   "m": [
+    "https://www.aloyoga.com/collections/all-mens"
+   ]
+  },
+  "entry_cursor": 0,
+  "gender_source": "collection-handle",
+  "health": {
+   "fail": 0,
+   "last": 1785096872.3629425,
+   "last_found": 47,
+   "ok": 1,
+   "status": "ok"
+  },
+  "host": "www.aloyoga.com",
+  "note": "found by find_brands.py \u2014 mainstream"
  },
  "American Trench": {
   "brand": "American Trench",
@@ -425,9 +515,9 @@
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1785001085.5963311,
+   "last": 1785096904.9145706,
    "last_found": 13,
-   "ok": 1,
+   "ok": 2,
    "status": "ok"
   },
   "host": "americantrench.com",
@@ -464,13 +554,13 @@
     "https://antisocialsocialclub.com/collections/strange-day"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 1,
   "gender_source": "prior",
   "health": {
    "fail": 0,
-   "last": 1785001293.7390049,
-   "last_found": 4,
-   "ok": 1,
+   "last": 1785096947.0008729,
+   "last_found": 1,
+   "ok": 2,
    "status": "ok"
   },
   "host": "antisocialsocialclub.com",
@@ -490,13 +580,13 @@
     "https://ariesarise.com/collections/accessories-mens"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 4,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1785001365.6940742,
-   "last_found": 56,
-   "ok": 1,
+   "last": 1785097022.494779,
+   "last_found": 44,
+   "ok": 2,
    "status": "ok"
   },
   "host": "ariesarise.com",
@@ -514,10 +604,10 @@
   "entry_cursor": 0,
   "health": {
    "fail": 0,
-   "last": 1785001432.382587,
-   "last_found": 35,
+   "last": 1785097070.2542622,
+   "last_found": 24,
    "note": "no products found on the page",
-   "ok": 2,
+   "ok": 3,
    "status": "ok"
   },
   "host": "www.aritzia.com",
@@ -556,13 +646,13 @@
     "https://www.armsofeve.com/collections/necklaces-mens"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 1,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1785001494.375423,
+   "last": 1785097135.7328148,
    "last_found": 19,
-   "ok": 1,
+   "ok": 2,
    "status": "ok"
   },
   "host": "www.armsofeve.com",
@@ -578,13 +668,13 @@
     "https://arpenteur.fr/collections/shirts"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 1,
   "gender_source": "prior",
   "health": {
    "fail": 0,
-   "last": 1785001560.84584,
-   "last_found": 2,
-   "ok": 1,
+   "last": 1785097205.0013914,
+   "last_found": 41,
+   "ok": 2,
    "status": "ok"
   },
   "host": "arpenteur.fr",
@@ -599,14 +689,14 @@
     "https://ashanderie.com/collections/how-to-layer-winter-essential-fashion-for-short-men"
    ]
   },
-  "entry_cursor": 1,
+  "entry_cursor": 0,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1785001604.326538,
-   "last_found": 26,
+   "last": 1785097249.4080431,
+   "last_found": 24,
    "note": "rate-limited (429) \u2014 stopping this shop for now",
-   "ok": 1,
+   "ok": 2,
    "status": "ok"
   },
   "host": "ashanderie.com",
@@ -626,13 +716,13 @@
     "https://assemblylabel.com/collections/mens-accessories"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 4,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1785001697.8398888,
-   "last_found": 45,
-   "ok": 1,
+   "last": 1785097333.314066,
+   "last_found": 48,
+   "ok": 2,
    "status": "ok"
   },
   "host": "assemblylabel.com",
@@ -648,13 +738,13 @@
    ],
    "m": []
   },
-  "entry_cursor": 2,
+  "entry_cursor": 1,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1785001790.787186,
-   "last_found": 17,
-   "ok": 1,
+   "last": 1785097412.8177688,
+   "last_found": 37,
+   "ok": 2,
    "status": "ok"
   },
   "host": "augustethelabel.com",
@@ -672,13 +762,13 @@
     "https://aybl.com/collections/active-mens"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 0,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1785001849.596937,
-   "last_found": 42,
-   "ok": 1,
+   "last": 1785097467.493567,
+   "last_found": 27,
+   "ok": 2,
    "status": "ok"
   },
   "host": "aybl.com",
@@ -698,13 +788,13 @@
     "https://bbcicecream.com/collections/mens-accessories"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 4,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1785001921.093847,
-   "last_found": 55,
-   "ok": 1,
+   "last": 1785097540.7451673,
+   "last_found": 44,
+   "ok": 2,
    "status": "ok"
   },
   "host": "bbcicecream.com",
@@ -724,14 +814,14 @@
     "https://badbirdiegolf.com/collections/mens-tops"
    ]
   },
-  "entry_cursor": 1,
+  "entry_cursor": 2,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1785001985.1164758,
-   "last_found": 35,
+   "last": 1785097577.9753947,
+   "last_found": 24,
    "note": "rate-limited (429) \u2014 stopping this shop for now",
-   "ok": 1,
+   "ok": 2,
    "status": "ok"
   },
   "host": "badbirdiegolf.com",
@@ -768,13 +858,14 @@
     "https://barbellapparel.com/collections/mens-tops"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 0,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1785002076.221449,
-   "last_found": 37,
-   "ok": 1,
+   "last": 1785097621.466908,
+   "last_found": 24,
+   "note": "rate-limited (429) \u2014 stopping this shop for now",
+   "ok": 2,
    "status": "ok"
   },
   "host": "barbellapparel.com",
@@ -790,13 +881,14 @@
     "https://barneycools.com/collections/klaviyo"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 1,
   "gender_source": "prior",
   "health": {
    "fail": 0,
-   "last": 1785002149.3315399,
-   "last_found": 50,
-   "ok": 1,
+   "last": 1785097666.824787,
+   "last_found": 24,
+   "note": "nav failed: Page.goto: net::ERR_FAILED at https://barneycools.com/collections/klaviyo",
+   "ok": 2,
    "status": "ok"
   },
   "host": "barneycools.com",
@@ -813,11 +905,12 @@
   "entry_cursor": 0,
   "gender_source": "collection",
   "health": {
-   "fail": 0,
-   "last": 1785002173.7947772,
-   "last_found": 5,
+   "fail": 1,
+   "last": 1785097714.8019145,
+   "last_found": 0,
+   "note": "no products found on the page",
    "ok": 1,
-   "status": "ok"
+   "status": "blocked"
   },
   "host": "baserange.com",
   "note": "auto-discovered"
@@ -836,13 +929,13 @@
     "https://www.bassike.com/collections/mens-universal"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 4,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1785002271.5055501,
-   "last_found": 17,
-   "ok": 1,
+   "last": 1785097865.5964625,
+   "last_found": 40,
+   "ok": 2,
    "status": "ok"
   },
   "host": "www.bassike.com",
@@ -979,6 +1072,24 @@
   },
   "host": "becandbridge.com.au",
   "note": "auto-discovered"
+ },
+ "Beckett Simonon": {
+  "brand": "Beckett Simonon",
+  "entries": {
+   "f": [
+    "https://beckettsimonon.com/collections/womens-shoes-boots-and-sneakers",
+    "https://beckettsimonon.com/collections/womens-shoes-and-boots",
+    "https://beckettsimonon.com/collections/womens-shoes"
+   ],
+   "m": [
+    "https://beckettsimonon.com/collections/all-men-sneakers-without-golf",
+    "https://beckettsimonon.com/collections/mens-designer-dress-shoes",
+    "https://beckettsimonon.com/collections/mens-dress-shoes"
+   ]
+  },
+  "gender_source": "collection-handle",
+  "host": "beckettsimonon.com",
+  "note": "found by find_brands.py \u2014 footwear"
  },
  "Beginning Boutique": {
   "brand": "Beginning Boutique",
@@ -1122,6 +1233,60 @@
   "gender_source": "collection",
   "host": "birdwell.com",
   "note": "auto-discovered"
+ },
+ "Blundstone": {
+  "brand": "Blundstone",
+  "entries": {
+   "f": [
+    "https://www.blundstone.com/collections/womens-boots-all",
+    "https://www.blundstone.com/collections/womens-new-arrivals",
+    "https://www.blundstone.com/collections/womens-all-terrain-boots"
+   ],
+   "m": [
+    "https://www.blundstone.com/collections/mens-boots-all",
+    "https://www.blundstone.com/collections/mens-new-arrivals",
+    "https://www.blundstone.com/collections/mens-all-terrain-boots"
+   ]
+  },
+  "gender_source": "collection-handle",
+  "host": "www.blundstone.com",
+  "note": "found by find_brands.py \u2014 footwear"
+ },
+ "Bode": {
+  "brand": "Bode",
+  "entries": {
+   "f": [
+    "https://bode.com/collections/womens-tops",
+    "https://bode.com/collections/womens-dresses",
+    "https://bode.com/collections/womens-trousers-pants"
+   ],
+   "m": [
+    "https://bode.com/collections/mens-shirts",
+    "https://bode.com/collections/mens-trousers-pants",
+    "https://bode.com/collections/mens-outerwear"
+   ]
+  },
+  "gender_source": "collection-handle",
+  "host": "bode.com",
+  "note": "found by find_brands.py \u2014 designer"
+ },
+ "Bodega": {
+  "brand": "Bodega",
+  "entries": {
+   "f": [
+    "https://bdgastore.com/collections/womens-t-shirts",
+    "https://bdgastore.com/collections/womens-outerwear",
+    "https://bdgastore.com/collections/womens-shirts"
+   ],
+   "m": [
+    "https://bdgastore.com/collections/mens-t-shirts",
+    "https://bdgastore.com/collections/mens-outerwear",
+    "https://bdgastore.com/collections/mens-shirts"
+   ]
+  },
+  "gender_source": "collection-handle",
+  "host": "bdgastore.com",
+  "note": "found by find_brands.py \u2014 sneaker boutique"
  },
  "Boody": {
   "brand": "Boody",
@@ -1330,6 +1495,24 @@
   "host": "us.carhartt-wip.com",
   "note": ""
  },
+ "Casablanca": {
+  "brand": "Casablanca",
+  "entries": {
+   "f": [
+    "https://casablancaparis.com/collections/womens-shirts",
+    "https://casablancaparis.com/collections/womens-dresses",
+    "https://casablancaparis.com/collections/womens-trousers"
+   ],
+   "m": [
+    "https://casablancaparis.com/collections/mens-sweats",
+    "https://casablancaparis.com/collections/mens-t-shirts",
+    "https://casablancaparis.com/collections/mens-shorts"
+   ]
+  },
+  "gender_source": "collection-handle",
+  "host": "casablancaparis.com",
+  "note": "found by find_brands.py \u2014 designer"
+ },
  "Cherry LA": {
   "brand": "Cherry LA",
   "entries": {
@@ -1464,6 +1647,18 @@
   "gender_source": "collection",
   "host": "communityclothing.co.uk",
   "note": "auto-discovered"
+ },
+ "Concepts": {
+  "brand": "Concepts",
+  "entries": {
+   "f": [
+    "https://cncpts.com/collections/birkenstock-womens-collection"
+   ],
+   "m": []
+  },
+  "gender_source": "collection-handle",
+  "host": "cncpts.com",
+  "note": "found by find_brands.py \u2014 sneaker boutique"
  },
  "Coney Island Picnic": {
   "brand": "Coney Island Picnic",
@@ -1619,6 +1814,24 @@
   "host": "www.dl1961.com",
   "note": "auto-discovered"
  },
+ "DTLR": {
+  "brand": "DTLR",
+  "entries": {
+   "f": [
+    "https://www.dtlr.com/collections/discount-eligible-non-sale-womens-footwear-and-apparel",
+    "https://www.dtlr.com/collections/graphic-tees-for-her",
+    "https://www.dtlr.com/collections/adidas-womens-apparel"
+   ],
+   "m": [
+    "https://www.dtlr.com/collections/jordan-mens-apparel",
+    "https://www.dtlr.com/collections/adidas-mens-apparel",
+    "https://www.dtlr.com/collections/kappa-mens-apparel"
+   ]
+  },
+  "gender_source": "collection-handle",
+  "host": "www.dtlr.com",
+  "note": "found by find_brands.py \u2014 sneaker boutique"
+ },
  "Daisy Street": {
   "brand": "Daisy Street",
   "entries": {
@@ -1711,6 +1924,21 @@
   "host": "deltoroshoes.com",
   "note": "auto-discovered"
  },
+ "Denim Tears": {
+  "brand": "Denim Tears",
+  "entries": {
+   "f": [],
+   "m": [
+    "https://denimtears.com/collections/tops",
+    "https://denimtears.com/collections/sweats",
+    "https://denimtears.com/collections/sweats-old-ba616a"
+   ]
+  },
+  "gender_note": "no women's collection on the whole site and 0/100 womenswear in a sample",
+  "gender_source": "inferred",
+  "host": "denimtears.com",
+  "note": "found by find_brands.py \u2014 streetwear"
+ },
  "Deus Ex Machina": {
   "brand": "Deus Ex Machina",
   "entries": {
@@ -1784,6 +2012,18 @@
   "gender_source": "collection",
   "host": "www.disturbia.co.uk",
   "note": "auto-discovered"
+ },
+ "Dover Street Market": {
+  "brand": "Dover Street Market",
+  "entries": {
+   "f": [],
+   "m": [
+    "https://shop.doverstreetmarket.com/collections/all-mens"
+   ]
+  },
+  "gender_source": "collection-handle",
+  "host": "shop.doverstreetmarket.com",
+  "note": "found by find_brands.py \u2014 designer"
  },
  "Doyoueven": {
   "brand": "Doyoueven",
@@ -2028,6 +2268,24 @@
   "host": "www.farmrio.com",
   "note": "auto-discovered"
  },
+ "Fear of God": {
+  "brand": "Fear of God",
+  "entries": {
+   "f": [
+    "https://fearofgod.com/collections/essentials-womens-tops",
+    "https://fearofgod.com/collections/womens-tops",
+    "https://fearofgod.com/collections/essentials-womens-outerwear"
+   ],
+   "m": [
+    "https://fearofgod.com/collections/essentials-mens-tops",
+    "https://fearofgod.com/collections/fearofgod-mens-tops",
+    "https://fearofgod.com/collections/mens-tops"
+   ]
+  },
+  "gender_source": "collection-handle",
+  "host": "fearofgod.com",
+  "note": "found by find_brands.py \u2014 streetwear"
+ },
  "Finisterre": {
   "brand": "Finisterre",
   "entries": {
@@ -2189,6 +2447,24 @@
   "gender_source": "prior",
   "host": "www.gabicci.com",
   "note": "auto-discovered"
+ },
+ "Gallery Dept.": {
+  "brand": "Gallery Dept.",
+  "entries": {
+   "f": [
+    "https://gallerydept.com/collections/womens-tops",
+    "https://gallerydept.com/collections/womens-outerwear",
+    "https://gallerydept.com/collections/womens-bottoms"
+   ],
+   "m": [
+    "https://gallerydept.com/collections/mens-tops",
+    "https://gallerydept.com/collections/mens-outerwear",
+    "https://gallerydept.com/collections/mens-bottoms"
+   ]
+  },
+  "gender_source": "collection-handle",
+  "host": "gallerydept.com",
+  "note": "found by find_brands.py \u2014 designer"
  },
  "Gap": {
   "brand": "Gap",
@@ -2357,6 +2633,39 @@
   "gender_source": "collection",
   "host": "hufworldwide.co.uk",
   "note": "auto-discovered"
+ },
+ "Hellstar": {
+  "brand": "Hellstar",
+  "entries": {
+   "f": [],
+   "m": [
+    "https://hellstar.com/collections/sports-tops",
+    "https://hellstar.com/collections/tops",
+    "https://hellstar.com/collections/shop-all"
+   ]
+  },
+  "gender_note": "no women's collection on the whole site and 2/100 womenswear in a sample",
+  "gender_source": "inferred",
+  "host": "hellstar.com",
+  "note": "found by find_brands.py \u2014 streetwear"
+ },
+ "Heron Preston": {
+  "brand": "Heron Preston",
+  "entries": {
+   "f": [
+    "https://heronpreston.com/collections/womens-tops",
+    "https://heronpreston.com/collections/womens-outerwear",
+    "https://heronpreston.com/collections/womens-bottoms"
+   ],
+   "m": [
+    "https://heronpreston.com/collections/mens-tops",
+    "https://heronpreston.com/collections/mens-outerwear",
+    "https://heronpreston.com/collections/mens-bottoms"
+   ]
+  },
+  "gender_source": "collection-handle",
+  "host": "heronpreston.com",
+  "note": "found by find_brands.py \u2014 designer"
  },
  "Hill House Home": {
   "brand": "Hill House Home",
@@ -2587,6 +2896,18 @@
   "host": "johnnie-o.com",
   "note": "auto-discovered"
  },
+ "KEEN": {
+  "brand": "KEEN",
+  "entries": {
+   "f": [],
+   "m": [
+    "https://www.keenfootwear.com/collections/mens-boots"
+   ]
+  },
+  "gender_source": "collection-handle",
+  "host": "www.keenfootwear.com",
+  "note": "found by find_brands.py \u2014 footwear"
+ },
  "Katin": {
   "brand": "Katin",
   "entries": {
@@ -2631,6 +2952,21 @@
   "host": "kestin.co",
   "note": "auto-discovered"
  },
+ "Khaite": {
+  "brand": "Khaite",
+  "entries": {
+   "f": [
+    "https://khaite.com/collections/boots",
+    "https://khaite.com/collections/black-coats-for-ts",
+    "https://khaite.com/collections/argo-top"
+   ],
+   "m": []
+  },
+  "gender_note": "16/100 read as womenswear, 16% dresses",
+  "gender_source": "inferred",
+  "host": "khaite.com",
+  "note": "found by find_brands.py \u2014 designer"
+ },
  "Killstar": {
   "brand": "Killstar",
   "entries": {
@@ -2648,6 +2984,18 @@
   "gender_source": "collection",
   "host": "www.killstar.com",
   "note": "auto-discovered"
+ },
+ "Kith": {
+  "brand": "Kith",
+  "entries": {
+   "f": [
+    "https://kith.com/collections/kith-women-active-bottoms"
+   ],
+   "m": []
+  },
+  "gender_source": "collection-handle",
+  "host": "kith.com",
+  "note": "found by find_brands.py \u2014 streetwear"
  },
  "Kitri": {
   "brand": "Kitri",
@@ -2856,6 +3204,24 @@
   "gender_source": "prior",
   "host": "leftonfriday.com",
   "note": "auto-discovered"
+ },
+ "Lemaire": {
+  "brand": "Lemaire",
+  "entries": {
+   "f": [
+    "https://www.lemaire.fr/collections/women-tops",
+    "https://www.lemaire.fr/collections/women-pants",
+    "https://www.lemaire.fr/collections/women-knitwear-and-jersey"
+   ],
+   "m": [
+    "https://www.lemaire.fr/collections/men-pants",
+    "https://www.lemaire.fr/collections/men-shirts",
+    "https://www.lemaire.fr/collections/men-tops"
+   ]
+  },
+  "gender_source": "collection-handle",
+  "host": "www.lemaire.fr",
+  "note": "found by find_brands.py \u2014 designer"
  },
  "Lisa Says Gah": {
   "brand": "Lisa Says Gah",
@@ -3077,6 +3443,23 @@
   },
   "host": "www.madewell.com",
   "note": ""
+ },
+ "Madhappy": {
+  "brand": "Madhappy",
+  "entries": {
+   "f": [
+    "https://www.madhappy.com/collections/womens-outerwear-sale",
+    "https://www.madhappy.com/collections/womens-bottoms-sale"
+   ],
+   "m": [
+    "https://www.madhappy.com/collections/mens-tank-tops",
+    "https://www.madhappy.com/collections/mens-outerwear-sale",
+    "https://www.madhappy.com/collections/mens-t-shirts"
+   ]
+  },
+  "gender_source": "collection-handle",
+  "host": "www.madhappy.com",
+  "note": "found by find_brands.py \u2014 streetwear"
  },
  "Malbon Golf": {
   "brand": "Malbon Golf",
@@ -3386,6 +3769,21 @@
   "host": "mylesapparel.com",
   "note": "auto-discovered"
  },
+ "NEIGHBORHOOD": {
+  "brand": "NEIGHBORHOOD",
+  "entries": {
+   "f": [],
+   "m": [
+    "https://neighborhood.jp/collections/202_washeddp-denim",
+    "https://neighborhood.jp/collections/all",
+    "https://neighborhood.jp/collections/tee-cut-sewn"
+   ]
+  },
+  "gender_note": "no women's collection on the whole site and 0/100 womenswear in a sample",
+  "gender_source": "inferred",
+  "host": "neighborhood.jp",
+  "note": "found by find_brands.py \u2014 designer"
+ },
  "Nagnata": {
   "brand": "Nagnata",
   "entries": {
@@ -3547,6 +3945,24 @@
   "gender_source": "prior",
   "host": "www.norseprojects.com",
   "note": "auto-discovered"
+ },
+ "Notre": {
+  "brand": "Notre",
+  "entries": {
+   "f": [
+    "https://www.notre-shop.com/collections/lounge-pants-activewear-womens",
+    "https://www.notre-shop.com/collections/denim-jackets-womens",
+    "https://www.notre-shop.com/collections/jeans-womens"
+   ],
+   "m": [
+    "https://www.notre-shop.com/collections/knitwear-mens",
+    "https://www.notre-shop.com/collections/new-balance-mens",
+    "https://www.notre-shop.com/collections/bottoms-mens"
+   ]
+  },
+  "gender_source": "collection-handle",
+  "host": "www.notre-shop.com",
+  "note": "found by find_brands.py \u2014 sneaker boutique"
  },
  "Nude Lucy": {
   "brand": "Nude Lucy",
@@ -3794,6 +4210,18 @@
   "gender_source": "prior",
   "host": "popflexactive.com",
   "note": "auto-discovered"
+ },
+ "Packer Shoes": {
+  "brand": "Packer Shoes",
+  "entries": {
+   "f": [],
+   "m": [
+    "https://packershoes.com/collections/mens-footwear"
+   ]
+  },
+  "gender_source": "collection-handle",
+  "host": "packershoes.com",
+  "note": "found by find_brands.py \u2014 sneaker boutique"
  },
  "Passenger": {
   "brand": "Passenger",
@@ -4215,6 +4643,21 @@
   "host": "www.reddressboutique.com",
   "note": "auto-discovered"
  },
+ "Reebok": {
+  "brand": "Reebok",
+  "entries": {
+   "f": [
+    "https://www.reebok.com/collections/all-womens-sale",
+    "https://www.reebok.com/collections/activewear-for-women-0adz58b"
+   ],
+   "m": [
+    "https://www.reebok.com/collections/all-mens-sale"
+   ]
+  },
+  "gender_source": "collection-handle",
+  "host": "www.reebok.com",
+  "note": "found by find_brands.py \u2014 footwear"
+ },
  "Reformation": {
   "brand": "Reformation",
   "entries": {
@@ -4261,6 +4704,22 @@
   "host": "reistor.com",
   "note": "auto-discovered"
  },
+ "Renarts": {
+  "brand": "Renarts",
+  "entries": {
+   "f": [
+    "https://renarts.com/collections/womens-apparel",
+    "https://renarts.com/collections/womens-footwear"
+   ],
+   "m": [
+    "https://renarts.com/collections/mens-apparel",
+    "https://renarts.com/collections/mens-footwear"
+   ]
+  },
+  "gender_source": "collection-handle",
+  "host": "renarts.com",
+  "note": "found by find_brands.py \u2014 sneaker boutique"
+ },
  "Represent": {
   "brand": "Represent",
   "entries": {
@@ -4295,6 +4754,32 @@
   "gender_source": "collection",
   "host": "richer-poorer.com",
   "note": "auto-discovered"
+ },
+ "Rick Owens": {
+  "brand": "Rick Owens",
+  "entries": {
+   "f": [
+    "https://www.rickowens.eu/collections/women-main-category-cm-tops",
+    "https://www.rickowens.eu/collections/new-arrivals-women-all",
+    "https://www.rickowens.eu/collections/womens-all"
+   ],
+   "m": [
+    "https://www.rickowens.eu/collections/mens-shirts",
+    "https://www.rickowens.eu/collections/men-pants",
+    "https://www.rickowens.eu/collections/mens-outerwear"
+   ]
+  },
+  "entry_cursor": 2,
+  "gender_source": "collection-handle",
+  "health": {
+   "fail": 0,
+   "last": 1785095467.321352,
+   "last_found": 1,
+   "ok": 1,
+   "status": "ok"
+  },
+  "host": "www.rickowens.eu",
+  "note": "found by find_brands.py \u2014 designer"
  },
  "Rip Curl": {
   "brand": "Rip Curl",
@@ -4519,6 +5004,24 @@
   "gender_source": "prior",
   "host": "sndys.com.au",
   "note": ""
+ },
+ "Sabah": {
+  "brand": "Sabah",
+  "entries": {
+   "f": [
+    "https://sabah.am/collections/new-stripes-womens",
+    "https://sabah.am/collections/the-black-collection-womens",
+    "https://sabah.am/collections/heading-west-collection-womens"
+   ],
+   "m": [
+    "https://sabah.am/collections/new-stripes-mens",
+    "https://sabah.am/collections/the-black-collection-mens",
+    "https://sabah.am/collections/heading-west-collection-mens"
+   ]
+  },
+  "gender_source": "collection-handle",
+  "host": "sabah.am",
+  "note": "found by find_brands.py \u2014 footwear"
  },
  "Sabo": {
   "brand": "Sabo",
@@ -4839,6 +5342,45 @@
   "gender_source": "collection",
   "host": "www.sixthjune.com",
   "note": "auto-discovered"
+ },
+ "Sneaker Politics": {
+  "brand": "Sneaker Politics",
+  "entries": {
+   "f": [],
+   "m": [
+    "https://sneakerpolitics.com/collections/anta-sneakers-mens"
+   ]
+  },
+  "gender_source": "collection-handle",
+  "host": "sneakerpolitics.com",
+  "note": "found by find_brands.py \u2014 sneaker boutique"
+ },
+ "Sneakersnstuff": {
+  "brand": "Sneakersnstuff",
+  "entries": {
+   "f": [],
+   "m": [
+    "https://www.sneakersnstuff.com/collections/mens-clothing",
+    "https://www.sneakersnstuff.com/collections/mens-sneakers"
+   ]
+  },
+  "gender_source": "collection-handle",
+  "host": "www.sneakersnstuff.com",
+  "note": "found by find_brands.py \u2014 sneaker boutique"
+ },
+ "Social Status": {
+  "brand": "Social Status",
+  "entries": {
+   "f": [
+    "https://www.socialstatuspgh.com/collections/womens-tops",
+    "https://www.socialstatuspgh.com/collections/womens-outerwear",
+    "https://www.socialstatuspgh.com/collections/womens-bottoms"
+   ],
+   "m": []
+  },
+  "gender_source": "collection-handle",
+  "host": "www.socialstatuspgh.com",
+  "note": "found by find_brands.py \u2014 sneaker boutique"
  },
  "Solid & Striped": {
   "brand": "Solid & Striped",
@@ -5286,6 +5828,21 @@
   "host": "www.tigermist.com",
   "note": "auto-discovered"
  },
+ "Todd Snyder": {
+  "brand": "Todd Snyder",
+  "entries": {
+   "f": [],
+   "m": [
+    "https://www.toddsnyder.com/collections/all-tops",
+    "https://www.toddsnyder.com/collections/all-tops-letter-sizing",
+    "https://www.toddsnyder.com/collections/all-tops-sport-coats-suit-jackets"
+   ]
+  },
+  "gender_note": "no women's collection on the whole site and 0/100 womenswear in a sample",
+  "gender_source": "inferred",
+  "host": "www.toddsnyder.com",
+  "note": "found by find_brands.py \u2014 mainstream"
+ },
  "Tommy John": {
   "brand": "Tommy John",
   "entries": {
@@ -5321,6 +5878,21 @@
   "host": "www.toms.com",
   "note": "auto-discovered"
  },
+ "Toteme": {
+  "brand": "Toteme",
+  "entries": {
+   "f": [
+    "https://toteme-studio.com/collections/dresses-and-skirts",
+    "https://toteme-studio.com/collections/dresses",
+    "https://toteme-studio.com/collections/outerwear"
+   ],
+   "m": []
+  },
+  "gender_note": "13/100 read as womenswear, 7% dresses",
+  "gender_source": "inferred",
+  "host": "toteme-studio.com",
+  "note": "found by find_brands.py \u2014 designer"
+ },
  "True Classic": {
   "brand": "True Classic",
   "entries": {
@@ -5347,6 +5919,20 @@
   "gender_source": "collection",
   "host": "www.tnuck.com",
   "note": "auto-discovered"
+ },
+ "UNDEFEATED": {
+  "brand": "UNDEFEATED",
+  "entries": {
+   "f": [],
+   "m": [
+    "https://undefeated.com/collections/mens-apparel",
+    "https://undefeated.com/collections/men-s-footwear",
+    "https://undefeated.com/collections/mens-footwear"
+   ]
+  },
+  "gender_source": "collection-handle",
+  "host": "undefeated.com",
+  "note": "found by find_brands.py \u2014 sneaker boutique"
  },
  "UNTUCKit": {
   "brand": "UNTUCKit",
@@ -5560,6 +6146,21 @@
   "host": "www.vollebak.com",
   "note": "auto-discovered"
  },
+ "WTAPS": {
+  "brand": "WTAPS",
+  "entries": {
+   "f": [],
+   "m": [
+    "https://wtaps.com/collections/trousers",
+    "https://wtaps.com/collections/trousers-instock",
+    "https://wtaps.com/collections/shirt"
+   ]
+  },
+  "gender_note": "no women's collection on the whole site and 0/100 womenswear in a sample",
+  "gender_source": "inferred",
+  "host": "wtaps.com",
+  "note": "found by find_brands.py \u2014 designer"
+ },
  "Wahts": {
   "brand": "Wahts",
   "entries": {
@@ -5716,6 +6317,40 @@
   "host": "wolfandshepherd.com",
   "note": "auto-discovered"
  },
+ "Xero Shoes": {
+  "brand": "Xero Shoes",
+  "entries": {
+   "f": [
+    "https://xeroshoes.com/collections/womens-new-arrivals",
+    "https://xeroshoes.com/collections/womens-shoes",
+    "https://xeroshoes.com/collections/womens-casual-shoes"
+   ],
+   "m": [
+    "https://xeroshoes.com/collections/mens-new-arrivals",
+    "https://xeroshoes.com/collections/mens-shoes",
+    "https://xeroshoes.com/collections/mens-top-rated"
+   ]
+  },
+  "gender_source": "collection-handle",
+  "host": "xeroshoes.com",
+  "note": "found by find_brands.py \u2014 footwear"
+ },
+ "Xhibition": {
+  "brand": "Xhibition",
+  "entries": {
+   "f": [
+    "https://xhibition.co/collections/jordan-womens-apparel"
+   ],
+   "m": [
+    "https://xhibition.co/collections/mens-tops",
+    "https://xhibition.co/collections/mens-apparel",
+    "https://xhibition.co/collections/mens-t-shirts"
+   ]
+  },
+  "gender_source": "collection-handle",
+  "host": "xhibition.co",
+  "note": "found by find_brands.py \u2014 sneaker boutique"
+ },
  "Xirena": {
   "brand": "Xirena",
   "entries": {
@@ -5831,5 +6466,41 @@
   "gender_source": "prior",
   "host": "iamgia.com",
   "note": "auto-discovered"
+ },
+ "norda": {
+  "brand": "norda",
+  "entries": {
+   "f": [
+    "https://nordarun.com/collections/womens-trail-running-shoes-1",
+    "https://nordarun.com/collections/womens-black-trail-running-shoes-1",
+    "https://nordarun.com/collections/womens-white-trail-running-shoes-1"
+   ],
+   "m": [
+    "https://nordarun.com/collections/mens-trail-running-shoes-1",
+    "https://nordarun.com/collections/mens-black-trail-running-shoes-1",
+    "https://nordarun.com/collections/mens-winter-shoes"
+   ]
+  },
+  "gender_source": "collection-handle",
+  "host": "nordarun.com",
+  "note": "found by find_brands.py \u2014 footwear"
+ },
+ "sacai": {
+  "brand": "sacai",
+  "entries": {
+   "f": [
+    "https://www.sacai.jp/collections/women-sweaters-knitwear",
+    "https://www.sacai.jp/collections/women-clothing",
+    "https://www.sacai.jp/collections/women-t-shirts"
+   ],
+   "m": [
+    "https://www.sacai.jp/collections/men-pants-shorts",
+    "https://www.sacai.jp/collections/men-clothing",
+    "https://www.sacai.jp/collections/men-t-shirts"
+   ]
+  },
+  "gender_source": "collection-handle",
+  "host": "www.sacai.jp",
+  "note": "found by find_brands.py \u2014 designer"
  }
 }

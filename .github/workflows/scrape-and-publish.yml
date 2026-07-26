@@ -84,6 +84,14 @@ jobs:
           python3 -m playwright install --with-deps chromium
           npx playwright install chromium
 
+      # Brings in labels the app doesn't carry yet. Idempotent: candidates that
+      # are already registered are skipped, so on most runs this prints
+      # "nothing new to probe" and costs seconds. --discover below only ever
+      # finds more of the brands we already have; this is what adds new ones.
+      - name: Look for brands the app doesn't carry yet
+        working-directory: tools/scraper
+        run: python3 find_brands.py --write || true
+
       # Shops rename collections constantly; this re-reads their real men's and
       # women's department URLs. HTTP only, no browser, takes seconds.
       - name: Refresh the shop list

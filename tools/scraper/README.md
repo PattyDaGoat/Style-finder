@@ -28,6 +28,7 @@ Everything else is stdlib. The pool lives in `catalog.db` here (gitignored).
 ## The loop
 
 ```
+python3 find_brands.py --write                # find brands not in the app yet
 python3 browse.py --discover --from-catalog   # build sites.json from the catalog's own brands
 python3 browse.py --probe                     # record which shops let a crawler in
 python3 browse.py --crawl --shops 20          # fill the pool (rotates; safe to re-run)
@@ -35,6 +36,37 @@ python3 browse.py --audit                     # what came back, and how good it 
 python3 export.py --promote 200               # bake 200/gender into data/catalog.json
 node ../../build.mjs && npm test              # rebuild, prove nothing broke
 ```
+
+## Adding brands the app has never sold (`find_brands.py`)
+
+`--discover` grows the browse-list from brands already in the catalog, so it
+only ever finds more of the same shops. `find_brands.py` is the other
+direction: a pool of labels the app *doesn't* carry, each probed in a headless
+browser to work out whether it can be crawled and where its gendered pages are.
+
+```
+python3 find_brands.py                    probe the pool, print findings, write nothing
+python3 find_brands.py --write            add the good ones to sites.json
+python3 find_brands.py --from list.txt    your own list ("Brand = https://shop.com")
+python3 find_brands.py --only "Kith,Bode"
+```
+
+It reads each shop's own `/collections.json` and keeps the collections that hold
+garments, so an entry point is registered only when the shop itself says which
+section it is. A candidate has to clear robots.txt, name at least one gendered
+garment collection, and return products — otherwise it's reported with the
+reason and skipped. 401/403 means no, and is taken as no.
+
+**Single-gender shops.** Plenty of good labels never say "mens" anywhere,
+because the whole shop is one gender (Todd Snyder, WTAPS; Khaite, Toteme).
+Since the entry-point gender is the strongest signal `gender.py` gets, guessing
+it wrong is worse than skipping the shop, so only two narrow rules apply — a
+women's call needs the classifier *and* real dress stock (dress share separates
+Khaite at 16% from a sneaker boutique at 0%, where the vote count alone can't);
+a men's call needs no women's collection anywhere on the site and no womenswear
+in a 100-product sample. Anything else is left out, and shops that are added
+this way carry `"gender_source": "inferred"` in `sites.json` so the call can be
+reviewed or dropped later.
 
 `browse.py --reclassify` re-runs the gender model over stored rows after a
 classifier change — everything it reads is kept on the row, so improving
@@ -54,9 +86,25 @@ the app (`passesFilters`), so a row that argues with it doesn't get a second
 opinion, it gets invisibility. **If `15-sectioning.js` changes, change
 `gender.py` with it** — then `--reclassify`.
 
-`export.py` also skips intimates (same word rules as `underwearLock` in
-`15-sectioning.js`): the app never deals them, so baking them in only grows
-the file.
+## Clothes only
+
+The deck is for building outfits, so `export.py` ships garments, headwear and
+footwear and nothing else — see `ALLOWED_CATS` and `is_clothing()` there. Out:
+underwear (same word rules as `underwearLock` in `15-sectioning.js`, so the app
+was never going to deal them anyway), socks and hosiery, and the whole `acc`
+category, which is where `enrich.py` files bags, belts, ties, scarves,
+jewellery, sunglasses and towels.
+
+Socks are caught by name as well as by category, because `enrich.py` files
+"Loafer Dress Socks" under `shoe`. Whichever noun comes last is the thing being
+sold: a *sock boot* is a boot, a *boot sock* is a sock.
+
+The same rule can be applied to rows already in the catalog:
+
+```
+python3 export.py --prune --dry-run     # count what would go, and why
+python3 export.py --prune               # rewrite data/catalog.json
+```
 
 ## Being a good guest
 
@@ -69,6 +117,7 @@ detection — shops that say no are recorded in `sites.json` and skipped.
 ## Files
 
 ```
+find_brands.py  finds brands the app doesn't carry and registers how to crawl them
 browse.py    the crawler: probe / crawl / discover / audit / reclassify
 gender.py    the classifier + the 15-sectioning.js parity port
 enrich.py    Shopify-feed normaliser + the shared taxonomy rules

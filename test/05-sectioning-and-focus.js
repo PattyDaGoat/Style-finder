@@ -182,7 +182,15 @@ async function settle(p){await p.waitForLoadState('load').catch(()=>{});await p.
  });
  chk('underwear names are flagged', Object.values(uw.blocked).every(v=>v===true), JSON.stringify(uw.blocked));
  chk('activewear/swim/sandals/shirts are NOT flagged', Object.values(uw.exempt).every(v=>v===false), JSON.stringify(uw.exempt));
- chk('catalog has flagged intimates ('+uw.flagged+') and none pass the deck filter', uw.flagged>0 && uw.leaks===0, 'leaks='+uw.leaks);
+ /* The lock's logic is proven on the synthetic names above; these two check the
+   live data. This used to be one assertion that *required* the catalog to still
+   contain intimates in order to prove nothing leaked — which stopped being true
+   once export.py started shipping clothes only (ALLOWED_CATS / is_clothing).
+   Nothing to leak is the stronger outcome, so it is now asserted directly, and
+   the leak check is kept separately so it still guards a catalog that regains
+   one. */
+chk('no flagged intimates reach the deck', uw.leaks===0, 'leaks='+uw.leaks);
+chk('catalog is clothes-only — no intimates left in the data', uw.flagged===0, 'flagged='+uw.flagged);
  chk('strict-section toggle UI is gone', await p.evaluate("!document.getElementById('strictBtn') && !document.getElementById('strictNote')"));
  chk('strict sectioning itself is still on', await p.evaluate("STRICT_SECT===true"));
 

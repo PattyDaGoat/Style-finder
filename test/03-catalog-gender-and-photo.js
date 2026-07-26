@@ -2,8 +2,9 @@ const { chromium } = require('playwright');
 const { join, dirname } = require('node:path');
 const REPO = dirname(dirname(require('node:fs').realpathSync(__filename)));
 const DIST = join(REPO, 'dist', 'style-finder.html');
-const DIST_URL = 'file://' + DIST;
-require('node:fs').mkdirSync('/tmp/sf-shots', { recursive: true });
+const DIST_URL = require('node:url').pathToFileURL(DIST).href;
+const SHOTS = join(require('node:os').tmpdir(), 'sf-shots');
+require('node:fs').mkdirSync(SHOTS, { recursive: true });
 
 const ok=[],bad=[];
 const chk=(n,c,e)=>(c?ok:bad).push(n+(e?' :: '+e:''));
@@ -185,7 +186,7 @@ async function settle(p){await p.waitForLoadState('load').catch(()=>{});await p.
  chk('none of them were women\'s-locked pieces', swept.wrong.length===0, swept.wrong.slice(0,4).join(' | '));
  chk('none of them were tagged womenswear', swept.wrongTag.length===0, swept.wrongTag.slice(0,4).join(' | '));
 
- await p.screenshot({path:'/tmp/sf-shots/shot-highlight.png'});
+ await p.screenshot({path:join(SHOTS,'shot-highlight.png')});
  await b.close();
  console.log('\n===== PASS ('+ok.length+') ====='); ok.forEach(t=>console.log('  ok  '+t));
  if(bad.length){console.log('\n===== FAIL ('+bad.length+') ====='); bad.forEach(t=>console.log('  FAIL '+t));}

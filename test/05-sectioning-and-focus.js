@@ -2,8 +2,9 @@ const { chromium } = require('playwright');
 const { join, dirname } = require('node:path');
 const REPO = dirname(dirname(require('node:fs').realpathSync(__filename)));
 const DIST = join(REPO, 'dist', 'style-finder.html');
-const DIST_URL = 'file://' + DIST;
-require('node:fs').mkdirSync('/tmp/sf-shots', { recursive: true });
+const DIST_URL = require('node:url').pathToFileURL(DIST).href;
+const SHOTS = join(require('node:os').tmpdir(), 'sf-shots');
+require('node:fs').mkdirSync(SHOTS, { recursive: true });
 
 const ok=[],bad=[];
 const chk=(n,c,e)=>(c?ok:bad).push(n+(e?' :: '+e:''));
@@ -194,7 +195,7 @@ chk('catalog is clothes-only — no intimates left in the data', uw.flagged===0,
  chk('strict-section toggle UI is gone', await p.evaluate("!document.getElementById('strictBtn') && !document.getElementById('strictNote')"));
  chk('strict sectioning itself is still on', await p.evaluate("STRICT_SECT===true"));
 
- await p.screenshot({path:'/tmp/sf-shots/shot-sect.png'});
+ await p.screenshot({path:join(SHOTS,'shot-sect.png')});
  await b.close();
  console.log('\n===== PASS ('+ok.length+') ====='); ok.forEach(t=>console.log('  ok  '+t));
  if(bad.length){console.log('\n===== FAIL ('+bad.length+') ====='); bad.forEach(t=>console.log('  FAIL '+t));}

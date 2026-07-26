@@ -8,7 +8,7 @@
     "check": "node build.mjs --check",
     "test": "node test/run-all.mjs",
     "eval": "echo 'open dist/style-finder.html?eval=1 and press Test on 3 simulated shoppers'",
-    "serve": "node -e \"process.stdout.write('serving dist/ on http://localhost:8000\\n')\" && cd dist && python3 -m http.server 8000"
+    "serve": "node tools/serve.mjs"
   },
   "devDependencies": {
     "playwright": "^1.40.0"

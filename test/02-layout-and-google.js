@@ -2,9 +2,11 @@ const { chromium } = require('playwright');
 const { join, dirname } = require('node:path');
 const REPO = dirname(dirname(require('node:fs').realpathSync(__filename)));
 const DIST = join(REPO, 'dist', 'style-finder.html');
-const DIST_URL = 'file://' + DIST;
-require('node:fs').mkdirSync('/tmp/sf-shots', { recursive: true });
-require('node:fs').mkdirSync('/tmp/sf/work', { recursive: true });   /* suite C writes a patched copy here */
+const DIST_URL = require('node:url').pathToFileURL(DIST).href;
+const SHOTS = join(require('node:os').tmpdir(), 'sf-shots');
+require('node:fs').mkdirSync(SHOTS, { recursive: true });
+const WORK = join(require('node:os').tmpdir(), 'sf', 'work');
+require('node:fs').mkdirSync(WORK, { recursive: true });   /* suite C writes a patched copy here */
 
 const fs=require('fs');
 const ok=[],bad=[];
@@ -36,9 +38,9 @@ async function settle(p){await p.waitForLoadState('load').catch(()=>{});await p.
  chk('account chip does not overlap likes button', !overlap(geo.chip,geo.like));
  chk('cart + likes buttons still visible on deck', await p1.isVisible('#cartFab') && await p1.isVisible('#likeFab'));
  chk('Profile (gear) button still works', await p1.isVisible('#gearBtn'));
- await p1.screenshot({path:'/tmp/sf-shots/shot-deck.png'});
+ await p1.screenshot({path:join(SHOTS,'shot-deck.png')});
  await p1.click('.ab-restart'); await p1.waitForTimeout(300);
- await p1.screenshot({path:'/tmp/sf-shots/shot-modal.png'});
+ await p1.screenshot({path:join(SHOTS,'shot-modal.png')});
  await p1.click('#resetOverlay >> text=Cancel');
  // gear -> profile still routes correctly and appbar persists
  await p1.click('#gearBtn'); await p1.waitForTimeout(400);
@@ -61,17 +63,18 @@ async function settle(p){await p.waitForLoadState('load').catch(()=>{});await p.
  chk('MOBILE: chip does not overlap cart', !ov(m.chip,m.cart));
  chk('MOBILE: chip does not overlap likes', !ov(m.chip,m.like));
  chk('MOBILE: nothing spills off screen', m.chip.r <= m.vw+1, 'chipRight='+m.chip.r+' vw='+m.vw);
- await p2.screenshot({path:'/tmp/sf-shots/shot-mobile.png'});
+ await p2.screenshot({path:join(SHOTS,'shot-mobile.png')});
 
  // ---------- C. real Google path (CLIENT_ID filled in) ----------
  const src=fs.readFileSync(DIST,'utf8');
  const withId=src.replace('const GOOGLE_CLIENT_ID = "";','const GOOGLE_CLIENT_ID = "123456789-testclientid.apps.googleusercontent.com";');
  chk('CLIENT_ID slot is findable by exact one-line edit', withId!==src);
- fs.writeFileSync('/tmp/sf/work/withid.html',withId);
+ const WITHID = join(WORK,'withid.html');
+ fs.writeFileSync(WITHID,withId);
  const c3=await b.newContext({viewport:{width:1100,height:900}});
  const p3=await c3.newPage();
  const e3=[];p3.on('pageerror',e=>e3.push(e.message));
- await p3.goto('file:///tmp/sf/work/withid.html');await settle(p3);
+ await p3.goto(require('node:url').pathToFileURL(WITHID).href);await settle(p3);
 
  // sign-in area must never be blank at ANY point while Google loads
  let blankFrames=0, seenSomething=0;

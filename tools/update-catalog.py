@@ -24,6 +24,8 @@ USEFUL SWITCHES
     --add 40         add more pieces per gender (default 15)
     --quick          crawl 5 shops — a fast check that everything works
     --push           also upload to GitHub (asks you to sign in the first time)
+    --schedule       run automatically every 3 hours; combine with --push to
+                     upload each time, e.g.  --schedule --push
     --no-open        don't open the app at the end
 """
 
@@ -232,7 +234,7 @@ def _ps_quote(value):
     return "'" + str(value).replace("'", "''") + "'"
 
 
-def schedule_self(hours=3, task_name=None):
+def schedule_self(hours=3, task_name=None, extra_args=()):
     """Ask Windows to run this every few hours, so you never run it by hand.
 
     Registered through PowerShell's scheduler API rather than schtasks.exe:
@@ -258,7 +260,9 @@ Register-ScheduledTask -TaskName {name} -Action $action -Trigger $trigger `
     -Force | Out-Null
 'REGISTERED'
 """.format(py=_ps_quote(sys.executable),
-           argline=_ps_quote('"{}" --no-open'.format(os.path.abspath(__file__))),
+           argline=_ps_quote(" ".join(
+               ['"{}"'.format(os.path.abspath(__file__)), "--no-open"]
+               + list(extra_args))),
            repo=_ps_quote(REPO),
            hours=int(hours),
            name=_ps_quote(task_name))
@@ -306,7 +310,18 @@ def main():
     if args.unschedule:
         return unschedule_self()
     if args.schedule:
-        return schedule_self(args.schedule)
+        # Carry the run options into the scheduled command, so
+        # `--schedule --push` really does upload on every run.
+        extra = []
+        if args.push:
+            extra.append("--push")
+        if args.find_brands:
+            extra.append("--find-brands")
+        if args.shops != 15:
+            extra += ["--shops", str(args.shops)]
+        if args.add != 15:
+            extra += ["--add", str(args.add)]
+        return schedule_self(args.schedule, extra_args=extra)
 
     if args.quick:
         args.shops = 5

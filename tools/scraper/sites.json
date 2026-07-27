@@ -1880,7 +1880,15 @@
    ],
    "m": []
   },
+  "entry_cursor": 2,
   "gender_source": "prior",
+  "health": {
+   "fail": 0,
+   "last": 1785126807.0070999,
+   "last_found": 42,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "cozyearth.com",
   "note": "auto-discovered"
  },
@@ -1894,7 +1902,15 @@
     "https://criquetshirts.com/collections/view-all-men"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1785126924.3829017,
+   "last_found": 42,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "criquetshirts.com",
   "note": "auto-discovered"
  },
@@ -1908,7 +1924,15 @@
    ],
    "m": []
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1785126982.1584551,
+   "last_found": 21,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "crosscolours.com",
   "note": "auto-discovered"
  },
@@ -1922,7 +1946,15 @@
    ],
    "m": []
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1785127076.5831604,
+   "last_found": 27,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "www.cue.cc",
   "note": "auto-discovered"
  },
@@ -1934,7 +1966,15 @@
     "https://www.cuyana.com/collections/mens-essentials"
    ]
   },
+  "entry_cursor": 0,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1785127107.2888327,
+   "last_found": 6,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "www.cuyana.com",
   "note": "auto-discovered"
  },
@@ -1952,7 +1992,15 @@
     "https://dfyne.com/collections/best-sellers-mens"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1785127236.0030894,
+   "last_found": 120,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "dfyne.com",
   "note": "auto-discovered"
  },
@@ -1970,7 +2018,15 @@
     "https://www.dl1961.com/collections/mens-best-sellers"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1785127512.1435869,
+   "last_found": 42,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "www.dl1961.com",
   "note": "auto-discovered"
  },
@@ -1988,7 +2044,15 @@
     "https://www.dtlr.com/collections/kappa-mens-apparel"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "collection-handle",
+  "health": {
+   "fail": 0,
+   "last": 1785127666.6597097,
+   "last_found": 100,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "www.dtlr.com",
   "note": "found by find_brands.py \u2014 sneaker boutique"
  },
@@ -2002,7 +2066,15 @@
    ],
    "m": []
   },
+  "entry_cursor": 2,
   "gender_source": "prior",
+  "health": {
+   "fail": 0,
+   "last": 1785127757.8330495,
+   "last_found": 41,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "www.daisystreet.co.uk",
   "note": "auto-discovered"
  },
@@ -2016,7 +2088,15 @@
    ],
    "m": []
   },
+  "entry_cursor": 2,
   "gender_source": "prior",
+  "health": {
+   "fail": 0,
+   "last": 1785127872.7704241,
+   "last_found": 38,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "damsonmadder.com",
   "note": "auto-discovered"
  },
@@ -2034,7 +2114,15 @@
     "https://dandydelmar.com/collections/mens-leisure-wear"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1785128126.6252275,
+   "last_found": 77,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "dandydelmar.com",
   "note": "auto-discovered"
  },
@@ -2048,7 +2136,15 @@
     "https://debonnefacture.fr/collections/fall-winter-edition-2024"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "prior",
+  "health": {
+   "fail": 0,
+   "last": 1785128358.7710571,
+   "last_found": 19,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "debonnefacture.fr",
   "note": "auto-discovered"
  },
@@ -2062,7 +2158,15 @@
    ],
    "m": []
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 1,
+   "last": 1785128392.565247,
+   "last_found": 0,
+   "ok": 0,
+   "status": "blocked"
+  },
   "host": "dehen.com",
   "note": "auto-discovered"
  },
@@ -2080,7 +2184,16 @@
     "https://deltoroshoes.com/collections/all-mens-new-arrivals"
    ]
   },
+  "entry_cursor": 1,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1785128440.5227256,
+   "last_found": 2,
+   "note": "rate-limited (429) \u2014 stopping this shop for now",
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "deltoroshoes.com",
   "note": "auto-discovered"
  },
@@ -2094,8 +2207,16 @@
     "https://denimtears.com/collections/sweats-old-ba616a"
    ]
   },
+  "entry_cursor": 2,
   "gender_note": "no women's collection on the whole site and 0/100 womenswear in a sample",
   "gender_source": "inferred",
+  "health": {
+   "fail": 0,
+   "last": 1785128488.6440647,
+   "last_found": 1,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "denimtears.com",
   "note": "found by find_brands.py \u2014 streetwear"
  },

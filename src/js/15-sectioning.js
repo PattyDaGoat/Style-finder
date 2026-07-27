@@ -30,6 +30,15 @@ function gdFile(url){ return (url||"").split("/").pop().split("?")[0]; }
 function detectSection(p){
   const s=gdScrub(p.n||""), cat=p.cat;
 
+  /* T0 — women's swimwear, no exceptions and no tier above it.
+     bikini/swimsuit already sat in GD_F_GARMENT at T2, which is why none had
+     actually leaked. But T2 is reachable only if T1 stays silent, so a stray
+     "men's" anywhere in the name would have outranked it, and the T2 list had
+     no word for one-piece, monokini, bandeau or cover-up. Nobody swiping the
+     men's deck should ever be shown a bikini, so it is decided first and the
+     rest of the ladder never gets a vote. */
+  if(isWomensSwim(p)) return {g:"f", why:"women's swimwear"};
+
   /* T1 — the name names its audience */
   const fa=GD_F_AUDIENCE.test(s), ma=GD_M_AUDIENCE.test(s);
   if(fa!==ma) return {g:fa?"f":"m", why:"name says so"};

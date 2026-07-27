@@ -1510,12 +1510,12 @@
     "https://us.carhartt-wip.com/en/men/clothing/pants"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 0,
   "health": {
    "fail": 0,
-   "last": 1785113288.3037517,
-   "last_found": 27,
-   "ok": 2,
+   "last": 1785115936.3998933,
+   "last_found": 19,
+   "ok": 3,
    "status": "ok"
   },
   "host": "us.carhartt-wip.com",
@@ -1535,7 +1535,15 @@
     "https://casablancaparis.com/collections/mens-shorts"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "collection-handle",
+  "health": {
+   "fail": 0,
+   "last": 1785116044.6221836,
+   "last_found": 11,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "casablancaparis.com",
   "note": "found by find_brands.py \u2014 designer"
  },
@@ -1548,7 +1556,15 @@
    ],
    "m": []
   },
+  "entry_cursor": 0,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1785116132.7906477,
+   "last_found": 44,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "www.cherryla.com",
   "note": "auto-discovered"
  },
@@ -1560,7 +1576,16 @@
     "https://christydawn.com/collections/mens-collection"
    ]
   },
+  "entry_cursor": 0,
   "gender_source": "collection",
+  "health": {
+   "fail": 1,
+   "last": 1785116184.2148178,
+   "last_found": 0,
+   "note": "no products found on the page",
+   "ok": 0,
+   "status": "blocked"
+  },
   "host": "christydawn.com",
   "note": "auto-discovered"
  },
@@ -1574,7 +1599,15 @@
    ],
    "m": []
   },
+  "entry_cursor": 2,
   "gender_source": "prior",
+  "health": {
+   "fail": 0,
+   "last": 1785116279.0099492,
+   "last_found": 8,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "ciaolucia.com",
   "note": "auto-discovered"
  },
@@ -1588,7 +1621,16 @@
     "https://www.clae.com/collections/shoes"
    ]
   },
+  "entry_cursor": 1,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1785116337.4854925,
+   "last_found": 46,
+   "note": "rate-limited (429) \u2014 stopping this shop for now",
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "www.clae.com",
   "note": "auto-discovered"
  },
@@ -1602,7 +1644,15 @@
    ],
    "m": []
   },
+  "entry_cursor": 2,
   "gender_source": "prior",
+  "health": {
+   "fail": 0,
+   "last": 1785116517.1883862,
+   "last_found": 47,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "cleobella.com",
   "note": "auto-discovered"
  },
@@ -1620,7 +1670,15 @@
     "https://coalatree.com/collections/mens-sweatshirts-hoodies"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1785116623.8993967,
+   "last_found": 21,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "coalatree.com",
   "note": "auto-discovered"
  },
@@ -1634,7 +1692,15 @@
     "https://colebuxton.com/collections/bestsellers"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "prior",
+  "health": {
+   "fail": 0,
+   "last": 1785116830.378516,
+   "last_found": 84,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "colebuxton.com",
   "note": "auto-discovered"
  },
@@ -1652,7 +1718,15 @@
     "https://colorfulstandard.com/collections/mens-organic-cotton-merino-wool-tops"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1785116995.0257344,
+   "last_found": 120,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "colorfulstandard.com",
   "note": "auto-discovered"
  },
@@ -1670,7 +1744,15 @@
     "https://communityclothing.co.uk/collections/mens-made-in-the-north"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1785117087.6348698,
+   "last_found": 53,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "communityclothing.co.uk",
   "note": "auto-discovered"
  },
@@ -1686,14 +1768,14 @@
     "https://cncpts.com/collections/apparel-1"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 0,
   "gender_note": "found only women's collections by name; the shop also lists men's ones, so its general collections are registered for that side as a guess",
   "gender_source": "prior",
   "health": {
    "fail": 0,
-   "last": 1785113535.5855596,
-   "last_found": 28,
-   "ok": 1,
+   "last": 1785117190.0936687,
+   "last_found": 15,
+   "ok": 2,
    "status": "ok"
   },
   "host": "cncpts.com",

@@ -192,6 +192,37 @@ async function settle(p){await p.waitForLoadState('load').catch(()=>{});await p.
    one. */
 chk('no flagged intimates reach the deck', uw.leaks===0, 'leaks='+uw.leaks);
 chk('catalog is clothes-only — no intimates left in the data', uw.flagged===0, 'flagged='+uw.flagged);
+
+/* ---------- women's swimwear must never reach the men's deck ----------
+   detectSection decides this at T0, above the tier that reads audience words,
+   so a stray "men's" in a product name cannot outrank it. The loose words
+   (one-piece, two-piece, bandeau, cover-up) only count with swim context
+   beside them, because "Two Piece Wool Suit" is menswear. */
+const swim=await p.evaluate(()=>{
+  const probe=n=>({piece:{n:n,cat:'short',u:'',img:'',b:'X'}});
+  const blocked={}, exempt={};
+  ['Ribbed Bikini Top','String Bikini Bottom','Monokini Black','Tankini Set Navy',
+   'Ruched One-Piece Swimsuit','Resort Two Piece','Beach Cover-Up Linen',
+   'Bandeau Swim Top','Maillot Noir',"Men's Bikini Cut Swimsuit"]
+    .forEach(n=>{const{piece}=probe(n);blocked[n]=isWomensSwim(piece)&&detectSection(piece).g==='f';});
+  ['Swim Trunks Navy','Board Shorts Olive','Two Piece Wool Suit','Swim Shorts 5in',
+   'Rash Guard Long Sleeve','One Piece Coverall Workwear']
+    .forEach(n=>{const{piece}=probe(n);exempt[n]=isWomensSwim(piece);});
+
+  // and the live catalog: zero women's swimwear may pass the men's filter
+  GENDER='m'; S.settings={gender:'m',maxBudget:100000}; STRICT_SECT=true;
+  let inMens=0, flagged=0;
+  for(let i=0;i<CATALOG.length;i++){
+    if(isWomensSwim(CATALOG[i])){ flagged++; if(passesFilters(i)) inMens++; }
+  }
+  return {blocked,exempt,inMens,flagged};
+});
+chk("women's swimwear names are locked to womenswear",
+    Object.values(swim.blocked).every(v=>v===true), JSON.stringify(swim.blocked));
+chk("men's swim shorts and a two-piece suit are NOT mistaken for it",
+    Object.values(swim.exempt).every(v=>v===false), JSON.stringify(swim.exempt));
+chk('no bikini or women\'s swimsuit can reach the men\'s deck ('+swim.flagged+' in the catalog)',
+    swim.inMens===0, 'reached the men\'s deck: '+swim.inMens);
  chk('strict-section toggle UI is gone', await p.evaluate("!document.getElementById('strictBtn') && !document.getElementById('strictNote')"));
  chk('strict sectioning itself is still on', await p.evaluate("STRICT_SECT===true"));
 

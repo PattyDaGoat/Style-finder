@@ -8,3 +8,6 @@ harvest.log
 # these modules import each other, so running any of them leaves bytecode here
 __pycache__/
 *.pyc
+
+# the image-check cache - a local artifact, rebuilt on demand
+imgcheck.json

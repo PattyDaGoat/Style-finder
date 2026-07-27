@@ -10,6 +10,7 @@ is generated, so the data file is the thing to edit.
     python3 export.py --promote 200              pick 200/gender fresh from the pool
     python3 export.py --promote 200 --dry-run    show the pick, write nothing
     python3 export.py --prune                    drop non-clothing rows already baked in
+    python3 export.py --prune --verify-images     ...and fetch every image to check it
 
 Clothes only: garments, headwear and footwear ship. Underwear, socks/hosiery,
 bags, belts, jewellery and homeware do not — see ALLOWED_CATS and is_clothing().
@@ -143,6 +144,120 @@ def base_title(name):
     return n.strip().lower()
 
 
+# ---- photos: is the image actually a picture of the piece? -----------------
+# Read this before touching anything below. Every check here is URL shape and
+# pixel arithmetic. NOTHING here can tell you whether the photo shows the
+# garment the name describes — that needs a vision model and this pipeline has
+# none. What these rules remove are images that are provably not a product
+# photo of anything: promo badges, brand logos, colour swatches, wishlist
+# icons, "image coming soon" tiles, blank rectangles and category listing pages
+# stored in the img field.
+#
+# Counts were measured over data/catalog.json (9,928 rows) on 2026-07-26 with
+# the URLs actually fetched. Do not add a pattern without fetching what it
+# matches — four plausible-looking rules were tried and rejected for deleting
+# real photography:
+#   "no image file extension" -> 95 hits, 26 real photos. 27% false positives.
+#   "/thumb/ in the path"     -> 25 hits, 19 real DTLR photos.
+#   "logo in the filename"    -> 71 hits, nearly all genuinely "... Logo Tee".
+#   "t_default/ in the path"  -> 5 hits, all 5 real Nike renders at 320x400.
+
+# URLs the crawler stored broken that resolve perfectly once repaired. All 32
+# affected rows were fetched both ways: 404 or a 1x1 stub as stored, a full
+# product photo once repaired. Repairing beats dropping.
+IMG_REPAIRS = (
+    (re.compile(r"_\{width\}x(?=\.\w+)"), "_1200x"),   # unfilled Shopify Liquid
+    (re.compile(r"\{width\}"), "1200"),
+    (re.compile(r"_1x1(?=\.\w+)"), ""),                # 1-pixel stub, 938 bytes
+    (re.compile(r"_small(?=\.\w+)"), "_1200x"),        # 70x100 thumbnail
+)
+
+
+def repair_img(img):
+    """Rewrite a URL the crawler stored in a broken-but-fixable form."""
+    if not img:
+        return img
+    for rx, sub in IMG_REPAIRS:
+        img = rx.sub(sub, img)
+    # A Firebase object URL without ?alt=media returns bucket metadata as JSON
+    # instead of the image.
+    if "firebasestorage.googleapis.com" in img and "alt=media" not in img:
+        img += ("&" if "?" in img else "?") + "alt=media"
+    return img
+
+
+# Two URLs are junk in their entirety and are matched literally, because their
+# shape does not generalise. Each is shared by every product of its brand.
+BAD_IMG_EXACT = frozenset({
+    # A Cloudinary transform carrying only a background colour and no asset id.
+    # Returns 200, decodes as an 840x1147 blank #F7F7F7 rectangle — so the app's
+    # onerror fallback never fires and the shopper sees an empty card.
+    "https://assets.aritzia.com/image/upload/f7f7f7",
+    # A category listing page URL stored in the img field.
+    "https://www.jcrew.com/plp/mens/categories/clothing/0",
+})
+
+BAD_IMG_RE = re.compile(r"""(?xi)
+      /image/upload/[0-9a-f]{6}$      # cloudinary bg-colour transform, no asset
+    | /plp/                            # a category page, not an image
+    | product-tile-fallback            # the shop's own "IMAGE COMING SOON!" tile
+    | (^|[/_-])swatch(es)?[/_.-]       # colour/fabric swatch crop, 100-300px
+    | _wishlist\.                      # the site's wishlist heart icon (SVG)
+    | /image/upload/w_[1-9]?[0-9]/     # cloudinary render under 100px wide
+    | \{width\} | _1x1\. | _small\.    # only reachable if repair_img missed one
+""")
+
+
+def photo_ok(row):
+    """Repair the row's image URL in place, then say whether it can be a photo.
+
+    False only for images fetched and confirmed not to be a picture of a
+    garment. This does NOT check that the photo matches the product name.
+    """
+    row["img"] = repair_img(row.get("img"))
+    img = row["img"]
+    if not img:
+        return False
+    return (img.split("?")[0] not in BAD_IMG_EXACT
+            and not BAD_IMG_RE.search(img))
+
+
+# One image standing in for several different products is never that product's
+# own photo. Measured: 12 URLs are each shared by 3+ distinct (brand, title)
+# pairs across 162 rows, and all 12 are junk on inspection — an "EXTRA20" sale
+# badge on 34 Albaray products, one shoe photo across 8 Birdies styles, a
+# bone-linen swatch on 8 Alex Crane camis. The 2-share tier is the opposite:
+# 83 groups / 166 rows, overwhelmingly legitimate mirror listings ("Wax London
+# Hayden - Navy" and "Wax London Womens Hayden - Navy" are one product listed
+# twice). Dropping at 2 would delete ~160 real products to catch a handful.
+MAX_PRODUCTS_PER_IMAGE = 3
+
+
+def image_key(img):
+    """Shopify's ?v= cache-buster differs between rows sharing one asset."""
+    return (img or "").split("?")[0]
+
+
+def overused_images(rows, limit=MAX_PRODUCTS_PER_IMAGE):
+    """Image URLs that stand in for `limit` or more different products."""
+    owners = defaultdict(set)
+    for r in rows:
+        owners[image_key(r.get("img"))].add((r.get("b"), base_title(r.get("n"))))
+    return {u for u, titles in owners.items() if u and len(titles) >= limit}
+
+
+def drop_shared_photos(catalog, rows):
+    """Global pass — a per-row check cannot see one image serving thirty
+    products. Counts what is already baked in too, so a new row cannot quietly
+    become the third user of a badge that already serves two."""
+    over = overused_images(list(catalog) + list(rows))
+    keep = [r for r in rows if image_key(r.get("img")) not in over]
+    if len(keep) != len(rows):
+        print("dropped {} rows whose photo already stands in for other products"
+              .format(len(rows) - len(keep)))
+    return keep
+
+
 def _round_robin(by_brand, want, max_depth=MAX_PER_BRAND):
     picked, depth = [], 0
     brands = sorted(by_brand, key=lambda b: -len(by_brand[b]))
@@ -162,7 +277,9 @@ def _round_robin(by_brand, want, max_depth=MAX_PER_BRAND):
 
 
 def eligible(row, exclude_titles):
-    return (row.get("usd", 0) >= MIN_PRICE and row.get("img")
+    # photo_ok() subsumes the old img-presence test and repairs the URL in
+    # place, so the repaired form is what gets written out.
+    return (row.get("usd", 0) >= MIN_PRICE and photo_ok(row)
             and is_clothing(row)
             and (row["b"], base_title(row["n"])) not in exclude_titles)
 
@@ -260,7 +377,112 @@ def append_to_catalog(rows, dry_run=False):
     return len(rows)
 
 
-def prune_catalog(dry_run=False):
+# ---- optional: fetch the images and look at the pixels ---------------------
+# Everything above is free. This costs one HTTP GET per product, so it is off
+# by default and cached. It catches the one class URL shape cannot: an image
+# that loads fine, is the right size, and is still not a photo.
+#
+# Thresholds measured on 250 random gate-passing rows, fetched and decoded,
+# against 28 confirmed-bad URLs:
+#   long edge < 350px     catches 21 of the 24 decodable bad images, drops 0 of
+#                         249 good. Good-photo minimum long edge was 576 (p1 =
+#                         875), a 1.6x margin. DO NOT raise it: Nike's real shoe
+#                         photos are 320x400, so 450 would delete 5 good rows.
+#   <= 8 distinct colours the blank-rectangle test. Control minimum was 25
+#   in a 32x32 thumbnail  distinct colours (p1 = 46); swatch stubs and the
+#                         Aritzia blank score 1. 0/249 false positives at 8;
+#                         1.2% at 64; 4.4% at 128.
+#
+# Deliberately NOT failures, because they measured unreliable:
+#   * HTTP 403/429/timeout/DNS. assets.aritzia.com returns 403 to every
+#     non-browser client while the same URL returns 200 in a browser — a
+#     403 rule is non-deterministic between runs and deletes working products.
+#   * A decode failure on a 200 image/* response (capping the read produced
+#     spurious failures during calibration).
+IMG_MIN_LONG_EDGE = 350
+IMG_MAX_FLAT_COLOURS = 8
+IMG_UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+          "(KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36")
+IMG_CACHE = os.path.join(HERE, "imgcheck.json")
+
+
+def _inspect(img):
+    """Fetch one image. Returns (keep, note). Errs towards keeping."""
+    import io
+    import urllib.error
+    import urllib.request
+    req = urllib.request.Request(
+        img, headers={"User-Agent": IMG_UA, "Accept": "image/*,*/*"})
+    try:
+        with urllib.request.urlopen(req, timeout=30) as resp:
+            ctype = resp.headers.get("Content-Type", "")
+            data = resp.read(16_000_000)
+    except urllib.error.HTTPError as exc:
+        return exc.code not in (404, 410), "http {}".format(exc.code)
+    except Exception as exc:                        # timeout, DNS, TLS
+        return True, "unreachable ({})".format(type(exc).__name__)
+
+    head = ctype.split(";")[0].strip().lower()
+    if head == "image/svg+xml":
+        # every one of these in this catalog is a wishlist heart icon, which a
+        # browser renders happily at 800x800 so onerror never fires
+        return False, "svg icon, not a photograph"
+    if head and not head.startswith("image/"):
+        return False, "not an image ({})".format(head)
+    try:
+        from PIL import Image
+    except ImportError:
+        return True, "no Pillow — pixel checks skipped"
+    try:
+        im = Image.open(io.BytesIO(data))
+        im.load()
+    except Exception:
+        return True, "undecodable (not trusted as a failure)"
+    if max(im.size) < IMG_MIN_LONG_EDGE:
+        return False, "too small ({}x{})".format(*im.size)
+    if len(set(im.convert("RGB").resize((32, 32)).getdata())) <= IMG_MAX_FLAT_COLOURS:
+        return False, "blank or near-blank rectangle"
+    return True, "ok {}x{}".format(*im.size)
+
+
+def verify_images(rows, workers=8):
+    """Fetch every row's image and drop the ones provably not a photo.
+
+    Polite: 8 connections, a real User-Agent, results cached in imgcheck.json
+    so re-runs cost nothing. A full pass over ~10,000 rows moves roughly 1.5 GB
+    and takes 20-40 minutes; --promote 200 is about 400 fetches.
+    """
+    from concurrent.futures import ThreadPoolExecutor
+    cache = {}
+    if os.path.exists(IMG_CACHE):
+        try:
+            with open(IMG_CACHE, encoding="utf-8") as fh:
+                cache = json.load(fh)
+        except ValueError:
+            cache = {}
+    todo = sorted({r["img"] for r in rows if r.get("img") and r["img"] not in cache})
+    if todo:
+        print("fetching {} images ({} already cached)".format(len(todo), len(cache)))
+        with ThreadPoolExecutor(max_workers=workers) as pool:
+            for img, verdict in zip(todo, pool.map(_inspect, todo)):
+                cache[img] = list(verdict)
+        with open(IMG_CACHE, "w", encoding="utf-8") as fh:
+            json.dump(cache, fh)
+    keep, reasons = [], defaultdict(int)
+    for r in rows:
+        ok, note = cache.get(r.get("img"), (True, "unchecked"))
+        if ok:
+            keep.append(r)
+        else:
+            reasons[note.split(" (")[0]] += 1
+    if reasons:
+        print("image fetch dropped {} rows:".format(len(rows) - len(keep)))
+        for why, n in sorted(reasons.items(), key=lambda kv: -kv[1]):
+            print("   {:5d}  {}".format(n, why))
+    return keep
+
+
+def prune_catalog(dry_run=False, verify=False):
     """Apply the clothes-only rule to rows that are already in the catalog.
 
     Changing `eligible()` only governs what ships next. Everything baked in
@@ -272,31 +494,60 @@ def prune_catalog(dry_run=False):
         python3 export.py --prune              # rewrite the catalog
     """
     catalog = store_registry.read_catalog()
-    keep = [p for p in catalog if is_clothing(p)]
-    dropped = [p for p in catalog if not is_clothing(p)]
-    if not dropped:
-        print("catalog is already clothes-only — {} items".format(len(catalog)))
-        return 0
+    # Repair before counting, so a rescued URL is counted at its final value.
+    repaired = 0
+    for p in catalog:
+        before = p.get("img")
+        p["img"] = repair_img(before)
+        if p["img"] != before:
+            repaired += 1
+    over = overused_images(catalog)
 
-    reasons = defaultdict(int)
-    for p in dropped:
+    keep, dropped, reasons = [], [], defaultdict(int)
+    for p in catalog:
         name, cat = p.get("n") or "", p.get("cat")
-        if is_underwear(name, cat):
-            reasons["underwear"] += 1
-        elif is_socks(name, cat):
-            reasons["socks / hosiery"] += 1
-        elif cat not in ALLOWED_CATS:
-            reasons["not a garment (cat={})".format(cat)] += 1
+        if not is_clothing(p):
+            if is_underwear(name, cat):
+                reasons["underwear"] += 1
+            elif is_socks(name, cat):
+                reasons["socks / hosiery"] += 1
+            elif cat not in ALLOWED_CATS:
+                reasons["not a garment (cat={})".format(cat)] += 1
+            else:
+                reasons["junk / homeware"] += 1
+        elif not photo_ok(p):
+            reasons["photo is not a picture of the piece"] += 1
+        elif image_key(p["img"]) in over:
+            reasons["one photo standing in for {}+ products".format(
+                MAX_PRODUCTS_PER_IMAGE)] += 1
         else:
-            reasons["junk / homeware"] += 1
-    print("dropping {} of {} rows:".format(len(dropped), len(catalog)))
-    for why, n in sorted(reasons.items(), key=lambda kv: -kv[1]):
-        print("   {:5d}  {}".format(n, why))
-    print("   e.g. " + " / ".join(p["n"][:34] for p in dropped[:4]))
+            keep.append(p)
+            continue
+        dropped.append(p)
+
+    if verify:
+        checked = verify_images(keep)
+        reasons["photo failed the fetch check"] += len(keep) - len(checked)
+        keep = checked
+
+    if repaired:
+        print("repaired {} image URLs in place".format(repaired))
+    gone = len(catalog) - len(keep)
+    if not gone and not repaired:
+        print("catalog is already clothes-only with usable photos — {} items"
+              .format(len(catalog)))
+        return 0
+    if gone:
+        print("dropping {} of {} rows:".format(gone, len(catalog)))
+        for why, n in sorted(reasons.items(), key=lambda kv: -kv[1]):
+            if n:
+                print("   {:5d}  {}".format(n, why))
+        if dropped:
+            print("   e.g. " + " / ".join(p["n"][:34] for p in dropped[:4]))
 
     if dry_run:
         print("dry run — nothing written")
-        return len(dropped)
+        return gone
 
     lines = [json.dumps({k: p[k] for k in APP_FIELDS if k in p},
                         ensure_ascii=False, separators=(",", ":")) for p in keep]
@@ -319,13 +570,15 @@ def main():
                     help="export the already-curated set instead")
     ap.add_argument("--prune", action="store_true",
                     help="drop non-clothing rows already in data/catalog.json")
+    ap.add_argument("--verify-images", action="store_true",
+                    help="fetch every image and check the pixels (slow, cached)")
     ap.add_argument("--db", help="path to catalog.db (default: alongside this script)")
     ap.add_argument("--dry-run", action="store_true")
     args = ap.parse_args()
     # Pruning reads and rewrites the catalog file only — it never touches the
     # crawler pool, so it works on a fresh clone with no catalog.db.
     if args.prune:
-        prune_catalog(args.dry_run)
+        prune_catalog(args.dry_run, args.verify_images)
         return
 
     if args.db:
@@ -347,6 +600,11 @@ def main():
             rows.extend(got)
     else:
         sys.exit("say --shipped or --promote N")
+
+    # A per-row check cannot see one photo serving thirty products.
+    rows = drop_shared_photos(catalog, rows)
+    if args.verify_images:
+        rows = verify_images(rows)
 
     by_g = defaultdict(int)
     for r in rows:

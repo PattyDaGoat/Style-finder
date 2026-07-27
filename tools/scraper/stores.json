@@ -267,7 +267,7 @@
  "BB Exclusive": {
   "domain": "www.beginningboutique.com",
   "gender_prior": "f",
-  "seen": 51
+  "seen": 53
  },
  "BBC Ice Cream": {
   "domain": "bbcicecream.com",
@@ -307,7 +307,7 @@
  "Bather": {
   "domain": "bather.com",
   "gender_prior": "m",
-  "seen": 47
+  "seen": 48
  },
  "Battenwear": {
   "domain": "battenwear.com",
@@ -332,7 +332,7 @@
  "Bearbottom": {
   "domain": "bearbottomclothing.com",
   "gender_prior": "m",
-  "seen": 69
+  "seen": 70
  },
  "Bearbottom Clothing": {
   "domain": "bearbottomclothing.com",
@@ -352,7 +352,7 @@
  "Beckett Simonon": {
   "domain": "www.beckettsimonon.com",
   "gender_prior": "m",
-  "seen": 13
+  "seen": 14
  },
  "Beginning Boutique": {
   "domain": "www.beginningboutique.com",
@@ -362,7 +362,7 @@
  "Bella Dahl": {
   "domain": "www.belladahl.com",
   "gender_prior": "f",
-  "seen": 83
+  "seen": 85
  },
  "Berg & Berg": {
   "domain": "bergbergstore.com",
@@ -484,6 +484,11 @@
   "gender_prior": "m",
   "seen": 20
  },
+ "CHERRY LA": {
+  "domain": "cherryla.com",
+  "gender_prior": "f",
+  "seen": 1
+ },
  "CONVERSE": {
   "domain": "undefeated.com",
   "gender_prior": "m",
@@ -499,10 +504,15 @@
   "gender_prior": "m",
   "seen": 3
  },
+ "Casablanca": {
+  "domain": "casablancaparis.com",
+  "gender_prior": "m",
+  "seen": 1
+ },
  "Cherry LA": {
   "domain": "www.cherryla.com",
   "gender_prior": "u",
-  "seen": 23
+  "seen": 27
  },
  "Christy Dawn": {
   "domain": "christydawn.com",
@@ -522,7 +532,7 @@
  "Cleobella": {
   "domain": "cleobella.com",
   "gender_prior": "f",
-  "seen": 24
+  "seen": 28
  },
  "Coalatree": {
   "domain": "coalatree.com",
@@ -532,7 +542,7 @@
  "Cole Buxton": {
   "domain": "colebuxton.com",
   "gender_prior": "m",
-  "seen": 27
+  "seen": 28
  },
  "Colorful Standard": {
   "domain": "colorfulstandard.com",
@@ -542,7 +552,7 @@
  "Community Clothing": {
   "domain": "communityclothing.co.uk",
   "gender_prior": "f",
-  "seen": 35
+  "seen": 37
  },
  "Concepts": {
   "domain": "cncpts.com",
@@ -552,7 +562,7 @@
  "Coney Island Picnic": {
   "domain": "coneyislandpicnic.com",
   "gender_prior": "m",
-  "seen": 27
+  "seen": 28
  },
  "Converse": {
   "domain": "www.converse.com",
@@ -562,7 +572,12 @@
  "Corridor NYC": {
   "domain": "www.corridornyc.com",
   "gender_prior": "m",
-  "seen": 23
+  "seen": 24
+ },
+ "Corteiz": {
+  "domain": "crtz.xyz",
+  "gender_prior": "m",
+  "seen": 1
  },
  "Cotopaxi": {
   "domain": "www.cotopaxi.com",
@@ -732,7 +747,7 @@
  "Everlane": {
   "domain": "www.everlane.com",
   "gender_prior": "f",
-  "seen": 33
+  "seen": 35
  },
  "Extra Butter": {
   "domain": "extrabutterny.com",
@@ -1219,6 +1234,11 @@
   "gender_prior": "m",
   "seen": 30
  },
+ "Men's": {
+  "domain": "communityclothing.co.uk",
+  "gender_prior": "m",
+  "seen": 2
+ },
  "Meshki": {
   "domain": "meshki.com",
   "gender_prior": "f",
@@ -1322,7 +1342,7 @@
  "New Era": {
   "domain": "extrabutterny.com",
   "gender_prior": "m",
-  "seen": 7
+  "seen": 8
  },
  "Nike": {
   "domain": "www.nike.com",
@@ -1967,7 +1987,7 @@
  "Stussy": {
   "domain": "www.stussy.com",
   "gender_prior": "m",
-  "seen": 14
+  "seen": 16
  },
  "St\u00fcssy": {
   "domain": "www.xhibition.co",

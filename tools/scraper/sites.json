@@ -1795,7 +1795,15 @@
     "https://coneyislandpicnic.com/collections/mens-collection"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1785117282.9140177,
+   "last_found": 32,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "coneyislandpicnic.com",
   "note": "auto-discovered"
  },
@@ -1809,7 +1817,15 @@
     "https://www.corridornyc.com/collections/shop-all"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "prior",
+  "health": {
+   "fail": 0,
+   "last": 1785118172.2470043,
+   "last_found": 50,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "www.corridornyc.com",
   "note": "auto-discovered"
  },
@@ -1823,8 +1839,16 @@
     "https://crtz.xyz/collections/shorts"
    ]
   },
+  "entry_cursor": 2,
   "gender_note": "guessed menswear (only 0% dresses and 9% read womenswear); registered as a prior, so any evidence on a piece overrides it",
   "gender_source": "prior",
+  "health": {
+   "fail": 0,
+   "last": 1785118240.2534068,
+   "last_found": 74,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "crtz.xyz",
   "note": "found by find_brands.py \u2014 streetwear"
  },

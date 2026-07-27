@@ -1134,13 +1134,13 @@
    ],
    "m": []
   },
-  "entry_cursor": 2,
+  "entry_cursor": 1,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1785002796.73601,
-   "last_found": 69,
-   "ok": 1,
+   "last": 1785110915.6123319,
+   "last_found": 111,
+   "ok": 2,
    "status": "ok"
   },
   "host": "www.belladahl.com",
@@ -1156,13 +1156,13 @@
     "https://bergbergstore.com/collections/live-products"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 1,
   "gender_source": "prior",
   "health": {
    "fail": 0,
-   "last": 1785002891.867712,
-   "last_found": 17,
-   "ok": 1,
+   "last": 1785111021.9150338,
+   "last_found": 27,
+   "ok": 2,
    "status": "ok"
   },
   "host": "bergbergstore.com",
@@ -1198,13 +1198,14 @@
    ],
    "m": []
   },
-  "entry_cursor": 2,
+  "entry_cursor": 1,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1785003028.703543,
-   "last_found": 44,
-   "ok": 1,
+   "last": 1785111109.1272254,
+   "last_found": 31,
+   "note": "no products found on the page",
+   "ok": 2,
    "status": "ok"
   },
   "host": "birdies.com",
@@ -1223,7 +1224,15 @@
     "https://birdsofcondor.com/collections/mens-t-shirts"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1785111179.4652534,
+   "last_found": 7,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "birdsofcondor.com",
   "note": "auto-discovered"
  },
@@ -1241,7 +1250,16 @@
     "https://birdwell.com/collections/mens-flexify-collection"
    ]
   },
+  "entry_cursor": 1,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1785111229.7743294,
+   "last_found": 34,
+   "note": "rate-limited (429) \u2014 stopping this shop for now",
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "birdwell.com",
   "note": "auto-discovered"
  },
@@ -1259,7 +1277,16 @@
     "https://www.blundstone.com/collections/mens-all-terrain-boots"
    ]
   },
+  "entry_cursor": 1,
   "gender_source": "collection-handle",
+  "health": {
+   "fail": 0,
+   "last": 1785111277.0163646,
+   "last_found": 6,
+   "note": "rate-limited (429) \u2014 stopping this shop for now",
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "www.blundstone.com",
   "note": "found by find_brands.py \u2014 footwear"
  },

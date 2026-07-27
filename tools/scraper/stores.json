@@ -17,7 +17,7 @@
  "9.0 Swim": {
   "domain": "www.beginningboutique.com",
   "gender_prior": "f",
-  "seen": 4
+  "seen": 7
  },
  "A BATHING APE": {
   "domain": "www.a-ma-maniere.com",
@@ -122,7 +122,7 @@
  "Albaray": {
   "domain": "www.albaray.co.uk",
   "gender_prior": "f",
-  "seen": 72
+  "seen": 73
  },
  "Alex Crane": {
   "domain": "alexcrane.co",
@@ -217,7 +217,7 @@
  "Assembly Label": {
   "domain": "assemblylabel.com",
   "gender_prior": "u",
-  "seen": 54
+  "seen": 55
  },
  "Auguste The Label": {
   "domain": "augustethelabel.com",
@@ -247,7 +247,7 @@
  "BB Exclusive": {
   "domain": "www.beginningboutique.com",
   "gender_prior": "f",
-  "seen": 23
+  "seen": 26
  },
  "BBC Ice Cream": {
   "domain": "bbcicecream.com",
@@ -282,7 +282,7 @@
  "Bather": {
   "domain": "bather.com",
   "gender_prior": "m",
-  "seen": 33
+  "seen": 35
  },
  "Battenwear": {
   "domain": "battenwear.com",
@@ -292,7 +292,7 @@
  "Baukjen": {
   "domain": "www.baukjen.com",
   "gender_prior": "f",
-  "seen": 52
+  "seen": 54
  },
  "Baukjen Womenswear": {
   "domain": "www.baukjen.com",
@@ -307,12 +307,12 @@
  "Bearbottom": {
   "domain": "bearbottomclothing.com",
   "gender_prior": "m",
-  "seen": 53
+  "seen": 58
  },
  "Bearbottom Clothing": {
   "domain": "bearbottomclothing.com",
   "gender_prior": "m",
-  "seen": 20
+  "seen": 21
  },
  "Bec + Bridge": {
   "domain": "becandbridge.com.au",
@@ -327,7 +327,7 @@
  "Beckett Simonon": {
   "domain": "www.beckettsimonon.com",
   "gender_prior": "m",
-  "seen": 7
+  "seen": 9
  },
  "Beginning Boutique": {
   "domain": "www.beginningboutique.com",
@@ -337,12 +337,12 @@
  "Bella Dahl": {
   "domain": "www.belladahl.com",
   "gender_prior": "f",
-  "seen": 54
+  "seen": 59
  },
  "Berg & Berg": {
   "domain": "bergbergstore.com",
   "gender_prior": "m",
-  "seen": 25
+  "seen": 26
  },
  "Better Gift Shop": {
   "domain": "bettergiftshop.com",
@@ -377,12 +377,17 @@
  "Birds of Condor": {
   "domain": "birdsofcondor.com",
   "gender_prior": "u",
-  "seen": 30
+  "seen": 31
  },
  "Birdwell": {
   "domain": "birdwell.com",
   "gender_prior": "m",
-  "seen": 26
+  "seen": 28
+ },
+ "Birdwell Beach Britches": {
+  "domain": "www.birdwell.com",
+  "gender_prior": "m",
+  "seen": 1
  },
  "Boody": {
   "domain": "boody.com",

@@ -116,9 +116,16 @@ The current baseline, for reference:
 
 | Scenario | AUC | P@10 | run-to-run spread |
 |---|---|---|---|
-| Neutral minimalist | 0.828 | 84% | ±0.019 |
-| Bold streetwear | 0.707 | 75% | ±0.023 |
-| Earthy womenswear | 0.675 | 68% | ±0.041 |
+| Neutral minimalist | 0.839 | 85% | ±0.018 |
+| Bold streetwear | 0.701 | 79% | ±0.050 |
+| Earthy womenswear | 0.735 | 83% | ±0.034 |
+
+Earthy womenswear moved 0.675 → 0.735 and Bold streetwear's P@10 75% → 79% when
+`reactW` began scaling with the shopper's own right-vs-left swipe ratio. Note
+the headline average (0.737 → 0.758, +0.021) does **not** clear the worst-case
+noise floor of 0.029 on its own — the result is carried by the per-persona
+numbers, where Earthy clears its own floor on 6 of 6 independent seed sets, and
+by P@10, which is the part a swiper actually sees.
 
 These moved when the eval was given enough data to be meaningful (12 runs of
 1280 swipes, up from 5 of 320). The old numbers were measured from as few as

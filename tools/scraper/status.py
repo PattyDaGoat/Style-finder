@@ -12,11 +12,20 @@ running, so it is safe to start halfway through.
 """
 
 import argparse
+import base64
 import os
 import sqlite3
 import subprocess
 import sys
 import time
+
+# A redirected stdout gets a cp1252 codec on Windows, so one non-Latin-1 glyph
+# in a report would kill the run mid-print.
+for _stream in (sys.stdout, sys.stderr):
+    try:
+        _stream.reconfigure(encoding="utf-8", errors="replace")
+    except Exception:
+        pass
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 REPO = os.path.dirname(os.path.dirname(HERE))
@@ -24,8 +33,29 @@ DB = os.path.join(HERE, "catalog.db")
 
 
 def running(pattern):
-    """-> elapsed time string, or None. Uses pgrep so it needs no extra deps."""
+    """-> elapsed time string, or None.
+
+    pgrep and ps are POSIX-only. On Windows they raise FileNotFoundError, which
+    the old code caught and turned into None — so this cheerfully reported "No
+    crawl running" while a crawl was in progress, and --watch exited instantly
+    with "nothing to wait for", disabling the whole alert-me-when-done feature.
+    CIM is built into Windows and needs no extra package.
+    """
     try:
+        if sys.platform.startswith("win"):
+            script = (
+                "$ErrorActionPreference='SilentlyContinue'\n"
+                "$p = Get-CimInstance Win32_Process | Where-Object { $_.CommandLine "
+                "-like '*" + pattern.replace("'", "''") + "*' -and $_.ProcessId -ne "
+                + str(os.getpid()) + " } | Sort-Object CreationDate | "
+                "Select-Object -First 1\n"
+                "if ($p) { [int]((Get-Date) - $p.CreationDate).TotalMinutes }\n")
+            out = subprocess.run(
+                ["powershell", "-NoProfile", "-NonInteractive", "-EncodedCommand",
+                 base64.b64encode(script.encode("utf-16-le")).decode("ascii")],
+                capture_output=True, text=True, timeout=30).stdout.strip()
+            return "{} min".format(int(out)) if out.isdigit() else None
+
         pid = subprocess.run(["pgrep", "-f", pattern], capture_output=True,
                              text=True).stdout.split()
         if not pid:
@@ -38,17 +68,49 @@ def running(pattern):
 
 
 def notify(title, message, sound="Glass"):
-    """macOS notification + sound. Silent no-op anywhere else, and never fatal —
-    an alert failing must not take the crawl down with it."""
-    if sys.platform != "darwin":
-        print("\a", end="", flush=True)          # terminal bell as a fallback
-        return
-    esc = lambda s: s.replace("\\", "\\\\").replace('"', '\\"')
-    script = 'display notification "{}" with title "{}" sound name "{}"'.format(
-        esc(message), esc(title), sound)
+    """Desktop notification + sound, on whichever platform this is.
+
+    Was macOS-only, so the "alert me when the crawl finishes" promise in this
+    file's own docstring was never kept on Windows or Linux. Never fatal — an
+    alert failing must not take the crawl down with it."""
     try:
-        subprocess.run(["osascript", "-e", script], timeout=10,
-                       capture_output=True)
+        if sys.platform == "darwin":
+            esc = lambda s: str(s).replace("\\", "\\\\").replace('"', '\\"')
+            subprocess.run(
+                ["osascript", "-e",
+                 'display notification "{}" with title "{}" sound name "{}"'.format(
+                     esc(message), esc(title), sound)],
+                timeout=10, capture_output=True)
+
+        elif sys.platform.startswith("win"):
+            q = lambda s: "'" + str(s).replace("'", "''") + "'"
+            ps = (
+                "[Windows.UI.Notifications.ToastNotificationManager, "
+                "Windows.UI.Notifications, ContentType=WindowsRuntime] | Out-Null\n"
+                "[Windows.Data.Xml.Dom.XmlDocument, Windows.Data.Xml.Dom.XmlDocument, "
+                "ContentType=WindowsRuntime] | Out-Null\n"
+                "$t=[Windows.UI.Notifications.ToastNotificationManager]::GetTemplateContent("
+                "[Windows.UI.Notifications.ToastTemplateType]::ToastText02)\n"
+                "$n=$t.GetElementsByTagName('text')\n"
+                "$n.Item(0).AppendChild($t.CreateTextNode({})) | Out-Null\n"
+                "$n.Item(1).AppendChild($t.CreateTextNode({})) | Out-Null\n"
+                "[Windows.UI.Notifications.ToastNotificationManager]::CreateToastNotifier("
+                "'Microsoft.Windows.Explorer').Show("
+                "[Windows.UI.Notifications.ToastNotification]::new($t))"
+            ).format(q(title), q(message))
+            subprocess.run(
+                ["powershell", "-NoProfile", "-NonInteractive", "-EncodedCommand",
+                 base64.b64encode(ps.encode("utf-16-le")).decode("ascii")],
+                timeout=25, capture_output=True)
+            try:
+                import winsound
+                winsound.MessageBeep(winsound.MB_ICONASTERISK)
+            except Exception:
+                print("\a", end="", flush=True)
+
+        else:
+            subprocess.run(["notify-send", str(title), str(message)],
+                           timeout=10, capture_output=True)
     except Exception:
         print("\a", end="", flush=True)
 

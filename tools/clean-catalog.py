@@ -20,10 +20,22 @@ Vocabulary is held in plain Python lists, not one big verbose regex: an earlier 
 used re.VERBOSE, which silently strips literal spaces, so every multi-word pattern
 ("crop top", "dress shirt") quietly never matched.
 """
-import io, re, json
+import io, re, json, os, tempfile
 from collections import Counter, defaultdict
 
-SRC = "/tmp/sf/work/style-finder.html"
+# Paths used to be hardcoded to /tmp/sf/..., which is a real directory on the
+# Mac this was written on and nowhere on Windows — Python resolved it to
+# C:\tmp\sf\... and the script died on line 1 with FileNotFoundError. The
+# default input is now the built app in this repo; override either with an
+# environment variable if you are cleaning a freshly scraped monolith instead.
+HERE = os.path.dirname(os.path.abspath(__file__))
+REPO = os.path.dirname(HERE)
+WORK = os.environ.get("SF_WORK") or os.path.join(tempfile.gettempdir(), "sf")
+os.makedirs(WORK, exist_ok=True)
+SRC = os.environ.get("SF_SRC") or os.path.join(REPO, "dist", "style-finder.html")
+OUT = os.path.join(WORK, "catalog_clean.json")
+REPORT = os.path.join(WORK, "clean_report.json")
+
 h = io.open(SRC, encoding="utf-8").read()
 CAT = json.loads(re.search(r'const CATALOG = (\[.*?\]);\n', h, re.S).group(1))
 print("loaded %d items" % len(CAT))
@@ -353,10 +365,15 @@ print("    category coverage (womenswear):",
 # 4. OUTPUT
 # =====================================================================
 NEW = json.dumps(KEPT, separators=(",", ":"), ensure_ascii=False)
-io.open("/tmp/sf/catalog_clean.json", "w", encoding="utf-8").write(NEW)
-json.dump({"kept": len(KEPT), "dropped": len(dropped),
-           "brands_f": sorted(b for b,v in BRAND.items() if v=="f"),
-           "brands_m": sorted(b for b,v in BRAND.items() if v=="m"),
-           "dropped_names": [p["n"] for p in dropped]},
-          io.open("/tmp/sf/clean_report.json","w",encoding="utf-8"), indent=1, ensure_ascii=False)
-print("\nwrote catalog_clean.json (%d items, %.2f MB)" % (len(KEPT), len(NEW)/1e6))
+# `with` rather than a bare handle: the original relied on refcounting to flush,
+# which is a CPython implementation detail, not a guarantee.
+with io.open(OUT, "w", encoding="utf-8") as fh:
+    fh.write(NEW)
+with io.open(REPORT, "w", encoding="utf-8") as fh:
+    json.dump({"kept": len(KEPT), "dropped": len(dropped),
+               "brands_f": sorted(b for b,v in BRAND.items() if v=="f"),
+               "brands_m": sorted(b for b,v in BRAND.items() if v=="m"),
+               "dropped_names": [p["n"] for p in dropped]},
+              fh, indent=1, ensure_ascii=False)
+print("\nwrote %s (%d items, %.2f MB)" % (OUT, len(KEPT), len(NEW)/1e6))
+print("wrote %s" % REPORT)

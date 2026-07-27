@@ -43,6 +43,15 @@ import time
 from collections import Counter, defaultdict
 from urllib.parse import urljoin, urlparse
 
+# A piped or redirected stdout gets a cp1252 codec on Windows, where one
+# non-Latin-1 glyph kills a run mid-report. The ASCII swap above fixes the
+# glyph we had; this stops the next one being a crash instead of a '?'.
+for _stream in (sys.stdout, sys.stderr):
+    try:
+        _stream.reconfigure(encoding="utf-8", errors="replace")
+    except Exception:
+        pass
+
 import db
 import enrich
 import gender as gender_mod
@@ -1709,7 +1718,7 @@ def audit(limit=12):
             if i["usd"] * 20 < median:
                 suspicious.append((i["n"], i["usd"], median, brand, i.get("via")))
     if suspicious:
-        log("\n  ⚠ priced far below their brand's normal range — check the units:")
+        log("\n  [!] priced far below their brand's normal range — check the units:")
         for n, usd, median, brand, via in suspicious[:8]:
             log("    {:<44} ${:<9} brand median ${:<7} via={}".format(
                 n[:44], usd, median, via))

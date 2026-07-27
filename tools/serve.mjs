@@ -9,7 +9,7 @@
 // Node removes the dependency on Python entirely.
 import { createServer } from 'node:http';
 import { readFile, stat } from 'node:fs/promises';
-import { join, extname, normalize } from 'node:path';
+import { join, extname, normalize, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const DIST = join(fileURLToPath(new URL('..', import.meta.url)), 'dist');
@@ -31,7 +31,9 @@ const server = createServer(async (req, res) => {
     // normalize first, then confirm the result is still inside dist/ — without
     // this, a request for /../../etc/passwd would escape the served directory
     const full = join(DIST, normalize(rel));
-    if (!full.startsWith(DIST)) {
+    // `startsWith(DIST)` alone would also accept a sibling directory called
+    // dist-something; the separator check pins it to dist/ itself.
+    if (full !== DIST && !full.startsWith(DIST + sep)) {
       res.writeHead(403).end('forbidden');
       return;
     }

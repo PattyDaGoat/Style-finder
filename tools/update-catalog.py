@@ -148,10 +148,9 @@ CATALOG = os.path.join(REPO, "data", "catalog.json")
 def sanity_check():
     """Fast checks on the data before it is saved. Returns a list of problems.
 
-    Not a replacement for `npm test` — that needs the developer setup, and one
-    of its five suites can't run on Windows at all (it hardcodes a POSIX /tmp
-    path). These are the checks that actually matter for a data refresh, and
-    they take a fraction of a second.
+    Not a replacement for `npm test` — that needs the developer setup. These are
+    the checks that actually matter for a data refresh, and they cost a fraction
+    of a second.
     """
     import re
     problems = []
@@ -402,7 +401,14 @@ def main():
     if not args.no_open and os.path.exists(APP):
         print(f"\n      opening {os.path.relpath(APP, REPO)}\n")
         try:
-            os.startfile(APP)  # noqa: F821  (Windows only; harmless elsewhere)
+            # os.startfile only exists on Windows, so on a Mac this silently
+            # fell through to "open it yourself" instead of opening anything.
+            if sys.platform.startswith("win"):
+                os.startfile(APP)                      # noqa: F821 (Windows only)
+            elif sys.platform == "darwin":
+                subprocess.run(["open", APP], check=False)
+            else:
+                subprocess.run(["xdg-open", APP], check=False)
         except Exception:
             print(f"      open it yourself: {APP}\n")
     else:

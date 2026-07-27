@@ -2,8 +2,9 @@ const { chromium } = require('playwright');
 const { join, dirname } = require('node:path');
 const REPO = dirname(dirname(require('node:fs').realpathSync(__filename)));
 const DIST = join(REPO, 'dist', 'style-finder.html');
-const DIST_URL = 'file://' + DIST;
-require('node:fs').mkdirSync('/tmp/sf-shots', { recursive: true });
+const DIST_URL = require('node:url').pathToFileURL(DIST).href;
+const SHOTS = join(require('node:os').tmpdir(), 'sf-shots');
+require('node:fs').mkdirSync(SHOTS, { recursive: true });
 
 const ok=[],bad=[];
 const chk=(n,c,e)=>(c?ok:bad).push(n+(e?' :: '+e:''));
@@ -80,8 +81,21 @@ async function settle(p){await p.waitForLoadState('load').catch(()=>{});await p.
    const out=[];
    EV_PERSONAS.forEach((per,k)=>{
      GENDER=per.gender; S.settings={gender:per.gender,maxBudget:100000};
-     const seeds=[11+k,22+k,33+k,44+k,55+k];
-     const r=evAggregate(evSeededSessions(per,320,seeds));
+     /* 12 runs x 1280 swipes, not 5 x 320. AUC's run-to-run spread is set by how
+        many LIKED pieces land in the holdout, and shrinks as 1/sqrt(that count).
+        The two narrow personas like only ~12-14% of the deck, so 320 swipes hid
+        as few as 8 positives — an AUC from 8 samples is noise, and its spread
+        (~0.08-0.17) sat right on top of the 0.10 threshold below. That made this
+        a coin flip: "Earthy womenswear" failed at SD=0.166 while "Bold
+        streetwear" passed at 0.039 on a true spread of ~0.074, i.e. on luck.
+        Deleting 30 random rows from the catalogue moved Earthy from 0.166 back
+        under 0.09 — proof the number tracked the shuffle, not the recommender.
+        1280 swipes hide 46-148 positives; measured over 6 independent seed
+        families x 3 personas the worst spread is 0.052. The threshold is
+        unchanged at 0.10 — this measures the same thing properly, it does not
+        lower the bar. Costs ~0.6s. */
+     const seeds=Array.from({length:12},(_,j)=>11+k+j*101);
+     const r=evAggregate(evSeededSessions(per,1280,seeds));
      const g=key=>r.rows.find(x=>x.key===key);
      out.push({persona:per.name, runs:r.runs, minPos:r.minPos, noise:r.noiseFloor,
                current:g('current').auc, currentSD:g('current').aucSD,
@@ -133,7 +147,7 @@ async function settle(p){await p.waitForLoadState('load').catch(()=>{});await p.
  chk('panel renders one table per simulated shopper', uiTables===3, 'tables='+uiTables);
  chk('panel shows a headline average', (await p.textContent('#evResult')).includes('Headline'));
  chk('log reports timing', (await p.textContent('#evLog')).includes('done in'));
- await p.screenshot({path:'/tmp/sf-shots/shot-eval.png'});
+ await p.screenshot({path:join(SHOTS,'shot-eval.png')});
  // guard: with too few swipes it must refuse, not mislead
  await p.evaluate(()=>{ Object.keys(localStorage).filter(k=>k.indexOf('styleDNA_v3::')===0)
      .forEach(k=>localStorage.removeItem(k));

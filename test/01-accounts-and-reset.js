@@ -2,11 +2,12 @@ const { chromium } = require('playwright');
 const { join, dirname } = require('node:path');
 const REPO = dirname(dirname(require('node:fs').realpathSync(__filename)));
 const DIST = join(REPO, 'dist', 'style-finder.html');
-const DIST_URL = 'file://' + DIST;
-require('node:fs').mkdirSync('/tmp/sf-shots', { recursive: true });
+const DIST_URL = require('node:url').pathToFileURL(DIST).href;
+const SHOTS = join(require('node:os').tmpdir(), 'sf-shots');
+require('node:fs').mkdirSync(SHOTS, { recursive: true });
 
 const path = DIST;
-const URL = 'file://' + path;
+const URL = DIST_URL;
 
 const ok = [], bad = [];
 async function settle(page) {
@@ -182,10 +183,10 @@ function chk(name, cond, extra) { (cond ? ok : bad).push(name + (extra ? ' :: ' 
   await page.waitForTimeout(200);
   chk('clicking outside closes account menu', !(await page.isVisible('#acctMenu')));
 
-  await page.screenshot({ path: '/tmp/sf-shots/shot-setup.png' });
+  await page.screenshot({ path: join(SHOTS,'shot-setup.png') });
   await page.evaluate(() => { localStorage.removeItem('styleDNA_lastAccount'); });
   await page.reload({ waitUntil: 'domcontentloaded' }); await settle(page);
-  await page.screenshot({ path: '/tmp/sf-shots/shot-auth.png' });
+  await page.screenshot({ path: join(SHOTS,'shot-auth.png') });
 
   await browser.close();
 

@@ -43,6 +43,15 @@ import time
 from collections import Counter, defaultdict
 from urllib.parse import urljoin, urlparse
 
+# A piped or redirected stdout gets a cp1252 codec on Windows, where one
+# non-Latin-1 glyph kills a run mid-report. The ASCII swap above fixes the
+# glyph we had; this stops the next one being a crash instead of a '?'.
+for _stream in (sys.stdout, sys.stderr):
+    try:
+        _stream.reconfigure(encoding="utf-8", errors="replace")
+    except Exception:
+        pass
+
 import db
 import enrich
 import gender as gender_mod
@@ -107,19 +116,56 @@ def log(*a):
 
 
 def notify(title, message, sound="Glass"):
-    """Pop a macOS notification. A crawl runs for half an hour in silence, so it
-    should say when it is done rather than making you watch it. No-op off macOS,
-    and never fatal — a failed alert must not take the crawl down."""
-    if sys.platform != "darwin":
-        return
-    esc = lambda s: str(s).replace("\\", "\\\\").replace('"', '\\"')
+    """Pop a desktop notification. A crawl runs for half an hour in silence, so
+    it should say when it is done rather than making you watch it.
+
+    Windows, macOS and Linux each get their native mechanism; this used to be
+    macOS-only and returned silently everywhere else, so a Windows user got no
+    alert at all and no hint that one was ever intended. Never fatal — a failed
+    alert must not take the crawl down."""
+    import subprocess
+
     try:
-        import subprocess
-        subprocess.run(
-            ["osascript", "-e",
-             'display notification "{}" with title "{}" sound name "{}"'.format(
-                 esc(message), esc(title), sound)],
-            timeout=10, capture_output=True)
+        if sys.platform == "darwin":
+            esc = lambda s: str(s).replace("\\", "\\\\").replace('"', '\\"')
+            subprocess.run(
+                ["osascript", "-e",
+                 'display notification "{}" with title "{}" sound name "{}"'.format(
+                     esc(message), esc(title), sound)],
+                timeout=10, capture_output=True)
+
+        elif sys.platform.startswith("win"):
+            # Built straight into Windows; no module to install. Passed
+            # base64-encoded so quotes in a product name cannot break it.
+            import base64
+            q = lambda s: "'" + str(s).replace("'", "''") + "'"
+            ps = (
+                "[Windows.UI.Notifications.ToastNotificationManager, "
+                "Windows.UI.Notifications, ContentType=WindowsRuntime] | Out-Null\n"
+                "[Windows.Data.Xml.Dom.XmlDocument, Windows.Data.Xml.Dom.XmlDocument, "
+                "ContentType=WindowsRuntime] | Out-Null\n"
+                "$t=[Windows.UI.Notifications.ToastNotificationManager]::GetTemplateContent("
+                "[Windows.UI.Notifications.ToastTemplateType]::ToastText02)\n"
+                "$n=$t.GetElementsByTagName('text')\n"
+                "$n.Item(0).AppendChild($t.CreateTextNode({})) | Out-Null\n"
+                "$n.Item(1).AppendChild($t.CreateTextNode({})) | Out-Null\n"
+                "[Windows.UI.Notifications.ToastNotificationManager]::CreateToastNotifier("
+                "'Microsoft.Windows.Explorer').Show("
+                "[Windows.UI.Notifications.ToastNotification]::new($t))"
+            ).format(q(title), q(message))
+            subprocess.run(
+                ["powershell", "-NoProfile", "-NonInteractive", "-EncodedCommand",
+                 base64.b64encode(ps.encode("utf-16-le")).decode("ascii")],
+                timeout=25, capture_output=True)
+            try:
+                import winsound
+                winsound.MessageBeep(winsound.MB_ICONASTERISK)
+            except Exception:
+                pass
+
+        else:
+            subprocess.run(["notify-send", str(title), str(message)],
+                           timeout=10, capture_output=True)
     except Exception:
         pass
 
@@ -1672,7 +1718,7 @@ def audit(limit=12):
             if i["usd"] * 20 < median:
                 suspicious.append((i["n"], i["usd"], median, brand, i.get("via")))
     if suspicious:
-        log("\n  ⚠ priced far below their brand's normal range — check the units:")
+        log("\n  [!] priced far below their brand's normal range — check the units:")
         for n, usd, median, brand, via in suspicious[:8]:
             log("    {:<44} ${:<9} brand median ${:<7} via={}".format(
                 n[:44], usd, median, via))

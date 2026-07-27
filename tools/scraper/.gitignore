@@ -4,3 +4,7 @@ catalog.db
 catalog.db-shm
 catalog.db-wal
 harvest.log
+
+# these modules import each other, so running any of them leaves bytecode here
+__pycache__/
+*.pyc

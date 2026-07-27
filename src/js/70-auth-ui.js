@@ -128,7 +128,12 @@ function bootProfile(){
   /* fresh in-memory state, then merge in whatever this account has saved */
   S={seeds:[],i:0,order:[],reactions:{},tags:{},picks:[],likes:[],byGender:{}};
   const s=load();
-  if(s){ if(Array.isArray(s.picks))S.picks=s.picks; if(Array.isArray(s.likes))S.likes=s.likes; if(s.settings)S.settings=s.settings; if(s.byGender)S.byGender=s.byGender; if(s.inspo)S.inspo=s.inspo; if(s.noFast)S.noFast=s.noFast; }
+  /* This is a whitelist, not a merge — anything not named here is dropped on
+     reload. `seen`/`seenStyle` are what stop a piece being dealt twice, and
+     `reports` is the flag log, so all three have to be named or the feature
+     silently forgets itself every time the tab is reopened. */
+  if(s){ if(Array.isArray(s.picks))S.picks=s.picks; if(Array.isArray(s.likes))S.likes=s.likes; if(s.settings)S.settings=s.settings; if(s.byGender)S.byGender=s.byGender; if(s.inspo)S.inspo=s.inspo; if(s.noFast)S.noFast=s.noFast;
+         if(s.seen)S.seen=s.seen; if(s.seenStyle)S.seenStyle=s.seenStyle; if(Array.isArray(s.reports))S.reports=s.reports; }
   S.likes=S.likes||[];
   /* sessions saved before the underwear ban may hold intimates in the cart or
      the liked list — they'd resurface on every shopping screen. Drop them. */

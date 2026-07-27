@@ -120,10 +120,14 @@ async function settle(p){await p.waitForLoadState('load').catch(()=>{});await p.
  chk('FIRST VISIT shows the full photo, no highlight', await p.evaluate("FOCUS_ON===false"));
  chk('first visit: photo has no dimming applied',
      await p.evaluate("document.querySelector('#cardHost .piece-photo').classList.contains('nofocus')===true"));
- chk('button invites you to highlight', (await p.textContent('#focusBtn')).includes('Highlight the piece'));
- await p.click('#focusBtn'); await p.waitForTimeout(300);
+ /* The top-left slot now holds the report flag, not the highlight toggle, so the
+    button assertions became flag assertions. The highlight feature itself is
+    unchanged and still exercised — just driven directly rather than by a button
+    that no longer exists. */
+ chk('the top-left control is the report flag, not a highlight toggle',
+     !(await p.$('#focusBtn')) && !!(await p.$('#reportBtn')));
+ await p.evaluate("toggleFocus()"); await p.waitForTimeout(300);
  chk('opting in turns the highlight on', await p.evaluate("FOCUS_ON===true"));
- chk('button confirms it is on', (await p.textContent('#focusBtn')).includes('Showing the piece'));
  await p.reload({waitUntil:'domcontentloaded'}); await settle(p); await p.waitForTimeout(1400);
  chk('the opt-in survives a reload', await p.evaluate("FOCUS_ON===true"));
  await p.evaluate(()=>localStorage.removeItem('styleDNA_focus'));

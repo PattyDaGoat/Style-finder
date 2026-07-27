@@ -1,12 +1,49 @@
 /* ---------- endless adaptive deck ---------- */
 let QUEUE=[], SERVED=new Set(), LAST_BRANDS=new Set();
+
+/* ---- a piece you have already been shown never comes back ----
+   SERVED alone was per-session and reset on every startDeck(), so closing the
+   tab brought everything round again. This remembers across sessions.
+
+   Keyed by the product URL, NOT the catalog index. The catalog is regenerated
+   every few hours and rows get pruned from the middle, so index 5000 today is a
+   different garment tomorrow — an index-keyed memory would quietly start
+   hiding the wrong pieces.
+
+   Colourways are the exception the owner asked for: a second colour of a shirt
+   you were shown is a legitimately different card, but fifteen of them is a
+   broken feed. So the exact piece is blocked forever, and the style it belongs
+   to is capped. */
+const MAX_COLOURWAYS = 2;                       /* of one style, ever */
+function pieceKey(p){ return p ? (p.u || (p.b+"|"+p.n)) : ""; }
+function styleKey(p){ return p ? p.b+"|"+baseTitle(p.n) : ""; }
+function seenInit(){ S.seen=S.seen||{}; S.seenStyle=S.seenStyle||{}; }
+function seenPiece(p){ seenInit(); return !!S.seen[pieceKey(p)]; }
+function styleFull(p){ seenInit(); return (S.seenStyle[styleKey(p)]||0) >= MAX_COLOURWAYS; }
+/* Called when a card is actually rendered, not when it is queued — a piece you
+   never got to see stays available. */
+function markShown(i){
+  const p=CATALOG[i]; if(!p) return;
+  seenInit();
+  const k=pieceKey(p);
+  if(S.seen[k]) return;
+  S.seen[k]=1;
+  const sk=styleKey(p); S.seenStyle[sk]=(S.seenStyle[sk]||0)+1;
+  save();
+}
 function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));const t=a[i];a[i]=a[j];a[j]=t;}return a;}
 /* choose the next pieces to swipe on, adapting to what you've liked so far */
 function nextBatch(k){
   buildModel();
   const swiped=new Set(Object.keys(S.reactions).map(Number));
   const pool=[];
-  for(let i=0;i<CATALOG.length;i++){ if(!swiped.has(i)&&!SERVED.has(i)&&genderOK(i)) pool.push(i); }
+  for(let i=0;i<CATALOG.length;i++){
+    if(swiped.has(i)||SERVED.has(i)||!genderOK(i)) continue;
+    const p=CATALOG[i];
+    if(seenPiece(p)) continue;    /* shown before, in this session or an earlier one */
+    if(styleFull(p)) continue;    /* already had MAX_COLOURWAYS colours of this style */
+    pool.push(i);
+  }
   if(!pool.length) return [];
   const Lfull=lovedPicks();
   const L=Lfull.length>12?Lfull.slice(-12):Lfull;   // cap nearest-neighbour set (perf: knn is O(pool*L))
@@ -62,7 +99,11 @@ function scheduleRefill(){
   setTimeout(run,0);   // runs right after the swipe paints — off the animation's critical path
 }
 function startDeck(){
-  S={seeds:S.seeds,reactions:{},tags:{},picks:(S.picks||[]),likes:(S.likes||[]),hist:[],settings:S.settings,byGender:S.byGender,inspo:S.inspo,noFast:S.noFast};
+  /* `seen`/`seenStyle` survive this rebuild on purpose. startDeck() runs every
+     time a filter or section changes — switching to womenswear and back must
+     not re-deal everything you have already looked at. Only "Start over",
+     which clears storage outright, forgets them. */
+  S={seeds:S.seeds,reactions:{},tags:{},picks:(S.picks||[]),likes:(S.likes||[]),hist:[],settings:S.settings,byGender:S.byGender,inspo:S.inspo,noFast:S.noFast,seen:(S.seen||{}),seenStyle:(S.seenStyle||{})};
   QUEUE=[]; SERVED=new Set(); LAST_BRANDS=new Set();
   QUEUE=nextBatch(14);
   show("deck"); syncGenderToggles(); renderCard();
@@ -73,7 +114,10 @@ function renderCard(){
   if(_df){const strength=Math.min(100,Math.round(swipedN/40*100));_df.style.width=strength+"%";}
   const loved=Object.values(S.reactions).filter(r=>r==="love").length;
   const liked=Object.values(S.reactions).filter(r=>r==="like").length;
-  document.getElementById("deckCount").textContent=`${swipedN} viewed`;
+  /* the running "N viewed" tally is deliberately not shown — it turned the
+     deck into a counter to grind rather than clothes to look at. The number
+     is still tracked; only the label is blank. */
+  document.getElementById("deckCount").textContent="";
   document.getElementById("deckLoved").textContent=`${(S.picks||[]).length} in cart · ${(S.likes||[]).length} liked`;
   const undoB=document.getElementById("undoBtn"); if(undoB) undoB.style.visibility=(!S.hist||!S.hist.length)?"hidden":"visible";
   document.getElementById("doneBtn").classList.toggle("hidden",(loved+liked)<8);
@@ -87,19 +131,23 @@ function renderCard(){
     return;
   }
   const pi=QUEUE[0],p=CATALOG[pi];
+  markShown(pi);                 /* this piece will never be dealt again */
   const price=p.cur==="$"?`$${p.p}`:`${p.cur}${p.p} <span class="usd">(≈$${p.usd})</span>`;
   const inCart=S.picks.includes(pi);
   document.getElementById("cardHost").innerHTML=`
     <div class="piece-card">
       <div class="piece-photo${FOCUS_ON?'':' nofocus'}">
-        <img src="${pImg(p.img,760)}" alt="${p.n}" referrerpolicy="no-referrer" decoding="async" fetchpriority="high" onerror="window.__fail(${pi})">
+        <a class="ph-link" href="${p.u}" target="_blank" rel="noopener noreferrer"
+           title="Open this piece at ${p.b}" onclick="return deckTapOK()">
+          <img src="${pImg(p.img,760)}" alt="${p.n}" referrerpolicy="no-referrer" decoding="async" fetchpriority="high" onerror="window.__fail(${pi})">
+        </a>
         ${(()=>{const f=focusOf(p);const top=(f.t*100).toFixed(1),hh=(f.h*100).toFixed(1),bot=(100-f.t*100-f.h*100).toFixed(1);
           const place=(f.t<0.08?" at-top":"")+((f.t+f.h)>0.88?" at-foot":"");
           return `<div class="ph-dim" style="top:0;height:${top}%"></div>
                   <div class="ph-dim" style="bottom:0;height:${bot}%"></div>
                   <div class="ph-frame${place}" style="top:${top}%;height:${hh}%"><span class="ph-tag">${f.label}</span></div>`;})()}
-        <button class="focus-btn${FOCUS_ON?'':' off'}" id="focusBtn" onclick="toggleFocus(event)" title="Show or hide the highlight around the piece for sale">
-          <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M3 8V5a2 2 0 0 1 2-2h3M16 3h3a2 2 0 0 1 2 2v3M21 16v3a2 2 0 0 1-2 2h-3M8 21H5a2 2 0 0 1-2-2v-3"/></svg><span id="focusLab">${FOCUS_ON?'Showing the piece':'Highlight the piece'}</span>
+        <button class="report-btn" id="reportBtn" onclick="openReport(event)" aria-label="Report a problem with this piece" title="Report a problem with this piece">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V4"/><path d="M4 4h11l-1.6 3.5L15 11H4z"/></svg>
         </button>
         <button class="swipe-cart ${inCart?'in':''}" title="Add to cart" onclick="saveToCartCurrent(event)"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" style="vertical-align:-2px;margin-right:5px"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8a3 3 0 0 1 6 0"/></svg>${inCart?'In cart':'Add to cart'}</button>
         <div class="stamp s-like">Like</div><div class="stamp s-nope">Nope</div><div class="stamp s-love">Love</div>

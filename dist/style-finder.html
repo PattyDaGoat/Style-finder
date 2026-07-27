@@ -261,6 +261,32 @@
   .focus-btn:hover{transform:scale(1.04);}
   .focus-btn.off{background:rgba(255,255,255,.72);color:var(--ink-soft);}
   .focus-hint{text-align:center;font-size:12px;color:var(--ink-soft);margin-top:8px;}
+
+  /* ---- report flag: same top-left slot the highlight toggle used to hold ---- */
+  .report-btn{position:absolute;top:12px;left:12px;z-index:5;border:none;border-radius:50%;
+    width:34px;height:34px;cursor:pointer;font-family:inherit;color:var(--ink-soft);
+    background:rgba(255,255,255,.92);box-shadow:0 2px 10px rgba(0,0,0,.16);
+    display:inline-flex;align-items:center;justify-content:center;transition:.12s;}
+  .report-btn:hover{transform:scale(1.08);color:#b3261e;background:#fff;}
+  .report-btn:focus-visible{outline:2px solid var(--green-2);outline-offset:2px;}
+  /* the photo is a link to the shop; it must still look like a photo */
+  .piece-photo .ph-link{display:block;width:100%;height:100%;cursor:pointer;}
+  .piece-photo .ph-link img{display:block;width:100%;height:100%;object-fit:cover;}
+
+  /* ---- report dialog ---- */
+  .rp-back{position:fixed;inset:0;z-index:60;background:rgba(15,26,20,.45);
+    display:flex;align-items:center;justify-content:center;padding:20px;}
+  .rp-box{background:var(--card,#fff);border-radius:16px;max-width:400px;width:100%;
+    padding:20px;box-shadow:0 18px 50px rgba(0,0,0,.3);max-height:86vh;overflow:auto;}
+  .rp-h{font-size:17px;font-weight:800;color:var(--green-2);margin-bottom:3px;}
+  .rp-sub{font-size:12.5px;color:var(--ink-soft);margin-bottom:14px;line-height:1.4;}
+  .rp-opt{display:block;width:100%;text-align:left;margin:0 0 7px;padding:11px 13px;
+    border:1px solid var(--line,#dbe3dd);border-radius:10px;background:#fff;cursor:pointer;
+    font-size:13.5px;font-family:inherit;color:inherit;text-decoration:none;transition:.12s;}
+  .rp-opt:hover{background:var(--mint,#e4efe8);border-color:var(--green-2);}
+  .rp-go{background:var(--green-2);color:#fff;border-color:var(--green-2);font-weight:700;}
+  .rp-go:hover{filter:brightness(1.08);background:var(--green-2);color:#fff;}
+  .rp-foot{display:flex;gap:8px;justify-content:flex-end;margin-top:12px;}
   .sug .sphoto img{object-position:var(--fpos,50% 30%);}
 
   /* ============ v3: top bar, accounts, reset modal ============ */
@@ -494,6 +520,8 @@ https://i.pinimg.com/564x/....jpg"></textarea>
          first card, so the UI is gone. ===== -->
     <div class="progress-label"><span id="deckCount"></span><span id="deckLoved"></span></div>
     <div class="card-stage"><div id="cardHost"></div></div>
+    <!-- the report dialog is rendered here by 47-report.js -->
+    <div id="reportHost"></div>
     <div id="tagStrip" class="tag-strip"></div>
     <div class="tinder-actions">
       <button class="tbtn t-undo" id="undoBtn" onclick="undoLast()" title="Undo">
@@ -1228,13 +1256,50 @@ function toggleSeed(k,el){const i=S.seeds.indexOf(k);if(i>=0){S.seeds.splice(i,1
 
 /* ---------- endless adaptive deck ---------- */
 let QUEUE=[], SERVED=new Set(), LAST_BRANDS=new Set();
+
+/* ---- a piece you have already been shown never comes back ----
+   SERVED alone was per-session and reset on every startDeck(), so closing the
+   tab brought everything round again. This remembers across sessions.
+
+   Keyed by the product URL, NOT the catalog index. The catalog is regenerated
+   every few hours and rows get pruned from the middle, so index 5000 today is a
+   different garment tomorrow — an index-keyed memory would quietly start
+   hiding the wrong pieces.
+
+   Colourways are the exception the owner asked for: a second colour of a shirt
+   you were shown is a legitimately different card, but fifteen of them is a
+   broken feed. So the exact piece is blocked forever, and the style it belongs
+   to is capped. */
+const MAX_COLOURWAYS = 2;                       /* of one style, ever */
+function pieceKey(p){ return p ? (p.u || (p.b+"|"+p.n)) : ""; }
+function styleKey(p){ return p ? p.b+"|"+baseTitle(p.n) : ""; }
+function seenInit(){ S.seen=S.seen||{}; S.seenStyle=S.seenStyle||{}; }
+function seenPiece(p){ seenInit(); return !!S.seen[pieceKey(p)]; }
+function styleFull(p){ seenInit(); return (S.seenStyle[styleKey(p)]||0) >= MAX_COLOURWAYS; }
+/* Called when a card is actually rendered, not when it is queued — a piece you
+   never got to see stays available. */
+function markShown(i){
+  const p=CATALOG[i]; if(!p) return;
+  seenInit();
+  const k=pieceKey(p);
+  if(S.seen[k]) return;
+  S.seen[k]=1;
+  const sk=styleKey(p); S.seenStyle[sk]=(S.seenStyle[sk]||0)+1;
+  save();
+}
 function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));const t=a[i];a[i]=a[j];a[j]=t;}return a;}
 /* choose the next pieces to swipe on, adapting to what you've liked so far */
 function nextBatch(k){
   buildModel();
   const swiped=new Set(Object.keys(S.reactions).map(Number));
   const pool=[];
-  for(let i=0;i<CATALOG.length;i++){ if(!swiped.has(i)&&!SERVED.has(i)&&genderOK(i)) pool.push(i); }
+  for(let i=0;i<CATALOG.length;i++){
+    if(swiped.has(i)||SERVED.has(i)||!genderOK(i)) continue;
+    const p=CATALOG[i];
+    if(seenPiece(p)) continue;    /* shown before, in this session or an earlier one */
+    if(styleFull(p)) continue;    /* already had MAX_COLOURWAYS colours of this style */
+    pool.push(i);
+  }
   if(!pool.length) return [];
   const Lfull=lovedPicks();
   const L=Lfull.length>12?Lfull.slice(-12):Lfull;   // cap nearest-neighbour set (perf: knn is O(pool*L))
@@ -1290,7 +1355,11 @@ function scheduleRefill(){
   setTimeout(run,0);   // runs right after the swipe paints — off the animation's critical path
 }
 function startDeck(){
-  S={seeds:S.seeds,reactions:{},tags:{},picks:(S.picks||[]),likes:(S.likes||[]),hist:[],settings:S.settings,byGender:S.byGender,inspo:S.inspo,noFast:S.noFast};
+  /* `seen`/`seenStyle` survive this rebuild on purpose. startDeck() runs every
+     time a filter or section changes — switching to womenswear and back must
+     not re-deal everything you have already looked at. Only "Start over",
+     which clears storage outright, forgets them. */
+  S={seeds:S.seeds,reactions:{},tags:{},picks:(S.picks||[]),likes:(S.likes||[]),hist:[],settings:S.settings,byGender:S.byGender,inspo:S.inspo,noFast:S.noFast,seen:(S.seen||{}),seenStyle:(S.seenStyle||{})};
   QUEUE=[]; SERVED=new Set(); LAST_BRANDS=new Set();
   QUEUE=nextBatch(14);
   show("deck"); syncGenderToggles(); renderCard();
@@ -1301,7 +1370,10 @@ function renderCard(){
   if(_df){const strength=Math.min(100,Math.round(swipedN/40*100));_df.style.width=strength+"%";}
   const loved=Object.values(S.reactions).filter(r=>r==="love").length;
   const liked=Object.values(S.reactions).filter(r=>r==="like").length;
-  document.getElementById("deckCount").textContent=`${swipedN} viewed`;
+  /* the running "N viewed" tally is deliberately not shown — it turned the
+     deck into a counter to grind rather than clothes to look at. The number
+     is still tracked; only the label is blank. */
+  document.getElementById("deckCount").textContent="";
   document.getElementById("deckLoved").textContent=`${(S.picks||[]).length} in cart · ${(S.likes||[]).length} liked`;
   const undoB=document.getElementById("undoBtn"); if(undoB) undoB.style.visibility=(!S.hist||!S.hist.length)?"hidden":"visible";
   document.getElementById("doneBtn").classList.toggle("hidden",(loved+liked)<8);
@@ -1315,19 +1387,23 @@ function renderCard(){
     return;
   }
   const pi=QUEUE[0],p=CATALOG[pi];
+  markShown(pi);                 /* this piece will never be dealt again */
   const price=p.cur==="$"?`$${p.p}`:`${p.cur}${p.p} <span class="usd">(≈$${p.usd})</span>`;
   const inCart=S.picks.includes(pi);
   document.getElementById("cardHost").innerHTML=`
     <div class="piece-card">
       <div class="piece-photo${FOCUS_ON?'':' nofocus'}">
-        <img src="${pImg(p.img,760)}" alt="${p.n}" referrerpolicy="no-referrer" decoding="async" fetchpriority="high" onerror="window.__fail(${pi})">
+        <a class="ph-link" href="${p.u}" target="_blank" rel="noopener noreferrer"
+           title="Open this piece at ${p.b}" onclick="return deckTapOK()">
+          <img src="${pImg(p.img,760)}" alt="${p.n}" referrerpolicy="no-referrer" decoding="async" fetchpriority="high" onerror="window.__fail(${pi})">
+        </a>
         ${(()=>{const f=focusOf(p);const top=(f.t*100).toFixed(1),hh=(f.h*100).toFixed(1),bot=(100-f.t*100-f.h*100).toFixed(1);
           const place=(f.t<0.08?" at-top":"")+((f.t+f.h)>0.88?" at-foot":"");
           return `<div class="ph-dim" style="top:0;height:${top}%"></div>
                   <div class="ph-dim" style="bottom:0;height:${bot}%"></div>
                   <div class="ph-frame${place}" style="top:${top}%;height:${hh}%"><span class="ph-tag">${f.label}</span></div>`;})()}
-        <button class="focus-btn${FOCUS_ON?'':' off'}" id="focusBtn" onclick="toggleFocus(event)" title="Show or hide the highlight around the piece for sale">
-          <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M3 8V5a2 2 0 0 1 2-2h3M16 3h3a2 2 0 0 1 2 2v3M21 16v3a2 2 0 0 1-2 2h-3M8 21H5a2 2 0 0 1-2-2v-3"/></svg><span id="focusLab">${FOCUS_ON?'Showing the piece':'Highlight the piece'}</span>
+        <button class="report-btn" id="reportBtn" onclick="openReport(event)" aria-label="Report a problem with this piece" title="Report a problem with this piece">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V4"/><path d="M4 4h11l-1.6 3.5L15 11H4z"/></svg>
         </button>
         <button class="swipe-cart ${inCart?'in':''}" title="Add to cart" onclick="saveToCartCurrent(event)"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" style="vertical-align:-2px;margin-right:5px"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8a3 3 0 0 1 6 0"/></svg>${inCart?'In cart':'Add to cart'}</button>
         <div class="stamp s-like">Like</div><div class="stamp s-nope">Nope</div><div class="stamp s-love">Love</div>
@@ -1380,6 +1456,12 @@ function saveToCartCurrent(e){if(e&&e.stopPropagation)e.stopPropagation();if(QUE
 
 /* ---- swipe animation + drag ---- */
 let SWIPING=false;
+/* The photo is now a link to the shop, and the photo is also most of the drag
+   surface — so a swipe that starts on it must not open a tab on release.
+   _TAP stays true only while the pointer has barely moved; the anchor's
+   onclick asks deckTapOK() and returns false after a real drag. */
+let _TAP=true; const TAP_SLOP=6;
+function deckTapOK(){ return _TAP; }
 function showStamp(card,kind){const m={skip:'.s-nope',like:'.s-like',love:'.s-love'}[kind];const el=card.querySelector(m);if(el)el.style.opacity='1';}
 function animateSwipe(kind){
   if(SWIPING||!QUEUE.length)return; SWIPING=true;
@@ -1400,8 +1482,8 @@ function attachDrag(card){
     love.style.opacity=up?Math.min(1,(-dy-50)/90):0;
     like.style.opacity=(!up&&dx>0)?Math.min(1,(dx-24)/90):0;
     nope.style.opacity=(!up&&dx<0)?Math.min(1,(-dx-24)/90):0;};
-  const down=e=>{if(SWIPING||(e.target&&e.target.closest&&e.target.closest('.swipe-cart,.focus-btn')))return;drag=true;sx=e.clientX;sy=e.clientY;card.style.transition='none';try{card.setPointerCapture(e.pointerId);}catch(_){}};
-  const move=e=>{if(!drag)return;const dx=e.clientX-sx,dy=e.clientY-sy;card.style.transform=`translate(${dx}px,${dy}px) rotate(${dx/24}deg)`;setStamps(dx,dy);};
+  const down=e=>{if(SWIPING||(e.target&&e.target.closest&&e.target.closest('.swipe-cart,.focus-btn,.report-btn')))return;drag=true;_TAP=true;sx=e.clientX;sy=e.clientY;card.style.transition='none';try{card.setPointerCapture(e.pointerId);}catch(_){}};
+  const move=e=>{if(!drag)return;const dx=e.clientX-sx,dy=e.clientY-sy;if(Math.abs(dx)+Math.abs(dy)>TAP_SLOP)_TAP=false;card.style.transform=`translate(${dx}px,${dy}px) rotate(${dx/24}deg)`;setStamps(dx,dy);};
   const up=e=>{if(!drag)return;drag=false;const dx=e.clientX-sx,dy=e.clientY-sy;
     if(dy<-120&&Math.abs(dy)>Math.abs(dx))return animateSwipe('love');
     if(dx>120)return animateSwipe('like');
@@ -1411,6 +1493,149 @@ function attachDrag(card){
   card.addEventListener('pointerup',up);card.addEventListener('pointercancel',up);
 }
 function finishDeck(){buildModel();buildResults();show("results");save();}
+
+/* ---------- report a problem with a piece ----------------------------------
+   The flag on the top-left of every card. Tapping it asks what is wrong,
+   remembers the answer, and offers to file it where it can actually be acted
+   on.
+
+   HOW THE REPORT REACHES ANYONE — and the honest limit. This app is a single
+   static HTML file on GitHub Pages. There is no server behind it, so nothing
+   here can silently post a report anywhere; a page with no backend cannot
+   "send" without either a secret to leak or a third-party endpoint to trust.
+   What it does instead:
+
+     1. every report is stored locally, so nothing is lost even offline;
+     2. "Send it" opens a GitHub issue on this repo, pre-filled with the piece,
+        the reason, the image URL and the shop link — one click to submit;
+     3. "Copy all" hands over the whole log at once for pasting somewhere.
+
+   The issues land in the same repo the scraper is fixed from, which is the
+   point: a report about a wrong photo becomes a rule in export.py, and a report
+   about a wrong section becomes a rule in 15-sectioning.js. */
+
+const REPORT_REPO = "PattyDaGoat/Style-finder";
+const REPORT_REASONS = [
+  ["photo",      "The photo isn't this piece"],
+  ["notclothes", "This isn't a piece of clothing"],
+  ["section",    "Wrong section — this isn't menswear/womenswear"],
+  ["underwear",  "This is underwear or swimwear"],
+  ["link",       "The link doesn't go to the product"],
+  ["dupe",       "I've already been shown this"],
+  ["other",      "Something else"],
+];
+
+function reportedPiece(){
+  return (typeof QUEUE !== "undefined" && QUEUE.length) ? CATALOG[QUEUE[0]] : null;
+}
+
+function openReport(e){
+  if(e && e.stopPropagation) e.stopPropagation();
+  const p = reportedPiece(); if(!p) return;
+  const host = document.getElementById("reportHost"); if(!host) return;
+  host.innerHTML =
+    '<div class="rp-back" onclick="closeReport(event)">' +
+      '<div class="rp-box" onclick="event.stopPropagation()">' +
+        '<div class="rp-h">What\'s wrong with this piece?</div>' +
+        '<div class="rp-sub">' + esc(p.b) + ' — ' + esc(p.n.slice(0, 58)) + '</div>' +
+        REPORT_REASONS.map(function(r){
+          return '<button class="rp-opt" onclick="fileReport(\'' + r[0] + '\')">' + esc(r[1]) + '</button>';
+        }).join("") +
+        '<div class="rp-foot">' +
+          '<button class="btn small ghost" onclick="closeReport(event)">Cancel</button>' +
+          '<button class="btn small ghost" onclick="copyReports()">Copy all reports</button>' +
+        '</div>' +
+      '</div>' +
+    '</div>';
+}
+
+function closeReport(e){
+  if(e && e.stopPropagation) e.stopPropagation();
+  const host = document.getElementById("reportHost");
+  if(host) host.innerHTML = "";
+}
+
+function fileReport(code){
+  const p = reportedPiece(); if(!p) return;
+  const label = (REPORT_REASONS.find(function(r){ return r[0] === code; }) || ["", code])[1];
+  const rec = { when: new Date().toISOString(), code: code, reason: label,
+                brand: p.b, name: p.n, url: p.u, img: p.img,
+                cat: p.cat, section: p.g, price: p.usd };
+  S.reports = (S.reports || []).concat([rec]);
+  save();
+
+  const title = "[report] " + code + ": " + p.b + " — " + p.n.slice(0, 60);
+  const body = [
+    "**What's wrong:** " + label,
+    "",
+    "| field | value |",
+    "|---|---|",
+    "| brand | " + p.b + " |",
+    "| piece | " + p.n + " |",
+    "| category | " + p.cat + " |",
+    "| section | " + p.g + " |",
+    "| price | $" + p.usd + " |",
+    "| shop link | " + p.u + " |",
+    "| image | " + p.img + " |",
+    "",
+    "![photo](" + p.img + ")",
+    "",
+    "_Reported from the app on " + rec.when + "._",
+  ].join("\n");
+  const issue = "https://github.com/" + REPORT_REPO + "/issues/new"
+              + "?labels=" + encodeURIComponent("catalog-report")
+              + "&title=" + encodeURIComponent(title)
+              + "&body=" + encodeURIComponent(body);
+
+  const host = document.getElementById("reportHost");
+  if(host) host.innerHTML =
+    '<div class="rp-back" onclick="closeReport(event)">' +
+      '<div class="rp-box" onclick="event.stopPropagation()">' +
+        '<div class="rp-h">Thanks — noted</div>' +
+        '<div class="rp-sub">Saved on this device (' + (S.reports.length) +
+          ' report' + (S.reports.length === 1 ? '' : 's') + ' so far).</div>' +
+        '<a class="rp-opt rp-go" href="' + issue + '" target="_blank" rel="noopener" ' +
+           'onclick="closeReport()">Send it &rarr; opens a pre-filled report</a>' +
+        '<div class="rp-foot">' +
+          '<button class="btn small ghost" onclick="closeReport(event)">Not now</button>' +
+          '<button class="btn small ghost" onclick="copyReports()">Copy all reports</button>' +
+        '</div>' +
+      '</div>' +
+    '</div>';
+}
+
+/* Everything reported so far, as text — for pasting in one go. */
+function reportsText(){
+  const rs = S.reports || [];
+  if(!rs.length) return "No reports yet.";
+  return rs.map(function(r){
+    return "- [" + r.code + "] " + r.brand + " — " + r.name +
+           "\n    reason: " + r.reason +
+           "\n    shop:   " + r.url +
+           "\n    image:  " + r.img +
+           "\n    when:   " + r.when;
+  }).join("\n");
+}
+
+function copyReports(){
+  const text = reportsText();
+  const done = function(){
+    const h = document.querySelector(".rp-h");
+    if(h) h.textContent = "Copied " + (S.reports || []).length + " report(s)";
+  };
+  try {
+    navigator.clipboard.writeText(text).then(done, function(){ fallbackCopy(text, done); });
+  } catch(_) { fallbackCopy(text, done); }
+}
+
+function fallbackCopy(text, done){
+  try {
+    const ta = document.createElement("textarea");
+    ta.value = text; ta.style.position = "fixed"; ta.style.opacity = "0";
+    document.body.appendChild(ta); ta.select();
+    document.execCommand("copy"); document.body.removeChild(ta); done();
+  } catch(_) {}
+}
 
 /* ---------- taste model (v3: IDF-weighted + hybrid item-kNN) ---------- */
 const N=CATALOG.length;
@@ -1976,7 +2201,12 @@ function bootProfile(){
   /* fresh in-memory state, then merge in whatever this account has saved */
   S={seeds:[],i:0,order:[],reactions:{},tags:{},picks:[],likes:[],byGender:{}};
   const s=load();
-  if(s){ if(Array.isArray(s.picks))S.picks=s.picks; if(Array.isArray(s.likes))S.likes=s.likes; if(s.settings)S.settings=s.settings; if(s.byGender)S.byGender=s.byGender; if(s.inspo)S.inspo=s.inspo; if(s.noFast)S.noFast=s.noFast; }
+  /* This is a whitelist, not a merge — anything not named here is dropped on
+     reload. `seen`/`seenStyle` are what stop a piece being dealt twice, and
+     `reports` is the flag log, so all three have to be named or the feature
+     silently forgets itself every time the tab is reopened. */
+  if(s){ if(Array.isArray(s.picks))S.picks=s.picks; if(Array.isArray(s.likes))S.likes=s.likes; if(s.settings)S.settings=s.settings; if(s.byGender)S.byGender=s.byGender; if(s.inspo)S.inspo=s.inspo; if(s.noFast)S.noFast=s.noFast;
+         if(s.seen)S.seen=s.seen; if(s.seenStyle)S.seenStyle=s.seenStyle; if(Array.isArray(s.reports))S.reports=s.reports; }
   S.likes=S.likes||[];
   /* sessions saved before the underwear ban may hold intimates in the cart or
      the liked list — they'd resurface on every shopping screen. Drop them. */

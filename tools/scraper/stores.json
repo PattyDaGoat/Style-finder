@@ -267,7 +267,7 @@
  "BB Exclusive": {
   "domain": "www.beginningboutique.com",
   "gender_prior": "f",
-  "seen": 46
+  "seen": 51
  },
  "BBC Ice Cream": {
   "domain": "bbcicecream.com",
@@ -307,7 +307,7 @@
  "Bather": {
   "domain": "bather.com",
   "gender_prior": "m",
-  "seen": 45
+  "seen": 47
  },
  "Battenwear": {
   "domain": "battenwear.com",
@@ -332,7 +332,7 @@
  "Bearbottom": {
   "domain": "bearbottomclothing.com",
   "gender_prior": "m",
-  "seen": 68
+  "seen": 69
  },
  "Bearbottom Clothing": {
   "domain": "bearbottomclothing.com",
@@ -352,7 +352,7 @@
  "Beckett Simonon": {
   "domain": "www.beckettsimonon.com",
   "gender_prior": "m",
-  "seen": 11
+  "seen": 13
  },
  "Beginning Boutique": {
   "domain": "www.beginningboutique.com",
@@ -362,7 +362,7 @@
  "Bella Dahl": {
   "domain": "www.belladahl.com",
   "gender_prior": "f",
-  "seen": 79
+  "seen": 83
  },
  "Berg & Berg": {
   "domain": "bergbergstore.com",
@@ -473,6 +473,11 @@
   "domain": "buttergoods.com",
   "gender_prior": "m",
   "seen": 30
+ },
+ "CAMILLA AND MARC": {
+  "domain": "www.camillaandmarc.com",
+  "gender_prior": "m",
+  "seen": 1
  },
  "CDLP": {
   "domain": "cdlp.com",
@@ -602,7 +607,7 @@
  "DTLR": {
   "domain": "www.dtlr.com",
   "gender_prior": "m",
-  "seen": 17
+  "seen": 20
  },
  "Daisy Street": {
   "domain": "www.daisystreet.co.uk",
@@ -727,7 +732,7 @@
  "Everlane": {
   "domain": "www.everlane.com",
   "gender_prior": "f",
-  "seen": 27
+  "seen": 33
  },
  "Extra Butter": {
   "domain": "extrabutterny.com",
@@ -957,7 +962,7 @@
  "J.Crew": {
   "domain": "www.jcrew.com",
   "gender_prior": "m",
-  "seen": 14
+  "seen": 15
  },
  "JORDAN BRAND": {
   "domain": "www.a-ma-maniere.com",
@@ -1317,7 +1322,7 @@
  "New Era": {
   "domain": "extrabutterny.com",
   "gender_prior": "m",
-  "seen": 6
+  "seen": 7
  },
  "Nike": {
   "domain": "www.nike.com",
@@ -1677,7 +1682,7 @@
  "Renarts": {
   "domain": "renarts.com",
   "gender_prior": "m",
-  "seen": 9
+  "seen": 10
  },
  "Represent": {
   "domain": "representclo.com",
@@ -1962,7 +1967,7 @@
  "Stussy": {
   "domain": "www.stussy.com",
   "gender_prior": "m",
-  "seen": 12
+  "seen": 14
  },
  "St\u00fcssy": {
   "domain": "www.xhibition.co",
@@ -2227,7 +2232,7 @@
  "Xhibition": {
   "domain": "www.xhibition.co",
   "gender_prior": "m",
-  "seen": 9
+  "seen": 10
  },
  "Xirena": {
   "domain": "www.xirena.com",

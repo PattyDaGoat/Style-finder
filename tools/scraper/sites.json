@@ -1486,7 +1486,15 @@
    ],
    "m": []
   },
+  "entry_cursor": 2,
   "gender_source": "prior",
+  "health": {
+   "fail": 0,
+   "last": 1785115518.7887266,
+   "last_found": 15,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "www.camillaandmarc.com",
   "note": "auto-discovered"
  },

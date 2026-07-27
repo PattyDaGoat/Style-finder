@@ -240,9 +240,19 @@ F_DRESS_SHARE_MIN = 0.06   # ...and it has to actually sell dresses
 
 
 def infer_shop_gender(products, base, brand, has_women_collection):
-    """-> ('m'|'f'|None, why). Uses gender.py so this agrees with the crawler."""
+    """-> ('m'|'f'|None, why, confident).
+
+    Two narrow rules produce a *confident* call. Everything else still gets a
+    call, but flagged as a guess — because skipping the shop entirely costs the
+    deck brands people have actually heard of, and a guess here is cheap to be
+    wrong about: it is registered as `gender_source: "prior"`, which browse.py
+    passes to the classifier as a brand prior worth 0.8 rather than as a
+    section worth 5.0. Any real evidence on the piece itself — an audience word
+    in the name (3.5), the product URL (4.0), a breadcrumb (4.5) — outvotes it,
+    and `browse.py --reclassify` can revisit the lot after the fact.
+    """
     if len(products) < MIN_SAMPLE:
-        return None, "only {} products to judge from".format(len(products))
+        return None, "only {} products to judge from".format(len(products)), False
     votes, cats = Counter(), Counter()
     for p in products:
         title = p.get("title", "")
@@ -255,12 +265,47 @@ def infer_shop_gender(products, base, brand, has_women_collection):
 
     if f >= F_VOTES_MIN and dress_share >= F_DRESS_SHARE_MIN:
         return "f", "{}/{} read as womenswear, {:.0%} dresses".format(
-            f, len(products), dress_share)
+            f, len(products), dress_share), True
     if not has_women_collection and f <= 2:
         return "m", ("no women's collection on the whole site and {}/{} "
-                     "womenswear in a sample".format(f, len(products)))
-    return None, "sells both, or too mixed to call (m={} f={} dresses={:.0%})".format(
-        m, f, dress_share)
+                     "womenswear in a sample".format(f, len(products))), True
+
+    # No confident call — guess, but not by comparing f votes to m votes. The
+    # classifier is deliberately asymmetric: it fires on womenswear (dresses,
+    # "WMNS", bodycon) and almost never on menswear, because a shirt is not a
+    # gendered garment. So f > m is true of a menswear shop that carries four
+    # women's pieces, and comparing the two called Stüssy, Corteiz, Aimé Leon
+    # Dore and Feature womenswear — all four wrong.
+    #
+    # Share of the sample separates them cleanly. A women's label sells dresses
+    # (Khaite 16%, Toteme 7%); a men's or sneaker shop sells none (Corteiz,
+    # Feature, Todd Snyder, Shoe Palace all 0%), and its handful of women's
+    # pieces stays a small slice of the whole.
+    f_share = f / float(len(products))
+    if dress_share >= 0.05 or f_share >= 0.25:
+        guess, because = "f", "{:.0%} dresses, {:.0%} read womenswear".format(
+            dress_share, f_share)
+    else:
+        guess, because = "m", "only {:.0%} dresses and {:.0%} read womenswear".format(
+            dress_share, f_share)
+    return guess, ("guessed {} ({}); registered as a prior, so any evidence on a "
+                   "piece overrides it".format(
+                       "womenswear" if guess == "f" else "menswear", because)), False
+
+
+def fallback_collections(collections, want):
+    """Biggest non-banned collections, for a shop whose collections are named
+    after drops and labels rather than garments (most sneaker boutiques)."""
+    scored = []
+    for col in collections:
+        handle, title = col.get("handle", ""), col.get("title", "")
+        if set(tokens(handle)) & BANNED_WORDS or set(tokens(title)) & BANNED_WORDS:
+            continue
+        count = col.get("products_count") or 0
+        if count < 5:
+            continue
+        scored.append((-count, handle))
+    return [h for _, h in sorted(scored)[:want]]
 
 
 def top_garment_collections(collections, want):
@@ -323,7 +368,7 @@ async def probe(ctx, brand, base, note, sem, results):
     async with sem:
         page = await ctx.new_page()
         row = {"brand": brand, "base": base, "note": note, "ok": False,
-               "m": [], "f": [], "why": "", "products": 0, "inferred": ""}
+               "m": [], "f": [], "why": "", "products": 0, "inferred": "", "guessed": False}
         try:
             ok, rule = await robots_allows(page, base,
                                            ["/collections.json", "/products.json"])
@@ -361,23 +406,65 @@ async def probe(ctx, brand, base, note, sem, results):
             sample = (data or {}).get("products", [])
             row["products"] = len(sample)
 
+            # One side only. Kith is the case that showed this up: its women's
+            # collections are named "…-women" and matched, while its men's ones
+            # are named after collaborators ("adidas-mens" reads as a brand, not
+            # a garment), so the crawl entered the women's door and came back
+            # with 22 women's pieces and nothing else. If the shop's collection
+            # list clearly names BOTH genders somewhere, fill the empty side
+            # from its biggest general collections and mark the whole entry a
+            # guess, so the crawl at least reaches that half of the shop.
+            for have, missing in (("m", "f"), ("f", "m")):
+                if row[have] and not row[missing]:
+                    tok = WOMEN_TOKENS if missing == "f" else MEN_TOKENS
+                    sells_both = any(
+                        set(tokens(c.get("handle", ""))) & tok
+                        or set(tokens(c.get("title", ""))) & tok
+                        for c in collections)
+                    if not sells_both:
+                        break
+                    handles = [h for h in fallback_collections(collections, 6)
+                               if h not in [u.rsplit("/", 1)[-1] for u in row[have]]]
+                    if handles:
+                        row[missing] = ["{}/collections/{}".format(base.rstrip("/"), h)
+                                        for h in handles[:MAX_ENTRIES_PER_GENDER]]
+                        row["guessed"] = True
+                        row["inferred"] = (
+                            "found only {} collections by name; the shop also lists "
+                            "{} ones, so its general collections are registered for "
+                            "that side as a guess".format(
+                                "men's" if have == "m" else "women's",
+                                "women's" if missing == "f" else "men's"))
+                    break
+
             # Nothing gendered in the collection names: this is either a
             # single-gender shop worth registering, or genuinely ambiguous.
             if not row["m"] and not row["f"]:
                 has_women_col = any(gender_of(c.get("handle", "")) == "f"
                                     or gender_of(c.get("title", "")) == "f"
                                     for c in collections)
-                g, why = infer_shop_gender(sample, base, brand, has_women_col)
+                g, why, confident = infer_shop_gender(sample, base, brand, has_women_col)
                 if not g:
                     row["why"] = "no gendered collections; " + why
                     return
                 handles = top_garment_collections(collections, MAX_ENTRIES_PER_GENDER)
                 if not handles:
-                    row["why"] = "single-gender shop but no garment collections to enter"
+                    # No collection matched the garment vocabulary — common at
+                    # sneaker shops, whose collections are named after drops and
+                    # labels rather than garments. Fall back to the biggest
+                    # collections that are not on the banned list, so the shop
+                    # is crawlable at all.
+                    handles = fallback_collections(collections,
+                                                   MAX_ENTRIES_PER_GENDER)
+                    if handles:
+                        why += "; entered via its largest collections"
+                if not handles:
+                    row["why"] = "nothing crawlable — every collection is banned or empty"
                     return
                 row[g] = ["{}/collections/{}".format(base.rstrip("/"), h)
                           for h in handles]
                 row["inferred"] = why
+                row["guessed"] = not confident
 
             if row["products"] == 0:
                 row["why"] = "collections look right but no products came back"
@@ -416,9 +503,17 @@ def add_to_sites(registry, rows):
         host = urlparse(r["base"]).netloc
         site = site_registry.S(r["brand"], host, m=r["m"], f=r["f"],
                                note="found by find_brands.py — {}".format(r["note"]))
-        # Auditable: a section we worked out rather than read off the shop is
-        # labelled as such, so a later reviewer can re-check or drop it.
-        site["gender_source"] = "inferred" if r.get("inferred") else "collection-handle"
+        # Auditable, and load-bearing: "prior" is browse.py's existing marker for
+        # a section we guessed rather than read off the shop. It makes the crawl
+        # pass the gender as a brand prior (0.8) instead of a section (5.0), so a
+        # wrong guess is corrected by the piece's own evidence instead of
+        # overriding it. Anything not marked "prior" is treated as fact.
+        if r.get("guessed"):
+            site["gender_source"] = "prior"
+        elif r.get("inferred"):
+            site["gender_source"] = "inferred"
+        else:
+            site["gender_source"] = "collection-handle"
         if r.get("inferred"):
             site["gender_note"] = r["inferred"]
         registry[r["brand"]] = site

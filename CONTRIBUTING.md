@@ -114,11 +114,21 @@ Don't claim a change improved recommendations. Show it.
 
 The current baseline, for reference:
 
-| Scenario | AUC | P@10 |
-|---|---|---|
-| Neutral minimalist | 0.807 | 90% |
-| Bold streetwear | 0.670 | 34% |
-| Earthy womenswear | 0.693 | 40% |
+| Scenario | AUC | P@10 | run-to-run spread |
+|---|---|---|---|
+| Neutral minimalist | 0.828 | 84% | ±0.019 |
+| Bold streetwear | 0.707 | 75% | ±0.023 |
+| Earthy womenswear | 0.675 | 68% | ±0.041 |
+
+These moved when the eval was given enough data to be meaningful (12 runs of
+1280 swipes, up from 5 of 320). The old numbers were measured from as few as
+**8** liked pieces in the holdout, so their spread was ±0.035–0.148 — wider than
+most changes anyone would want to detect, which meant the noise floor was doing
+the deciding. The new numbers are the same measurement taken properly, not a
+change in the recommender: nothing in `50-taste-model.js` moved. Narrow tastes
+genuinely score lower than broad ones (Bold streetwear, a menswear persona, sits
+at the same ~0.70 as the womenswear one) — that is a property of niche
+preferences, not of a section.
 
 To compare a variant side by side, add a row to `EV_SCORERS` in `80-eval-harness.js`. Leave the
 `current` row alone so every future change is measured against the same reference.

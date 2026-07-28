@@ -95,6 +95,74 @@ async function gesture(p, moves, endWith) {
   g = await gesture(p, [[-40, 0]], 'up');
   chk('a small nudge left decides nothing', g.reaction === null, 'got ' + g.reaction);
 
+  // A plain click — press and release, no movement at all. Reported from real
+  // use as "as soon as I click on it, it swipes left".
+  g = await gesture(p, [[0, 0]], 'up');
+  chk('a plain CLICK decides nothing (was: swiped left)', g.reaction === null, 'got ' + g.reaction);
+
+  // ---------- momentum: a flick commits even though it barely moved ----------
+  const flick = await p.evaluate(async () => {
+    const card = document.querySelector('#cardHost .piece-card');
+    const r = card.getBoundingClientRect();
+    const pi = QUEUE[0];
+    const x0 = r.left + r.width / 2, y0 = r.top + r.height / 2;
+    let t = 1000;
+    const ev = (type, x, y) => { const e = new PointerEvent(type, {
+      clientX: x, clientY: y, pointerId: 1, bubbles: true, cancelable: true, isPrimary: true });
+      Object.defineProperty(e, 'timeStamp', { value: t }); card.dispatchEvent(e); };
+    ev('pointerdown', x0, y0);
+    for (let i = 1; i <= 4; i++) { t += 8; ev('pointermove', x0 + i * 18, y0); }  // fast, only 72px
+    ev('pointerup', x0 + 72, y0);
+    await new Promise(res => setTimeout(res, 700));
+    return { reaction: S.reactions[pi] || null, travelled: 72 };
+  });
+  chk('a fast flick right commits without full travel (72px)',
+      flick.reaction === 'like', 'got ' + flick.reaction);
+
+  const slow = await p.evaluate(async () => {
+    const card = document.querySelector('#cardHost .piece-card');
+    const r = card.getBoundingClientRect();
+    const pi = QUEUE[0];
+    const x0 = r.left + r.width / 2, y0 = r.top + r.height / 2;
+    let t = 1000;
+    const ev = (type, x, y) => { const e = new PointerEvent(type, {
+      clientX: x, clientY: y, pointerId: 1, bubbles: true, cancelable: true, isPrimary: true });
+      Object.defineProperty(e, 'timeStamp', { value: t }); card.dispatchEvent(e); };
+    ev('pointerdown', x0, y0);
+    for (let i = 1; i <= 4; i++) { t += 220; ev('pointermove', x0 + i * 15, y0); }  // slow, 60px
+    ev('pointerup', x0 + 60, y0);
+    await new Promise(res => setTimeout(res, 700));
+    return { reaction: S.reactions[pi] || null };
+  });
+  chk('a slow 60px drag does NOT commit', slow.reaction === null, 'got ' + slow.reaction);
+
+  // ---------- the card is held, and pivots about where you grabbed ----------
+  // Each grab is cancelled, never committed, so the same card survives both and
+  // nothing is left mid-flight to report a stale transform.
+  const rotAt = async (fracY) => p.evaluate(async (fy) => {
+    const card = document.querySelector('#cardHost .piece-card');
+    if (!card) return { err: 'no card' };
+    const r = card.getBoundingClientRect();
+    const y = r.top + r.height * fy, x = r.left + r.width / 2;
+    const ev = (type, cx, cy) => card.dispatchEvent(new PointerEvent(type, {
+      clientX: cx, clientY: cy, pointerId: 1, bubbles: true, cancelable: true, isPrimary: true }));
+    ev('pointerdown', x, y);
+    ev('pointermove', x + 80, y);          // same pull to the right both times
+    const t = card.style.transform;
+    ev('pointercancel', 0, 0);             // never commits, card stays
+    await new Promise(res => setTimeout(res, 250));
+    const m = /rotate\((-?[\d.]+)deg\)/.exec(t || '');
+    return { rot: m ? parseFloat(m[1]) : null, held: /scale\(1\.0[1-9]/.test(t || ''), raw: t };
+  }, fracY);
+
+  const grabTop = await rotAt(0.2);
+  const grabBottom = await rotAt(0.8);
+  chk('the card lifts while held (scale > 1)', grabTop.held === true, JSON.stringify(grabTop));
+  chk('pulling right from the top rotates one way',
+      grabTop.rot !== null && grabTop.rot > 0, JSON.stringify(grabTop));
+  chk('pulling right from the bottom pivots the other way',
+      grabBottom.rot !== null && grabBottom.rot < 0, JSON.stringify(grabBottom));
+
   // ---------- what made the cancel fire so often ----------
   const dragging = await p.evaluate(() => {
     const card = document.querySelector('#cardHost .piece-card');

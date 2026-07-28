@@ -55,7 +55,11 @@
   /* touch-action:none, not pan-y: the card owns every direction. pan-y let the
      browser claim vertical gestures, so a swipe up (love) — and any drag with a
      little vertical drift — was cancelled mid-gesture instead of counting. */
-  .piece-card{width:100%;border-radius:26px;overflow:hidden;background:#fff;box-shadow:var(--shadow);position:relative;will-change:transform;user-select:none;touch-action:none;-webkit-user-drag:none;}
+  /* grab-to-drag, and the cursor says so. transform-origin sits low so the card
+     pivots about a point nearer your hand than its middle — part of why the
+     rotation reads as a physical card rather than a spinning box. */
+  .piece-card{width:100%;border-radius:26px;overflow:hidden;background:#fff;box-shadow:var(--shadow);position:relative;will-change:transform;user-select:none;touch-action:none;-webkit-user-drag:none;cursor:grab;transform-origin:50% 120%;}
+  .piece-card:active{cursor:grabbing;}
   .piece-photo{width:100%;height:min(62vh,540px);background:var(--mint);position:relative;display:block;}
   .piece-photo img{width:100%;height:100%;object-fit:cover;display:block;pointer-events:none;}
   .ph-fallback{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:20px;color:var(--green-2);background:linear-gradient(160deg,var(--mint),#fff);}
@@ -1457,7 +1461,20 @@ function undoLast(){if(S.hist&&S.hist.length){const pi=S.hist.pop();const r=S.re
   QUEUE.unshift(pi);renderCard();}}
 function saveToCartCurrent(e){if(e&&e.stopPropagation)e.stopPropagation();if(QUEUE.length){togglePick(QUEUE[0]);renderCard();}}
 
-/* ---- swipe animation + drag ---- */
+/* ---- swipe animation + drag ----
+   A card that feels like a card. Three things do most of that work:
+
+     velocity   a fast flick commits even if it barely moved, because that is
+                what your hand meant. Distance alone forces you to drag the full
+                width every time, which is what made this feel stuck.
+     pivot      rotation is anchored to where you grabbed. Take the card by the
+                bottom and it swings the opposite way to the top, like pushing a
+                real card on a table. A fixed rotation is the giveaway that it is
+                a div.
+     spring     released under the threshold it comes back with a little
+                overshoot, and it lifts while held. That is the "weight".
+
+   Everything is transform + opacity so it stays on the compositor. */
 let SWIPING=false;
 /* The photo is now a link to the shop, and the photo is also most of the drag
    surface — so a swipe that starts on it must not open a tab on release.
@@ -1465,54 +1482,126 @@ let SWIPING=false;
    onclick asks deckTapOK() and returns false after a real drag. */
 let _TAP=true; const TAP_SLOP=6;
 function deckTapOK(){ return _TAP; }
+
+const SW={
+  commitPx:  95,     /* travel that always commits */
+  commitV:   0.55,   /* px/ms — a flick this fast commits… */
+  flickMinPx: 50,    /* …but only once it has actually gone somewhere. Velocity
+                        on its own fires on a twitch: pointer events can arrive
+                        microseconds apart, and dx/dt then explodes into a flick
+                        the user never made. Both conditions, always. */
+  vMax:       3,     /* px/ms ceiling, so one bad frame can't dominate */
+  dtMin:      4,     /* ms floor, so we never divide by ~0 */
+  upPx:     110,     /* upward travel for a love */
+  upV:       0.65,
+  maxRot:    16,     /* degrees at a full card-width of travel */
+  lift:    1.03,     /* scale while held: the card comes off the stack */
+  flyMs:    380,
+  springMs: 520
+};
+const _clampV=v=>Math.max(-SW.vMax,Math.min(SW.vMax,v));
 function showStamp(card,kind){const m={skip:'.s-nope',like:'.s-like',love:'.s-love'}[kind];const el=card.querySelector(m);if(el)el.style.opacity='1';}
-function animateSwipe(kind){
+
+/* Throw the card off screen, then commit the reaction. `vx`/`vy` carry the
+   flick's momentum through so a hard swipe leaves faster than a slow one. */
+function flyOut(card,kind,vx,vy,rot){
+  const w=innerWidth||900;
+  const dir=kind==='skip'?-1:kind==='like'?1:0;
+  const tx=dir? dir*(w*1.25) : (vx||0)*160;
+  const ty=kind==='love' ? -(innerHeight||800)*1.1 : (vy||0)*120+40;
+  const tr=kind==='love' ? (vx||0)*8 : dir*Math.max(22,Math.abs(rot||0)*1.5);
+  card.style.transition=`transform ${SW.flyMs}ms cubic-bezier(.22,.61,.36,1), opacity ${SW.flyMs-80}ms linear`;
+  showStamp(card,kind);
+  requestAnimationFrame(()=>{
+    card.style.transform=`translate(${tx}px,${ty}px) rotate(${tr}deg) scale(1)`;
+    card.style.opacity='0';
+  });
+}
+
+function animateSwipe(kind,vx,vy,rot){
   if(SWIPING||!QUEUE.length)return; SWIPING=true;
   const card=document.querySelector('#cardHost .piece-card');
-  if(card){
-    card.style.transition='transform .34s ease, opacity .34s ease';
-    const t=kind==='skip'?'translate(-140%,-30px) rotate(-20deg)':kind==='love'?'translate(0,-150%) rotate(-4deg)':'translate(140%,-30px) rotate(20deg)';
-    showStamp(card,kind);
-    requestAnimationFrame(()=>{card.style.transform=t;card.style.opacity='0';});
-  }
-  setTimeout(()=>{SWIPING=false;react(kind);},340);
+  if(card) flyOut(card,kind,vx,vy,rot);
+  setTimeout(()=>{SWIPING=false;react(kind);},SW.flyMs-40);
 }
+
 function attachDrag(card){
   if(!card)return;
-  /* lx/ly are the last position we actually SAW during the drag, and the only
-     thing the release reads. pointercancel does not carry a usable coordinate —
-     it arrives as clientX 0 — so reading the event directly turned a rightward
-     drag into dx = 0 - startX, a large negative number, past the -120 threshold,
-     and fired 'skip'. That is why swiping right registered as a left swipe. */
-  let sx=0,sy=0,lx=0,ly=0,drag=false;
+  /* lx/ly are the last position we actually SAW, and the only thing the release
+     reads. pointercancel carries no usable coordinate — it arrives as clientX 0
+     — so reading the event directly turned a rightward drag into
+     dx = 0 - startX, a large negative number, past the threshold, and fired
+     'skip'. That is why swiping right registered as a left swipe. */
+  let sx=0,sy=0,lx=0,ly=0,drag=false,pivot=1,vx=0,vy=0,lastT=0;
   const like=card.querySelector('.s-like'),nope=card.querySelector('.s-nope'),love=card.querySelector('.s-love');
-  const clearStamps=()=>{like.style.opacity=nope.style.opacity=love.style.opacity=0;};
-  const setStamps=(dx,dy)=>{const up=dy<-50&&Math.abs(dy)>Math.abs(dx);
-    love.style.opacity=up?Math.min(1,(-dy-50)/90):0;
-    like.style.opacity=(!up&&dx>0)?Math.min(1,(dx-24)/90):0;
-    nope.style.opacity=(!up&&dx<0)?Math.min(1,(-dx-24)/90):0;};
-  const settle=()=>{card.style.transition='transform .2s ease';card.style.transform='';clearStamps();};
+  const clearStamps=()=>{if(like)like.style.opacity=0;if(nope)nope.style.opacity=0;if(love)love.style.opacity=0;};
+  const setStamps=(dx,dy)=>{
+    const up=dy<-40&&Math.abs(dy)>Math.abs(dx);
+    if(love)love.style.opacity=up?Math.min(1,(-dy-40)/80):0;
+    if(like)like.style.opacity=(!up&&dx>0)?Math.min(1,(dx-16)/80):0;
+    if(nope)nope.style.opacity=(!up&&dx<0)?Math.min(1,(-dx-16)/80):0;};
 
-  const down=e=>{if(SWIPING||(e.target&&e.target.closest&&e.target.closest('.swipe-cart,.focus-btn,.report-btn')))return;
-    drag=true;_TAP=true;sx=lx=e.clientX;sy=ly=e.clientY;card.style.transition='none';
-    try{card.setPointerCapture(e.pointerId);}catch(_){}};
-  const move=e=>{if(!drag)return;lx=e.clientX;ly=e.clientY;
+  const paint=(dx,dy,held)=>{
+    const w=card.offsetWidth||340;
+    const rot=(dx/w)*SW.maxRot*pivot;
+    card.style.transform=`translate(${dx}px,${dy}px) rotate(${rot}deg) scale(${held?SW.lift:1})`;
+    return rot;
+  };
+  /* Overshoot on the way back is the whole point — it reads as mass, where a
+     linear ease reads as a slide. */
+  const settle=()=>{card.style.transition=`transform ${SW.springMs}ms cubic-bezier(.18,.89,.32,1.28)`;
+    card.style.transform='';clearStamps();};
+
+  const down=e=>{
+    if(SWIPING||(e.target&&e.target.closest&&e.target.closest('.swipe-cart,.focus-btn,.report-btn')))return;
+    drag=true;_TAP=true;
+    sx=lx=e.clientX;sy=ly=e.clientY;vx=vy=0;lastT=e.timeStamp||performance.now();
+    /* grab the top half and it swings one way, the bottom half the other */
+    const r=card.getBoundingClientRect();
+    pivot=((e.clientY-r.top)/(r.height||1))<0.5?1:-1;
+    card.style.transition='none';
+    paint(0,0,true);
+    try{card.setPointerCapture(e.pointerId);}catch(_){}
+  };
+
+  const move=e=>{
+    if(!drag)return;
+    const t=e.timeStamp||performance.now();
+    const dt=Math.max(t-lastT,SW.dtMin);   /* never divide by ~0 */
+    /* smoothed, so one jittery frame can't throw it */
+    vx=_clampV(vx*0.7+((e.clientX-lx)/dt)*0.3);
+    vy=_clampV(vy*0.7+((e.clientY-ly)/dt)*0.3);
+    lastT=t;
+    lx=e.clientX;ly=e.clientY;
     const dx=lx-sx,dy=ly-sy;
     if(Math.abs(dx)+Math.abs(dy)>TAP_SLOP)_TAP=false;
-    card.style.transform=`translate(${dx}px,${dy}px) rotate(${dx/24}deg)`;setStamps(dx,dy);};
-  const up=e=>{if(!drag)return;drag=false;
-    const dx=lx-sx,dy=ly-sy;                     /* last seen, never the event's */
-    if(dy<-120&&Math.abs(dy)>Math.abs(dx))return animateSwipe('love');
-    if(dx>120)return animateSwipe('like');
-    if(dx<-120)return animateSwipe('skip');
-    settle();};
+    setStamps(dx,dy);paint(dx,dy,true);
+  };
+
+  const up=()=>{
+    if(!drag)return;drag=false;
+    const dx=lx-sx,dy=ly-sy;        /* last seen, never the event's */
+    const w=card.offsetWidth||340, rot=(dx/w)*SW.maxRot*pivot;
+    /* Distance OR a flick — but a flick still has to have travelled. */
+    const flickR=vx> SW.commitV&&dx> SW.flickMinPx;
+    const flickL=vx<-SW.commitV&&dx<-SW.flickMinPx;
+    const flickU=vy<-SW.upV   &&dy<-SW.flickMinPx;
+    const upward=(dy<-SW.upPx||flickU)&&Math.abs(dy)>Math.abs(dx);
+    if(upward)                     return animateSwipe('love',vx,vy,rot);
+    if(dx> SW.commitPx||flickR)    return animateSwipe('like',vx,vy,rot);
+    if(dx<-SW.commitPx||flickL)    return animateSwipe('skip',vx,vy,rot);
+    settle();
+  };
   /* A cancelled gesture is not a swipe. Snap back and decide nothing — acting on
      a drag the browser threw away is how the wrong card got skipped. _TAP is
      cleared too, so an aborted gesture cannot fall through and open the shop. */
   const cancel=()=>{if(!drag)return;drag=false;_TAP=false;settle();};
 
-  card.addEventListener('pointerdown',down);card.addEventListener('pointermove',move);
-  card.addEventListener('pointerup',up);card.addEventListener('pointercancel',cancel);
+  card.addEventListener('pointerdown',down);
+  card.addEventListener('pointermove',move);
+  card.addEventListener('pointerup',up);
+  card.addEventListener('pointercancel',cancel);
+  card.addEventListener('lostpointercapture',cancel);
   /* Belt and braces on the photo: .piece-photo img already has pointer-events
      none, but any other image in the card would otherwise start a native HTML5
      image drag, and that is what cancels the pointer stream mid-swipe. */

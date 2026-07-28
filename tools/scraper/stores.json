@@ -487,7 +487,7 @@
  "Carhartt WIP": {
   "domain": "us.carhartt-wip.com",
   "gender_prior": "m",
-  "seen": 3
+  "seen": 5
  },
  "Casablanca": {
   "domain": "casablancaparis.com",
@@ -597,7 +597,12 @@
  "DFYNE": {
   "domain": "dfyne.com",
   "gender_prior": "f",
-  "seen": 24
+  "seen": 39
+ },
+ "DFYNE US": {
+  "domain": "us.dfyne.com",
+  "gender_prior": "f",
+  "seen": 11
  },
  "DL1961": {
   "domain": "www.dl1961.com",
@@ -1188,6 +1193,11 @@
   "domain": "mackweldon.com",
   "gender_prior": "m",
   "seen": 19
+ },
+ "Madewell": {
+  "domain": "www.madewell.com",
+  "gender_prior": "f",
+  "seen": 2
  },
  "Malbon Golf": {
   "domain": "malbongolf.com",

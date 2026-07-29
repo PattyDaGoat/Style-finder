@@ -595,14 +595,14 @@
   "seen": 18
  },
  "DFYNE": {
-  "domain": "dfyne.com",
+  "domain": "us.dfyne.com",
   "gender_prior": "f",
-  "seen": 39
+  "seen": 51
  },
  "DFYNE US": {
   "domain": "us.dfyne.com",
   "gender_prior": "f",
-  "seen": 11
+  "seen": 20
  },
  "DL1961": {
   "domain": "www.dl1961.com",
@@ -2072,7 +2072,7 @@
  "Todd Snyder": {
   "domain": "www.toddsnyder.com",
   "gender_prior": "m",
-  "seen": 13
+  "seen": 14
  },
  "Tommy John": {
   "domain": "tommyjohn.com",
@@ -2102,7 +2102,7 @@
  "UNIQLO": {
   "domain": "www.uniqlo.com",
   "gender_prior": "f",
-  "seen": 9
+  "seen": 12
  },
  "UNTUCKit": {
   "domain": "www.untuckit.com",
@@ -2112,7 +2112,7 @@
  "Uniqlo": {
   "domain": "www.uniqlo.com",
   "gender_prior": "f",
-  "seen": 17
+  "seen": 22
  },
  "United By Blue": {
   "domain": "unitedbyblue.com",

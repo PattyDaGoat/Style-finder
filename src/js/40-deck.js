@@ -1,5 +1,9 @@
 /* ---------- endless adaptive deck ---------- */
 let QUEUE=[], SERVED=new Set(), LAST_BRANDS=new Set();
+/* Which piece the card currently on screen is showing, so renderCard() can tell
+   "the next card arrived" from "the same card was redrawn". Only the first gets
+   the entry animation — see the call site. */
+let _SHOWING=null;
 
 /* ---- a piece you have already been shown never comes back ----
    SERVED alone was per-session and reset on every startDeck(), so closing the
@@ -104,7 +108,7 @@ function startDeck(){
      not re-deal everything you have already looked at. Only "Start over",
      which clears storage outright, forgets them. */
   S={seeds:S.seeds,reactions:{},tags:{},picks:(S.picks||[]),likes:(S.likes||[]),hist:[],settings:S.settings,byGender:S.byGender,inspo:S.inspo,noFast:S.noFast,seen:(S.seen||{}),seenStyle:(S.seenStyle||{})};
-  QUEUE=[]; SERVED=new Set(); LAST_BRANDS=new Set();
+  QUEUE=[]; SERVED=new Set(); LAST_BRANDS=new Set(); _SHOWING=null;
   QUEUE=nextBatch(14);
   show("deck"); syncGenderToggles(); renderCard();
 }
@@ -161,7 +165,13 @@ function renderCard(){
     </div>`;
   const chosen=S.tags[pi]||[];
   if(tagStrip) tagStrip.innerHTML=`<div class="tl">What caught your eye? (optional)</div>`+REACT_TAGS.map(t=>`<span class="tag ${chosen.includes(t)?'on':''}" onclick="toggleTag(${pi},'${t}',this)">${t}</span>`).join("");
-  attachDrag(document.querySelector('#cardHost .piece-card'));
+  const shown=document.querySelector('#cardHost .piece-card');
+  attachDrag(shown);
+  /* Animate the arrival only when the piece actually changed. renderCard() also
+     re-runs for things that redraw the SAME card — Add to cart, the tag strip,
+     a filter toggle — and animating those would make the card bounce every time
+     you pressed a button on it. */
+  if(pi!==_SHOWING){ _SHOWING=pi; enterCard(shown); }
   preloadUpcoming(4);   // prefetch the next few cards' photos so swiping to them is instant
 }
 /* keep the next N upcoming card images warm in the browser cache (no on-swipe delay) */

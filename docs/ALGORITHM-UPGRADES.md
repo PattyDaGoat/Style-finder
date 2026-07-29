@@ -70,6 +70,19 @@ category. It's the cheapest fix in this document because the machinery already e
 
 ## 3. Learn what you're willing to spend
 
+> **Decided against — do not build this.** It was built, measured, and dropped on purpose.
+> Price is meant to be a **settings-time budget filter only**; it does not belong in the
+> ranking. Leaving this section as written invites the next agent to implement it again,
+> so: don't.
+>
+> For the record, so nobody re-derives it: a log-space band fitted over what the shopper
+> liked, gated so it switches off when their liked prices are no more concentrated than
+> the catalogue's, measured +0.103 AUC and P@10 45.8% → 85.0% on a persona that has both a
+> style and a budget, with no effect (±0.001) on the three personas that ignore price. So
+> the idea does work in the metric. It was not rejected for failing — it was rejected
+> because price is a filter here, not a taste signal. A future measurement showing a gain
+> is not, on its own, a reason to revisit that.
+
 **The symptom.** Price is a hard ceiling and nothing else. Budget filters out anything above your
 cap; below the cap, a $12 tee and a $240 tee are treated identically.
 

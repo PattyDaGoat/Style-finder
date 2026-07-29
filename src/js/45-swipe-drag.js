@@ -48,7 +48,21 @@ const SW={
   flyMs:    560,
   flyTravel: 1.0,    /* card-widths it crosses on the way out */
   flyCarry:   80,    /* how much of the throw's momentum shows in the exit */
-  springMs: 420      /* and an unhurried settle back when it doesn't commit */
+  springMs: 420,     /* and an unhurried settle back when it doesn't commit */
+  /* ---- the card arriving ----
+     It had no entry at all: renderCard() wrote the next card straight into the
+     DOM and it appeared with transition 0s, while the card it replaced took the
+     full 560ms to leave. One motion unhurried and the next instantaneous is
+     exactly what reads as the next photo snapping in too fast — the eye is
+     still following the old card out when the new one is simply THERE.
+
+     So it rises from the stack instead, on the same ease-out, settling a beat
+     before the old card clears the screen. Slightly back and slightly low,
+     growing into place — the same "comes off the stack" idea `lift` already
+     uses for a held card, run in reverse. */
+  inMs:     460,
+  inScale: 0.94,     /* starts set back in the stack ... */
+  inRise:    12      /* ... and a little low, then grows into place */
 };
 /* How far the stamps take to reach full opacity. Nothing to do with committing
    any more — the swipe commits on direction alone — this is purely how quickly
@@ -99,18 +113,44 @@ function flyOut(card,kind,vx,vy,rot,dx,dy){
    The ghost is position:fixed over the card's last on-screen box, so it looks
    identical while it leaves, and is removed when done. */
 function _ghostOut(card,kind,vx,vy,rot,dx,dy){
-  const r=card.getBoundingClientRect();
+  /* Measure the card's UNTRANSFORMED box, then carry its live transform across
+     unchanged. This used to read getBoundingClientRect() on the card mid-drag
+     and pin the ghost to that with transform:none — but on a rotated, scaled
+     card that rect is the axis-aligned box AROUND it, which is bigger than the
+     card: 476x491 for a 430x446 card at 4.88deg, and the gap grows with the
+     angle up to maxRot. So at the instant you let go the card jumped ~46px
+     wider and snapped upright. That flinch, on every swipe, is what reads as
+     the card being yanked back into place before it leaves.
+
+     Clearing the transform to measure and restoring it happens inside one task,
+     so no frame is ever painted with the card at rest. */
+  const live=card.style.transform;
+  card.style.transform='none';
+  const r=card.getBoundingClientRect();      /* the resting layout box */
+  card.style.transform=live;
   const g=card.cloneNode(true);
   g.classList.add('card-ghost');
-  /* Start the ghost exactly where the card is RIGHT NOW, mid-drag transform and
-     all, so the hand-off is invisible: no jump back to centre before it leaves. */
   g.style.cssText+=`position:fixed;left:${r.left}px;top:${r.top}px;width:${r.width}px;`
     +`height:${r.height}px;margin:0;pointer-events:none;z-index:60;transition:none;`
-    +`transform:none;`;
+    +`transform:${live||'none'};`;
   document.body.appendChild(g);
   flyOut(g,kind,vx,vy,rot,dx,dy);
   setTimeout(()=>{try{g.remove();}catch(_){}},SW.flyMs+80);
 }
+/* Bring a freshly rendered card up from the stack.
+   Purely cosmetic, and deliberately unable to cost you anything: the card is
+   already live and draggable before this runs, and down() blows the transition
+   away the moment you touch it. That is the same rule the exit had to learn the
+   hard way — slowing an animation must never eat an input. */
+function enterCard(card){
+  if(!card)return;
+  card.style.transition='none';
+  card.style.transform=`translateY(${SW.inRise}px) scale(${SW.inScale})`;
+  void card.offsetWidth;              /* commit that as the starting point... */
+  card.style.transition=`transform ${SW.inMs}ms cubic-bezier(.16,.72,.30,1)`;
+  card.style.transform='';            /* ...then let it settle to rest */
+}
+
 function animateSwipe(kind,vx,vy,rot,dx,dy){
   if(!QUEUE.length)return;
   const card=document.querySelector('#cardHost .piece-card');

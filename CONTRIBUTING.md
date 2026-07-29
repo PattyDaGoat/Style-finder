@@ -42,7 +42,7 @@ red, don't commit.
 
 ```
 build.mjs              glues src/ + data/ into dist/. Read the comment at the top before touching.
-data/catalog.json      9,867 products, ONE PER LINE. Generated data — see the warning below.
+data/catalog.json      10,369 products, ONE PER LINE. Generated data — see the warning below.
 dist/style-finder.html generated. Never edit.
 src/shell/*.html       the HTML around the CSS and JS (head, body, tail)
 src/css/*.css          concatenated in filename order
@@ -116,21 +116,33 @@ The current baseline, for reference:
 
 | Scenario | AUC | P@10 | run-to-run spread |
 |---|---|---|---|
-| Neutral minimalist | 0.843 | 87% | ±0.027 |
-| Bold streetwear | 0.714 | 87% | ±0.041 |
-| Earthy womenswear | 0.740 | 79% | ±0.044 |
-| **overall** | **0.766** | | |
+| Neutral minimalist | 0.840 | 88% | ±0.021 |
+| Bold streetwear | 0.738 | 83% | ±0.038 |
+| Earthy womenswear | 0.737 | 82% | ±0.040 |
+| **overall** | **0.772** | | |
 
-Measured at 9,867 products. **Quote the catalogue size with the number or the number means
+Measured at 10,369 products. **Quote the catalogue size with the number or the number means
 nothing** — this table is only comparable against itself.
 
 **These numbers move when the data moves, and the recommender does not.** They read
 0.839 / 0.701 / 0.735 for a long time, measured when the catalogue held 9,306 products. At
 9,837 the same untouched `50-taste-model.js` scored 0.837 / 0.730 / 0.748 — Bold streetwear
 alone drifted +0.029. Then a routine crawl added **31 products, 0.3% of the catalogue**, and
-Bold streetwear moved again, 0.730 → 0.714. That last one is worth sitting with: a third of
-a percent more data shifted a persona by 0.016, half its own noise floor, while nobody
-touched the algorithm.
+Bold streetwear moved again, 0.730 → 0.714. That one is worth sitting with: a third of a
+percent more data shifted a persona by 0.016, half its own noise floor, while nobody touched
+the algorithm. A 502-product batch then moved it back, 0.714 → 0.738.
+
+Track it in one place rather than trusting any single row:
+
+| catalogue | Neutral | Bold | Earthy | overall |
+|---|---|---|---|---|
+| 9,306 | 0.839 | 0.701 | 0.735 | 0.758 |
+| 9,837 | 0.837 | 0.730 | 0.748 | 0.772 |
+| 9,867 | 0.843 | 0.714 | 0.740 | 0.766 |
+| 10,369 | 0.840 | 0.738 | 0.737 | 0.772 |
+
+Same recommender throughout. Every one of those rows is the identical algorithm scored on a
+different deck, and Bold streetwear alone spans 0.701–0.738 across them.
 
 So: re-measure on the catalogue you are actually shipping, immediately before and after your
 change, and compare only those two. A number inherited from this file is a number measured

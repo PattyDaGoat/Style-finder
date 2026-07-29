@@ -28,6 +28,7 @@ function buildResults(){
     <p class="kv"><b>Fits you gravitate to:</b> ${topKeys(W.fit,3,true).filter(f=>f!=='regular').map(f=>FITN[f]||f).join(", ")||"regular / classic"}.</p>
     <p class="kv"><b>Categories you liked:</b> ${POSCATS.map(c=>CATN[c]||c).join(", ")||"a bit of everything"} <span style="color:var(--ink-soft)">(we only recommend these)</span>.</p>
     <p class="kv"><b>Brands that clicked:</b> ${topKeys(W.brand,4,true).join(", ")||"a spread"}.</p>
+    ${priceBandText()?`<p class="kv"><b>Your price range:</b> ${priceBandText()} <span style="color:var(--ink-soft)">(learned from what you swiped on, not from your budget setting)</span>.</p>`:""}
   </div></div>`;
 
   html+=`<div class="panel"><h3 class="section-title">New pieces you'd wear</h3>

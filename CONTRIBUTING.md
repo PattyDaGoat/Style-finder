@@ -28,7 +28,7 @@ files you're taking. The map is below.
 ### 3. `npm test` before every commit
 
 ```
-npm test          # builds, then runs all 5 suites (221 assertions)
+npm test          # builds, then runs all 6 suites (289 assertions)
 ```
 
 It takes a few minutes and it has caught eight real bugs that code review missed — a drag
@@ -116,9 +116,22 @@ The current baseline, for reference:
 
 | Scenario | AUC | P@10 | run-to-run spread |
 |---|---|---|---|
-| Neutral minimalist | 0.839 | 85% | ±0.018 |
-| Bold streetwear | 0.701 | 79% | ±0.050 |
-| Earthy womenswear | 0.735 | 83% | ±0.034 |
+| Neutral minimalist | 0.838 | 83% | ±0.020 |
+| Bold streetwear | 0.729 | 85% | ±0.033 |
+| Earthy womenswear | 0.749 | 86% | ±0.058 |
+| Mid-range minimalist | 0.800 | 84% | ±0.035 |
+| **overall** | **0.779** | | |
+
+Two of those rows moved without the recommender changing, so don't read them as a gain.
+Bold streetwear was 0.701 and Earthy womenswear 0.735 when they were last written down; the
+catalogue has grown from 9,306 products to 9,837 since, and the personas swipe a different
+deck as a result. Measured with the price band switched off they sit at 0.730 and 0.748 —
+i.e. the whole of that movement is the new data, none of it the price band. Re-measure
+rather than trusting a number written against a smaller catalogue.
+
+"Mid-range minimalist" is new, added with the price band, because the three above express
+no price preference at all and cannot measure one. It is also the reason the overall
+average is not comparable to the older 0.737/0.758 figures — different set of scenarios.
 
 Earthy womenswear moved 0.675 → 0.735 and Bold streetwear's P@10 75% → 79% when
 `reactW` began scaling with the shopper's own right-vs-left swipe ratio. Note

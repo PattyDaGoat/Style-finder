@@ -571,7 +571,7 @@ https://i.pinimg.com/564x/....jpg"></textarea>
       checks whether the pieces you actually liked come out on top. Gives every change a number instead of a feeling.</p>
     <div class="ev-row">
       <button class="btn small" onclick="evalRun('saved')">Test on my saved swipes</button>
-      <button class="btn ghost small" onclick="evalRun('synthetic')">Test on 3 simulated shoppers</button>
+      <button class="btn ghost small" onclick="evalRun('synthetic')">Test on simulated shoppers</button>
       <button class="btn ghost small" onclick="evalCopy()">Copy results</button>
     </div>
     <div id="evResult"></div>
@@ -1989,6 +1989,93 @@ function reactW(r){
   return r==="skip" ? base*Math.sqrt(L/0.5) : base*Math.sqrt((1-L)/0.5);
 }
 
+/* ===== PRICE BAND: what a swipe says about money — delete to "end PRICE BAND" to revert =====
+   Until now price was invisible to the model. `W` held ms/color/pat/cat/fab/fit/brand,
+   and `usd` appeared in exactly one place: the hard budget cutoff in passesFilters. So a
+   shopper who set a $300 ceiling and then spent forty swipes liking $80 pieces and
+   skipping the $250 ones was telling us something we discarded on every single card.
+
+   Fitted in LOG space, because the catalogue is nowhere near symmetric — $34 at the 10th
+   percentile, $84 median, $178 at the 90th, $1190 at the top. A fixed dollar band is
+   lopsided at one end or the other; in log-dollars "about half to about double" is the
+   same width at any price point, which is closer to how people actually shop.
+
+   Two-sided on purpose. Too cheap is a real objection and not merely too dear — it reads
+   as thin or throwaway — and a one-sided "cheaper is better" term would float the $12
+   tees to the top of everyone's feed.
+
+   THE SIGNAL IS TIGHTNESS, NOT POSITION. This is the part that matters. A shopper whose
+   likes are spread as wide as the catalogue has said nothing about price, and `tight`
+   falls to 0, which switches the entire term off. Without that gate, a price-blind
+   shopper still gets a mild pull toward the middle of the price distribution — noise
+   uncorrelated with their real taste, i.e. a regression wearing a feature's clothes. The
+   gate is also what makes this change invisible to the three original eval personas,
+   whose likes ignore price completely; see the paired price-off test in 04.
+
+   Measured at the repo's protocol — 12 runs x 1280 swipes per persona, paired against the
+   identical splits with the band switched off:
+
+     Mid-range minimalist   AUC 0.696 -> 0.800 (+0.103, floor 0.020)   P@10 45.8% -> 85.0%
+     Neutral minimalist     AUC 0.838 -> 0.837 (-0.000)
+     Bold streetwear        AUC 0.730 -> 0.729 (-0.001)
+     Earthy womenswear      AUC 0.748 -> 0.749 (+0.001)
+
+   The P@10 line is the one to look at: the price-blind model put a style-matching piece
+   in the top ten regardless of cost, and only about half of those matchers are in the
+   shopper's band, so better than half its front page was unaffordable or off-register.
+   The bottom three rows are the point of the tightness gate — three personas who ignore
+   price, unmoved to three decimal places.
+
+   PRICE_W was swept over 0, 0.25, 0.5, 1, 1.5, 2, 3, 5. The gain plateaus at 1.5-2
+   (+0.110) and decays after; 1.0 buys 94% of the best available gain, a difference well
+   inside the noise floor, while keeping the drift on the price-blind three smallest. At
+   5 they start to slide (Earthy -0.016) — still inside the floor, but a trend, and there
+   is nothing to buy up there. Smallest weight that captures the gain.
+
+   NOT DONE, deliberately: one band for the whole wardrobe, not one per category.
+   docs/ALGORITHM-UPGRADES.md #3 asks for per-category ("comfortable at $200 for a jacket
+   says nothing about socks"), and the worry is real in principle — a shopper spanning
+   socks and coats has a wide spread by construction, and a wide spread is exactly what
+   the gate reads as "no signal". Measured on this catalogue it does not bite. For a
+   shopper who buys mid-for-its-category across all categories the fitted tightness is
+   0.451 against the 0.547 a per-category fit would reach; premium-for-its-category, 0.290
+   against 0.342. The band still fires, at roughly four fifths of the strength. Category
+   medians here are simply not far enough apart to split the distribution. So per-category
+   is a real refinement and a small one, worth doing on its own with its own persona
+   rather than smuggled in here — it needs hierarchical shrinkage toward this global band
+   to survive categories where a shopper has swiped three times. */
+const LNP_MU=4.3807, LNP_VAR=0.4528;   /* ln(usd) over the catalogue: mean and variance */
+const PRICE_PRIOR=12;      /* pseudo-observations of "no preference", pulling the fit flat */
+let   PRICE_W=1.0;         /* weight of the band. eval hook — 0 is a clean off switch */
+let   PRICE_ADAPT=true;    /* eval hook: false restores the price-blind model exactly */
+function lnPrice(p){return Math.log(Math.max(1,p.usd||1));}
+/* +1 dead centre of the band, falling to -1 far outside it. Bounded either way, so a
+   single absurdly-priced outlier cannot swamp the rest of the score. */
+function priceFit(p,W){
+  if(!W||!W.price||!W.priceScale)return 0;
+  const d=(lnPrice(p)-W.price.mu)/W.price.sd;
+  return 2*Math.exp(-0.5*d*d)-1;
+}
+/* the learned band in dollars, for the DNA panel. "" when there is nothing worth saying,
+   and the panel omits the row entirely.
+
+   Deliberately a HIGHER bar than the one the scorer uses. Ranking on a weak band is free
+   — measured at tightness 0.29 it still helps, and at 0.00 it does nothing either way —
+   but printing "your price range is X" is a claim made to the shopper's face, and it
+   should only appear when it is worth making. A shopper who likes neutral solids at any
+   price still fits at tightness ~0.27, because that style correlates with price on its
+   own; the band that comes out is $46-$146, a 3.2x spread that tells them nothing they
+   didn't know. A shopper with a real band fits at 0.45-0.80 and gets something like
+   $69-$127. 0.35 sits in the gap. So: nudge the feed on a hint, only speak on a signal. */
+const PRICE_SAY=0.35;
+function priceBandText(){
+  const W=MODEL; if(!W||!W.price||!W.priceScale) return "";
+  if(W.price.tight<PRICE_SAY) return "";
+  const lo=Math.exp(W.price.mu-W.price.sd), hi=Math.exp(W.price.mu+W.price.sd);
+  return "$"+Math.round(lo)+"–$"+Math.round(hi);
+}
+/* ===== end PRICE BAND ===== */
+
 function buildModel(){
   /* Refreshed once per build rather than cached against S.reactions: reactW's
      only caller is the loop below, so once per build is equivalent, and it
@@ -1997,6 +2084,7 @@ function buildModel(){
      same identity AND the same key count, which any such cache would miss. */
   REACT_L=likeRate();
   const W={ms:{},color:{},pat:{},cat:{},fab:{},fit:{},brand:{}};
+  let _pw=0,_pm=0,_pq=0;   /* weighted moments of ln(price) over what you liked — PRICE BAND */
   const add=(p,w)=>{
     p.ms.forEach(m=>W.ms[m]=(W.ms[m]||0)+w*idf(m,MScnt));
     W.color[p.color]=(W.color[p.color]||0)+w;
@@ -2005,6 +2093,10 @@ function buildModel(){
     (p.fab||[]).forEach(f=>W.fab[f]=(W.fab[f]||0)+w*idf(f,FABcnt));
     W.fit[p.fit]=(W.fit[p.fit]||0)+w;
     W.brand[p.b]=(W.brand[p.b]||0)+w*0.6*idf(p.b,BRcnt);
+    /* positives only: a skip at $500 and a skip at $20 both mean "not that", but in
+       opposite directions, so folding them into one mean would cancel to nonsense. What
+       you said yes to is the band; the tightness gate below decides if it means anything. */
+    if(w>0){const l=lnPrice(p); _pw+=w; _pm+=w*l; _pq+=w*l*l;}
   };
   const hist=S.hist||[]; const pos={}; hist.forEach((pi,k)=>pos[pi]=k); const nH=Math.max(1,hist.length);
   for(const pi in S.reactions){
@@ -2038,6 +2130,23 @@ function buildModel(){
     const sTot=Object.values(insp.styles||{}).reduce((a,b)=>a+b,0)||1;
     for(const m in (insp.styles||{})) W.ms[m]=(W.ms[m]||0)+strength*(insp.styles[m]/sTot)*3*idf(m,MScnt);
   }
+  /* ---- PRICE BAND: fit it, then decide whether it earned the right to matter ----
+     Both the centre and the width are shrunk toward the catalogue by PRICE_PRIOR
+     pseudo-observations, so three lucky swipes cannot invent a band. `tight` then asks
+     the only question worth asking — is this band narrower than the catalogue already
+     is? At 0 it is not, the shopper has told us nothing about price, and priceScale
+     goes to 0, removing the term rather than letting it contribute noise.
+     priceScale carries _pw so it stays commensurate with the other weights in W, which
+     accumulate on the same scale; otherwise the band would fade to irrelevance over a
+     long session exactly as it became most trustworthy. */
+  if(PRICE_ADAPT&&_pw>0){
+    const mu=(_pm+PRICE_PRIOR*LNP_MU)/(_pw+PRICE_PRIOR);
+    const obs=Math.max(0,_pq/_pw-(_pm/_pw)*(_pm/_pw));
+    const vr=(_pw*obs+PRICE_PRIOR*LNP_VAR)/(_pw+PRICE_PRIOR);
+    const tight=Math.max(0,1-vr/LNP_VAR);
+    W.price={mu:mu,sd:Math.sqrt(Math.max(vr,0.01)),n:_pw,tight:tight};
+    W.priceScale=PRICE_W*_pw*tight;
+  }
   MODEL=W;
 }
 function positiveCats(){return Object.keys(MODEL.cat).filter(c=>MODEL.cat[c]>0);}
@@ -2048,7 +2157,7 @@ function profileScore(p,W){
   let ms=0;p.ms.forEach(m=>ms+=(W.ms[m]||0));
   let fab=0;(p.fab||[]).forEach(f=>fab+=(W.fab[f]||0));
   const traits=(W.color[p.color]||0)*1.1+(W.pat[p.pat]||0)*1.0+fab*0.9+(W.fit[p.fit]||0)*0.7;
-  return ms*1.3+traits*1.5+(W.brand[p.b]||0)*0.6;
+  return ms*1.3+traits*1.5+(W.brand[p.b]||0)*0.6+priceFit(p,W)*(W.priceScale||0);
 }
 /* how similar two pieces are (idf-weighted overlap) */
 function simItem(a,b){
@@ -2105,6 +2214,11 @@ function whyMatch(i){
   if((W.color[p.color]||0)>0)bits.push(COLORN[p.color]||p.color);
   else if((W.fit[p.fit]||0)>0&&p.fit!=="regular")bits.push(p.fit+" fit");
   if(bits.length<2){let bf=null,bv=0;(p.fab||[]).forEach(f=>{if((W.fab[f]||0)>bv){bv=W.fab[f];bf=f;}});if(bf)bits.push(bf);}
+  /* same bar as the DNA readout, and for the same reason — this is a claim on a card, not
+     a ranking nudge. Only when a band worth stating was learned AND this piece sits inside
+     it, or it's a filler phrase that shows up on everything. */
+  if(bits.length<2&&W.priceScale&&W.price.tight>=PRICE_SAY&&Math.abs(lnPrice(p)-W.price.mu)<W.price.sd)
+    bits.push("usual price range");
   return bits.length?("Matches your "+bits.slice(0,2).join(" + ")):"";
 }
 
@@ -2138,6 +2252,7 @@ function buildResults(){
     <p class="kv"><b>Fits you gravitate to:</b> ${topKeys(W.fit,3,true).filter(f=>f!=='regular').map(f=>FITN[f]||f).join(", ")||"regular / classic"}.</p>
     <p class="kv"><b>Categories you liked:</b> ${POSCATS.map(c=>CATN[c]||c).join(", ")||"a bit of everything"} <span style="color:var(--ink-soft)">(we only recommend these)</span>.</p>
     <p class="kv"><b>Brands that clicked:</b> ${topKeys(W.brand,4,true).join(", ")||"a spread"}.</p>
+    ${priceBandText()?`<p class="kv"><b>Your price range:</b> ${priceBandText()} <span style="color:var(--ink-soft)">(learned from what you swiped on, not from your budget setting)</span>.</p>`:""}
   </div></div>`;
 
   html+=`<div class="panel"><h3 class="section-title">New pieces you'd wear</h3>
@@ -2603,6 +2718,11 @@ function evPrecAt(scored,k){
 const EV_SCORERS = [
   {key:"current", label:"Current algorithm", kind:"real",
    fn:(i,W,L)=>hybrid(CATALOG[i],W,L)},
+  /* the same algorithm with the learned price band switched off, so the band's own
+     contribution is visible as a paired difference on identical splits rather than
+     inferred by comparing two separate runs */
+  {key:"price-off", label:"Current, minus the learned price band", kind:"real",
+   fn:(i,W,L)=>hybrid(CATALOG[i],Object.assign({},W,{priceScale:0}),L)},
   {key:"profile-only", label:"Taste profile only (no nearest-neighbour)", kind:"real",
    fn:(i,W,L)=>profileScore(CATALOG[i],W)},
   {key:"knn-only", label:"Nearest-neighbour only (no profile)", kind:"real",
@@ -2662,7 +2782,15 @@ function evSavedSession(){
 const EV_PERSONAS=[
   {name:"Neutral minimalist", gender:"m", want:p=>(p.color==="neutral"||p.color==="dark")&&p.pat==="solid"},
   {name:"Bold streetwear",    gender:"m", want:p=>p.color==="bold"||p.pat==="graphic"},
-  {name:"Earthy womenswear",  gender:"f", want:p=>p.color==="earth"||(p.fab||[]).includes("linen")}
+  {name:"Earthy womenswear",  gender:"f", want:p=>p.color==="earth"||(p.fab||[]).includes("linen")},
+  /* Added with the price band, because the three above cannot express a price preference
+     at all — their `want` reads colour, pattern and fabric only. Measured against them a
+     price term can do nothing but add noise, so they are the regression guard, not the
+     test. This one has a style AND a budget, which is the ordinary case: 57% of the
+     men's pool matches its style, but only half of those matchers fall in its band, so
+     price carries real information that colour and pattern cannot supply. */
+  {name:"Mid-range minimalist", gender:"m",
+   want:p=>(p.color==="neutral"||p.color==="dark")&&p.pat==="solid"&&p.usd>=60&&p.usd<=160}
 ];
 function evSynthSession(persona, n, seed){
   const rng=evRng(seed);

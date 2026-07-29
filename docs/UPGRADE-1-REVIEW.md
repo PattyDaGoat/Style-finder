@@ -23,9 +23,11 @@ It's invisible to normal users. To open it:
 A small dark **"Algorithm test"** button appears bottom-right. Two buttons inside:
 
 - **Test on my saved swipes** — uses your real session. Needs ~25 swipes minimum, 100+ to trust.
-- **Test on 3 simulated shoppers** — works immediately, no swiping needed. Three fake shoppers
-  with defined tastes (a neutral minimalist, a bold streetwear buyer, an earthy womenswear buyer)
-  swipe your real catalog, and the model is tested on each.
+- **Test on simulated shoppers** — works immediately, no swiping needed. Fake shoppers with
+  defined tastes (a neutral minimalist, a bold streetwear buyer, an earthy womenswear buyer,
+  and a mid-range minimalist who has a budget as well as a style) swipe your real catalog, and
+  the model is tested on each. The button used to name the count; it no longer does, because
+  the count changed once already when the price band was added.
 
 ## What it actually does
 

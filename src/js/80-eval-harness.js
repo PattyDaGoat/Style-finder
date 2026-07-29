@@ -49,6 +49,11 @@ function evPrecAt(scored,k){
 const EV_SCORERS = [
   {key:"current", label:"Current algorithm", kind:"real",
    fn:(i,W,L)=>hybrid(CATALOG[i],W,L)},
+  /* the same algorithm with the learned price band switched off, so the band's own
+     contribution is visible as a paired difference on identical splits rather than
+     inferred by comparing two separate runs */
+  {key:"price-off", label:"Current, minus the learned price band", kind:"real",
+   fn:(i,W,L)=>hybrid(CATALOG[i],Object.assign({},W,{priceScale:0}),L)},
   {key:"profile-only", label:"Taste profile only (no nearest-neighbour)", kind:"real",
    fn:(i,W,L)=>profileScore(CATALOG[i],W)},
   {key:"knn-only", label:"Nearest-neighbour only (no profile)", kind:"real",
@@ -108,7 +113,15 @@ function evSavedSession(){
 const EV_PERSONAS=[
   {name:"Neutral minimalist", gender:"m", want:p=>(p.color==="neutral"||p.color==="dark")&&p.pat==="solid"},
   {name:"Bold streetwear",    gender:"m", want:p=>p.color==="bold"||p.pat==="graphic"},
-  {name:"Earthy womenswear",  gender:"f", want:p=>p.color==="earth"||(p.fab||[]).includes("linen")}
+  {name:"Earthy womenswear",  gender:"f", want:p=>p.color==="earth"||(p.fab||[]).includes("linen")},
+  /* Added with the price band, because the three above cannot express a price preference
+     at all — their `want` reads colour, pattern and fabric only. Measured against them a
+     price term can do nothing but add noise, so they are the regression guard, not the
+     test. This one has a style AND a budget, which is the ordinary case: 57% of the
+     men's pool matches its style, but only half of those matchers fall in its band, so
+     price carries real information that colour and pattern cannot supply. */
+  {name:"Mid-range minimalist", gender:"m",
+   want:p=>(p.color==="neutral"||p.color==="dark")&&p.pat==="solid"&&p.usd>=60&&p.usd<=160}
 ];
 function evSynthSession(persona, n, seed){
   const rng=evRng(seed);

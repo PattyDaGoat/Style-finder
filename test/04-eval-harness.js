@@ -101,7 +101,15 @@ async function settle(p){await p.waitForLoadState('load').catch(()=>{});await p.
                current:g('current').auc, currentSD:g('current').aucSD,
                random:g('random').auc, popularity:g('popularity').auc,
                profileOnly:g('profile-only').auc, knnOnly:g('knn-only').auc,
-               p10:g('current').p10});
+               priceOff:g('price-off').auc, priceOffP10:g('price-off').p10,
+               p10:g('current').p10,
+               tight:(function(){ /* did a band actually get learned for this persona? */
+                 const s=evSynthSession(per,1280,seeds[0]);
+                 const keep={reactions:S.reactions,hist:S.hist,tags:S.tags,picks:S.picks,likes:S.likes,seeds:S.seeds,inspo:S.inspo};
+                 S.reactions={};S.hist=[];S.tags={};S.picks=[];S.likes=[];S.seeds=[];S.inspo=null;
+                 s.forEach(x=>{S.reactions[x.i]=x.r;S.hist.push(x.i);});
+                 buildModel(); const t=MODEL.price?MODEL.price.tight:0; Object.assign(S,keep); buildModel();
+                 return t;})()});
    });
    return out;
  });
@@ -114,12 +122,35 @@ async function settle(p){await p.waitForLoadState('load').catch(()=>{});await p.
    chk('"'+s.persona+'": repeated runs are stable (spread under 0.10)',
        s.currentSD<0.10, 'SD='+s.currentSD.toFixed(3));
  });
+ /* ---- the price band has to earn its place ----
+    A paired comparison on identical splits: 'current' and 'price-off' differ in exactly
+    one term. The band must pay for itself where price is part of the taste, and — the
+    stricter half — must cost nothing where it isn't, which is the failure mode a term
+    like this actually has. The three original personas ignore price entirely, so they
+    are the guard: if the tightness gate in 50-taste-model.js were removed, they would
+    pick up a pull toward the middle of the price distribution and this would go red. */
+ signal.forEach(s=>{
+   const d=s.current-s.priceOff, priceAware=/Mid-range/.test(s.persona);
+   const detail='current '+s.current.toFixed(3)+' vs price-off '+s.priceOff.toFixed(3)+
+                ' (delta '+(d>=0?'+':'')+d.toFixed(3)+', noise floor '+s.noise.toFixed(3)+
+                ', band tightness '+s.tight.toFixed(2)+')';
+   if(priceAware){
+     chk('"'+s.persona+'": the price band is a real gain, clear of the noise floor', d>s.noise, detail);
+     chk('"'+s.persona+'": a band was actually learned', s.tight>0.2, 'tightness='+s.tight.toFixed(3));
+   }else{
+     chk('"'+s.persona+'": price-blind shopper is not harmed by the band', d>-s.noise, detail);
+     chk('"'+s.persona+'": no band is imposed on a shopper who never showed one', s.tight<0.2,
+         'tightness='+s.tight.toFixed(3)+' — the gate in 50-taste-model.js should hold this near 0');
+   }
+ });
+
  console.log('\nMEASURED BASELINE — the "before" number every later change must beat:');
  signal.forEach(s=>console.log('  '+s.persona.padEnd(22)+
    ' AUC '+s.current.toFixed(3)+' \u00b1'+s.currentSD.toFixed(3)+
    '  P@10 '+(s.p10*100).toFixed(0)+'%'+
    '   [random '+s.random.toFixed(3)+', popularity '+s.popularity.toFixed(3)+
-   ', profile-only '+s.profileOnly.toFixed(3)+', knn-only '+s.knnOnly.toFixed(3)+']'));
+   ', profile-only '+s.profileOnly.toFixed(3)+', knn-only '+s.knnOnly.toFixed(3)+
+   ', price-off '+s.priceOff.toFixed(3)+']'));
  const avgAll=signal.reduce((a,s)=>a+s.current,0)/signal.length;
  console.log('  OVERALL current-algorithm AUC: '+avgAll.toFixed(3));
 
@@ -141,10 +172,14 @@ async function settle(p){await p.waitForLoadState('load').catch(()=>{});await p.
  chk('?eval=1 reveals the dev button', await p.isVisible('#evFab'));
  await p.click('#evFab'); await p.waitForTimeout(300);
  chk('panel opens', await p.isVisible('#evOverlay'));
- await p.click('text=Test on 3 simulated shoppers');
- await p.waitForTimeout(6000);
+ await p.click('text=Test on simulated shoppers');
+ /* wait for the run to finish rather than sleeping a fixed 6s: adding a persona makes the
+    run longer, and a hardcoded wait turns that into a flake instead of a failure */
+ await p.waitForFunction(()=>/Headline/.test((document.getElementById('evResult')||{}).textContent||''),
+                         null, {timeout:120000});
  const uiTables=await p.evaluate(()=>document.querySelectorAll('#evResult table.ev').length);
- chk('panel renders one table per simulated shopper', uiTables===3, 'tables='+uiTables);
+ const nPersonas=await p.evaluate(()=>EV_PERSONAS.length);
+ chk('panel renders one table per simulated shopper', uiTables===nPersonas, 'tables='+uiTables+' personas='+nPersonas);
  chk('panel shows a headline average', (await p.textContent('#evResult')).includes('Headline'));
  chk('log reports timing', (await p.textContent('#evLog')).includes('done in'));
  await p.screenshot({path:join(SHOTS,'shot-eval.png')});

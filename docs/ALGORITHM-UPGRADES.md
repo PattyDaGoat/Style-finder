@@ -70,6 +70,19 @@ category. It's the cheapest fix in this document because the machinery already e
 
 ## 3. Learn what you're willing to spend
 
+> **Shipped**, as the `PRICE BAND` block in `src/js/50-taste-model.js`. Log price: done.
+> The `$70–$120` readout: done, on the Style DNA panel. **Per category: not done** — see
+> the note at the end of that block for the measurement behind deferring it (a
+> mid-for-its-category shopper fits at 0.451 tightness against the 0.547 a per-category
+> fit would reach, so it is a refinement rather than the thing that makes this work).
+> Worth picking up on its own branch, with a persona whose price level varies by category
+> and hierarchical shrinkage toward the global band for thinly-swiped categories.
+>
+> One thing the section below does not mention, which turned out to matter more than
+> either detail it does: the term has to switch itself **off** for a shopper who has shown
+> no price lean. Fitting a band to someone who doesn't have one adds a pull toward the
+> middle of the price distribution that is pure noise against their real taste.
+
 **The symptom.** Price is a hard ceiling and nothing else. Budget filters out anything above your
 cap; below the cap, a $12 tee and a $240 tee are treated identically.
 

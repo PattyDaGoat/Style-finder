@@ -46,31 +46,39 @@ function evPrecAt(scored,k){
 /* ---------- the scorers under test ----------
    To measure a change, add a row here and re-run. Keep "current" untouched so every
    future variant is compared against the same reference. */
-/* Score with the taste model's two switches forced, then put them back exactly as
-   they were. Both are read at SCORING time, not build time, so one built model
+/* Score with any of the taste model's switches forced, then put them back exactly
+   as they were. All are read at SCORING time, not build time, so one built model
    can be scored every way in the same replay — which is what makes the variant
-   rows below an honest comparison rather than four separate runs. */
-function evWith(cond,scale,fn){
-  const c=COND_ON, s=PROF_SCALE;
-  COND_ON=cond; PROF_SCALE=scale;
-  try{ return fn(); } finally { COND_ON=c; PROF_SCALE=s; }
+   rows below an honest comparison rather than several separate runs. */
+function evWith(opts,fn){
+  const c=COND_ON, s=PROF_SCALE, y=YOUTH_ON;
+  if("cond"  in opts) COND_ON=opts.cond;
+  if("scale" in opts) PROF_SCALE=opts.scale;
+  if("youth" in opts) YOUTH_ON=opts.youth;
+  try{ return fn(); } finally { COND_ON=c; PROF_SCALE=s; YOUTH_ON=y; }
 }
+/* Every taste row is measured with the youth tilt OFF, deliberately. The tilt is
+   a product decision that lifts young-leaning pieces for everyone; it is NOT a
+   claim about a given persona's taste, so folding it into "current" would drag
+   these numbers off the baseline the taste model is regression-guarded against.
+   Its cost is measured on its own row instead. */
 const EV_SCORERS = [
-  {key:"current", label:"Current algorithm", kind:"real",
-   fn:(i,W,L)=>hybrid(CATALOG[i],W,L)},
+  {key:"current", label:"Current taste model (youth tilt off)", kind:"real",
+   fn:(i,W,L)=>evWith({youth:false},()=>hybrid(CATALOG[i],W,L))},
+  {key:"with-youth", label:"Shipped ranking (taste + youth tilt)", kind:"real",
+   fn:(i,W,L)=>evWith({youth:true},()=>hybrid(CATALOG[i],W,L))},
   {key:"profile-only", label:"Taste profile only (no nearest-neighbour)", kind:"real",
    fn:(i,W,L)=>profileScore(CATALOG[i],W)},
   {key:"knn-only", label:"Nearest-neighbour only (no profile)", kind:"real",
    fn:(i,W,L)=>knnScore(CATALOG[i],L)},
-  /* ---- the two changes, each switched off on its own ----
-     Read these as ablations: how much worse does it get WITHOUT this? A variant
-     that scores the same as "current" is a change that bought nothing. */
+  /* ---- ablations: how much worse WITHOUT this? A variant that scores the same
+     as "current" is a change that bought nothing. All hold youth off. */
   {key:"flat-traits", label:"Ablation: flat traits (garment conditioning off)", kind:"real",
-   fn:(i,W,L)=>evWith(false,true,()=>hybrid(CATALOG[i],W,L))},
+   fn:(i,W,L)=>evWith({cond:false,scale:true,youth:false},()=>hybrid(CATALOG[i],W,L))},
   {key:"unscaled-blend", label:"Ablation: unscaled blend (profile swamps kNN)", kind:"real",
-   fn:(i,W,L)=>evWith(true,false,()=>hybrid(CATALOG[i],W,L))},
+   fn:(i,W,L)=>evWith({cond:true,scale:false,youth:false},()=>hybrid(CATALOG[i],W,L))},
   {key:"both-off", label:"Ablation: both off (IDF re-weighting alone)", kind:"real",
-   fn:(i,W,L)=>evWith(false,false,()=>hybrid(CATALOG[i],W,L))},
+   fn:(i,W,L)=>evWith({cond:false,scale:false,youth:false},()=>hybrid(CATALOG[i],W,L))},
   {key:"popularity", label:"Baseline: most common brands", kind:"base",
    fn:(i)=>(BRcnt[CATALOG[i].b]||0)},
   {key:"random", label:"Baseline: random order", kind:"base",

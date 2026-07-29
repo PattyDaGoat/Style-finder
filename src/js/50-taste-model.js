@@ -110,7 +110,49 @@ function occasionsOf(p){
   if(!o.size)o.add('daily');
   return [...o];
 }
-CATALOG.forEach(p=>{p.fit=fitOf(p);p.occ=occasionsOf(p);});
+/* ---------- youth signal (aesthetic-only) ----------
+   The app is tilting younger, so the ranking gives youth-leaning pieces a lift
+   (YOUTH_W, in hybrid). The signal is read off the PIECE, never off a hand-kept
+   brand roster — so it lands on a streetwear label the day it enters the catalog
+   without anyone maintaining a list, and it can never privilege a brand for its
+   name alone. That was a deliberate choice over a YOUTH_BRANDS set: brand-name
+   lists rot, and they cannot rank two pieces from the same shop against each
+   other, which is most of the work here.
+
+   Five aesthetic cues, each normalised to 0..1, then blended by weights that sum
+   to 1 — so youth(p) is itself a 0..1 "how young-leaning is this piece". Micro-
+   style dominates because it is the closest thing the catalog has to an
+   aesthetic; a boxy or cropped cut, a graphic print, a young-skewing category
+   and a low price each nudge it further. Price is weakest on purpose: a $300
+   box-logo hoodie is still youth-culture, so price only speaks at the extremes.
+
+   ONE OPERATIONAL CAVEAT, because it bites hard and silently. `ms` is assigned by
+   the scraper's keyword classifier (enrich.classify_ms) over the product's text,
+   so this signal is only as good as the text that was stored. A fast crawl that
+   skips product pages leaves rows with nothing but a NAME to match on, and names
+   do not say "skate". Measured on a 175-row Stussy crawl: 0% had a description,
+   `skate-street` was assigned to NONE of them, and the archetypal streetwear
+   label came back reading as quiet basics — mean ms-youth 0.25. Backfilling the
+   descriptions and re-running the same classifier moved that to 0.72 on the same
+   rows, with `skate-street` firing on half of them. Nothing about the piece
+   changed; the classifier just got something to read.
+   So: when adding a streetwear brand, run tools/scraper/backfill_desc.py before
+   exporting, or the tilt cannot see what you added. */
+const YOUTH_MS={"skate-street":1.0,"band-graphic":0.95,"surf-sport":0.70,
+                "collegiate-athletic":0.55,"eclectic-pattern":0.45,"gorpcore-utility":0.35};
+const YOUTH_FIT={oversized:1.0,cropped:0.85,wide:0.60,relaxed:0.55};
+const YOUTH_CAT={sweat:0.90,cap:0.80,tee:0.70,short:0.50};
+/* $40-and-under reads fully young on price, $160+ reads not-young, linear
+   between; an unpriced row sits at a neutral 0.4 rather than scoring as cheap. */
+function youthPrice(usd){ if(!usd) return 0.4; if(usd<=40) return 1; if(usd>=160) return 0; return (160-usd)/120; }
+const YOUTH_BLEND={ms:0.45,fit:0.20,pat:0.12,cat:0.13,price:0.10};
+function youthScore(p){
+  let ms=0; (p.ms||[]).forEach(m=>{ if((YOUTH_MS[m]||0)>ms) ms=YOUTH_MS[m]; });  // best cue, not the sum
+  const b=YOUTH_BLEND;
+  return b.ms*ms + b.fit*(YOUTH_FIT[p.fit]||0) + b.pat*(p.pat==="graphic"?1:0)
+       + b.cat*(YOUTH_CAT[p.cat]||0) + b.price*youthPrice(p.usd);
+}
+CATALOG.forEach(p=>{p.fit=fitOf(p);p.occ=occasionsOf(p);p.youth=youthScore(p);});
 const FITcnt=_count('fit');   /* has to come after the line above — `fit` does not exist before it */
 
 /* ---------- inverse-frequency for colour, pattern and fit ----------
@@ -539,8 +581,56 @@ function knnScore(cand,Lset){
   return s/k;
 }
 function lovedPicks(){const loved=Object.keys(S.reactions).filter(k=>S.reactions[k]==="love").map(Number);return [...new Set([...loved,...(S.picks||[]),...(S.likes||[])])];}
-/* hybrid = overall taste profile blended with closeness to your favorites */
-function hybrid(p,W,Lset){const a=ADVP[ADV];return profileScore(p,W)*a.wp + knnScore(p,Lset)*a.wk*2.4;}
+/* ---------- the youth tilt ----------
+   A global, additive prior that lifts youth-leaning pieces (youthScore, above)
+   for EVERY shopper — the app has decided to skew younger, so this is a product
+   direction, not a personalisation. It rides on top of the taste blend rather
+   than replacing it: a strong personal signal still wins, but among pieces the
+   model rates similarly the younger one now surfaces first, and that is what
+   "show more youth-focused brands" turns into once the brands are in the deck.
+
+   Additive and constant on purpose. profileScore is already normalised to a
+   fixed scale (PROF_REF/mass), so a fixed YOUTH_W means the same nudge at swipe
+   5 and swipe 500 rather than one that fades as the profile grows.
+
+   YOUTH_W is set by measurement, not taste. A global prior uncorrelated with a
+   given persona's taste MUST cost that persona some AUC; the job is to buy a
+   visible tilt for a cost that stays inside the noise. Swept at 10 seeds x 320
+   swipes — AUC cost against W=0, and the mean youth of the 36-piece results grid:
+
+                          W=0    W=16    W=24    W=32    W=48   ±sem
+     Neutral minimalist  .000   -.001   -.002   -.003   -.007   .020
+     Bold streetwear     .000    .000   -.000   -.001   -.003   .030
+     Earthy womenswear   .000   -.001   -.002   -.003   -.007   .020
+     Split wardrobe      .000   -.005   -.007   -.008   -.012   .018
+
+     grid youth, Neutral minimalist  .389  .403  .434  .489  .509
+     grid youth, Earthy womenswear   .188  .218  .247  .247  .305
+
+   32 is the knee. Every persona's cost there (.001-.008) is inside its own
+   standard error, while the grid gets visibly younger for all four — the least
+   youth-aligned persona, Earthy womenswear, still moves .188 -> .247. 48 costs
+   two to three times as much for little further lift, and anything at or below
+   16 is not worth having: at W=8 the grid moved .404 -> .413, a tilt nobody
+   would notice, because hybrid's own spread is ~10-90 and 8x a 0..1 score cannot
+   compete with it. The catalogue's mean youth is .304 for reference, and the
+   recommender already over-selects youthful pieces by ~33% before any tilt —
+   distinctive graphics carry high IDF — so this adds to a real existing lean.
+
+   YOUTH_ON is the ablation hook, matching COND_ON / PROF_SCALE. */
+let YOUTH_W=32;            /* eval hook: calibrated above; 0 disables the tilt */
+let YOUTH_ON=true;         /* eval hook: false measures the pure taste model */
+/* Scaled by the same wp the profile term carries, which is not cosmetic. The
+   Safe / Balanced / Adventurous dial moves wp (0.7 / 1.0 / 1.3), so a boost added
+   OUTSIDE it grows in relative terms exactly when the shopper asks for less
+   adventurous results: at Safe the taste half shrinks by 30% while a flat tilt
+   does not, making the effective weight ~46 — a setting the calibration above
+   explicitly rejected as too strong. Riding on wp keeps the tilt a fixed
+   fraction of the taste signal at all three settings. */
+function youthBoost(p){ return (YOUTH_ON?YOUTH_W:0)*(p.youth||0)*ADVP[ADV].wp; }
+/* hybrid = overall taste profile blended with closeness to your favorites, then
+   nudged toward youth-leaning pieces (see the youth tilt above) */
+function hybrid(p,W,Lset){const a=ADVP[ADV];return profileScore(p,W)*a.wp + knnScore(p,Lset)*a.wk*2.4 + youthBoost(p);}
 
 /* the throwaway model behind "find more like my picks" — same machinery as the
    real one so it gets the conditioning, the IDF and the mass for free */

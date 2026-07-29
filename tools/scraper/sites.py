@@ -155,6 +155,87 @@ SEED = [
     S("Gym King", "www.gymking.com",
       m=["https://www.gymking.com/collections/mens"],
       f=["https://www.gymking.com/collections/womens"]),
+
+    # ---- youth-focused streetwear / skate ----------------------------------
+    # Added to push the deck younger (see the youth tilt in 50-taste-model.js).
+    # These are hand-written rather than left to `--discover` because discovery
+    # picks by product count and got these badly wrong: Stussy resolved to
+    # `mens-swim` (its only handle matching /mens/), Dime to women-only, and
+    # Aime Leon Dore to a womens capsule. Counting is no substitute for looking.
+    #
+    # Two rules shaped every pick below:
+    #   * Own-brand apparel only. Dime and Primitive are as much skate SHOPS as
+    #     labels — `skateshop-brands-nike` is 267 Nikes that would enter the
+    #     catalog branded "Dime MTL", and `hardgoods` is decks and trucks. Both
+    #     are avoided in favour of the label's own tops/tees/fleece.
+    #   * Current, not archive. A "seasonal drop" handle is fine when it is this
+    #     season; Bianca Chandon was dropped from this list outright because its
+    #     only live collections are 2019-2021 drops.
+    S("Stussy", "stussy.com",
+      m=["https://stussy.com/collections/tees",
+         "https://stussy.com/collections/tops-shirts",
+         "https://stussy.com/collections/sweats",
+         "https://stussy.com/collections/bottoms",
+         "https://stussy.com/collections/outerwear"],
+      note="menswear/unisex — no womens collection beyond swim"),
+    S("Dime MTL", "dimemtl.com",
+      m=["https://dimemtl.com/collections/tops",
+         "https://dimemtl.com/collections/t-shirts"],
+      f=["https://dimemtl.com/collections/women-tops",
+         "https://dimemtl.com/collections/women"],
+      note="own label only — skateshop-* is Nike/Vans resale"),
+    S("Golf Wang", "golfwang.com",
+      m=["https://golfwang.com/collections/tops",
+         "https://golfwang.com/collections/tees",
+         "https://golfwang.com/collections/outerwear",
+         "https://golfwang.com/collections/bottoms"]),
+    S("Butter Goods", "buttergoods.com",
+      m=["https://buttergoods.com/collections/t-shirt",
+         "https://buttergoods.com/collections/fleece",
+         "https://buttergoods.com/collections/shirts",
+         "https://buttergoods.com/collections/pants",
+         "https://buttergoods.com/collections/jacket"]),
+    # "Huf", not "HUF": the catalog already ships this brand under that spelling,
+    # and the registry key IS the brand string every row gets stamped with. Using
+    # the shoutier form re-created exactly the case-variant split that
+    # dedupe_brands.py exists to remove.
+    S("Huf", "hufworldwide.com",
+      m=["https://hufworldwide.com/collections/mens-t-shirts",
+         "https://hufworldwide.com/collections/mens-tops",
+         "https://hufworldwide.com/collections/mens-bottoms"],
+      f=["https://hufworldwide.com/collections/womens"],
+      note="collections/mens is this shop's ALL-products page — it mixes women's "
+           "pieces in, so the narrower mens-* collections are used instead"),
+    S("Obey", "obeyclothing.com",
+      m=["https://obeyclothing.com/collections/mens-all",
+         "https://obeyclothing.com/collections/mens-t-shirts"],
+      f=["https://obeyclothing.com/collections/women"],
+      note="bare host — the www. variant was blocking us"),
+    S("Pleasures", "pleasuresnow.com",
+      m=["https://pleasuresnow.com/collections/spring-26",
+         "https://pleasuresnow.com/collections/fall-25",
+         "https://pleasuresnow.com/collections/new-arrivals"],
+      note="all-store-products is 5,195 rows incl. every archive — avoided"),
+    S("Aime Leon Dore", "aimeleondore.com",
+      m=["https://aimeleondore.com/collections/tees",
+         "https://aimeleondore.com/collections/uniform"],
+      f=["https://aimeleondore.com/collections/spring-summer-26-womens-capsule"],
+      note="bare host — the www. variant was blocking us"),
+    S("Quasi Skateboards", "quasiskateboards.com",
+      m=["https://quasiskateboards.com/collections/tops",
+         "https://quasiskateboards.com/collections/bottoms"],
+      note="apparel only — all-decks/hardware are hardgoods"),
+    S("Welcome Skateboards", "welcomeskateboards.com",
+      m=["https://welcomeskateboards.com/collections/apparel",
+         "https://welcomeskateboards.com/collections/tees",
+         "https://welcomeskateboards.com/collections/fleece"],
+      note="apparel only — hardgoods/decks avoided"),
+    S("Last Resort AB", "lastresortab.com",
+      m=["https://lastresortab.com/collections/apparel",
+         "https://lastresortab.com/collections/shoes"]),
+    S("Primitive", "primitiveskate.com",
+      m=["https://primitiveskate.com/collections/apparel"],
+      note="bare host — the www. variant was blocking us; hardgoods avoided"),
 ]
 
 

@@ -99,11 +99,28 @@ async function settle(p){await p.waitForLoadState('load').catch(()=>{});await p.
      const g=key=>r.rows.find(x=>x.key===key);
      out.push({persona:per.name, runs:r.runs, minPos:r.minPos, noise:r.noiseFloor,
                current:g('current').auc, currentSD:g('current').aucSD,
+               withYouth:g('with-youth').auc, withYouthP10:g('with-youth').p10,
                random:g('random').auc, popularity:g('popularity').auc,
                profileOnly:g('profile-only').auc, knnOnly:g('knn-only').auc,
                p10:g('current').p10});
    });
    return out;
+ });
+ /* The rows above measure the TASTE MODEL, with the youth tilt off, so they stay
+    comparable to the baseline the recommender is regression-guarded against.
+    That left the thing the app actually ships — taste + tilt — with no coverage
+    at all, so it gets its own assertions: it must still beat chance, and it must
+    not give up more than the calibration budgeted (2 x the run-to-run error, or
+    0.02, whichever is larger). This is what would catch someone raising YOUTH_W
+    until the personalisation stops mattering. */
+ signal.forEach(s=>{
+   const budget=Math.max(0.02, 2*s.currentSD);
+   chk('"'+s.persona+'": shipped ranking (taste + youth tilt) beats chance',
+       s.withYouth > s.random + 0.05,
+       'with-youth '+s.withYouth.toFixed(3)+' vs random '+s.random.toFixed(3));
+   chk('"'+s.persona+'": the youth tilt costs less than its budget',
+       (s.current - s.withYouth) <= budget,
+       'cost '+(s.current-s.withYouth).toFixed(3)+' vs budget '+budget.toFixed(3));
  });
  signal.forEach(s=>{
    chk('"'+s.persona+'": clearly above chance',
@@ -118,10 +135,13 @@ async function settle(p){await p.waitForLoadState('load').catch(()=>{});await p.
  signal.forEach(s=>console.log('  '+s.persona.padEnd(22)+
    ' AUC '+s.current.toFixed(3)+' \u00b1'+s.currentSD.toFixed(3)+
    '  P@10 '+(s.p10*100).toFixed(0)+'%'+
+   '   shipped(+youth) '+s.withYouth.toFixed(3)+
    '   [random '+s.random.toFixed(3)+', popularity '+s.popularity.toFixed(3)+
    ', profile-only '+s.profileOnly.toFixed(3)+', knn-only '+s.knnOnly.toFixed(3)+']'));
  const avgAll=signal.reduce((a,s)=>a+s.current,0)/signal.length;
- console.log('  OVERALL current-algorithm AUC: '+avgAll.toFixed(3));
+ const avgShip=signal.reduce((a,s)=>a+s.withYouth,0)/signal.length;
+ console.log('  OVERALL taste-model AUC: '+avgAll.toFixed(3)+
+             '   shipped ranking (taste + youth tilt): '+avgShip.toFixed(3));
 
  // ---- the grid's COMPOSITION, which AUC cannot see ----
  /* A pooled ranking metric is nearly blind to a group-level score offset: shift

@@ -100,23 +100,46 @@ async function gesture(p, moves, endWith, stepMs) {
 
   // ---------- a light mouse flick is enough ----------
   // The point of the retune: a nudge from the wrist, never a shove to the edge.
-  g = await gesture(p, [[10, 0], [20, 0], [26, 0]], 'up', 8);
-  chk('a LIGHT quick flick right (26px) commits', g.reaction === 'like', 'got ' + g.reaction);
-  g = await gesture(p, [[-10, 0], [-20, 0], [-26, 0]], 'up', 8);
-  chk('a LIGHT quick flick left (26px) commits', g.reaction === 'skip', 'got ' + g.reaction);
+  g = await gesture(p, [[8, 0], [14, 0], [16, 0]], 'up', 8);
+  chk('a TINY quick flick right (16px) commits', g.reaction === 'like', 'got ' + g.reaction);
+  g = await gesture(p, [[-8, 0], [-14, 0], [-16, 0]], 'up', 8);
+  chk('a TINY quick flick left (16px) commits', g.reaction === 'skip', 'got ' + g.reaction);
 
-  // A slow half-swipe — no flick at all, just a short deliberate drag.
-  g = await gesture(p, [[18, 0], [30, 0], [36, 0]], 'up', 260);
-  chk('a SLOW 36px half-swipe right commits on distance alone',
+  // A slow short drag — no flick at all, just a small deliberate movement.
+  g = await gesture(p, [[10, 0], [18, 0], [22, 0]], 'up', 260);
+  chk('a SLOW 22px drag right commits on distance alone',
       g.reaction === 'like', 'got ' + g.reaction);
+
+  // A real fast flick often produces NO pointermove at all — the browser
+  // coalesces them, or the mouse simply outruns the sampling. Tracking only
+  // what pointermove reported left dx=0 and the swipe did nothing.
+  const noMoves = await p.evaluate(async () => {
+    const card = document.querySelector('#cardHost .piece-card');
+    const r = card.getBoundingClientRect();
+    const pi = QUEUE[0];
+    const x0 = r.left + r.width / 2, y0 = r.top + r.height / 2;
+    const ev = (type, x, y) => card.dispatchEvent(new PointerEvent(type, {
+      clientX: x, clientY: y, pointerId: 1, bubbles: true, cancelable: true, isPrimary: true }));
+    ev('pointerdown', x0, y0);
+    ev('pointerup', x0 + 60, y0);          // straight to release, zero moves
+    await new Promise(res => setTimeout(res, 700));
+    return { reaction: S.reactions[pi] || null };
+  });
+  chk('a drag with NO pointermove events still registers (fast flick)',
+      noMoves.reaction === 'like', 'got ' + noMoves.reaction);
 
   // ---------- but a twitch is still not a swipe ----------
   // This floor must not chase the others down: it is what stops a jittery click
   // from swiping a card the user only meant to look at.
-  g = await gesture(p, [[12, 0]], 'up', 8);
-  chk('a 12px twitch decides nothing (under the flick floor)', g.reaction === null, 'got ' + g.reaction);
-  g = await gesture(p, [[8, 0], [14, 0]], 'up', 260);
-  chk('a slow 14px drift decides nothing', g.reaction === null, 'got ' + g.reaction);
+  g = await gesture(p, [[8, 0]], 'up', 8);
+  chk('an 8px twitch decides nothing (under the flick floor)', g.reaction === null, 'got ' + g.reaction);
+  g = await gesture(p, [[5, 0], [9, 0]], 'up', 260);
+  chk('a slow 9px drift decides nothing', g.reaction === null, 'got ' + g.reaction);
+  // The floor must stay clear of TAP_SLOP, or opening a product page by
+  // clicking the photo starts swiping cards instead.
+  chk('the flick floor is still well above the tap slop',
+      await p.evaluate('SW.flickMinPx >= TAP_SLOP * 2'),
+      await p.evaluate('"flickMinPx="+SW.flickMinPx+" TAP_SLOP="+TAP_SLOP'));
 
   // A plain click — press and release, no movement at all. Reported from real
   // use as "as soon as I click on it, it swipes left".

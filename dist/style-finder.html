@@ -1488,22 +1488,26 @@ function deckTapOK(){ return _TAP; }
    to the edge — a nudge in a direction is already a clear statement of intent,
    and the stamp on screen tells you it landed before you let go. */
 const SW={
-  commitPx:  34,     /* travel that always commits — a nudge, not a shove */
-  commitFrac: 0.12,  /* …or this share of the card's width, whichever is SMALLER.
+  commitPx:  20,     /* travel that always commits — barely more than a click */
+  commitFrac: 0.07,  /* …or this share of the card's width, whichever is SMALLER.
                         Keeps the gesture feeling the same on a narrow phone card
                         and a wide desktop one, instead of being easy on one and
                         a stretch on the other. */
-  commitV:   0.20,   /* px/ms — a lazy wrist flick clears this */
-  flickMinPx: 18,    /* …but a flick still has to have gone somewhere. Velocity
+  commitV:   0.14,   /* px/ms — the gentlest wrist flick clears this */
+  flickMinPx: 12,    /* …but a flick still has to have gone somewhere. Velocity
                         on its own fires on a twitch: pointer events can arrive
                         microseconds apart, and dx/dt then explodes into a flick
-                        the user never made. Both conditions, always. This is the
-                        one number that must not chase the others down — it is
-                        what keeps a jittery click from swiping. */
+                        the user never made. Both conditions, always.
+
+                        This is the floor that keeps a click from swiping, so it
+                        comes down slower than everything else. It cannot go
+                        below TAP_SLOP (6) or a plain click becomes a swipe —
+                        which is the bug this whole thread started with. 12px is
+                        double that, and about as far as this can sensibly go. */
   vMax:       3,     /* px/ms ceiling, so one bad frame can't dominate */
   dtMin:      4,     /* ms floor, so we never divide by ~0 */
-  upPx:      44,     /* upward travel for a love */
-  upV:       0.24,
+  upPx:      30,     /* upward travel for a love */
+  upV:       0.18,
   maxRot:    14,     /* degrees at a full card-width of travel */
   lift:    1.02,     /* scale while held: the card comes off the stack */
   flyMs:    300,     /* leaves briskly — a slow exit reads as lag */
@@ -1598,9 +1602,19 @@ function attachDrag(card){
     setStamps(dx,dy);paint(dx,dy,true);
   };
 
-  const up=()=>{
+  const up=e=>{
     if(!drag)return;drag=false;
-    const dx=lx-sx,dy=ly-sy;        /* last seen, never the event's */
+    /* A quick short drag can deliver pointerdown and pointerup with barely a
+       pointermove between them — browsers coalesce moves, and a fast flick can
+       produce none at all. Reading only what pointermove reported then leaves
+       dx = 0 and the swipe silently does nothing, which is exactly what "I
+       swipe and it doesn't register" feels like.
+
+       pointerup DOES carry a true final position, so trust it. This is not the
+       old bug returning: that was reading coordinates off pointerCANCEL, which
+       carries none. Cancel has its own handler and never reads them. */
+    if(e&&Number.isFinite(e.clientX)&&Number.isFinite(e.clientY)){lx=e.clientX;ly=e.clientY;}
+    const dx=lx-sx,dy=ly-sy;
     const w=card.offsetWidth||340, rot=(dx/w)*SW.maxRot*pivot;
     /* Distance OR a flick — but a flick still has to have travelled. */
     const cp=swipeCommitPx(card);

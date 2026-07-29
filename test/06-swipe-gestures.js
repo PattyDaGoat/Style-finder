@@ -99,18 +99,24 @@ async function gesture(p, moves, endWith, stepMs) {
   chk('a cancelled LEFT drag also records nothing', g.reaction === null, 'got ' + g.reaction);
 
   // ---------- a light mouse flick is enough ----------
-  // The point of the retune: a short quick wrist movement, not a shove across
-  // the screen. 40px at 8ms a step is an easy mouse flick.
-  g = await gesture(p, [[14, 0], [28, 0], [40, 0]], 'up', 8);
-  chk('a LIGHT quick flick right (40px) commits', g.reaction === 'like', 'got ' + g.reaction);
-  g = await gesture(p, [[-14, 0], [-28, 0], [-40, 0]], 'up', 8);
-  chk('a LIGHT quick flick left (40px) commits', g.reaction === 'skip', 'got ' + g.reaction);
+  // The point of the retune: a nudge from the wrist, never a shove to the edge.
+  g = await gesture(p, [[10, 0], [20, 0], [26, 0]], 'up', 8);
+  chk('a LIGHT quick flick right (26px) commits', g.reaction === 'like', 'got ' + g.reaction);
+  g = await gesture(p, [[-10, 0], [-20, 0], [-26, 0]], 'up', 8);
+  chk('a LIGHT quick flick left (26px) commits', g.reaction === 'skip', 'got ' + g.reaction);
 
-  // ---------- but a twitch and a slow shuffle are still not swipes ----------
-  g = await gesture(p, [[15, 0]], 'up', 8);
-  chk('a 15px twitch decides nothing (under the flick floor)', g.reaction === null, 'got ' + g.reaction);
-  g = await gesture(p, [[14, 0], [28, 0], [40, 0]], 'up', 260);
-  chk('a SLOW 40px shuffle decides nothing', g.reaction === null, 'got ' + g.reaction);
+  // A slow half-swipe — no flick at all, just a short deliberate drag.
+  g = await gesture(p, [[18, 0], [30, 0], [36, 0]], 'up', 260);
+  chk('a SLOW 36px half-swipe right commits on distance alone',
+      g.reaction === 'like', 'got ' + g.reaction);
+
+  // ---------- but a twitch is still not a swipe ----------
+  // This floor must not chase the others down: it is what stops a jittery click
+  // from swiping a card the user only meant to look at.
+  g = await gesture(p, [[12, 0]], 'up', 8);
+  chk('a 12px twitch decides nothing (under the flick floor)', g.reaction === null, 'got ' + g.reaction);
+  g = await gesture(p, [[8, 0], [14, 0]], 'up', 260);
+  chk('a slow 14px drift decides nothing', g.reaction === null, 'got ' + g.reaction);
 
   // A plain click — press and release, no movement at all. Reported from real
   // use as "as soon as I click on it, it swipes left".
@@ -120,6 +126,20 @@ async function gesture(p, moves, endWith, stepMs) {
   // ---------- distance alone still commits, however slowly ----------
   g = await gesture(p, [[30, 0], [60, 0], [90, 0]], 'up', 300);
   chk('a slow but long drag right (90px) commits on distance', g.reaction === 'like', 'got ' + g.reaction);
+
+  // ---------- the threshold tracks the card, not a fixed pixel count ----------
+  const thresh = await p.evaluate(() => {
+    const card = document.querySelector('#cardHost .piece-card');
+    const real = swipeCommitPx(card);
+    // a narrow card should ask for less travel, not the same absolute amount
+    const fake = { offsetWidth: 200 };
+    return { cardWidth: card.offsetWidth, real, narrow: swipeCommitPx(fake),
+             cap: SW.commitPx };
+  });
+  chk('commit distance never exceeds the cap',
+      thresh.real <= thresh.cap, JSON.stringify(thresh));
+  chk('a narrower card commits on less travel',
+      thresh.narrow < thresh.cap, JSON.stringify(thresh));
 
   // ---------- the card is held, and pivots about where you grabbed ----------
   // Each grab is cancelled, never committed, so the same card survives both and

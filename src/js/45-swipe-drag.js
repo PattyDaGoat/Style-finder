@@ -20,25 +20,37 @@ let SWIPING=false;
 let _TAP=true; const TAP_SLOP=6;
 function deckTapOK(){ return _TAP; }
 
-/* Tuned light on purpose: a mouse drag is a short, quick movement from the
-   wrist, nothing like a thumb sweeping a phone. The first pass used phone-sized
-   numbers and made you shove the card halfway across the screen. */
+/* Tuned light on purpose: a mouse drag is a short movement from the wrist,
+   nothing like a thumb sweeping a phone. You should never have to push a card
+   to the edge — a nudge in a direction is already a clear statement of intent,
+   and the stamp on screen tells you it landed before you let go. */
 const SW={
-  commitPx:  55,     /* travel that always commits — about a finger's width */
-  commitV:   0.28,   /* px/ms — an easy wrist flick clears this */
-  flickMinPx: 22,    /* …but a flick still has to have gone somewhere. Velocity
+  commitPx:  34,     /* travel that always commits — a nudge, not a shove */
+  commitFrac: 0.12,  /* …or this share of the card's width, whichever is SMALLER.
+                        Keeps the gesture feeling the same on a narrow phone card
+                        and a wide desktop one, instead of being easy on one and
+                        a stretch on the other. */
+  commitV:   0.20,   /* px/ms — a lazy wrist flick clears this */
+  flickMinPx: 18,    /* …but a flick still has to have gone somewhere. Velocity
                         on its own fires on a twitch: pointer events can arrive
                         microseconds apart, and dx/dt then explodes into a flick
-                        the user never made. Both conditions, always. */
+                        the user never made. Both conditions, always. This is the
+                        one number that must not chase the others down — it is
+                        what keeps a jittery click from swiping. */
   vMax:       3,     /* px/ms ceiling, so one bad frame can't dominate */
   dtMin:      4,     /* ms floor, so we never divide by ~0 */
-  upPx:      70,     /* upward travel for a love */
-  upV:       0.34,
+  upPx:      44,     /* upward travel for a love */
+  upV:       0.24,
   maxRot:    14,     /* degrees at a full card-width of travel */
   lift:    1.02,     /* scale while held: the card comes off the stack */
   flyMs:    300,     /* leaves briskly — a slow exit reads as lag */
   springMs: 380      /* and comes back briskly too */
 };
+/* the distance that commits, for this card's actual width */
+function swipeCommitPx(card){
+  const w=(card&&card.offsetWidth)||340;
+  return Math.min(SW.commitPx, Math.round(w*SW.commitFrac));
+}
 const _clampV=v=>Math.max(-SW.vMax,Math.min(SW.vMax,v));
 function showStamp(card,kind){const m={skip:'.s-nope',like:'.s-like',love:'.s-love'}[kind];const el=card.querySelector(m);if(el)el.style.opacity='1';}
 
@@ -78,12 +90,13 @@ function attachDrag(card){
   /* Stamps are derived from the commit thresholds rather than hardcoded, so
      they stay honest if the feel is retuned: full opacity lands exactly where
      letting go would commit. The stamp is the promise; the threshold keeps it. */
-  const stampAt=(travel,limit)=>Math.max(0,Math.min(1,(travel-6)/(limit-6)));
+  const stampAt=(travel,limit)=>Math.max(0,Math.min(1,(travel-4)/Math.max(1,limit-4)));
   const setStamps=(dx,dy)=>{
-    const up=dy<-16&&Math.abs(dy)>Math.abs(dx);
+    const cp=swipeCommitPx(card);
+    const up=dy<-10&&Math.abs(dy)>Math.abs(dx);
     if(love)love.style.opacity=up?stampAt(-dy,SW.upPx):0;
-    if(like)like.style.opacity=(!up&&dx>0)?stampAt(dx,SW.commitPx):0;
-    if(nope)nope.style.opacity=(!up&&dx<0)?stampAt(-dx,SW.commitPx):0;};
+    if(like)like.style.opacity=(!up&&dx>0)?stampAt(dx,cp):0;
+    if(nope)nope.style.opacity=(!up&&dx<0)?stampAt(-dx,cp):0;};
 
   const paint=(dx,dy,held)=>{
     const w=card.offsetWidth||340;
@@ -127,13 +140,14 @@ function attachDrag(card){
     const dx=lx-sx,dy=ly-sy;        /* last seen, never the event's */
     const w=card.offsetWidth||340, rot=(dx/w)*SW.maxRot*pivot;
     /* Distance OR a flick — but a flick still has to have travelled. */
+    const cp=swipeCommitPx(card);
     const flickR=vx> SW.commitV&&dx> SW.flickMinPx;
     const flickL=vx<-SW.commitV&&dx<-SW.flickMinPx;
     const flickU=vy<-SW.upV   &&dy<-SW.flickMinPx;
     const upward=(dy<-SW.upPx||flickU)&&Math.abs(dy)>Math.abs(dx);
-    if(upward)                     return animateSwipe('love',vx,vy,rot);
-    if(dx> SW.commitPx||flickR)    return animateSwipe('like',vx,vy,rot);
-    if(dx<-SW.commitPx||flickL)    return animateSwipe('skip',vx,vy,rot);
+    if(upward)               return animateSwipe('love',vx,vy,rot);
+    if(dx> cp||flickR)       return animateSwipe('like',vx,vy,rot);
+    if(dx<-cp||flickL)       return animateSwipe('skip',vx,vy,rot);
     settle();
   };
   /* A cancelled gesture is not a swipe. Snap back and decide nothing — acting on

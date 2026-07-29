@@ -2,7 +2,12 @@
 let S_TOP=null, SET_CATS=new Set(), SET_OCC=new Set(), SET_BUDGET=100000;
 /* simple "Show me" groups -> the underlying categories they cover */
 const GROUP_CATS={tops:['tee','shirt','knit','sweat'],bottoms:['trouser','short'],dresses:['dress'],outerwear:['outer'],shoes:['shoe'],accessories:['cap','acc']};
-const SHOW_OPTS_M=[['tops','Tops'],['bottoms','Bottoms'],['outerwear','Outerwear'],['shoes','Shoes'],['accessories','Accessories']];
+/* `swim` is not in GROUP_CATS on purpose — there is no swim CATEGORY to map to.
+   It is matched off p.swim in passesFilters (see isSwim in 50-taste-model.js),
+   because the scraper files swimwear by shape: bikini tops are `tee`, trunks are
+   `short`. Offered to both sections — the catalogue has 235 women's swim pieces
+   and 98 men's. */
+const SHOW_OPTS_M=[['tops','Tops'],['bottoms','Bottoms'],['swim','Swimwear'],['outerwear','Outerwear'],['shoes','Shoes'],['accessories','Accessories']];
 const OCC_OPTS=[['daily','Day to day'],['work','Work / smart'],['event','Going out / cocktail'],['active','Active / gym'],['beach','Beach / vacation']];
 const BUDGET_OPTS=[[50,'Under $50'],[100,'Under $100'],[150,'Under $150'],[200,'Up to $200'],[100000,'No limit ($200+)']];
 function catOpts(){const base=SHOW_OPTS_M.slice();if(GENDER==='f')base.splice(2,0,['dresses','Dresses']);return base;}

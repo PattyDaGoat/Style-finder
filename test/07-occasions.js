@@ -161,10 +161,64 @@ const MUST_MATCH = [
   chk('choosing "cocktail" still leaves a deck to swipe', filtered.pass >= 20,
       filtered.pass + ' womenswear pieces');
 
+  /* ---- the Swimwear section ----
+     Same shape of risk as the occasion chips, and the same reason to test it:
+     "Swimwear" is a HARD filter, so a loose isSwim() fills the section with the
+     wrong clothes and a tight one empties it. Precision matters more than recall
+     here because the two words that identify swimwear both mean something else —
+     "trunks" is men's underwear at least as often (Tommy John "DriComfort Trunk
+     4\" (6-Pack)", Farah "3 Pack Keyhole Bamboo Trunks"), and "one piece" can be
+     a romper. Underwear in a swimwear section is the failure that matters, so it
+     gets its own assertion rather than being left to the count. */
+  const swim = await p.evaluate(() => {
+    const keep = S.settings, keepG = GENDER;
+    const flagged = CATALOG.filter(x => x.swim);
+    const pick = (g) => {
+      GENDER = g;
+      S.settings = { gender: g, occ: [], cats: ['swim'], maxBudget: 100000 };
+      const out = [];
+      for (let i = 0; i < CATALOG.length; i++) if (passesFilters(i)) out.push(CATALOG[i]);
+      return out;
+    };
+    const men = pick('m'), women = pick('f');
+    /* selecting Tops must NOT serve swimwear any more — a bikini top is `cat:tee`
+       so this was the pre-existing leak the section exists to close */
+    GENDER = 'f';
+    S.settings = { gender: 'f', occ: [], cats: ['tops'], maxBudget: 100000 };
+    let leak = 0;
+    for (let i = 0; i < CATALOG.length; i++) if (passesFilters(i) && CATALOG[i].swim) leak++;
+    /* and with nothing selected, swimwear is still in the deck as it always was */
+    S.settings = { gender: 'f', occ: [], cats: [], maxBudget: 100000 };
+    let unfiltered = 0;
+    for (let i = 0; i < CATALOG.length; i++) if (passesFilters(i) && CATALOG[i].swim) unfiltered++;
+    S.settings = keep; GENDER = keepG;
+    const underwear = flagged.filter(x =>
+      /\b(\d+\s*-?\s*pack|pack of|underwear|boxer brief|y-?front|jock ?strap)\b/i.test(x.n));
+    const rompers = flagged.filter(x => /\b(romper|playsuit|jumpsuit)\b/i.test(x.n));
+    return { n: flagged.length, men: men.length, women: women.length, leak, unfiltered,
+             underwear: underwear.map(x => x.n).slice(0, 5),
+             rompers: rompers.map(x => x.n).slice(0, 5),
+             allSwimMen: men.every(x => x.swim), allSwimWomen: women.every(x => x.swim) };
+  });
+  chk('Swimwear admits only swimwear (menswear)', swim.allSwimMen, swim.men + ' pieces');
+  chk('Swimwear admits only swimwear (womenswear)', swim.allSwimWomen, swim.women + ' pieces');
+  chk('Swimwear leaves a deck worth swiping in both sections',
+      swim.men >= 40 && swim.women >= 40, 'm=' + swim.men + ' f=' + swim.women);
+  chk('no underwear multipacks were counted as swimwear',
+      swim.underwear.length === 0, swim.underwear.join(' / '));
+  chk('no rompers / playsuits were counted as swimwear',
+      swim.rompers.length === 0, swim.rompers.join(' / '));
+  chk('choosing Tops no longer serves bikini tops', swim.leak === 0,
+      swim.leak + ' swim pieces admitted under Tops');
+  chk('swimwear still appears when no section is chosen', swim.unfiltered > 0,
+      swim.unfiltered + ' in an unfiltered womenswear deck');
+
   console.log('\nOCCASION COUNTS (of ' + totals.n + ' products):');
   ['daily', 'work', 'event', 'active', 'beach'].forEach(o =>
     console.log('  ' + o.padEnd(8) + String(totals.counts[o] || 0).padStart(6) +
                 '   ' + ((totals.counts[o] || 0) / totals.n * 100).toFixed(1) + '%'));
+  console.log('  swimwear (a section, not an occasion): ' + swim.n +
+              '   m=' + swim.men + ' f=' + swim.women);
 
   await b.close();
   console.log('\n===== PASS (' + ok.length + ') ====='); ok.forEach(t => console.log('  ok  ' + t));

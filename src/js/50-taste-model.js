@@ -14,6 +14,50 @@ function fitOf(p){const t=(p.n||"").toLowerCase();
   if(/tapered|carrot/.test(t))return"tapered";
   if(/slim|skinny/.test(t))return"slim";
   return"regular";}
+/* ---------- swimwear ----------
+   Swimwear is a section on the setup screen ("Swimwear" in SHOW_OPTS_M), and it
+   has to be derived rather than read off `cat`, because the scraper has no swim
+   category and files these pieces by shape: of the 336 swim pieces in this
+   catalogue, 201 are `tee` (every bikini top), 118 are `short` (every trunk and
+   board short) and 4 are `trouser` (bikini bottoms). So today "Tops" quietly
+   serves bikini tops next to t-shirts and nothing can ask for swimwear at all.
+
+   A FLAG, not a re-categorisation. Overwriting p.cat would have been tidier to
+   read but it feeds the photo crop (20-photo-focus.js), the section detector,
+   the occasion rules and the scraper's own CAT_SHARE — four things that would
+   have to move together for a filter chip. p.swim touches only the filter.
+
+   Two cues need care, and both were checked against the catalogue rather than
+   assumed:
+
+     "trunks"    is men's UNDERWEAR at least as often as swimwear — Tommy John
+                 "DriComfort Trunk 4\" (6-Pack)", Farah "3 Pack Keyhole Bamboo
+                 Trunks", "3-Pack Core Trunks". 16 of the 56 rows matching the
+                 word are underwear multipacks. So it only counts with a
+                 swim/surf/board/pool word beside it, or on a `short`, which is
+                 where genuine swim trunks land and underwear ones never do.
+     "one piece" is nearly always a swimsuit here (38 of 39 — Vitamin A, Andie
+                 Swim, Frankies Bikinis) so it is accepted, but "Low-key Romper
+                 One Piece" is a romper, so the romper/playsuit/jumpsuit words
+                 veto it.
+
+   Deliberately NOT included: bandeau (matches "Bandeau Textured Flippy
+   Playsuit"), and cover-ups, kaftans, sarongs and pareos — beachwear, not
+   swimwear. Those are what the "Beach / vacation" OCCASION is for, which is a
+   separate axis and still works alongside this. */
+const SWIM_CORE=/\b(swim(suit|wear|ming)?s?|bikini|monokini|tankini|maillot|rash ?guards?|rashguards?|board ?shorts?|boardshorts?)\b/i;
+const SWIM_ONEPIECE=/\bone[- ]?piece\b/i;
+const SWIM_TRUNK=/\btrunks?\b/i;
+const SWIM_TRUNK_CTX=/\b(swim|surf|board|beach|pool)\b/i;
+/* rompers and underwear multipacks — vetoes the two soft cues, never the core */
+const SWIM_NOT=/\b(romper|playsuit|jumpsuit|bodysuit|\d+\s*-?\s*pack|pack of|underwear|boxer|brief)\b/i;
+function isSwim(p){
+  const n=p.n||"";
+  if(SWIM_CORE.test(n)) return true;
+  if(SWIM_NOT.test(n)) return false;
+  if(SWIM_ONEPIECE.test(n)) return true;
+  return SWIM_TRUNK.test(n) && (SWIM_TRUNK_CTX.test(n) || p.cat==="short");
+}
 /* ---------- occasion tagging ----------
    Which events a piece actually suits. This feeds the Day-to-day / Work /
    Going-out / Active / Beach chips on the setup screen, and it is a HARD
@@ -152,7 +196,7 @@ function youthScore(p){
   return b.ms*ms + b.fit*(YOUTH_FIT[p.fit]||0) + b.pat*(p.pat==="graphic"?1:0)
        + b.cat*(YOUTH_CAT[p.cat]||0) + b.price*youthPrice(p.usd);
 }
-CATALOG.forEach(p=>{p.fit=fitOf(p);p.occ=occasionsOf(p);p.youth=youthScore(p);});
+CATALOG.forEach(p=>{p.fit=fitOf(p);p.occ=occasionsOf(p);p.youth=youthScore(p);p.swim=isSwim(p);});
 const FITcnt=_count('fit');   /* has to come after the line above — `fit` does not exist before it */
 
 /* ---------- inverse-frequency for colour, pattern and fit ----------
@@ -238,7 +282,19 @@ function passesFilters(i){
   if(lock===0 && STRICT_SECT) return false;   // unplaceable: held back from both decks
   if(S.noFast && isFastFashion(p)) return false;  // "No fast fashion" toggle
   if(st.maxBudget && p.usd>st.maxBudget) return false;
-  if(st.cats && st.cats.length){const allow=new Set();st.cats.forEach(g=>(GROUP_CATS[g]||[]).forEach(c=>allow.add(c)));if(!allow.has(p.cat))return false;}
+  /* "Show me" groups. `swim` is the one group that is not a set of categories —
+     it is p.swim (see isSwim) — so it is matched separately, and the two sides
+     are exclusive: a bikini top answers to Swimwear and NOT to Tops, even though
+     its `cat` is still `tee`. That is the point of the section. It also fixes the
+     old behaviour where picking Tops served bikini tops among the t-shirts.
+     With no groups chosen the whole check is skipped, so swimwear still appears
+     in an unfiltered deck exactly as it did before. */
+  if(st.cats && st.cats.length){
+    const allow=new Set(); let wantSwim=false;
+    st.cats.forEach(g=>{ if(g==='swim') wantSwim=true;
+                         else (GROUP_CATS[g]||[]).forEach(c=>allow.add(c)); });
+    if(p.swim ? !wantSwim : !allow.has(p.cat)) return false;
+  }
   if(st.occ && st.occ.length && !st.occ.some(o=>(p.occ||[]).includes(o))) return false;
   return true;
 }

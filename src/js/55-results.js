@@ -26,6 +26,12 @@ function buildResults(){
     <p class="kv"><b>Patterns:</b> ${topKeys(W.pat,3,true).map(c=>PATN[c]||c).join(", ")||"open"}.</p>
     <p class="kv"><b>Fabrics:</b> ${topKeys(W.fab,4,true).join(", ")||"varied"}.</p>
     <p class="kv"><b>Fits you gravitate to:</b> ${topKeys(W.fit,3,true).filter(f=>f!=='regular').map(f=>FITN[f]||f).join(", ")||"regular / classic"}.</p>
+    ${(()=>{ /* the conditional model, said out loud — one averaged line above can
+                claim you like both dark and neutral; this says which goes where.
+                Needs two groups to be worth printing: with one it is only the
+                line above restated under a heading. */
+      const gt=groupTaste(); if(gt.length<2) return "";
+      return `<p class="kv"><b>By garment:</b> ${gt.map(x=>`${x.label} &mdash; ${x.text}`).join(" &nbsp;&middot;&nbsp; ")}.</p>`;})()}
     <p class="kv"><b>Categories you liked:</b> ${POSCATS.map(c=>CATN[c]||c).join(", ")||"a bit of everything"} <span style="color:var(--ink-soft)">(we only recommend these)</span>.</p>
     <p class="kv"><b>Brands that clicked:</b> ${topKeys(W.brand,4,true).join(", ")||"a spread"}.</p>
   </div></div>`;
@@ -96,12 +102,20 @@ function renderRecGrid(){
 
 /* ---------- find more like my picks ---------- */
 function seedSet(){const loved=Object.keys(S.reactions).filter(k=>S.reactions[k]==="love").map(Number);return [...new Set([...(S.picks||[]),...(S.likes||[]),...loved])];}
+/* profileScore is now normalised to the 40-swipe reference scale (PROF_REF), and
+   a seed model built from a handful of picks is far lighter than that — so the
+   old 0.8 would have amplified the profile here and turned a feature whose whole
+   promise is "nearest to THOSE exact pieces" into a profile-led one. 0.314 is
+   0.8 scaled by the measured seed-model mass at 8 picks, i.e. the same blend
+   users get today, now stable whether they tick 3 pieces or 30.
+   Re-measure with `node tools/measure-prof-ref.mjs`. */
+const FINDMORE_WP=0.215;
 function findMore(){
   const seeds=seedSet();
   if(!seeds.length){note2("Tick a few pieces above (or Love some while swiping) first.");return;}
   const W=modelFromSeeds(seeds);const seedCats=new Set(seeds.map(i=>CATALOG[i].cat));
   const swiped=new Set(Object.keys(S.reactions).map(Number));const a=ADVP[ADV];
-  const scored=CATALOG.map((p,i)=>({i,s:profileScore(p,W)*0.8+knnScore(p,seeds)*2.4}))
+  const scored=CATALOG.map((p,i)=>({i,s:profileScore(p,W)*FINDMORE_WP+knnScore(p,seeds)*2.4}))
     .filter(o=>!swiped.has(o.i)&&genderOK(o.i)&&!seeds.includes(o.i)&&!SUGGESTED.has(o.i)&&seedCats.has(CATALOG[o.i].cat)&&o.s>0)
     .sort((x,y)=>y.s-x.s).map(o=>o.i);
   MORE=diversify(scored,a.perBrand,0,40);MORE_N=8;renderMore();

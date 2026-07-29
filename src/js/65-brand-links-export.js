@@ -12,6 +12,7 @@ function dnaSummary(){
   return {styleDNA:topKeys(W.ms,4,true).map(m=>MS[m]),microStyleKeys:topKeys(W.ms,4,true),
     colors:topKeys(W.color,3,true).map(c=>COLORN[c]||c),patterns:topKeys(W.pat,3,true).map(c=>PATN[c]||c),
     fabrics:topKeys(W.fab,4,true),categories:POSCATS.map(c=>CATN[c]||c),favoriteBrands:topKeys(W.brand,5,true),
+    byGarment:groupTaste().reduce((o,x)=>{o[x.label]=x.text;return o;},{}),
     loved:Object.keys(S.reactions).filter(k=>S.reactions[k]==="love").map(i=>({brand:CATALOG[i].b,name:CATALOG[i].n,price:CATALOG[i].cur+CATALOG[i].p,url:CATALOG[i].u})),
     shortlist:S.picks.map(i=>({brand:CATALOG[i].b,name:CATALOG[i].n,price:CATALOG[i].cur+CATALOG[i].p,url:CATALOG[i].u})),
     budget:(function(){var mb=(S.settings&&S.settings.maxBudget)||100000;return mb>=100000?"no set limit (includes designer)":("under $"+mb+" per piece");})()};

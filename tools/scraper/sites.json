@@ -156,8 +156,15 @@
     "https://www.apc-us.com/collections/men-coats-jackets"
    ]
   },
-  "entry_cursor": 0,
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1785344206.413764,
+   "last_found": 26,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "www.apc-us.com",
   "note": "found by find_brands.py \u2014 designer"
  },
@@ -508,8 +515,8 @@
   "entry_cursor": 0,
   "gender_source": "collection",
   "health": {
-   "fail": 2,
-   "last": 1785328365.860179,
+   "fail": 3,
+   "last": 1785343950.191796,
    "last_found": 0,
    "note": "rate-limited (429) \u2014 stopping this shop for now",
    "ok": 2,
@@ -831,8 +838,15 @@
     "https://assemblylabel.com/collections/mens-shirts"
    ]
   },
-  "entry_cursor": 4,
+  "entry_cursor": 0,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1785343518.7301881,
+   "last_found": 77,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "assemblylabel.com",
   "note": "auto-discovered"
  },
@@ -1215,14 +1229,14 @@
    ],
    "m": []
   },
-  "entry_cursor": 1,
+  "entry_cursor": 0,
   "gender_source": "prior",
   "health": {
    "fail": 0,
-   "last": 1785101314.735877,
-   "last_found": 4,
-   "note": "no products found on the page",
-   "ok": 2,
+   "last": 1785338950.086817,
+   "last_found": 10,
+   "note": "no products found on the page; nav failed: Page.goto: Timeout 45000ms exceeded.",
+   "ok": 3,
    "status": "ok"
   },
   "host": "becandbridge.com.au",
@@ -1265,8 +1279,15 @@
     "https://www.beckettsimonon.com/collections/mens-shoes-lp-artisans-angle"
    ]
   },
-  "entry_cursor": 0,
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1785339179.273626,
+   "last_found": 16,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "beckettsimonon.com",
   "note": "found by find_brands.py \u2014 footwear"
  },
@@ -1280,15 +1301,15 @@
    ],
    "m": []
   },
-  "entry_cursor": 0,
+  "entry_cursor": 2,
   "gender_source": "prior",
   "health": {
    "fail": 1,
-   "last": 1785168149.1253836,
-   "last_found": 0,
+   "last": 1785339456.457273,
+   "last_found": 119,
    "note": "rate-limited (429) \u2014 stopping this shop for now",
-   "ok": 2,
-   "status": "blocked"
+   "ok": 3,
+   "status": "ok"
   },
   "host": "www.beginningboutique.com",
   "note": "auto-discovered"
@@ -1303,15 +1324,15 @@
    ],
    "m": []
   },
-  "entry_cursor": 1,
+  "entry_cursor": 0,
   "gender_source": "collection",
   "health": {
    "fail": 1,
-   "last": 1785168149.3051126,
-   "last_found": 0,
+   "last": 1785339728.149216,
+   "last_found": 117,
    "note": "rate-limited (429) \u2014 stopping this shop for now",
-   "ok": 2,
-   "status": "blocked"
+   "ok": 3,
+   "status": "ok"
   },
   "host": "www.belladahl.com",
   "note": "auto-discovered"
@@ -1326,15 +1347,15 @@
     "https://bergbergstore.com/collections/live-products"
    ]
   },
-  "entry_cursor": 1,
+  "entry_cursor": 0,
   "gender_source": "prior",
   "health": {
    "fail": 1,
-   "last": 1785168150.030646,
-   "last_found": 0,
+   "last": 1785339845.9322739,
+   "last_found": 17,
    "note": "rate-limited (429) \u2014 stopping this shop for now",
-   "ok": 2,
-   "status": "blocked"
+   "ok": 3,
+   "status": "ok"
   },
   "host": "bergbergstore.com",
   "note": "auto-discovered"
@@ -1396,15 +1417,15 @@
    ],
    "m": []
   },
-  "entry_cursor": 1,
+  "entry_cursor": 0,
   "gender_source": "collection",
   "health": {
    "fail": 1,
-   "last": 1785168150.365901,
-   "last_found": 0,
-   "note": "rate-limited (429) \u2014 stopping this shop for now",
-   "ok": 2,
-   "status": "blocked"
+   "last": 1785340823.359817,
+   "last_found": 4,
+   "note": "no products found on the page",
+   "ok": 3,
+   "status": "ok"
   },
   "host": "birdies.com",
   "note": "auto-discovered"
@@ -1649,7 +1670,15 @@
    ],
    "m": []
   },
+  "entry_cursor": 2,
   "gender_source": "prior",
+  "health": {
+   "fail": 0,
+   "last": 1785343576.2987678,
+   "last_found": 15,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "boyish.com",
   "note": "auto-discovered"
  },
@@ -1913,8 +1942,15 @@
    ],
    "m": []
   },
-  "entry_cursor": 2,
+  "entry_cursor": 1,
   "gender_source": "prior",
+  "health": {
+   "fail": 0,
+   "last": 1785343407.8404648,
+   "last_found": 8,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "ciaolucia.com",
   "note": "auto-discovered"
  },
@@ -2132,15 +2168,15 @@
     "https://www.corridornyc.com/collections/shop-all"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 1,
   "gender_source": "prior",
   "health": {
    "fail": 1,
-   "last": 1785175963.939686,
-   "last_found": 0,
+   "last": 1785344084.014148,
+   "last_found": 40,
    "note": "rate-limited (429) \u2014 stopping this shop for now",
-   "ok": 1,
-   "status": "blocked"
+   "ok": 2,
+   "status": "ok"
   },
   "host": "www.corridornyc.com",
   "note": "auto-discovered"
@@ -2730,7 +2766,15 @@
     "https://www.drakes.com/collections/silk-accessories"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "prior",
+  "health": {
+   "fail": 0,
+   "last": 1785343056.5678,
+   "last_found": 21,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "www.drakes.com",
   "note": "auto-discovered"
  },
@@ -2744,7 +2788,16 @@
    ],
    "m": []
   },
+  "entry_cursor": 2,
   "gender_source": "prior",
+  "health": {
+   "fail": 0,
+   "last": 1785343222.899256,
+   "last_found": 11,
+   "note": "no products found on the page",
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "shopdoen.com",
   "note": "auto-discovered"
  },
@@ -2780,7 +2833,15 @@
     "https://eberjey.com/collections/mens-lounge"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1785343684.962469,
+   "last_found": 39,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "eberjey.com",
   "note": "auto-discovered"
  },
@@ -3183,7 +3244,15 @@
    ],
    "m": []
   },
+  "entry_cursor": 2,
   "gender_source": "prior",
+  "health": {
+   "fail": 0,
+   "last": 1785343316.488332,
+   "last_found": 6,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "frankandeileen.com",
   "note": "auto-discovered"
  },
@@ -3848,7 +3917,15 @@
     "https://johnelliott.com/collections/bf-exclude-2021"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "prior",
+  "health": {
+   "fail": 0,
+   "last": 1785342811.260577,
+   "last_found": 7,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "johnelliott.com",
   "note": "auto-discovered"
  },
@@ -5116,7 +5193,16 @@
     "https://noahny.com/collections/continue-shopping"
    ]
   },
+  "entry_cursor": 0,
   "gender_source": "prior",
+  "health": {
+   "fail": 1,
+   "last": 1785342832.1956182,
+   "last_found": 0,
+   "note": "rate-limited (429) \u2014 stopping this shop for now",
+   "ok": 0,
+   "status": "blocked"
+  },
   "host": "noahny.com",
   "note": "auto-discovered"
  },
@@ -6177,7 +6263,16 @@
     "https://reigningchamp.com/collections/mens-classics-clothing"
    ]
   },
+  "entry_cursor": 1,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1785342891.248393,
+   "last_found": 34,
+   "note": "rate-limited (429) \u2014 stopping this shop for now",
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "reigningchamp.com",
   "note": "auto-discovered"
  },
@@ -7446,12 +7541,14 @@
     "https://www.taylorstitch.com/collections/mens-limited-outerwear"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1784998379.000129,
-   "last_found": 52,
-   "ok": 1,
+   "last": 1785343771.016695,
+   "last_found": 14,
+   "note": "no products found on the page",
+   "ok": 2,
    "status": "ok"
   },
   "host": "www.taylorstitch.com",
@@ -7667,15 +7764,15 @@
     "https://www.toddsnyder.com/collections/all-tops-sport-coats-suit-jackets"
    ]
   },
-  "entry_cursor": 1,
+  "entry_cursor": 0,
   "gender_note": "no women's collection on the whole site and 0/100 womenswear in a sample",
   "gender_source": "inferred",
   "health": {
    "fail": 0,
-   "last": 1785300839.0596125,
-   "last_found": 43,
+   "last": 1785343926.737141,
+   "last_found": 18,
    "note": "rate-limited (429) \u2014 stopping this shop for now",
-   "ok": 1,
+   "ok": 2,
    "status": "ok"
   },
   "host": "www.toddsnyder.com",

@@ -12,12 +12,12 @@
  "3sixteen": {
   "domain": "www.3sixteen.com",
   "gender_prior": "m",
-  "seen": 55
+  "seen": 60
  },
  "9.0 Swim": {
   "domain": "www.beginningboutique.com",
   "gender_prior": "f",
-  "seen": 19
+  "seen": 30
  },
  "A BATHING APE": {
   "domain": "www.a-ma-maniere.com",
@@ -31,8 +31,8 @@
  },
  "A Kind of Guise": {
   "domain": "akindofguise.com",
-  "gender_prior": "f",
-  "seen": 39
+  "gender_prior": "m",
+  "seen": 48
  },
  "A Ma Maniere": {
   "domain": "www.a-ma-maniere.com",
@@ -42,22 +42,22 @@
  "AFENDS": {
   "domain": "afends.com",
   "gender_prior": "m",
-  "seen": 20
+  "seen": 58
  },
  "AIM'N": {
   "domain": "www.aimn.com",
   "gender_prior": "f",
-  "seen": 6
+  "seen": 17
  },
  "AJE": {
   "domain": "ajeworld.com",
   "gender_prior": "f",
-  "seen": 22
+  "seen": 31
  },
  "ALIGNE": {
   "domain": "aligne.co",
   "gender_prior": "f",
-  "seen": 3
+  "seen": 5
  },
  "AMIRI": {
   "domain": "amiri.com",
@@ -77,7 +77,7 @@
  "Adanola": {
   "domain": "www.adanola.com",
   "gender_prior": "f",
-  "seen": 43
+  "seen": 48
  },
  "Adidas Originals": {
   "domain": "feature.com",
@@ -92,12 +92,12 @@
  "Afends": {
   "domain": "afends.com",
   "gender_prior": "f",
-  "seen": 53
+  "seen": 90
  },
  "Aim'n": {
-  "domain": "aimn.com",
+  "domain": "www.aimn.com",
   "gender_prior": "f",
-  "seen": 44
+  "seen": 61
  },
  "Air Jordan": {
   "domain": "renarts.com",
@@ -117,17 +117,17 @@
  "Albam": {
   "domain": "www.albamclothing.com",
   "gender_prior": "m",
-  "seen": 23
+  "seen": 24
  },
  "Albam Clothing": {
   "domain": "www.albamclothing.com",
   "gender_prior": "m",
-  "seen": 6
+  "seen": 7
  },
  "Albaray": {
-  "domain": "albaray.co.uk",
+  "domain": "www.albaray.co.uk",
   "gender_prior": "f",
-  "seen": 47
+  "seen": 62
  },
  "Alex Crane": {
   "domain": "alexcrane.co",
@@ -156,8 +156,8 @@
  },
  "Allbirds": {
   "domain": "www.allbirds.com",
-  "gender_prior": "f",
-  "seen": 5
+  "gender_prior": "m",
+  "seen": 7
  },
  "Alpha Industries": {
   "domain": "bdgastore.com",
@@ -191,13 +191,13 @@
  },
  "Aries": {
   "domain": "www.ariesarise.com",
-  "gender_prior": "m",
-  "seen": 32
+  "gender_prior": "f",
+  "seen": 41
  },
  "Aries Arise": {
   "domain": "www.ariesarise.com",
   "gender_prior": "f",
-  "seen": 12
+  "seen": 25
  },
  "Arms of Eve": {
   "domain": "www.armsofeve.com",
@@ -205,19 +205,24 @@
   "seen": 9
  },
  "Arpenteur": {
-  "domain": "arpenteur.fr",
+  "domain": "www.arpenteur.fr",
   "gender_prior": "m",
-  "seen": 26
+  "seen": 27
  },
  "Ash & Erie": {
   "domain": "ashanderie.com",
   "gender_prior": "m",
-  "seen": 43
+  "seen": 57
  },
  "Assembly Label": {
-  "domain": "assemblylabel.com",
+  "domain": "int.assemblylabel.com",
   "gender_prior": "f",
-  "seen": 62
+  "seen": 84
+ },
+ "Athletica": {
+  "domain": "ajeworld.com",
+  "gender_prior": "f",
+  "seen": 1
  },
  "Auguste The Label": {
   "domain": "augustethelabel.com",
@@ -237,7 +242,7 @@
  "B.Cools": {
   "domain": "b-cools.com",
   "gender_prior": "m",
-  "seen": 10
+  "seen": 18
  },
  "BAPE": {
   "domain": "undefeated.com",
@@ -252,27 +257,27 @@
  "BB Exclusive": {
   "domain": "www.beginningboutique.com",
   "gender_prior": "f",
-  "seen": 54
+  "seen": 74
  },
  "BBC Ice Cream": {
   "domain": "bbcicecream.com",
   "gender_prior": "m",
-  "seen": 58
+  "seen": 64
  },
  "Bad Birdie": {
   "domain": "badbirdiegolf.com",
-  "gender_prior": "u",
-  "seen": 41
+  "gender_prior": "m",
+  "seen": 56
  },
  "Barbell Apparel": {
   "domain": "barbellapparel.com",
   "gender_prior": "m",
-  "seen": 56
+  "seen": 61
  },
  "Barney Cools": {
   "domain": "barneycools.com",
   "gender_prior": "m",
-  "seen": 34
+  "seen": 37
  },
  "Baserange": {
   "domain": "baserange.com",
@@ -292,7 +297,7 @@
  "Bather": {
   "domain": "bather.com",
   "gender_prior": "m",
-  "seen": 49
+  "seen": 64
  },
  "Battenwear": {
   "domain": "battenwear.com",
@@ -302,12 +307,12 @@
  "Baukjen": {
   "domain": "www.baukjen.com",
   "gender_prior": "f",
-  "seen": 69
+  "seen": 71
  },
  "Baukjen Womenswear": {
   "domain": "www.baukjen.com",
   "gender_prior": "f",
-  "seen": 2
+  "seen": 4
  },
  "Beach Riot": {
   "domain": "www.beachriot.com",
@@ -317,12 +322,12 @@
  "Bearbottom": {
   "domain": "bearbottomclothing.com",
   "gender_prior": "m",
-  "seen": 71
+  "seen": 89
  },
  "Bearbottom Clothing": {
   "domain": "bearbottomclothing.com",
   "gender_prior": "m",
-  "seen": 27
+  "seen": 45
  },
  "Bec + Bridge": {
   "domain": "becandbridge.com.au",
@@ -332,27 +337,27 @@
  "Bec&Bridge": {
   "domain": "www.becandbridge.com",
   "gender_prior": "f",
-  "seen": 5
+  "seen": 21
  },
  "Beckett Simonon": {
   "domain": "www.beckettsimonon.com",
   "gender_prior": "m",
-  "seen": 15
+  "seen": 22
  },
  "Beginning Boutique": {
   "domain": "www.beginningboutique.com",
   "gender_prior": "f",
-  "seen": 38
+  "seen": 58
  },
  "Bella Dahl": {
   "domain": "www.belladahl.com",
   "gender_prior": "f",
-  "seen": 85
+  "seen": 105
  },
  "Berg & Berg": {
   "domain": "bergbergstore.com",
   "gender_prior": "m",
-  "seen": 32
+  "seen": 34
  },
  "Better Gift Shop": {
   "domain": "bettergiftshop.com",
@@ -362,7 +367,7 @@
  "Billionaire Boys Club": {
   "domain": "www.bbcicecream.com",
   "gender_prior": "m",
-  "seen": 2
+  "seen": 3
  },
  "Billionaire Boys Club Exclusives": {
   "domain": "www.bbcicecream.com",
@@ -387,7 +392,7 @@
  "Birds of Condor": {
   "domain": "birdsofcondor.com",
   "gender_prior": "u",
-  "seen": 34
+  "seen": 35
  },
  "Birds of Condor USA": {
   "domain": "us.birdsofcondor.com",
@@ -427,7 +432,7 @@
  "Boyish": {
   "domain": "boyish.com",
   "gender_prior": "f",
-  "seen": 24
+  "seen": 25
  },
  "Brain Dead": {
   "domain": "wearebraindead.com",
@@ -474,6 +479,11 @@
   "gender_prior": "f",
   "seen": 1
  },
+ "COLLAB26": {
+  "domain": "ciaolucia.com",
+  "gender_prior": "f",
+  "seen": 1
+ },
  "CONVERSE": {
   "domain": "undefeated.com",
   "gender_prior": "m",
@@ -507,7 +517,7 @@
  "Ciao Lucia": {
   "domain": "ciaolucia.com",
   "gender_prior": "f",
-  "seen": 6
+  "seen": 11
  },
  "Clae": {
   "domain": "www.clae.com",
@@ -557,7 +567,7 @@
  "Corridor NYC": {
   "domain": "www.corridornyc.com",
   "gender_prior": "m",
-  "seen": 25
+  "seen": 30
  },
  "Corteiz": {
   "domain": "crtz.xyz",
@@ -608,6 +618,11 @@
   "domain": "www.dl1961.com",
   "gender_prior": "u",
   "seen": 18
+ },
+ "DOEN": {
+  "domain": "www.shopdoen.com",
+  "gender_prior": "f",
+  "seen": 2
  },
  "DTLR": {
   "domain": "www.dtlr.com",
@@ -684,10 +699,15 @@
   "gender_prior": "m",
   "seen": 11
  },
+ "Drakes - UK/ROW": {
+  "domain": "www.drakes.com",
+  "gender_prior": "m",
+  "seen": 16
+ },
  "D\u00d4EN": {
   "domain": "shopdoen.com",
   "gender_prior": "f",
-  "seen": 20
+  "seen": 27
  },
  "ESSENTIALS": {
   "domain": "fearofgod.com",
@@ -702,7 +722,7 @@
  "Eberjey": {
   "domain": "eberjey.com",
   "gender_prior": "f",
-  "seen": 26
+  "seen": 34
  },
  "Echt": {
   "domain": "echt.com.au",
@@ -732,7 +752,7 @@
  "Eric Ji": {
   "domain": "ashanderie.com",
   "gender_prior": "m",
-  "seen": 1
+  "seen": 2
  },
  "Everlane": {
   "domain": "www.everlane.com",
@@ -797,7 +817,7 @@
  "Frank & Eileen": {
   "domain": "frankandeileen.com",
   "gender_prior": "f",
-  "seen": 23
+  "seen": 25
  },
  "Frank And Oak": {
   "domain": "www.frankandoak.com",
@@ -937,9 +957,14 @@
  "Human Made": {
   "domain": "www.bbcicecream.com",
   "gender_prior": "m",
-  "seen": 1
+  "seen": 2
  },
  "Icecream Europe": {
+  "domain": "www.bbcicecream.com",
+  "gender_prior": "m",
+  "seen": 1
+ },
+ "Icecream Exclusives": {
   "domain": "www.bbcicecream.com",
   "gender_prior": "m",
   "seen": 1
@@ -997,7 +1022,7 @@
  "John Elliott": {
   "domain": "johnelliott.com",
   "gender_prior": "m",
-  "seen": 21
+  "seen": 24
  },
  "Johnnie-O": {
   "domain": "johnnie-o.com",
@@ -1178,6 +1203,11 @@
   "domain": "www.mgemi.com",
   "gender_prior": "f",
   "seen": 22
+ },
+ "MH Fashion Ladies": {
+  "domain": "ashanderie.com",
+  "gender_prior": "f",
+  "seen": 1
  },
  "MNML": {
   "domain": "www.mnml.la",
@@ -1592,7 +1622,7 @@
  "RA Denim": {
   "domain": "ashanderie.com",
   "gender_prior": "m",
-  "seen": 1
+  "seen": 4
  },
  "RICK OWENS": {
   "domain": "www.rickowens.eu",
@@ -1632,7 +1662,7 @@
  "Raintex": {
   "domain": "ashanderie.com",
   "gender_prior": "m",
-  "seen": 1
+  "seen": 2
  },
  "Ramy Brook": {
   "domain": "www.ramybrook.com",
@@ -1677,7 +1707,7 @@
  "Reigning Champ": {
   "domain": "reigningchamp.com",
   "gender_prior": "m",
-  "seen": 33
+  "seen": 53
  },
  "Reistor": {
   "domain": "reistor.com",
@@ -1773,6 +1803,11 @@
   "domain": "sndys.com.au",
   "gender_prior": "f",
   "seen": 29
+ },
+ "SS26": {
+  "domain": "akindofguise.com",
+  "gender_prior": "m",
+  "seen": 5
  },
  "SUZHOU NEW FUBU IMP.&EXP.CO.,LTD": {
   "domain": "ashanderie.com",
@@ -2072,7 +2107,12 @@
  "Todd Snyder": {
   "domain": "www.toddsnyder.com",
   "gender_prior": "m",
-  "seen": 14
+  "seen": 17
+ },
+ "Todd Snyder + Champion": {
+  "domain": "www.toddsnyder.com",
+  "gender_prior": "m",
+  "seen": 2
  },
  "Tommy John": {
   "domain": "tommyjohn.com",
@@ -2284,6 +2324,11 @@
   "gender_prior": "u",
   "seen": 8
  },
+ "aim'n": {
+  "domain": "www.aimn.com",
+  "gender_prior": "f",
+  "seen": 3
+ },
  "b.Eautiful": {
   "domain": "bdgastore.com",
   "gender_prior": "f",
@@ -2293,6 +2338,11 @@
   "domain": "www.bassike.com",
   "gender_prior": "f",
   "seen": 2
+ },
+ "https://www.3sixteen.com#organization": {
+  "domain": "www.3sixteen.com",
+  "gender_prior": "m",
+  "seen": 9
  },
  "iam gia": {
   "domain": "iamgia.com",

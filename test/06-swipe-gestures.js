@@ -30,19 +30,28 @@ async function settle(p) {
 }
 
 /* Drive one gesture and report the reaction it produced.
-   moves: [[dx,dy], …] relative to the card centre. endWith: 'up' | 'cancel'. */
-async function gesture(p, moves, endWith) {
-  return p.evaluate(async ({ moves, endWith }) => {
+   moves: [[dx,dy], …] relative to the card centre. endWith: 'up' | 'cancel'.
+   stepMs: ms between moves — the handler reads velocity, so timing decides
+   whether something is a flick or a slow drag. It is stamped explicitly rather
+   than left to how fast the test happens to run, or these assertions would pass
+   or fail on machine speed. */
+async function gesture(p, moves, endWith, stepMs) {
+  return p.evaluate(async ({ moves, endWith, stepMs }) => {
     const card = document.querySelector('#cardHost .piece-card');
     if (!card) return { error: 'no card on screen' };
     const r = card.getBoundingClientRect();
     const pi = QUEUE[0];
     const x0 = r.left + r.width / 2, y0 = r.top + r.height / 2;
-    const ev = (t, x, y) => card.dispatchEvent(new PointerEvent(t, {
-      clientX: x, clientY: y, pointerId: 1, bubbles: true, cancelable: true, isPrimary: true
-    }));
+    let t = 5000;
+    const ev = (type, x, y) => {
+      const e = new PointerEvent(type, {
+        clientX: x, clientY: y, pointerId: 1, bubbles: true, cancelable: true, isPrimary: true
+      });
+      Object.defineProperty(e, 'timeStamp', { value: t });
+      card.dispatchEvent(e);
+    };
     ev('pointerdown', x0, y0);
-    for (const [dx, dy] of moves) ev('pointermove', x0 + dx, y0 + dy);
+    for (const [dx, dy] of moves) { t += (stepMs === undefined ? 200 : stepMs); ev('pointermove', x0 + dx, y0 + dy); }
     if (endWith === 'cancel') {
       ev('pointercancel', 0, 0);          // as the browser really sends it
     } else {
@@ -51,7 +60,7 @@ async function gesture(p, moves, endWith) {
     }
     await new Promise(res => setTimeout(res, 600));
     return { reaction: S.reactions[pi] || null, queueTop: QUEUE[0], wasIndex: pi };
-  }, { moves, endWith });
+  }, { moves, endWith, stepMs });
 }
 
 (async () => {
@@ -89,52 +98,28 @@ async function gesture(p, moves, endWith) {
   g = await gesture(p, [[-60, 0], [-100, 0]], 'cancel');
   chk('a cancelled LEFT drag also records nothing', g.reaction === null, 'got ' + g.reaction);
 
-  // ---------- below-threshold drags are not swipes ----------
-  g = await gesture(p, [[40, 0]], 'up');
-  chk('a small nudge right decides nothing', g.reaction === null, 'got ' + g.reaction);
-  g = await gesture(p, [[-40, 0]], 'up');
-  chk('a small nudge left decides nothing', g.reaction === null, 'got ' + g.reaction);
+  // ---------- a light mouse flick is enough ----------
+  // The point of the retune: a short quick wrist movement, not a shove across
+  // the screen. 40px at 8ms a step is an easy mouse flick.
+  g = await gesture(p, [[14, 0], [28, 0], [40, 0]], 'up', 8);
+  chk('a LIGHT quick flick right (40px) commits', g.reaction === 'like', 'got ' + g.reaction);
+  g = await gesture(p, [[-14, 0], [-28, 0], [-40, 0]], 'up', 8);
+  chk('a LIGHT quick flick left (40px) commits', g.reaction === 'skip', 'got ' + g.reaction);
+
+  // ---------- but a twitch and a slow shuffle are still not swipes ----------
+  g = await gesture(p, [[15, 0]], 'up', 8);
+  chk('a 15px twitch decides nothing (under the flick floor)', g.reaction === null, 'got ' + g.reaction);
+  g = await gesture(p, [[14, 0], [28, 0], [40, 0]], 'up', 260);
+  chk('a SLOW 40px shuffle decides nothing', g.reaction === null, 'got ' + g.reaction);
 
   // A plain click — press and release, no movement at all. Reported from real
   // use as "as soon as I click on it, it swipes left".
-  g = await gesture(p, [[0, 0]], 'up');
+  g = await gesture(p, [[0, 0]], 'up', 8);
   chk('a plain CLICK decides nothing (was: swiped left)', g.reaction === null, 'got ' + g.reaction);
 
-  // ---------- momentum: a flick commits even though it barely moved ----------
-  const flick = await p.evaluate(async () => {
-    const card = document.querySelector('#cardHost .piece-card');
-    const r = card.getBoundingClientRect();
-    const pi = QUEUE[0];
-    const x0 = r.left + r.width / 2, y0 = r.top + r.height / 2;
-    let t = 1000;
-    const ev = (type, x, y) => { const e = new PointerEvent(type, {
-      clientX: x, clientY: y, pointerId: 1, bubbles: true, cancelable: true, isPrimary: true });
-      Object.defineProperty(e, 'timeStamp', { value: t }); card.dispatchEvent(e); };
-    ev('pointerdown', x0, y0);
-    for (let i = 1; i <= 4; i++) { t += 8; ev('pointermove', x0 + i * 18, y0); }  // fast, only 72px
-    ev('pointerup', x0 + 72, y0);
-    await new Promise(res => setTimeout(res, 700));
-    return { reaction: S.reactions[pi] || null, travelled: 72 };
-  });
-  chk('a fast flick right commits without full travel (72px)',
-      flick.reaction === 'like', 'got ' + flick.reaction);
-
-  const slow = await p.evaluate(async () => {
-    const card = document.querySelector('#cardHost .piece-card');
-    const r = card.getBoundingClientRect();
-    const pi = QUEUE[0];
-    const x0 = r.left + r.width / 2, y0 = r.top + r.height / 2;
-    let t = 1000;
-    const ev = (type, x, y) => { const e = new PointerEvent(type, {
-      clientX: x, clientY: y, pointerId: 1, bubbles: true, cancelable: true, isPrimary: true });
-      Object.defineProperty(e, 'timeStamp', { value: t }); card.dispatchEvent(e); };
-    ev('pointerdown', x0, y0);
-    for (let i = 1; i <= 4; i++) { t += 220; ev('pointermove', x0 + i * 15, y0); }  // slow, 60px
-    ev('pointerup', x0 + 60, y0);
-    await new Promise(res => setTimeout(res, 700));
-    return { reaction: S.reactions[pi] || null };
-  });
-  chk('a slow 60px drag does NOT commit', slow.reaction === null, 'got ' + slow.reaction);
+  // ---------- distance alone still commits, however slowly ----------
+  g = await gesture(p, [[30, 0], [60, 0], [90, 0]], 'up', 300);
+  chk('a slow but long drag right (90px) commits on distance', g.reaction === 'like', 'got ' + g.reaction);
 
   // ---------- the card is held, and pivots about where you grabbed ----------
   // Each grab is cancelled, never committed, so the same card survives both and

@@ -1483,21 +1483,24 @@ let SWIPING=false;
 let _TAP=true; const TAP_SLOP=6;
 function deckTapOK(){ return _TAP; }
 
+/* Tuned light on purpose: a mouse drag is a short, quick movement from the
+   wrist, nothing like a thumb sweeping a phone. The first pass used phone-sized
+   numbers and made you shove the card halfway across the screen. */
 const SW={
-  commitPx:  95,     /* travel that always commits */
-  commitV:   0.55,   /* px/ms — a flick this fast commits… */
-  flickMinPx: 50,    /* …but only once it has actually gone somewhere. Velocity
+  commitPx:  55,     /* travel that always commits — about a finger's width */
+  commitV:   0.28,   /* px/ms — an easy wrist flick clears this */
+  flickMinPx: 22,    /* …but a flick still has to have gone somewhere. Velocity
                         on its own fires on a twitch: pointer events can arrive
                         microseconds apart, and dx/dt then explodes into a flick
                         the user never made. Both conditions, always. */
   vMax:       3,     /* px/ms ceiling, so one bad frame can't dominate */
   dtMin:      4,     /* ms floor, so we never divide by ~0 */
-  upPx:     110,     /* upward travel for a love */
-  upV:       0.65,
-  maxRot:    16,     /* degrees at a full card-width of travel */
-  lift:    1.03,     /* scale while held: the card comes off the stack */
-  flyMs:    380,
-  springMs: 520
+  upPx:      70,     /* upward travel for a love */
+  upV:       0.34,
+  maxRot:    14,     /* degrees at a full card-width of travel */
+  lift:    1.02,     /* scale while held: the card comes off the stack */
+  flyMs:    300,     /* leaves briskly — a slow exit reads as lag */
+  springMs: 380      /* and comes back briskly too */
 };
 const _clampV=v=>Math.max(-SW.vMax,Math.min(SW.vMax,v));
 function showStamp(card,kind){const m={skip:'.s-nope',like:'.s-like',love:'.s-love'}[kind];const el=card.querySelector(m);if(el)el.style.opacity='1';}
@@ -1535,11 +1538,15 @@ function attachDrag(card){
   let sx=0,sy=0,lx=0,ly=0,drag=false,pivot=1,vx=0,vy=0,lastT=0;
   const like=card.querySelector('.s-like'),nope=card.querySelector('.s-nope'),love=card.querySelector('.s-love');
   const clearStamps=()=>{if(like)like.style.opacity=0;if(nope)nope.style.opacity=0;if(love)love.style.opacity=0;};
+  /* Stamps are derived from the commit thresholds rather than hardcoded, so
+     they stay honest if the feel is retuned: full opacity lands exactly where
+     letting go would commit. The stamp is the promise; the threshold keeps it. */
+  const stampAt=(travel,limit)=>Math.max(0,Math.min(1,(travel-6)/(limit-6)));
   const setStamps=(dx,dy)=>{
-    const up=dy<-40&&Math.abs(dy)>Math.abs(dx);
-    if(love)love.style.opacity=up?Math.min(1,(-dy-40)/80):0;
-    if(like)like.style.opacity=(!up&&dx>0)?Math.min(1,(dx-16)/80):0;
-    if(nope)nope.style.opacity=(!up&&dx<0)?Math.min(1,(-dx-16)/80):0;};
+    const up=dy<-16&&Math.abs(dy)>Math.abs(dx);
+    if(love)love.style.opacity=up?stampAt(-dy,SW.upPx):0;
+    if(like)like.style.opacity=(!up&&dx>0)?stampAt(dx,SW.commitPx):0;
+    if(nope)nope.style.opacity=(!up&&dx<0)?stampAt(-dx,SW.commitPx):0;};
 
   const paint=(dx,dy,held)=>{
     const w=card.offsetWidth||340;

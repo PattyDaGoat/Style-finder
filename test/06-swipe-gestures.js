@@ -136,9 +136,39 @@ async function gesture(p, moves, endWith, stepMs) {
     chk(`a SLOW 1cm move ${label} commits`,
         slow.reaction === (dx > 0 ? 'like' : 'skip'), 'got ' + slow.reaction);
   }
-  chk('the commit distance is comfortably under 1cm',
-      await p.evaluate('SW.commitPx < CM'),
-      await p.evaluate('"commitPx="+SW.commitPx+"  1cm="+Math.round(CM)+"px"'));
+  chk('a 1cm move is far past the dead band',
+      await p.evaluate('CM > SW.deadPx * 3'),
+      await p.evaluate('"deadPx="+SW.deadPx+"  1cm="+Math.round(CM)+"px"'));
+
+  // Half a centimetre, both directions, slowly — the stated target, and now far
+  // above the only line that exists.
+  for (const [label, dx] of [['right', 19], ['left', -19]]) {
+    const halfCm = await gesture(p, [[dx * 0.5, 0], [dx, 0]], 'up', 300);
+    chk(`a SLOW half-cm move ${label} commits`,
+        halfCm.reaction === (dx > 0 ? 'like' : 'skip'), 'got ' + halfCm.reaction);
+  }
+
+  // ---------- the actual rule: any real movement goes, by direction ----------
+  // No distance to reach and no speed to hit. Let go having moved the card at
+  // all and it leaves the way you were moving it.
+  for (const [label, dx, want] of [['right', 8, 'like'], ['left', -8, 'skip']]) {
+    const t = await gesture(p, [[dx, 0]], 'up', 300);
+    chk(`an 8px SLOW nudge ${label} commits on direction alone`,
+        t.reaction === want, 'got ' + t.reaction);
+  }
+  const upTiny = await gesture(p, [[0, -12]], 'up', 300);
+  chk('a 12px nudge up is a love', upTiny.reaction === 'love', 'got ' + upTiny.reaction);
+
+  // Up only wins when it clearly dominates, or a rightward swipe that drifts
+  // upward would love things you meant to like.
+  const diag = await gesture(p, [[30, -14]], 'up', 300);
+  chk('right-and-slightly-up is a like, not a love', diag.reaction === 'like', 'got ' + diag.reaction);
+
+  // The dead band is the click/drag boundary, not a swipe threshold. It must
+  // stay above TAP_SLOP or clicking the photo starts swiping cards.
+  chk('the dead band sits above the tap slop',
+      await p.evaluate('SW.deadPx > TAP_SLOP'),
+      await p.evaluate('"deadPx="+SW.deadPx+" TAP_SLOP="+TAP_SLOP'));
 
   // ---------- swiping fast must not lose swipes ----------
   // The reaction lands when the card finishes leaving, so at a 560ms exit a
@@ -156,24 +186,93 @@ async function gesture(p, moves, endWith, stepMs) {
   chk('5 rapid swipes all register, none dropped mid-flight',
       rapid.after - rapid.before === 5, JSON.stringify(rapid));
 
+  // Buttons were fixed first; the DRAG path was still frozen for the whole exit
+  // because pointerdown bailed while a card was in flight. Half the swipes of
+  // anyone going at a normal pace were lost, silently.
+  const rapidDrag = await p.evaluate(async () => {
+    const drag = () => {
+      const c = document.querySelector('#cardHost .piece-card');
+      if (!c) return;
+      const b = c.getBoundingClientRect();
+      const x = b.left + b.width / 2, y = b.top + b.height / 2;
+      const ev = (t, cx) => c.dispatchEvent(new PointerEvent(t, {
+        clientX: cx, clientY: y, pointerId: 1, bubbles: true, cancelable: true, isPrimary: true }));
+      ev('pointerdown', x); ev('pointermove', x + 40); ev('pointerup', x + 40);
+    };
+    const before = Object.keys(S.reactions).length;
+    drag();
+    await new Promise(r => setTimeout(r, 150));   // well inside the fly-out
+    drag();
+    await new Promise(r => setTimeout(r, SW.flyMs + 300));
+    return { before, after: Object.keys(S.reactions).length };
+  });
+  chk('a drag started mid-fly-out is not dropped',
+      rapidDrag.after - rapidDrag.before === 2, JSON.stringify(rapidDrag));
+
+  // Right/middle mouse buttons must not swipe.
+  const rmb = await p.evaluate(async () => {
+    const c = document.querySelector('#cardHost .piece-card');
+    const b = c.getBoundingClientRect();
+    const x = b.left + b.width / 2, y = b.top + b.height / 2;
+    const before = Object.keys(S.reactions).length;
+    const ev = (t, cx, btn) => c.dispatchEvent(new PointerEvent(t, {
+      clientX: cx, clientY: y, button: btn, pointerId: 1, bubbles: true, cancelable: true, isPrimary: true }));
+    ev('pointerdown', x, 2); ev('pointermove', x + 90, 2); ev('pointerup', x + 90, 2);
+    await new Promise(r => setTimeout(r, SW.flyMs + 250));
+    return { before, after: Object.keys(S.reactions).length };
+  });
+  chk('a RIGHT-button drag does not swipe', rmb.after === rmb.before, JSON.stringify(rmb));
+
   // ---------- the exit is unhurried ----------
   chk('a swiped card takes its time leaving',
       await p.evaluate('SW.flyMs >= 500'), await p.evaluate('"flyMs="+SW.flyMs'));
   chk('and settles back unhurriedly when it does not commit',
       await p.evaluate('SW.springMs >= 400'), await p.evaluate('"springMs="+SW.springMs'));
 
-  // ---------- but a twitch is still not a swipe ----------
-  // This floor must not chase the others down: it is what stops a jittery click
-  // from swiping a card the user only meant to look at.
-  g = await gesture(p, [[8, 0]], 'up', 8);
-  chk('an 8px twitch decides nothing (under the flick floor)', g.reaction === null, 'got ' + g.reaction);
-  g = await gesture(p, [[5, 0], [9, 0]], 'up', 260);
-  chk('a slow 9px drift decides nothing', g.reaction === null, 'got ' + g.reaction);
-  // The floor must stay clear of TAP_SLOP, or opening a product page by
-  // clicking the photo starts swiping cards instead.
-  chk('the flick floor is still well above the tap slop',
-      await p.evaluate('SW.flickMinPx >= TAP_SLOP * 2'),
-      await p.evaluate('"flickMinPx="+SW.flickMinPx+" TAP_SLOP="+TAP_SLOP'));
+  // ---------- keyboard ----------
+  // The only way to use the deck without a pointer, so it is also the
+  // accessibility route, not just a shortcut.
+  for (const [key, want] of [['ArrowRight', 'like'], ['ArrowLeft', 'skip'], ['ArrowUp', 'love']]) {
+    const k = await p.evaluate(async (key) => {
+      const pi = QUEUE[0];
+      document.dispatchEvent(new KeyboardEvent('keydown', { key, bubbles: true, cancelable: true }));
+      await new Promise(r => setTimeout(r, 200));
+      return { reaction: S.reactions[pi] || null };
+    }, key);
+    chk(`${key} swipes ${want}`, k.reaction === want, 'got ' + k.reaction);
+  }
+  // A modified arrow is the browser's (cmd+left is Back) — never ours.
+  const modded = await p.evaluate(async () => {
+    const before = Object.keys(S.reactions).length;
+    document.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowRight', metaKey: true, bubbles: true, cancelable: true }));
+    await new Promise(r => setTimeout(r, 200));
+    return { before, after: Object.keys(S.reactions).length };
+  });
+  chk('cmd+Arrow is left to the browser', modded.after === modded.before, JSON.stringify(modded));
+  // And typing in a field must never swipe the deck out from under you.
+  const typing = await p.evaluate(async () => {
+    const i = document.createElement('input');
+    document.body.appendChild(i); i.focus();
+    const before = Object.keys(S.reactions).length;
+    i.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowLeft', bubbles: true, cancelable: true }));
+    await new Promise(r => setTimeout(r, 200));
+    const after = Object.keys(S.reactions).length;
+    i.remove();
+    return { before, after };
+  });
+  chk('arrows inside a text field do not swipe', typing.after === typing.before, JSON.stringify(typing));
+
+  // ---------- the only line left: click vs drag ----------
+  // There is no swipe threshold any more, so the guarantee changed. What must
+  // still hold is that a CLICK is not a swipe — that is the bug this whole
+  // thread opened with, and making the gesture this easy is exactly what could
+  // bring it back.
+  g = await gesture(p, [[3, 0]], 'up', 8);
+  chk('a 3px wobble during a click decides nothing', g.reaction === null, 'got ' + g.reaction);
+  g = await gesture(p, [[0, 3]], 'up', 8);
+  chk('a 3px vertical wobble decides nothing', g.reaction === null, 'got ' + g.reaction);
+  chk('the dead band is small but real (>= 4px)',
+      await p.evaluate('SW.deadPx >= 4'), await p.evaluate('"deadPx=" + SW.deadPx'));
 
   // A plain click — press and release, no movement at all. Reported from real
   // use as "as soon as I click on it, it swipes left".
@@ -183,20 +282,6 @@ async function gesture(p, moves, endWith, stepMs) {
   // ---------- distance alone still commits, however slowly ----------
   g = await gesture(p, [[30, 0], [60, 0], [90, 0]], 'up', 300);
   chk('a slow but long drag right (90px) commits on distance', g.reaction === 'like', 'got ' + g.reaction);
-
-  // ---------- the threshold tracks the card, not a fixed pixel count ----------
-  const thresh = await p.evaluate(() => {
-    const card = document.querySelector('#cardHost .piece-card');
-    const real = swipeCommitPx(card);
-    // a narrow card should ask for less travel, not the same absolute amount
-    const fake = { offsetWidth: 200 };
-    return { cardWidth: card.offsetWidth, real, narrow: swipeCommitPx(fake),
-             cap: SW.commitPx };
-  });
-  chk('commit distance never exceeds the cap',
-      thresh.real <= thresh.cap, JSON.stringify(thresh));
-  chk('a narrower card commits on less travel',
-      thresh.narrow < thresh.cap, JSON.stringify(thresh));
 
   // ---------- the card is held, and pivots about where you grabbed ----------
   // Each grab is cancelled, never committed, so the same card survives both and

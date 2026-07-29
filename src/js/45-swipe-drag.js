@@ -12,7 +12,6 @@
                 overshoot, and it lifts while held. That is the "weight".
 
    Everything is transform + opacity so it stays on the compositor. */
-let SWIPING=false;
 /* The photo is now a link to the shop, and the photo is also most of the drag
    surface — so a swipe that starts on it must not open a tab on release.
    _TAP stays true only while the pointer has barely moved; the anchor's
@@ -29,28 +28,18 @@ function deckTapOK(){ return _TAP; }
    to the edge — a nudge in a direction is already a clear statement of intent,
    and the stamp on screen tells you it landed before you let go. */
 const SW={
-  commitPx: Math.round(CM*0.37),  /* ~14px, a little over 3mm — so a centimetre
-                        of mouse movement is comfortably past it, in any
-                        direction, however slowly it was made */
-  commitFrac: 0.05,  /* …or this share of the card's width, whichever is SMALLER.
-                        Keeps the gesture feeling the same on a narrow phone card
-                        and a wide desktop one, instead of being easy on one and
-                        a stretch on the other. */
-  commitV:   0.10,   /* px/ms — the gentlest wrist flick clears this */
-  flickMinPx: Math.round(CM*0.26),  /* ~10px. A flick still has to have gone
-                        somewhere: pointer events can arrive microseconds apart,
-                        and dx/dt then explodes into a flick the user never made.
-                        Both conditions, always.
-
-                        This is the floor that keeps a click from swiping, so it
-                        comes down slower than everything else and must stay at
-                        least twice TAP_SLOP — below that a plain click reads as
-                        a swipe, which is the bug this thread opened with. The
-                        suite asserts that ratio so a retune cannot cross it. */
+  /* There is no distance to reach any more. Move the card at all and it goes,
+     in the direction you moved it. deadPx is the ONLY line, and it is not a
+     swipe threshold — it is the boundary between "clicked the photo" and
+     "dragged the card", so it sits just above TAP_SLOP and no lower. Below it a
+     click stops opening the shop link and starts swiping, which is the bug this
+     whole thread opened with. */
+  deadPx:     TAP_SLOP+1,
+  upBias:     1.6,   /* up must beat sideways by this much to count as a love,
+                        or a swipe that drifts upward loves things you meant to
+                        merely like */
   vMax:       3,     /* px/ms ceiling, so one bad frame can't dominate */
   dtMin:      4,     /* ms floor, so we never divide by ~0 */
-  upPx:   Math.round(CM*0.58),  /* ~22px upward for a love */
-  upV:       0.13,
   maxRot:    14,     /* degrees at a full card-width of travel */
   lift:    1.02,     /* scale while held: the card comes off the stack */
   /* The exit is deliberately unhurried — the card is the answer to "do you like
@@ -61,25 +50,36 @@ const SW={
   flyCarry:   80,    /* how much of the throw's momentum shows in the exit */
   springMs: 420      /* and an unhurried settle back when it doesn't commit */
 };
-/* the distance that commits, for this card's actual width */
-function swipeCommitPx(card){
+/* How far the stamps take to reach full opacity. Nothing to do with committing
+   any more — the swipe commits on direction alone — this is purely how quickly
+   LIKE/NOPE fade up so you can see which way it is going to go. */
+function stampScale(card){
   const w=(card&&card.offsetWidth)||340;
-  return Math.min(SW.commitPx, Math.round(w*SW.commitFrac));
+  return Math.max(24,Math.round(w*0.12));
 }
 const _clampV=v=>Math.max(-SW.vMax,Math.min(SW.vMax,v));
 function showStamp(card,kind){const m={skip:'.s-nope',like:'.s-like',love:'.s-love'}[kind];const el=card.querySelector(m);if(el)el.style.opacity='1';}
 
-/* Throw the card off screen, then commit the reaction. `vx`/`vy` carry the
-   flick's momentum through so a hard swipe leaves faster than a slow one. */
-function flyOut(card,kind,vx,vy,rot){
-  const w=innerWidth||900;
-  const dir=kind==='skip'?-1:kind==='like'?1:0;
-  const tx=dir? dir*(w*SW.flyTravel) : (vx||0)*SW.flyCarry;
-  const ty=kind==='love' ? -(innerHeight||800)*0.95 : (vy||0)*(SW.flyCarry*0.6)+30;
-  const tr=kind==='love' ? (vx||0)*6 : dir*Math.max(18,Math.abs(rot||0)*1.4);
-  /* ease-out rather than ease-in-out: it commits to leaving immediately, then
-     eases, which reads as "sent" instead of "hesitating". */
-  card.style.transition=`transform ${SW.flyMs}ms cubic-bezier(.25,.46,.45,.94), opacity ${SW.flyMs-120}ms linear`;
+/* Send the card off along the line the hand was ACTUALLY travelling, not a
+   canned left/right. Let go moving up-and-right and it leaves up-and-right — the
+   card carries on doing what you were already doing with it, which is the whole
+   difference between "sliding" and "snapping to a preset".
+
+   dx/dy are the gesture's own vector. Buttons and the keyboard have no gesture,
+   so they fall back to the canonical direction for the reaction. */
+function flyOut(card,kind,vx,vy,rot,dx,dy){
+  const len=Math.hypot(dx||0,dy||0);
+  let ux,uy;
+  if(len>2){ ux=(dx||0)/len; uy=(dy||0)/len; }
+  else { ux=kind==='skip'?-1:kind==='like'?1:0; uy=kind==='love'?-1:0; }
+  /* far enough to clear the screen from anywhere on it */
+  const reach=Math.hypot(innerWidth||900,innerHeight||800)*1.05;
+  const tx=ux*reach, ty=uy*reach;
+  const tr=kind==='love' ? (vx||0)*6 : (ux>=0?1:-1)*Math.max(14,Math.abs(rot||0)*1.3);
+  /* A single ease-out with no bounce: it keeps the speed it already had and
+     glides away. Anything with an ease-IN stalls for a frame first, and that
+     hitch is exactly what reads as "not smooth". */
+  card.style.transition=`transform ${SW.flyMs}ms cubic-bezier(.16,.72,.30,1), opacity ${SW.flyMs-140}ms linear`;
   showStamp(card,kind);
   requestAnimationFrame(()=>{
     card.style.transform=`translate(${tx}px,${ty}px) rotate(${tr}deg) scale(1)`;
@@ -87,24 +87,35 @@ function flyOut(card,kind,vx,vy,rot){
   });
 }
 
-/* The reaction lands when the card has finished leaving, so a second swipe
-   arriving mid-flight used to be dropped on the floor. That was survivable at a
-   300ms exit; at 560ms it means anyone swiping at a decent pace silently loses
-   inputs. So a new swipe now LANDS the one in flight immediately and takes over,
-   instead of being ignored. Nothing a user does is thrown away. */
-let _flyTimer=null,_flyKind=null;
-function _landFlight(){
-  if(_flyTimer){clearTimeout(_flyTimer);_flyTimer=null;}
-  const k=_flyKind; _flyKind=null; SWIPING=false;
-  if(k) react(k);
+/* The leaving card flies out in its OWN layer, detached from the deck, and the
+   reaction lands immediately — so the next card is live the instant you swipe.
+
+   It used to animate in place and only commit when the animation finished, which
+   meant the deck was frozen for the whole exit: a second swipe was dropped and a
+   drag could not even start, because pointerdown bailed while SWIPING was true.
+   Survivable at 300ms; at 560ms it silently ate half the swipes of anyone going
+   at a normal pace. Slowing an animation must never cost input.
+
+   The ghost is position:fixed over the card's last on-screen box, so it looks
+   identical while it leaves, and is removed when done. */
+function _ghostOut(card,kind,vx,vy,rot,dx,dy){
+  const r=card.getBoundingClientRect();
+  const g=card.cloneNode(true);
+  g.classList.add('card-ghost');
+  /* Start the ghost exactly where the card is RIGHT NOW, mid-drag transform and
+     all, so the hand-off is invisible: no jump back to centre before it leaves. */
+  g.style.cssText+=`position:fixed;left:${r.left}px;top:${r.top}px;width:${r.width}px;`
+    +`height:${r.height}px;margin:0;pointer-events:none;z-index:60;transition:none;`
+    +`transform:none;`;
+  document.body.appendChild(g);
+  flyOut(g,kind,vx,vy,rot,dx,dy);
+  setTimeout(()=>{try{g.remove();}catch(_){}},SW.flyMs+80);
 }
-function animateSwipe(kind,vx,vy,rot){
-  if(SWIPING) _landFlight();          // finish the previous card now
+function animateSwipe(kind,vx,vy,rot,dx,dy){
   if(!QUEUE.length)return;
-  SWIPING=true; _flyKind=kind;
   const card=document.querySelector('#cardHost .piece-card');
-  if(card) flyOut(card,kind,vx,vy,rot);
-  _flyTimer=setTimeout(_landFlight,SW.flyMs-40);
+  if(card) _ghostOut(card,kind,vx,vy,rot,dx,dy);
+  react(kind);                        /* immediately — the deck never freezes */
 }
 
 function attachDrag(card){
@@ -122,9 +133,9 @@ function attachDrag(card){
      letting go would commit. The stamp is the promise; the threshold keeps it. */
   const stampAt=(travel,limit)=>Math.max(0,Math.min(1,(travel-4)/Math.max(1,limit-4)));
   const setStamps=(dx,dy)=>{
-    const cp=swipeCommitPx(card);
+    const cp=stampScale(card);
     const up=dy<-10&&Math.abs(dy)>Math.abs(dx);
-    if(love)love.style.opacity=up?stampAt(-dy,SW.upPx):0;
+    if(love)love.style.opacity=up?stampAt(-dy,cp):0;
     if(like)like.style.opacity=(!up&&dx>0)?stampAt(dx,cp):0;
     if(nope)nope.style.opacity=(!up&&dx<0)?stampAt(-dx,cp):0;};
 
@@ -140,7 +151,11 @@ function attachDrag(card){
     card.style.transform='';clearStamps();};
 
   const down=e=>{
-    if(SWIPING||(e.target&&e.target.closest&&e.target.closest('.swipe-cart,.focus-btn,.report-btn')))return;
+    /* Buttons on the card are theirs, not the deck's. Otherwise every press
+       starts a drag — including the right and middle mouse buttons, which have
+       no business swiping anything. */
+    if(e.button&&e.button!==0)return;
+    if(e.target&&e.target.closest&&e.target.closest('.swipe-cart,.focus-btn,.report-btn'))return;
     drag=true;_TAP=true;
     sx=lx=e.clientX;sy=ly=e.clientY;vx=vy=0;lastT=e.timeStamp||performance.now();
     /* grab the top half and it swings one way, the bottom half the other */
@@ -179,16 +194,23 @@ function attachDrag(card){
     if(e&&Number.isFinite(e.clientX)&&Number.isFinite(e.clientY)){lx=e.clientX;ly=e.clientY;}
     const dx=lx-sx,dy=ly-sy;
     const w=card.offsetWidth||340, rot=(dx/w)*SW.maxRot*pivot;
-    /* Distance OR a flick — but a flick still has to have travelled. */
-    const cp=swipeCommitPx(card);
-    const flickR=vx> SW.commitV&&dx> SW.flickMinPx;
-    const flickL=vx<-SW.commitV&&dx<-SW.flickMinPx;
-    const flickU=vy<-SW.upV   &&dy<-SW.flickMinPx;
-    const upward=(dy<-SW.upPx||flickU)&&Math.abs(dy)>Math.abs(dx);
-    if(upward)               return animateSwipe('love',vx,vy,rot);
-    if(dx> cp||flickR)       return animateSwipe('like',vx,vy,rot);
-    if(dx<-cp||flickL)       return animateSwipe('skip',vx,vy,rot);
-    settle();
+
+    /* Let go having moved the card AT ALL, and it goes — in whatever direction
+       you were moving it. No distance to reach, no speed to hit: once the
+       gesture is a drag rather than a click, the direction alone decides.
+
+       The only line left is TAP_SLOP, and it is not a swipe threshold — it is
+       what separates "clicked the photo to open the shop" from "dragged the
+       card". Below it nothing happened; above it, something did, and the
+       direction says what. */
+    const moved=Math.hypot(dx,dy);
+    if(moved<=SW.deadPx){ settle(); return; }
+
+    /* Up counts as a love only when it clearly dominates; otherwise a swipe that
+       drifts upward would love things you meant to like. */
+    if(-dy>Math.abs(dx)*SW.upBias && -dy>SW.deadPx)
+      return animateSwipe('love',vx,vy,rot,dx,dy);
+    return animateSwipe(dx>0?'like':'skip',vx,vy,rot,dx,dy);
   };
   /* A cancelled gesture is not a swipe. Snap back and decide nothing — acting on
      a drag the browser threw away is how the wrong card got skipped. _TAP is
@@ -206,4 +228,31 @@ function attachDrag(card){
   card.querySelectorAll('img').forEach(im=>{im.draggable=false;});
   card.addEventListener('dragstart',e=>e.preventDefault());
 }
+/* ---- keyboard ----
+   Left skips, right likes, up loves, down undoes. Faster than a mouse once you
+   have the rhythm, and it is the only way to use the deck without a pointer at
+   all — which also makes it the accessible route.
+
+   Guarded three ways: only on the deck, never while typing in a field, and only
+   for a bare arrow press, so browser and OS shortcuts (cmd+arrow, alt+arrow to
+   go back) are left alone. */
+const DECK_KEYS={ArrowLeft:'skip',ArrowRight:'like',ArrowUp:'love'};
+function deckKeyHandler(e){
+  if(e.metaKey||e.ctrlKey||e.altKey||e.shiftKey)return;
+  const deck=document.getElementById('deck');
+  if(!deck||deck.classList.contains('hidden'))return;
+  const t=e.target;
+  if(t&&(t.tagName==='INPUT'||t.tagName==='TEXTAREA'||t.isContentEditable))return;
+  if(e.key==='ArrowDown'){
+    if(typeof undoLast==='function'&&S&&S.hist&&S.hist.length){e.preventDefault();undoLast();}
+    return;
+  }
+  const kind=DECK_KEYS[e.key];
+  if(!kind)return;
+  e.preventDefault();               /* or the page scrolls under the deck */
+  if(!QUEUE.length)return;
+  animateSwipe(kind);
+}
+document.addEventListener('keydown',deckKeyHandler);
+
 function finishDeck(){buildModel();buildResults();show("results");save();}

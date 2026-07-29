@@ -58,7 +58,7 @@ async function gesture(p, moves, endWith, stepMs) {
       const last = moves[moves.length - 1];
       ev('pointerup', x0 + last[0], y0 + last[1]);
     }
-    await new Promise(res => setTimeout(res, 600));
+    await new Promise(res => setTimeout(res, (typeof SW!=='undefined'?SW.flyMs:400)+250));
     return { reaction: S.reactions[pi] || null, queueTop: QUEUE[0], wasIndex: pi };
   }, { moves, endWith, stepMs });
 }
@@ -122,11 +122,45 @@ async function gesture(p, moves, endWith, stepMs) {
       clientX: x, clientY: y, pointerId: 1, bubbles: true, cancelable: true, isPrimary: true }));
     ev('pointerdown', x0, y0);
     ev('pointerup', x0 + 60, y0);          // straight to release, zero moves
-    await new Promise(res => setTimeout(res, 700));
+    await new Promise(res => setTimeout(res, (typeof SW!=='undefined'?SW.flyMs:400)+250));
     return { reaction: S.reactions[pi] || null };
   });
   chk('a drag with NO pointermove events still registers (fast flick)',
       noMoves.reaction === 'like', 'got ' + noMoves.reaction);
+
+  // ---------- the stated target: about a centimetre, either way ----------
+  // A CSS pixel is 1/96 inch, so 1cm is ~37.8px. Moving the mouse that far must
+  // register whichever direction it went and however slowly it was done.
+  for (const [label, dx] of [['right', 38], ['left', -38]]) {
+    const slow = await gesture(p, [[dx * 0.4, 0], [dx * 0.7, 0], [dx, 0]], 'up', 300);
+    chk(`a SLOW 1cm move ${label} commits`,
+        slow.reaction === (dx > 0 ? 'like' : 'skip'), 'got ' + slow.reaction);
+  }
+  chk('the commit distance is comfortably under 1cm',
+      await p.evaluate('SW.commitPx < CM'),
+      await p.evaluate('"commitPx="+SW.commitPx+"  1cm="+Math.round(CM)+"px"'));
+
+  // ---------- swiping fast must not lose swipes ----------
+  // The reaction lands when the card finishes leaving, so at a 560ms exit a
+  // second swipe arriving mid-flight used to be discarded. Anyone going at a
+  // decent pace would silently lose inputs.
+  const rapid = await p.evaluate(async () => {
+    const before = Object.keys(S.reactions).length;
+    for (let i = 0; i < 5; i++) {
+      document.querySelector('.t-like').click();
+      await new Promise(r => setTimeout(r, 120));   // far faster than the exit
+    }
+    await new Promise(r => setTimeout(r, SW.flyMs + 250));
+    return { before, after: Object.keys(S.reactions).length };
+  });
+  chk('5 rapid swipes all register, none dropped mid-flight',
+      rapid.after - rapid.before === 5, JSON.stringify(rapid));
+
+  // ---------- the exit is unhurried ----------
+  chk('a swiped card takes its time leaving',
+      await p.evaluate('SW.flyMs >= 500'), await p.evaluate('"flyMs="+SW.flyMs'));
+  chk('and settles back unhurriedly when it does not commit',
+      await p.evaluate('SW.springMs >= 400'), await p.evaluate('"springMs="+SW.springMs'));
 
   // ---------- but a twitch is still not a swipe ----------
   // This floor must not chase the others down: it is what stops a jittery click
@@ -212,7 +246,7 @@ async function gesture(p, moves, endWith, stepMs) {
     for (const [sel, want] of [['.t-like', 'like'], ['.t-skip', 'skip'], ['.t-love', 'love']]) {
       const pi = QUEUE[0];
       document.querySelector(sel).click();
-      await new Promise(r => setTimeout(r, 600));
+      await new Promise(r => setTimeout(r, (typeof SW!=='undefined'?SW.flyMs:400)+250));
       out[want] = S.reactions[pi] || null;
     }
     return out;
@@ -233,7 +267,7 @@ async function gesture(p, moves, endWith, stepMs) {
     ev('pointerdown', x0, y0);
     ev('pointermove', x0 + 150, y0);
     ev('pointerup', x0 + 200, y0);
-    await new Promise(res => setTimeout(res, 600));
+    await new Promise(res => setTimeout(res, (typeof SW!=='undefined'?SW.flyMs:400)+250));
     return { before, after: (S.likes || []).length, holdsIt: (S.likes || []).includes(pi) };
   });
   chk('a right swipe puts the piece in the liked cart',

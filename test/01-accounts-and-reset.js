@@ -17,6 +17,16 @@ async function settle(page) {
 }
 function chk(name, cond, extra) { (cond ? ok : bad).push(name + (extra ? ' :: ' + extra : '')); }
 
+/* A swipe's reaction lands when the card has finished leaving, so anything
+   reading state straight after a swipe has to wait for that. Derived from the
+   app's own SW.flyMs rather than hardcoded, or retuning the animation silently
+   makes this suite flaky — which is exactly what happened when the exit went
+   from 300ms to 560ms. */
+async function afterSwipe(page) {
+  const ms = await page.evaluate("typeof SW!=='undefined' ? SW.flyMs : 380").catch(() => 380);
+  await page.waitForTimeout(ms + 180);
+}
+
 (async () => {
   const browser = await chromium.launch(process.env.PW_CHROMIUM ? { executablePath: process.env.PW_CHROMIUM } : {});
   const ctx = await browser.newContext({ viewport: { width: 1100, height: 900 } });
@@ -67,8 +77,8 @@ function chk(name, cond, extra) { (cond ? ok : bad).push(name + (extra ? ' :: ' 
   chk('deck reached', await page.isVisible('#deck'));
   chk('a card rendered', (await page.$$('#cardHost .piece-card')).length > 0);
 
-  for (let i = 0; i < 6; i++) { await page.click('.t-like'); await page.waitForTimeout(420); }
-  await page.click('.t-love'); await page.waitForTimeout(500);
+  for (let i = 0; i < 6; i++) { await page.click('.t-like'); await afterSwipe(page); }
+  await page.click('.t-love'); await afterSwipe(page);
   await page.click('.swipe-cart').catch(() => {});
   await page.waitForTimeout(400);
 
@@ -153,7 +163,7 @@ function chk(name, cond, extra) { (cond ? ok : bad).push(name + (extra ? ' :: ' 
   await page.click('#topSizes .size-chip >> nth=1');
   await page.click('text=Next →'); await page.waitForTimeout(300);
   await page.click('text=Start shopping'); await page.waitForTimeout(1400);
-  for (let i = 0; i < 3; i++) { await page.click('.t-love'); await page.waitForTimeout(420); }
+  for (let i = 0; i < 3; i++) { await page.click('.t-love'); await afterSwipe(page); }
   const sep = await page.evaluate(() => {
     const f = JSON.parse(localStorage.getItem('styleDNA_v3::l_friend_gmail_com') || 'null');
     const p = localStorage.getItem('styleDNA_v3::l_psuttongerstein_gmail_com');

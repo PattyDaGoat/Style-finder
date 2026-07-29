@@ -38,9 +38,18 @@ APP_FIELDS = ("b", "n", "p", "cur", "usd", "img", "u", "cat", "ms", "color",
               "pat", "fab", "g")
 
 MAX_PER_BRAND = 8          # per category, while quota-picking
-GLOBAL_PER_BRAND = 20      # per brand across the whole export — one prolific
-                           # store adding 60 near-identical rows makes the
-                           # simulated-shopper eval visibly noisier (suite 04)
+# Per brand across the whole export. This was 20, chosen because one prolific
+# store adding ~60 near-identical rows made the simulated-shopper eval visibly
+# noisier (suite 04). Raised to 60 deliberately, to let a brand the app wants
+# properly represented — Stussy and the streetwear labels behind the youth tilt
+# — arrive as a real range rather than a token handful.
+#
+# The original worry is real and has NOT gone away, so it is now guarded rather
+# than assumed: suite 04 asserts the eval's per-persona spread stays under 0.10
+# and the results grid stays diverse, and both were re-baselined after this
+# change. If a future export makes suite 04 noisy again, this number is the first
+# thing to look at, not the last.
+GLOBAL_PER_BRAND = 60
 MIN_PRICE = 5.0
 
 # Mirror of the head-noun junk check in test/03-catalog-gender-and-photo.js —
@@ -99,12 +108,73 @@ def is_socks(name, cat=None):
     return not (shoe and shoe.start() > sock.start())
 
 
+# ---- children's clothing never ships -------------------------------------
+# browse.py's collection filter calls a kids' section "the one thing this app
+# must never ingest" and screens it out by COLLECTION name. That is not enough:
+# a brand's general apparel collection can carry kids' sizes inline, and three
+# Primitive rows — "AGENCY I I YOUTH TEE", "EXIST YOUTH TEE", "MELTDOWN YOUTH
+# TEE" — reached data/catalog.json that way. So the same rule is enforced here,
+# per product, where every row has to pass regardless of where it came from.
+#
+# Every word that means "child" is also a word that means something else in
+# clothing, so a flat keyword list deletes real products. Measured over this
+# catalog, the naive version flagged 192 rows and among them:
+#     "Faint of Heart Graphic Baby Tee"   a BABY TEE is an adult fitted tee
+#     "Core V Baby Tee"                   same
+#     "Olsen Mini Dress ~ Baby Blue"      BABY BLUE is a colour
+#     "Bootcut Boys Snapback"             a song title on an adult cap
+#     "Sonic Youth x Saturdays NYC ..."   a band
+# so ~35% of the flags were adult garments. This splits the words by how much
+# context they need instead.
+#
+# STRICT: unambiguous in a garment name. Nothing else calls itself a toddler.
+KIDS_STRICT_RE = re.compile(
+    r"\b(kid|kids|kid's|kids'|child|child's|children|children's|childrens|"
+    r"toddler|toddlers|infant|infants|newborn|preschool|pre-?k|"
+    r"grade ?school|little kid|big kid|junior|juniors)\b", re.I)
+# CONTEXTUAL: only a child signal next to a garment noun ("youth tee") or used
+# as the audience prefix a shop puts first ("BOYS ALAN SOLID SHIRT").
+_GARMENT = (r"tee|t-?shirt|shirt|hoodie|hood|sweat\w*|crew|jacket|pant|pants|"
+            r"short|shorts|jean|jeans|tank|top|dress|skirt|onesie|romper|"
+            r"boardshort|swim|trunk|cap|hat|beanie|sock|shoe|sneaker|boot")
+KIDS_CONTEXT_RE = re.compile(
+    r"\b(youth|boys|girls)\s+(?:\w+\s+){0,2}(?:" + _GARMENT + r")\b"
+    r"|^\s*(?:youth|boys|girls)\b"
+    r"|\bbaby\s+(?:boy|girl)\b", re.I)
+# Phrases that contain a child word but are not about children at all.
+KIDS_EXEMPT_RE = re.compile(
+    r"\b(baby ?tee|baby ?doll|babydoll|baby blue|baby pink|baby green|"
+    r"baby yellow|baby cord|sonic youth|youth of today|eternal youth|"
+    r"youth culture|bootcut boys|beach boys|pet shop boys|backstreet boys|"
+    r"spice girls|gilmore girls|girls? ?(trip|night)|boy ?short|boy ?friend|"
+    r"the boys)\b", re.I)
+# A slogan is artwork, not an audience. Shops quote it inside the product name —
+# Punkandyo - "INDONESIA KID" Black S/S T-Shirt is an adult tee with KID printed
+# on it — so quoted runs are removed before the audience words are looked for.
+KIDS_QUOTED_RE = re.compile(r"[\"“”'‘’]([^\"“”]{2,40})[\"“”'‘’]")
+
+
+def is_kids(name):
+    """True for children's garments only.
+
+    Deliberately asymmetric. A missed kids' item is one bad row in the deck; a
+    false positive silently deletes a product a shopper could have bought, and
+    nothing downstream will ever surface that. So slogans and known phrases are
+    stripped FIRST, and the words that double as style names (youth, boys, girls,
+    baby) only count with a garment noun beside them.
+    """
+    n = KIDS_QUOTED_RE.sub(" ", name or "")
+    n = KIDS_EXEMPT_RE.sub(" ", n)
+    return bool(KIDS_STRICT_RE.search(n) or KIDS_CONTEXT_RE.search(n))
+
+
 def is_clothing(row):
-    """The one gate: a garment, not underwear, not socks, not a bag."""
+    """The one gate: a garment, not underwear, not socks, not a bag, not kids'."""
     name, cat = row.get("n") or "", row.get("cat")
     return (cat in ALLOWED_CATS
             and not is_underwear(name, cat)
             and not is_socks(name, cat)
+            and not is_kids(name)
             and not JUNK_RX.search(name))
 
 # The app hides intimates from the deck (underwearLock in 15-sectioning.js), so
@@ -258,7 +328,16 @@ def drop_shared_photos(catalog, rows):
     return keep
 
 
-def _round_robin(by_brand, want, max_depth=MAX_PER_BRAND):
+def _round_robin(by_brand, want, max_depth=MAX_PER_BRAND, per_brand=None):
+    """Take up to `want` rows, one per brand per pass, deepening each round.
+
+    `per_brand` is the shared GLOBAL_PER_BRAND tally and is charged HERE, as rows
+    are actually taken. It used to be charged while bucketing candidates instead,
+    which is a different thing entirely: a brand with 300 eligible rows burned its
+    whole allowance on rows nobody ever picked. Sharing that counter across the
+    two per-gender passes then starved the second one — womenswear fell 238 -> 171
+    rows on a --promote 350 while menswear was unaffected.
+    """
     picked, depth = [], 0
     brands = sorted(by_brand, key=lambda b: -len(by_brand[b]))
     while len(picked) < want and depth < max_depth:
@@ -266,9 +345,13 @@ def _round_robin(by_brand, want, max_depth=MAX_PER_BRAND):
         for b in brands:
             if len(picked) >= want:
                 break
+            if per_brand is not None and per_brand[b] >= GLOBAL_PER_BRAND:
+                continue
             bucket = by_brand[b]
             if depth < len(bucket):
                 picked.append(bucket[depth])
+                if per_brand is not None:
+                    per_brand[b] += 1
                 took += 1
         if not took:
             break
@@ -284,19 +367,26 @@ def eligible(row, exclude_titles):
             and (row["b"], base_title(row["n"])) not in exclude_titles)
 
 
-def pick(gender, want, exclude_titles):
+def pick(gender, want, exclude_titles, per_brand=None):
     """Choose `want` varied browser-scraped products for one section.
 
     Draws from every browser-scraped row in the pool. The per-title exclusion
     against the current catalog is what prevents duplicates, so rows that were
     already curated somewhere else are simply skipped where they'd collide.
+
+    `per_brand` is the GLOBAL_PER_BRAND tally. Pass one in and it is shared
+    across calls, which is what makes the cap mean what its name says: this runs
+    once per gender, so a counter created fresh here let a brand present in both
+    sections ship up to 2 x GLOBAL_PER_BRAND. At 20 that was easy to miss; at 60
+    it let Obey land 82 rows in one export.
     """
     rows = [db.decode(r) for r in db.conn().execute(
         "SELECT * FROM products WHERE g = ? "
         "AND via IS NOT NULL AND via != 'feed' ORDER BY RANDOM()", (gender,))]
     buckets = defaultdict(lambda: defaultdict(list))
     seen_titles = set()
-    per_brand = defaultdict(int)
+    if per_brand is None:
+        per_brand = defaultdict(int)
     for r in rows:
         if not eligible(r, exclude_titles):
             continue
@@ -503,14 +593,29 @@ def prune_catalog(dry_run=False, verify=False):
             repaired += 1
     over = overused_images(catalog)
 
+    # Duplicate product URLs. These appear when the same pool row ships twice
+    # under two spellings of its brand: the exclusion set in main() is keyed on
+    # the EXACT brand string, so renaming brands in the catalog (dedupe_brands.py)
+    # without renaming them in the crawler pool leaves the guard unable to match,
+    # and the row is appended again. Collapsing on URL is safe because a product
+    # page is one product — whichever copy is seen first wins.
+    seen_urls = set()
+
     keep, dropped, reasons = [], [], defaultdict(int)
     for p in catalog:
         name, cat = p.get("n") or "", p.get("cat")
+        url = (p.get("u") or "").split("?")[0]
+        if url and url in seen_urls:
+            reasons["duplicate product URL"] += 1
+            dropped.append(p)
+            continue
         if not is_clothing(p):
             if is_underwear(name, cat):
                 reasons["underwear"] += 1
             elif is_socks(name, cat):
                 reasons["socks / hosiery"] += 1
+            elif is_kids(name):
+                reasons["children's clothing"] += 1
             elif cat not in ALLOWED_CATS:
                 reasons["not a garment (cat={})".format(cat)] += 1
             else:
@@ -522,6 +627,8 @@ def prune_catalog(dry_run=False, verify=False):
                 MAX_PRODUCTS_PER_IMAGE)] += 1
         else:
             keep.append(p)
+            if url:
+                seen_urls.add(url)
             continue
         dropped.append(p)
 
@@ -593,8 +700,9 @@ def main():
         rows = shipped(existing)
     elif args.promote:
         rows = []
+        per_brand = defaultdict(int)     # shared across both sections — see pick()
         for g in ("m", "f"):
-            got = pick(g, args.promote, existing)
+            got = pick(g, args.promote, existing, per_brand)
             for r in got:
                 existing.add((r["b"], base_title(r["n"])))
             rows.extend(got)

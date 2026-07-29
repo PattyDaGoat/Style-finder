@@ -365,28 +365,15 @@
   "brand": "Aime Leon Dore",
   "entries": {
    "f": [
-    "https://www.aimeleondore.com/collections/spring-summer-26-womens-capsule",
-    "https://www.aimeleondore.com/collections/womens-test"
+    "https://aimeleondore.com/collections/spring-summer-26-womens-capsule"
    ],
    "m": [
-    "https://www.aimeleondore.com/collections/tees",
-    "https://www.aimeleondore.com/collections/outerwear",
-    "https://www.aimeleondore.com/collections/shorts"
+    "https://aimeleondore.com/collections/tees",
+    "https://aimeleondore.com/collections/uniform"
    ]
   },
-  "entry_cursor": 0,
-  "gender_note": "guessed menswear (only 4% dresses and 4% read womenswear); registered as a prior, so any evidence on a piece overrides it",
-  "gender_source": "collection",
-  "health": {
-   "fail": 1,
-   "last": 1785328365.1922557,
-   "last_found": 0,
-   "note": "rate-limited (429) \u2014 stopping this shop for now",
-   "ok": 0,
-   "status": "blocked"
-  },
-  "host": "www.aimeleondore.com",
-  "note": "found by find_brands.py \u2014 streetwear"
+  "host": "aimeleondore.com",
+  "note": "bare host \u2014 the www. variant was blocking us"
  },
  "Aje": {
   "brand": "Aje",
@@ -1752,13 +1739,14 @@
    "f": [],
    "m": [
     "https://buttergoods.com/collections/t-shirt",
-    "https://buttergoods.com/collections/hats",
-    "https://buttergoods.com/collections/fleece"
+    "https://buttergoods.com/collections/fleece",
+    "https://buttergoods.com/collections/shirts",
+    "https://buttergoods.com/collections/pants",
+    "https://buttergoods.com/collections/jacket"
    ]
   },
-  "gender_source": "prior",
   "host": "buttergoods.com",
-  "note": "auto-discovered"
+  "note": ""
  },
  "CDLP": {
   "brand": "CDLP",
@@ -2674,6 +2662,30 @@
   "host": "dimemtl.com",
   "note": "auto-discovered"
  },
+ "Dime MTL": {
+  "brand": "Dime MTL",
+  "entries": {
+   "f": [
+    "https://dimemtl.com/collections/women-tops",
+    "https://dimemtl.com/collections/women"
+   ],
+   "m": [
+    "https://dimemtl.com/collections/tops",
+    "https://dimemtl.com/collections/t-shirts"
+   ]
+  },
+  "entry_cursor": 0,
+  "health": {
+   "fail": 1,
+   "last": 1785360485.935265,
+   "last_found": 0,
+   "note": "no products found on the page; no products found on the page; no products found on the page; no products found on the page",
+   "ok": 0,
+   "status": "blocked"
+  },
+  "host": "dimemtl.com",
+  "note": "own label only \u2014 skateshop-* is Nike/Vans resale"
+ },
  "Dissh": {
   "brand": "Dissh",
   "entries": {
@@ -3456,6 +3468,29 @@
   "host": "gitman.com",
   "note": "auto-discovered"
  },
+ "Golf Wang": {
+  "brand": "Golf Wang",
+  "entries": {
+   "f": [],
+   "m": [
+    "https://golfwang.com/collections/tops",
+    "https://golfwang.com/collections/tees",
+    "https://golfwang.com/collections/outerwear",
+    "https://golfwang.com/collections/bottoms"
+   ]
+  },
+  "entry_cursor": 0,
+  "health": {
+   "fail": 1,
+   "last": 1785360634.189141,
+   "last_found": 0,
+   "note": "no products found on the page; no products found on the page; no products found on the page; no products found on the page",
+   "ok": 0,
+   "status": "blocked"
+  },
+  "host": "golfwang.com",
+  "note": ""
+ },
  "Goodlife": {
   "brand": "Goodlife",
   "entries": {
@@ -3581,6 +3616,20 @@
    "status": "blocked"
   },
   "host": "www.gymking.com",
+  "note": ""
+ },
+ "HUF": {
+  "brand": "HUF",
+  "entries": {
+   "f": [
+    "https://hufworldwide.com/collections/womens"
+   ],
+   "m": [
+    "https://hufworldwide.com/collections/mens",
+    "https://hufworldwide.com/collections/mens-t-shirts"
+   ]
+  },
+  "host": "hufworldwide.com",
   "note": ""
  },
  "HUF Worldwide": {
@@ -4320,6 +4369,18 @@
   },
   "host": "ladywhiteco.com",
   "note": "auto-discovered"
+ },
+ "Last Resort AB": {
+  "brand": "Last Resort AB",
+  "entries": {
+   "f": [],
+   "m": [
+    "https://lastresortab.com/collections/apparel",
+    "https://lastresortab.com/collections/shoes"
+   ]
+  },
+  "host": "lastresortab.com",
+  "note": ""
  },
  "Le Alfr\u00e9": {
   "brand": "Le Alfr\u00e9",
@@ -5332,28 +5393,15 @@
   "brand": "Obey",
   "entries": {
    "f": [
-    "https://www.obeyclothing.com/collections/women",
-    "https://www.obeyclothing.com/collections/all-womens",
-    "https://www.obeyclothing.com/collections/womens-new-arrivals"
+    "https://obeyclothing.com/collections/women"
    ],
    "m": [
-    "https://www.obeyclothing.com/collections/mens-all",
-    "https://www.obeyclothing.com/collections/men",
-    "https://www.obeyclothing.com/collections/mens-t-shirts"
+    "https://obeyclothing.com/collections/mens-all",
+    "https://obeyclothing.com/collections/mens-t-shirts"
    ]
   },
-  "entry_cursor": 0,
-  "gender_source": "collection",
-  "health": {
-   "fail": 1,
-   "last": 1785254008.4504757,
-   "last_found": 0,
-   "note": "rate-limited (429) \u2014 stopping this shop for now",
-   "ok": 0,
-   "status": "blocked"
-  },
-  "host": "www.obeyclothing.com",
-  "note": "auto-discovered"
+  "host": "obeyclothing.com",
+  "note": "bare host \u2014 the www. variant was blocking us"
  },
  "Oh Polly": {
   "brand": "Oh Polly",
@@ -5797,14 +5845,13 @@
   "entries": {
    "f": [],
    "m": [
-    "https://pleasuresnow.com/collections/all-store-products",
     "https://pleasuresnow.com/collections/spring-26",
-    "https://pleasuresnow.com/collections/spring-25"
+    "https://pleasuresnow.com/collections/fall-25",
+    "https://pleasuresnow.com/collections/new-arrivals"
    ]
   },
-  "gender_source": "prior",
   "host": "pleasuresnow.com",
-  "note": "auto-discovered"
+  "note": "all-store-products is 5,195 rows incl. every archive \u2014 avoided"
  },
  "Polar Skate Co": {
   "brand": "Polar Skate Co",
@@ -5889,21 +5936,11 @@
   "entries": {
    "f": [],
    "m": [
-    "https://www.primitiveskate.com/collections/champions-2026-mens"
+    "https://primitiveskate.com/collections/apparel"
    ]
   },
-  "entry_cursor": 0,
-  "gender_source": "collection",
-  "health": {
-   "fail": 1,
-   "last": 1785261730.2116861,
-   "last_found": 0,
-   "note": "rate-limited (429) \u2014 stopping this shop for now",
-   "ok": 0,
-   "status": "blocked"
-  },
-  "host": "www.primitiveskate.com",
-  "note": "auto-discovered"
+  "host": "primitiveskate.com",
+  "note": "bare host \u2014 the www. variant was blocking us; hardgoods avoided"
  },
  "Princess Polly": {
   "brand": "Princess Polly",
@@ -5999,6 +6036,18 @@
   },
   "host": "pursuefitness.com",
   "note": "auto-discovered"
+ },
+ "Quasi Skateboards": {
+  "brand": "Quasi Skateboards",
+  "entries": {
+   "f": [],
+   "m": [
+    "https://quasiskateboards.com/collections/tops",
+    "https://quasiskateboards.com/collections/bottoms"
+   ]
+  },
+  "host": "quasiskateboards.com",
+  "note": "apparel only \u2014 all-decks/hardware are hardgoods"
  },
  "RIPNDIP": {
   "brand": "RIPNDIP",
@@ -7420,18 +7469,25 @@
  "Stussy": {
   "brand": "Stussy",
   "entries": {
-   "f": [
-    "https://www.stussy.com/collections/womens-swim"
-   ],
+   "f": [],
    "m": [
-    "https://www.stussy.com/collections/mens-swim"
+    "https://stussy.com/collections/tees",
+    "https://stussy.com/collections/tops-shirts",
+    "https://stussy.com/collections/sweats",
+    "https://stussy.com/collections/bottoms",
+    "https://stussy.com/collections/outerwear"
    ]
   },
-  "entry_cursor": 2,
-  "gender_note": "guessed menswear (only 0% dresses and 5% read womenswear); registered as a prior, so any evidence on a piece overrides it",
-  "gender_source": "collection",
-  "host": "www.stussy.com",
-  "note": "found by find_brands.py \u2014 streetwear"
+  "entry_cursor": 1,
+  "health": {
+   "fail": 0,
+   "last": 1785360317.129196,
+   "last_found": 231,
+   "ok": 2,
+   "status": "ok"
+  },
+  "host": "stussy.com",
+  "note": "menswear/unisex \u2014 no womens collection beyond swim"
  },
  "Suboo": {
   "brand": "Suboo",
@@ -8264,6 +8320,19 @@
   "gender_source": "collection",
   "host": "www.weekendoffender.com",
   "note": "auto-discovered"
+ },
+ "Welcome Skateboards": {
+  "brand": "Welcome Skateboards",
+  "entries": {
+   "f": [],
+   "m": [
+    "https://welcomeskateboards.com/collections/apparel",
+    "https://welcomeskateboards.com/collections/tees",
+    "https://welcomeskateboards.com/collections/fleece"
+   ]
+  },
+  "host": "welcomeskateboards.com",
+  "note": "apparel only \u2014 hardgoods/decks avoided"
  },
  "Whimsy + Row": {
   "brand": "Whimsy + Row",

@@ -28,7 +28,7 @@ files you're taking. The map is below.
 ### 3. `npm test` before every commit
 
 ```
-npm test          # builds, then runs all 6 suites (278 assertions)
+npm test          # builds, then runs all 7 suites (337 assertions)
 ```
 
 It takes a few minutes and it has caught eight real bugs that code review missed — a drag
@@ -47,7 +47,7 @@ dist/style-finder.html generated. Never edit.
 src/shell/*.html       the HTML around the CSS and JS (head, body, tail)
 src/css/*.css          concatenated in filename order
 src/js/*.js            concatenated in filename order
-test/                  six suites + run-all.mjs
+test/                  seven suites + run-all.mjs
 tools/                 one-off scripts that generated the data
 docs/                  design notes and change reviews
 ```

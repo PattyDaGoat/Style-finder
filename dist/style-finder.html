@@ -1928,21 +1928,99 @@ function fitOf(p){const t=(p.n||"").toLowerCase();
   if(/tapered|carrot/.test(t))return"tapered";
   if(/slim|skinny/.test(t))return"slim";
   return"regular";}
-/* derive occasion tags per piece (for the occasion filter) */
+/* ---------- occasion tagging ----------
+   Which events a piece actually suits. This feeds the Day-to-day / Work /
+   Going-out / Active / Beach chips on the setup screen, and it is a HARD
+   filter — pick an occasion and anything without that tag never reaches your
+   deck. So a loose rule here does not merely mis-sort the feed, it fills it
+   with the wrong clothes.
+
+   The old rule was loose in one direction only: nearly everything qualified.
+   `cat==='dress'` on its own tagged all 605 dresses as cocktail — denim shifts
+   and smocked sundresses included — and any ivy-prep or british-mod piece that
+   was not a tee or a cap qualified too, which is how jeans, chinos, corduroy
+   shorts and pique polos arrived under "Going out". 1,299 pieces carried the
+   tag and most of them were daywear.
+
+   This works the other way round. Every occasion except `daily` needs a
+   positive reason AND has to survive a veto written for that occasion
+   specifically — chinos and oxford shirts are vetoed from cocktail but not
+   from work, which a single shared "casual" list could never express.
+
+   The reasons come mostly from the piece's own NAME, because the name is by
+   far the richest signal here: `fab` is populated on well under a fifth of the
+   catalog, and `cat` is occasionally wrong outright — there is a baseball cap
+   filed under `trouser` — so a name-led rule is both sharper and much harder
+   to fool with one bad row. */
+const OCC={
+  /* genuinely dressy: eveningwear, tailoring, and the fabrics that only turn up
+     when a piece is meant to be dressed up */
+  dressy:/(cocktail|black ?tie|tuxedo|\btux\b|gown|evening|formal|\bparty\b|going ?out|sequin|sparkl|glitter|metallic|satin|silk|velvet|\blace\b|chiffon|organza|taffeta|crepe|slip dress|bodycon|strapless|halter|corset|off.the.shoulder|one.shoulder|backless|plunge|blazer|\bsuit\b|sport ?coat|dinner jacket|dress shirt|dress ?(pant|trouser)|tailored|\bheel|\bpump\b|stiletto|monk strap)/,
+  /* vetoes COCKTAIL only. Denim, chinos, polos and camp shirts are perfectly
+     good clothes — they are simply not what anyone means by "going out".
+     `\bshorts\b` is plural on purpose: the garment is nearly always named in the
+     plural ("Crepe Low Rise Shorts"), while the singular is usually an adjective
+     — "Silk SHORT Slip Dress", "SHORT-Sleeve Shirt" — both of which are exactly
+     the sort of thing that should stay. Dressy shorts do exist and this drops a
+     handful of them; showing corduroy shorts to someone who asked for cocktail
+     is the worse error. */
+  notDressy:/(hood(ie|ed)|sweat ?(shirt|pant|short)|jogger|track ?(suit|pant|top)|\bgym\b|athletic|workout|training|running|legging|yoga|sports? ?bra|rash ?guard|base ?layer|thermal|fleece|puffer|parka|anorak|windbreaker|cargo|carpenter|painter|utility|flannel|graphic|band tee|\blogo\b|tank|muscle|sneaker|trainer|skate|hik(e|ing)|trucker|beanie|bucket|denim|\bjean|chino|corduroy|\bcord\b|terry|waffle|crochet|smocked|sundress|shift dress|prairie|coverup|cover.up|kaftan|caftan|swim|bikini|trunk|board ?short|\bpolo\b|pique|camp ?(shirt|collar)|western|work ?shirt|overshirt|chore|lace.?up|heel ?tab|\bcap\b|seersucker|gingham|plaid|fair ?isle|\btee\b|t.?shirt|\bshorts\b)/,
+  /* smart enough for an office, without needing to be eveningwear */
+  smart:/(blazer|\bsuit\b|sport ?coat|dress shirt|oxford|poplin|button.?down|buttondown|tailored|trouser|slack|pleated|merino|cashmere|\bwool\b|cardigan|turtleneck|sweater|loafer|derby|chelsea|monk strap|blouse|sheath|shirt ?dress|pencil|\bchino\b)/,
+  /* vetoes WORK. Deliberately shorter than notDressy: an oxford shirt and a
+     pair of chinos belong here, a hoodie and gym shorts do not. */
+  notSmart:/(hood(ie|ed)|sweat ?(shirt|pant|short)|jogger|track ?(suit|pant|top)|\bgym\b|athletic|workout|training|legging|yoga|sports? ?bra|rash ?guard|graphic|band tee|tank|muscle|cargo|swim|bikini|trunk|board ?short|beanie|trucker|bucket|distressed|ripped|\btee\b|t.?shirt|hawaii|aloha|tropical|sneaker|trainer|heel ?tab|\bcap\b|denim|\bjean|\bshorts?\b(?! ?sleeve))/,
+  /* gym and sport */
+  active:/(\bgym\b|athletic|training|workout|running|\brun\b|jog|track|legging|yoga|pilates|sports? ?bra|performance|moisture|quick.?dry|dri.?fit|wicking|compression|base ?layer|rash ?guard|\bactive|\bcourt\b|tennis|golf|hik(e|ing)|trail|cycling|\bbike|sweat ?(pant|short)|jogger)/,
+  /* vetoes ACTIVE — nobody trains in silk or corduroy */
+  notActive:/(silk|satin|velvet|\blace\b|blazer|\bsuit\b|gown|dress shirt|denim|\bjean|linen|corduroy|\bcord\b|cashmere|oxford|poplin|loafer|\bheel|tweed|flannel|swim|bikini|trunk|one.?piece|py?jama|pajama|terry|\bpolo\b)/,
+  /* sun, sand, holiday */
+  beach:/(swim|bikini|trunk|board ?short|one.?piece|coverup|cover.up|kaftan|caftan|sarong|pareo|sandal|flip.?flop|\bslide\b|espadrille|\bstraw\b|raffia|resort|vacation|tropical|\bpalm\b|hawaii|aloha|camp ?(shirt|collar)|cabana|seersucker|sundress|\bbeach)/,
+  /* vetoes BEACH — too warm or too heavy to be holiday wear */
+  cold:/(puffer|parka|\bdown\b|\bwool\b|cashmere|merino|fleece|shearling|corduroy|flannel|\bboots?\b|coat\b|quilted|insulated|thermal|tweed|leather jacket)/,
+  /* vetoes DAY TO DAY — you do not wear these to the shops */
+  notDaily:/(swim|bikini|trunk|board ?short|one.?piece|gown|tuxedo|\btux\b|cocktail|black ?tie|sports? ?bra|rash ?guard)/
+};
+/* There is deliberately no category veto here any more. Vetoing cat==='tee' and
+   cat==='short' from cocktail looked sensible and cost real pieces: a "Sequin
+   Lily Top" is filed `tee` and a "Sequin Mesh High Neck Bodysuit and Shorts
+   Co-ord" is filed `short`, and both are unmistakably going-out clothes. `cat`
+   is the least reliable field on the row — there is a baseball cap filed under
+   `trouser` — so the name vetoes do this job instead, and do it more precisely:
+   sequin BIKINIS, sequin SWEATPANTS and sequin JEANS are still all excluded,
+   because those words are in the name where the truth is. */
+const OCC_LIGHT_CATS =['tee','shirt','short','dress','trouser','shoe','cap','knit'];
 function occasionsOf(p){
-  const o=new Set(),ms=p.ms,cat=p.cat,fab=p.fab||[],n=(p.n||"").toLowerCase();
-  const dressy=['ivy-prep','british-mod','scandi-minimal','elevated-basics','monochrome-minimal','knitwear-forward'];
-  const active=['gorpcore-utility','collegiate-athletic','surf-sport'];
-  if(['tee','shirt','knit','sweat','trouser','short','cap','shoe','acc'].includes(cat))o.add('daily');
-  if((['shirt','knit','trouser','outer','dress'].includes(cat))&&ms.some(m=>dressy.includes(m)))o.add('work');
-  if(cat==='shoe'&&/loafer|derby|oxford|chelsea|dress|heel/.test(n))o.add('work');
-  if(cat==='dress')o.add('event');
-  if(cat==='outer'&&/blazer|suit|sport ?coat|tux/.test(n))o.add('event');
-  if(cat==='shirt'&&(fab.includes('silk')||/dress shirt|tux|going out/.test(n)))o.add('event');
-  if((ms.includes('british-mod')||ms.includes('ivy-prep'))&&cat!=='tee'&&cat!=='cap')o.add('event');
-  if(ms.some(m=>active.includes(m))||/jog|track|gym|active|legging|tech|performance|running/.test(n))o.add('active');
-  if(cat==='sweat'||cat==='short')o.add('active');
-  if(ms.includes('linen-resort')||ms.includes('surf-sport')||ms.includes('coastal-prep')||fab.includes('linen'))o.add('beach');
+  const o=new Set(), n=(p.n||"").toLowerCase(), cat=p.cat, ms=p.ms||[], fab=p.fab||[];
+  const has=f=>fab.includes(f);
+  const dressyFab=has('silk')||has('satin')||has('velvet');
+  const dressy=OCC.dressy.test(n)||dressyFab;
+
+  /* going out / cocktail — a dressy reason, surviving the dressy veto. Being a
+     dress is NOT a reason: that single line was most of the old false positives. */
+  if(dressy && !OCC.notDressy.test(n)) o.add('event');
+
+  /* work / smart */
+  if((dressy||OCC.smart.test(n)||has('wool')||has('merino')||has('cashmere')||has('oxford')||has('poplin'))
+     && !OCC.notSmart.test(n)) o.add('work');
+
+  /* active / gym — the NAME has to say so. The old rule accepted a micro-style
+     on its own, and `surf-sport` / `collegiate-athletic` describe an aesthetic
+     rather than a function: between them they cover 2,510 pieces, which is how
+     swim trunks, bikini bottoms, pyjama bottoms and plain pocket tees came to
+     be filed as gym kit. Nothing about a striped tee says you can train in it. */
+  if(OCC.active.test(n) && !OCC.notActive.test(n)) o.add('active');
+
+  /* beach / vacation. Linen counts as a FABRIC on a light garment, not as the
+     `linen-resort` LOOK — that micro-style sits on 1,257 pieces including
+     metallic knit ponchos and silk evening tops. A linen blazer is tailoring,
+     and the old rule shipped all 227 linen rows whatever they turned out to be. */
+  if((OCC.beach.test(n) || (has('linen') && OCC_LIGHT_CATS.indexOf(cat)>=0))
+     && !OCC.cold.test(n)) o.add('beach');
+
+  /* day to day — deliberately broad, it is the "just show me clothes" option */
+  if(!OCC.notDaily.test(n)) o.add('daily');
+
   if(!o.size)o.add('daily');
   return [...o];
 }

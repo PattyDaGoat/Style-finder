@@ -142,9 +142,14 @@ async function settle(p){await p.waitForLoadState('load').catch(()=>{});await p.
  await p.click('#evFab'); await p.waitForTimeout(300);
  chk('panel opens', await p.isVisible('#evOverlay'));
  await p.click('text=Test on 3 simulated shoppers');
- await p.waitForTimeout(6000);
+ /* wait for the run to actually finish rather than sleeping a fixed 6s. The synthetic run
+    grows with every persona added and with the catalogue, and a hardcoded wait turns that
+    growth into a flaky assertion instead of an honest failure. */
+ await p.waitForFunction(()=>/Headline/.test((document.getElementById('evResult')||{}).textContent||''),
+                         null, {timeout:120000});
  const uiTables=await p.evaluate(()=>document.querySelectorAll('#evResult table.ev').length);
- chk('panel renders one table per simulated shopper', uiTables===3, 'tables='+uiTables);
+ const nPersonas=await p.evaluate(()=>EV_PERSONAS.length);
+ chk('panel renders one table per simulated shopper', uiTables===nPersonas, 'tables='+uiTables+' personas='+nPersonas);
  chk('panel shows a headline average', (await p.textContent('#evResult')).includes('Headline'));
  chk('log reports timing', (await p.textContent('#evLog')).includes('done in'));
  await p.screenshot({path:join(SHOTS,'shot-eval.png')});

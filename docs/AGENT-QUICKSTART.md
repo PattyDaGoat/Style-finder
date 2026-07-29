@@ -64,6 +64,21 @@ the diff.
   unique to your change — a green build is not evidence the user can see it. And
   tell them to hard-reload; a cached file is indistinguishable from a failed deploy.
 
+- **A syntax error anywhere in `src/js/**` looks like six broken test suites, not a
+  syntax error.** Everything is concatenated into one inline `<script>`, so one stray
+  character stops the whole file parsing and *every* global — `S`, `storeKey`,
+  `buildModel` — is undefined. All six suites then time out in `settle()` and the runner
+  prints `0 passed` for each, with `(did not report)` only in the last line. Nothing
+  anywhere says "syntax error". Cost: one full 10-minute run to find a comment that had
+  been closed one paragraph too early. Check it in a second before you spend the ten:
+
+  ```
+  cat src/js/*.js | node --check /dev/stdin
+  ```
+
+  Parsing is all it does — the files share one scope and reference each other's globals,
+  which `--check` neither resolves nor complains about. That is exactly what you want here.
+
 - **`dist/style-finder.html` is ~4MB.** Never open it whole. Grep it.
 
 - **Timing lives in `SW` (`src/js/45-swipe-drag.js`).** Any test that reads state

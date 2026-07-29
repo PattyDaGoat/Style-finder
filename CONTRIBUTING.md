@@ -28,7 +28,7 @@ files you're taking. The map is below.
 ### 3. `npm test` before every commit
 
 ```
-npm test          # builds, then runs all 5 suites (221 assertions)
+npm test          # builds, then runs all 6 suites (278 assertions)
 ```
 
 It takes a few minutes and it has caught eight real bugs that code review missed — a drag
@@ -42,12 +42,12 @@ red, don't commit.
 
 ```
 build.mjs              glues src/ + data/ into dist/. Read the comment at the top before touching.
-data/catalog.json      9,306 products, ONE PER LINE. Generated data — see the warning below.
+data/catalog.json      9,867 products, ONE PER LINE. Generated data — see the warning below.
 dist/style-finder.html generated. Never edit.
 src/shell/*.html       the HTML around the CSS and JS (head, body, tail)
 src/css/*.css          concatenated in filename order
 src/js/*.js            concatenated in filename order
-test/                  five suites + run-all.mjs
+test/                  six suites + run-all.mjs
 tools/                 one-off scripts that generated the data
 docs/                  design notes and change reviews
 ```
@@ -116,9 +116,25 @@ The current baseline, for reference:
 
 | Scenario | AUC | P@10 | run-to-run spread |
 |---|---|---|---|
-| Neutral minimalist | 0.839 | 85% | ±0.018 |
-| Bold streetwear | 0.701 | 79% | ±0.050 |
-| Earthy womenswear | 0.735 | 83% | ±0.034 |
+| Neutral minimalist | 0.843 | 87% | ±0.027 |
+| Bold streetwear | 0.714 | 87% | ±0.041 |
+| Earthy womenswear | 0.740 | 79% | ±0.044 |
+| **overall** | **0.766** | | |
+
+Measured at 9,867 products. **Quote the catalogue size with the number or the number means
+nothing** — this table is only comparable against itself.
+
+**These numbers move when the data moves, and the recommender does not.** They read
+0.839 / 0.701 / 0.735 for a long time, measured when the catalogue held 9,306 products. At
+9,837 the same untouched `50-taste-model.js` scored 0.837 / 0.730 / 0.748 — Bold streetwear
+alone drifted +0.029. Then a routine crawl added **31 products, 0.3% of the catalogue**, and
+Bold streetwear moved again, 0.730 → 0.714. That last one is worth sitting with: a third of
+a percent more data shifted a persona by 0.016, half its own noise floor, while nobody
+touched the algorithm.
+
+So: re-measure on the catalogue you are actually shipping, immediately before and after your
+change, and compare only those two. A number inherited from this file is a number measured
+on somebody else's deck, and the gap is big enough to invent an improvement that isn't there.
 
 Earthy womenswear moved 0.675 → 0.735 and Bold streetwear's P@10 75% → 79% when
 `reactW` began scaling with the shopper's own right-vs-left swipe ratio. Note

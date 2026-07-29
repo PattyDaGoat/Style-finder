@@ -123,6 +123,54 @@ async function settle(p){await p.waitForLoadState('load').catch(()=>{});await p.
  const avgAll=signal.reduce((a,s)=>a+s.current,0)/signal.length;
  console.log('  OVERALL current-algorithm AUC: '+avgAll.toFixed(3));
 
+ // ---- the grid's COMPOSITION, which AUC cannot see ----
+ /* A pooled ranking metric is nearly blind to a group-level score offset: shift
+    every shoe up by a constant and within-group AUC does not move, while the
+    36-piece results grid quietly fills with shoes. That is not hypothetical —
+    an early version of the garment-conditional model did exactly this (the raw
+    group bags were rescaled but not level-matched) and produced 16 shoes / 11
+    accessories / 0 bottoms for a shopper who liked half the bottoms they saw,
+    with AUC essentially unchanged. So this checks what the shopper is actually
+    handed, not how well it ranks.
+
+    "Neutral minimalist" is the right probe because its want() has no garment
+    conditioning in it at all — it likes neutral/dark solids wherever they turn
+    up — so ANY strong garment skew in its grid is the model inventing one. */
+ const grid=await p.evaluate(()=>{
+   GENDER='m'; S.settings={gender:'m',maxBudget:100000};
+   const out=[];
+   [3311,9100].forEach(seed=>{
+     const sess=evSynthSession(EV_PERSONAS[0],1280,seed);
+     S.reactions={};S.hist=[];S.tags={};S.picks=[];S.likes=[];S.seeds=[];S.inspo=null;
+     sess.forEach(x=>{S.reactions[x.i]=x.r;S.hist.push(x.i);
+       if(x.r==='love')S.picks.push(x.i); if(x.r==='like')S.likes.push(x.i);});
+     buildModel(); computeRec();
+     const by={}; REC.forEach(i=>{const g=groupOf(CATALOG[i]);by[g]=(by[g]||0)+1;});
+     /* what the deck itself is made of, as the fair comparison */
+     const pool={}; let tot=0;
+     for(let i=0;i<CATALOG.length;i++) if(passesFilters(i)){const g=groupOf(CATALOG[i]);pool[g]=(pool[g]||0)+1;tot++;}
+     out.push({seed, n:REC.length, by, poolShare:Object.fromEntries(
+       Object.keys(pool).map(g=>[g,pool[g]/tot]))});
+   });
+   return out;
+ });
+ grid.forEach(g=>{
+   const groups=Object.keys(g.by);
+   const top=groups.reduce((a,k)=>g.by[k]>(g.by[a]||0)?k:a,groups[0]);
+   const topShare=g.by[top]/g.n;
+   /* no single garment group may take more than half the grid unless the deck is
+      itself that lopsided. Tops are ~57% of the catalogue, so they are allowed to
+      lead; a thin group taking the grid is the failure this catches. */
+   chk('grid (seed '+g.seed+') is not dominated by one garment group',
+       topShare<=0.55||topShare<=(g.poolShare[top]||0)+0.15,
+       top+' took '+g.by[top]+'/'+g.n+' ('+(topShare*100).toFixed(0)+'%) vs '+
+       ((g.poolShare[top]||0)*100).toFixed(0)+'% of the deck :: '+JSON.stringify(g.by));
+   chk('grid (seed '+g.seed+') covers bottoms, which are 20%+ of the deck',
+       (g.by.bottoms||0)>=2, JSON.stringify(g.by));
+   chk('grid (seed '+g.seed+') spans at least three garment groups',
+       groups.length>=3, JSON.stringify(g.by));
+ });
+
  // ---- reproducibility: same input, same number ----
  const repro=await p.evaluate(()=>{
    GENDER='m'; S.settings={gender:'m',maxBudget:100000};
@@ -141,7 +189,7 @@ async function settle(p){await p.waitForLoadState('load').catch(()=>{});await p.
  chk('?eval=1 reveals the dev button', await p.isVisible('#evFab'));
  await p.click('#evFab'); await p.waitForTimeout(300);
  chk('panel opens', await p.isVisible('#evOverlay'));
- await p.click('text=Test on 3 simulated shoppers');
+ await p.click('text=Test on the simulated shoppers');   // label carries no count, so adding a persona cannot stale it
  /* wait for the run to actually finish rather than sleeping a fixed 6s. The synthetic run
     grows with every persona added and with the catalogue, and a hardcoded wait turns that
     growth into a flaky assertion instead of an honest failure. */

@@ -46,6 +46,15 @@ function evPrecAt(scored,k){
 /* ---------- the scorers under test ----------
    To measure a change, add a row here and re-run. Keep "current" untouched so every
    future variant is compared against the same reference. */
+/* Score with the taste model's two switches forced, then put them back exactly as
+   they were. Both are read at SCORING time, not build time, so one built model
+   can be scored every way in the same replay — which is what makes the variant
+   rows below an honest comparison rather than four separate runs. */
+function evWith(cond,scale,fn){
+  const c=COND_ON, s=PROF_SCALE;
+  COND_ON=cond; PROF_SCALE=scale;
+  try{ return fn(); } finally { COND_ON=c; PROF_SCALE=s; }
+}
 const EV_SCORERS = [
   {key:"current", label:"Current algorithm", kind:"real",
    fn:(i,W,L)=>hybrid(CATALOG[i],W,L)},
@@ -53,6 +62,15 @@ const EV_SCORERS = [
    fn:(i,W,L)=>profileScore(CATALOG[i],W)},
   {key:"knn-only", label:"Nearest-neighbour only (no profile)", kind:"real",
    fn:(i,W,L)=>knnScore(CATALOG[i],L)},
+  /* ---- the two changes, each switched off on its own ----
+     Read these as ablations: how much worse does it get WITHOUT this? A variant
+     that scores the same as "current" is a change that bought nothing. */
+  {key:"flat-traits", label:"Ablation: flat traits (garment conditioning off)", kind:"real",
+   fn:(i,W,L)=>evWith(false,true,()=>hybrid(CATALOG[i],W,L))},
+  {key:"unscaled-blend", label:"Ablation: unscaled blend (profile swamps kNN)", kind:"real",
+   fn:(i,W,L)=>evWith(true,false,()=>hybrid(CATALOG[i],W,L))},
+  {key:"both-off", label:"Ablation: both off (IDF re-weighting alone)", kind:"real",
+   fn:(i,W,L)=>evWith(false,false,()=>hybrid(CATALOG[i],W,L))},
   {key:"popularity", label:"Baseline: most common brands", kind:"base",
    fn:(i)=>(BRcnt[CATALOG[i].b]||0)},
   {key:"random", label:"Baseline: random order", kind:"base",
@@ -71,6 +89,11 @@ function evReplay(session, holdoutFrac){
   /* build the model from the training slice only, by temporarily standing in for the
      real session state, then putting it back exactly as it was */
   const keep={reactions:S.reactions,tags:S.tags,hist:S.hist,picks:S.picks,likes:S.likes,seeds:S.seeds,inspo:S.inspo};
+  const keptModel=MODEL;      /* buildModel writes the module-global MODEL, and the
+                                 live app goes on reading it — the deck scores the
+                                 next card off it. Restoring S but not MODEL left
+                                 the app ranking against a synthetic shopper's
+                                 taste until something else happened to rebuild. */
   const trainIdx=new Set(train.map(x=>x.i));
   S.reactions={}; S.hist=[]; S.tags=keep.tags||{};
   train.forEach(x=>{S.reactions[x.i]=x.r; S.hist.push(x.i);});
@@ -80,6 +103,7 @@ function evReplay(session, holdoutFrac){
   buildModel();
   const W=MODEL, L=lovedPicks();
   Object.assign(S,keep);                                  // restore
+  MODEL=keptModel;                                        // ... including the model
 
   const rows=EV_SCORERS.map(sc=>{
     const rng=evRng(20260725);
@@ -108,7 +132,30 @@ function evSavedSession(){
 const EV_PERSONAS=[
   {name:"Neutral minimalist", gender:"m", want:p=>(p.color==="neutral"||p.color==="dark")&&p.pat==="solid"},
   {name:"Bold streetwear",    gender:"m", want:p=>p.color==="bold"||p.pat==="graphic"},
-  {name:"Earthy womenswear",  gender:"f", want:p=>p.color==="earth"||(p.fab||[]).includes("linen")}
+  {name:"Earthy womenswear",  gender:"f", want:p=>p.color==="earth"||(p.fab||[]).includes("linen")},
+  /* ---- the shopper the first three could not describe ----
+     Every persona above is a single global rule over traits, which is precisely
+     the shape a flat additive profile represents perfectly — so on those three
+     the profile is near-optimal by construction and any change can only look
+     like noise or damage. That made the harness structurally blind to the two
+     things it is now being asked to measure.
+
+     This one dresses the way a lot of people actually do: dark or bold on top,
+     plain neutrals underneath. It is not a harder rule, it is a CONDITIONAL one,
+     and a single shared bag of colour weights cannot hold it — flattened across
+     the wardrobe it reads "likes neutral (523 pieces), dark (486) and bold
+     (115)", i.e. likes nearly every colour, which is no preference at all. It is
+     also multi-modal, so the top-3 nearest-neighbour term has something to say
+     that the averaged profile does not.
+
+     Measured against the pool the harness actually deals from (passesFilters at
+     GENDER='m', 4303 pieces — not the raw gender slice), 1124 of them qualify,
+     26%. A 1280-swipe session therefore hides around 71 liked pieces at the 25%
+     holdout, well clear of the 8 the metric needs to mean anything. */
+  {name:"Split wardrobe",     gender:"m", want:p=>{
+     const g=groupOf(p);
+     return (g==="tops"||g==="outerwear") ? (p.color==="dark"||p.color==="bold")
+                                          : (p.color==="neutral"&&p.pat==="solid");}}
 ];
 function evSynthSession(persona, n, seed){
   const rng=evRng(seed);
@@ -229,7 +276,11 @@ function evalRun(mode){
         }
         out.push(["Your saved session", evAggregate(evRollingSplits(s))]);
       }else{
+        /* try/finally, not a restore at the end of the loop: a throw part-way
+           through would otherwise leave the app in the last persona's section,
+           silently switching the shopper from menswear to womenswear. */
         const keepG=GENDER, keepS=S.settings;
+        try{
         EV_PERSONAS.forEach((per,k)=>{
           GENDER=per.gender; S.settings=Object.assign({},S.settings||{},{gender:per.gender});
           const seeds=[1001+k*13,2002+k*13,3003+k*13,4004+k*13,5005+k*13];
@@ -238,7 +289,7 @@ function evalRun(mode){
                      sets[0].session.filter(x=>x.r!=="skip").length+" liked in the first)");
           out.push([per.name, evAggregate(sets)]);
         });
-        GENDER=keepG; S.settings=keepS;
+        } finally { GENDER=keepG; S.settings=keepS; }
       }
       host.innerHTML=out.map(([t,r])=>evTable(t,r)).join("");
       /* average AUC across runs, so there is one headline number to compare against later */

@@ -30,9 +30,15 @@ exactly.
 
 4. Before committing:
    ```
+   npm install      # first time only
+   npx playwright install chromium   # first time only — the suites drive a real browser
    npm test         # rebuilds dist/ and runs the full test suite — it must pass
    npm run check    # confirms dist/ isn't stale
    ```
+   The suite takes ~10 minutes and drives a real browser. If a suite reports
+   "did not report", run it on its own (`node test/0X-name.js`) to see the actual
+   error — the runner only surfaces the summary line. Set `PW_CHROMIUM` if you
+   need to point at a specific Chromium binary.
 
 5. Commit your source changes together with the regenerated `dist/style-finder.html`:
    ```
@@ -45,6 +51,42 @@ exactly.
    ```
    git push -u origin <branch-name>
    ```
+
+### Things that have already bitten someone
+
+Written down because each one cost real debugging time, and none are obvious from
+the diff.
+
+- **The app is published, so "done" means live.** A push to `main` triggers
+  `.github/workflows/deploy-pages.yml`, which rebuilds from source and republishes
+  to https://pattydagoat.github.io/Style-finder/. A change sitting on a branch is
+  not done. Before you report a fix, `curl` the live URL and grep for something
+  unique to your change — a green build is not evidence the user can see it. And
+  tell them to hard-reload; a cached file is indistinguishable from a failed deploy.
+
+- **`dist/style-finder.html` is ~4MB.** Never open it whole. Grep it.
+
+- **Timing lives in `SW` (`src/js/45-swipe-drag.js`).** Any test that reads state
+  after a swipe must wait for `SW.flyMs`, not a hardcoded number — suites 01 and 06
+  derive their waits from it. Hardcoding a wait means retuning the animation
+  silently makes the suite flaky, which has happened.
+
+- **Slowing an animation must never cost input.** The deck used to freeze for the
+  whole fly-out, so a second swipe was dropped. The leaving card now animates in
+  its own detached layer with the reaction committed immediately.
+
+- **Cart and Liked are stored as CATALOG ARRAY INDICES.** Anything that reorders
+  or removes catalog rows silently repoints every saved item at a different
+  garment. `export.py` only appends for exactly this reason. If you prune, you
+  own that problem.
+
+- **Gender lives in code, not data.** `detectSection()` in `15-sectioning.js` is a
+  hard gate — a row it disagrees with is invisible, whatever `g` says. The scraper
+  mirrors it in `tools/scraper/gender.py:app_section()`; change one and you must
+  change the other, then run `browse.py --reclassify`.
+
+- **Another agent may be mid-work.** `git fetch` and check before you merge
+  anything. Rebase onto their work rather than pushing over it.
 
 ---
 

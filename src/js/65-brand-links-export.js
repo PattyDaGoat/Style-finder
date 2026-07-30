@@ -14,7 +14,10 @@ function dnaSummary(){
     fabrics:topKeys(W.fab,4,true),categories:POSCATS.map(c=>CATN[c]||c),favoriteBrands:topKeys(W.brand,5,true),
     byGarment:groupTaste().reduce((o,x)=>{o[x.label]=x.text;return o;},{}),
     loved:Object.keys(S.reactions).filter(k=>S.reactions[k]==="love").map(i=>({brand:CATALOG[i].b,name:CATALOG[i].n,price:CATALOG[i].cur+CATALOG[i].p,url:CATALOG[i].u})),
-    shortlist:S.picks.map(i=>({brand:CATALOG[i].b,name:CATALOG[i].n,price:CATALOG[i].cur+CATALOG[i].p,url:CATALOG[i].u})),
+    /* this section's cart — the download is the edit you just built, and the
+       other section's saved pieces are a different edit */
+    section:GENDER==='f'?'womenswear':'menswear',
+    shortlist:sectionPicks().map(i=>({brand:CATALOG[i].b,name:CATALOG[i].n,price:CATALOG[i].cur+CATALOG[i].p,url:CATALOG[i].u})),
     budget:(function(){var mb=(S.settings&&S.settings.maxBudget)||100000;return mb>=100000?"no set limit (includes designer)":("under $"+mb+" per piece");})()};
 }
 function downloadDNA(){const b=new Blob([JSON.stringify(dnaSummary(),null,2)],{type:"application/json"});const a=document.createElement("a");a.href=URL.createObjectURL(b);a.download="my-style-dna.json";a.click();cnote("Saved my-style-dna.json");}

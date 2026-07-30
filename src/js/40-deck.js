@@ -122,7 +122,10 @@ function renderCard(){
      deck into a counter to grind rather than clothes to look at. The number
      is still tracked; only the label is blank. */
   document.getElementById("deckCount").textContent="";
-  document.getElementById("deckLoved").textContent=`${(S.picks||[]).length} in cart · ${(S.likes||[]).length} liked`;
+  /* this section's counts, matching the cart badges and the cart panel — the raw
+     arrays hold both sections, so reading them here said "7 in cart" while the
+     cart itself showed 3 */
+  document.getElementById("deckLoved").textContent=`${cartView('cart').length} in cart · ${cartView('likes').length} liked`;
   const undoB=document.getElementById("undoBtn"); if(undoB) undoB.style.visibility=(!S.hist||!S.hist.length)?"hidden":"visible";
   document.getElementById("doneBtn").classList.toggle("hidden",(loved+liked)<8);
   updateCartFab(); syncNoFastBtn(); syncStrictBtn();

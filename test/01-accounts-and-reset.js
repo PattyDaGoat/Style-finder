@@ -198,6 +198,45 @@ async function afterSwipe(page) {
   await page.reload({ waitUntil: 'domcontentloaded' }); await settle(page);
   await page.screenshot({ path: join(SHOTS,'shot-auth.png') });
 
+  /* ---- the carts are per section ----
+     Menswear and womenswear each keep their own cart and liked list. The pieces
+     still live in one array; which section a piece belongs to is read off the
+     piece (inSection), so the thing worth asserting is that the two VIEWS never
+     see each other — and, above all, that Clear empties only the section you are
+     looking at. A Clear that quietly binned the other section's cart would be
+     the worst possible bug in this feature and is silent from the UI. */
+  const carts = await page.evaluate(() => {
+    const keepG = GENDER, keepP = S.picks, keepL = S.likes, keepR = S.reactions;
+    const men = [], women = [], uni = [];
+    for (let i = 0; i < CATALOG.length; i++) {
+      const inM = inSection(i, 'm'), inF = inSection(i, 'f');
+      if (CATALOG[i].g === 'u' && inM && inF) { if (uni.length < 2) uni.push(i); }
+      else if (inM && !inF) { if (men.length < 3) men.push(i); }
+      else if (inF && !inM) { if (women.length < 3) women.push(i); }
+      if (men.length >= 3 && women.length >= 3 && uni.length >= 2) break;
+    }
+    S.picks = [...men, ...women, ...uni]; S.likes = []; S.reactions = {};
+    GENDER = 'm'; const mCart = cartView('cart').length;
+    GENDER = 'f'; const fCart = cartView('cart').length;
+    GENDER = 'm'; const mSaw = cartView('cart').every(i => inSection(i, 'm'));
+    GENDER = 'f'; const fSaw = cartView('cart').every(i => inSection(i, 'f'));
+    /* clear menswear only */
+    GENDER = 'm'; CART_VIEW = 'cart'; clearCart();
+    const afterM = (GENDER = 'm', cartView('cart').length);
+    const afterF = (GENDER = 'f', cartView('cart').length);
+    GENDER = keepG; S.picks = keepP; S.likes = keepL; S.reactions = keepR;
+    return { seeded: men.length + women.length + uni.length, uni: uni.length,
+             mCart, fCart, mSaw, fSaw, afterM, afterF };
+  });
+  chk('menswear cart shows only menswear pieces', carts.mSaw, 'n=' + carts.mCart);
+  chk('womenswear cart shows only womenswear pieces', carts.fSaw, 'n=' + carts.fCart);
+  chk('each section sees its own pieces plus unisex',
+      carts.mCart === 3 + carts.uni && carts.fCart === 3 + carts.uni,
+      'm=' + carts.mCart + ' f=' + carts.fCart + ' (3 own + ' + carts.uni + ' unisex each)');
+  chk('clearing the menswear cart empties it', carts.afterM === 0, 'left ' + carts.afterM);
+  chk('clearing the menswear cart leaves womenswear alone',
+      carts.afterF === 3, 'womenswear left with ' + carts.afterF + ' of 3');
+
   await browser.close();
 
   console.log('\n===== PASS (' + ok.length + ') =====');

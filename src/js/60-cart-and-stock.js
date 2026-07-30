@@ -5,19 +5,36 @@ function togglePick(i){
   save();updateShortlistBar();updateCartFab();
   const ov=document.getElementById("cartOverlay");if(ov&&!ov.classList.contains("hidden"))renderCart();
 }
-function updateShortlistBar(){const el=document.getElementById("slCount");if(el)el.textContent=`Cart: ${(S.picks||[]).length}`;}
-/* ---------- two carts: 'cart' (super-likes + added) and 'likes' (right swipes) ---------- */
+function updateShortlistBar(){const el=document.getElementById("slCount");if(el)el.textContent=`Cart: ${cartView('cart').length}`;}
+/* ---------- two carts: 'cart' (super-likes + added) and 'likes' (right swipes) ----------
+   ...and each of those is per SECTION. Menswear and womenswear keep their own
+   cart and their own liked list, so switching section shows you that section's
+   saved pieces rather than one pile with everything in it.
+
+   The storage stays a single flat array per cart. Splitting it into
+   S.byGender[g].picks would have meant migrating every saved profile — the arrays
+   hold catalog indices, and every account already has some — for no gain, since
+   which section a piece belongs to is a property of the PIECE (inSection, in
+   50-taste-model.js) and can simply be read off it. So `cartArr` stays the thing
+   you mutate and `cartView` is what you show; nothing is ever lost by switching
+   section, it is just filtered out of view and comes back when you switch back. */
 let CART_VIEW='cart';
 function cartArr(which){return (which==='likes'?(S.likes=S.likes||[]):(S.picks=S.picks||[]));}
+function cartView(which){return cartArr(which).filter(i=>inSection(i,GENDER));}
 function updateCartFab(){
-  const c=document.getElementById("cartFabN");if(c)c.textContent=(S.picks||[]).length;
-  const l=document.getElementById("likeFabN");if(l)l.textContent=(S.likes||[]).length;
-  const bar=document.getElementById("slCount");if(bar)bar.textContent="Cart: "+(S.picks||[]).length;
+  const c=document.getElementById("cartFabN");if(c)c.textContent=cartView('cart').length;
+  const l=document.getElementById("likeFabN");if(l)l.textContent=cartView('likes').length;
+  const bar=document.getElementById("slCount");if(bar)bar.textContent="Cart: "+cartView('cart').length;
 }
-function openCart(which){CART_VIEW=which||'cart';renderCart();document.getElementById("cartOverlay").classList.remove("hidden");checkCartStock(cartArr(CART_VIEW).slice());}
+function openCart(which){CART_VIEW=which||'cart';renderCart();document.getElementById("cartOverlay").classList.remove("hidden");checkCartStock(cartView(CART_VIEW).slice());}
 function closeCart(){document.getElementById("cartOverlay").classList.add("hidden");}
 function removeFromCart(i){const arr=cartArr(CART_VIEW);const k=arr.indexOf(i);if(k>=0)arr.splice(k,1);save();updateCartFab();renderCart();const el=document.getElementById('s_'+i);if(el){el.classList.remove("picked");const b=el.querySelector(".selbox");if(b)b.textContent="";}}
-function clearCart(){cartArr(CART_VIEW).length=0;save();updateCartFab();renderCart();if(CART_VIEW==='cart')document.querySelectorAll('.sug.picked').forEach(e=>{e.classList.remove('picked');const b=e.querySelector('.selbox');if(b)b.textContent='';});}
+/* Clears only the section you are looking at. Emptying the arrays outright
+   would silently bin the other section's cart too, which is the one thing a
+   Clear button must never do. */
+function clearCart(){const arr=cartArr(CART_VIEW),drop=new Set(cartView(CART_VIEW));
+  for(let k=arr.length-1;k>=0;k--) if(drop.has(arr[k])) arr.splice(k,1);
+  save();updateCartFab();renderCart();if(CART_VIEW==='cart')document.querySelectorAll('.sug.picked').forEach(e=>{e.classList.remove('picked');const b=e.querySelector('.selbox');if(b)b.textContent='';});}
 const HEART_SVG='<svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor" style="vertical-align:-1px"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>';
 /* ---- live sold-out check (best-effort via a CORS helper; local files can't hit the store directly) ---- */
 const STOCK={};
@@ -51,7 +68,7 @@ function recheckStock(i){STOCK[i]='checking';patchStockBadge(i);fetchStock(CATAL
 function renderCart(){
   const which=CART_VIEW, isLikes=which==='likes';
   // in the cart, super-likes (loved) sort first
-  const items=[...cartArr(which)].sort((a,b)=>(S.reactions[b]==='love'?1:0)-(S.reactions[a]==='love'?1:0));
+  const items=[...cartView(which)].sort((a,b)=>(S.reactions[b]==='love'?1:0)-(S.reactions[a]==='love'?1:0));
   const total=items.reduce((s,i)=>s+(CATALOG[i].usd||0),0);
   const supers=items.filter(i=>S.reactions[i]==='love').length;
   const title=isLikes?'Liked items':'Cart';
@@ -68,8 +85,8 @@ function renderCart(){
   document.getElementById("cartOverlay").innerHTML=`<div class="cart-panel">
     <button class="cart-x" onclick="closeCart()" title="Close">×</button>
     <div style="display:flex;gap:8px;margin-bottom:4px">
-      <button class="btn ${which==='cart'?'small':'ghost small'}" onclick="openCart('cart')">🛒 Cart (${(S.picks||[]).length})</button>
-      <button class="btn ${which==='likes'?'small':'ghost small'}" onclick="openCart('likes')">💚 Liked (${(S.likes||[]).length})</button>
+      <button class="btn ${which==='cart'?'small':'ghost small'}" onclick="openCart('cart')">🛒 Cart (${cartView('cart').length})</button>
+      <button class="btn ${which==='likes'?'small':'ghost small'}" onclick="openCart('likes')">💚 Liked (${cartView('likes').length})</button>
     </div>
     <h3 class="section-title" style="border:none;padding:0">${title} (${items.length})${(!isLikes&&supers)?` · <span style="color:var(--red);font-size:14px;font-weight:700">${supers} super</span>`:''}</h3>
     <div style="margin-top:12px;max-height:50vh;overflow:auto">${body}</div>
@@ -77,12 +94,12 @@ function renderCart(){
     <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap">
       <button class="btn small" onclick="closeCart()">Keep going</button>
       ${items.length?`<button class="btn ghost small" onclick="copyCart()">Copy</button>
-        <button class="btn ghost small" onclick="checkCartStock(cartArr(CART_VIEW).slice())">↻ Re-check stock</button>
+        <button class="btn ghost small" onclick="checkCartStock(cartView(CART_VIEW).slice())">↻ Re-check stock</button>
         <button class="btn ghost small" onclick="clearCart()">Clear</button>`:""}
     </div></div>`;
 }
 function copyCart(){
-  const arr=cartArr(CART_VIEW);
+  const arr=cartView(CART_VIEW);   /* this section only — what you are looking at */
   if(!arr.length){cnote("This cart is empty.");return;}
   const txt=(CART_VIEW==='likes'?"My liked items:\n":"My cart:\n")+arr.map(i=>{const p=CATALOG[i];const so=STOCK[i]==='out'?' [SOLD OUT]':'';return `• ${p.b} — ${p.n} (${p.cur}${p.p})${so} ${p.u}`;}).join("\n");
   navigator.clipboard.writeText(txt).then(()=>cnote("Copied!"),()=>alert(txt));

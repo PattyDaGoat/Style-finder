@@ -87,7 +87,9 @@ function sugCardHTML(i){
 }
 function renderAdv(){document.getElementById("advRow").innerHTML=['safe','balanced','adventurous'].map(a=>`<span class="fchip ${a===ADV?'on':''}" onclick="setAdv('${a}')">${ADVP[a].label}</span>`).join("");}
 function setAdv(a){ADV=a;computeRec();renderAdv();renderRecFilters();renderRecGrid();}
-function refineFromPicks(){buildModel();computeRec();renderRecFilters();renderRecGrid();cnote(S.picks.length?"Refined from your "+S.picks.length+" picked piece"+(S.picks.length===1?"":"s")+".":"Tick pieces first, then Refine.");}
+function refineFromPicks(){buildModel();computeRec();renderRecFilters();renderRecGrid();
+  const n=sectionPicks().length;   /* this section's picks, as the model used */
+  cnote(n?"Refined from your "+n+" picked piece"+(n===1?"":"s")+".":"Tick pieces first, then Refine.");}
 function renderRecFilters(){
   const cats=['all',...POSCATS];
   document.getElementById("recFilters").innerHTML=cats.map(c=>`<span class="fchip ${c===REC_CAT?'on':''}" onclick="setRecCat('${c}')">${c==='all'?'All':(CATN[c]||c)}</span>`).join("");
@@ -101,7 +103,10 @@ function renderRecGrid(){
 }
 
 /* ---------- find more like my picks ---------- */
-function seedSet(){const loved=Object.keys(S.reactions).filter(k=>S.reactions[k]==="love").map(Number);return [...new Set([...(S.picks||[]),...(S.likes||[]),...loved])];}
+/* section-scoped like the carts: "find more like my picks" means the picks you
+   made in the section you are shopping, not your womenswear cart bleeding into a
+   menswear search */
+function seedSet(){const loved=Object.keys(S.reactions).filter(k=>S.reactions[k]==="love").map(Number);return [...new Set([...sectionPicks(),...sectionLikes(),...loved])];}
 /* profileScore is now normalised to the 40-swipe reference scale (PROF_REF), and
    a seed model built from a handful of picks is far lighter than that — so the
    old 0.8 would have amplified the profile here and turned a feature whose whole

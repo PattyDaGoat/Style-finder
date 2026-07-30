@@ -299,6 +299,32 @@ function passesFilters(i){
   return true;
 }
 function genderOK(i){return passesFilters(i);}
+/* ---------- which section does a saved piece belong to? ----------
+   The carts are per section: menswear has its own cart and liked list, and so
+   does womenswear. This is the test that splits them.
+
+   It is the SECTION half of passesFilters and nothing else — gender tag, the
+   section detector's lock, and the intimates lock. Deliberately not the budget,
+   category or occasion chips: those describe what you want to be SHOWN next, and
+   a piece you already put in your cart must not disappear from it because you
+   later narrowed a filter. Cart membership is a property of the piece, not of
+   the current search.
+
+   Unisex pieces answer to both sections, which is the same rule the deck already
+   uses — a unisex tee is dealt in menswear and womenswear alike, so it belongs
+   in whichever cart you added it from and shows up in both. */
+function inSection(i,g){
+  const p=CATALOG[i]; if(!p) return false;
+  if(underwearLock()[i]) return false;
+  if(p.g!==g && p.g!=='u') return false;
+  const lock=genderLock()[i];
+  if(lock===1 && g!=='f') return false;
+  if(lock===2 && g!=='m') return false;
+  return true;
+}
+/* the saved pieces belonging to the section being shopped right now */
+function sectionPicks(){return (S.picks||[]).filter(i=>inSection(i,GENDER));}
+function sectionLikes(){return (S.likes||[]).filter(i=>inSection(i,GENDER));}
 /* toggle: hide/show fast-fashion brands. Rebuilds the upcoming feed, keeps your swipes & cart. */
 function toggleNoFast(){
   S.noFast=!S.noFast; save(); syncNoFastBtn();
@@ -450,8 +476,13 @@ function buildModel(){
       if(t==="the fit/cut")bumpW(W,p,'fit',p.fit,a*idfFit(p.fit));
       if(t==="the brand")W.brand[p.b]=(W.brand[p.b]||0)+a*idf(p.b,BRcnt);});
   }
-  (S.picks||[]).forEach(i=>add(CATALOG[i],2.5));        // cart items = strong intent
-  (S.likes||[]).forEach(i=>add(CATALOG[i],1.6));        // liked cart = solid intent
+  /* Section-scoped, for the same reason the carts are: a dress you saved while
+     shopping womenswear is not evidence about your menswear taste, and feeding
+     it in was how a women's profile leaked into the men's deck. Swipes already
+     reset per section (startDeck); the carts persist across the switch, so they
+     were the one channel still crossing over. */
+  sectionPicks().forEach(i=>add(CATALOG[i],2.5));       // cart items = strong intent
+  sectionLikes().forEach(i=>add(CATALOG[i],1.6));       // liked cart = solid intent
   /* Warm-up answers and inspiration are global only, and deliberately so: a
      micro-style chip and a Pinterest board say what you like, not what garment
      you like it ON, so there is no group to attribute them to. Shrinkage below
@@ -636,7 +667,8 @@ function knnScore(cand,Lset){
   const k=Math.min(3,sims.length);let s=0;for(let j=0;j<k;j++)s+=sims[j];
   return s/k;
 }
-function lovedPicks(){const loved=Object.keys(S.reactions).filter(k=>S.reactions[k]==="love").map(Number);return [...new Set([...loved,...(S.picks||[]),...(S.likes||[])])];}
+function lovedPicks(){const loved=Object.keys(S.reactions).filter(k=>S.reactions[k]==="love").map(Number);
+  return [...new Set([...loved,...sectionPicks(),...sectionLikes()])];}
 /* ---------- the youth tilt ----------
    A global, additive prior that lifts youth-leaning pieces (youthScore, above)
    for EVERY shopper — the app has decided to skew younger, so this is a product

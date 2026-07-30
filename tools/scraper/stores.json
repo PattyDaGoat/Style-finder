@@ -12,7 +12,7 @@
  "3sixteen": {
   "domain": "www.3sixteen.com",
   "gender_prior": "m",
-  "seen": 58
+  "seen": 57
  },
  "9.0 Swim": {
   "domain": "www.beginningboutique.com",
@@ -34,25 +34,10 @@
   "gender_prior": "f",
   "seen": 8
  },
- "AFENDS": {
-  "domain": "afends.com",
-  "gender_prior": "f",
-  "seen": 34
- },
- "AIM'N": {
-  "domain": "www.aimn.com",
-  "gender_prior": "f",
-  "seen": 12
- },
  "AJE": {
   "domain": "ajeworld.com",
   "gender_prior": "f",
   "seen": 55
- },
- "ALIGNE": {
-  "domain": "aligne.co",
-  "gender_prior": "f",
-  "seen": 3
  },
  "APC": {
   "domain": "www.apc-us.com",
@@ -82,7 +67,7 @@
  "Afends": {
   "domain": "afends.com",
   "gender_prior": "f",
-  "seen": 154
+  "seen": 156
  },
  "Aim'n": {
   "domain": "www.aimn.com",
@@ -107,12 +92,12 @@
  "Albam": {
   "domain": "www.albamclothing.com",
   "gender_prior": "m",
-  "seen": 24
+  "seen": 23
  },
  "Albam Clothing": {
   "domain": "www.albamclothing.com",
   "gender_prior": "m",
-  "seen": 6
+  "seen": 5
  },
  "Albaray": {
   "domain": "www.albaray.co.uk",
@@ -174,20 +159,15 @@
   "gender_prior": "m",
   "seen": 27
  },
- "AntiSocialSocialClub": {
-  "domain": "www.antisocialsocialclub.com",
-  "gender_prior": "m",
-  "seen": 1
- },
  "Aries": {
   "domain": "www.ariesarise.com",
   "gender_prior": "f",
-  "seen": 41
+  "seen": 37
  },
  "Aries Arise": {
   "domain": "www.ariesarise.com",
   "gender_prior": "f",
-  "seen": 25
+  "seen": 21
  },
  "Arms of Eve": {
   "domain": "www.armsofeve.com",
@@ -202,7 +182,7 @@
  "Ash & Erie": {
   "domain": "ashanderie.com",
   "gender_prior": "m",
-  "seen": 63
+  "seen": 61
  },
  "Assembly Label": {
   "domain": "int.assemblylabel.com",
@@ -232,7 +212,7 @@
  "B.Cools": {
   "domain": "b-cools.com",
   "gender_prior": "m",
-  "seen": 17
+  "seen": 16
  },
  "BAPE": {
   "domain": "undefeated.com",
@@ -242,12 +222,12 @@
  "BB Exclusive": {
   "domain": "www.beginningboutique.com",
   "gender_prior": "f",
-  "seen": 149
+  "seen": 148
  },
  "BBC Ice Cream": {
   "domain": "www.bbcicecream.com",
   "gender_prior": "m",
-  "seen": 50
+  "seen": 48
  },
  "Bad Birdie": {
   "domain": "badbirdiegolf.com",
@@ -257,12 +237,12 @@
  "Barbell Apparel": {
   "domain": "barbellapparel.com",
   "gender_prior": "m",
-  "seen": 60
+  "seen": 58
  },
  "Barney Cools": {
   "domain": "barneycools.com",
   "gender_prior": "m",
-  "seen": 37
+  "seen": 33
  },
  "Baserange": {
   "domain": "baserange.com",
@@ -282,7 +262,7 @@
  "Bather": {
   "domain": "bather.com",
   "gender_prior": "m",
-  "seen": 83
+  "seen": 82
  },
  "Battenwear": {
   "domain": "battenwear.com",
@@ -292,12 +272,12 @@
  "Baukjen": {
   "domain": "www.baukjen.com",
   "gender_prior": "f",
-  "seen": 71
+  "seen": 69
  },
  "Baukjen Womenswear": {
   "domain": "www.baukjen.com",
   "gender_prior": "f",
-  "seen": 4
+  "seen": 2
  },
  "Beach Riot": {
   "domain": "www.beachriot.com",
@@ -307,22 +287,17 @@
  "Bearbottom": {
   "domain": "bearbottomclothing.com",
   "gender_prior": "m",
-  "seen": 93
+  "seen": 85
  },
  "Bearbottom Clothing": {
   "domain": "bearbottomclothing.com",
   "gender_prior": "m",
-  "seen": 45
+  "seen": 36
  },
  "Bec + Bridge": {
   "domain": "becandbridge.com.au",
   "gender_prior": "f",
   "seen": 43
- },
- "Bec&Bridge": {
-  "domain": "www.becandbridge.com",
-  "gender_prior": "f",
-  "seen": 16
  },
  "Beckett Simonon": {
   "domain": "www.beckettsimonon.com",
@@ -577,22 +552,17 @@
  "DFYNE": {
   "domain": "us.dfyne.com",
   "gender_prior": "f",
-  "seen": 51
+  "seen": 68
  },
  "DFYNE US": {
   "domain": "us.dfyne.com",
-  "gender_prior": "f",
-  "seen": 20
+  "gender_prior": "m",
+  "seen": 27
  },
  "DL1961": {
   "domain": "www.dl1961.com",
   "gender_prior": "u",
   "seen": 18
- },
- "DOEN": {
-  "domain": "www.shopdoen.com",
-  "gender_prior": "f",
-  "seen": 2
  },
  "DTLR": {
   "domain": "www.dtlr.com",
@@ -672,7 +642,7 @@
  "Drakes - UK/ROW": {
   "domain": "www.drakes.com",
   "gender_prior": "m",
-  "seen": 18
+  "seen": 17
  },
  "D\u00d4EN": {
   "domain": "shopdoen.com",
@@ -894,11 +864,6 @@
   "gender_prior": "u",
   "seen": 33
  },
- "HUF": {
-  "domain": "hufworldwide.com",
-  "gender_prior": "m",
-  "seen": 19
- },
  "HUF Worldwide": {
   "domain": "hufworldwide.co.uk",
   "gender_prior": "m",
@@ -932,12 +897,12 @@
  "Huf": {
   "domain": "hufworldwide.com",
   "gender_prior": "m",
-  "seen": 46
+  "seen": 64
  },
  "Human Made": {
   "domain": "www.bbcicecream.com",
   "gender_prior": "m",
-  "seen": 2
+  "seen": 1
  },
  "Icecream Europe": {
   "domain": "www.bbcicecream.com",
@@ -1597,7 +1562,7 @@
  "RA Denim": {
   "domain": "ashanderie.com",
   "gender_prior": "m",
-  "seen": 4
+  "seen": 2
  },
  "RICK OWENS": {
   "domain": "www.rickowens.eu",
@@ -1612,7 +1577,7 @@
  "Radial": {
   "domain": "www.stussy.com",
   "gender_prior": "m",
-  "seen": 56
+  "seen": 53
  },
  "Radmor": {
   "domain": "radmorgolf.com",
@@ -1632,7 +1597,7 @@
  "Raintex": {
   "domain": "ashanderie.com",
   "gender_prior": "m",
-  "seen": 2
+  "seen": 1
  },
  "Ramy Brook": {
   "domain": "www.ramybrook.com",
@@ -2072,7 +2037,7 @@
  "Todd Snyder": {
   "domain": "www.toddsnyder.com",
   "gender_prior": "m",
-  "seen": 17
+  "seen": 18
  },
  "Todd Snyder + Champion": {
   "domain": "www.toddsnyder.com",
@@ -2104,6 +2069,11 @@
   "gender_prior": "m",
   "seen": 11
  },
+ "UNIQLO": {
+  "domain": "www.uniqlo.com",
+  "gender_prior": "m",
+  "seen": 3
+ },
  "UNTUCKit": {
   "domain": "www.untuckit.com",
   "gender_prior": "m",
@@ -2112,7 +2082,7 @@
  "Uniqlo": {
   "domain": "www.uniqlo.com",
   "gender_prior": "f",
-  "seen": 34
+  "seen": 36
  },
  "United By Blue": {
   "domain": "unitedbyblue.com",
@@ -2284,11 +2254,6 @@
   "gender_prior": "u",
   "seen": 8
  },
- "aim'n": {
-  "domain": "www.aimn.com",
-  "gender_prior": "f",
-  "seen": 3
- },
  "b.Eautiful": {
   "domain": "bdgastore.com",
   "gender_prior": "f",
@@ -2297,7 +2262,7 @@
  "https://www.3sixteen.com#organization": {
   "domain": "www.3sixteen.com",
   "gender_prior": "m",
-  "seen": 9
+  "seen": 4
  },
  "iam gia": {
   "domain": "iamgia.com",

@@ -127,7 +127,7 @@
  "Albaray": {
   "domain": "albaray.co.uk",
   "gender_prior": "f",
-  "seen": 47
+  "seen": 48
  },
  "Alex Crane": {
   "domain": "alexcrane.co",
@@ -292,7 +292,7 @@
  "Bather": {
   "domain": "bather.com",
   "gender_prior": "m",
-  "seen": 50
+  "seen": 51
  },
  "Battenwear": {
   "domain": "battenwear.com",
@@ -337,7 +337,7 @@
  "Beckett Simonon": {
   "domain": "www.beckettsimonon.com",
   "gender_prior": "m",
-  "seen": 16
+  "seen": 17
  },
  "Beginning Boutique": {
   "domain": "www.beginningboutique.com",
@@ -497,7 +497,7 @@
  "Cherry LA": {
   "domain": "www.cherryla.com",
   "gender_prior": "u",
-  "seen": 29
+  "seen": 30
  },
  "Christy Dawn": {
   "domain": "christydawn.com",
@@ -527,7 +527,7 @@
  "Cole Buxton": {
   "domain": "colebuxton.com",
   "gender_prior": "m",
-  "seen": 30
+  "seen": 31
  },
  "Colorful Standard": {
   "domain": "colorfulstandard.com",
@@ -547,7 +547,7 @@
  "Coney Island Picnic": {
   "domain": "coneyislandpicnic.com",
   "gender_prior": "m",
-  "seen": 30
+  "seen": 31
  },
  "Converse": {
   "domain": "www.converse.com",
@@ -562,7 +562,7 @@
  "Corteiz": {
   "domain": "crtz.xyz",
   "gender_prior": "m",
-  "seen": 3
+  "seen": 4
  },
  "Cotopaxi": {
   "domain": "www.cotopaxi.com",
@@ -587,7 +587,7 @@
  "Cue": {
   "domain": "www.cue.cc",
   "gender_prior": "f",
-  "seen": 31
+  "seen": 32
  },
  "Cuyana": {
   "domain": "www.cuyana.com",
@@ -607,17 +607,17 @@
  "DISSH Boutiques": {
   "domain": "dissh.com",
   "gender_prior": "f",
-  "seen": 2
+  "seen": 3
  },
  "DL1961": {
   "domain": "www.dl1961.com",
   "gender_prior": "u",
-  "seen": 19
+  "seen": 20
  },
  "DTLR": {
   "domain": "www.dtlr.com",
   "gender_prior": "m",
-  "seen": 21
+  "seen": 22
  },
  "Daisy Street": {
   "domain": "www.daisystreet.co.uk",
@@ -627,12 +627,12 @@
  "Damson Madder": {
   "domain": "damsonmadder.com",
   "gender_prior": "f",
-  "seen": 15
+  "seen": 16
  },
  "Dandy Del Mar": {
   "domain": "dandydelmar.com",
   "gender_prior": "m",
-  "seen": 26
+  "seen": 27
  },
  "De Bonne Facture": {
   "domain": "debonnefacture.fr",
@@ -657,7 +657,7 @@
  "Devereux": {
   "domain": "devereuxgolf.com",
   "gender_prior": "m",
-  "seen": 26
+  "seen": 27
  },
  "Dime": {
   "domain": "dimemtl.com",
@@ -717,17 +717,17 @@
  "Edikted": {
   "domain": "edikted.com",
   "gender_prior": "f",
-  "seen": 24
+  "seen": 25
  },
  "Elk": {
   "domain": "www.elkthelabel.com",
   "gender_prior": "f",
-  "seen": 10
+  "seen": 12
  },
  "Elka Collective": {
   "domain": "www.elkacollective.com",
   "gender_prior": "f",
-  "seen": 30
+  "seen": 31
  },
  "Elwood": {
   "domain": "elwoodclothing.com",
@@ -742,12 +742,17 @@
  "Everlane": {
   "domain": "www.everlane.com",
   "gender_prior": "f",
-  "seen": 38
+  "seen": 40
  },
  "Extra Butter": {
   "domain": "extrabutterny.com",
   "gender_prior": "m",
   "seen": 9
+ },
+ "FARM RIO ACTIVE": {
+  "domain": "farmrio.com",
+  "gender_prior": "f",
+  "seen": 1
  },
  "Faherty": {
   "domain": "fahertybrand.com",
@@ -757,7 +762,7 @@
  "Fair Harbor": {
   "domain": "fairharborclothing.com",
   "gender_prior": "m",
-  "seen": 26
+  "seen": 27
  },
  "Faithfull the Brand": {
   "domain": "faithfullthebrand.com",
@@ -767,7 +772,7 @@
  "Farah": {
   "domain": "www.farah.co.uk",
   "gender_prior": "m",
-  "seen": 28
+  "seen": 29
  },
  "Farm Rio": {
   "domain": "www.farmrio.com",
@@ -777,7 +782,7 @@
  "Fear of God": {
   "domain": "fearofgod.com",
   "gender_prior": "m",
-  "seen": 10
+  "seen": 11
  },
  "Feature": {
   "domain": "feature.com",
@@ -1222,7 +1227,7 @@
  "Men's": {
   "domain": "communityclothing.co.uk",
   "gender_prior": "m",
-  "seen": 2
+  "seen": 3
  },
  "Meshki": {
   "domain": "meshki.com",
@@ -1327,12 +1332,12 @@
  "New Era": {
   "domain": "extrabutterny.com",
   "gender_prior": "m",
-  "seen": 9
+  "seen": 10
  },
  "Nike": {
   "domain": "www.nike.com",
   "gender_prior": "m",
-  "seen": 10
+  "seen": 11
  },
  "Nike SB": {
   "domain": "extrabutterny.com",

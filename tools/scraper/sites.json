@@ -2647,7 +2647,15 @@
     "https://fairharborclothing.com/collections/mens-bayberry-trunk-quiz"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1785537237.5617504,
+   "last_found": 91,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "fairharborclothing.com",
   "note": "auto-discovered"
  },
@@ -2661,7 +2669,15 @@
    ],
    "m": []
   },
+  "entry_cursor": 2,
   "gender_source": "prior",
+  "health": {
+   "fail": 0,
+   "last": 1785537375.38404,
+   "last_found": 36,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "faithfullthebrand.com",
   "note": "auto-discovered"
  },
@@ -2675,7 +2691,15 @@
     "https://www.farah.co.uk/collections/bottoms"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1785537454.935792,
+   "last_found": 48,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "www.farah.co.uk",
   "note": "auto-discovered"
  },
@@ -2689,7 +2713,16 @@
    ],
    "m": []
   },
+  "entry_cursor": 1,
   "gender_source": "prior",
+  "health": {
+   "fail": 0,
+   "last": 1785537577.0912302,
+   "last_found": 24,
+   "note": "rate-limited (429) \u2014 stopping this shop for now",
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "www.farmrio.com",
   "note": "auto-discovered"
  },
@@ -2707,7 +2740,15 @@
     "https://fearofgod.com/collections/mens-tops"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "collection-handle",
+  "health": {
+   "fail": 0,
+   "last": 1785537700.6297667,
+   "last_found": 48,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "fearofgod.com",
   "note": "found by find_brands.py \u2014 streetwear"
  },
@@ -2721,14 +2762,14 @@
     "https://feature.com/collections/asics-new-balance-and-on"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 1,
   "gender_note": "guessed menswear (only 0% dresses and 17% read womenswear); registered as a prior, so any evidence on a piece overrides it",
   "gender_source": "prior",
   "health": {
    "fail": 0,
-   "last": 1785113979.9223285,
-   "last_found": 30,
-   "ok": 1,
+   "last": 1785537931.9516554,
+   "last_found": 51,
+   "ok": 2,
    "status": "ok"
   },
   "host": "feature.com",
@@ -2748,7 +2789,15 @@
     "https://finisterre.com/collections/mens-view-all"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1785538154.0415304,
+   "last_found": 102,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "finisterre.com",
   "note": "auto-discovered"
  },
@@ -2762,7 +2811,15 @@
     "https://flagandanthem.com/collections/men-1"
    ]
   },
+  "entry_cursor": 0,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1785538341.7393193,
+   "last_found": 120,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "flagandanthem.com",
   "note": "auto-discovered"
  },
@@ -2780,7 +2837,15 @@
     "https://www.folkclothing.com/collections/shirts"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1785538601.024299,
+   "last_found": 13,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "www.folkclothing.com",
   "note": "auto-discovered"
  },
@@ -2794,7 +2859,15 @@
    ],
    "m": []
   },
+  "entry_cursor": 2,
   "gender_source": "prior",
+  "health": {
+   "fail": 0,
+   "last": 1785538734.4604151,
+   "last_found": 12,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "frankandeileen.com",
   "note": "auto-discovered"
  },
@@ -2808,7 +2881,15 @@
     "https://www.frankandoak.com/collections/mens-tees"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1785539119.0489678,
+   "last_found": 110,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "www.frankandoak.com",
   "note": "auto-discovered"
  },
@@ -2822,7 +2903,15 @@
    ],
    "m": []
   },
+  "entry_cursor": 2,
   "gender_source": "prior",
+  "health": {
+   "fail": 0,
+   "last": 1785539182.071458,
+   "last_found": 7,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "frankiesbikinis.com",
   "note": "auto-discovered"
  },
@@ -2836,7 +2925,16 @@
    ],
    "m": []
   },
+  "entry_cursor": 2,
   "gender_source": "prior",
+  "health": {
+   "fail": 1,
+   "last": 1785539283.753714,
+   "last_found": 0,
+   "note": "no products found on the page; no products found on the page",
+   "ok": 0,
+   "status": "blocked"
+  },
   "host": "fredasalvador.com",
   "note": "auto-discovered"
  },
@@ -2850,7 +2948,15 @@
     "https://freenotecloth.com/collections/clothshop"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "prior",
+  "health": {
+   "fail": 0,
+   "last": 1785539405.308349,
+   "last_found": 53,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "freenotecloth.com",
   "note": "auto-discovered"
  },
@@ -2864,7 +2970,15 @@
     "https://frescobolcarioca.com/collections/shop-all"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "prior",
+  "health": {
+   "fail": 0,
+   "last": 1785539537.6815026,
+   "last_found": 34,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "frescobolcarioca.com",
   "note": "auto-discovered"
  },

@@ -2248,7 +2248,15 @@
     "https://devereuxgolf.com/collections/happy-hour"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1785524567.5159621,
+   "last_found": 105,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "devereuxgolf.com",
   "note": "auto-discovered"
  },
@@ -2262,7 +2270,16 @@
    ],
    "m": []
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 1,
+   "last": 1785524641.1682415,
+   "last_found": 0,
+   "note": "no products found on the page; no products found on the page",
+   "ok": 0,
+   "status": "blocked"
+  },
   "host": "dimemtl.com",
   "note": "auto-discovered"
  },
@@ -2276,7 +2293,16 @@
    ],
    "m": []
   },
+  "entry_cursor": 1,
   "gender_source": "prior",
+  "health": {
+   "fail": 0,
+   "last": 1785524690.5006711,
+   "last_found": 36,
+   "note": "rate-limited (429) \u2014 stopping this shop for now",
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "dissh.com",
   "note": "auto-discovered"
  },
@@ -2290,7 +2316,15 @@
    ],
    "m": []
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1785524858.1678677,
+   "last_found": 92,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "www.disturbia.co.uk",
   "note": "auto-discovered"
  },
@@ -2334,7 +2368,15 @@
     "https://www.doyoueven.com/collections/mens-new-releases"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1785525065.7416966,
+   "last_found": 110,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "www.doyoueven.com",
   "note": "auto-discovered"
  },
@@ -2348,7 +2390,15 @@
     "https://www.drakes.com/collections/silk-accessories"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "prior",
+  "health": {
+   "fail": 0,
+   "last": 1785525229.2014697,
+   "last_found": 22,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "www.drakes.com",
   "note": "auto-discovered"
  },
@@ -2362,7 +2412,16 @@
    ],
    "m": []
   },
+  "entry_cursor": 2,
   "gender_source": "prior",
+  "health": {
+   "fail": 0,
+   "last": 1785525316.7636032,
+   "last_found": 11,
+   "note": "no products found on the page",
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "shopdoen.com",
   "note": "auto-discovered"
  },
@@ -2380,7 +2439,15 @@
     "https://eastsidegolf.com/collections/mens-bottoms"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1785525429.6885092,
+   "last_found": 17,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "eastsidegolf.com",
   "note": "auto-discovered"
  },
@@ -2398,7 +2465,15 @@
     "https://eberjey.com/collections/mens-lounge"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1785525569.2599127,
+   "last_found": 39,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "eberjey.com",
   "note": "auto-discovered"
  },
@@ -2416,7 +2491,15 @@
     "https://echt.com.au/collections/july-frenzy-mens-2021"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1785525652.6249728,
+   "last_found": 64,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "echt.com.au",
   "note": "auto-discovered"
  },
@@ -2430,7 +2513,15 @@
    ],
    "m": []
   },
+  "entry_cursor": 2,
   "gender_source": "prior",
+  "health": {
+   "fail": 0,
+   "last": 1785525799.7714252,
+   "last_found": 120,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "edikted.com",
   "note": "auto-discovered"
  },
@@ -2444,7 +2535,15 @@
    ],
    "m": []
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1785525938.6572537,
+   "last_found": 73,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "www.elkthelabel.com",
   "note": "auto-discovered"
  },
@@ -2458,7 +2557,15 @@
    ],
    "m": []
   },
+  "entry_cursor": 2,
   "gender_source": "prior",
+  "health": {
+   "fail": 0,
+   "last": 1785526204.4882667,
+   "last_found": 38,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "www.elkacollective.com",
   "note": "auto-discovered"
  },
@@ -2476,14 +2583,14 @@
     "https://www.everlane.com/collections/mens-tees-and-tanks"
    ]
   },
-  "entry_cursor": 5,
+  "entry_cursor": 1,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1785113232.9151096,
-   "last_found": 42,
+   "last": 1785526402.9149604,
+   "last_found": 114,
    "note": "rate-limited (429) \u2014 stopping this shop for now",
-   "ok": 5,
+   "ok": 6,
    "status": "ok"
   },
   "host": "www.everlane.com",
@@ -2499,14 +2606,14 @@
     "https://extrabutterny.com/collections/260_ftw_apr23"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 1,
   "gender_note": "no women's collection on the whole site and 2/100 womenswear in a sample; entered via its largest collections",
   "gender_source": "inferred",
   "health": {
    "fail": 0,
-   "last": 1785113810.4289038,
-   "last_found": 43,
-   "ok": 1,
+   "last": 1785526706.4370677,
+   "last_found": 95,
+   "ok": 2,
    "status": "ok"
   },
   "host": "extrabutterny.com",

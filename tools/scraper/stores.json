@@ -292,7 +292,7 @@
  "Bather": {
   "domain": "bather.com",
   "gender_prior": "m",
-  "seen": 49
+  "seen": 50
  },
  "Battenwear": {
   "domain": "battenwear.com",
@@ -317,7 +317,7 @@
  "Bearbottom": {
   "domain": "bearbottomclothing.com",
   "gender_prior": "m",
-  "seen": 71
+  "seen": 72
  },
  "Bearbottom Clothing": {
   "domain": "bearbottomclothing.com",
@@ -337,7 +337,7 @@
  "Beckett Simonon": {
   "domain": "www.beckettsimonon.com",
   "gender_prior": "m",
-  "seen": 15
+  "seen": 16
  },
  "Beginning Boutique": {
   "domain": "www.beginningboutique.com",
@@ -497,7 +497,7 @@
  "Cherry LA": {
   "domain": "www.cherryla.com",
   "gender_prior": "u",
-  "seen": 28
+  "seen": 29
  },
  "Christy Dawn": {
   "domain": "christydawn.com",
@@ -517,7 +517,7 @@
  "Cleobella": {
   "domain": "cleobella.com",
   "gender_prior": "f",
-  "seen": 31
+  "seen": 33
  },
  "Coalatree": {
   "domain": "coalatree.com",
@@ -527,7 +527,7 @@
  "Cole Buxton": {
   "domain": "colebuxton.com",
   "gender_prior": "m",
-  "seen": 29
+  "seen": 30
  },
  "Colorful Standard": {
   "domain": "colorfulstandard.com",
@@ -536,8 +536,8 @@
  },
  "Community Clothing": {
   "domain": "communityclothing.co.uk",
-  "gender_prior": "f",
-  "seen": 38
+  "gender_prior": "m",
+  "seen": 39
  },
  "Concepts": {
   "domain": "cncpts.com",
@@ -547,7 +547,7 @@
  "Coney Island Picnic": {
   "domain": "coneyislandpicnic.com",
   "gender_prior": "m",
-  "seen": 29
+  "seen": 30
  },
  "Converse": {
   "domain": "www.converse.com",
@@ -562,7 +562,7 @@
  "Corteiz": {
   "domain": "crtz.xyz",
   "gender_prior": "m",
-  "seen": 2
+  "seen": 3
  },
  "Cotopaxi": {
   "domain": "www.cotopaxi.com",
@@ -582,7 +582,7 @@
  "Cross Colours": {
   "domain": "crosscolours.com",
   "gender_prior": "u",
-  "seen": 26
+  "seen": 27
  },
  "Cue": {
   "domain": "www.cue.cc",
@@ -597,12 +597,22 @@
  "DFYNE": {
   "domain": "dfyne.com",
   "gender_prior": "f",
-  "seen": 24
+  "seen": 25
+ },
+ "DFYNE US": {
+  "domain": "us.dfyne.com",
+  "gender_prior": "m",
+  "seen": 1
+ },
+ "DISSH Boutiques": {
+  "domain": "dissh.com",
+  "gender_prior": "f",
+  "seen": 2
  },
  "DL1961": {
   "domain": "www.dl1961.com",
   "gender_prior": "u",
-  "seen": 18
+  "seen": 19
  },
  "DTLR": {
   "domain": "www.dtlr.com",
@@ -617,7 +627,7 @@
  "Damson Madder": {
   "domain": "damsonmadder.com",
   "gender_prior": "f",
-  "seen": 14
+  "seen": 15
  },
  "Dandy Del Mar": {
   "domain": "dandydelmar.com",
@@ -647,7 +657,7 @@
  "Devereux": {
   "domain": "devereuxgolf.com",
   "gender_prior": "m",
-  "seen": 25
+  "seen": 26
  },
  "Dime": {
   "domain": "dimemtl.com",
@@ -702,22 +712,22 @@
  "Echt": {
   "domain": "echt.com.au",
   "gender_prior": "f",
-  "seen": 28
+  "seen": 29
  },
  "Edikted": {
   "domain": "edikted.com",
   "gender_prior": "f",
-  "seen": 22
+  "seen": 24
  },
  "Elk": {
   "domain": "www.elkthelabel.com",
   "gender_prior": "f",
-  "seen": 7
+  "seen": 10
  },
  "Elka Collective": {
   "domain": "www.elkacollective.com",
   "gender_prior": "f",
-  "seen": 29
+  "seen": 30
  },
  "Elwood": {
   "domain": "elwoodclothing.com",
@@ -732,7 +742,7 @@
  "Everlane": {
   "domain": "www.everlane.com",
   "gender_prior": "f",
-  "seen": 35
+  "seen": 38
  },
  "Extra Butter": {
   "domain": "extrabutterny.com",
@@ -1317,12 +1327,12 @@
  "New Era": {
   "domain": "extrabutterny.com",
   "gender_prior": "m",
-  "seen": 8
+  "seen": 9
  },
  "Nike": {
   "domain": "www.nike.com",
   "gender_prior": "m",
-  "seen": 9
+  "seen": 10
  },
  "Nike SB": {
   "domain": "extrabutterny.com",

@@ -442,7 +442,7 @@
  "Carhartt WIP": {
   "domain": "us.carhartt-wip.com",
   "gender_prior": "m",
-  "seen": 5
+  "seen": 7
  },
  "Casablanca": {
   "domain": "casablancaparis.com",
@@ -552,12 +552,12 @@
  "DFYNE": {
   "domain": "us.dfyne.com",
   "gender_prior": "f",
-  "seen": 68
+  "seen": 72
  },
  "DFYNE US": {
   "domain": "us.dfyne.com",
   "gender_prior": "m",
-  "seen": 27
+  "seen": 32
  },
  "DL1961": {
   "domain": "www.dl1961.com",
@@ -807,7 +807,7 @@
  "Gap": {
   "domain": "www.gap.com",
   "gender_prior": "m",
-  "seen": 1
+  "seen": 2
  },
  "Ghospell": {
   "domain": "ghospell.com",
@@ -2037,7 +2037,7 @@
  "Todd Snyder": {
   "domain": "www.toddsnyder.com",
   "gender_prior": "m",
-  "seen": 18
+  "seen": 19
  },
  "Todd Snyder + Champion": {
   "domain": "www.toddsnyder.com",
@@ -2072,7 +2072,7 @@
  "UNIQLO": {
   "domain": "www.uniqlo.com",
   "gender_prior": "m",
-  "seen": 3
+  "seen": 6
  },
  "UNTUCKit": {
   "domain": "www.untuckit.com",
@@ -2082,7 +2082,7 @@
  "Uniqlo": {
   "domain": "www.uniqlo.com",
   "gender_prior": "f",
-  "seen": 36
+  "seen": 39
  },
  "United By Blue": {
   "domain": "unitedbyblue.com",
@@ -2093,6 +2093,11 @@
   "domain": "universalworks.co.uk",
   "gender_prior": "m",
   "seen": 27
+ },
+ "VITAMIN A": {
+  "domain": "www.vitaminaswim.com",
+  "gender_prior": "f",
+  "seen": 2
  },
  "Vanquish Fitness": {
   "domain": "vqfit.com",
@@ -2132,7 +2137,7 @@
  "Vitamin A": {
   "domain": "www.vitaminaswim.com",
   "gender_prior": "f",
-  "seen": 25
+  "seen": 34
  },
  "Vollebak": {
   "domain": "www.vollebak.com",

@@ -3006,7 +3006,15 @@
     "https://www.gabicci.com/collections/vintage"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "prior",
+  "health": {
+   "fail": 0,
+   "last": 1785547977.8766866,
+   "last_found": 74,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "www.gabicci.com",
   "note": "auto-discovered"
  },
@@ -3024,7 +3032,15 @@
     "https://gallerydept.com/collections/mens-bottoms"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "collection-handle",
+  "health": {
+   "fail": 1,
+   "last": 1785548140.306495,
+   "last_found": 0,
+   "ok": 0,
+   "status": "blocked"
+  },
   "host": "gallerydept.com",
   "note": "found by find_brands.py \u2014 designer"
  },
@@ -3041,9 +3057,9 @@
   "entry_cursor": 0,
   "health": {
    "fail": 0,
-   "last": 1785113152.777617,
+   "last": 1785548184.6134398,
    "last_found": 2,
-   "ok": 2,
+   "ok": 3,
    "status": "ok"
   },
   "host": "www.gap.com",
@@ -3059,7 +3075,16 @@
    ],
    "m": []
   },
+  "entry_cursor": 2,
   "gender_source": "prior",
+  "health": {
+   "fail": 0,
+   "last": 1785548276.2815018,
+   "last_found": 24,
+   "note": "no products found on the page",
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "ghospell.com",
   "note": "auto-discovered"
  },
@@ -3071,7 +3096,15 @@
    ],
    "m": []
   },
+  "entry_cursor": 0,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1785548298.8782978,
+   "last_found": 3,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "ginewusa.com",
   "note": "auto-discovered"
  },
@@ -3085,7 +3118,15 @@
    ],
    "m": []
   },
+  "entry_cursor": 2,
   "gender_source": "prior",
+  "health": {
+   "fail": 0,
+   "last": 1785548429.2142627,
+   "last_found": 100,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "girlfriend.com",
   "note": "auto-discovered"
  },
@@ -3099,7 +3140,16 @@
     "https://gitman.com/collections/dress-classics"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "prior",
+  "health": {
+   "fail": 1,
+   "last": 1785548497.7551084,
+   "last_found": 0,
+   "note": "no products found on the page; no products found on the page",
+   "ok": 0,
+   "status": "blocked"
+  },
   "host": "gitman.com",
   "note": "auto-discovered"
  },
@@ -3113,7 +3163,15 @@
     "https://goodlifeclothing.com/collections/mens-sweaters-hoodies"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1785548644.2509181,
+   "last_found": 100,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "goodlifeclothing.com",
   "note": "auto-discovered"
  },
@@ -3131,7 +3189,16 @@
     "https://gramicci.com/collections/mens-accessories"
    ]
   },
+  "entry_cursor": 1,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1785548683.8249993,
+   "last_found": 28,
+   "note": "rate-limited (429) \u2014 stopping this shop for now",
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "gramicci.com",
   "note": "auto-discovered"
  },
@@ -3145,7 +3212,16 @@
    ],
    "m": []
   },
+  "entry_cursor": 1,
   "gender_source": "prior",
+  "health": {
+   "fail": 0,
+   "last": 1785548743.1618247,
+   "last_found": 53,
+   "note": "rate-limited (429) \u2014 stopping this shop for now",
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "grayers.com",
   "note": "auto-discovered"
  },
@@ -3163,7 +3239,15 @@
     "https://www.greats.com/collections/low-tops-sneakers"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1785548834.5961056,
+   "last_found": 37,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "www.greats.com",
   "note": "auto-discovered"
  },
@@ -3181,7 +3265,15 @@
     "https://www.gymking.com/collections/mens-gym-clothes"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1785549038.4426847,
+   "last_found": 113,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "www.gymking.com",
   "note": ""
  },
@@ -3193,7 +3285,16 @@
     "https://hufworldwide.co.uk/collections/huf-x-x-men"
    ]
   },
+  "entry_cursor": 0,
   "gender_source": "collection",
+  "health": {
+   "fail": 1,
+   "last": 1785549070.4925234,
+   "last_found": 0,
+   "note": "no products found on the page",
+   "ok": 0,
+   "status": "blocked"
+  },
   "host": "hufworldwide.co.uk",
   "note": "auto-discovered"
  },
@@ -3207,8 +3308,16 @@
     "https://hellstar.com/collections/shop-all"
    ]
   },
+  "entry_cursor": 2,
   "gender_note": "no women's collection on the whole site and 2/100 womenswear in a sample",
   "gender_source": "inferred",
+  "health": {
+   "fail": 0,
+   "last": 1785549294.3448913,
+   "last_found": 69,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "hellstar.com",
   "note": "found by find_brands.py \u2014 streetwear"
  },
@@ -3226,7 +3335,15 @@
     "https://heronpreston.com/collections/mens-bottoms"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "collection-handle",
+  "health": {
+   "fail": 0,
+   "last": 1785549334.3717132,
+   "last_found": 6,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "heronpreston.com",
   "note": "found by find_brands.py \u2014 designer"
  },

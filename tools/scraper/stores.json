@@ -567,7 +567,7 @@
  "Corteiz": {
   "domain": "crtz.xyz",
   "gender_prior": "m",
-  "seen": 6
+  "seen": 7
  },
  "Costa Brava": {
   "domain": "faithfullthebrand.com",
@@ -607,7 +607,7 @@
  "DFYNE": {
   "domain": "dfyne.com",
   "gender_prior": "f",
-  "seen": 25
+  "seen": 26
  },
  "DFYNE US": {
   "domain": "us.dfyne.com",
@@ -687,7 +687,7 @@
  "Doyoueven": {
   "domain": "www.doyoueven.com",
   "gender_prior": "u",
-  "seen": 26
+  "seen": 27
  },
  "Dr Martens": {
   "domain": "extrabutterny.com",
@@ -727,7 +727,7 @@
  "Edikted": {
   "domain": "edikted.com",
   "gender_prior": "f",
-  "seen": 30
+  "seen": 32
  },
  "Elk": {
   "domain": "www.elkthelabel.com",
@@ -737,7 +737,7 @@
  "Elka Collective": {
   "domain": "www.elkacollective.com",
   "gender_prior": "f",
-  "seen": 32
+  "seen": 33
  },
  "Elwood": {
   "domain": "elwoodclothing.com",
@@ -752,7 +752,7 @@
  "Everlane": {
   "domain": "www.everlane.com",
   "gender_prior": "f",
-  "seen": 42
+  "seen": 43
  },
  "Extra Butter": {
   "domain": "extrabutterny.com",
@@ -782,7 +782,7 @@
  "Farah": {
   "domain": "www.farah.co.uk",
   "gender_prior": "m",
-  "seen": 31
+  "seen": 32
  },
  "Farm Rio": {
   "domain": "www.farmrio.com",
@@ -792,7 +792,7 @@
  "Fear of God": {
   "domain": "fearofgod.com",
   "gender_prior": "m",
-  "seen": 12
+  "seen": 13
  },
  "Feature": {
   "domain": "feature.com",
@@ -862,7 +862,7 @@
  "Gabicci": {
   "domain": "www.gabicci.com",
   "gender_prior": "m",
-  "seen": 29
+  "seen": 30
  },
  "Gap": {
   "domain": "www.gap.com",
@@ -882,7 +882,7 @@
  "Girlfriend Collective": {
   "domain": "girlfriend.com",
   "gender_prior": "f",
-  "seen": 24
+  "seen": 25
  },
  "Golden Goose": {
   "domain": "www.goldengoose.com",
@@ -902,7 +902,7 @@
  "Grayers": {
   "domain": "grayers.com",
   "gender_prior": "f",
-  "seen": 30
+  "seen": 31
  },
  "Great Minds": {
   "domain": "ashanderie.com",
@@ -932,7 +932,7 @@
  "Hellstar": {
   "domain": "hellstar.com",
   "gender_prior": "m",
-  "seen": 2
+  "seen": 3
  },
  "Hikerdelic": {
   "domain": "hikerdelic.com",
@@ -972,7 +972,7 @@
  "In The Style": {
   "domain": "www.inthestyle.com",
   "gender_prior": "f",
-  "seen": 30
+  "seen": 32
  },
  "Intime Knits": {
   "domain": "ashanderie.com",
@@ -1002,12 +1002,17 @@
  "Jaded London": {
   "domain": "www.jadedldn.com",
   "gender_prior": "u",
-  "seen": 32
+  "seen": 33
+ },
+ "Jaded Man": {
+  "domain": "jadedldn.com",
+  "gender_prior": "m",
+  "seen": 1
  },
  "Janessa Leone": {
   "domain": "janessaleone.com",
   "gender_prior": "f",
-  "seen": 15
+  "seen": 16
  },
  "Janji": {
   "domain": "janji.com",
@@ -1037,7 +1042,7 @@
  "Katin": {
   "domain": "katinusa.com",
   "gender_prior": "m",
-  "seen": 27
+  "seen": 28
  },
  "Kavu": {
   "domain": "www.kavu.com",
@@ -1077,7 +1082,7 @@
  "Kivari": {
   "domain": "kivari.com.au",
   "gender_prior": "f",
-  "seen": 27
+  "seen": 28
  },
  "Koio": {
   "domain": "www.koio.co",
@@ -1087,12 +1092,17 @@
  "Kookai": {
   "domain": "www.kookai.com.au",
   "gender_prior": "f",
-  "seen": 28
+  "seen": 30
  },
  "Ksubi": {
   "domain": "ksubi.com",
   "gender_prior": "u",
   "seen": 31
+ },
+ "Ksubi US": {
+  "domain": "ksubi.com",
+  "gender_prior": "m",
+  "seen": 1
  },
  "Kulani Kinis": {
   "domain": "kulanikinis.com",
@@ -1352,12 +1362,12 @@
  "New Era": {
   "domain": "extrabutterny.com",
   "gender_prior": "m",
-  "seen": 12
+  "seen": 13
  },
  "Nike": {
-  "domain": "www.nike.com",
+  "domain": "extrabutterny.com",
   "gender_prior": "m",
-  "seen": 12
+  "seen": 13
  },
  "Nike SB": {
   "domain": "extrabutterny.com",

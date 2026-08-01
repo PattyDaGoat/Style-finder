@@ -3763,8 +3763,16 @@
    ],
    "m": []
   },
+  "entry_cursor": 2,
   "gender_note": "16/100 read as womenswear, 16% dresses",
   "gender_source": "inferred",
+  "health": {
+   "fail": 1,
+   "last": 1785569554.7866116,
+   "last_found": 0,
+   "ok": 0,
+   "status": "blocked"
+  },
   "host": "khaite.com",
   "note": "found by find_brands.py \u2014 designer"
  },
@@ -3782,7 +3790,15 @@
     "https://www.killstar.com/collections/all-mens-loungewear"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1785569722.773712,
+   "last_found": 120,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "www.killstar.com",
   "note": "auto-discovered"
  },
@@ -3798,14 +3814,14 @@
     "https://kith.com/collections/productsize-10"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 0,
   "gender_note": "found only women's collections by name; the shop also lists men's ones, so its general collections are registered for that side as a guess",
   "gender_source": "prior",
   "health": {
    "fail": 0,
-   "last": 1785113470.3246522,
-   "last_found": 34,
-   "ok": 1,
+   "last": 1785569853.5729163,
+   "last_found": 87,
+   "ok": 2,
    "status": "ok"
   },
   "host": "kith.com",
@@ -3819,7 +3835,15 @@
    ],
    "m": []
   },
+  "entry_cursor": 0,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1785569911.0997722,
+   "last_found": 29,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "kitristudio.com",
   "note": "auto-discovered"
  },
@@ -3833,7 +3857,15 @@
    ],
    "m": []
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1785570132.1680746,
+   "last_found": 42,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "kivari.com.au",
   "note": "auto-discovered"
  },
@@ -3851,7 +3883,15 @@
     "https://www.koio.co/collections/leather-collection-mens"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1785570414.6644146,
+   "last_found": 2,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "www.koio.co",
   "note": "auto-discovered"
  },
@@ -3865,7 +3905,15 @@
    ],
    "m": []
   },
+  "entry_cursor": 2,
   "gender_source": "prior",
+  "health": {
+   "fail": 0,
+   "last": 1785570576.877853,
+   "last_found": 111,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "www.kookai.com.au",
   "note": "auto-discovered"
  },
@@ -3883,7 +3931,15 @@
     "https://ksubi.com/collections/mens-accessories-season-one"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1785570660.6911702,
+   "last_found": 22,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "ksubi.com",
   "note": "auto-discovered"
  },
@@ -3900,7 +3956,16 @@
     "https://kulanikinis.com/collections/loop-returns-mens"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 1,
+   "last": 1785570772.8054352,
+   "last_found": 0,
+   "note": "no products found on the page; no products found on the page",
+   "ok": 0,
+   "status": "blocked"
+  },
   "host": "kulanikinis.com",
   "note": "auto-discovered"
  },
@@ -3914,7 +3979,15 @@
    ],
    "m": []
   },
+  "entry_cursor": 2,
   "gender_source": "prior",
+  "health": {
+   "fail": 0,
+   "last": 1785570904.5461166,
+   "last_found": 77,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "kule.com",
   "note": "auto-discovered"
  },
@@ -3928,7 +4001,15 @@
     "https://lestrangelondon.com/collections/all-fp"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "prior",
+  "health": {
+   "fail": 0,
+   "last": 1785570962.9747105,
+   "last_found": 3,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "lestrangelondon.com",
   "note": "auto-discovered"
  },
@@ -3942,7 +4023,16 @@
     "https://www.lapaz.pt/collections/tees-sweats"
    ]
   },
+  "entry_cursor": 1,
   "gender_source": "prior",
+  "health": {
+   "fail": 0,
+   "last": 1785571018.844634,
+   "last_found": 48,
+   "note": "rate-limited (429) \u2014 stopping this shop for now",
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "www.lapaz.pt",
   "note": "auto-discovered"
  },
@@ -3960,7 +4050,15 @@
     "https://www.lackofcolor.com/collections/mens-fedora-hats"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1785571080.5567255,
+   "last_found": 21,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "www.lackofcolor.com",
   "note": "auto-discovered"
  },
@@ -3974,7 +4072,16 @@
     "https://ladywhiteco.com/collections/new-arrivals"
    ]
   },
+  "entry_cursor": 1,
   "gender_source": "prior",
+  "health": {
+   "fail": 0,
+   "last": 1785571129.4831202,
+   "last_found": 37,
+   "note": "rate-limited (429) \u2014 stopping this shop for now",
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "ladywhiteco.com",
   "note": "auto-discovered"
  },
@@ -3988,7 +4095,15 @@
     "https://lealfre.com/collections/accessories"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "prior",
+  "health": {
+   "fail": 0,
+   "last": 1785571186.2221289,
+   "last_found": 5,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "lealfre.com",
   "note": "auto-discovered"
  },

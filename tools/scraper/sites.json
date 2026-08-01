@@ -4148,7 +4148,15 @@
     "https://www.lemaire.fr/collections/men-tops"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "collection-handle",
+  "health": {
+   "fail": 1,
+   "last": 1785580347.176213,
+   "last_found": 0,
+   "ok": 0,
+   "status": "blocked"
+  },
   "host": "www.lemaire.fr",
   "note": "found by find_brands.py \u2014 designer"
  },
@@ -4162,7 +4170,16 @@
    ],
    "m": []
   },
+  "entry_cursor": 1,
   "gender_source": "prior",
+  "health": {
+   "fail": 0,
+   "last": 1785580392.6920083,
+   "last_found": 43,
+   "note": "rate-limited (429) \u2014 stopping this shop for now",
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "lisasaysgah.com",
   "note": "auto-discovered"
  },
@@ -4176,7 +4193,15 @@
     "https://localauthorityla.com/collections/mens"
    ]
   },
+  "entry_cursor": 0,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1785580430.001633,
+   "last_found": 11,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "localauthorityla.com",
   "note": "auto-discovered"
  },
@@ -4190,7 +4215,15 @@
    ],
    "m": []
   },
+  "entry_cursor": 2,
   "gender_source": "prior",
+  "health": {
+   "fail": 0,
+   "last": 1785580708.7758272,
+   "last_found": 78,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "www.lornajane.com",
   "note": "auto-discovered"
  },
@@ -4204,7 +4237,16 @@
     "https://loveshackfancy.com/collections/mens-swim"
    ]
   },
+  "entry_cursor": 1,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1785580762.507679,
+   "last_found": 8,
+   "note": "rate-limited (429) \u2014 stopping this shop for now",
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "loveshackfancy.com",
   "note": "auto-discovered"
  },
@@ -4218,7 +4260,16 @@
    ],
    "m": []
   },
+  "entry_cursor": 1,
   "gender_source": "prior",
+  "health": {
+   "fail": 0,
+   "last": 1785580815.8257546,
+   "last_found": 60,
+   "note": "rate-limited (429) \u2014 stopping this shop for now",
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "lucyandyak.com",
   "note": "auto-discovered"
  },
@@ -4232,7 +4283,15 @@
     "https://www.luke1977.com/collections/mens-plain-t-shirts-1"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1785580920.3269243,
+   "last_found": 82,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "www.luke1977.com",
   "note": "auto-discovered"
  },
@@ -4271,7 +4330,16 @@
     "https://www.lunya.co/collections/mens-accessories"
    ]
   },
+  "entry_cursor": 0,
   "gender_source": "collection",
+  "health": {
+   "fail": 1,
+   "last": 1785580943.6284897,
+   "last_found": 0,
+   "note": "rate-limited (429) \u2014 stopping this shop for now",
+   "ok": 0,
+   "status": "blocked"
+  },
   "host": "www.lunya.co",
   "note": "auto-discovered"
  },
@@ -4289,7 +4357,15 @@
     "https://lurkingclass.com/collections/mens-hoodies"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1785581045.9311152,
+   "last_found": 100,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "lurkingclass.com",
   "note": "auto-discovered"
  },
@@ -4305,7 +4381,15 @@
     "https://www.lyleandscott.com/collections/mens-polo-shirts"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1785581098.4703355,
+   "last_found": 96,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "www.lyleandscott.com",
   "note": ""
  },
@@ -4321,7 +4405,15 @@
     "https://www.mgemi.com/collections/mens-bestsellers"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 1,
+   "last": 1785581209.554949,
+   "last_found": 0,
+   "ok": 0,
+   "status": "blocked"
+  },
   "host": "www.mgemi.com",
   "note": "auto-discovered"
  },
@@ -4335,7 +4427,16 @@
     "https://www.mnml.la/collections/12-23-22-launch-1"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "prior",
+  "health": {
+   "fail": 1,
+   "last": 1785581314.8628612,
+   "last_found": 0,
+   "note": "no products found on the page; no products found on the page",
+   "ok": 0,
+   "status": "blocked"
+  },
   "host": "www.mnml.la",
   "note": "auto-discovered"
  },
@@ -4348,7 +4449,15 @@
     "https://mackweldon.com/collections/mens-workwear"
    ]
   },
+  "entry_cursor": 0,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1785581472.8902488,
+   "last_found": 72,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "mackweldon.com",
   "note": "auto-discovered"
  },
@@ -4363,12 +4472,12 @@
     "https://www.madewell.com/mens-clothing"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 1,
   "health": {
    "fail": 0,
-   "last": 1785113105.4806368,
-   "last_found": 1,
-   "ok": 2,
+   "last": 1785581574.1910734,
+   "last_found": 2,
+   "ok": 3,
    "status": "ok"
   },
   "host": "www.madewell.com",
@@ -4387,7 +4496,16 @@
     "https://www.madhappy.com/collections/mens-t-shirts"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "collection-handle",
+  "health": {
+   "fail": 0,
+   "last": 1785581681.1125576,
+   "last_found": 44,
+   "note": "no products found on the page",
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "www.madhappy.com",
   "note": "found by find_brands.py \u2014 streetwear"
  },

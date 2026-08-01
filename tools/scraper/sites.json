@@ -5379,7 +5379,15 @@
     "https://onia.com/collections/shop-all-mens"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1785612736.6972828,
+   "last_found": 31,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "onia.com",
   "note": "auto-discovered"
  },
@@ -5393,7 +5401,15 @@
     "https://onlyny.com/collections/nyc-collection"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "prior",
+  "health": {
+   "fail": 0,
+   "last": 1785612791.518087,
+   "last_found": 70,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "onlyny.com",
   "note": "auto-discovered"
  },
@@ -5411,7 +5427,16 @@
     "https://organicbasics.com/collections/organic-cotton-95-100-mens-underwear"
    ]
   },
+  "entry_cursor": 1,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1785612845.3178132,
+   "last_found": 60,
+   "note": "rate-limited (429) \u2014 stopping this shop for now",
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "organicbasics.com",
   "note": "auto-discovered"
  },
@@ -5425,7 +5450,15 @@
     "https://www.orlebarbrown.com/collections/mens-swimming-trunks"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1785613013.510516,
+   "last_found": 2,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "www.orlebarbrown.com",
   "note": "auto-discovered"
  },
@@ -5443,7 +5476,16 @@
     "https://www.outdoorvoices.com/collections/m-bestsellers"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 1,
+   "last": 1785613115.024462,
+   "last_found": 0,
+   "note": "no products found on the page; no products found on the page",
+   "ok": 0,
+   "status": "blocked"
+  },
   "host": "www.outdoorvoices.com",
   "note": "auto-discovered"
  },
@@ -5458,7 +5500,15 @@
     "https://www.outerknown.com/collections/beach-bound-mens"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1785613190.1333141,
+   "last_found": 36,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "www.outerknown.com",
   "note": "auto-discovered"
  },
@@ -5476,7 +5526,15 @@
     "https://outlanddenim.com/collections/mens-jeans"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 1,
+   "last": 1785613224.9477122,
+   "last_found": 0,
+   "ok": 0,
+   "status": "blocked"
+  },
   "host": "outlanddenim.com",
   "note": "auto-discovered"
  },
@@ -5490,7 +5548,15 @@
    ],
    "m": []
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1785613456.6011097,
+   "last_found": 21,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "www.pe-nation.com",
   "note": "auto-discovered"
  },
@@ -5504,7 +5570,15 @@
    ],
    "m": []
   },
+  "entry_cursor": 2,
   "gender_source": "prior",
+  "health": {
+   "fail": 0,
+   "last": 1785613625.8475034,
+   "last_found": 117,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "popflexactive.com",
   "note": "auto-discovered"
  },
@@ -5516,7 +5590,15 @@
     "https://packershoes.com/collections/mens-footwear"
    ]
   },
+  "entry_cursor": 0,
   "gender_source": "collection-handle",
+  "health": {
+   "fail": 0,
+   "last": 1785613653.2927983,
+   "last_found": 1,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "packershoes.com",
   "note": "found by find_brands.py \u2014 sneaker boutique"
  },
@@ -5534,7 +5616,16 @@
     "https://passenger-clothing.com/collections/mens-accessories"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 1,
+   "last": 1785613752.4770224,
+   "last_found": 0,
+   "note": "no products found on the page; no products found on the page",
+   "ok": 0,
+   "status": "blocked"
+  },
   "host": "passenger-clothing.com",
   "note": "auto-discovered"
  },
@@ -5571,7 +5662,16 @@
    ],
    "m": []
   },
+  "entry_cursor": 2,
   "gender_source": "prior",
+  "health": {
+   "fail": 0,
+   "last": 1785613894.2353826,
+   "last_found": 49,
+   "note": "no products found on the page",
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "www.peppermayo.com",
   "note": "auto-discovered"
  },
@@ -5587,7 +5687,15 @@
     "https://www.percivalclo.com/collections/trousers"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1785613997.4824603,
+   "last_found": 35,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "www.percivalclo.com",
   "note": ""
  },
@@ -5601,7 +5709,15 @@
    ],
    "m": []
   },
+  "entry_cursor": 2,
   "gender_source": "prior",
+  "health": {
+   "fail": 0,
+   "last": 1785614291.2441344,
+   "last_found": 63,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "www.petalandpup.com",
   "note": "auto-discovered"
  },
@@ -5615,7 +5731,15 @@
    ],
    "m": []
   },
+  "entry_cursor": 2,
   "gender_source": "prior",
+  "health": {
+   "fail": 0,
+   "last": 1785614415.9753575,
+   "last_found": 89,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "petitestudionyc.com",
   "note": "auto-discovered"
  },

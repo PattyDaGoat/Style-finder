@@ -3407,7 +3407,15 @@
    ],
    "m": []
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1785558788.821954,
+   "last_found": 58,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "www.inthestyle.com",
   "note": "auto-discovered"
  },
@@ -3423,7 +3431,15 @@
     "https://ironandresin.com/collections/mens-vests"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1785558841.8829706,
+   "last_found": 14,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "ironandresin.com",
   "note": "auto-discovered"
  },
@@ -3437,7 +3453,15 @@
     "https://www.ironheart.co.uk/collections/tops"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "prior",
+  "health": {
+   "fail": 0,
+   "last": 1785558926.5391796,
+   "last_found": 4,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "www.ironheart.co.uk",
   "note": "auto-discovered"
  },
@@ -3453,12 +3477,13 @@
     "https://www.jcrew.com/plp/mens/categories/clothing/sweaters"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 0,
   "health": {
    "fail": 0,
-   "last": 1785113050.3713803,
-   "last_found": 26,
-   "ok": 2,
+   "last": 1785559061.7086928,
+   "last_found": 31,
+   "note": "nav failed: Page.goto: Timeout 45000ms exceeded.",
+   "ok": 3,
    "status": "ok"
   },
   "host": "www.jcrew.com",
@@ -3478,7 +3503,16 @@
     "https://www.jackerwin.com/collections/mens-new-arrivals"
    ]
   },
+  "entry_cursor": 1,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1785559107.5893974,
+   "last_found": 28,
+   "note": "rate-limited (429) \u2014 stopping this shop for now",
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "www.jackerwin.com",
   "note": "auto-discovered"
  },
@@ -3496,7 +3530,15 @@
     "https://www.jadedldn.com/collections/all-tops-knits-mens"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1785559250.1911492,
+   "last_found": 93,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "www.jadedldn.com",
   "note": "auto-discovered"
  },
@@ -3510,7 +3552,15 @@
    ],
    "m": []
   },
+  "entry_cursor": 2,
   "gender_source": "prior",
+  "health": {
+   "fail": 0,
+   "last": 1785559371.9058402,
+   "last_found": 18,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "janessaleone.com",
   "note": "auto-discovered"
  },
@@ -3528,7 +3578,15 @@
     "https://janji.com/collections/mens-shorts"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1785559467.1374645,
+   "last_found": 47,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "janji.com",
   "note": "auto-discovered"
  },
@@ -3541,7 +3599,16 @@
    ],
    "m": []
   },
+  "entry_cursor": 0,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1785559521.901211,
+   "last_found": 1,
+   "note": "no products found on the page",
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "www.jennikayne.com",
   "note": "auto-discovered"
  },
@@ -3555,7 +3622,15 @@
     "https://johnelliott.com/collections/bf-exclude-2021"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "prior",
+  "health": {
+   "fail": 0,
+   "last": 1785559643.613354,
+   "last_found": 8,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "johnelliott.com",
   "note": "auto-discovered"
  },
@@ -3573,7 +3648,15 @@
     "https://johnnie-o.com/collections/men-s-course-tees"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1785559769.4556193,
+   "last_found": 98,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "johnnie-o.com",
   "note": "auto-discovered"
  },
@@ -3589,8 +3672,16 @@
     "https://www.keenfootwear.com/collections/mens-boots"
    ]
   },
+  "entry_cursor": 2,
   "gender_note": "found only men's collections by name; the shop also lists women's ones, so its general collections are registered for that side as a guess",
   "gender_source": "prior",
+  "health": {
+   "fail": 0,
+   "last": 1785559839.3908365,
+   "last_found": 87,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "www.keenfootwear.com",
   "note": "found by find_brands.py \u2014 footwear"
  },
@@ -3602,7 +3693,15 @@
     "https://katinusa.com/collections/trunks"
    ]
   },
+  "entry_cursor": 0,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1785559879.6557174,
+   "last_found": 23,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "katinusa.com",
   "note": "auto-discovered"
  },
@@ -3620,7 +3719,15 @@
     "https://www.kavu.com/collections/mens-shirts"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1785559977.6631076,
+   "last_found": 31,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "www.kavu.com",
   "note": "auto-discovered"
  },
@@ -3634,7 +3741,15 @@
     "https://kestin.co/collections/aw24-collection"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "prior",
+  "health": {
+   "fail": 0,
+   "last": 1785560150.7015452,
+   "last_found": 59,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "kestin.co",
   "note": "auto-discovered"
  },

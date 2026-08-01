@@ -502,7 +502,7 @@
  "Cherry LA": {
   "domain": "www.cherryla.com",
   "gender_prior": "u",
-  "seen": 31
+  "seen": 32
  },
  "Christy Dawn": {
   "domain": "christydawn.com",
@@ -567,7 +567,7 @@
  "Corteiz": {
   "domain": "crtz.xyz",
   "gender_prior": "m",
-  "seen": 5
+  "seen": 6
  },
  "Costa Brava": {
   "domain": "faithfullthebrand.com",
@@ -582,7 +582,7 @@
  "Cozy Earth": {
   "domain": "cozyearth.com",
   "gender_prior": "f",
-  "seen": 28
+  "seen": 29
  },
  "Criquet": {
   "domain": "criquetshirts.com",
@@ -621,8 +621,8 @@
  },
  "DL1961": {
   "domain": "www.dl1961.com",
-  "gender_prior": "u",
-  "seen": 21
+  "gender_prior": "m",
+  "seen": 22
  },
  "DTLR": {
   "domain": "www.dtlr.com",
@@ -637,7 +637,7 @@
  "Damson Madder": {
   "domain": "damsonmadder.com",
   "gender_prior": "f",
-  "seen": 16
+  "seen": 17
  },
  "Dandy Del Mar": {
   "domain": "dandydelmar.com",
@@ -667,7 +667,7 @@
  "Devereux": {
   "domain": "devereuxgolf.com",
   "gender_prior": "m",
-  "seen": 28
+  "seen": 29
  },
  "Dime": {
   "domain": "dimemtl.com",
@@ -727,12 +727,12 @@
  "Edikted": {
   "domain": "edikted.com",
   "gender_prior": "f",
-  "seen": 28
+  "seen": 30
  },
  "Elk": {
   "domain": "www.elkthelabel.com",
   "gender_prior": "f",
-  "seen": 12
+  "seen": 13
  },
  "Elka Collective": {
   "domain": "www.elkacollective.com",
@@ -752,7 +752,7 @@
  "Everlane": {
   "domain": "www.everlane.com",
   "gender_prior": "f",
-  "seen": 41
+  "seen": 42
  },
  "Extra Butter": {
   "domain": "extrabutterny.com",
@@ -772,7 +772,7 @@
  "Fair Harbor": {
   "domain": "fairharborclothing.com",
   "gender_prior": "m",
-  "seen": 27
+  "seen": 28
  },
  "Faithfull the Brand": {
   "domain": "faithfullthebrand.com",
@@ -782,7 +782,7 @@
  "Farah": {
   "domain": "www.farah.co.uk",
   "gender_prior": "m",
-  "seen": 30
+  "seen": 31
  },
  "Farm Rio": {
   "domain": "www.farmrio.com",
@@ -802,7 +802,7 @@
  "Finisterre": {
   "domain": "finisterre.com",
   "gender_prior": "m",
-  "seen": 34
+  "seen": 35
  },
  "Flag & Anthem": {
   "domain": "flagandanthem.com",
@@ -862,7 +862,7 @@
  "Gabicci": {
   "domain": "www.gabicci.com",
   "gender_prior": "m",
-  "seen": 28
+  "seen": 29
  },
  "Gap": {
   "domain": "www.gap.com",
@@ -882,7 +882,7 @@
  "Girlfriend Collective": {
   "domain": "girlfriend.com",
   "gender_prior": "f",
-  "seen": 23
+  "seen": 24
  },
  "Golden Goose": {
   "domain": "www.goldengoose.com",
@@ -902,7 +902,7 @@
  "Grayers": {
   "domain": "grayers.com",
   "gender_prior": "f",
-  "seen": 28
+  "seen": 30
  },
  "Great Minds": {
   "domain": "ashanderie.com",
@@ -932,7 +932,7 @@
  "Hellstar": {
   "domain": "hellstar.com",
   "gender_prior": "m",
-  "seen": 1
+  "seen": 2
  },
  "Hikerdelic": {
   "domain": "hikerdelic.com",
@@ -972,7 +972,7 @@
  "In The Style": {
   "domain": "www.inthestyle.com",
   "gender_prior": "f",
-  "seen": 28
+  "seen": 30
  },
  "Intime Knits": {
   "domain": "ashanderie.com",
@@ -1007,12 +1007,12 @@
  "Janessa Leone": {
   "domain": "janessaleone.com",
   "gender_prior": "f",
-  "seen": 14
+  "seen": 15
  },
  "Janji": {
   "domain": "janji.com",
   "gender_prior": "u",
-  "seen": 22
+  "seen": 23
  },
  "Jenni Kayne": {
   "domain": "www.jennikayne.com",
@@ -1029,10 +1029,15 @@
   "gender_prior": "m",
   "seen": 24
  },
+ "KEEN": {
+  "domain": "www.keenfootwear.com",
+  "gender_prior": "m",
+  "seen": 2
+ },
  "Katin": {
   "domain": "katinusa.com",
   "gender_prior": "m",
-  "seen": 26
+  "seen": 27
  },
  "Kavu": {
   "domain": "www.kavu.com",
@@ -1242,7 +1247,7 @@
  "Men's": {
   "domain": "communityclothing.co.uk",
   "gender_prior": "m",
-  "seen": 3
+  "seen": 4
  },
  "Meshki": {
   "domain": "meshki.com",
@@ -1347,7 +1352,7 @@
  "New Era": {
   "domain": "extrabutterny.com",
   "gender_prior": "m",
-  "seen": 11
+  "seen": 12
  },
  "Nike": {
   "domain": "www.nike.com",
@@ -1707,7 +1712,7 @@
  "Renarts": {
   "domain": "renarts.com",
   "gender_prior": "m",
-  "seen": 10
+  "seen": 11
  },
  "Represent": {
   "domain": "representclo.com",
@@ -2048,6 +2053,11 @@
   "domain": "thefrankieshop.com",
   "gender_prior": "f",
   "seen": 26
+ },
+ "The Gym King": {
+  "domain": "thegymking.com",
+  "gender_prior": "m",
+  "seen": 1
  },
  "The Hundreds": {
   "domain": "thehundreds.com",

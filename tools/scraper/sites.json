@@ -4995,7 +4995,15 @@
    ],
    "m": []
   },
+  "entry_cursor": 0,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1785601885.802308,
+   "last_found": 7,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "neffheadwear.com",
   "note": "auto-discovered"
  },
@@ -5009,7 +5017,15 @@
     "https://nenaandpasadena.com/collections/mens-afl-t-shirts"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1785601978.4533086,
+   "last_found": 119,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "nenaandpasadena.com",
   "note": "auto-discovered"
  },
@@ -5023,7 +5039,16 @@
    ],
    "m": []
   },
+  "entry_cursor": 1,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1785602022.2004044,
+   "last_found": 20,
+   "note": "rate-limited (429) \u2014 stopping this shop for now",
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "neverfullydressed.com",
   "note": "auto-discovered"
  },
@@ -5037,7 +5062,15 @@
    ],
    "m": []
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1785602107.3572204,
+   "last_found": 65,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "nimbleactivewear.com",
   "note": "auto-discovered"
  },
@@ -5055,7 +5088,15 @@
     "https://nisolo.com/collections/mens-accessories"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1785602217.5300689,
+   "last_found": 73,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "nisolo.com",
   "note": "auto-discovered"
  },
@@ -5069,7 +5110,16 @@
     "https://noahny.com/collections/continue-shopping"
    ]
   },
+  "entry_cursor": 1,
   "gender_source": "prior",
+  "health": {
+   "fail": 1,
+   "last": 1785602278.5095031,
+   "last_found": 0,
+   "note": "no products found on the page; rate-limited (429) \u2014 stopping this shop for now",
+   "ok": 0,
+   "status": "blocked"
+  },
   "host": "noahny.com",
   "note": "auto-discovered"
  },
@@ -5087,7 +5137,16 @@
     "https://www.nobodydenim.com/collections/mens-black-jeans"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 1,
+   "last": 1785602368.468809,
+   "last_found": 0,
+   "note": "no products found on the page; no products found on the page",
+   "ok": 0,
+   "status": "blocked"
+  },
   "host": "www.nobodydenim.com",
   "note": "auto-discovered"
  },
@@ -5100,7 +5159,15 @@
    ],
    "m": []
   },
+  "entry_cursor": 0,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1785602411.613492,
+   "last_found": 11,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "www.nobodyschild.com",
   "note": "auto-discovered"
  },
@@ -5114,7 +5181,16 @@
     "https://www.norseprojects.com/collections/shirting"
    ]
   },
+  "entry_cursor": 1,
   "gender_source": "prior",
+  "health": {
+   "fail": 0,
+   "last": 1785602452.164812,
+   "last_found": 26,
+   "note": "rate-limited (429) \u2014 stopping this shop for now",
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "www.norseprojects.com",
   "note": "auto-discovered"
  },
@@ -5132,7 +5208,15 @@
     "https://www.notre-shop.com/collections/bottoms-mens"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "collection-handle",
+  "health": {
+   "fail": 0,
+   "last": 1785602499.8108263,
+   "last_found": 16,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "www.notre-shop.com",
   "note": "found by find_brands.py \u2014 sneaker boutique"
  },
@@ -5146,7 +5230,15 @@
    ],
    "m": []
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1785602633.6537113,
+   "last_found": 117,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "www.nudelucy.com.au",
   "note": "auto-discovered"
  },
@@ -5164,7 +5256,16 @@
     "https://www.obeyclothing.com/collections/mens-t-shirts"
    ]
   },
+  "entry_cursor": 1,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1785602690.3691204,
+   "last_found": 54,
+   "note": "rate-limited (429) \u2014 stopping this shop for now",
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "www.obeyclothing.com",
   "note": "auto-discovered"
  },
@@ -5176,7 +5277,15 @@
    ],
    "m": []
   },
+  "entry_cursor": 0,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1785602725.649366,
+   "last_found": 6,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "www.ohpolly.com",
   "note": "auto-discovered"
  },
@@ -5194,7 +5303,15 @@
     "https://olivercabell.com/collections/low-2-mens"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1785602900.1751301,
+   "last_found": 75,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "olivercabell.com",
   "note": "auto-discovered"
  },
@@ -5208,7 +5325,15 @@
     "https://oliverspencer.co.uk/collections/autumn-25"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "prior",
+  "health": {
+   "fail": 0,
+   "last": 1785603085.109742,
+   "last_found": 83,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "oliverspencer.co.uk",
   "note": "auto-discovered"
  },

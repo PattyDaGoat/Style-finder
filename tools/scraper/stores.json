@@ -519,6 +519,11 @@
   "gender_prior": "u",
   "seen": 16
  },
+ "Clearance": {
+  "domain": "gabicci.com",
+  "gender_prior": "m",
+  "seen": 1
+ },
  "Cleobella": {
   "domain": "cleobella.com",
   "gender_prior": "f",
@@ -567,7 +572,7 @@
  "Corteiz": {
   "domain": "crtz.xyz",
   "gender_prior": "m",
-  "seen": 9
+  "seen": 10
  },
  "Costa Brava": {
   "domain": "faithfullthebrand.com",
@@ -597,7 +602,7 @@
  "Cue": {
   "domain": "www.cue.cc",
   "gender_prior": "f",
-  "seen": 32
+  "seen": 33
  },
  "Cuyana": {
   "domain": "www.cuyana.com",
@@ -727,7 +732,7 @@
  "Edikted": {
   "domain": "edikted.com",
   "gender_prior": "f",
-  "seen": 32
+  "seen": 34
  },
  "Elk": {
   "domain": "www.elkthelabel.com",
@@ -752,7 +757,7 @@
  "Everlane": {
   "domain": "www.everlane.com",
   "gender_prior": "f",
-  "seen": 45
+  "seen": 46
  },
  "Extra Butter": {
   "domain": "extrabutterny.com",
@@ -782,7 +787,7 @@
  "Farah": {
   "domain": "www.farah.co.uk",
   "gender_prior": "m",
-  "seen": 34
+  "seen": 35
  },
  "Farm Rio": {
   "domain": "www.farmrio.com",
@@ -792,7 +797,7 @@
  "Fear of God": {
   "domain": "fearofgod.com",
   "gender_prior": "m",
-  "seen": 15
+  "seen": 16
  },
  "Feature": {
   "domain": "feature.com",
@@ -807,7 +812,7 @@
  "Flag & Anthem": {
   "domain": "flagandanthem.com",
   "gender_prior": "m",
-  "seen": 33
+  "seen": 34
  },
  "Folk": {
   "domain": "www.folkclothing.com",
@@ -972,7 +977,7 @@
  "In The Style": {
   "domain": "www.inthestyle.com",
   "gender_prior": "f",
-  "seen": 36
+  "seen": 38
  },
  "Intime Knits": {
   "domain": "ashanderie.com",
@@ -1047,7 +1052,7 @@
  "Katin": {
   "domain": "katinusa.com",
   "gender_prior": "m",
-  "seen": 30
+  "seen": 31
  },
  "Kavu": {
   "domain": "www.kavu.com",
@@ -1182,7 +1187,7 @@
  "Lorna Jane": {
   "domain": "www.lornajane.com",
   "gender_prior": "f",
-  "seen": 14
+  "seen": 15
  },
  "LoveShackFancy": {
   "domain": "loveshackfancy.com",
@@ -1197,7 +1202,7 @@
  "Lucy & Yak": {
   "domain": "lucyandyak.com",
   "gender_prior": "f",
-  "seen": 23
+  "seen": 24
  },
  "Luke 1977": {
   "domain": "www.luke1977.com",
@@ -1212,7 +1217,7 @@
  "Lurking Class": {
   "domain": "lurkingclass.com",
   "gender_prior": "m",
-  "seen": 28
+  "seen": 29
  },
  "Lyle & Scott": {
   "domain": "www.lyleandscott.com",
@@ -1222,7 +1227,7 @@
  "Lyle and Scott": {
   "domain": "www.lyleandscott.com",
   "gender_prior": "m",
-  "seen": 2
+  "seen": 3
  },
  "M.Gemi": {
   "domain": "www.mgemi.com",
@@ -1237,7 +1242,7 @@
  "MONTIREX": {
   "domain": "montirex.com",
   "gender_prior": "m",
-  "seen": 1
+  "seen": 2
  },
  "MW": {
   "domain": "www.madewell.com",
@@ -1252,7 +1257,7 @@
  "Madhappy": {
   "domain": "www.madhappy.com",
   "gender_prior": "m",
-  "seen": 2
+  "seen": 3
  },
  "Malbon Golf": {
   "domain": "malbongolf.com",
@@ -1322,7 +1327,7 @@
  "Mott & Bow": {
   "domain": "mottandbow.com",
   "gender_prior": "u",
-  "seen": 28
+  "seen": 29
  },
  "Mr Simple": {
   "domain": "mrsimple.com.au",
@@ -1346,6 +1351,11 @@
  },
  "NAGNATA": {
   "domain": "nagnata.com",
+  "gender_prior": "f",
+  "seen": 2
+ },
+ "NEFF": {
+  "domain": "neffheadwear.com",
   "gender_prior": "f",
   "seen": 1
  },
@@ -1374,6 +1384,11 @@
   "gender_prior": "m",
   "seen": 35
  },
+ "Nena and Pasadena": {
+  "domain": "nenaandpasadena.com",
+  "gender_prior": "m",
+  "seen": 1
+ },
  "Never Fully Dressed": {
   "domain": "neverfullydressed.com",
   "gender_prior": "f",
@@ -1387,7 +1402,7 @@
  "New Era": {
   "domain": "extrabutterny.com",
   "gender_prior": "m",
-  "seen": 15
+  "seen": 16
  },
  "Nike": {
   "domain": "extrabutterny.com",
@@ -1437,12 +1452,12 @@
  "Norse Projects": {
   "domain": "www.norseprojects.com",
   "gender_prior": "m",
-  "seen": 3
+  "seen": 4
  },
  "Nude Lucy": {
   "domain": "www.nudelucy.com.au",
   "gender_prior": "f",
-  "seen": 31
+  "seen": 32
  },
  "Oakley": {
   "domain": "extrabutterny.com",
@@ -1452,7 +1467,7 @@
  "Obey": {
   "domain": "www.obeyclothing.com",
   "gender_prior": "m",
-  "seen": 27
+  "seen": 28
  },
  "Oh Polly": {
   "domain": "www.ohpolly.com",

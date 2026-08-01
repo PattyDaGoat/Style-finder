@@ -127,7 +127,7 @@
  "Albaray": {
   "domain": "albaray.co.uk",
   "gender_prior": "f",
-  "seen": 48
+  "seen": 49
  },
  "Alex Crane": {
   "domain": "alexcrane.co",
@@ -567,7 +567,7 @@
  "Corteiz": {
   "domain": "crtz.xyz",
   "gender_prior": "m",
-  "seen": 8
+  "seen": 9
  },
  "Costa Brava": {
   "domain": "faithfullthebrand.com",
@@ -732,7 +732,7 @@
  "Elk": {
   "domain": "www.elkthelabel.com",
   "gender_prior": "f",
-  "seen": 13
+  "seen": 14
  },
  "Elka Collective": {
   "domain": "www.elkacollective.com",
@@ -752,7 +752,7 @@
  "Everlane": {
   "domain": "www.everlane.com",
   "gender_prior": "f",
-  "seen": 44
+  "seen": 45
  },
  "Extra Butter": {
   "domain": "extrabutterny.com",
@@ -782,7 +782,7 @@
  "Farah": {
   "domain": "www.farah.co.uk",
   "gender_prior": "m",
-  "seen": 33
+  "seen": 34
  },
  "Farm Rio": {
   "domain": "www.farmrio.com",
@@ -792,7 +792,7 @@
  "Fear of God": {
   "domain": "fearofgod.com",
   "gender_prior": "m",
-  "seen": 14
+  "seen": 15
  },
  "Feature": {
   "domain": "feature.com",
@@ -862,7 +862,7 @@
  "Gabicci": {
   "domain": "www.gabicci.com",
   "gender_prior": "m",
-  "seen": 30
+  "seen": 31
  },
  "Gap": {
   "domain": "www.gap.com",
@@ -902,7 +902,7 @@
  "Grayers": {
   "domain": "grayers.com",
   "gender_prior": "f",
-  "seen": 31
+  "seen": 32
  },
  "Great Minds": {
   "domain": "ashanderie.com",
@@ -917,7 +917,7 @@
  "Gym King": {
   "domain": "www.gymking.com",
   "gender_prior": "u",
-  "seen": 35
+  "seen": 36
  },
  "HUF Worldwide": {
   "domain": "hufworldwide.co.uk",
@@ -972,7 +972,7 @@
  "In The Style": {
   "domain": "www.inthestyle.com",
   "gender_prior": "f",
-  "seen": 34
+  "seen": 36
  },
  "Intime Knits": {
   "domain": "ashanderie.com",
@@ -1014,6 +1014,11 @@
   "gender_prior": "f",
   "seen": 16
  },
+ "Janessa Leon\u00e9": {
+  "domain": "janessaleone.com",
+  "gender_prior": "f",
+  "seen": 1
+ },
  "Janji": {
   "domain": "janji.com",
   "gender_prior": "u",
@@ -1042,7 +1047,7 @@
  "Katin": {
   "domain": "katinusa.com",
   "gender_prior": "m",
-  "seen": 29
+  "seen": 30
  },
  "Kavu": {
   "domain": "www.kavu.com",
@@ -1092,7 +1097,7 @@
  "Kookai": {
   "domain": "www.kookai.com.au",
   "gender_prior": "f",
-  "seen": 32
+  "seen": 34
  },
  "Ksubi": {
   "domain": "ksubi.com",
@@ -1102,7 +1107,7 @@
  "Ksubi US": {
   "domain": "ksubi.com",
   "gender_prior": "m",
-  "seen": 1
+  "seen": 2
  },
  "Kulani Kinis": {
   "domain": "kulanikinis.com",
@@ -1177,7 +1182,7 @@
  "Lorna Jane": {
   "domain": "www.lornajane.com",
   "gender_prior": "f",
-  "seen": 13
+  "seen": 14
  },
  "LoveShackFancy": {
   "domain": "loveshackfancy.com",
@@ -1207,7 +1212,7 @@
  "Lurking Class": {
   "domain": "lurkingclass.com",
   "gender_prior": "m",
-  "seen": 27
+  "seen": 28
  },
  "Lyle & Scott": {
   "domain": "www.lyleandscott.com",
@@ -1217,7 +1222,7 @@
  "Lyle and Scott": {
   "domain": "www.lyleandscott.com",
   "gender_prior": "m",
-  "seen": 1
+  "seen": 2
  },
  "M.Gemi": {
   "domain": "www.mgemi.com",
@@ -1228,6 +1233,11 @@
   "domain": "www.mnml.la",
   "gender_prior": "m",
   "seen": 33
+ },
+ "MONTIREX": {
+  "domain": "montirex.com",
+  "gender_prior": "m",
+  "seen": 1
  },
  "MW": {
   "domain": "www.madewell.com",
@@ -1242,7 +1252,7 @@
  "Madhappy": {
   "domain": "www.madhappy.com",
   "gender_prior": "m",
-  "seen": 1
+  "seen": 2
  },
  "Malbon Golf": {
   "domain": "malbongolf.com",
@@ -1282,7 +1292,7 @@
  "Mille": {
   "domain": "shopmille.com",
   "gender_prior": "f",
-  "seen": 26
+  "seen": 27
  },
  "Minga London": {
   "domain": "mingalondon.com",
@@ -1312,7 +1322,7 @@
  "Mott & Bow": {
   "domain": "mottandbow.com",
   "gender_prior": "u",
-  "seen": 27
+  "seen": 28
  },
  "Mr Simple": {
   "domain": "mrsimple.com.au",
@@ -1333,6 +1343,11 @@
   "domain": "mylesapparel.com",
   "gender_prior": "m",
   "seen": 26
+ },
+ "NAGNATA": {
+  "domain": "nagnata.com",
+  "gender_prior": "f",
+  "seen": 1
  },
  "NIKE": {
   "domain": "undefeated.com",
@@ -1372,7 +1387,7 @@
  "New Era": {
   "domain": "extrabutterny.com",
   "gender_prior": "m",
-  "seen": 14
+  "seen": 15
  },
  "Nike": {
   "domain": "extrabutterny.com",

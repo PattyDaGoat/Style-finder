@@ -4629,7 +4629,15 @@
    ],
    "m": []
   },
+  "entry_cursor": 0,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1785591098.8344383,
+   "last_found": 21,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "www.michaelstars.com",
   "note": "auto-discovered"
  },
@@ -4643,7 +4651,15 @@
    ],
    "m": []
   },
+  "entry_cursor": 2,
   "gender_source": "prior",
+  "health": {
+   "fail": 0,
+   "last": 1785591193.74597,
+   "last_found": 23,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "shopmille.com",
   "note": "auto-discovered"
  },
@@ -4657,7 +4673,15 @@
     "https://mingalondon.com/collections/men"
    ]
   },
+  "entry_cursor": 0,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1785591311.595188,
+   "last_found": 76,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "mingalondon.com",
   "note": "auto-discovered"
  },
@@ -4675,7 +4699,16 @@
     "https://ministryofsupply.com/collections/exchange-mens-bto-dress-shirt"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 1,
+   "last": 1785591361.782865,
+   "last_found": 0,
+   "note": "no products found on the page; no products found on the page",
+   "ok": 0,
+   "status": "blocked"
+  },
   "host": "ministryofsupply.com",
   "note": "auto-discovered"
  },
@@ -4687,7 +4720,15 @@
    ],
    "m": []
   },
+  "entry_cursor": 0,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1785591381.0779736,
+   "last_found": 1,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "www.montce.com",
   "note": "auto-discovered"
  },
@@ -4705,7 +4746,16 @@
     "https://montirex.com/collections/mens-light-jackets"
    ]
   },
+  "entry_cursor": 1,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1785591459.5703714,
+   "last_found": 60,
+   "note": "rate-limited (429) \u2014 stopping this shop for now",
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "montirex.com",
   "note": ""
  },
@@ -4719,7 +4769,15 @@
    ],
    "m": []
   },
+  "entry_cursor": 2,
   "gender_source": "prior",
+  "health": {
+   "fail": 0,
+   "last": 1785591538.3623135,
+   "last_found": 32,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "www.motelrocks.com",
   "note": "auto-discovered"
  },
@@ -4737,7 +4795,16 @@
     "https://mottandbow.com/collections/mens-tees"
    ]
   },
+  "entry_cursor": 1,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1785591574.9048932,
+   "last_found": 21,
+   "note": "rate-limited (429) \u2014 stopping this shop for now",
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "mottandbow.com",
   "note": "auto-discovered"
  },
@@ -4751,7 +4818,15 @@
     "https://mrsimple.com.au/collections/mr-simple-swco-full-price"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "prior",
+  "health": {
+   "fail": 0,
+   "last": 1785591709.2537117,
+   "last_found": 119,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "mrsimple.com.au",
   "note": "auto-discovered"
  },
@@ -4767,7 +4842,16 @@
     "https://www.muji.us/collections/mens-new-arrivals"
    ]
   },
+  "entry_cursor": 1,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1785591766.4703069,
+   "last_found": 48,
+   "note": "rate-limited (429) \u2014 stopping this shop for now",
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "www.muji.us",
   "note": ""
  },
@@ -4785,7 +4869,15 @@
     "https://musclenation.org/collections/bf-mens-to-add"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1785591857.3831532,
+   "last_found": 84,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "musclenation.org",
   "note": "auto-discovered"
  },
@@ -4799,7 +4891,15 @@
    ],
    "m": []
   },
+  "entry_cursor": 2,
   "gender_source": "prior",
+  "health": {
+   "fail": 0,
+   "last": 1785591926.133775,
+   "last_found": 14,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "musier-paris.com",
   "note": "auto-discovered"
  },
@@ -4813,7 +4913,15 @@
     "https://mylesapparel.com/collections/workout-shorts"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1785592047.6257777,
+   "last_found": 108,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "mylesapparel.com",
   "note": "auto-discovered"
  },
@@ -4827,8 +4935,16 @@
     "https://neighborhood.jp/collections/tee-cut-sewn"
    ]
   },
+  "entry_cursor": 2,
   "gender_note": "no women's collection on the whole site and 0/100 womenswear in a sample",
   "gender_source": "inferred",
+  "health": {
+   "fail": 0,
+   "last": 1785592153.1122198,
+   "last_found": 58,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "neighborhood.jp",
   "note": "found by find_brands.py \u2014 designer"
  },
@@ -4842,7 +4958,15 @@
    ],
    "m": []
   },
+  "entry_cursor": 2,
   "gender_source": "prior",
+  "health": {
+   "fail": 0,
+   "last": 1785592297.7359095,
+   "last_found": 47,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "nagnata.com",
   "note": "auto-discovered"
  },

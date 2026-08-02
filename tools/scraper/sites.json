@@ -304,6 +304,20 @@
   "host": "www.adsumnyc.com",
   "note": "auto-discovered"
  },
+ "Aelfric Eden": {
+  "brand": "Aelfric Eden",
+  "entries": {
+   "f": [],
+   "m": [],
+   "u": [
+    "https://aelfriceden.com/collections/ae513",
+    "https://aelfriceden.com/collections/aehoodie",
+    "https://aelfriceden.com/collections/all-for-trend"
+   ]
+  },
+  "host": "aelfriceden.com",
+  "note": "auto-registered from probe (423 eligible)"
+ },
  "Afends": {
   "brand": "Afends",
   "entries": {
@@ -581,6 +595,19 @@
   "host": "www.allbirds.com",
   "note": "auto-discovered"
  },
+ "Almond Surfboards & Designs": {
+  "brand": "Almond Surfboards & Designs",
+  "entries": {
+   "f": [
+    "https://almondsurfboards.com/collections/womens"
+   ],
+   "m": [
+    "https://almondsurfboards.com/collections/men"
+   ]
+  },
+  "host": "almondsurfboards.com",
+  "note": "auto-registered from probe (60 eligible)"
+ },
  "Alo Yoga": {
   "brand": "Alo Yoga",
   "entries": {
@@ -605,6 +632,66 @@
   },
   "host": "www.aloyoga.com",
   "note": "found by find_brands.py \u2014 mainstream"
+ },
+ "Aloha Beach Club": {
+  "brand": "Aloha Beach Club",
+  "entries": {
+   "f": [],
+   "m": [],
+   "u": [
+    "https://alohabeachclub.store/collections/all",
+    "https://alohabeachclub.store/collections/aloha-beach-club",
+    "https://alohabeachclub.store/collections/under-100"
+   ]
+  },
+  "host": "alohabeachclub.store",
+  "note": "auto-registered from probe (75 eligible)"
+ },
+ "Aloha Sunday": {
+  "brand": "Aloha Sunday",
+  "entries": {
+   "f": [],
+   "m": [],
+   "u": [
+    "https://alohasunday.com/collections/all",
+    "https://alohasunday.com/collections/aloha-sunday-autumn-16",
+    "https://alohasunday.com/collections/spring-2017"
+   ]
+  },
+  "host": "alohasunday.com",
+  "note": "auto-registered from probe (208 eligible)"
+ },
+ "Alphalete": {
+  "brand": "Alphalete",
+  "entries": {
+   "f": [
+    "https://www.alphaleteathletics.com/collections/womens-shop-all",
+    "https://www.alphaleteathletics.com/collections/womens-matching-sets",
+    "https://www.alphaleteathletics.com/collections/womens-seamless"
+   ],
+   "m": [
+    "https://www.alphaleteathletics.com/collections/mens-shop-all",
+    "https://www.alphaleteathletics.com/collections/mens-shirts",
+    "https://www.alphaleteathletics.com/collections/mens-workout"
+   ]
+  },
+  "host": "www.alphaleteathletics.com",
+  "note": "auto-registered from probe (452 eligible)"
+ },
+ "Alpkit": {
+  "brand": "Alpkit",
+  "entries": {
+   "f": [
+    "https://alpkit.com/collections/womens-running-clothes"
+   ],
+   "m": [
+    "https://alpkit.com/collections/mens-clothing",
+    "https://alpkit.com/collections/mens-best-sellers",
+    "https://alpkit.com/collections/mens-featured-products"
+   ]
+  },
+  "host": "alpkit.com",
+  "note": "auto-registered from probe (76 eligible)"
  },
  "American Trench": {
   "brand": "American Trench",
@@ -722,6 +809,20 @@
   "host": "www.antisocialsocialclub.com",
   "note": "auto-discovered"
  },
+ "April Skateboards": {
+  "brand": "April Skateboards",
+  "entries": {
+   "f": [],
+   "m": [],
+   "u": [
+    "https://aprilskateboards.com/collections/hol-2025",
+    "https://aprilskateboards.com/collections/boards",
+    "https://aprilskateboards.com/collections/sp26"
+   ]
+  },
+  "host": "aprilskateboards.com",
+  "note": "auto-registered from probe (37 eligible)"
+ },
  "Aries": {
   "brand": "Aries",
   "entries": {
@@ -822,6 +923,20 @@
   "gender_source": "prior",
   "host": "arpenteur.fr",
   "note": "auto-discovered"
+ },
+ "Arte Antwerp": {
+  "brand": "Arte Antwerp",
+  "entries": {
+   "f": [],
+   "m": [],
+   "u": [
+    "https://arte-antwerp.com/collections/frontpage",
+    "https://arte-antwerp.com/collections/all-ss26d1",
+    "https://arte-antwerp.com/collections/jackets"
+   ]
+  },
+  "host": "arte-antwerp.com",
+  "note": "auto-registered from probe (361 eligible)"
  },
  "Ash & Erie": {
   "brand": "Ash & Erie",
@@ -1009,6 +1124,23 @@
   },
   "host": "bananarepublic.gap.com",
   "note": ""
+ },
+ "Bandit Running": {
+  "brand": "Bandit Running",
+  "entries": {
+   "f": [
+    "https://banditrunning.com/collections/women",
+    "https://banditrunning.com/collections/womens",
+    "https://banditrunning.com/collections/bandit-womens-bottoms"
+   ],
+   "m": [
+    "https://banditrunning.com/collections/mens-deprecated",
+    "https://banditrunning.com/collections/bandit-mens",
+    "https://banditrunning.com/collections/mens"
+   ]
+  },
+  "host": "banditrunning.com",
+  "note": "auto-registered from probe (148 eligible)"
  },
  "Barbell Apparel": {
   "brand": "Barbell Apparel",
@@ -1368,6 +1500,36 @@
   "host": "bergbergstore.com",
   "note": "auto-discovered"
  },
+ "Big Bud Press": {
+  "brand": "Big Bud Press",
+  "entries": {
+   "f": [],
+   "m": [],
+   "u": [
+    "https://bigbudpress.com/collections/all",
+    "https://bigbudpress.com/collections/tops",
+    "https://bigbudpress.com/collections/tees"
+   ]
+  },
+  "host": "bigbudpress.com",
+  "note": "auto-registered from probe (254 eligible)"
+ },
+ "Billabong": {
+  "brand": "Billabong",
+  "entries": {
+   "f": [
+    "https://billabong.com/collections/womens-all-tops",
+    "https://billabong.com/collections/100-cotton-womens-clothing-0adz01b"
+   ],
+   "m": [
+    "https://billabong.com/collections/mens-all",
+    "https://billabong.com/collections/mens-collections-adventure-division-bottoms",
+    "https://billabong.com/collections/adventure-division-mens-t-shirts"
+   ]
+  },
+  "host": "billabong.com",
+  "note": "auto-registered from probe (453 eligible)"
+ },
  "Billionaire Boys Club": {
   "brand": "Billionaire Boys Club",
   "entries": {
@@ -1569,6 +1731,35 @@
   "host": "www.blundstone.com",
   "note": "found by find_brands.py \u2014 footwear"
  },
+ "Bo+Tee": {
+  "brand": "Bo+Tee",
+  "entries": {
+   "f": [
+    "https://boandtee.com/collections/tees-and-tanks",
+    "https://boandtee.com/collections/bottoms",
+    "https://boandtee.com/collections/bottoms-78d44f"
+   ],
+   "m": []
+  },
+  "host": "boandtee.com",
+  "note": "auto-registered from probe (447 eligible)"
+ },
+ "Boardies": {
+  "brand": "Boardies",
+  "entries": {
+   "f": [
+    "https://boardiesapparel.com/collections/womens",
+    "https://boardiesapparel.com/collections/womens-swim-shorts"
+   ],
+   "m": [
+    "https://boardiesapparel.com/collections/mens-swim-shorts",
+    "https://boardiesapparel.com/collections/mens-swimwear",
+    "https://boardiesapparel.com/collections/mens-clothing"
+   ]
+  },
+  "host": "boardiesapparel.com",
+  "note": "auto-registered from probe (164 eligible)"
+ },
  "Bode": {
   "brand": "Bode",
   "entries": {
@@ -1622,6 +1813,23 @@
   },
   "host": "bdgastore.com",
   "note": "found by find_brands.py \u2014 sneaker boutique"
+ },
+ "Body Glove": {
+  "brand": "Body Glove",
+  "entries": {
+   "f": [
+    "https://bodyglove.com/collections/shop-womens-swim-by-body-type-athletic",
+    "https://bodyglove.com/collections/shop-womens-swim-by-body-type-curvy",
+    "https://bodyglove.com/collections/shop-womens-swim-by-body-type-petite"
+   ],
+   "m": [
+    "https://bodyglove.com/collections/mens-apparel-tops",
+    "https://bodyglove.com/collections/mens-sweatshirts-jackets",
+    "https://bodyglove.com/collections/new-arrivals-mens-wetsuits"
+   ]
+  },
+  "host": "bodyglove.com",
+  "note": "auto-registered from probe (455 eligible)"
  },
  "Boody": {
   "brand": "Boody",
@@ -1767,6 +1975,23 @@
   "host": "www.brixton.com",
   "note": "auto-discovered"
  },
+ "Brunotti": {
+  "brand": "Brunotti",
+  "entries": {
+   "f": [
+    "https://brunotti.com/collections/black-friday-women",
+    "https://brunotti.com/collections/black-friday-women-swimwear",
+    "https://brunotti.com/collections/black-friday-women-winter-sports"
+   ],
+   "m": [
+    "https://brunotti.com/collections/men",
+    "https://brunotti.com/collections/black-friday-men",
+    "https://brunotti.com/collections/men-clothing"
+   ]
+  },
+  "host": "brunotti.com",
+  "note": "auto-registered from probe (184 eligible)"
+ },
  "Buddy Love": {
   "brand": "Buddy Love",
   "entries": {
@@ -1791,6 +2016,20 @@
   },
   "host": "www.buddylove.com",
   "note": "auto-discovered"
+ },
+ "Buffbunny": {
+  "brand": "Buffbunny",
+  "entries": {
+   "f": [],
+   "m": [],
+   "u": [
+    "https://buffbunny.com/collections/shop-all",
+    "https://buffbunny.com/collections/in-stock",
+    "https://buffbunny.com/collections/mobility"
+   ]
+  },
+  "host": "buffbunny.com",
+  "note": "auto-registered from probe (472 eligible)"
  },
  "Butter Goods": {
   "brand": "Butter Goods",
@@ -1912,6 +2151,23 @@
   "host": "www.camillaandmarc.com",
   "note": "auto-discovered"
  },
+ "Camp Brand Goods": {
+  "brand": "Camp Brand Goods",
+  "entries": {
+   "f": [
+    "https://campbrandgoods.com/collections/womens-1",
+    "https://campbrandgoods.com/collections/womens-tees-tops",
+    "https://campbrandgoods.com/collections/womens-t-shirts"
+   ],
+   "m": [
+    "https://campbrandgoods.com/collections/mens-apparel",
+    "https://campbrandgoods.com/collections/mens-tees-tops",
+    "https://campbrandgoods.com/collections/mens-all"
+   ]
+  },
+  "host": "campbrandgoods.com",
+  "note": "auto-registered from probe (169 eligible)"
+ },
  "Carhartt WIP": {
   "brand": "Carhartt WIP",
   "entries": {
@@ -2005,6 +2261,22 @@
   "host": "christydawn.com",
   "note": "auto-discovered"
  },
+ "Chubbies": {
+  "brand": "Chubbies",
+  "entries": {
+   "f": [
+    "https://chubbiesshorts.com/collections/all-ladies",
+    "https://chubbiesshorts.com/collections/the-ladies-collection"
+   ],
+   "m": [
+    "https://chubbiesshorts.com/collections/5-inch-inseam-mens-shorts",
+    "https://chubbiesshorts.com/collections/7-inch-inseam-mens-shorts",
+    "https://chubbiesshorts.com/collections/all-mens-shorts"
+   ]
+  },
+  "host": "chubbiesshorts.com",
+  "note": "auto-registered from probe (479 eligible)"
+ },
  "Ciao Lucia": {
   "brand": "Ciao Lucia",
   "entries": {
@@ -2027,6 +2299,20 @@
   },
   "host": "ciaolucia.com",
   "note": "auto-discovered"
+ },
+ "Ciele Athletics": {
+  "brand": "Ciele Athletics",
+  "entries": {
+   "f": [],
+   "m": [],
+   "u": [
+    "https://cieleathletics.com/collections/all",
+    "https://cieleathletics.com/collections/ciele-athletics-products",
+    "https://cieleathletics.com/collections/coolmatic-plus"
+   ]
+  },
+  "host": "cieleathletics.com",
+  "note": "auto-registered from probe (458 eligible)"
  },
  "Clae": {
   "brand": "Clae",
@@ -2346,6 +2632,33 @@
   "host": "criquetshirts.com",
   "note": "auto-discovered"
  },
+ "Crooks and Castles": {
+  "brand": "Crooks and Castles",
+  "entries": {
+   "f": [],
+   "m": [],
+   "u": [
+    "https://crooksncastles.com/collections/all",
+    "https://crooksncastles.com/collections/collabs",
+    "https://crooksncastles.com/collections/tops"
+   ]
+  },
+  "host": "crooksncastles.com",
+  "note": "auto-registered from probe (78 eligible)"
+ },
+ "Crop Shop Boutique": {
+  "brand": "Crop Shop Boutique",
+  "entries": {
+   "f": [
+    "https://shopcsb.com/collections/all-womens-activewear",
+    "https://shopcsb.com/collections/leisure",
+    "https://shopcsb.com/collections/high-intensity-activewear"
+   ],
+   "m": []
+  },
+  "host": "shopcsb.com",
+  "note": "auto-registered from probe (480 eligible)"
+ },
  "Cross Colours": {
   "brand": "Cross Colours",
   "entries": {
@@ -2391,6 +2704,23 @@
   },
   "host": "www.cue.cc",
   "note": "auto-discovered"
+ },
+ "Cuts Clothing": {
+  "brand": "Cuts Clothing",
+  "entries": {
+   "f": [
+    "https://cutsclothing.com/collections/womens-new-releases",
+    "https://cutsclothing.com/collections/all-womens",
+    "https://cutsclothing.com/collections/womens-last-chance"
+   ],
+   "m": [
+    "https://cutsclothing.com/collections/klaviyo-mens-non-alpha",
+    "https://cutsclothing.com/collections/mens-signature-fit",
+    "https://cutsclothing.com/collections/mens-alpha-sizing-review"
+   ]
+  },
+  "host": "cutsclothing.com",
+  "note": "auto-registered from probe (379 eligible)"
  },
  "Cuyana": {
   "brand": "Cuyana",
@@ -2541,6 +2871,17 @@
   },
   "host": "www.dtlr.com",
   "note": "found by find_brands.py \u2014 sneaker boutique"
+ },
+ "Daily Paper": {
+  "brand": "Daily Paper",
+  "entries": {
+   "f": [],
+   "m": [
+    "https://dailypaperclothing.com/collections/men-all"
+   ]
+  },
+  "host": "dailypaperclothing.com",
+  "note": "auto-registered from probe (416 eligible)"
  },
  "Daisy Street": {
   "brand": "Daisy Street",
@@ -2807,6 +3148,23 @@
   "host": "dissh.com",
   "note": "auto-discovered"
  },
+ "District Vision": {
+  "brand": "District Vision",
+  "entries": {
+   "f": [
+    "https://districtvision.com/collections/shop-all-woman",
+    "https://districtvision.com/collections/new-arrivals-woman",
+    "https://districtvision.com/collections/womens-tees"
+   ],
+   "m": [
+    "https://districtvision.com/collections/shop-all-mens",
+    "https://districtvision.com/collections/mens-new-arrivals",
+    "https://districtvision.com/collections/mens-tees"
+   ]
+  },
+  "host": "districtvision.com",
+  "note": "auto-registered from probe (273 eligible)"
+ },
  "Disturbia": {
   "brand": "Disturbia",
   "entries": {
@@ -2905,6 +3263,34 @@
   },
   "host": "www.drakes.com",
   "note": "auto-discovered"
+ },
+ "Dumbgood": {
+  "brand": "Dumbgood",
+  "entries": {
+   "f": [],
+   "m": [
+    "https://dumbgood.com/collections/men"
+   ]
+  },
+  "host": "dumbgood.com",
+  "note": "auto-registered from probe (86 eligible)"
+ },
+ "Duvin Design": {
+  "brand": "Duvin Design",
+  "entries": {
+   "f": [
+    "https://duvindesign.com/collections/womens",
+    "https://duvindesign.com/collections/womens-clothing",
+    "https://duvindesign.com/collections/womens-tops"
+   ],
+   "m": [
+    "https://duvindesign.com/collections/mens",
+    "https://duvindesign.com/collections/tops",
+    "https://duvindesign.com/collections/summer-2026-mens"
+   ]
+  },
+  "host": "duvindesign.com",
+  "note": "auto-registered from probe (431 eligible)"
  },
  "D\u00d4EN": {
   "brand": "D\u00d4EN",
@@ -3078,6 +3464,20 @@
   },
   "host": "www.elkacollective.com",
   "note": "auto-discovered"
+ },
+ "Eric Emanuel": {
+  "brand": "Eric Emanuel",
+  "entries": {
+   "f": [],
+   "m": [],
+   "u": [
+    "https://ericemanuel.com/collections/shop-all-international",
+    "https://ericemanuel.com/collections/shop-all",
+    "https://ericemanuel.com/collections/all"
+   ]
+  },
+  "host": "ericemanuel.com",
+  "note": "auto-registered from probe (244 eligible)"
  },
  "Everlane": {
   "brand": "Everlane",
@@ -3354,6 +3754,20 @@
   "host": "flagandanthem.com",
   "note": "auto-discovered"
  },
+ "Florence Marine X": {
+  "brand": "Florence Marine X",
+  "entries": {
+   "f": [
+    "https://florencemarinex.com/collections/womens",
+    "https://florencemarinex.com/collections/womens-wetsuits"
+   ],
+   "m": [
+    "https://florencemarinex.com/collections/mens-wetsuits"
+   ]
+  },
+  "host": "florencemarinex.com",
+  "note": "auto-registered from probe (106 eligible)"
+ },
  "Folk": {
   "brand": "Folk",
   "entries": {
@@ -3473,6 +3887,23 @@
   "host": "fredasalvador.com",
   "note": "auto-discovered"
  },
+ "Free Fly Apparel": {
+  "brand": "Free Fly Apparel",
+  "entries": {
+   "f": [
+    "https://freeflyapparel.com/collections/women-shop-all",
+    "https://freeflyapparel.com/collections/womens-new-arrivals",
+    "https://freeflyapparel.com/collections/womens-bestsellers"
+   ],
+   "m": [
+    "https://freeflyapparel.com/collections/men-shop-all",
+    "https://freeflyapparel.com/collections/mens-new-arrivals",
+    "https://freeflyapparel.com/collections/tops-men-all"
+   ]
+  },
+  "host": "freeflyapparel.com",
+  "note": "auto-registered from probe (445 eligible)"
+ },
  "Freenote Cloth": {
   "brand": "Freenote Cloth",
   "entries": {
@@ -3541,6 +3972,20 @@
   },
   "host": "freshcleanthreads.com",
   "note": "auto-discovered"
+ },
+ "GX1000": {
+  "brand": "GX1000",
+  "entries": {
+   "f": [],
+   "m": [],
+   "u": [
+    "https://gx1000.com/collections/boards",
+    "https://gx1000.com/collections/tees",
+    "https://gx1000.com/collections/products"
+   ]
+  },
+  "host": "gx1000.com",
+  "note": "auto-registered from probe (78 eligible)"
  },
  "Gabicci": {
   "brand": "Gabicci",
@@ -3702,6 +4147,20 @@
   },
   "host": "gitman.com",
   "note": "auto-discovered"
+ },
+ "Globe": {
+  "brand": "Globe",
+  "entries": {
+   "f": [],
+   "m": [],
+   "u": [
+    "https://globebrand.com/collections/all-except-limited-edition",
+    "https://globebrand.com/collections/shoes",
+    "https://globebrand.com/collections/black-friday-free-socks-with-shoes"
+   ]
+  },
+  "host": "globebrand.com",
+  "note": "auto-registered from probe (128 eligible)"
  },
  "Golf Wang": {
   "brand": "Golf Wang",
@@ -3874,6 +4333,23 @@
   "host": "hufworldwide.co.uk",
   "note": "auto-discovered"
  },
+ "HYLETE": {
+  "brand": "HYLETE",
+  "entries": {
+   "f": [
+    "https://hylete.com/collections/women",
+    "https://hylete.com/collections/women-bottoms",
+    "https://hylete.com/collections/womens-core-collection"
+   ],
+   "m": [
+    "https://hylete.com/collections/men",
+    "https://hylete.com/collections/mens-core-collection",
+    "https://hylete.com/collections/men-tops"
+   ]
+  },
+  "host": "hylete.com",
+  "note": "auto-registered from probe (112 eligible)"
+ },
  "Hellstar": {
   "brand": "Hellstar",
   "entries": {
@@ -3925,6 +4401,20 @@
   "host": "heronpreston.com",
   "note": "found by find_brands.py \u2014 designer"
  },
+ "Hikerkind": {
+  "brand": "Hikerkind",
+  "entries": {
+   "f": [],
+   "m": [],
+   "u": [
+    "https://hikerkind.com/collections/all-non-membership-products",
+    "https://hikerkind.com/collections/all-year-gear",
+    "https://hikerkind.com/collections/tax-clothing-1"
+   ]
+  },
+  "host": "hikerkind.com",
+  "note": "auto-registered from probe (67 eligible)"
+ },
  "Hill House Home": {
   "brand": "Hill House Home",
   "entries": {
@@ -3947,6 +4437,20 @@
   },
   "host": "hillhousehome.com",
   "note": "auto-discovered"
+ },
+ "Hoddle": {
+  "brand": "Hoddle",
+  "entries": {
+   "f": [],
+   "m": [],
+   "u": [
+    "https://hoddleskateboards.com/collections/new-collection",
+    "https://hoddleskateboards.com/collections/tees",
+    "https://hoddleskateboards.com/collections/bottoms"
+   ]
+  },
+  "host": "hoddleskateboards.com",
+  "note": "auto-registered from probe (145 eligible)"
  },
  "Homecore": {
   "brand": "Homecore",
@@ -3974,6 +4478,36 @@
   },
   "host": "www.homecore.com",
   "note": "auto-discovered"
+ },
+ "House of Sunny": {
+  "brand": "House of Sunny",
+  "entries": {
+   "f": [
+    "https://houseofsunny.co.uk/collections/womens-clothing",
+    "https://houseofsunny.co.uk/collections/new-womens-tops",
+    "https://houseofsunny.co.uk/collections/womens-knitwear"
+   ],
+   "m": [
+    "https://houseofsunny.co.uk/collections/all-mens",
+    "https://houseofsunny.co.uk/collections/ss26-daily-dose-mens",
+    "https://houseofsunny.co.uk/collections/mens-new-in"
+   ]
+  },
+  "host": "houseofsunny.co.uk",
+  "note": "auto-registered from probe (77 eligible)"
+ },
+ "Howler Brothers": {
+  "brand": "Howler Brothers",
+  "entries": {
+   "f": [],
+   "m": [
+    "https://howlerbros.com/collections/mens-shirts",
+    "https://howlerbros.com/collections/mens-outerwear",
+    "https://howlerbros.com/collections/mens-t-shirts"
+   ]
+  },
+  "host": "howlerbros.com",
+  "note": "auto-registered from probe (301 eligible)"
  },
  "Huf": {
   "brand": "Huf",
@@ -4222,6 +4756,17 @@
   "host": "www.jennikayne.com",
   "note": "auto-discovered"
  },
+ "Jetty": {
+  "brand": "Jetty",
+  "entries": {
+   "f": [],
+   "m": [
+    "https://jettylife.com/collections/group-mens-striker-s26"
+   ]
+  },
+  "host": "jettylife.com",
+  "note": "auto-registered from probe (366 eligible)"
+ },
  "John Elliott": {
   "brand": "John Elliott",
   "entries": {
@@ -4299,6 +4844,19 @@
   },
   "host": "www.keenfootwear.com",
   "note": "found by find_brands.py \u2014 footwear"
+ },
+ "Kaiia The Label": {
+  "brand": "Kaiia The Label",
+  "entries": {
+   "f": [
+    "https://kaiiathelabel.com/collections/joggers",
+    "https://kaiiathelabel.com/collections/high-waisted-shorts",
+    "https://kaiiathelabel.com/collections/cotton-shorts"
+   ],
+   "m": []
+  },
+  "host": "kaiiathelabel.com",
+  "note": "auto-registered from probe (383 eligible)"
  },
  "Katin": {
   "brand": "Katin",
@@ -4394,6 +4952,20 @@
   },
   "host": "khaite.com",
   "note": "found by find_brands.py \u2014 designer"
+ },
+ "Kids of Immigrants": {
+  "brand": "Kids of Immigrants",
+  "entries": {
+   "f": [],
+   "m": [],
+   "u": [
+    "https://kidsofimmigrants.us/collections/holiday-2023-collection",
+    "https://kidsofimmigrants.us/collections/holiday-2022-collection",
+    "https://kidsofimmigrants.us/collections/fruits-of-our-labor-collection"
+   ]
+  },
+  "host": "kidsofimmigrants.us",
+  "note": "auto-registered from probe (46 eligible)"
  },
  "Killstar": {
   "brand": "Killstar",
@@ -4643,6 +5215,23 @@
   "host": "lestrangelondon.com",
   "note": "auto-discovered"
  },
+ "LSKD": {
+  "brand": "LSKD",
+  "entries": {
+   "f": [
+    "https://lskd.co/collections/womens-pale-lilac-collection",
+    "https://lskd.co/collections/womens-open-air-collection",
+    "https://lskd.co/collections/womens-electric-indigo-collection"
+   ],
+   "m": [
+    "https://lskd.co/collections/mens",
+    "https://lskd.co/collections/mens-tops",
+    "https://lskd.co/collections/mens-tees-tanks"
+   ]
+  },
+  "host": "lskd.co",
+  "note": "auto-registered from probe (231 eligible)"
+ },
  "La Paz": {
   "brand": "La Paz",
   "entries": {
@@ -4803,6 +5392,19 @@
   "host": "www.lemaire.fr",
   "note": "found by find_brands.py \u2014 designer"
  },
+ "Lira Clothing": {
+  "brand": "Lira Clothing",
+  "entries": {
+   "f": [],
+   "m": [
+    "https://liraclothing.com/collections/mens-collection",
+    "https://liraclothing.com/collections/mens-new-arrivals",
+    "https://liraclothing.com/collections/mens-bottoms"
+   ]
+  },
+  "host": "liraclothing.com",
+  "note": "auto-registered from probe (55 eligible)"
+ },
  "Lisa Says Gah": {
   "brand": "Lisa Says Gah",
   "entries": {
@@ -4844,6 +5446,20 @@
   "gender_source": "prior",
   "host": "www.lornajane.com",
   "note": "auto-discovered"
+ },
+ "Lost Enterprises": {
+  "brand": "Lost Enterprises",
+  "entries": {
+   "f": [],
+   "m": [],
+   "u": [
+    "https://lostenterprises.com/collections/best-selling-products",
+    "https://lostenterprises.com/collections/newest-products",
+    "https://lostenterprises.com/collections/shop-all"
+   ]
+  },
+  "host": "lostenterprises.com",
+  "note": "auto-registered from probe (413 eligible)"
  },
  "LoveShackFancy": {
   "brand": "LoveShackFancy",
@@ -5467,6 +6083,20 @@
   "host": "musclenation.org",
   "note": "auto-discovered"
  },
+ "Museum of Peace and Quiet": {
+  "brand": "Museum of Peace and Quiet",
+  "entries": {
+   "f": [],
+   "m": [],
+   "u": [
+    "https://museumofpeaceandquiet.com/collections/all",
+    "https://museumofpeaceandquiet.com/collections/apparel",
+    "https://museumofpeaceandquiet.com/collections/tops"
+   ]
+  },
+  "host": "museumofpeaceandquiet.com",
+  "note": "auto-registered from probe (67 eligible)"
+ },
  "Musier Paris": {
   "brand": "Musier Paris",
   "entries": {
@@ -5537,6 +6167,34 @@
   "host": "neighborhood.jp",
   "note": "found by find_brands.py \u2014 designer"
  },
+ "NOBULL": {
+  "brand": "NOBULL",
+  "entries": {
+   "f": [
+    "https://nobullproject.com/collections/all-womens",
+    "https://nobullproject.com/collections/womens-apparel",
+    "https://nobullproject.com/collections/womens-gym-and-training-shoes"
+   ],
+   "m": [
+    "https://nobullproject.com/collections/all-mens",
+    "https://nobullproject.com/collections/mens-apparel",
+    "https://nobullproject.com/collections/mens-black-friday-deals"
+   ]
+  },
+  "host": "nobullproject.com",
+  "note": "auto-registered from probe (369 eligible)"
+ },
+ "NVGTN": {
+  "brand": "NVGTN",
+  "entries": {
+   "f": [],
+   "m": [
+    "https://nvgtn.com/collections/mens"
+   ]
+  },
+  "host": "nvgtn.com",
+  "note": "auto-registered from probe (307 eligible)"
+ },
  "Nagnata": {
   "brand": "Nagnata",
   "entries": {
@@ -5585,6 +6243,34 @@
   },
   "host": "www.nakedandfamousdenim.com",
   "note": "auto-discovered"
+ },
+ "Namilia": {
+  "brand": "Namilia",
+  "entries": {
+   "f": [],
+   "m": [],
+   "u": [
+    "https://namilia.com/collections/all-products",
+    "https://namilia.com/collections/bottoms",
+    "https://namilia.com/collections/vegan-leathers"
+   ]
+  },
+  "host": "namilia.com",
+  "note": "auto-registered from probe (192 eligible)"
+ },
+ "Nature Backs": {
+  "brand": "Nature Backs",
+  "entries": {
+   "f": [],
+   "m": [],
+   "u": [
+    "https://naturebacks.com/collections/not-bunde-2",
+    "https://naturebacks.com/collections/not-bundle",
+    "https://naturebacks.com/collections/short-sleeves"
+   ]
+  },
+  "host": "naturebacks.com",
+  "note": "auto-registered from probe (193 eligible)"
  },
  "Neff": {
   "brand": "Neff",
@@ -5831,6 +6517,23 @@
   "host": "www.nudelucy.com.au",
   "note": "auto-discovered"
  },
+ "OOSC Clothing": {
+  "brand": "OOSC Clothing",
+  "entries": {
+   "f": [
+    "https://oosc-clothing.com/collections/womens",
+    "https://oosc-clothing.com/collections/womens-thermals",
+    "https://oosc-clothing.com/collections/womens-swim-wear"
+   ],
+   "m": [
+    "https://oosc-clothing.com/collections/mens",
+    "https://oosc-clothing.com/collections/mens-ski-wear",
+    "https://oosc-clothing.com/collections/mens-baselayers"
+   ]
+  },
+  "host": "oosc-clothing.com",
+  "note": "auto-registered from probe (338 eligible)"
+ },
  "Obey": {
   "brand": "Obey",
   "entries": {
@@ -5849,6 +6552,17 @@
   "gender_source": "collection",
   "host": "www.obeyclothing.com",
   "note": "auto-discovered"
+ },
+ "Odd Future": {
+  "brand": "Odd Future",
+  "entries": {
+   "f": [
+    "https://oddfuture.com/collections/womens"
+   ],
+   "m": []
+  },
+  "host": "oddfuture.com",
+  "note": "auto-registered from probe (111 eligible)"
  },
  "Oh Polly": {
   "brand": "Oh Polly",
@@ -5994,6 +6708,20 @@
   "host": "onia.com",
   "note": "auto-discovered"
  },
+ "Online Ceramics": {
+  "brand": "Online Ceramics",
+  "entries": {
+   "f": [],
+   "m": [],
+   "u": [
+    "https://online-ceramics.com/collections/shop-all",
+    "https://online-ceramics.com/collections/everything-in-stock",
+    "https://online-ceramics.com/collections/white-background"
+   ]
+  },
+  "host": "online-ceramics.com",
+  "note": "auto-registered from probe (80 eligible)"
+ },
  "Only NY": {
   "brand": "Only NY",
   "entries": {
@@ -6035,6 +6763,20 @@
   },
   "host": "organicbasics.com",
   "note": "auto-discovered"
+ },
+ "Original Penguin": {
+  "brand": "Original Penguin",
+  "entries": {
+   "f": [],
+   "m": [],
+   "u": [
+    "https://originalpenguin.com/collections/60-off-for-60-minutes",
+    "https://originalpenguin.com/collections/back-to-campus",
+    "https://originalpenguin.com/collections/beanies-gloves-scarves"
+   ]
+  },
+  "host": "originalpenguin.com",
+  "note": "auto-registered from probe (454 eligible)"
  },
  "Orlebar Brown": {
   "brand": "Orlebar Brown",
@@ -6124,6 +6866,20 @@
   "host": "www.pe-nation.com",
   "note": "auto-discovered"
  },
+ "PATH Projects": {
+  "brand": "PATH Projects",
+  "entries": {
+   "f": [],
+   "m": [],
+   "u": [
+    "https://pathprojects.com/collections/all-excluding-bundles",
+    "https://pathprojects.com/collections/cyber-monday",
+    "https://pathprojects.com/collections/waist-size"
+   ]
+  },
+  "host": "pathprojects.com",
+  "note": "auto-registered from probe (48 eligible)"
+ },
  "POPFLEX": {
   "brand": "POPFLEX",
   "entries": {
@@ -6160,6 +6916,47 @@
   },
   "host": "packershoes.com",
   "note": "found by find_brands.py \u2014 sneaker boutique"
+ },
+ "Paloma Wool": {
+  "brand": "Paloma Wool",
+  "entries": {
+   "f": [],
+   "m": [
+    "https://palomawool.com/collections/tops-men",
+    "https://palomawool.com/collections/pants-men",
+    "https://palomawool.com/collections/knits-men"
+   ]
+  },
+  "host": "palomawool.com",
+  "note": "auto-registered from probe (155 eligible)"
+ },
+ "Parks Project": {
+  "brand": "Parks Project",
+  "entries": {
+   "f": [
+    "https://parksproject.us/collections/womens",
+    "https://parksproject.us/collections/womens-fleece",
+    "https://parksproject.us/collections/womens-tops"
+   ],
+   "m": [
+    "https://parksproject.us/collections/mens"
+   ]
+  },
+  "host": "parksproject.us",
+  "note": "auto-registered from probe (132 eligible)"
+ },
+ "Parlez": {
+  "brand": "Parlez",
+  "entries": {
+   "f": [],
+   "m": [
+    "https://parlez.co.uk/collections/mens-t-shirts",
+    "https://parlez.co.uk/collections/mens-hats",
+    "https://parlez.co.uk/collections/mens-sweatshirts"
+   ]
+  },
+  "host": "parlez.co.uk",
+  "note": "auto-registered from probe (379 eligible)"
  },
  "Passenger": {
   "brand": "Passenger",
@@ -6210,6 +7007,20 @@
   },
   "host": "www.patagonia.com",
   "note": ""
+ },
+ "Patta": {
+  "brand": "Patta",
+  "entries": {
+   "f": [],
+   "m": [],
+   "u": [
+    "https://patta.nl/collections/brands",
+    "https://patta.nl/collections/live-footwear",
+    "https://patta.nl/collections/footwear"
+   ]
+  },
+  "host": "patta.nl",
+  "note": "auto-registered from probe (161 eligible)"
  },
  "Peppermayo": {
   "brand": "Peppermayo",
@@ -6351,6 +7162,36 @@
   "host": "pistoladenim.com",
   "note": "auto-discovered"
  },
+ "Pizzaslime": {
+  "brand": "Pizzaslime",
+  "entries": {
+   "f": [],
+   "m": [],
+   "u": [
+    "https://pizzaslime.com/collections/frontpage",
+    "https://pizzaslime.com/collections/sold-out",
+    "https://pizzaslime.com/collections/new-shit"
+   ]
+  },
+  "host": "pizzaslime.com",
+  "note": "auto-registered from probe (58 eligible)"
+ },
+ "Planks": {
+  "brand": "Planks",
+  "entries": {
+   "f": [
+    "https://planksclothing.com/collections/all-womens",
+    "https://planksclothing.com/collections/full-range-women"
+   ],
+   "m": [
+    "https://planksclothing.com/collections/mens-skiwear",
+    "https://planksclothing.com/collections/all-mens",
+    "https://planksclothing.com/collections/full-range-men"
+   ]
+  },
+  "host": "planksclothing.com",
+  "note": "auto-registered from probe (53 eligible)"
+ },
  "Pleasures": {
   "brand": "Pleasures",
   "entries": {
@@ -6393,6 +7234,20 @@
   },
   "host": "polarskateco.com",
   "note": ""
+ },
+ "Pop Trading Company": {
+  "brand": "Pop Trading Company",
+  "entries": {
+   "f": [],
+   "m": [],
+   "u": [
+    "https://poptradingcompany.com/collections/all",
+    "https://poptradingcompany.com/collections/quick-order",
+    "https://poptradingcompany.com/collections/all-t-shirts"
+   ]
+  },
+  "host": "poptradingcompany.com",
+  "note": "auto-registered from probe (114 eligible)"
  },
  "Portuguese Flannel": {
   "brand": "Portuguese Flannel",
@@ -6592,6 +7447,19 @@
   "host": "quasiskateboards.com",
   "note": "auto-discovered"
  },
+ "Quiksilver": {
+  "brand": "Quiksilver",
+  "entries": {
+   "f": [],
+   "m": [
+    "https://quiksilver.com/collections/100-cotton-shirts-for-men-0acz01b",
+    "https://quiksilver.com/collections/athleisure-surf-clothing-for-men-0akz00a",
+    "https://quiksilver.com/collections/adult-mens-shirts-0acz00a"
+   ]
+  },
+  "host": "quiksilver.com",
+  "note": "auto-registered from probe (467 eligible)"
+ },
  "RIPNDIP": {
   "brand": "RIPNDIP",
   "entries": {
@@ -6614,6 +7482,23 @@
   },
   "host": "ripndipclothing.com",
   "note": "auto-discovered"
+ },
+ "RVCA": {
+  "brand": "RVCA",
+  "entries": {
+   "f": [
+    "https://rvca.com/collections/womens",
+    "https://rvca.com/collections/womens-clothing",
+    "https://rvca.com/collections/womens-new-arrivals"
+   ],
+   "m": [
+    "https://rvca.com/collections/mens",
+    "https://rvca.com/collections/mens-clothing",
+    "https://rvca.com/collections/mens-tees"
+   ]
+  },
+  "host": "rvca.com",
+  "note": "auto-registered from probe (458 eligible)"
  },
  "Rabbit": {
   "brand": "Rabbit",
@@ -6716,6 +7601,21 @@
   },
   "host": "www.railsclothing.com",
   "note": "auto-discovered"
+ },
+ "Rains": {
+  "brand": "Rains",
+  "entries": {
+   "f": [
+    "https://rains.com/collections/women"
+   ],
+   "m": [
+    "https://rains.com/collections/men",
+    "https://rains.com/collections/mens-outerwear",
+    "https://rains.com/collections/all-mens-jackets"
+   ]
+  },
+  "host": "rains.com",
+  "note": "auto-registered from probe (98 eligible)"
  },
  "Ramy Brook": {
   "brand": "Ramy Brook",
@@ -6917,6 +7817,23 @@
   "gender_source": "collection",
   "host": "representclo.com",
   "note": "auto-discovered"
+ },
+ "Rhythm": {
+  "brand": "Rhythm",
+  "entries": {
+   "f": [
+    "https://rhythmlivin.com/collections/rrpw",
+    "https://rhythmlivin.com/collections/klaviyo-womens-shop-dresses",
+    "https://rhythmlivin.com/collections/seasonal-womens"
+   ],
+   "m": [
+    "https://rhythmlivin.com/collections/mens-clothing",
+    "https://rhythmlivin.com/collections/rrpm",
+    "https://rhythmlivin.com/collections/mens-shop-all"
+   ]
+  },
+  "host": "rhythmlivin.com",
+  "note": "auto-registered from probe (415 eligible)"
  },
  "Richer Poorer": {
   "brand": "Richer Poorer",
@@ -7250,6 +8167,23 @@
   "host": "sndys.com.au",
   "note": ""
  },
+ "SOAR Running": {
+  "brand": "SOAR Running",
+  "entries": {
+   "f": [
+    "https://www.soarrunning.com/collections/women",
+    "https://www.soarrunning.com/collections/womens-race",
+    "https://www.soarrunning.com/collections/womens-x-race"
+   ],
+   "m": [
+    "https://www.soarrunning.com/collections/mens-collection",
+    "https://www.soarrunning.com/collections/all-products",
+    "https://www.soarrunning.com/collections/x-run"
+   ]
+  },
+  "host": "www.soarrunning.com",
+  "note": "auto-registered from probe (224 eligible)"
+ },
  "Sabah": {
   "brand": "Sabah",
   "entries": {
@@ -7298,6 +8232,54 @@
   "host": "saboskirt.com",
   "note": "auto-discovered"
  },
+ "Salt Gypsy": {
+  "brand": "Salt Gypsy",
+  "entries": {
+   "f": [],
+   "m": [],
+   "u": [
+    "https://saltgypsy.com/collections/shop-all",
+    "https://saltgypsy.com/collections/product-display-homepage",
+    "https://saltgypsy.com/collections/surfwear"
+   ]
+  },
+  "host": "saltgypsy.com",
+  "note": "auto-registered from probe (47 eligible)"
+ },
+ "Salt Life": {
+  "brand": "Salt Life",
+  "entries": {
+   "f": [
+    "https://saltlife.com/collections/saltlifeb2c-ladies",
+    "https://saltlife.com/collections/saltlifeb2c-ladies-clothing",
+    "https://saltlife.com/collections/saltlifeb2c-ladies-performance-clothing"
+   ],
+   "m": [
+    "https://saltlife.com/collections/saltlifeb2c-mens",
+    "https://saltlife.com/collections/mens",
+    "https://saltlife.com/collections/mens-best-sellers"
+   ]
+  },
+  "host": "saltlife.com",
+  "note": "auto-registered from probe (382 eligible)"
+ },
+ "Saltrock": {
+  "brand": "Saltrock",
+  "entries": {
+   "f": [
+    "https://saltrock.com/collections/30-off-holiday-shop-womens",
+    "https://saltrock.com/collections/40-off-t-shirts-womens",
+    "https://saltrock.com/collections/40-off-womens-hoodies-sweats"
+   ],
+   "m": [
+    "https://saltrock.com/collections/mens-surf-outdoor-clothing",
+    "https://saltrock.com/collections/mens-clothing",
+    "https://saltrock.com/collections/40-off-t-shirts-mens"
+   ]
+  },
+  "host": "saltrock.com",
+  "note": "auto-registered from probe (433 eligible)"
+ },
  "Salty Crew": {
   "brand": "Salty Crew",
   "entries": {
@@ -7324,6 +8306,17 @@
   },
   "host": "saltycrew.com",
   "note": "auto-discovered"
+ },
+ "Sami Miro Vintage": {
+  "brand": "Sami Miro Vintage",
+  "entries": {
+   "f": [],
+   "m": [
+    "https://samimirovintage.com/collections/mens"
+   ]
+  },
+  "host": "samimirovintage.com",
+  "note": "auto-registered from probe (97 eligible)"
  },
  "Sant And Abel": {
   "brand": "Sant And Abel",
@@ -7374,6 +8367,20 @@
   },
   "host": "www.sarahflint.com",
   "note": "auto-discovered"
+ },
+ "Satisfy Running": {
+  "brand": "Satisfy Running",
+  "entries": {
+   "f": [
+    "https://satisfyrunning.com/collections/women",
+    "https://satisfyrunning.com/collections/desert-rats-women"
+   ],
+   "m": [
+    "https://satisfyrunning.com/collections/desert-rats-men"
+   ]
+  },
+  "host": "satisfyrunning.com",
+  "note": "auto-registered from probe (148 eligible)"
  },
  "Saturdays NYC": {
   "brand": "Saturdays NYC",
@@ -7507,6 +8514,20 @@
   },
   "host": "secondfemale.com",
   "note": "auto-discovered"
+ },
+ "Seea": {
+  "brand": "Seea",
+  "entries": {
+   "f": [],
+   "m": [],
+   "u": [
+    "https://theseea.com/collections/bikinis-copy",
+    "https://theseea.com/collections/bikinis",
+    "https://theseea.com/collections/2017-collection"
+   ]
+  },
+  "host": "theseea.com",
+  "note": "auto-registered from probe (318 eligible)"
  },
  "Selfie Leslie": {
   "brand": "Selfie Leslie",
@@ -7745,6 +8766,20 @@
   "host": "us.sirthelabel.com",
   "note": "auto-discovered"
  },
+ "Sisstrevolution": {
+  "brand": "Sisstrevolution",
+  "entries": {
+   "f": [],
+   "m": [],
+   "u": [
+    "https://sisstrevolution.com/collections/excludes-curated",
+    "https://sisstrevolution.com/collections/all-excludes-curated",
+    "https://sisstrevolution.com/collections/all-excludes-wetsuits-curated"
+   ]
+  },
+  "host": "sisstrevolution.com",
+  "note": "auto-registered from probe (396 eligible)"
+ },
  "Sister Jane": {
   "brand": "Sister Jane",
   "entries": {
@@ -7833,6 +8868,20 @@
   },
   "host": "www.sneakersnstuff.com",
   "note": "found by find_brands.py \u2014 sneaker boutique"
+ },
+ "Snow Peak": {
+  "brand": "Snow Peak",
+  "entries": {
+   "f": [],
+   "m": [],
+   "u": [
+    "https://snowpeak.com/collections/all",
+    "https://snowpeak.com/collections/50-200",
+    "https://snowpeak.com/collections/100-300"
+   ]
+  },
+  "host": "snowpeak.com",
+  "note": "auto-registered from probe (179 eligible)"
  },
  "Social Status": {
   "brand": "Social Status",
@@ -8002,6 +9051,23 @@
   "host": "splits59.com",
   "note": "auto-discovered"
  },
+ "Sporty and Rich": {
+  "brand": "Sporty and Rich",
+  "entries": {
+   "f": [
+    "https://sportyandrich.com/collections/shop-all",
+    "https://sportyandrich.com/collections/women-all",
+    "https://sportyandrich.com/collections/all-clothing-women"
+   ],
+   "m": [
+    "https://sportyandrich.com/collections/shop-all-men",
+    "https://sportyandrich.com/collections/all-clothing-men",
+    "https://sportyandrich.com/collections/sets-men"
+   ]
+  },
+  "host": "sportyandrich.com",
+  "note": "auto-registered from probe (366 eligible)"
+ },
  "Stan Ray": {
   "brand": "Stan Ray",
   "entries": {
@@ -8024,6 +9090,20 @@
   },
   "host": "stanray.com",
   "note": "auto-discovered"
+ },
+ "Staple": {
+  "brand": "Staple",
+  "entries": {
+   "f": [],
+   "m": [],
+   "u": [
+    "https://staplepigeon.com/collections/all",
+    "https://staplepigeon.com/collections/collaborations",
+    "https://staplepigeon.com/collections/pigeon-day-2026"
+   ]
+  },
+  "host": "staplepigeon.com",
+  "note": "auto-registered from probe (355 eligible)"
  },
  "State and Liberty": {
   "brand": "State and Liberty",
@@ -8148,6 +9228,20 @@
   "gender_source": "prior",
   "host": "suboo.com.au",
   "note": "auto-discovered"
+ },
+ "Sundae School": {
+  "brand": "Sundae School",
+  "entries": {
+   "f": [],
+   "m": [],
+   "u": [
+    "https://sundae.school/collections/all",
+    "https://sundae.school/collections/coordinated-sets",
+    "https://sundae.school/collections/spring-26"
+   ]
+  },
+  "host": "sundae.school",
+  "note": "auto-registered from probe (85 eligible)"
  },
  "Sunday Swagger": {
   "brand": "Sunday Swagger",
@@ -8304,6 +9398,33 @@
   "host": "www.tentree.com",
   "note": "auto-discovered"
  },
+ "Territory Run Co": {
+  "brand": "Territory Run Co",
+  "entries": {
+   "f": [
+    "https://territoryrun.co/collections/womens"
+   ],
+   "m": [
+    "https://territoryrun.co/collections/mens"
+   ]
+  },
+  "host": "territoryrun.co",
+  "note": "auto-registered from probe (49 eligible)"
+ },
+ "The Critical Slide Society": {
+  "brand": "The Critical Slide Society",
+  "entries": {
+   "f": [],
+   "m": [],
+   "u": [
+    "https://thecriticalslidesociety.com/collections/shirts",
+    "https://thecriticalslidesociety.com/collections/hats-caps",
+    "https://thecriticalslidesociety.com/collections/boardshorts"
+   ]
+  },
+  "host": "thecriticalslidesociety.com",
+  "note": "auto-registered from probe (258 eligible)"
+ },
  "The Frankie Shop": {
   "brand": "The Frankie Shop",
   "entries": {
@@ -8335,6 +9456,34 @@
   "gender_source": "prior",
   "host": "thehundreds.com",
   "note": "auto-discovered"
+ },
+ "The Landmark Project": {
+  "brand": "The Landmark Project",
+  "entries": {
+   "f": [
+    "https://thelandmarkproject.com/collections/womens-apparel"
+   ],
+   "m": []
+  },
+  "host": "thelandmarkproject.com",
+  "note": "auto-registered from probe (142 eligible)"
+ },
+ "The Mad Hueys": {
+  "brand": "The Mad Hueys",
+  "entries": {
+   "f": [
+    "https://themadhueys.com/collections/all-womens",
+    "https://themadhueys.com/collections/womens-tops",
+    "https://themadhueys.com/collections/meta-womens-gear"
+   ],
+   "m": [
+    "https://themadhueys.com/collections/mens",
+    "https://themadhueys.com/collections/mens-tops",
+    "https://themadhueys.com/collections/mens-boxing-day-deal"
+   ]
+  },
+  "host": "themadhueys.com",
+  "note": "auto-registered from probe (417 eligible)"
  },
  "The Ragged Priest": {
   "brand": "The Ragged Priest",
@@ -8478,6 +9627,23 @@
   "host": "www.toddsnyder.com",
   "note": "found by find_brands.py \u2014 mainstream"
  },
+ "Toes on the Nose": {
+  "brand": "Toes on the Nose",
+  "entries": {
+   "f": [
+    "https://toesonthenose.com/collections/womens",
+    "https://toesonthenose.com/collections/womens-new-arrivals",
+    "https://toesonthenose.com/collections/womens-best-sellers"
+   ],
+   "m": [
+    "https://toesonthenose.com/collections/mens",
+    "https://toesonthenose.com/collections/mens-wovens",
+    "https://toesonthenose.com/collections/mens-swim"
+   ]
+  },
+  "host": "toesonthenose.com",
+  "note": "auto-registered from probe (122 eligible)"
+ },
  "Tommy John": {
   "brand": "Tommy John",
   "entries": {
@@ -8531,6 +9697,23 @@
   "host": "www.toms.com",
   "note": "auto-discovered"
  },
+ "Topo Designs": {
+  "brand": "Topo Designs",
+  "entries": {
+   "f": [
+    "https://topodesigns.com/collections/all-womens",
+    "https://topodesigns.com/collections/womens-travel-apparel",
+    "https://topodesigns.com/collections/womens-apparel"
+   ],
+   "m": [
+    "https://topodesigns.com/collections/all-mens",
+    "https://topodesigns.com/collections/mens-classic-apparel",
+    "https://topodesigns.com/collections/mens-tops"
+   ]
+  },
+  "host": "topodesigns.com",
+  "note": "auto-registered from probe (128 eligible)"
+ },
  "Toteme": {
   "brand": "Toteme",
   "entries": {
@@ -8554,6 +9737,19 @@
   },
   "host": "toteme-studio.com",
   "note": "found by find_brands.py \u2014 designer"
+ },
+ "Triangl": {
+  "brand": "Triangl",
+  "entries": {
+   "f": [
+    "https://triangl.com/collections/resort-wear",
+    "https://triangl.com/collections/clothing-bottoms",
+    "https://triangl.com/collections/tops"
+   ],
+   "m": []
+  },
+  "host": "triangl.com",
+  "note": "auto-registered from probe (169 eligible)"
  },
  "True Classic": {
   "brand": "True Classic",
@@ -8915,6 +10111,23 @@
   "host": "www.vitaminaswim.com",
   "note": "auto-discovered"
  },
+ "Volcom": {
+  "brand": "Volcom",
+  "entries": {
+   "f": [
+    "https://volcom.com/collections/women",
+    "https://volcom.com/collections/womens-clothing",
+    "https://volcom.com/collections/womens-t-shirts-tanks"
+   ],
+   "m": [
+    "https://volcom.com/collections/men",
+    "https://volcom.com/collections/mens-clothing",
+    "https://volcom.com/collections/mens-t-shirts-tanks"
+   ]
+  },
+  "host": "volcom.com",
+  "note": "auto-registered from probe (425 eligible)"
+ },
  "Vollebak": {
   "brand": "Vollebak",
   "entries": {
@@ -9011,6 +10224,37 @@
   },
   "host": "warpweftworld.com",
   "note": "auto-discovered"
+ },
+ "Warren Lotas": {
+  "brand": "Warren Lotas",
+  "entries": {
+   "f": [],
+   "m": [],
+   "u": [
+    "https://warrenlotas.com/collections/slot-machine-v2",
+    "https://warrenlotas.com/collections/nba",
+    "https://warrenlotas.com/collections/black-friday"
+   ]
+  },
+  "host": "warrenlotas.com",
+  "note": "auto-registered from probe (250 eligible)"
+ },
+ "Waterlust": {
+  "brand": "Waterlust",
+  "entries": {
+   "f": [
+    "https://waterlust.com/collections/womens",
+    "https://waterlust.com/collections/tops",
+    "https://waterlust.com/collections/womens-swimwear"
+   ],
+   "m": [
+    "https://waterlust.com/collections/mens",
+    "https://waterlust.com/collections/mens-tops",
+    "https://waterlust.com/collections/mens-sun-shirts"
+   ]
+  },
+  "host": "waterlust.com",
+  "note": "auto-registered from probe (149 eligible)"
  },
  "Wax London": {
   "brand": "Wax London",
@@ -9139,6 +10383,19 @@
   },
   "host": "whitefoxboutique.com",
   "note": "auto-discovered"
+ },
+ "Wild Rye": {
+  "brand": "Wild Rye",
+  "entries": {
+   "f": [
+    "https://wild-rye.com/collections/womens-shirts-tanks",
+    "https://wild-rye.com/collections/womens-bike-tops",
+    "https://wild-rye.com/collections/womens-bike-bottoms"
+   ],
+   "m": []
+  },
+  "host": "wild-rye.com",
+  "note": "auto-registered from probe (94 eligible)"
  },
  "With Jean": {
   "brand": "With Jean",
@@ -9329,6 +10586,20 @@
   },
   "host": "www.yearofours.com",
   "note": "auto-discovered"
+ },
+ "Young LA": {
+  "brand": "Young LA",
+  "entries": {
+   "f": [],
+   "m": [],
+   "u": [
+    "https://youngla.com/collections/all-products-except-latte-and-sp",
+    "https://youngla.com/collections/all-for-her",
+    "https://youngla.com/collections/all-products-1"
+   ]
+  },
+  "host": "youngla.com",
+  "note": "auto-registered from probe (328 eligible)"
  },
  "YoungLA": {
   "brand": "YoungLA",

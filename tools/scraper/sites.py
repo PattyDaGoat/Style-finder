@@ -288,9 +288,17 @@ def live_sites(registry, include_unknown=True):
 
 
 def entries(site):
-    """[(url, section_gender), …] for one shop."""
+    """[(url, section_gender), …] for one shop.
+
+    "u" is a third, optional bucket: a collection the shop does NOT label by
+    gender. Plenty of youth labels sell one unisex range and have no mens/womens
+    split at all, so forcing those pages into "m" would quietly stamp a whole
+    catalogue as menswear. A "u" entry means "crawl this, but let the piece's own
+    text decide the section" — see import_collections.py, which leaves
+    enrich.classify_gender's answer alone for these.
+    """
     out = []
-    for g in ("m", "f"):
+    for g in ("m", "f", "u"):
         for url in site["entries"].get(g) or []:
             out.append((url, g))
     return out

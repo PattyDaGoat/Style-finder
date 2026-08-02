@@ -147,13 +147,39 @@ def rows_for_collection(brand, host, handle, section, pages=2, stock_only=True,
 
             # The collection we asked for IS the section — that is the whole
             # point of this path, so it overrides the text guess outright.
-            row["g"] = section
+            # EXCEPT for "u": that marks a collection the shop never labelled by
+            # gender (a single unisex range), where there is nothing to override
+            # WITH. Stamping those "m" would file an entire label as menswear on
+            # no evidence, so the piece's own text keeps the decision.
+            # ...unless the PIECE ITSELF says otherwise. A shop's "mens"
+            # collection is not always purely menswear — Body Glove's carried
+            # "Glow Aubree Cover-Up Kimono", which the stamp filed as menswear
+            # and which then broke the "MENSWEAR contains no dresses" assertion.
+            # gender.frontend_lock is the app's OWN verdict on the name, so when
+            # it flatly disagrees with the collection the honest answer is that
+            # we do not know: drop the stamp and let classify_gender read the
+            # text, exactly as the "u" case does. browse.py handles the same
+            # conflict by opening the product page; this is the cheap version.
+            lock = gender_mod.frontend_lock(row["n"], row["cat"], row["u"],
+                                            brand, row["img"])
+            conflicted = section in ("m", "f") and lock in ("m", "f") and lock != section
+            if section in ("m", "f") and not conflicted:
+                row["g"] = section
+                row["section"] = section
+                row["sect_src"] = "collection"
+                row["gconf"] = 5.0
+                row["gwhy"] = "collection:{}".format(handle)
+            elif conflicted:
+                row["section"] = ""
+                row["sect_src"] = "conflict"
+                row["gwhy"] = "name says {} but collection {} says {}".format(
+                    lock, handle, section)
+                drop("name disagrees with the collection's gender")
+            else:
+                row["section"] = ""
+                row["sect_src"] = "text"
             row["descr"] = desc
-            row["section"] = section
-            row["sect_src"] = "collection"
             row["via"] = "coll"
-            row["gconf"] = 5.0
-            row["gwhy"] = "collection:{}".format(handle)
             out.append(row)
         if len(products) < PAGE_SIZE:
             break

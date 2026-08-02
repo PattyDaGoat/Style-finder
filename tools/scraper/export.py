@@ -168,6 +168,22 @@ def is_kids(name):
     return bool(KIDS_STRICT_RE.search(n) or KIDS_CONTEXT_RE.search(n))
 
 
+# ---- a dress is never menswear ---------------------------------------------
+# `cat` and `g` are derived by two different classifiers from the same text, so
+# they can disagree, and one disagreement is always wrong rather than merely
+# unlikely: a row that is BOTH a dress and menswear. Whichever field is at fault,
+# shipping it puts a dress in the men's deck — which suites 03 and 05 assert
+# against by name ("MENSWEAR: contains no dresses at all").
+#
+# Two such rows reached the catalog from one import and broke both suites:
+# a men's tee whose colour was "Dress Blue" (cat wrong) and a women's "Cover-Up
+# Kimono" pulled from a shop's mens collection (g wrong). Both source bugs are
+# fixed in enrich.py and import_collections.py, but the invariant is cheap and
+# does not care which classifier slipped, so it is enforced here too.
+def is_contradictory(row):
+    return row.get("cat") == "dress" and row.get("g") == "m"
+
+
 def is_clothing(row):
     """The one gate: a garment, not underwear, not socks, not a bag, not kids'."""
     name, cat = row.get("n") or "", row.get("cat")
@@ -175,6 +191,7 @@ def is_clothing(row):
             and not is_underwear(name, cat)
             and not is_socks(name, cat)
             and not is_kids(name)
+            and not is_contradictory(row)
             and not JUNK_RX.search(name))
 
 # The app hides intimates from the deck (underwearLock in 15-sectioning.js), so
@@ -616,6 +633,8 @@ def prune_catalog(dry_run=False, verify=False):
                 reasons["socks / hosiery"] += 1
             elif is_kids(name):
                 reasons["children's clothing"] += 1
+            elif is_contradictory(p):
+                reasons["a dress tagged menswear"] += 1
             elif cat not in ALLOWED_CATS:
                 reasons["not a garment (cat={})".format(cat)] += 1
             else:

@@ -42,7 +42,14 @@ CAT_RULES = [
     # "dress" as an adjective is never the garment: a dress shirt is a shirt, a
     # dress pant is a trouser, dress socks are socks. Only the noun counts.
     # ("skort" is handled by the shorts rule below.)
-    ("dress",   r"\b(dress(?!\s*(shirt|pant|trouser|sock|boot|shoe|short|code|form))(es)?|gowns?|skirts?|jumpsuits?|playsuits?|rompers?|midis?|maxis?|sundress(es)?|minidress(es)?|sarongs?|cover ?ups?|kaftans?|caftans?)\b"),
+    # ...and it is not the garment as a COLOUR either. "Dress Blue" is a shade
+    # (military dress blues), so "Smoke Em Mens Short Sleeve Tee in Dress Blue"
+    # is a TEE — but `dress` is tested before `tee`, so without this it wins and
+    # a men's tee ships as a dress. That row reached the catalog and broke the
+    # "MENSWEAR contains no dresses" assertion in suites 03 and 05.
+    ("dress",   r"\b(dress(?!\s*(shirt|pant|trouser|sock|boot|shoe|short|code|form"
+                r"|blue|navy|white|black|green|gray|grey|red|khaki|olive|cream|tan))(es)?"
+                r"|gowns?|skirts?|jumpsuits?|playsuits?|rompers?|midis?|maxis?|sundress(es)?|minidress(es)?|sarongs?|cover[-\s]?ups?|kaftans?|caftans?)\b"),
     # "short sleeve" is a tee, not a pair of shorts — hence the lookahead
     ("short",   r"\b(shorts?(?!\s*-?\s*sleeve)|trunks?|boardshorts?|bike shorts?|skorts?|briefs?|boxers?|panty|panties|thongs?|bikini bottoms?|swim bottoms?|volleys?)\b"),
     ("trouser", r"\b(trousers?|pants?|chinos?|jeans?|denim pants?|cargos?|cargo pants?|leggings?|culottes?|slacks?|overalls?|dungarees?|denims?(?!\s*(jacket|shirt|vest|jkt)))\b"),

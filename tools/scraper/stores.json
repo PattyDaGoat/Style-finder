@@ -572,7 +572,7 @@
  "Corteiz": {
   "domain": "crtz.xyz",
   "gender_prior": "m",
-  "seen": 12
+  "seen": 13
  },
  "Costa Brava": {
   "domain": "faithfullthebrand.com",
@@ -672,7 +672,7 @@
  "Devereux": {
   "domain": "devereuxgolf.com",
   "gender_prior": "m",
-  "seen": 31
+  "seen": 32
  },
  "Dime": {
   "domain": "dimemtl.com",
@@ -777,7 +777,7 @@
  "Fair Harbor": {
   "domain": "fairharborclothing.com",
   "gender_prior": "m",
-  "seen": 29
+  "seen": 30
  },
  "Faithfull the Brand": {
   "domain": "faithfullthebrand.com",
@@ -787,7 +787,7 @@
  "Farah": {
   "domain": "www.farah.co.uk",
   "gender_prior": "m",
-  "seen": 37
+  "seen": 38
  },
  "Farm Rio": {
   "domain": "www.farmrio.com",
@@ -797,7 +797,7 @@
  "Fear of God": {
   "domain": "fearofgod.com",
   "gender_prior": "m",
-  "seen": 18
+  "seen": 19
  },
  "Feature": {
   "domain": "feature.com",
@@ -1107,7 +1107,7 @@
  "Kookai": {
   "domain": "www.kookai.com.au",
   "gender_prior": "f",
-  "seen": 35
+  "seen": 36
  },
  "Ksubi": {
   "domain": "ksubi.com",
@@ -1192,7 +1192,7 @@
  "Lorna Jane": {
   "domain": "www.lornajane.com",
   "gender_prior": "f",
-  "seen": 17
+  "seen": 18
  },
  "LoveShackFancy": {
   "domain": "loveshackfancy.com",
@@ -1207,7 +1207,7 @@
  "Lucy & Yak": {
   "domain": "lucyandyak.com",
   "gender_prior": "f",
-  "seen": 24
+  "seen": 25
  },
  "Luke 1977": {
   "domain": "www.luke1977.com",
@@ -1332,12 +1332,12 @@
  "Mott & Bow": {
   "domain": "mottandbow.com",
   "gender_prior": "u",
-  "seen": 30
+  "seen": 31
  },
  "Mr Simple": {
   "domain": "mrsimple.com.au",
   "gender_prior": "m",
-  "seen": 27
+  "seen": 28
  },
  "Muscle Nation": {
   "domain": "musclenation.org",
@@ -1397,7 +1397,7 @@
  "Nena and Pasadena AFL": {
   "domain": "nenaandpasadena.com",
   "gender_prior": "m",
-  "seen": 2
+  "seen": 3
  },
  "Never Fully Dressed": {
   "domain": "neverfullydressed.com",
@@ -1412,7 +1412,7 @@
  "New Era": {
   "domain": "extrabutterny.com",
   "gender_prior": "m",
-  "seen": 18
+  "seen": 19
  },
  "Nike": {
   "domain": "extrabutterny.com",
@@ -1467,7 +1467,7 @@
  "Nude Lucy": {
   "domain": "www.nudelucy.com.au",
   "gender_prior": "f",
-  "seen": 36
+  "seen": 38
  },
  "Oakley": {
   "domain": "extrabutterny.com",
@@ -1477,7 +1477,7 @@
  "Obey": {
   "domain": "www.obeyclothing.com",
   "gender_prior": "m",
-  "seen": 31
+  "seen": 33
  },
  "Oh Polly": {
   "domain": "www.ohpolly.com",
@@ -1552,7 +1552,7 @@
  "P.E Nation Global": {
   "domain": "www.pe-nation.com",
   "gender_prior": "f",
-  "seen": 2
+  "seen": 3
  },
  "PATTA": {
   "domain": "undefeated.com",
@@ -1567,7 +1567,7 @@
  "POPFLEX\u00ae": {
   "domain": "www.popflexactive.com",
   "gender_prior": "f",
-  "seen": 2
+  "seen": 3
  },
  "Pas de Mer": {
   "domain": "bdgastore.com",
@@ -1587,7 +1587,7 @@
  "Peppermayo Exclusive": {
   "domain": "us.peppermayo.com",
   "gender_prior": "f",
-  "seen": 2
+  "seen": 3
  },
  "Percival": {
   "domain": "www.percivalclo.com",
@@ -1607,7 +1607,7 @@
  "Petite Studio": {
   "domain": "petitestudionyc.com",
   "gender_prior": "f",
-  "seen": 21
+  "seen": 22
  },
  "Pink Lily": {
   "domain": "www.pinklily.com",
@@ -1658,6 +1658,11 @@
   "domain": "www.prettygreen.com",
   "gender_prior": "m",
   "seen": 29
+ },
+ "Pretty Green Store": {
+  "domain": "www.prettygreen.com",
+  "gender_prior": "m",
+  "seen": 1
  },
  "Primitive": {
   "domain": "www.primitiveskate.com",
@@ -1732,7 +1737,7 @@
  "Rails": {
   "domain": "www.railsclothing.com",
   "gender_prior": "m",
-  "seen": 24
+  "seen": 25
  },
  "Raintex": {
   "domain": "ashanderie.com",
@@ -1777,7 +1782,12 @@
  "Reebok": {
   "domain": "www.reebok.com",
   "gender_prior": "f",
-  "seen": 18
+  "seen": 19
+ },
+ "Reformation": {
+  "domain": "www.thereformation.com",
+  "gender_prior": "f",
+  "seen": 2
  },
  "Reigning Champ": {
   "domain": "reigningchamp.com",
@@ -1787,12 +1797,12 @@
  "Reistor": {
   "domain": "reistor.com",
   "gender_prior": "f",
-  "seen": 29
+  "seen": 30
  },
  "Renarts": {
   "domain": "renarts.com",
   "gender_prior": "m",
-  "seen": 11
+  "seen": 12
  },
  "Represent": {
   "domain": "representclo.com",
@@ -1807,7 +1817,7 @@
  "Rip Curl": {
   "domain": "www.ripcurl.com",
   "gender_prior": "u",
-  "seen": 35
+  "seen": 36
  },
  "Rip N Dip": {
   "domain": "ripndip.com",

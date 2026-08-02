@@ -6201,7 +6201,15 @@
     "https://www.reebok.com/collections/all-mens-sale"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "collection-handle",
+  "health": {
+   "fail": 0,
+   "last": 1785634429.32361,
+   "last_found": 91,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "www.reebok.com",
   "note": "found by find_brands.py \u2014 footwear"
  },
@@ -6214,11 +6222,12 @@
    ],
    "m": []
   },
+  "entry_cursor": 0,
   "health": {
    "fail": 0,
-   "last": 1784997867.910967,
-   "last_found": 13,
-   "ok": 1,
+   "last": 1785634589.0665543,
+   "last_found": 74,
+   "ok": 2,
    "status": "ok"
   },
   "host": "www.thereformation.com",
@@ -6234,7 +6243,15 @@
     "https://reigningchamp.com/collections/mens-classics-clothing"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1785634731.4487603,
+   "last_found": 86,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "reigningchamp.com",
   "note": "auto-discovered"
  },
@@ -6247,7 +6264,15 @@
    ],
    "m": []
   },
+  "entry_cursor": 0,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1785634887.8576584,
+   "last_found": 66,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "reistor.com",
   "note": "auto-discovered"
  },
@@ -6263,13 +6288,13 @@
     "https://renarts.com/collections/mens-footwear"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 0,
   "gender_source": "collection-handle",
   "health": {
    "fail": 0,
-   "last": 1785114402.3145933,
-   "last_found": 42,
-   "ok": 1,
+   "last": 1785634960.946325,
+   "last_found": 64,
+   "ok": 2,
    "status": "ok"
   },
   "host": "renarts.com",
@@ -6289,7 +6314,15 @@
     "https://representclo.com/collections/mens-blanks-all"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1785635107.4056547,
+   "last_found": 65,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "representclo.com",
   "note": "auto-discovered"
  },
@@ -6306,7 +6339,15 @@
     "https://richer-poorer.com/collections/boxer-briefs"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1785635235.3514283,
+   "last_found": 86,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "richer-poorer.com",
   "note": "auto-discovered"
  },
@@ -6324,7 +6365,15 @@
     "https://www.rickowens.eu/collections/mens-outerwear"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "collection-handle",
+  "health": {
+   "fail": 1,
+   "last": 1785635510.256949,
+   "last_found": 0,
+   "ok": 0,
+   "status": "blocked"
+  },
   "host": "www.rickowens.eu",
   "note": "found by find_brands.py \u2014 designer"
  },
@@ -6342,7 +6391,16 @@
     "https://www.ripcurl.com/collections/mens-accessories"
    ]
   },
+  "entry_cursor": 1,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1785635614.0216503,
+   "last_found": 36,
+   "note": "rate-limited (429) \u2014 stopping this shop for now",
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "www.ripcurl.com",
   "note": "auto-discovered"
  },
@@ -6356,7 +6414,16 @@
     "https://ripndip.com/collections/frontpage"
    ]
   },
+  "entry_cursor": 1,
   "gender_source": "prior",
+  "health": {
+   "fail": 0,
+   "last": 1785635681.5066118,
+   "last_found": 58,
+   "note": "rate-limited (429) \u2014 stopping this shop for now",
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "ripndip.com",
   "note": "auto-discovered"
  },
@@ -6370,7 +6437,15 @@
    ],
    "m": []
   },
+  "entry_cursor": 2,
   "gender_source": "prior",
+  "health": {
+   "fail": 0,
+   "last": 1785635790.5871205,
+   "last_found": 56,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "www.rixo.co.uk",
   "note": "auto-discovered"
  },
@@ -6386,7 +6461,15 @@
     "https://www.roark.com/collections/atlas-chore-jacket-mens-jackets-rj233"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1785635833.2138171,
+   "last_found": 4,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "www.roark.com",
   "note": "auto-discovered"
  },
@@ -6400,7 +6483,15 @@
     "https://www.rogueterritory.com/collections/discountable-products"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "prior",
+  "health": {
+   "fail": 0,
+   "last": 1785635903.434631,
+   "last_found": 25,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "www.rogueterritory.com",
   "note": "auto-discovered"
  },
@@ -6418,7 +6509,15 @@
     "https://rothys.com/collections/mens-sneakers"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1785636015.1334343,
+   "last_found": 40,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "rothys.com",
   "note": "auto-discovered"
  },
@@ -6434,7 +6533,16 @@
     "https://www.rowiethelabel.com/collections/mens-bottoms"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 1,
+   "last": 1785636102.0067437,
+   "last_found": 0,
+   "note": "no products found on the page; no products found on the page",
+   "ok": 0,
+   "status": "blocked"
+  },
   "host": "www.rowiethelabel.com",
   "note": "auto-discovered"
  },

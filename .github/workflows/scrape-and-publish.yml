@@ -89,8 +89,10 @@ jobs:
       PROMOTE: ${{ github.event.inputs.per_gender || 15 }}
       DRY_RUN: ${{ github.event.inputs.dry_run == 'true' }}
       # How long the crawl may spend before it stops itself. Must stay clear of
-      # the Crawl step's timeout-minutes below — see the note there.
-      CRAWL_MINUTES: 20
+      # the Crawl step's timeout-minutes below — see the note there. The gap
+      # covers the page read already in flight when the clock runs out, which is
+      # the one thing the budget cannot cut short.
+      CRAWL_MINUTES: 18
       # Manual runs always publish. Scheduled runs publish only on the 10:37 one.
       PUBLISH: ${{ github.event_name != 'schedule' || github.event.schedule == '37 10 * * *' }}
 
@@ -167,7 +169,10 @@ jobs:
       #
       # timeout-minutes is a backstop for one page load wedging past the budget,
       # and it has to stay comfortably above CRAWL_MINUTES or it fires first and
-      # we are back to a killed step.
+      # we are back to a killed step. Run #72 is why the gap is eight minutes
+      # and not five: the first version of this budget only checked the clock
+      # between page reads, not before starting one, and a 20-minute budget
+      # still ran past the 26-minute backstop.
       #
       # This job used to have only the backstop, at 35, and no budget at all —
       # so when the registry grew to 503 shops (135 of them with a guessed

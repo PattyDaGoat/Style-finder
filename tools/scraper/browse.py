@@ -595,6 +595,11 @@ async def autoscroll(page, rounds=SCROLL_ROUNDS, pause=SCROLL_PAUSE):
     """
     last_h, stable = 0, 0
     for _ in range(rounds):
+        # Each round can cost a click_load_more scan of 150 elements, so this is
+        # the one loop inside a page read that is worth interrupting. What has
+        # already scrolled into view is still parsed below.
+        if out_of_time():
+            break
         try:
             await page.evaluate(
                 "window.scrollBy(0, Math.max(600, window.innerHeight * 0.9))")
@@ -1104,6 +1109,15 @@ async def crawl_entry(ctx, url, section, site_brand, want, detail_mode,
     """One gendered index page -> normalised rows."""
     rows = []
     raws, counts, note = [], (0, 0, 0), ""
+    # Reading one listing page is the longest stretch in the crawler that cannot
+    # be interrupted: a 45s navigation, a settle, eight scroll rounds each of
+    # which may scan 150 elements for a "load more" button, then a DOM sweep and
+    # a JSON-LD parse — and all of that twice if the first attempt comes back
+    # empty. The first run with a budget overran it by six minutes precisely
+    # because this function had no check in it and inherited whatever the caller
+    # had left on the clock. Don't start one at all past the deadline.
+    if out_of_time():
+        return [], OUT_OF_TIME
     # One retry on an empty page. A listing that renders perfectly on its own and
     # returns nothing as the fourth page of a sweep is being rate-limited, not
     # broken, and backing off for a few seconds usually gets it back.
@@ -1156,6 +1170,8 @@ async def crawl_entry(ctx, url, section, site_brand, want, detail_mode,
             except PWError:
                 pass
         if raws or attempt == 2:
+            break
+        if out_of_time():          # the retry is worth seconds, not the overrun
             break
         if verbose:
             log("    empty — backing off and retrying once")
@@ -1281,8 +1297,10 @@ async def crawl_site(ctx, site, per_entry, detail_mode, detail_rate, max_price,
         got.extend(rows)
         if verbose:
             log("    -> {} rows  {}".format(len(rows), note))
-        if note == RATE_LIMITED:
-            # rewind so the page we were refused is the first one we try next
+        if note in (RATE_LIMITED, OUT_OF_TIME):
+            # rewind so the page we were refused — or never opened, because the
+            # budget went while we were on the page before it — is the first one
+            # we try next
             site["entry_cursor"] = all_entries.index((url, section))
             break
         # Several seconds between listing pages of the same shop. Everlane's
@@ -1362,7 +1380,13 @@ async def run(args):
                 # A shop the budget interrupted was not given a fair try, and
                 # two unfair tries in a row would sit it out of the rotation
                 # for nothing. Health is only recorded for a complete visit.
-                cut_short = OUT_OF_TIME in (note or "")
+                #
+                # Asked two ways on purpose. The note is the precise answer but
+                # crawl_site truncates its notes at 200 characters, so a shop
+                # with a lot to say could lose the marker; a spent clock is the
+                # blunt one that cannot go missing. Erring towards "cut short"
+                # only ever costs us recording a result we did not need.
+                cut_short = OUT_OF_TIME in (note or "") or out_of_time()
                 ok = len(rows) > 0
                 if not cut_short:
                     site_registry.record_health(registry, site["brand"], ok,

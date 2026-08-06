@@ -8,3 +8,7 @@ node_modules/
 .tools/
 __pycache__/
 *.pyc
+
+# what the publish job keeps when npm test rejects a batch of new products
+npm-test.log
+gate-evidence/

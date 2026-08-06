@@ -245,8 +245,39 @@ jobs:
       # the wrong deck, non-apparel slipping through, the recommender going
       # unstable — this fails and nothing is committed.
       - name: Test
+        id: test
         if: env.PUBLISH == 'true'
-        run: npm test
+        # pipefail because tee would otherwise report its own exit status and the
+        # gate would pass every batch it was meant to reject.
+        run: |
+          set -o pipefail
+          npm test 2>&1 | tee npm-test.log
+
+      # When the gate rejects a batch the run stops here, and the only record of
+      # WHY is a step log that needs repo-admin rights to read — so from outside
+      # the repo a rejection is indistinguishable from any other red run. Keep
+      # the two things that actually answer it: what the tests said, and the rows
+      # export.py had just added. Both are cheap and neither is committed.
+      #
+      # The rows are safe to abandon, which is why this only records rather than
+      # recovers: pick() rebuilds its exclusion set from data/catalog.json, not
+      # from the in_app flag export.py set, so a batch that never got committed
+      # is simply offered again on the next publish run.
+      - name: Keep the evidence when the gate rejects a batch
+        if: always() && steps.test.conclusion == 'failure'
+        run: |
+          mkdir -p gate-evidence
+          mv npm-test.log gate-evidence/ 2>/dev/null || true
+          git diff -- data/catalog.json > gate-evidence/rejected-rows.diff || true
+          echo "::warning::npm test rejected this batch, so nothing was published. The test output and the rows it rejected are in the gate-evidence artifact on this run."
+
+      - name: Upload the rejected batch
+        if: always() && steps.test.conclusion == 'failure'
+        uses: actions/upload-artifact@v4
+        with:
+          name: gate-evidence-${{ github.run_id }}
+          path: gate-evidence/
+          if-no-files-found: ignore
 
       - name: Commit and publish
         id: commit

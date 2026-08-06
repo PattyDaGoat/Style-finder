@@ -37,6 +37,14 @@ python3 export.py --promote 200               # bake 200/gender into data/catalo
 node ../../build.mjs && npm test              # rebuild, prove nothing broke
 ```
 
+`--shops` caps how many shops a crawl *starts*; it says nothing about how long
+one takes, and a shop whose gender is guessed can cost ten times an established
+one because nearly every row earns a product-page visit. Add `--max-minutes N`
+where the clock matters — the crawl then stops itself between shops, listing
+pages and product pages, exits 0, and leaves everything it did not reach at the
+front of the rotation for next time. The GitHub Actions job always passes it;
+without it a crawl runs until it is done, which is what you want at a terminal.
+
 ## Adding brands the app has never sold (`find_brands.py`)
 
 `--discover` grows the browse-list from brands already in the catalog, so it

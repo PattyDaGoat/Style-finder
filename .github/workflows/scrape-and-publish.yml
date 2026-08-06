@@ -88,6 +88,9 @@ jobs:
       SHOPS:   ${{ github.event.inputs.shops      || 15 }}
       PROMOTE: ${{ github.event.inputs.per_gender || 15 }}
       DRY_RUN: ${{ github.event.inputs.dry_run == 'true' }}
+      # How long the crawl may spend before it stops itself. Must stay clear of
+      # the Crawl step's timeout-minutes below — see the note there.
+      CRAWL_MINUTES: 20
       # Manual runs always publish. Scheduled runs publish only on the 10:37 one.
       PUBLISH: ${{ github.event_name != 'schedule' || github.event.schedule == '37 10 * * *' }}
 
@@ -154,11 +157,36 @@ jobs:
         run: python3 browse.py --discover --from-catalog
 
       # The one step every run does. browse.py commits to catalog.db shop by
-      # shop, so the step timeout costs at most the shop in flight.
+      # shop, so stopping early costs at most the shop in flight.
+      #
+      # TWO LIMITS, AND THEY ARE NOT THE SAME KIND OF LIMIT
+      # ---------------------------------------------------
+      # --max-minutes is the real one: browse.py watches its own clock, stops
+      # between shops, between listing pages and between product pages, and
+      # exits 0. Whatever it did not reach stays at the front of the rotation.
+      #
+      # timeout-minutes is a backstop for one page load wedging past the budget,
+      # and it has to stay comfortably above CRAWL_MINUTES or it fires first and
+      # we are back to a killed step.
+      #
+      # This job used to have only the backstop, at 35, and no budget at all —
+      # so when the registry grew to 503 shops (135 of them with a guessed
+      # gender, which makes the crawler open a product page for nearly every
+      # row) the crawl quietly went from 5 minutes to over 35, and *every* run
+      # from 2026-08-01 was killed mid-crawl. A killed step skips everything
+      # after it, so the daily export, the tests, the commit and the Pages
+      # publish all stopped happening too. Hence continue-on-error: the crawl is
+      # best-effort by nature — shops refuse datacenter IPs constantly — and it
+      # must not be able to take the publish down with it. The step below
+      # reports what actually happened.
       - name: Crawl
+        id: crawl
         working-directory: tools/scraper
-        timeout-minutes: 35
-        run: python3 browse.py --crawl --shops "$SHOPS" --verbose
+        timeout-minutes: 26
+        continue-on-error: true
+        run: |
+          python3 browse.py --crawl --shops "$SHOPS" \
+                            --max-minutes "$CRAWL_MINUTES" --verbose
 
       # Datacenter IPs get refused far more often than a home connection, so a
       # run that finishes suspiciously fast usually means the shops blocked us,
@@ -166,7 +194,12 @@ jobs:
       # "0 products added" is the confusing outcome.
       - name: Report what the crawl found
         working-directory: tools/scraper
+        env:
+          CRAWL_OUTCOME: ${{ steps.crawl.outcome }}
         run: |
+          if [ "$CRAWL_OUTCOME" != "success" ]; then
+            echo "::warning::The crawl did not exit cleanly — it overran the ${CRAWL_MINUTES}-minute budget and hit the backstop, or it crashed. Publishing continues on what the pool already holds; check the Crawl step's log."
+          fi
           python3 browse.py --audit || true
           python3 - <<'PY'
           import sqlite3, os, json

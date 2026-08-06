@@ -80,6 +80,39 @@ SCROLL_ROUNDS = 8
 SCROLL_PAUSE = 900
 PDP_TIMEOUT = 25_000
 
+OUT_OF_TIME = "out of time — remaining pages left for the next run"
+
+# ------------------------------------------------------------------ budget --
+#
+# Nothing here bounds how long a crawl takes: 15 shops x 2 listing pages x up to
+# 60 product-page visits at PDP_TIMEOUT each is hours in the worst case, and the
+# worst case stopped being hypothetical when 135 shops arrived carrying a guessed
+# gender. A guessed section is passed as None, which makes most of their rows
+# "blind" in crawl_entry, and a blind row earns a product-page visit — so those
+# shops cost roughly an order of magnitude more than an established one.
+#
+# CI kills the step on a fixed wall-clock, and a killed step takes the export,
+# the tests and the publish down with it. So the crawl stops *itself* instead,
+# cleanly and with a zero exit: shops it did not reach stay in the rotation,
+# listing pages it did not open stay under the entry cursor, and everything
+# already found is committed. Being cut short costs a run nothing but coverage,
+# which the next run picks up.
+#
+# 0 means no limit — the right default at a terminal, where a crawl can take as
+# long as it likes.
+_DEADLINE = None
+
+
+def set_budget(minutes):
+    """Start the clock. Call once, before the crawl."""
+    global _DEADLINE
+    _DEADLINE = None if not minutes else time.monotonic() + minutes * 60
+
+
+def out_of_time():
+    return _DEADLINE is not None and time.monotonic() >= _DEADLINE
+
+
 BLOCK_TYPES = {"image", "media", "font"}
 BLOCK_HOSTS = re.compile(
     r"(google-analytics|googletagmanager|doubleclick|facebook\.net|hotjar|"
@@ -1174,8 +1207,18 @@ async def crawl_entry(ctx, url, section, site_brand, want, detail_mode,
     random.shuffle(sampled)
     need_detail.extend(sampled[:int(len(raws) * detail_rate)])
 
+    # The finest-grained place the budget can bite, and the one that matters:
+    # this loop is where a slow shop actually burns the clock. Abandoning the
+    # rest of it is cheap — every row below still normalises, just from what the
+    # listing page said, without the description sharpening it.
     details = {}
-    for r in need_detail[:want]:
+    detail_todo = need_detail[:want]
+    for i, r in enumerate(detail_todo):
+        if out_of_time():
+            note = "; ".join(filter(None, [
+                note, "out of time — skipped {} product pages".format(
+                    len(detail_todo) - i)]))
+            break
         d = await read_pdp(ctx, r["u"])
         if d:
             details[r["u"]] = d
@@ -1215,6 +1258,14 @@ async def crawl_site(ctx, site, per_entry, detail_mode, detail_rate, max_price,
     site["entry_cursor"] = (cursor + len(todo)) % max(1, len(all_entries))
 
     for url, section in todo:
+        if out_of_time():
+            # Rewind onto the page we never opened, so it is the first one tried
+            # next visit — the same treatment a 429 gets below, for the same
+            # reason: the cursor should record where we got to, not where we
+            # intended to get to.
+            site["entry_cursor"] = all_entries.index((url, section))
+            notes.append(OUT_OF_TIME)
+            break
         if verbose:
             log("  {} [{}{}] {}".format(brand, section,
                                         "?" if guessed else "", url))
@@ -1275,11 +1326,15 @@ async def run(args):
     known = db.known_ids()
     totals = defaultdict(int)
     t0 = time.time()
+    reached = 0
 
     async with async_playwright() as pw:
         browser = await pw.chromium.launch(headless=not args.headful)
         try:
             for site in wanted:
+                if out_of_time():
+                    break
+                reached += 1
                 ctx = await make_context(browser, block_css=args.block_css)
                 started = time.time()
                 try:
@@ -1304,16 +1359,33 @@ async def run(args):
                 for k in ("f", "m", "u"):
                     totals[k] += gsum.get(k, 0)
 
+                # A shop the budget interrupted was not given a fair try, and
+                # two unfair tries in a row would sit it out of the rotation
+                # for nothing. Health is only recorded for a complete visit.
+                cut_short = OUT_OF_TIME in (note or "")
                 ok = len(rows) > 0
-                site_registry.record_health(registry, site["brand"], ok,
-                                            len(rows), note)
+                if not cut_short:
+                    site_registry.record_health(registry, site["brand"], ok,
+                                                len(rows), note)
                 log("{:<22} {:>4} found  {:>4} new   m={:<4} f={:<4} u={:<4} {}"
                     .format(site["brand"][:22], len(rows), len(fresh),
                             gsum.get("m", 0), gsum.get("f", 0), gsum.get("u", 0),
-                            ("" if ok else "BLOCKED ") + (note[:40] if note else "")))
+                            ("" if ok or cut_short else "BLOCKED ")
+                            + (note[:40] if note else "")))
                 site_registry.save(registry)
         finally:
             await browser.close()
+
+    # _next_shops advanced the rotation by everything it handed out, not by
+    # everything we got through. Without giving the difference back, a run the
+    # budget cut short would also skip the shops it never opened — they would
+    # not come round again until the next full lap of the registry, which is the
+    # one failure mode that would make a time limit worse than no time limit.
+    missed = len(wanted) - reached
+    if missed and args.shops and not args.brand:
+        _rewind_rotation(registry, missed)
+        log("\nstopped at the time budget — {} of {} shops left for the next "
+            "run".format(missed, len(wanted)))
 
     mins = (time.time() - t0) / 60
     log("\n{} products seen, {} new, in {:.0f}s".format(
@@ -1510,6 +1582,15 @@ def discover(from_catalog=False, per_gender=3, workers=12, limit=0):
 # per page, so the bot takes a few shops at a time, forever, rather than the lot.
 
 ROTATION_KEY = "browse_cursor"
+
+
+def _rewind_rotation(registry, n):
+    """Hand back n rotation slots a run was given but never used."""
+    live = site_registry.live_sites(registry)
+    if n <= 0 or not live:
+        return
+    cursor = int(db.get_meta(ROTATION_KEY, 0) or 0)
+    db.set_meta(ROTATION_KEY, (cursor - n) % len(live))
 
 
 def _next_shops(registry, n):
@@ -1836,6 +1917,10 @@ def main():
     ap.add_argument("--entries-per-visit", type=int, default=ENTRIES_PER_VISIT,
                     help="listing pages to take from one shop per visit; the "
                          "rest are picked up on the next sweep (0 = all)")
+    ap.add_argument("--max-minutes", type=float, default=0,
+                    help="stop cleanly once the crawl has run this long "
+                         "(0 = no limit). Shops and listing pages not reached "
+                         "are the first ones tried on the next run.")
     ap.add_argument("--max-price", type=float, default=enrich.MAX_PRICE)
     ap.add_argument("--block-css", action="store_true",
                     help="faster, occasionally breaks a lazy grid")
@@ -1858,6 +1943,7 @@ def main():
     if not (args.probe or args.crawl):
         args.crawl = True
 
+    set_budget(args.max_minutes)
     asyncio.run(probe(args) if args.probe else run(args))
 
 

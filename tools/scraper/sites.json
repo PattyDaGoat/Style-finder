@@ -6982,7 +6982,16 @@
    ],
    "m": []
   },
+  "entry_cursor": 0,
   "gender_source": "collection",
+  "health": {
+   "fail": 1,
+   "last": 1786303909.209718,
+   "last_found": 0,
+   "note": "no products found on the page",
+   "ok": 0,
+   "status": "blocked"
+  },
   "host": "selkiecollection.com",
   "note": "auto-discovered"
  },
@@ -6996,7 +7005,15 @@
    ],
    "m": []
   },
+  "entry_cursor": 2,
   "gender_source": "prior",
+  "health": {
+   "fail": 0,
+   "last": 1786304099.0250669,
+   "last_found": 117,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "setactive.co",
   "note": "auto-discovered"
  },
@@ -7010,15 +7027,15 @@
     "https://www.shoepalace.com/collections/adidas-apparel"
    ]
   },
-  "entry_cursor": 1,
+  "entry_cursor": 0,
   "gender_note": "guessed menswear (only 0% dresses and 20% read womenswear); registered as a prior, so any evidence on a piece overrides it",
   "gender_source": "prior",
   "health": {
    "fail": 0,
-   "last": 1785113675.6307478,
-   "last_found": 15,
+   "last": 1786304222.910623,
+   "last_found": 18,
    "note": "rate-limited (429) \u2014 stopping this shop for now",
-   "ok": 1,
+   "ok": 2,
    "status": "ok"
   },
   "host": "www.shoepalace.com",
@@ -7034,7 +7051,15 @@
    ],
    "m": []
   },
+  "entry_cursor": 2,
   "gender_source": "prior",
+  "health": {
+   "fail": 0,
+   "last": 1786304552.437867,
+   "last_found": 36,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "www.shonajoy.com",
   "note": "auto-discovered"
  },
@@ -7048,7 +7073,15 @@
    ],
    "m": []
   },
+  "entry_cursor": 2,
   "gender_source": "prior",
+  "health": {
+   "fail": 0,
+   "last": 1786304685.746932,
+   "last_found": 90,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "www.showmeyourmumu.com",
   "note": "auto-discovered"
  },
@@ -7066,7 +7099,16 @@
     "https://siksilk.com/collections/t-shirts-men"
    ]
   },
+  "entry_cursor": 1,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1786304755.665805,
+   "last_found": 50,
+   "note": "rate-limited (429) \u2014 stopping this shop for now",
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "siksilk.com",
   "note": "auto-discovered"
  },
@@ -7084,7 +7126,15 @@
     "https://silenttheory.com.au/collections/mens-tees-tanks"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1786304988.868358,
+   "last_found": 117,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "silenttheory.com.au",
   "note": "auto-discovered"
  },
@@ -7096,7 +7146,15 @@
     "https://www.sinnersattire.com/collections/mens-trainers"
    ]
   },
+  "entry_cursor": 0,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1786305069.2620642,
+   "last_found": 25,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "www.sinnersattire.com",
   "note": "auto-discovered"
  },
@@ -7110,7 +7168,16 @@
     "https://us.sirthelabel.com/collections/mens-sweats"
    ]
   },
+  "entry_cursor": 1,
   "gender_source": "collection",
+  "health": {
+   "fail": 1,
+   "last": 1786305124.756421,
+   "last_found": 0,
+   "note": "rate-limited (429) \u2014 stopping this shop for now",
+   "ok": 0,
+   "status": "blocked"
+  },
   "host": "us.sirthelabel.com",
   "note": "auto-discovered"
  },
@@ -7124,7 +7191,15 @@
     "https://www.sisterjane.com/collections/menswear-jackets"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1786305213.0315232,
+   "last_found": 57,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "www.sisterjane.com",
   "note": "auto-discovered"
  },
@@ -7142,7 +7217,15 @@
     "https://www.sixthjune.com/collections/men-one-piece"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1786305344.4981515,
+   "last_found": 14,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "www.sixthjune.com",
   "note": "auto-discovered"
  },
@@ -7158,8 +7241,17 @@
     "https://sneakerpolitics.com/collections/anta-sneakers-mens"
    ]
   },
+  "entry_cursor": 2,
   "gender_note": "found only men's collections by name; the shop also lists women's ones, so its general collections are registered for that side as a guess",
   "gender_source": "prior",
+  "health": {
+   "fail": 1,
+   "last": 1786305438.3302958,
+   "last_found": 0,
+   "note": "no products found on the page; no products found on the page",
+   "ok": 0,
+   "status": "blocked"
+  },
   "host": "sneakerpolitics.com",
   "note": "found by find_brands.py \u2014 sneaker boutique"
  },
@@ -7172,7 +7264,15 @@
     "https://www.sneakersnstuff.com/collections/mens-sneakers"
    ]
   },
+  "entry_cursor": 0,
   "gender_source": "collection-handle",
+  "health": {
+   "fail": 0,
+   "last": 1786305540.1647232,
+   "last_found": 40,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "www.sneakersnstuff.com",
   "note": "found by find_brands.py \u2014 sneaker boutique"
  },
@@ -7186,7 +7286,16 @@
    ],
    "m": []
   },
+  "entry_cursor": 2,
   "gender_source": "collection-handle",
+  "health": {
+   "fail": 1,
+   "last": 1786305635.6710618,
+   "last_found": 0,
+   "note": "no products found on the page; no products found on the page",
+   "ok": 0,
+   "status": "blocked"
+  },
   "host": "www.socialstatuspgh.com",
   "note": "found by find_brands.py \u2014 sneaker boutique"
  },
@@ -7200,7 +7309,15 @@
    ],
    "m": []
   },
+  "entry_cursor": 2,
   "gender_source": "prior",
+  "health": {
+   "fail": 0,
+   "last": 1786305734.610603,
+   "last_found": 43,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "www.solidandstriped.com",
   "note": "auto-discovered"
  },

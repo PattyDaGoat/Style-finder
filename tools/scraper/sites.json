@@ -6592,7 +6592,15 @@
    ],
    "m": []
   },
+  "entry_cursor": 2,
   "gender_source": "prior",
+  "health": {
+   "fail": 0,
+   "last": 1786301881.9581084,
+   "last_found": 27,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "www.runwayscout.com",
   "note": "auto-discovered"
  },
@@ -6610,7 +6618,15 @@
     "https://www.rusty.com.au/collections/mens-new-arrivals"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1786301991.5650563,
+   "last_found": 49,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "www.rusty.com.au",
   "note": "auto-discovered"
  },
@@ -6628,7 +6644,15 @@
     "https://ryderwear.com/collections/mens-tops"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1786302121.695317,
+   "last_found": 108,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "ryderwear.com",
   "note": "auto-discovered"
  },
@@ -6642,7 +6666,16 @@
     "https://www.saxxunderwear.com/collections/mens-boxer-briefs"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 1,
+   "last": 1786302240.5654697,
+   "last_found": 0,
+   "note": "no products found on the page; no products found on the page",
+   "ok": 0,
+   "status": "blocked"
+  },
   "host": "www.saxxunderwear.com",
   "note": "auto-discovered"
  },
@@ -6656,7 +6689,15 @@
    ],
    "m": []
   },
+  "entry_cursor": 2,
   "gender_source": "prior",
+  "health": {
+   "fail": 0,
+   "last": 1786302409.0491524,
+   "last_found": 36,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "sndys.com.au",
   "note": ""
  },
@@ -6674,7 +6715,15 @@
     "https://sabah.am/collections/heading-west-collection-mens"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "collection-handle",
+  "health": {
+   "fail": 0,
+   "last": 1786302458.8039732,
+   "last_found": 2,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "sabah.am",
   "note": "found by find_brands.py \u2014 footwear"
  },
@@ -6686,7 +6735,15 @@
    ],
    "m": []
   },
+  "entry_cursor": 0,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1786302505.0824645,
+   "last_found": 23,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "saboskirt.com",
   "note": "auto-discovered"
  },
@@ -6704,7 +6761,15 @@
     "https://saltycrew.com/collections/t-shirts"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1786302701.9175093,
+   "last_found": 75,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "saltycrew.com",
   "note": "auto-discovered"
  },
@@ -6722,7 +6787,15 @@
     "https://santandabel.com/collections/mens-sleepwear"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1786302865.7966254,
+   "last_found": 101,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "santandabel.com",
   "note": "auto-discovered"
  },
@@ -6736,7 +6809,15 @@
    ],
    "m": []
   },
+  "entry_cursor": 2,
   "gender_source": "prior",
+  "health": {
+   "fail": 0,
+   "last": 1786303048.4046574,
+   "last_found": 1,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "www.sarahflint.com",
   "note": "auto-discovered"
  },
@@ -6754,7 +6835,16 @@
     "https://www.saturdaysnyc.com/collections/category-mens-sweats"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 1,
+   "last": 1786303119.0529766,
+   "last_found": 0,
+   "note": "no products found on the page; no products found on the page",
+   "ok": 0,
+   "status": "blocked"
+  },
   "host": "www.saturdaysnyc.com",
   "note": "auto-discovered"
  },
@@ -6772,7 +6862,16 @@
     "https://savekhaki.com/collections/mens-lounge"
    ]
   },
+  "entry_cursor": 1,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1786303157.971572,
+   "last_found": 20,
+   "note": "rate-limited (429) \u2014 stopping this shop for now",
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "savekhaki.com",
   "note": "auto-discovered"
  },
@@ -6790,7 +6889,15 @@
     "https://www.scotch-soda.com/collections/mens-back-to-campus"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1786303533.3520827,
+   "last_found": 101,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "www.scotch-soda.com",
   "note": "auto-discovered"
  },
@@ -6804,7 +6911,15 @@
     "https://scuffers.com/collections/geosort-sg-all"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "prior",
+  "health": {
+   "fail": 0,
+   "last": 1786303626.7878191,
+   "last_found": 62,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "scuffers.com",
   "note": "auto-discovered"
  },
@@ -6818,7 +6933,16 @@
     "https://seagerco.com/collections/clothing"
    ]
   },
+  "entry_cursor": 1,
   "gender_source": "prior",
+  "health": {
+   "fail": 0,
+   "last": 1786303679.4459143,
+   "last_found": 42,
+   "note": "rate-limited (429) \u2014 stopping this shop for now",
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "seagerco.com",
   "note": "auto-discovered"
  },

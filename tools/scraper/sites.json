@@ -7394,7 +7394,16 @@
    ],
    "m": []
   },
+  "entry_cursor": 2,
   "gender_source": "prior",
+  "health": {
+   "fail": 0,
+   "last": 1786314765.619149,
+   "last_found": 60,
+   "note": "no products found on the page",
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "splits59.com",
   "note": "auto-discovered"
  },
@@ -7408,7 +7417,15 @@
     "https://stanray.com/collections/tops-ss26"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "prior",
+  "health": {
+   "fail": 0,
+   "last": 1786314843.5829432,
+   "last_found": 28,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "stanray.com",
   "note": "auto-discovered"
  },
@@ -7420,7 +7437,15 @@
     "https://stateandliberty.com/collections/athletic-fit-jeans"
    ]
   },
+  "entry_cursor": 0,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1786314901.6800318,
+   "last_found": 9,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "stateandliberty.com",
   "note": "auto-discovered"
  },
@@ -7434,7 +7459,16 @@
    ],
    "m": []
   },
+  "entry_cursor": 2,
   "gender_source": "prior",
+  "health": {
+   "fail": 1,
+   "last": 1786314980.439805,
+   "last_found": 0,
+   "note": "no products found on the page; no products found on the page",
+   "ok": 0,
+   "status": "blocked"
+  },
   "host": "staud.clothing",
   "note": "auto-discovered"
  },
@@ -7448,7 +7482,16 @@
    ],
    "m": []
   },
+  "entry_cursor": 2,
   "gender_source": "prior",
+  "health": {
+   "fail": 0,
+   "last": 1786315130.9236176,
+   "last_found": 60,
+   "note": "no products found on the page",
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "www.storets.com",
   "note": "auto-discovered"
  },
@@ -7466,7 +7509,16 @@
     "https://straightdown.com/collections/mens-golf-polos"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 1,
+   "last": 1786315237.107151,
+   "last_found": 0,
+   "note": "no products found on the page; no products found on the page",
+   "ok": 0,
+   "status": "blocked"
+  },
   "host": "straightdown.com",
   "note": "auto-discovered"
  },
@@ -7480,14 +7532,14 @@
     "https://www.stussy.com/collections/tops-shirts"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 1,
   "gender_note": "guessed menswear (only 0% dresses and 5% read womenswear); registered as a prior, so any evidence on a piece overrides it",
   "gender_source": "prior",
   "health": {
    "fail": 0,
-   "last": 1785113607.0441508,
-   "last_found": 44,
-   "ok": 1,
+   "last": 1786315347.255891,
+   "last_found": 120,
+   "ok": 2,
    "status": "ok"
   },
   "host": "www.stussy.com",
@@ -7503,7 +7555,16 @@
    ],
    "m": []
   },
+  "entry_cursor": 2,
   "gender_source": "prior",
+  "health": {
+   "fail": 1,
+   "last": 1786315446.1096227,
+   "last_found": 0,
+   "note": "no products found on the page; no products found on the page",
+   "ok": 0,
+   "status": "blocked"
+  },
   "host": "suboo.com.au",
   "note": "auto-discovered"
  },
@@ -7521,7 +7582,15 @@
     "https://sundayswagger.com/collections/mens-golf-polos"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1786315622.5273623,
+   "last_found": 120,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "sundayswagger.com",
   "note": "auto-discovered"
  },
@@ -7535,7 +7604,16 @@
    ],
    "m": []
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 1,
+   "last": 1786315669.5882196,
+   "last_found": 0,
+   "note": "no products found on the page; no products found on the page",
+   "ok": 0,
+   "status": "blocked"
+  },
   "host": "sundryclothing.com",
   "note": "auto-discovered"
  },
@@ -7553,7 +7631,15 @@
     "https://www.sunspel.com/collections/mens-clothing"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1786315799.7697675,
+   "last_found": 21,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "www.sunspel.com",
   "note": "auto-discovered"
  },
@@ -7571,7 +7657,16 @@
     "https://www.superga-usa.com/collections/platforms-copy-1"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 1,
+   "last": 1786315880.1706312,
+   "last_found": 0,
+   "note": "no products found on the page; no products found on the page",
+   "ok": 0,
+   "status": "blocked"
+  },
   "host": "www.superga-usa.com",
   "note": "auto-discovered"
  },
@@ -7585,7 +7680,15 @@
    ],
    "m": []
   },
+  "entry_cursor": 2,
   "gender_source": "prior",
+  "health": {
+   "fail": 0,
+   "last": 1786316208.624042,
+   "last_found": 101,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "www.wearetala.com",
   "note": "auto-discovered"
  },
@@ -7601,12 +7704,14 @@
     "https://www.taylorstitch.com/collections/mens-limited-outerwear"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1784998379.000129,
-   "last_found": 52,
-   "ok": 1,
+   "last": 1786316325.966579,
+   "last_found": 22,
+   "note": "no products found on the page",
+   "ok": 2,
    "status": "ok"
   },
   "host": "www.taylorstitch.com",
@@ -7626,7 +7731,15 @@
     "https://www.tedbaker.com/collections/mens-offers-uk"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1786316957.8745902,
+   "last_found": 107,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "www.tedbaker.com",
   "note": ""
  },

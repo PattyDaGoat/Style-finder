@@ -28,7 +28,7 @@ files you're taking. The map is below.
 ### 3. `npm test` before every commit
 
 ```
-npm test          # builds, then runs all 5 suites (221 assertions)
+npm test          # builds, then runs all 5 suites (237 assertions, ~4 min)
 ```
 
 It takes a few minutes and it has caught eight real bugs that code review missed — a drag
@@ -42,7 +42,7 @@ red, don't commit.
 
 ```
 build.mjs              glues src/ + data/ into dist/. Read the comment at the top before touching.
-data/catalog.json      9,306 products, ONE PER LINE. Generated data — see the warning below.
+data/catalog.json      9,962 products, ONE PER LINE. Generated data — see the warning below.
 dist/style-finder.html generated. Never edit.
 src/shell/*.html       the HTML around the CSS and JS (head, body, tail)
 src/css/*.css          concatenated in filename order
@@ -92,9 +92,11 @@ It is one product per line **on purpose**: a single product edit shows as a one-
 of rewriting a 3.5MB blob. Keep it that way — the build strips the newlines when it inlines the
 array, and it asserts one product per line.
 
-**Don't hand-edit it in bulk.** It was produced by `tools/clean-catalog.py`, which drops
-non-apparel, repairs categories, and assigns gender. If you need a sweeping change, change the
-tool and re-run it, so the change is reproducible and reviewable.
+**Don't hand-edit it in bulk.** Rows arrive through `tools/scraper/export.py`, whose
+`is_clothing()` is the single gate on what ships: adult garments, headwear and footwear, with
+underwear, socks, `acc`, children's sizes and trinkets turned away. If you need a sweeping
+change, change that gate and re-run `python3 export.py --prune`, so the change is reproducible
+and reviewable. (`tools/clean-catalog.py` is the older one-off that first built the file.)
 
 **Live gender/section logic is in `src/js/15-sectioning.js`, not in the data.** That's deliberate:
 the app re-derives each piece's section at startup from the product name, its URL, the photo

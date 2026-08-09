@@ -12,8 +12,10 @@ is generated, so the data file is the thing to edit.
     python3 export.py --prune                    drop non-clothing rows already baked in
     python3 export.py --prune --verify-images     ...and fetch every image to check it
 
-Clothes only: garments, headwear and footwear ship. Underwear, socks/hosiery,
-bags, belts, jewellery and homeware do not — see ALLOWED_CATS and is_clothing().
+Clothes only, and grown-ups only: adult garments, headwear and footwear ship.
+Underwear, socks/hosiery, bags, belts, jewellery, homeware, children's sizes and
+trinkets like scrunchies, enamel pins and shoe charms do not — see ALLOWED_CATS
+and is_clothing().
 
 Never hand-edit data/catalog.json in bulk — run this, so the change is
 reproducible (CONTRIBUTING.md, "About data/catalog.json").
@@ -100,11 +102,15 @@ def is_socks(name, cat=None):
 
 
 def is_clothing(row):
-    """The one gate: a garment, not underwear, not socks, not a bag."""
+    """The one gate: an adult garment, not underwear, socks, a bag or a trinket."""
     name, cat = row.get("n") or "", row.get("cat")
     return (cat in ALLOWED_CATS
+            # nothing left after tidy_title means the name was pure markup
+            and bool(name.strip())
             and not is_underwear(name, cat)
             and not is_socks(name, cat)
+            and not is_kidswear(name, row.get("u"))
+            and not is_nongarment(name)
             and not JUNK_RX.search(name))
 
 # The app hides intimates from the deck (underwearLock in 15-sectioning.js), so
@@ -133,6 +139,82 @@ def is_underwear(name, cat=None):
                             r"underwear)\b", n, re.I)):
         n = re.sub(r"\bthongs\b", " ", n, flags=re.I)
     return bool(UW_RE.search(n))
+
+
+# ---- grown-ups only --------------------------------------------------------
+# Children's clothes are clothes, so ALLOWED_CATS waves them through: a kids'
+# polo is filed `tee` like any other. But the deck is an adult wardrobe, and a
+# shop's "kids" collection is one more collection for the crawler to walk, so
+# they have to be named out.
+#
+# The words are treacherous, and nearly every one of these was a real row in the
+# catalog: a "baby tee" is an adult women's cut, "Boy Fit" and "Boy Short" are
+# adult fits, Billionaire Boys Club and Kids of Immigrants are grown-up labels,
+# Sonic Youth is a band, and "kid suede" is goatskin. So a name carrying one of
+# those exempts the whole row, and only what is left is read as a size.
+#
+# `baby` alone is never the signal — 66 rows had it and only two were children's
+# — so it counts only in "baby boys'" / "baby girls'". Singular boy/girl is
+# never the signal either ("Horse Girl", "Angel Girl", "Big Boy Pants"); the
+# plural and the possessive are.
+KID_EXEMPT_RE = re.compile(
+    r"(billionaire\s+boys?\s+club|kids?\s+of\s+immigrants|sonic\s+youth|"
+    r"willie\s+the\s+kid|indonesia\s+kid|bootcut\s+boys|bodega\s+girls|"
+    r"maui\s+girls|girls?\s+night|\bkid\s+(suede|leather|mohair|nappa|skin)\b)",
+    re.I)
+KID_NAME_RE = re.compile(
+    r"(\bkids?\b|\bkid['’]s\b|\btoddlers?\b|\binfants?\b|\bjuniors?\b|"
+    r"\byouth\b|\bboys\b|\bboy['’]s\b|\bgirls\b|\bgirl['’]s\b|"
+    r"\bbaby\s+(boys?|girls?)\b)", re.I)
+# Some shops leave the size out of the title and put it in the path instead —
+# Lyle & Scott ships "Cotton Crew Neck Jumper" at /products/kids-cotton-crew-...
+# Only the plural reads as a section, so Sunspel's /products/boy-fit-tank is safe.
+KID_URL_RE = re.compile(
+    r"/(kids?|toddler|infant|junior|youth|boys|girls)[-/]", re.I)
+
+
+def is_kidswear(name, url=""):
+    """True for children's sizes — not for adult pieces that borrow the words."""
+    if KID_EXEMPT_RE.search(name or ""):
+        return False
+    return bool(KID_NAME_RE.search(name or "") or KID_URL_RE.search(url or ""))
+
+
+# Small objects a shop files under apparel because its own taxonomy has nowhere
+# else to put them: hair ties, enamel pins, shoe charms, drink koozies, pouches,
+# and the "Shipping Protection" line item checkout bolts on, which is not a
+# product at all. They arrive tagged `tee` or `shoe`, so ALLOWED_CATS never sees
+# them.
+#
+# Head noun wins, the same rule test/03 applies to JUNK_RX: a "Scrunchie" goes,
+# a "Scrunchie Dress" would stay, and "Tee Box Beer Koozie" goes because the
+# koozie comes last. Keep the two in sync.
+NONGARMENT_RE = re.compile(
+    r"\b(scrunchies?|koozies?|coozies?|charms?|pins?|pouch(es)?|cases?|"
+    r"umbrellas?|shipping\s+protection|package\s+protection)\b", re.I)
+# A pin cap is a cap and a pin stripe is a stripe.
+NONGARMENT_EXEMPT_RE = re.compile(
+    r"\bpin[\s-]*(stripes?d?|tucks?|caps?|hats?)\b", re.I)
+WEAR_RE = re.compile(
+    r"\b(tee|t-?shirts?|shirts?|sweater|sweat|hoodie|jacket|coat|knit|jumper|"
+    r"cardigan|top|tank|pants?|trousers?|jeans?|denim|shorts?|skirt|dress|"
+    r"socks?|cap|hat|belt|scarf|shoes?|sneakers?|boots?|bag|tote|robe|bikini|"
+    r"swim|bra|briefs?|gloves?|beanie|vest|polo|blouse)\b", re.I)
+
+
+def _last_end(rx, text):
+    end = -1
+    for match in rx.finditer(text):
+        end = match.end()
+    return end
+
+
+def is_nongarment(name):
+    """True for trinkets and packaging filed as clothing."""
+    seg = re.split(r"\s+[-–—|:~]\s+", name or "")[0]
+    seg = NONGARMENT_EXEMPT_RE.sub(" ", seg)
+    junk = _last_end(NONGARMENT_RE, seg)
+    return junk >= 0 and junk >= _last_end(WEAR_RE, seg)
 
 
 def base_title(name):
@@ -206,6 +288,46 @@ BAD_IMG_RE = re.compile(r"""(?xi)
     | /image/upload/w_[1-9]?[0-9]/     # cloudinary render under 100px wide
     | \{width\} | _1x1\. | _small\.    # only reachable if repair_img missed one
 """)
+
+
+# Some shops hand the crawler the wrong element and the title comes back as the
+# image's alt text ("Supima Tee Bone front on model", "... - photo from front
+# flat lay #color_black"), a carousel counter ("3 of 7 Ultralight Jogger"), a
+# storefront call to action ("Shop the product Work Pant ~ Ivy Green"), a returns
+# policy, or raw markup ("<b>Ghospell</b> Kemi Balloon Trousers"). The row is a
+# real product on a real URL with a real photo — only the name is wrong — so
+# repair the name rather than drop the piece.
+#
+# Every pattern is anchored to a shape actually seen in the catalog. In
+# particular only the literal "Shop the product " prefix goes: 3sixteen also
+# sells a "Shop Jacket", which is a garment and has to survive.
+TITLE_FIXES = (
+    (re.compile(r"<[^>]+>"), " "),
+    # a tag the scraper cut mid-attribute, e.g. '<img class="grid-product__image'
+    (re.compile(r"<[a-z/][^>]*$", re.I), " "),
+    (re.compile(r"^\s*shop the product\s+", re.I), ""),
+    (re.compile(r"^\s*\d+\s+of\s+\d+\s+", re.I), ""),
+    (re.compile(r"^\s*(?:fe)?male model wears\s+", re.I), ""),
+    (re.compile(r"\s*[-–—]?\s*photo from .*$", re.I), ""),
+    # "... front on model", "... on model front", "... front facing on model",
+    # "... - Lower Body Front View Shown on Model." — every shop words it
+    # differently, so both orders are covered.
+    (re.compile(r"\s*[-–—.,]?\s*(?:(?:upper|lower)\s+body\s+)?"
+                r"(?:front|back|side|three\s+quarter)?\s*(?:view\s+)?"
+                r"(?:facing\s+|featured\s+|shown\s+)?on\s+model\b.*$", re.I), ""),
+    (re.compile(r"\s*\bon\s+model\s+(?:front|back|side)\b.*$", re.I), ""),
+    (re.compile(r"\s*#color_\S*", re.I), ""),
+    (re.compile(r"\s*[-–—]\s*all sales are final.*$", re.I), ""),
+    (re.compile(r"\s{2,}"), " "),
+)
+
+
+def tidy_title(name):
+    """Strip alt text, markup and storefront chrome out of a product name."""
+    out = name or ""
+    for rx, repl in TITLE_FIXES:
+        out = rx.sub(repl, out)
+    return out.strip(" -–—,")
 
 
 def photo_ok(row):
@@ -357,6 +479,8 @@ def append_to_catalog(rows, dry_run=False):
     body = text[:text.rfind("]")].rstrip()
     if body.endswith(","):
         body = body[:-1]
+    for r in rows:
+        r["n"] = tidy_title(r.get("n"))
     lines = [json.dumps({k: r[k] for k in APP_FIELDS}, ensure_ascii=False,
                         separators=(",", ":")) for r in rows]
     new_text = body + ",\n" + ",\n".join(lines) + "\n]\n"
@@ -494,23 +618,34 @@ def prune_catalog(dry_run=False, verify=False):
         python3 export.py --prune              # rewrite the catalog
     """
     catalog = store_registry.read_catalog()
-    # Repair before counting, so a rescued URL is counted at its final value.
-    repaired = 0
+    # Repair before counting, so a rescued URL is counted at its final value and
+    # a name is judged on the title, not on the alt text it arrived wearing.
+    repaired = retitled = 0
     for p in catalog:
         before = p.get("img")
         p["img"] = repair_img(before)
         if p["img"] != before:
             repaired += 1
+        was = p.get("n")
+        p["n"] = tidy_title(was)
+        if p["n"] != was:
+            retitled += 1
     over = overused_images(catalog)
 
     keep, dropped, reasons = [], [], defaultdict(int)
     for p in catalog:
         name, cat = p.get("n") or "", p.get("cat")
         if not is_clothing(p):
-            if is_underwear(name, cat):
+            if not name.strip():
+                reasons["no product name, only markup"] += 1
+            elif is_underwear(name, cat):
                 reasons["underwear"] += 1
             elif is_socks(name, cat):
                 reasons["socks / hosiery"] += 1
+            elif is_kidswear(name, p.get("u")):
+                reasons["children's sizes"] += 1
+            elif is_nongarment(name):
+                reasons["trinket / packaging, not a garment"] += 1
             elif cat not in ALLOWED_CATS:
                 reasons["not a garment (cat={})".format(cat)] += 1
             else:
@@ -532,8 +667,10 @@ def prune_catalog(dry_run=False, verify=False):
 
     if repaired:
         print("repaired {} image URLs in place".format(repaired))
+    if retitled:
+        print("cleaned alt text / markup out of {} product names".format(retitled))
     gone = len(catalog) - len(keep)
-    if not gone and not repaired:
+    if not gone and not repaired and not retitled:
         print("catalog is already clothes-only with usable photos — {} items"
               .format(len(catalog)))
         return 0

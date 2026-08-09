@@ -86,18 +86,39 @@ the app (`passesFilters`), so a row that argues with it doesn't get a second
 opinion, it gets invisibility. **If `15-sectioning.js` changes, change
 `gender.py` with it** — then `--reclassify`.
 
-## Clothes only
+## Clothes only, grown-ups only
 
-The deck is for building outfits, so `export.py` ships garments, headwear and
-footwear and nothing else — see `ALLOWED_CATS` and `is_clothing()` there. Out:
-underwear (same word rules as `underwearLock` in `15-sectioning.js`, so the app
-was never going to deal them anyway), socks and hosiery, and the whole `acc`
+The deck is for building outfits, so `export.py` ships adult garments, headwear
+and footwear and nothing else — see `ALLOWED_CATS` and `is_clothing()` there.
+Out: underwear (same word rules as `underwearLock` in `15-sectioning.js`, so the
+app was never going to deal them anyway), socks and hosiery, the whole `acc`
 category, which is where `enrich.py` files bags, belts, ties, scarves,
-jewellery, sunglasses and towels.
+jewellery, sunglasses and towels, plus two gates added after a crawl brought
+them in by the hundred:
+
+- **Children's sizes** (`is_kidswear()`). A kids' polo is filed `tee` like any
+  other, so it has to be named out — by title, or by a `/kids-` style path for
+  the shops that leave the size out of the title.
+- **Trinkets and packaging** (`is_nongarment()`). Scrunchies, enamel pins, shoe
+  charms, drink koozies, pouches, and the "Shipping Protection" line item
+  checkout bolts on, which is not a product at all.
 
 Socks are caught by name as well as by category, because `enrich.py` files
 "Loafer Dress Socks" under `shoe`. Whichever noun comes last is the thing being
-sold: a *sock boot* is a boot, a *boot sock* is a sock.
+sold: a *sock boot* is a boot, a *boot sock* is a sock. The trinket rule works
+the same way — a *Scrunchie* goes, a *Scrunchie Dress* would stay.
+
+The kids words are the treacherous ones, and every trap below was a real row: a
+**baby tee** is an adult women's cut, **Boy Fit** and **Boy Short** are adult
+fits, **Billionaire Boys Club** and **Kids of Immigrants** are grown-up labels,
+**Sonic Youth** is a band, and **kid suede** is goatskin. So a name carrying one
+of those exempts the whole row; bare `baby` never counts (66 rows had it, two
+were children's), and singular boy/girl never counts either — the plural and the
+possessive do.
+
+All three rules are mirrored in `test/03-catalog-gender-and-photo.js`, including
+a check that the exempted adult pieces are still there. **Change one, change the
+other.**
 
 The same rule can be applied to rows already in the catalog:
 

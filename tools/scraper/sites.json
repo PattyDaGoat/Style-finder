@@ -9,11 +9,11 @@
     "https://10deep.com/collections/t-shirts-tank-tops"
    ]
   },
-  "entry_cursor": 1,
+  "entry_cursor": 0,
   "gender_source": "prior",
   "health": {
-   "fail": 2,
-   "last": 1785095598.5791116,
+   "fail": 3,
+   "last": 1786381926.2469716,
    "last_found": 0,
    "note": "no products found on the page; no products found on the page",
    "ok": 2,
@@ -32,14 +32,14 @@
     "https://18east.co/collections/all"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 1,
   "gender_source": "prior",
   "health": {
    "fail": 0,
-   "last": 1785095672.5709102,
-   "last_found": 45,
-   "note": "no products found on the page",
-   "ok": 4,
+   "last": 1786382790.695206,
+   "last_found": 33,
+   "note": "no products found on the page; nav failed: Page.goto: Timeout 45000ms exceeded.",
+   "ok": 5,
    "status": "ok"
   },
   "host": "18east.co",
@@ -8616,7 +8616,15 @@
     "https://wolfandshepherd.com/collections/mens-all-test"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1786380080.9912791,
+   "last_found": 18,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "wolfandshepherd.com",
   "note": "auto-discovered"
  },
@@ -8634,7 +8642,15 @@
     "https://xeroshoes.com/collections/mens-top-rated"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "collection-handle",
+  "health": {
+   "fail": 0,
+   "last": 1786380179.0789642,
+   "last_found": 37,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "xeroshoes.com",
   "note": "found by find_brands.py \u2014 footwear"
  },
@@ -8650,13 +8666,13 @@
     "https://xhibition.co/collections/mens-t-shirts"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 0,
   "gender_source": "collection-handle",
   "health": {
    "fail": 0,
-   "last": 1785114335.4396615,
-   "last_found": 44,
-   "ok": 1,
+   "last": 1786380359.014151,
+   "last_found": 71,
+   "ok": 2,
    "status": "ok"
   },
   "host": "xhibition.co",
@@ -8672,7 +8688,16 @@
    ],
    "m": []
   },
+  "entry_cursor": 1,
   "gender_source": "prior",
+  "health": {
+   "fail": 0,
+   "last": 1786380411.1526453,
+   "last_found": 20,
+   "note": "rate-limited (429) \u2014 stopping this shop for now",
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "www.xirena.com",
   "note": "auto-discovered"
  },
@@ -8690,7 +8715,15 @@
     "https://www.youmustcreate.com/collections/mens-trousers"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1786380622.8043664,
+   "last_found": 11,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "www.youmustcreate.com",
   "note": "auto-discovered"
  },
@@ -8704,7 +8737,15 @@
    ],
    "m": []
   },
+  "entry_cursor": 2,
   "gender_source": "prior",
+  "health": {
+   "fail": 0,
+   "last": 1786380818.562451,
+   "last_found": 111,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "www.yearofours.com",
   "note": "auto-discovered"
  },
@@ -8718,7 +8759,15 @@
     "https://www.youngla.com/collections/all-products-1"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "prior",
+  "health": {
+   "fail": 0,
+   "last": 1786381098.9865577,
+   "last_found": 93,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "www.youngla.com",
   "note": "auto-discovered"
  },
@@ -8732,7 +8781,15 @@
    ],
    "m": []
   },
+  "entry_cursor": 2,
   "gender_source": "prior",
+  "health": {
+   "fail": 0,
+   "last": 1786381326.1672025,
+   "last_found": 120,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "zsupply.com",
   "note": "auto-discovered"
  },
@@ -8746,7 +8803,15 @@
     "https://www.zanerobe.com/collections/best-sellers"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "prior",
+  "health": {
+   "fail": 0,
+   "last": 1786381433.8693607,
+   "last_found": 89,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "www.zanerobe.com",
   "note": "auto-discovered"
  },
@@ -8760,7 +8825,16 @@
    ],
    "m": []
   },
+  "entry_cursor": 2,
   "gender_source": "prior",
+  "health": {
+   "fail": 0,
+   "last": 1786381546.0566418,
+   "last_found": 54,
+   "note": "no products found on the page",
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "zuluandzephyr.com",
   "note": "auto-discovered"
  },
@@ -8774,7 +8848,15 @@
    ],
    "m": []
   },
+  "entry_cursor": 2,
   "gender_source": "prior",
+  "health": {
+   "fail": 1,
+   "last": 1786381650.651371,
+   "last_found": 0,
+   "ok": 0,
+   "status": "blocked"
+  },
   "host": "iamgia.com",
   "note": "auto-discovered"
  },
@@ -8792,7 +8874,15 @@
     "https://nordarun.com/collections/mens-winter-shoes"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "collection-handle",
+  "health": {
+   "fail": 0,
+   "last": 1786381759.755582,
+   "last_found": 3,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "nordarun.com",
   "note": "found by find_brands.py \u2014 footwear"
  },
@@ -8810,7 +8900,15 @@
     "https://www.sacai.jp/collections/men-t-shirts"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "collection-handle",
+  "health": {
+   "fail": 1,
+   "last": 1786381847.5036206,
+   "last_found": 0,
+   "ok": 0,
+   "status": "blocked"
+  },
   "host": "www.sacai.jp",
   "note": "found by find_brands.py \u2014 designer"
  }

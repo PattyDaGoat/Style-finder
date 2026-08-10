@@ -8235,7 +8235,16 @@
    ],
    "m": []
   },
+  "entry_cursor": 1,
   "gender_source": "prior",
+  "health": {
+   "fail": 0,
+   "last": 1786336366.1699827,
+   "last_found": 13,
+   "note": "rate-limited (429) \u2014 stopping this shop for now",
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "www.vergegirl.com",
   "note": "auto-discovered"
  },
@@ -8253,7 +8262,15 @@
     "https://vessi.com/collections/all-men-shoes"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1786336454.6112175,
+   "last_found": 11,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "vessi.com",
   "note": "auto-discovered"
  },
@@ -8266,7 +8283,15 @@
    ],
    "m": []
   },
+  "entry_cursor": 0,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1786336640.1629117,
+   "last_found": 101,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "www.vicicollection.com",
   "note": "auto-discovered"
  },
@@ -8280,7 +8305,15 @@
    ],
    "m": []
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1786336732.0156124,
+   "last_found": 1,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "www.viktoriaandwoods.com.au",
   "note": "auto-discovered"
  },
@@ -8294,7 +8327,16 @@
     "https://vissla.com/collections/mens-full-suits"
    ]
   },
+  "entry_cursor": 1,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1786336797.0071504,
+   "last_found": 60,
+   "note": "rate-limited (429) \u2014 stopping this shop for now",
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "vissla.com",
   "note": "auto-discovered"
  },
@@ -8308,7 +8350,15 @@
    ],
    "m": []
   },
+  "entry_cursor": 2,
   "gender_source": "prior",
+  "health": {
+   "fail": 0,
+   "last": 1786336918.1018817,
+   "last_found": 66,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "www.vitaminaswim.com",
   "note": "auto-discovered"
  },
@@ -8322,7 +8372,15 @@
     "https://www.vollebak.com/collections/new-releases"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "prior",
+  "health": {
+   "fail": 0,
+   "last": 1786337027.383341,
+   "last_found": 9,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "www.vollebak.com",
   "note": "auto-discovered"
  },
@@ -8336,8 +8394,16 @@
     "https://wtaps.com/collections/shirt"
    ]
   },
+  "entry_cursor": 2,
   "gender_note": "no women's collection on the whole site and 0/100 womenswear in a sample",
   "gender_source": "inferred",
+  "health": {
+   "fail": 1,
+   "last": 1786337117.4744415,
+   "last_found": 0,
+   "ok": 0,
+   "status": "blocked"
+  },
   "host": "wtaps.com",
   "note": "found by find_brands.py \u2014 designer"
  },
@@ -8351,7 +8417,15 @@
     "https://wahts.com/collections/sweat-collection-total"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "prior",
+  "health": {
+   "fail": 0,
+   "last": 1786337178.9271054,
+   "last_found": 34,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "wahts.com",
   "note": "auto-discovered"
  },
@@ -8369,7 +8443,15 @@
     "https://warpweftworld.com/collections/fall-hues-men"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1786337538.6538534,
+   "last_found": 117,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "warpweftworld.com",
   "note": "auto-discovered"
  },
@@ -8383,7 +8465,15 @@
     "https://waxlondon.com/collections/mens-jumpers"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1786337616.0001478,
+   "last_found": 22,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "waxlondon.com",
   "note": ""
  },
@@ -8420,7 +8510,15 @@
     "https://www.weekendoffender.com/collections/mens-white-t-shirts-tops"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1786337758.136298,
+   "last_found": 96,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "www.weekendoffender.com",
   "note": "auto-discovered"
  },
@@ -8433,7 +8531,15 @@
    ],
    "m": []
   },
+  "entry_cursor": 0,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1786337830.9289083,
+   "last_found": 21,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "whimsyandrow.com",
   "note": "auto-discovered"
  },
@@ -8447,7 +8553,16 @@
    ],
    "m": []
   },
+  "entry_cursor": 1,
   "gender_source": "prior",
+  "health": {
+   "fail": 0,
+   "last": 1786337945.8573887,
+   "last_found": 20,
+   "note": "rate-limited (429) \u2014 stopping this shop for now",
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "whitefoxboutique.com",
   "note": "auto-discovered"
  },
@@ -8461,7 +8576,15 @@
    ],
    "m": []
   },
+  "entry_cursor": 2,
   "gender_source": "prior",
+  "health": {
+   "fail": 0,
+   "last": 1786338037.7229466,
+   "last_found": 50,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "withjean.com",
   "note": "auto-discovered"
  },

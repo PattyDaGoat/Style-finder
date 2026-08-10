@@ -12,7 +12,7 @@
  "3sixteen": {
   "domain": "www.3sixteen.com",
   "gender_prior": "m",
-  "seen": 57
+  "seen": 58
  },
  "9.0 Swim": {
   "domain": "www.beginningboutique.com",
@@ -267,12 +267,12 @@
  "Barbell Apparel": {
   "domain": "barbellapparel.com",
   "gender_prior": "m",
-  "seen": 58
+  "seen": 59
  },
  "Barbour": {
   "domain": "tnuck.com",
   "gender_prior": "f",
-  "seen": 2
+  "seen": 4
  },
  "Barney Cools": {
   "domain": "barneycools.com",
@@ -532,7 +532,7 @@
  "Cleobella": {
   "domain": "cleobella.com",
   "gender_prior": "f",
-  "seen": 34
+  "seen": 35
  },
  "Coalatree": {
   "domain": "coalatree.com",
@@ -577,7 +577,7 @@
  "Corteiz": {
   "domain": "crtz.xyz",
   "gender_prior": "m",
-  "seen": 16
+  "seen": 17
  },
  "Costa Brava": {
   "domain": "faithfullthebrand.com",
@@ -704,6 +704,11 @@
   "gender_prior": "m",
   "seen": 11
  },
+ "Drakes - UK/ROW": {
+  "domain": "www.drakes.com",
+  "gender_prior": "m",
+  "seen": 1
+ },
  "D\u00d4EN": {
   "domain": "shopdoen.com",
   "gender_prior": "f",
@@ -712,7 +717,7 @@
  "ESSENTIALS": {
   "domain": "fearofgod.com",
   "gender_prior": "m",
-  "seen": 4
+  "seen": 5
  },
  "Eastside Golf": {
   "domain": "eastsidegolf.com",
@@ -777,7 +782,7 @@
  "Fair Harbor": {
   "domain": "fairharborclothing.com",
   "gender_prior": "m",
-  "seen": 29
+  "seen": 30
  },
  "Faithfull the Brand": {
   "domain": "faithfullthebrand.com",
@@ -787,7 +792,7 @@
  "Farah": {
   "domain": "www.farah.co.uk",
   "gender_prior": "m",
-  "seen": 41
+  "seen": 42
  },
  "Farm Rio": {
   "domain": "www.farmrio.com",
@@ -1077,7 +1082,7 @@
  "Killstar": {
   "domain": "www.killstar.com",
   "gender_prior": "f",
-  "seen": 26
+  "seen": 27
  },
  "Kith": {
   "domain": "kith.com",
@@ -1192,7 +1197,7 @@
  "Lorna Jane": {
   "domain": "www.lornajane.com",
   "gender_prior": "f",
-  "seen": 20
+  "seen": 22
  },
  "LoveShackFancy": {
   "domain": "loveshackfancy.com",
@@ -1397,7 +1402,7 @@
  "Nena and Pasadena AFL": {
   "domain": "nenaandpasadena.com",
   "gender_prior": "m",
-  "seen": 6
+  "seen": 7
  },
  "Never Fully Dressed": {
   "domain": "neverfullydressed.com",
@@ -1592,7 +1597,7 @@
  "Peppermayo Exclusive": {
   "domain": "us.peppermayo.com",
   "gender_prior": "f",
-  "seen": 6
+  "seen": 7
  },
  "Percival": {
   "domain": "www.percivalclo.com",
@@ -1677,7 +1682,7 @@
  "Princess Polly": {
   "domain": "us.princesspolly.com",
   "gender_prior": "f",
-  "seen": 32
+  "seen": 33
  },
  "Profound": {
   "domain": "profoundco.com",
@@ -1787,12 +1792,12 @@
  "Reebok": {
   "domain": "www.reebok.com",
   "gender_prior": "f",
-  "seen": 21
+  "seen": 22
  },
  "Reformation": {
   "domain": "www.thereformation.com",
   "gender_prior": "f",
-  "seen": 2
+  "seen": 3
  },
  "Reigning Champ": {
   "domain": "reigningchamp.com",
@@ -1907,7 +1912,7 @@
  "Sabo": {
   "domain": "saboskirt.com",
   "gender_prior": "f",
-  "seen": 29
+  "seen": 30
  },
  "Saigon Wool": {
   "domain": "ashanderie.com",
@@ -1923,6 +1928,11 @@
   "domain": "santandabel.com",
   "gender_prior": "f",
   "seen": 20
+ },
+ "Sant and Abel": {
+  "domain": "santandabel.com",
+  "gender_prior": "m",
+  "seen": 1
  },
  "Sarah Flint": {
   "domain": "www.sarahflint.com",
@@ -1977,7 +1987,7 @@
  "Set Active": {
   "domain": "setactive.co",
   "gender_prior": "f",
-  "seen": 23
+  "seen": 24
  },
  "Shoe Palace": {
   "domain": "www.shoepalace.com",
@@ -2032,7 +2042,7 @@
  "Solid & Striped": {
   "domain": "www.solidandstriped.com",
   "gender_prior": "f",
-  "seen": 34
+  "seen": 36
  },
  "Soulland": {
   "domain": "soulland.com",
@@ -2194,6 +2204,11 @@
   "gender_prior": "u",
   "seen": 40
  },
+ "Thrills Co.": {
+  "domain": "thrills.co",
+  "gender_prior": "m",
+  "seen": 1
+ },
  "Thursday Boots": {
   "domain": "thursdayboots.com",
   "gender_prior": "u",
@@ -2222,7 +2237,7 @@
  "True Classic": {
   "domain": "trueclassictees.com",
   "gender_prior": "m",
-  "seen": 33
+  "seen": 34
  },
  "Tuckernuck": {
   "domain": "www.tnuck.com",
@@ -2297,12 +2312,12 @@
  "Vissla": {
   "domain": "vissla.com",
   "gender_prior": "m",
-  "seen": 22
+  "seen": 23
  },
  "Vitamin A": {
   "domain": "www.vitaminaswim.com",
   "gender_prior": "f",
-  "seen": 25
+  "seen": 26
  },
  "Vollebak": {
   "domain": "www.vollebak.com",
@@ -2327,12 +2342,12 @@
  "Warp + Weft": {
   "domain": "warpweftworld.com",
   "gender_prior": "f",
-  "seen": 21
+  "seen": 22
  },
  "Wax London": {
   "domain": "waxlondon.com",
   "gender_prior": "m",
-  "seen": 25
+  "seen": 26
  },
  "Wax London Womens": {
   "domain": "waxlondon.com",

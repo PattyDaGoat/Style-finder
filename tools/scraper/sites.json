@@ -7837,7 +7837,15 @@
     "https://threads4thought.com/collections/mens-activewear"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1786325537.3168025,
+   "last_found": 46,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "threads4thought.com",
   "note": "auto-discovered"
  },
@@ -7855,7 +7863,15 @@
     "https://thrills.co/collections/mens-tees"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1786325652.2315373,
+   "last_found": 99,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "thrills.co",
   "note": "auto-discovered"
  },
@@ -7873,7 +7889,15 @@
     "https://thursdayboots.com/collections/loop-mens-boots-do-not-delete"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1786325802.4134429,
+   "last_found": 75,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "thursdayboots.com",
   "note": "auto-discovered"
  },
@@ -7885,7 +7909,16 @@
    ],
    "m": []
   },
+  "entry_cursor": 0,
   "gender_source": "collection",
+  "health": {
+   "fail": 1,
+   "last": 1786325846.3574367,
+   "last_found": 0,
+   "note": "no products found on the page",
+   "ok": 0,
+   "status": "blocked"
+  },
   "host": "www.tigermist.com",
   "note": "auto-discovered"
  },
@@ -7899,8 +7932,16 @@
     "https://www.toddsnyder.com/collections/all-tops-sport-coats-suit-jackets"
    ]
   },
+  "entry_cursor": 2,
   "gender_note": "no women's collection on the whole site and 0/100 womenswear in a sample",
   "gender_source": "inferred",
+  "health": {
+   "fail": 0,
+   "last": 1786326026.7286716,
+   "last_found": 72,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "www.toddsnyder.com",
   "note": "found by find_brands.py \u2014 mainstream"
  },
@@ -7917,7 +7958,15 @@
     "https://tommyjohn.com/collections/mens-packs-promo-excl-usf-and-best-of-tj"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1786326159.482916,
+   "last_found": 51,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "tommyjohn.com",
   "note": "auto-discovered"
  },
@@ -7935,7 +7984,15 @@
     "https://www.toms.com/collections/mens-leather-shoes"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1786326265.6317012,
+   "last_found": 44,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "www.toms.com",
   "note": "auto-discovered"
  },
@@ -7949,8 +8006,17 @@
    ],
    "m": []
   },
+  "entry_cursor": 1,
   "gender_note": "13/100 read as womenswear, 7% dresses",
   "gender_source": "inferred",
+  "health": {
+   "fail": 0,
+   "last": 1786326323.4348662,
+   "last_found": 2,
+   "note": "rate-limited (429) \u2014 stopping this shop for now",
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "toteme-studio.com",
   "note": "found by find_brands.py \u2014 designer"
  },
@@ -7964,7 +8030,15 @@
    ],
    "m": []
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1786326544.139643,
+   "last_found": 77,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "trueclassictees.com",
   "note": "auto-discovered"
  },
@@ -7977,7 +8051,15 @@
    ],
    "m": []
   },
+  "entry_cursor": 0,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1786326707.54663,
+   "last_found": 47,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "www.tnuck.com",
   "note": "auto-discovered"
  },
@@ -7995,8 +8077,16 @@
     "https://undefeated.com/collections/mens-footwear"
    ]
   },
+  "entry_cursor": 2,
   "gender_note": "found only men's collections by name; the shop also lists women's ones, so its general collections are registered for that side as a guess",
   "gender_source": "prior",
+  "health": {
+   "fail": 0,
+   "last": 1786326849.1558747,
+   "last_found": 93,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "undefeated.com",
   "note": "found by find_brands.py \u2014 sneaker boutique"
  },
@@ -8008,7 +8098,15 @@
     "https://www.untuckit.com/collections/mens-dress-shirts"
    ]
   },
+  "entry_cursor": 0,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1786326975.3291948,
+   "last_found": 9,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "www.untuckit.com",
   "note": "auto-discovered"
  },
@@ -8026,13 +8124,13 @@
     "https://www.uniqlo.com/us/en/men/outerwear"
    ]
   },
-  "entry_cursor": 5,
+  "entry_cursor": 1,
   "health": {
    "fail": 0,
-   "last": 1785112980.5514975,
-   "last_found": 44,
+   "last": 1786327089.452163,
+   "last_found": 60,
    "note": "no products found on the page",
-   "ok": 3,
+   "ok": 4,
    "status": "ok"
   },
   "host": "www.uniqlo.com",
@@ -8052,7 +8150,15 @@
     "https://unitedbyblue.com/collections/mens-lounge"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1786327189.5434325,
+   "last_found": 62,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "unitedbyblue.com",
   "note": "auto-discovered"
  },
@@ -8066,7 +8172,15 @@
     "https://universalworks.co.uk/collections/military-chino"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "prior",
+  "health": {
+   "fail": 0,
+   "last": 1786327351.548825,
+   "last_found": 52,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "universalworks.co.uk",
   "note": "auto-discovered"
  },

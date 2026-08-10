@@ -12,7 +12,7 @@
  "3sixteen": {
   "domain": "www.3sixteen.com",
   "gender_prior": "m",
-  "seen": 56
+  "seen": 57
  },
  "9.0 Swim": {
   "domain": "www.beginningboutique.com",
@@ -267,7 +267,12 @@
  "Barbell Apparel": {
   "domain": "barbellapparel.com",
   "gender_prior": "m",
-  "seen": 57
+  "seen": 58
+ },
+ "Barbour": {
+  "domain": "tnuck.com",
+  "gender_prior": "f",
+  "seen": 2
  },
  "Barney Cools": {
   "domain": "barneycools.com",
@@ -572,7 +577,7 @@
  "Corteiz": {
   "domain": "crtz.xyz",
   "gender_prior": "m",
-  "seen": 15
+  "seen": 16
  },
  "Costa Brava": {
   "domain": "faithfullthebrand.com",
@@ -622,7 +627,7 @@
  "DISSH Boutiques": {
   "domain": "dissh.com",
   "gender_prior": "f",
-  "seen": 4
+  "seen": 5
  },
  "DL1961": {
   "domain": "www.dl1961.com",
@@ -782,7 +787,7 @@
  "Farah": {
   "domain": "www.farah.co.uk",
   "gender_prior": "m",
-  "seen": 40
+  "seen": 41
  },
  "Farm Rio": {
   "domain": "www.farmrio.com",
@@ -792,7 +797,7 @@
  "Fear of God": {
   "domain": "fearofgod.com",
   "gender_prior": "m",
-  "seen": 20
+  "seen": 21
  },
  "Feature": {
   "domain": "feature.com",
@@ -977,7 +982,7 @@
  "In The Style": {
   "domain": "www.inthestyle.com",
   "gender_prior": "f",
-  "seen": 42
+  "seen": 43
  },
  "Intime Knits": {
   "domain": "ashanderie.com",
@@ -1007,7 +1012,7 @@
  "Jaded London": {
   "domain": "www.jadedldn.com",
   "gender_prior": "u",
-  "seen": 34
+  "seen": 35
  },
  "Jaded Man": {
   "domain": "jadedldn.com",
@@ -1392,7 +1397,7 @@
  "Nena and Pasadena AFL": {
   "domain": "nenaandpasadena.com",
   "gender_prior": "m",
-  "seen": 5
+  "seen": 6
  },
  "Never Fully Dressed": {
   "domain": "neverfullydressed.com",
@@ -1407,12 +1412,12 @@
  "New Era": {
   "domain": "extrabutterny.com",
   "gender_prior": "m",
-  "seen": 21
+  "seen": 22
  },
  "New Lobster Limited": {
   "domain": "www.tedbaker.com",
   "gender_prior": "m",
-  "seen": 1
+  "seen": 2
  },
  "Nike": {
   "domain": "extrabutterny.com",
@@ -1432,7 +1437,7 @@
  "Nisolo": {
   "domain": "nisolo.com",
   "gender_prior": "f",
-  "seen": 18
+  "seen": 19
  },
  "No Problemo": {
   "domain": "www.ariesarise.com",
@@ -1467,7 +1472,7 @@
  "Nude Lucy": {
   "domain": "www.nudelucy.com.au",
   "gender_prior": "f",
-  "seen": 39
+  "seen": 40
  },
  "Oakley": {
   "domain": "extrabutterny.com",
@@ -1552,7 +1557,7 @@
  "P.E Nation Global": {
   "domain": "www.pe-nation.com",
   "gender_prior": "f",
-  "seen": 5
+  "seen": 6
  },
  "PATTA": {
   "domain": "undefeated.com",
@@ -1587,7 +1592,7 @@
  "Peppermayo Exclusive": {
   "domain": "us.peppermayo.com",
   "gender_prior": "f",
-  "seen": 5
+  "seen": 6
  },
  "Percival": {
   "domain": "www.percivalclo.com",
@@ -1672,7 +1677,7 @@
  "Princess Polly": {
   "domain": "us.princesspolly.com",
   "gender_prior": "f",
-  "seen": 31
+  "seen": 32
  },
  "Profound": {
   "domain": "profoundco.com",
@@ -1702,7 +1707,7 @@
  "RAILS": {
   "domain": "www.rails.com",
   "gender_prior": "m",
-  "seen": 2
+  "seen": 3
  },
  "RICK OWENS": {
   "domain": "www.rickowens.eu",
@@ -1802,7 +1807,7 @@
  "Renarts": {
   "domain": "renarts.com",
   "gender_prior": "m",
-  "seen": 14
+  "seen": 15
  },
  "Represent": {
   "domain": "representclo.com",
@@ -1817,7 +1822,7 @@
  "Rip Curl": {
   "domain": "www.ripcurl.com",
   "gender_prior": "u",
-  "seen": 30
+  "seen": 31
  },
  "Rip N Dip": {
   "domain": "ripndip.com",
@@ -1902,7 +1907,7 @@
  "Sabo": {
   "domain": "saboskirt.com",
   "gender_prior": "f",
-  "seen": 28
+  "seen": 29
  },
  "Saigon Wool": {
   "domain": "ashanderie.com",
@@ -2027,7 +2032,7 @@
  "Solid & Striped": {
   "domain": "www.solidandstriped.com",
   "gender_prior": "f",
-  "seen": 32
+  "seen": 34
  },
  "Soulland": {
   "domain": "soulland.com",
@@ -2107,7 +2112,7 @@
  "Summer 2026": {
   "domain": "onlyny.com",
   "gender_prior": "m",
-  "seen": 4
+  "seen": 5
  },
  "Sunday Swagger": {
   "domain": "sundayswagger.com",
@@ -2132,7 +2137,7 @@
  "TALA": {
   "domain": "www.wearetala.com",
   "gender_prior": "f",
-  "seen": 27
+  "seen": 28
  },
  "Taylor Stitch": {
   "domain": "www.taylorstitch.com",
@@ -2207,7 +2212,7 @@
  "Tommy John": {
   "domain": "tommyjohn.com",
   "gender_prior": "f",
-  "seen": 18
+  "seen": 19
  },
  "Toms": {
   "domain": "www.toms.com",
@@ -2217,7 +2222,7 @@
  "True Classic": {
   "domain": "trueclassictees.com",
   "gender_prior": "m",
-  "seen": 32
+  "seen": 33
  },
  "Tuckernuck": {
   "domain": "www.tnuck.com",
@@ -2252,7 +2257,7 @@
  "United Legwear & Apparel Co.": {
   "domain": "www.tedbaker.com",
   "gender_prior": "m",
-  "seen": 1
+  "seen": 2
  },
  "Universal Works": {
   "domain": "universalworks.co.uk",

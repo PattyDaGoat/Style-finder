@@ -1353,7 +1353,15 @@
     "https://bdgastore.com/collections/mens-shirts"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "collection-handle",
+  "health": {
+   "fail": 0,
+   "last": 1786422743.7877192,
+   "last_found": 26,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "bdgastore.com",
   "note": "found by find_brands.py \u2014 sneaker boutique"
  },
@@ -1371,7 +1379,15 @@
     "https://boody.com/collections/mens-socks"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1786422989.2030373,
+   "last_found": 91,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "boody.com",
   "note": ""
  },
@@ -1673,14 +1689,14 @@
     "https://www.clae.com/collections/shoes"
    ]
   },
-  "entry_cursor": 1,
+  "entry_cursor": 0,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1785116337.4854925,
-   "last_found": 46,
+   "last": 1786478678.6354682,
+   "last_found": 30,
    "note": "rate-limited (429) \u2014 stopping this shop for now",
-   "ok": 1,
+   "ok": 2,
    "status": "ok"
   },
   "host": "www.clae.com",
@@ -1696,13 +1712,13 @@
    ],
    "m": []
   },
-  "entry_cursor": 2,
+  "entry_cursor": 1,
   "gender_source": "prior",
   "health": {
    "fail": 0,
-   "last": 1785116517.1883862,
-   "last_found": 47,
-   "ok": 1,
+   "last": 1786478841.5055878,
+   "last_found": 28,
+   "ok": 2,
    "status": "ok"
   },
   "host": "cleobella.com",
@@ -1722,13 +1738,13 @@
     "https://coalatree.com/collections/mens-sweatshirts-hoodies"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 4,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1785116623.8993967,
-   "last_found": 21,
-   "ok": 1,
+   "last": 1786478909.3793423,
+   "last_found": 18,
+   "ok": 2,
    "status": "ok"
   },
   "host": "coalatree.com",
@@ -1744,13 +1760,13 @@
     "https://colebuxton.com/collections/bestsellers"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 1,
   "gender_source": "prior",
   "health": {
    "fail": 0,
-   "last": 1785116830.378516,
-   "last_found": 84,
-   "ok": 1,
+   "last": 1786479064.3289611,
+   "last_found": 52,
+   "ok": 2,
    "status": "ok"
   },
   "host": "colebuxton.com",
@@ -1770,13 +1786,13 @@
     "https://colorfulstandard.com/collections/mens-organic-cotton-merino-wool-tops"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 4,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1785116995.0257344,
+   "last": 1786479228.2575827,
    "last_found": 120,
-   "ok": 1,
+   "ok": 2,
    "status": "ok"
   },
   "host": "colorfulstandard.com",
@@ -1796,13 +1812,13 @@
     "https://communityclothing.co.uk/collections/mens-made-in-the-north"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 4,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1785117087.6348698,
+   "last": 1786479319.2399123,
    "last_found": 53,
-   "ok": 1,
+   "ok": 2,
    "status": "ok"
   },
   "host": "communityclothing.co.uk",
@@ -1820,14 +1836,14 @@
     "https://cncpts.com/collections/apparel-1"
    ]
   },
-  "entry_cursor": 0,
+  "entry_cursor": 2,
   "gender_note": "found only women's collections by name; the shop also lists men's ones, so its general collections are registered for that side as a guess",
   "gender_source": "prior",
   "health": {
    "fail": 0,
-   "last": 1785117190.0936687,
-   "last_found": 15,
-   "ok": 2,
+   "last": 1786479396.483397,
+   "last_found": 38,
+   "ok": 3,
    "status": "ok"
   },
   "host": "cncpts.com",
@@ -1847,13 +1863,13 @@
     "https://coneyislandpicnic.com/collections/mens-collection"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 4,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1785117282.9140177,
-   "last_found": 32,
-   "ok": 1,
+   "last": 1786479478.7268245,
+   "last_found": 48,
+   "ok": 2,
    "status": "ok"
   },
   "host": "coneyislandpicnic.com",
@@ -1869,13 +1885,13 @@
     "https://www.corridornyc.com/collections/shop-all"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 1,
   "gender_source": "prior",
   "health": {
    "fail": 0,
-   "last": 1785118172.2470043,
-   "last_found": 50,
-   "ok": 1,
+   "last": 1786479633.9282663,
+   "last_found": 43,
+   "ok": 2,
    "status": "ok"
   },
   "host": "www.corridornyc.com",
@@ -1891,14 +1907,14 @@
     "https://crtz.xyz/collections/shorts"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 1,
   "gender_note": "guessed menswear (only 0% dresses and 9% read womenswear); registered as a prior, so any evidence on a piece overrides it",
   "gender_source": "prior",
   "health": {
    "fail": 0,
-   "last": 1785118240.2534068,
-   "last_found": 74,
-   "ok": 1,
+   "last": 1786479708.8297904,
+   "last_found": 73,
+   "ok": 2,
    "status": "ok"
   },
   "host": "crtz.xyz",
@@ -1918,7 +1934,15 @@
     "https://www.cotopaxi.com/collections/mens-travel"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1786479809.0007305,
+   "last_found": 54,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "www.cotopaxi.com",
   "note": "auto-discovered"
  },
@@ -1932,13 +1956,13 @@
    ],
    "m": []
   },
-  "entry_cursor": 2,
+  "entry_cursor": 1,
   "gender_source": "prior",
   "health": {
    "fail": 0,
-   "last": 1785126807.0070999,
-   "last_found": 42,
-   "ok": 1,
+   "last": 1786479953.788339,
+   "last_found": 35,
+   "ok": 2,
    "status": "ok"
   },
   "host": "cozyearth.com",
@@ -1954,13 +1978,13 @@
     "https://criquetshirts.com/collections/view-all-men"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 1,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1785126924.3829017,
-   "last_found": 42,
-   "ok": 1,
+   "last": 1786480079.691516,
+   "last_found": 51,
+   "ok": 2,
    "status": "ok"
   },
   "host": "criquetshirts.com",
@@ -1976,13 +2000,13 @@
    ],
    "m": []
   },
-  "entry_cursor": 2,
+  "entry_cursor": 1,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1785126982.1584551,
-   "last_found": 21,
-   "ok": 1,
+   "last": 1786480133.0998359,
+   "last_found": 15,
+   "ok": 2,
    "status": "ok"
   },
   "host": "crosscolours.com",
@@ -1998,13 +2022,13 @@
    ],
    "m": []
   },
-  "entry_cursor": 2,
+  "entry_cursor": 1,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1785127076.5831604,
-   "last_found": 27,
-   "ok": 1,
+   "last": 1786480224.2157001,
+   "last_found": 22,
+   "ok": 2,
    "status": "ok"
   },
   "host": "www.cue.cc",

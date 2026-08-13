@@ -3221,13 +3221,14 @@
    ],
    "m": []
   },
-  "entry_cursor": 2,
+  "entry_cursor": 0,
   "gender_source": "prior",
   "health": {
    "fail": 0,
-   "last": 1785548429.2142627,
-   "last_found": 100,
-   "ok": 1,
+   "last": 1786616275.0809603,
+   "last_found": 59,
+   "note": "rate-limited (429) \u2014 stopping this shop for now",
+   "ok": 2,
    "status": "ok"
   },
   "host": "girlfriend.com",
@@ -3266,13 +3267,13 @@
     "https://goodlifeclothing.com/collections/mens-sweaters-hoodies"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 1,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1785548644.2509181,
-   "last_found": 100,
-   "ok": 1,
+   "last": 1786616397.813649,
+   "last_found": 73,
+   "ok": 2,
    "status": "ok"
   },
   "host": "goodlifeclothing.com",
@@ -3292,14 +3293,14 @@
     "https://gramicci.com/collections/mens-accessories"
    ]
   },
-  "entry_cursor": 1,
+  "entry_cursor": 3,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1785548683.8249993,
-   "last_found": 28,
+   "last": 1786616460.7476087,
+   "last_found": 35,
    "note": "rate-limited (429) \u2014 stopping this shop for now",
-   "ok": 1,
+   "ok": 2,
    "status": "ok"
   },
   "host": "gramicci.com",
@@ -3315,14 +3316,14 @@
    ],
    "m": []
   },
-  "entry_cursor": 1,
+  "entry_cursor": 2,
   "gender_source": "prior",
   "health": {
    "fail": 0,
-   "last": 1785548743.1618247,
-   "last_found": 53,
+   "last": 1786616517.5857227,
+   "last_found": 51,
    "note": "rate-limited (429) \u2014 stopping this shop for now",
-   "ok": 1,
+   "ok": 2,
    "status": "ok"
   },
   "host": "grayers.com",
@@ -3342,13 +3343,14 @@
     "https://www.greats.com/collections/low-tops-sneakers"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 4,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1785548834.5961056,
-   "last_found": 37,
-   "ok": 1,
+   "last": 1786616619.0687752,
+   "last_found": 32,
+   "note": "no products found on the page",
+   "ok": 2,
    "status": "ok"
   },
   "host": "www.greats.com",
@@ -3368,13 +3370,13 @@
     "https://www.gymking.com/collections/mens-gym-clothes"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 4,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1785549038.4426847,
-   "last_found": 113,
-   "ok": 1,
+   "last": 1786616908.7125552,
+   "last_found": 120,
+   "ok": 2,
    "status": "ok"
   },
   "host": "www.gymking.com",
@@ -3411,15 +3413,16 @@
     "https://hellstar.com/collections/shop-all"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 1,
   "gender_note": "no women's collection on the whole site and 2/100 womenswear in a sample",
   "gender_source": "inferred",
   "health": {
-   "fail": 0,
-   "last": 1785549294.3448913,
-   "last_found": 69,
+   "fail": 1,
+   "last": 1786616924.4426963,
+   "last_found": 0,
+   "note": "nav failed: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://hellstar.com/collections/shop-all; nav failed: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://hellstar.com/collections/sports-tops",
    "ok": 1,
-   "status": "ok"
+   "status": "blocked"
   },
   "host": "hellstar.com",
   "note": "found by find_brands.py \u2014 streetwear"
@@ -3438,14 +3441,15 @@
     "https://heronpreston.com/collections/mens-bottoms"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 4,
   "gender_source": "collection-handle",
   "health": {
-   "fail": 0,
-   "last": 1785549334.3717132,
-   "last_found": 6,
+   "fail": 1,
+   "last": 1786616947.085633,
+   "last_found": 0,
+   "note": "nav failed: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://heronpreston.com/collections/mens-bottoms; nav failed: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://heronpreston.com/collections/womens",
    "ok": 1,
-   "status": "ok"
+   "status": "blocked"
   },
   "host": "heronpreston.com",
   "note": "found by find_brands.py \u2014 designer"
@@ -3460,7 +3464,16 @@
    ],
    "m": []
   },
+  "entry_cursor": 2,
   "gender_source": "prior",
+  "health": {
+   "fail": 1,
+   "last": 1786616964.062819,
+   "last_found": 0,
+   "note": "nav failed: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://hillhousehome.com/collections/alexs-temporary-all-collection; nav failed: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://hillhousehome.co",
+   "ok": 0,
+   "status": "blocked"
+  },
   "host": "hillhousehome.com",
   "note": "auto-discovered"
  },
@@ -3478,7 +3491,16 @@
     "https://www.homecore.com/collections/manteaux-vestes-homme"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1786617070.5096364,
+   "last_found": 24,
+   "note": "nav failed: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.homecore.com/collections/pantalons-shorts-homme",
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "www.homecore.com",
   "note": "auto-discovered"
  },
@@ -3496,7 +3518,15 @@
     "https://hufworldwide.com/collections/mens-t-shirts"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1786617203.6737325,
+   "last_found": 115,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "hufworldwide.com",
   "note": "auto-discovered"
  },
@@ -3510,13 +3540,14 @@
    ],
    "m": []
   },
-  "entry_cursor": 2,
+  "entry_cursor": 0,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1785558788.821954,
-   "last_found": 58,
-   "ok": 1,
+   "last": 1786617258.6080954,
+   "last_found": 22,
+   "note": "rate-limited (429) \u2014 stopping this shop for now",
+   "ok": 2,
    "status": "ok"
   },
   "host": "www.inthestyle.com",
@@ -3534,13 +3565,13 @@
     "https://ironandresin.com/collections/mens-vests"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 0,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1785558841.8829706,
-   "last_found": 14,
-   "ok": 1,
+   "last": 1786617319.8076813,
+   "last_found": 23,
+   "ok": 2,
    "status": "ok"
   },
   "host": "ironandresin.com",
@@ -3556,13 +3587,13 @@
     "https://www.ironheart.co.uk/collections/tops"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 1,
   "gender_source": "prior",
   "health": {
    "fail": 0,
-   "last": 1785558926.5391796,
+   "last": 1786617398.8786263,
    "last_found": 4,
-   "ok": 1,
+   "ok": 2,
    "status": "ok"
   },
   "host": "www.ironheart.co.uk",
@@ -3580,13 +3611,13 @@
     "https://www.jcrew.com/plp/mens/categories/clothing/sweaters"
    ]
   },
-  "entry_cursor": 0,
+  "entry_cursor": 2,
   "health": {
    "fail": 0,
-   "last": 1785559061.7086928,
-   "last_found": 31,
+   "last": 1786617464.7929618,
+   "last_found": 27,
    "note": "nav failed: Page.goto: Timeout 45000ms exceeded.",
-   "ok": 3,
+   "ok": 4,
    "status": "ok"
   },
   "host": "www.jcrew.com",

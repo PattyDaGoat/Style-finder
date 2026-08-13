@@ -2834,13 +2834,13 @@
     "https://fearofgod.com/collections/mens-tops"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 4,
   "gender_source": "collection-handle",
   "health": {
    "fail": 0,
-   "last": 1785537700.6297667,
-   "last_found": 48,
-   "ok": 1,
+   "last": 1786595578.5840297,
+   "last_found": 74,
+   "ok": 2,
    "status": "ok"
   },
   "host": "fearofgod.com",
@@ -2856,14 +2856,14 @@
     "https://feature.com/collections/asics-new-balance-and-on"
    ]
   },
-  "entry_cursor": 1,
+  "entry_cursor": 0,
   "gender_note": "guessed menswear (only 0% dresses and 17% read womenswear); registered as a prior, so any evidence on a piece overrides it",
   "gender_source": "prior",
   "health": {
    "fail": 0,
-   "last": 1785537931.9516554,
-   "last_found": 51,
-   "ok": 2,
+   "last": 1786595797.6757247,
+   "last_found": 61,
+   "ok": 3,
    "status": "ok"
   },
   "host": "feature.com",
@@ -2883,13 +2883,13 @@
     "https://finisterre.com/collections/mens-view-all"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 4,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1785538154.0415304,
-   "last_found": 102,
-   "ok": 1,
+   "last": 1786596009.897475,
+   "last_found": 99,
+   "ok": 2,
    "status": "ok"
   },
   "host": "finisterre.com",
@@ -2909,9 +2909,9 @@
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1785538341.7393193,
+   "last": 1786596184.5406048,
    "last_found": 120,
-   "ok": 1,
+   "ok": 2,
    "status": "ok"
   },
   "host": "flagandanthem.com",
@@ -2931,13 +2931,13 @@
     "https://www.folkclothing.com/collections/shirts"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 4,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1785538601.024299,
-   "last_found": 13,
-   "ok": 1,
+   "last": 1786596341.6312091,
+   "last_found": 7,
+   "ok": 2,
    "status": "ok"
   },
   "host": "www.folkclothing.com",
@@ -2953,13 +2953,13 @@
    ],
    "m": []
   },
-  "entry_cursor": 2,
+  "entry_cursor": 1,
   "gender_source": "prior",
   "health": {
    "fail": 0,
-   "last": 1785538734.4604151,
-   "last_found": 12,
-   "ok": 1,
+   "last": 1786596473.2872596,
+   "last_found": 11,
+   "ok": 2,
    "status": "ok"
   },
   "host": "frankandeileen.com",
@@ -2975,13 +2975,13 @@
     "https://www.frankandoak.com/collections/mens-tees"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 1,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1785539119.0489678,
-   "last_found": 110,
-   "ok": 1,
+   "last": 1786596697.7423718,
+   "last_found": 109,
+   "ok": 2,
    "status": "ok"
   },
   "host": "www.frankandoak.com",
@@ -2997,13 +2997,14 @@
    ],
    "m": []
   },
-  "entry_cursor": 2,
+  "entry_cursor": 1,
   "gender_source": "prior",
   "health": {
    "fail": 0,
-   "last": 1785539182.071458,
-   "last_found": 7,
-   "ok": 1,
+   "last": 1786596782.5047743,
+   "last_found": 6,
+   "note": "no products found on the page",
+   "ok": 2,
    "status": "ok"
   },
   "host": "frankiesbikinis.com",
@@ -3042,13 +3043,13 @@
     "https://freenotecloth.com/collections/clothshop"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 1,
   "gender_source": "prior",
   "health": {
    "fail": 0,
-   "last": 1785539405.308349,
-   "last_found": 53,
-   "ok": 1,
+   "last": 1786596910.2512326,
+   "last_found": 70,
+   "ok": 2,
    "status": "ok"
   },
   "host": "freenotecloth.com",
@@ -3064,13 +3065,13 @@
     "https://frescobolcarioca.com/collections/shop-all"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 1,
   "gender_source": "prior",
   "health": {
    "fail": 0,
-   "last": 1785539537.6815026,
-   "last_found": 34,
-   "ok": 1,
+   "last": 1786597049.8145757,
+   "last_found": 35,
+   "ok": 2,
    "status": "ok"
   },
   "host": "frescobolcarioca.com",
@@ -3086,7 +3087,15 @@
    ],
    "m": []
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1786597282.4120865,
+   "last_found": 40,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "freshcleanthreads.com",
   "note": "auto-discovered"
  },
@@ -3100,13 +3109,13 @@
     "https://www.gabicci.com/collections/vintage"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 1,
   "gender_source": "prior",
   "health": {
    "fail": 0,
-   "last": 1785547977.8766866,
-   "last_found": 74,
-   "ok": 1,
+   "last": 1786597491.0371764,
+   "last_found": 91,
+   "ok": 2,
    "status": "ok"
   },
   "host": "www.gabicci.com",
@@ -3151,9 +3160,9 @@
   "entry_cursor": 0,
   "health": {
    "fail": 0,
-   "last": 1785548184.6134398,
+   "last": 1786597534.4509294,
    "last_found": 2,
-   "ok": 3,
+   "ok": 4,
    "status": "ok"
   },
   "host": "www.gap.com",
@@ -3169,14 +3178,14 @@
    ],
    "m": []
   },
-  "entry_cursor": 2,
+  "entry_cursor": 1,
   "gender_source": "prior",
   "health": {
    "fail": 0,
-   "last": 1785548276.2815018,
-   "last_found": 24,
+   "last": 1786597613.7135804,
+   "last_found": 48,
    "note": "no products found on the page",
-   "ok": 1,
+   "ok": 2,
    "status": "ok"
   },
   "host": "ghospell.com",
@@ -3194,9 +3203,9 @@
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1785548298.8782978,
+   "last": 1786597636.045737,
    "last_found": 3,
-   "ok": 1,
+   "ok": 2,
    "status": "ok"
   },
   "host": "ginewusa.com",

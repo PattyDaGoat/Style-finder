@@ -4439,13 +4439,13 @@
     "https://www.luke1977.com/collections/mens-plain-t-shirts-1"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 1,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1785580920.3269243,
-   "last_found": 82,
-   "ok": 1,
+   "last": 1786649570.8536918,
+   "last_found": 75,
+   "ok": 2,
    "status": "ok"
   },
   "host": "www.luke1977.com",
@@ -4513,13 +4513,13 @@
     "https://lurkingclass.com/collections/mens-hoodies"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 4,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1785581045.9311152,
-   "last_found": 100,
-   "ok": 1,
+   "last": 1786649663.0498562,
+   "last_found": 74,
+   "ok": 2,
    "status": "ok"
   },
   "host": "lurkingclass.com",
@@ -4537,13 +4537,13 @@
     "https://www.lyleandscott.com/collections/mens-polo-shirts"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 0,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1785581098.4703355,
-   "last_found": 96,
-   "ok": 1,
+   "last": 1786649888.5392983,
+   "last_found": 114,
+   "ok": 2,
    "status": "ok"
   },
   "host": "www.lyleandscott.com",
@@ -4605,13 +4605,14 @@
     "https://mackweldon.com/collections/mens-workwear"
    ]
   },
-  "entry_cursor": 0,
+  "entry_cursor": 1,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1785581472.8902488,
-   "last_found": 72,
-   "ok": 1,
+   "last": 1786649940.492356,
+   "last_found": 48,
+   "note": "rate-limited (429) \u2014 stopping this shop for now",
+   "ok": 2,
    "status": "ok"
   },
   "host": "mackweldon.com",
@@ -4628,12 +4629,12 @@
     "https://www.madewell.com/mens-clothing"
    ]
   },
-  "entry_cursor": 1,
+  "entry_cursor": 0,
   "health": {
    "fail": 0,
-   "last": 1785581574.1910734,
-   "last_found": 2,
-   "ok": 3,
+   "last": 1786649996.5969186,
+   "last_found": 1,
+   "ok": 4,
    "status": "ok"
   },
   "host": "www.madewell.com",
@@ -4652,14 +4653,14 @@
     "https://www.madhappy.com/collections/mens-t-shirts"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 4,
   "gender_source": "collection-handle",
   "health": {
    "fail": 0,
-   "last": 1785581681.1125576,
-   "last_found": 44,
+   "last": 1786650072.9859204,
+   "last_found": 17,
    "note": "no products found on the page",
-   "ok": 1,
+   "ok": 2,
    "status": "ok"
   },
   "host": "www.madhappy.com",
@@ -4679,7 +4680,15 @@
     "https://malbongolf.com/collections/accessories"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1786650220.5841064,
+   "last_found": 84,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "malbongolf.com",
   "note": "auto-discovered"
  },
@@ -4720,7 +4729,16 @@
     "https://www.marinelayer.com/collections/mens-california-naturals"
    ]
   },
+  "entry_cursor": 1,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1786650279.3865447,
+   "last_found": 50,
+   "note": "rate-limited (429) \u2014 stopping this shop for now",
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "www.marinelayer.com",
   "note": "auto-discovered"
  },
@@ -4759,7 +4777,16 @@
     "https://membersonlyoriginal.com/collections/new-arrivals-for-men"
    ]
   },
+  "entry_cursor": 1,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1786650352.7870927,
+   "last_found": 44,
+   "note": "rate-limited (429) \u2014 stopping this shop for now",
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "membersonlyoriginal.com",
   "note": "auto-discovered"
  },
@@ -4773,7 +4800,15 @@
    ],
    "m": []
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1786650544.0150125,
+   "last_found": 69,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "meshki.com",
   "note": "auto-discovered"
  },
@@ -4789,9 +4824,9 @@
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1785591098.8344383,
-   "last_found": 21,
-   "ok": 1,
+   "last": 1786650589.2606492,
+   "last_found": 29,
+   "ok": 2,
    "status": "ok"
   },
   "host": "www.michaelstars.com",
@@ -4807,13 +4842,13 @@
    ],
    "m": []
   },
-  "entry_cursor": 2,
+  "entry_cursor": 1,
   "gender_source": "prior",
   "health": {
    "fail": 0,
-   "last": 1785591193.74597,
+   "last": 1786650683.9360464,
    "last_found": 23,
-   "ok": 1,
+   "ok": 2,
    "status": "ok"
   },
   "host": "shopmille.com",
@@ -4833,9 +4868,9 @@
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1785591311.595188,
+   "last": 1786650807.2676053,
    "last_found": 76,
-   "ok": 1,
+   "ok": 2,
    "status": "ok"
   },
   "host": "mingalondon.com",
@@ -4880,9 +4915,9 @@
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1785591381.0779736,
+   "last": 1786650831.6732333,
    "last_found": 1,
-   "ok": 1,
+   "ok": 2,
    "status": "ok"
   },
   "host": "www.montce.com",
@@ -4902,14 +4937,14 @@
     "https://montirex.com/collections/mens-light-jackets"
    ]
   },
-  "entry_cursor": 1,
+  "entry_cursor": 2,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1785591459.5703714,
-   "last_found": 60,
+   "last": 1786650914.7339466,
+   "last_found": 55,
    "note": "rate-limited (429) \u2014 stopping this shop for now",
-   "ok": 1,
+   "ok": 2,
    "status": "ok"
   },
   "host": "montirex.com",

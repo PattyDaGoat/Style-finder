@@ -4041,13 +4041,13 @@
    ],
    "m": []
   },
-  "entry_cursor": 2,
+  "entry_cursor": 1,
   "gender_source": "prior",
   "health": {
    "fail": 0,
-   "last": 1785570576.877853,
-   "last_found": 111,
-   "ok": 1,
+   "last": 1786638760.3448522,
+   "last_found": 67,
+   "ok": 2,
    "status": "ok"
   },
   "host": "www.kookai.com.au",
@@ -4067,13 +4067,13 @@
     "https://ksubi.com/collections/mens-accessories-season-one"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 4,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1785570660.6911702,
-   "last_found": 22,
-   "ok": 1,
+   "last": 1786638845.1826768,
+   "last_found": 29,
+   "ok": 2,
    "status": "ok"
   },
   "host": "ksubi.com",
@@ -4115,13 +4115,14 @@
    ],
    "m": []
   },
-  "entry_cursor": 2,
+  "entry_cursor": 1,
   "gender_source": "prior",
   "health": {
    "fail": 0,
-   "last": 1785570904.5461166,
-   "last_found": 77,
-   "ok": 1,
+   "last": 1786638926.1538432,
+   "last_found": 36,
+   "note": "no products found on the page",
+   "ok": 2,
    "status": "ok"
   },
   "host": "kule.com",
@@ -4137,13 +4138,14 @@
     "https://lestrangelondon.com/collections/all-fp"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 0,
   "gender_source": "prior",
   "health": {
    "fail": 0,
-   "last": 1785570962.9747105,
-   "last_found": 3,
-   "ok": 1,
+   "last": 1786638984.3694549,
+   "last_found": 41,
+   "note": "rate-limited (429) \u2014 stopping this shop for now",
+   "ok": 2,
    "status": "ok"
   },
   "host": "lestrangelondon.com",
@@ -4159,14 +4161,14 @@
     "https://www.lapaz.pt/collections/tees-sweats"
    ]
   },
-  "entry_cursor": 1,
+  "entry_cursor": 0,
   "gender_source": "prior",
   "health": {
    "fail": 0,
-   "last": 1785571018.844634,
-   "last_found": 48,
+   "last": 1786639069.0095818,
+   "last_found": 76,
    "note": "rate-limited (429) \u2014 stopping this shop for now",
-   "ok": 1,
+   "ok": 2,
    "status": "ok"
   },
   "host": "www.lapaz.pt",
@@ -4186,13 +4188,13 @@
     "https://www.lackofcolor.com/collections/mens-fedora-hats"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 4,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1785571080.5567255,
-   "last_found": 21,
-   "ok": 1,
+   "last": 1786639158.7495534,
+   "last_found": 60,
+   "ok": 2,
    "status": "ok"
   },
   "host": "www.lackofcolor.com",
@@ -4208,14 +4210,14 @@
     "https://ladywhiteco.com/collections/new-arrivals"
    ]
   },
-  "entry_cursor": 1,
+  "entry_cursor": 2,
   "gender_source": "prior",
   "health": {
    "fail": 0,
-   "last": 1785571129.4831202,
-   "last_found": 37,
+   "last": 1786639185.5687208,
+   "last_found": 20,
    "note": "rate-limited (429) \u2014 stopping this shop for now",
-   "ok": 1,
+   "ok": 2,
    "status": "ok"
   },
   "host": "ladywhiteco.com",
@@ -4231,13 +4233,13 @@
     "https://lealfre.com/collections/accessories"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 1,
   "gender_source": "prior",
   "health": {
    "fail": 0,
-   "last": 1785571186.2221289,
+   "last": 1786639244.919014,
    "last_found": 5,
-   "ok": 1,
+   "ok": 2,
    "status": "ok"
   },
   "host": "lealfre.com",
@@ -4252,7 +4254,16 @@
    ],
    "m": []
   },
+  "entry_cursor": 1,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1786639260.6587217,
+   "last_found": 1,
+   "note": "rate-limited (429) \u2014 stopping this shop for now",
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "leftfieldnyc.com",
   "note": "auto-discovered"
  },
@@ -4266,7 +4277,16 @@
    ],
    "m": []
   },
+  "entry_cursor": 1,
   "gender_source": "prior",
+  "health": {
+   "fail": 0,
+   "last": 1786639323.123406,
+   "last_found": 47,
+   "note": "rate-limited (429) \u2014 stopping this shop for now",
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "leftonfriday.com",
   "note": "auto-discovered"
  },
@@ -4306,14 +4326,14 @@
    ],
    "m": []
   },
-  "entry_cursor": 1,
+  "entry_cursor": 2,
   "gender_source": "prior",
   "health": {
    "fail": 0,
-   "last": 1785580392.6920083,
-   "last_found": 43,
+   "last": 1786639368.6597784,
+   "last_found": 47,
    "note": "rate-limited (429) \u2014 stopping this shop for now",
-   "ok": 1,
+   "ok": 2,
    "status": "ok"
   },
   "host": "lisasaysgah.com",
@@ -4333,9 +4353,9 @@
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1785580430.001633,
+   "last": 1786639403.378411,
    "last_found": 11,
-   "ok": 1,
+   "ok": 2,
    "status": "ok"
   },
   "host": "localauthorityla.com",
@@ -4351,13 +4371,13 @@
    ],
    "m": []
   },
-  "entry_cursor": 2,
+  "entry_cursor": 1,
   "gender_source": "prior",
   "health": {
    "fail": 0,
-   "last": 1785580708.7758272,
-   "last_found": 78,
-   "ok": 1,
+   "last": 1786639622.4687154,
+   "last_found": 84,
+   "ok": 2,
    "status": "ok"
   },
   "host": "www.lornajane.com",
@@ -4373,14 +4393,14 @@
     "https://loveshackfancy.com/collections/mens-swim"
    ]
   },
-  "entry_cursor": 1,
+  "entry_cursor": 0,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1785580762.507679,
-   "last_found": 8,
+   "last": 1786639652.973836,
+   "last_found": 12,
    "note": "rate-limited (429) \u2014 stopping this shop for now",
-   "ok": 1,
+   "ok": 2,
    "status": "ok"
   },
   "host": "loveshackfancy.com",
@@ -4396,14 +4416,14 @@
    ],
    "m": []
   },
-  "entry_cursor": 1,
+  "entry_cursor": 2,
   "gender_source": "prior",
   "health": {
    "fail": 0,
-   "last": 1785580815.8257546,
+   "last": 1786639704.4112513,
    "last_found": 60,
    "note": "rate-limited (429) \u2014 stopping this shop for now",
-   "ok": 1,
+   "ok": 2,
    "status": "ok"
   },
   "host": "lucyandyak.com",

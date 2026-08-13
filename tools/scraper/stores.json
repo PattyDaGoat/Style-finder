@@ -77,7 +77,7 @@
  "Adanola": {
   "domain": "www.adanola.com",
   "gender_prior": "f",
-  "seen": 43
+  "seen": 44
  },
  "Adidas Originals": {
   "domain": "feature.com",
@@ -102,7 +102,7 @@
  "Aime Leon Dore": {
   "domain": "www.aimeleondore.com",
   "gender_prior": "m",
-  "seen": 2
+  "seen": 3
  },
  "Air Jordan": {
   "domain": "renarts.com",
@@ -292,7 +292,7 @@
  "Basketcase Gallery": {
   "domain": "www.xhibition.co",
   "gender_prior": "m",
-  "seen": 3
+  "seen": 4
  },
  "Bassike": {
   "domain": "www.bassike.com",
@@ -312,7 +312,7 @@
  "Baukjen": {
   "domain": "www.baukjen.com",
   "gender_prior": "f",
-  "seen": 72
+  "seen": 73
  },
  "Baukjen Womenswear": {
   "domain": "www.baukjen.com",
@@ -357,7 +357,7 @@
  "Bella Dahl": {
   "domain": "www.belladahl.com",
   "gender_prior": "f",
-  "seen": 86
+  "seen": 87
  },
  "Berg & Berg": {
   "domain": "bergbergstore.com",
@@ -427,7 +427,7 @@
  "Boody": {
   "domain": "boody.com",
   "gender_prior": "u",
-  "seen": 13
+  "seen": 14
  },
  "Born Primitive": {
   "domain": "bornprimitive.com",
@@ -592,7 +592,7 @@
  "Cotopaxi": {
   "domain": "www.cotopaxi.com",
   "gender_prior": "f",
-  "seen": 31
+  "seen": 32
  },
  "Cozy Earth": {
   "domain": "cozyearth.com",
@@ -622,17 +622,17 @@
  "DFYNE": {
   "domain": "dfyne.com",
   "gender_prior": "f",
-  "seen": 26
+  "seen": 27
  },
  "DFYNE US": {
   "domain": "us.dfyne.com",
-  "gender_prior": "m",
-  "seen": 2
+  "gender_prior": "f",
+  "seen": 3
  },
  "DISSH Boutiques": {
   "domain": "dissh.com",
   "gender_prior": "f",
-  "seen": 5
+  "seen": 6
  },
  "DL1961": {
   "domain": "www.dl1961.com",
@@ -642,7 +642,7 @@
  "DTLR": {
   "domain": "www.dtlr.com",
   "gender_prior": "m",
-  "seen": 25
+  "seen": 26
  },
  "Daisy Street": {
   "domain": "www.daisystreet.co.uk",
@@ -712,7 +712,7 @@
  "Drakes - UK/ROW": {
   "domain": "www.drakes.com",
   "gender_prior": "m",
-  "seen": 2
+  "seen": 3
  },
  "D\u00d4EN": {
   "domain": "shopdoen.com",
@@ -752,7 +752,7 @@
  "Elka Collective": {
   "domain": "www.elkacollective.com",
   "gender_prior": "f",
-  "seen": 34
+  "seen": 35
  },
  "Elwood": {
   "domain": "elwoodclothing.com",
@@ -767,7 +767,7 @@
  "Everlane": {
   "domain": "www.everlane.com",
   "gender_prior": "f",
-  "seen": 47
+  "seen": 48
  },
  "Extra Butter": {
   "domain": "extrabutterny.com",
@@ -797,7 +797,7 @@
  "Farah": {
   "domain": "www.farah.co.uk",
   "gender_prior": "m",
-  "seen": 45
+  "seen": 46
  },
  "Farm Rio": {
   "domain": "www.farmrio.com",
@@ -1482,7 +1482,7 @@
  "Nude Lucy": {
   "domain": "www.nudelucy.com.au",
   "gender_prior": "f",
-  "seen": 44
+  "seen": 45
  },
  "Oakley": {
   "domain": "extrabutterny.com",
@@ -1602,7 +1602,7 @@
  "Peppermayo Exclusive": {
   "domain": "us.peppermayo.com",
   "gender_prior": "f",
-  "seen": 10
+  "seen": 11
  },
  "Percival": {
   "domain": "www.percivalclo.com",
@@ -1817,7 +1817,7 @@
  "Renarts": {
   "domain": "renarts.com",
   "gender_prior": "m",
-  "seen": 16
+  "seen": 17
  },
  "Represent": {
   "domain": "representclo.com",
@@ -2012,12 +2012,12 @@
  "Show Me Your Mumu": {
   "domain": "www.showmeyourmumu.com",
   "gender_prior": "f",
-  "seen": 27
+  "seen": 28
  },
  "Sik Silk": {
   "domain": "siksilk.com",
   "gender_prior": "m",
-  "seen": 31
+  "seen": 32
  },
  "Silent Theory": {
   "domain": "silenttheory.com.au",
@@ -2052,7 +2052,7 @@
  "Solid & Striped": {
   "domain": "www.solidandstriped.com",
   "gender_prior": "f",
-  "seen": 44
+  "seen": 45
  },
  "Soulland": {
   "domain": "soulland.com",
@@ -2132,7 +2132,7 @@
  "Summer 2026": {
   "domain": "onlyny.com",
   "gender_prior": "m",
-  "seen": 8
+  "seen": 9
  },
  "Sunday Swagger": {
   "domain": "sundayswagger.com",
@@ -2157,7 +2157,7 @@
  "TALA": {
   "domain": "www.wearetala.com",
   "gender_prior": "f",
-  "seen": 31
+  "seen": 32
  },
  "Taylor Stitch": {
   "domain": "www.taylorstitch.com",
@@ -2322,12 +2322,12 @@
  "Vissla": {
   "domain": "vissla.com",
   "gender_prior": "m",
-  "seen": 28
+  "seen": 29
  },
  "Vitamin A": {
   "domain": "www.vitaminaswim.com",
   "gender_prior": "f",
-  "seen": 29
+  "seen": 30
  },
  "Vollebak": {
   "domain": "www.vollebak.com",
@@ -2352,7 +2352,7 @@
  "Warp + Weft": {
   "domain": "warpweftworld.com",
   "gender_prior": "f",
-  "seen": 27
+  "seen": 28
  },
  "Wax London": {
   "domain": "waxlondon.com",
@@ -2367,7 +2367,7 @@
  "Weekend Offender": {
   "domain": "www.weekendoffender.com",
   "gender_prior": "m",
-  "seen": 31
+  "seen": 32
  },
  "Welcome Skateboards": {
   "domain": "welcomeskateboards.com",
@@ -2402,7 +2402,7 @@
  "Xero Shoes": {
   "domain": "xeroshoes.com",
   "gender_prior": "m",
-  "seen": 5
+  "seen": 6
  },
  "Xhibition": {
   "domain": "www.xhibition.co",
@@ -2442,12 +2442,12 @@
  "ZANEROBE": {
   "domain": "zanerobe.com",
   "gender_prior": "m",
-  "seen": 5
+  "seen": 6
  },
  "Zanerobe": {
   "domain": "www.zanerobe.com",
   "gender_prior": "m",
-  "seen": 39
+  "seen": 40
  },
  "Zulu & Zephyr": {
   "domain": "zuluandzephyr.com",

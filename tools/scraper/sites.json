@@ -2474,13 +2474,13 @@
     "https://www.drakes.com/collections/silk-accessories"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 1,
   "gender_source": "prior",
   "health": {
    "fail": 0,
-   "last": 1785525229.2014697,
-   "last_found": 22,
-   "ok": 1,
+   "last": 1786584905.0588336,
+   "last_found": 31,
+   "ok": 2,
    "status": "ok"
   },
   "host": "www.drakes.com",
@@ -2496,15 +2496,15 @@
    ],
    "m": []
   },
-  "entry_cursor": 2,
+  "entry_cursor": 1,
   "gender_source": "prior",
   "health": {
-   "fail": 0,
-   "last": 1785525316.7636032,
-   "last_found": 11,
+   "fail": 1,
+   "last": 1786585020.2739213,
+   "last_found": 0,
    "note": "no products found on the page",
    "ok": 1,
-   "status": "ok"
+   "status": "blocked"
   },
   "host": "shopdoen.com",
   "note": "auto-discovered"
@@ -2523,13 +2523,13 @@
     "https://eastsidegolf.com/collections/mens-bottoms"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 4,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1785525429.6885092,
-   "last_found": 17,
-   "ok": 1,
+   "last": 1786585112.535242,
+   "last_found": 18,
+   "ok": 2,
    "status": "ok"
   },
   "host": "eastsidegolf.com",
@@ -2549,13 +2549,13 @@
     "https://eberjey.com/collections/mens-lounge"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 4,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1785525569.2599127,
-   "last_found": 39,
-   "ok": 1,
+   "last": 1786585197.6575508,
+   "last_found": 52,
+   "ok": 2,
    "status": "ok"
   },
   "host": "eberjey.com",
@@ -2575,13 +2575,14 @@
     "https://echt.com.au/collections/july-frenzy-mens-2021"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 4,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1785525652.6249728,
-   "last_found": 64,
-   "ok": 1,
+   "last": 1786585314.3463845,
+   "last_found": 51,
+   "note": "no products found on the page",
+   "ok": 2,
    "status": "ok"
   },
   "host": "echt.com.au",
@@ -2597,13 +2598,13 @@
    ],
    "m": []
   },
-  "entry_cursor": 2,
+  "entry_cursor": 1,
   "gender_source": "prior",
   "health": {
    "fail": 0,
-   "last": 1785525799.7714252,
+   "last": 1786585466.608175,
    "last_found": 120,
-   "ok": 1,
+   "ok": 2,
    "status": "ok"
   },
   "host": "edikted.com",
@@ -2619,13 +2620,13 @@
    ],
    "m": []
   },
-  "entry_cursor": 2,
+  "entry_cursor": 1,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1785525938.6572537,
-   "last_found": 73,
-   "ok": 1,
+   "last": 1786585635.8278382,
+   "last_found": 48,
+   "ok": 2,
    "status": "ok"
   },
   "host": "www.elkthelabel.com",
@@ -2641,13 +2642,13 @@
    ],
    "m": []
   },
-  "entry_cursor": 2,
+  "entry_cursor": 1,
   "gender_source": "prior",
   "health": {
    "fail": 0,
-   "last": 1785526204.4882667,
-   "last_found": 38,
-   "ok": 1,
+   "last": 1786585798.9736972,
+   "last_found": 56,
+   "ok": 2,
    "status": "ok"
   },
   "host": "www.elkacollective.com",
@@ -2667,14 +2668,14 @@
     "https://www.everlane.com/collections/mens-tees-and-tanks"
    ]
   },
-  "entry_cursor": 1,
+  "entry_cursor": 3,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1785526402.9149604,
-   "last_found": 114,
+   "last": 1786585990.1896365,
+   "last_found": 86,
    "note": "rate-limited (429) \u2014 stopping this shop for now",
-   "ok": 6,
+   "ok": 7,
    "status": "ok"
   },
   "host": "www.everlane.com",
@@ -2690,14 +2691,14 @@
     "https://extrabutterny.com/collections/260_ftw_apr23"
    ]
   },
-  "entry_cursor": 1,
+  "entry_cursor": 0,
   "gender_note": "no women's collection on the whole site and 2/100 womenswear in a sample; entered via its largest collections",
   "gender_source": "inferred",
   "health": {
    "fail": 0,
-   "last": 1785526706.4370677,
-   "last_found": 95,
-   "ok": 2,
+   "last": 1786586336.2962024,
+   "last_found": 108,
+   "ok": 3,
    "status": "ok"
   },
   "host": "extrabutterny.com",
@@ -2717,7 +2718,16 @@
     "https://fahertybrand.com/collections/mens-cold-weather"
    ]
   },
+  "entry_cursor": 1,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1786586374.0914557,
+   "last_found": 24,
+   "note": "rate-limited (429) \u2014 stopping this shop for now",
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "fahertybrand.com",
   "note": "auto-discovered"
  },
@@ -2731,13 +2741,13 @@
     "https://fairharborclothing.com/collections/mens-bayberry-trunk-quiz"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 1,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1785537237.5617504,
-   "last_found": 91,
-   "ok": 1,
+   "last": 1786586550.651785,
+   "last_found": 92,
+   "ok": 2,
    "status": "ok"
   },
   "host": "fairharborclothing.com",
@@ -2753,13 +2763,13 @@
    ],
    "m": []
   },
-  "entry_cursor": 2,
+  "entry_cursor": 1,
   "gender_source": "prior",
   "health": {
    "fail": 0,
-   "last": 1785537375.38404,
-   "last_found": 36,
-   "ok": 1,
+   "last": 1786586694.2659338,
+   "last_found": 41,
+   "ok": 2,
    "status": "ok"
   },
   "host": "faithfullthebrand.com",
@@ -2775,13 +2785,13 @@
     "https://www.farah.co.uk/collections/bottoms"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 1,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1785537454.935792,
+   "last": 1786586778.6540542,
    "last_found": 48,
-   "ok": 1,
+   "ok": 2,
    "status": "ok"
   },
   "host": "www.farah.co.uk",
@@ -2797,14 +2807,14 @@
    ],
    "m": []
   },
-  "entry_cursor": 1,
+  "entry_cursor": 0,
   "gender_source": "prior",
   "health": {
    "fail": 0,
-   "last": 1785537577.0912302,
-   "last_found": 24,
+   "last": 1786587060.867591,
+   "last_found": 82,
    "note": "rate-limited (429) \u2014 stopping this shop for now",
-   "ok": 1,
+   "ok": 2,
    "status": "ok"
   },
   "host": "www.farmrio.com",

@@ -3664,13 +3664,13 @@
     "https://www.jadedldn.com/collections/all-tops-knits-mens"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 4,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1785559250.1911492,
-   "last_found": 93,
-   "ok": 1,
+   "last": 1786628009.8346386,
+   "last_found": 96,
+   "ok": 2,
    "status": "ok"
   },
   "host": "www.jadedldn.com",
@@ -3686,13 +3686,13 @@
    ],
    "m": []
   },
-  "entry_cursor": 2,
+  "entry_cursor": 1,
   "gender_source": "prior",
   "health": {
    "fail": 0,
-   "last": 1785559371.9058402,
-   "last_found": 18,
-   "ok": 1,
+   "last": 1786628120.1576371,
+   "last_found": 17,
+   "ok": 2,
    "status": "ok"
   },
   "host": "janessaleone.com",
@@ -3712,13 +3712,13 @@
     "https://janji.com/collections/mens-shorts"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 4,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1785559467.1374645,
+   "last": 1786628208.135342,
    "last_found": 47,
-   "ok": 1,
+   "ok": 2,
    "status": "ok"
   },
   "host": "janji.com",
@@ -3733,14 +3733,14 @@
    ],
    "m": []
   },
-  "entry_cursor": 0,
+  "entry_cursor": 1,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1785559521.901211,
+   "last": 1786628247.9874303,
    "last_found": 1,
-   "note": "no products found on the page",
-   "ok": 1,
+   "note": "rate-limited (429) \u2014 stopping this shop for now",
+   "ok": 2,
    "status": "ok"
   },
   "host": "www.jennikayne.com",
@@ -3756,13 +3756,13 @@
     "https://johnelliott.com/collections/bf-exclude-2021"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 1,
   "gender_source": "prior",
   "health": {
    "fail": 0,
-   "last": 1785559643.613354,
-   "last_found": 8,
-   "ok": 1,
+   "last": 1786628346.5691059,
+   "last_found": 13,
+   "ok": 2,
    "status": "ok"
   },
   "host": "johnelliott.com",
@@ -3782,13 +3782,13 @@
     "https://johnnie-o.com/collections/men-s-course-tees"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 4,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1785559769.4556193,
-   "last_found": 98,
-   "ok": 1,
+   "last": 1786628473.614224,
+   "last_found": 70,
+   "ok": 2,
    "status": "ok"
   },
   "host": "johnnie-o.com",
@@ -3806,14 +3806,14 @@
     "https://www.keenfootwear.com/collections/mens-boots"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 0,
   "gender_note": "found only men's collections by name; the shop also lists women's ones, so its general collections are registered for that side as a guess",
   "gender_source": "prior",
   "health": {
    "fail": 0,
-   "last": 1785559839.3908365,
-   "last_found": 87,
-   "ok": 1,
+   "last": 1786628539.5546384,
+   "last_found": 58,
+   "ok": 2,
    "status": "ok"
   },
   "host": "www.keenfootwear.com",
@@ -3831,9 +3831,9 @@
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1785559879.6557174,
-   "last_found": 23,
-   "ok": 1,
+   "last": 1786628580.9767752,
+   "last_found": 28,
+   "ok": 2,
    "status": "ok"
   },
   "host": "katinusa.com",
@@ -3853,13 +3853,14 @@
     "https://www.kavu.com/collections/mens-shirts"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 3,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1785559977.6631076,
-   "last_found": 31,
-   "ok": 1,
+   "last": 1786628619.3575785,
+   "last_found": 24,
+   "note": "rate-limited (429) \u2014 stopping this shop for now",
+   "ok": 2,
    "status": "ok"
   },
   "host": "www.kavu.com",
@@ -3875,13 +3876,13 @@
     "https://kestin.co/collections/aw24-collection"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 1,
   "gender_source": "prior",
   "health": {
    "fail": 0,
-   "last": 1785560150.7015452,
-   "last_found": 59,
-   "ok": 1,
+   "last": 1786628712.218635,
+   "last_found": 6,
+   "ok": 2,
    "status": "ok"
   },
   "host": "kestin.co",
@@ -3924,14 +3925,15 @@
     "https://www.killstar.com/collections/all-mens-loungewear"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 4,
   "gender_source": "collection",
   "health": {
-   "fail": 0,
-   "last": 1785569722.773712,
-   "last_found": 120,
+   "fail": 1,
+   "last": 1786628799.0151138,
+   "last_found": 0,
+   "note": "no products found on the page; no products found on the page",
    "ok": 1,
-   "status": "ok"
+   "status": "blocked"
   },
   "host": "www.killstar.com",
   "note": "auto-discovered"
@@ -3948,14 +3950,14 @@
     "https://kith.com/collections/productsize-10"
    ]
   },
-  "entry_cursor": 0,
+  "entry_cursor": 2,
   "gender_note": "found only women's collections by name; the shop also lists men's ones, so its general collections are registered for that side as a guess",
   "gender_source": "prior",
   "health": {
    "fail": 0,
-   "last": 1785569853.5729163,
-   "last_found": 87,
-   "ok": 2,
+   "last": 1786628953.8016398,
+   "last_found": 78,
+   "ok": 3,
    "status": "ok"
   },
   "host": "kith.com",
@@ -3973,9 +3975,9 @@
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1785569911.0997722,
-   "last_found": 29,
-   "ok": 1,
+   "last": 1786628993.8529081,
+   "last_found": 21,
+   "ok": 2,
    "status": "ok"
   },
   "host": "kitristudio.com",
@@ -3991,13 +3993,13 @@
    ],
    "m": []
   },
-  "entry_cursor": 2,
+  "entry_cursor": 1,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1785570132.1680746,
-   "last_found": 42,
-   "ok": 1,
+   "last": 1786629264.5838842,
+   "last_found": 47,
+   "ok": 2,
    "status": "ok"
   },
   "host": "kivari.com.au",
@@ -4017,13 +4019,13 @@
     "https://www.koio.co/collections/leather-collection-mens"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 4,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1785570414.6644146,
-   "last_found": 2,
-   "ok": 1,
+   "last": 1786629463.8889956,
+   "last_found": 1,
+   "ok": 2,
    "status": "ok"
   },
   "host": "www.koio.co",

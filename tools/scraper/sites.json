@@ -4960,13 +4960,13 @@
    ],
    "m": []
   },
-  "entry_cursor": 2,
+  "entry_cursor": 1,
   "gender_source": "prior",
   "health": {
    "fail": 0,
-   "last": 1785591538.3623135,
-   "last_found": 32,
-   "ok": 1,
+   "last": 1786671147.5244663,
+   "last_found": 31,
+   "ok": 2,
    "status": "ok"
   },
   "host": "www.motelrocks.com",
@@ -4986,14 +4986,14 @@
     "https://mottandbow.com/collections/mens-tees"
    ]
   },
-  "entry_cursor": 1,
+  "entry_cursor": 2,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1785591574.9048932,
-   "last_found": 21,
+   "last": 1786671223.7874234,
+   "last_found": 50,
    "note": "rate-limited (429) \u2014 stopping this shop for now",
-   "ok": 1,
+   "ok": 2,
    "status": "ok"
   },
   "host": "mottandbow.com",
@@ -5009,13 +5009,13 @@
     "https://mrsimple.com.au/collections/mr-simple-swco-full-price"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 1,
   "gender_source": "prior",
   "health": {
    "fail": 0,
-   "last": 1785591709.2537117,
-   "last_found": 119,
-   "ok": 1,
+   "last": 1786671350.6945155,
+   "last_found": 120,
+   "ok": 2,
    "status": "ok"
   },
   "host": "mrsimple.com.au",
@@ -5033,14 +5033,14 @@
     "https://www.muji.us/collections/mens-new-arrivals"
    ]
   },
-  "entry_cursor": 1,
+  "entry_cursor": 2,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1785591766.4703069,
+   "last": 1786671412.867382,
    "last_found": 48,
    "note": "rate-limited (429) \u2014 stopping this shop for now",
-   "ok": 1,
+   "ok": 2,
    "status": "ok"
   },
   "host": "www.muji.us",
@@ -5060,13 +5060,14 @@
     "https://musclenation.org/collections/bf-mens-to-add"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 4,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1785591857.3831532,
-   "last_found": 84,
-   "ok": 1,
+   "last": 1786671523.6309173,
+   "last_found": 40,
+   "note": "no products found on the page",
+   "ok": 2,
    "status": "ok"
   },
   "host": "musclenation.org",
@@ -5082,13 +5083,13 @@
    ],
    "m": []
   },
-  "entry_cursor": 2,
+  "entry_cursor": 1,
   "gender_source": "prior",
   "health": {
    "fail": 0,
-   "last": 1785591926.133775,
-   "last_found": 14,
-   "ok": 1,
+   "last": 1786671594.3722043,
+   "last_found": 15,
+   "ok": 2,
    "status": "ok"
   },
   "host": "musier-paris.com",
@@ -5104,13 +5105,13 @@
     "https://mylesapparel.com/collections/workout-shorts"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 1,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1785592047.6257777,
-   "last_found": 108,
-   "ok": 1,
+   "last": 1786671694.8043861,
+   "last_found": 78,
+   "ok": 2,
    "status": "ok"
   },
   "host": "mylesapparel.com",
@@ -5126,14 +5127,14 @@
     "https://neighborhood.jp/collections/tee-cut-sewn"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 1,
   "gender_note": "no women's collection on the whole site and 0/100 womenswear in a sample",
   "gender_source": "inferred",
   "health": {
    "fail": 0,
-   "last": 1785592153.1122198,
-   "last_found": 58,
-   "ok": 1,
+   "last": 1786671817.7585447,
+   "last_found": 52,
+   "ok": 2,
    "status": "ok"
   },
   "host": "neighborhood.jp",
@@ -5149,13 +5150,13 @@
    ],
    "m": []
   },
-  "entry_cursor": 2,
+  "entry_cursor": 1,
   "gender_source": "prior",
   "health": {
    "fail": 0,
-   "last": 1785592297.7359095,
-   "last_found": 47,
-   "ok": 1,
+   "last": 1786671925.756908,
+   "last_found": 50,
+   "ok": 2,
    "status": "ok"
   },
   "host": "nagnata.com",
@@ -5174,7 +5175,16 @@
     "https://www.nakedandfamousdenim.com/collections/core-menu"
    ]
   },
+  "entry_cursor": 1,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1786671979.2368054,
+   "last_found": 24,
+   "note": "rate-limited (429) \u2014 stopping this shop for now",
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "www.nakedandfamousdenim.com",
   "note": "auto-discovered"
  },
@@ -5190,9 +5200,9 @@
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1785601885.802308,
+   "last": 1786671997.2358537,
    "last_found": 7,
-   "ok": 1,
+   "ok": 2,
    "status": "ok"
   },
   "host": "neffheadwear.com",
@@ -5208,13 +5218,13 @@
     "https://nenaandpasadena.com/collections/mens-afl-t-shirts"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 1,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1785601978.4533086,
-   "last_found": 119,
-   "ok": 1,
+   "last": 1786672082.487136,
+   "last_found": 95,
+   "ok": 2,
    "status": "ok"
   },
   "host": "nenaandpasadena.com",
@@ -5230,14 +5240,14 @@
    ],
    "m": []
   },
-  "entry_cursor": 1,
+  "entry_cursor": 2,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1785602022.2004044,
-   "last_found": 20,
+   "last": 1786672124.6936781,
+   "last_found": 18,
    "note": "rate-limited (429) \u2014 stopping this shop for now",
-   "ok": 1,
+   "ok": 2,
    "status": "ok"
   },
   "host": "neverfullydressed.com",
@@ -5253,13 +5263,13 @@
    ],
    "m": []
   },
-  "entry_cursor": 2,
+  "entry_cursor": 1,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1785602107.3572204,
-   "last_found": 65,
-   "ok": 1,
+   "last": 1786672482.3986862,
+   "last_found": 98,
+   "ok": 2,
    "status": "ok"
   },
   "host": "nimbleactivewear.com",
@@ -5279,13 +5289,13 @@
     "https://nisolo.com/collections/mens-accessories"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 4,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1785602217.5300689,
-   "last_found": 73,
-   "ok": 1,
+   "last": 1786672574.8606958,
+   "last_found": 55,
+   "ok": 2,
    "status": "ok"
   },
   "host": "nisolo.com",

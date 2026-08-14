@@ -5364,9 +5364,9 @@
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1785602411.613492,
-   "last_found": 11,
-   "ok": 1,
+   "last": 1786681931.894969,
+   "last_found": 21,
+   "ok": 2,
    "status": "ok"
   },
   "host": "www.nobodyschild.com",
@@ -5382,15 +5382,15 @@
     "https://www.norseprojects.com/collections/shirting"
    ]
   },
-  "entry_cursor": 1,
+  "entry_cursor": 0,
   "gender_source": "prior",
   "health": {
-   "fail": 0,
-   "last": 1785602452.164812,
-   "last_found": 26,
+   "fail": 1,
+   "last": 1786681977.7540624,
+   "last_found": 0,
    "note": "rate-limited (429) \u2014 stopping this shop for now",
    "ok": 1,
-   "status": "ok"
+   "status": "blocked"
   },
   "host": "www.norseprojects.com",
   "note": "auto-discovered"
@@ -5409,13 +5409,14 @@
     "https://www.notre-shop.com/collections/bottoms-mens"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 4,
   "gender_source": "collection-handle",
   "health": {
    "fail": 0,
-   "last": 1785602499.8108263,
-   "last_found": 16,
-   "ok": 1,
+   "last": 1786682044.9130769,
+   "last_found": 18,
+   "note": "no products found on the page",
+   "ok": 2,
    "status": "ok"
   },
   "host": "www.notre-shop.com",
@@ -5431,13 +5432,14 @@
    ],
    "m": []
   },
-  "entry_cursor": 2,
+  "entry_cursor": 0,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1785602633.6537113,
-   "last_found": 117,
-   "ok": 1,
+   "last": 1786682097.4370723,
+   "last_found": 54,
+   "note": "rate-limited (429) \u2014 stopping this shop for now",
+   "ok": 2,
    "status": "ok"
   },
   "host": "www.nudelucy.com.au",
@@ -5457,14 +5459,14 @@
     "https://www.obeyclothing.com/collections/mens-t-shirts"
    ]
   },
-  "entry_cursor": 1,
+  "entry_cursor": 3,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1785602690.3691204,
-   "last_found": 54,
+   "last": 1786682191.8264005,
+   "last_found": 71,
    "note": "rate-limited (429) \u2014 stopping this shop for now",
-   "ok": 1,
+   "ok": 2,
    "status": "ok"
   },
   "host": "www.obeyclothing.com",
@@ -5482,9 +5484,9 @@
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1785602725.649366,
-   "last_found": 6,
-   "ok": 1,
+   "last": 1786682222.7390652,
+   "last_found": 5,
+   "ok": 2,
    "status": "ok"
   },
   "host": "www.ohpolly.com",
@@ -5504,13 +5506,13 @@
     "https://olivercabell.com/collections/low-2-mens"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 4,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1785602900.1751301,
-   "last_found": 75,
-   "ok": 1,
+   "last": 1786682409.011463,
+   "last_found": 80,
+   "ok": 2,
    "status": "ok"
   },
   "host": "olivercabell.com",
@@ -5526,13 +5528,13 @@
     "https://oliverspencer.co.uk/collections/autumn-25"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 1,
   "gender_source": "prior",
   "health": {
    "fail": 0,
-   "last": 1785603085.109742,
-   "last_found": 83,
-   "ok": 1,
+   "last": 1786682595.6718273,
+   "last_found": 73,
+   "ok": 2,
    "status": "ok"
   },
   "host": "oliverspencer.co.uk",
@@ -5548,7 +5550,15 @@
    ],
    "m": []
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1786682721.2351072,
+   "last_found": 54,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "omnes.com",
   "note": "auto-discovered"
  },
@@ -5562,7 +5572,15 @@
    ],
    "m": []
   },
+  "entry_cursor": 2,
   "gender_source": "prior",
+  "health": {
+   "fail": 0,
+   "last": 1786682862.5565064,
+   "last_found": 61,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "oneractive.com",
   "note": "auto-discovered"
  },
@@ -5580,13 +5598,13 @@
     "https://onia.com/collections/shop-all-mens"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 4,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1785612736.6972828,
-   "last_found": 31,
-   "ok": 1,
+   "last": 1786682953.8880935,
+   "last_found": 37,
+   "ok": 2,
    "status": "ok"
   },
   "host": "onia.com",
@@ -5602,13 +5620,14 @@
     "https://onlyny.com/collections/nyc-collection"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 0,
   "gender_source": "prior",
   "health": {
    "fail": 0,
-   "last": 1785612791.518087,
-   "last_found": 70,
-   "ok": 1,
+   "last": 1786682980.7821698,
+   "last_found": 45,
+   "note": "rate-limited (429) \u2014 stopping this shop for now",
+   "ok": 2,
    "status": "ok"
   },
   "host": "onlyny.com",
@@ -5628,14 +5647,14 @@
     "https://organicbasics.com/collections/organic-cotton-95-100-mens-underwear"
    ]
   },
-  "entry_cursor": 1,
+  "entry_cursor": 3,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1785612845.3178132,
-   "last_found": 60,
+   "last": 1786683102.3751748,
+   "last_found": 120,
    "note": "rate-limited (429) \u2014 stopping this shop for now",
-   "ok": 1,
+   "ok": 2,
    "status": "ok"
   },
   "host": "organicbasics.com",
@@ -5651,13 +5670,13 @@
     "https://www.orlebarbrown.com/collections/mens-swimming-trunks"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 1,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1785613013.510516,
-   "last_found": 2,
-   "ok": 1,
+   "last": 1786683273.21915,
+   "last_found": 1,
+   "ok": 2,
    "status": "ok"
   },
   "host": "www.orlebarbrown.com",
@@ -5701,13 +5720,14 @@
     "https://www.outerknown.com/collections/beach-bound-mens"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 1,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1785613190.1333141,
-   "last_found": 36,
-   "ok": 1,
+   "last": 1786683358.6043794,
+   "last_found": 30,
+   "note": "no products found on the page",
+   "ok": 2,
    "status": "ok"
   },
   "host": "www.outerknown.com",

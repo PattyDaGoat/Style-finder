@@ -5769,13 +5769,13 @@
    ],
    "m": []
   },
-  "entry_cursor": 2,
+  "entry_cursor": 1,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1785613456.6011097,
-   "last_found": 21,
-   "ok": 1,
+   "last": 1786822522.6278386,
+   "last_found": 36,
+   "ok": 2,
    "status": "ok"
   },
   "host": "www.pe-nation.com",
@@ -5791,13 +5791,13 @@
    ],
    "m": []
   },
-  "entry_cursor": 2,
+  "entry_cursor": 1,
   "gender_source": "prior",
   "health": {
    "fail": 0,
-   "last": 1785613625.8475034,
-   "last_found": 117,
-   "ok": 1,
+   "last": 1786822676.1168067,
+   "last_found": 116,
+   "ok": 2,
    "status": "ok"
   },
   "host": "popflexactive.com",
@@ -5815,9 +5815,9 @@
   "gender_source": "collection-handle",
   "health": {
    "fail": 0,
-   "last": 1785613653.2927983,
+   "last": 1786822704.8116956,
    "last_found": 1,
-   "ok": 1,
+   "ok": 2,
    "status": "ok"
   },
   "host": "packershoes.com",
@@ -5883,14 +5883,14 @@
    ],
    "m": []
   },
-  "entry_cursor": 2,
+  "entry_cursor": 1,
   "gender_source": "prior",
   "health": {
    "fail": 0,
-   "last": 1785613894.2353826,
-   "last_found": 49,
+   "last": 1786822853.579137,
+   "last_found": 46,
    "note": "no products found on the page",
-   "ok": 1,
+   "ok": 2,
    "status": "ok"
   },
   "host": "www.peppermayo.com",
@@ -5908,13 +5908,14 @@
     "https://www.percivalclo.com/collections/trousers"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 3,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1785613997.4824603,
-   "last_found": 35,
-   "ok": 1,
+   "last": 1786822902.8312092,
+   "last_found": 7,
+   "note": "rate-limited (429) \u2014 stopping this shop for now",
+   "ok": 2,
    "status": "ok"
   },
   "host": "www.percivalclo.com",
@@ -5930,13 +5931,13 @@
    ],
    "m": []
   },
-  "entry_cursor": 2,
+  "entry_cursor": 1,
   "gender_source": "prior",
   "health": {
    "fail": 0,
-   "last": 1785614291.2441344,
-   "last_found": 63,
-   "ok": 1,
+   "last": 1786823039.0688064,
+   "last_found": 102,
+   "ok": 2,
    "status": "ok"
   },
   "host": "www.petalandpup.com",
@@ -5952,13 +5953,13 @@
    ],
    "m": []
   },
-  "entry_cursor": 2,
+  "entry_cursor": 1,
   "gender_source": "prior",
   "health": {
    "fail": 0,
-   "last": 1785614415.9753575,
-   "last_found": 89,
-   "ok": 1,
+   "last": 1786823167.6861594,
+   "last_found": 103,
+   "ok": 2,
    "status": "ok"
   },
   "host": "petitestudionyc.com",
@@ -5974,7 +5975,15 @@
    ],
    "m": []
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1786823218.9889174,
+   "last_found": 120,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "www.pinklily.com",
   "note": "auto-discovered"
  },
@@ -5988,7 +5997,15 @@
    ],
    "m": []
   },
+  "entry_cursor": 2,
   "gender_source": "prior",
+  "health": {
+   "fail": 0,
+   "last": 1786823421.8048806,
+   "last_found": 62,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "pistoladenim.com",
   "note": "auto-discovered"
  },
@@ -6002,7 +6019,15 @@
     "https://pleasuresnow.com/collections/spring-25"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "prior",
+  "health": {
+   "fail": 0,
+   "last": 1786823519.3236055,
+   "last_found": 65,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "pleasuresnow.com",
   "note": "auto-discovered"
  },
@@ -6080,13 +6105,13 @@
     "https://www.prettygreen.com/collections/bestsellers"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 1,
   "gender_source": "prior",
   "health": {
    "fail": 0,
-   "last": 1785623582.6260583,
-   "last_found": 59,
-   "ok": 1,
+   "last": 1786823562.5738037,
+   "last_found": 58,
+   "ok": 2,
    "status": "ok"
   },
   "host": "www.prettygreen.com",
@@ -6104,9 +6129,9 @@
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1785623620.7845705,
+   "last": 1786823600.1638653,
    "last_found": 15,
-   "ok": 1,
+   "ok": 2,
    "status": "ok"
   },
   "host": "www.primitiveskate.com",
@@ -6122,13 +6147,14 @@
    ],
    "m": []
   },
-  "entry_cursor": 2,
+  "entry_cursor": 0,
   "gender_source": "prior",
   "health": {
    "fail": 0,
-   "last": 1785623714.0807967,
-   "last_found": 96,
-   "ok": 1,
+   "last": 1786823639.3177226,
+   "last_found": 60,
+   "note": "rate-limited (429) \u2014 stopping this shop for now",
+   "ok": 2,
    "status": "ok"
   },
   "host": "us.princesspolly.com",
@@ -6144,13 +6170,14 @@
     "https://profoundco.com/collections/shop-all"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 0,
   "gender_source": "prior",
   "health": {
    "fail": 0,
-   "last": 1785623810.3428586,
-   "last_found": 45,
-   "ok": 1,
+   "last": 1786823690.800053,
+   "last_found": 22,
+   "note": "rate-limited (429) \u2014 stopping this shop for now",
+   "ok": 2,
    "status": "ok"
   },
   "host": "profoundco.com",
@@ -6169,9 +6196,9 @@
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1785623855.6350472,
+   "last": 1786823740.618982,
    "last_found": 10,
-   "ok": 1,
+   "ok": 2,
    "status": "ok"
   },
   "host": "www.publicdesire.com",

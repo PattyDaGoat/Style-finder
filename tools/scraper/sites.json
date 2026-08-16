@@ -7005,9 +7005,9 @@
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1786302505.0824645,
+   "last": 1786854710.09336,
    "last_found": 23,
-   "ok": 1,
+   "ok": 2,
    "status": "ok"
   },
   "host": "saboskirt.com",
@@ -7027,13 +7027,13 @@
     "https://saltycrew.com/collections/t-shirts"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 4,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1786302701.9175093,
-   "last_found": 75,
-   "ok": 1,
+   "last": 1786855009.7790053,
+   "last_found": 120,
+   "ok": 2,
    "status": "ok"
   },
   "host": "saltycrew.com",
@@ -7053,13 +7053,13 @@
     "https://santandabel.com/collections/mens-sleepwear"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 4,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1786302865.7966254,
-   "last_found": 101,
-   "ok": 1,
+   "last": 1786855132.6227543,
+   "last_found": 102,
+   "ok": 2,
    "status": "ok"
   },
   "host": "santandabel.com",
@@ -7075,14 +7075,14 @@
    ],
    "m": []
   },
-  "entry_cursor": 2,
+  "entry_cursor": 1,
   "gender_source": "prior",
   "health": {
-   "fail": 0,
-   "last": 1786303048.4046574,
-   "last_found": 1,
+   "fail": 1,
+   "last": 1786855294.318733,
+   "last_found": 0,
    "ok": 1,
-   "status": "ok"
+   "status": "blocked"
   },
   "host": "www.sarahflint.com",
   "note": "auto-discovered"
@@ -7128,14 +7128,14 @@
     "https://savekhaki.com/collections/mens-lounge"
    ]
   },
-  "entry_cursor": 1,
+  "entry_cursor": 3,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1786303157.971572,
-   "last_found": 20,
+   "last": 1786855375.9489398,
+   "last_found": 47,
    "note": "rate-limited (429) \u2014 stopping this shop for now",
-   "ok": 1,
+   "ok": 2,
    "status": "ok"
   },
   "host": "savekhaki.com",
@@ -7155,13 +7155,13 @@
     "https://www.scotch-soda.com/collections/mens-back-to-campus"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 4,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1786303533.3520827,
-   "last_found": 101,
-   "ok": 1,
+   "last": 1786855419.6336594,
+   "last_found": 5,
+   "ok": 2,
    "status": "ok"
   },
   "host": "www.scotch-soda.com",
@@ -7177,13 +7177,14 @@
     "https://scuffers.com/collections/geosort-sg-all"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 0,
   "gender_source": "prior",
   "health": {
    "fail": 0,
-   "last": 1786303626.7878191,
-   "last_found": 62,
-   "ok": 1,
+   "last": 1786855529.0038114,
+   "last_found": 60,
+   "note": "rate-limited (429) \u2014 stopping this shop for now",
+   "ok": 2,
    "status": "ok"
   },
   "host": "scuffers.com",
@@ -7199,14 +7200,14 @@
     "https://seagerco.com/collections/clothing"
    ]
   },
-  "entry_cursor": 1,
+  "entry_cursor": 0,
   "gender_source": "prior",
   "health": {
    "fail": 0,
-   "last": 1786303679.4459143,
-   "last_found": 42,
+   "last": 1786855666.276767,
+   "last_found": 89,
    "note": "rate-limited (429) \u2014 stopping this shop for now",
-   "ok": 1,
+   "ok": 2,
    "status": "ok"
   },
   "host": "seagerco.com",
@@ -7222,7 +7223,15 @@
    ],
    "m": []
   },
+  "entry_cursor": 2,
   "gender_source": "prior",
+  "health": {
+   "fail": 0,
+   "last": 1786855754.5652084,
+   "last_found": 70,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "secondfemale.com",
   "note": "auto-discovered"
  },
@@ -7236,7 +7245,15 @@
    ],
    "m": []
   },
+  "entry_cursor": 2,
   "gender_source": "prior",
+  "health": {
+   "fail": 0,
+   "last": 1786856561.8605196,
+   "last_found": 96,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "www.selfieleslie.com",
   "note": "auto-discovered"
  },
@@ -7271,13 +7288,13 @@
    ],
    "m": []
   },
-  "entry_cursor": 2,
+  "entry_cursor": 1,
   "gender_source": "prior",
   "health": {
    "fail": 0,
-   "last": 1786304099.0250669,
-   "last_found": 117,
-   "ok": 1,
+   "last": 1786856766.599261,
+   "last_found": 95,
+   "ok": 2,
    "status": "ok"
   },
   "host": "setactive.co",
@@ -7293,15 +7310,15 @@
     "https://www.shoepalace.com/collections/adidas-apparel"
    ]
   },
-  "entry_cursor": 0,
+  "entry_cursor": 1,
   "gender_note": "guessed menswear (only 0% dresses and 20% read womenswear); registered as a prior, so any evidence on a piece overrides it",
   "gender_source": "prior",
   "health": {
    "fail": 0,
-   "last": 1786304222.910623,
-   "last_found": 18,
+   "last": 1786856833.86789,
+   "last_found": 14,
    "note": "rate-limited (429) \u2014 stopping this shop for now",
-   "ok": 2,
+   "ok": 3,
    "status": "ok"
   },
   "host": "www.shoepalace.com",
@@ -7317,13 +7334,13 @@
    ],
    "m": []
   },
-  "entry_cursor": 2,
+  "entry_cursor": 1,
   "gender_source": "prior",
   "health": {
    "fail": 0,
-   "last": 1786304552.437867,
-   "last_found": 36,
-   "ok": 1,
+   "last": 1786857211.3458147,
+   "last_found": 38,
+   "ok": 2,
    "status": "ok"
   },
   "host": "www.shonajoy.com",
@@ -7339,13 +7356,13 @@
    ],
    "m": []
   },
-  "entry_cursor": 2,
+  "entry_cursor": 1,
   "gender_source": "prior",
   "health": {
    "fail": 0,
-   "last": 1786304685.746932,
-   "last_found": 90,
-   "ok": 1,
+   "last": 1786857363.6664443,
+   "last_found": 92,
+   "ok": 2,
    "status": "ok"
   },
   "host": "www.showmeyourmumu.com",
@@ -7365,14 +7382,14 @@
     "https://siksilk.com/collections/t-shirts-men"
    ]
   },
-  "entry_cursor": 1,
+  "entry_cursor": 2,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1786304755.665805,
+   "last": 1786857412.9264152,
    "last_found": 50,
    "note": "rate-limited (429) \u2014 stopping this shop for now",
-   "ok": 1,
+   "ok": 2,
    "status": "ok"
   },
   "host": "siksilk.com",

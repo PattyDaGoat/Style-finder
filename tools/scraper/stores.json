@@ -302,7 +302,7 @@
  "Bather": {
   "domain": "bather.com",
   "gender_prior": "m",
-  "seen": 51
+  "seen": 52
  },
  "Battenwear": {
   "domain": "battenwear.com",
@@ -872,7 +872,7 @@
  "Fresh Clean Threads": {
   "domain": "freshcleanthreads.com",
   "gender_prior": "m",
-  "seen": 45
+  "seen": 46
  },
  "Frog Skateboards": {
   "domain": "frogskateboards.com",
@@ -1057,7 +1057,7 @@
  "Johnnie-O": {
   "domain": "johnnie-o.com",
   "gender_prior": "m",
-  "seen": 26
+  "seen": 27
  },
  "KEEN": {
   "domain": "www.keenfootwear.com",
@@ -1232,7 +1232,7 @@
  "Lurking Class": {
   "domain": "lurkingclass.com",
   "gender_prior": "m",
-  "seen": 38
+  "seen": 40
  },
  "Lyle & Scott": {
   "domain": "www.lyleandscott.com",
@@ -1242,7 +1242,7 @@
  "Lyle and Scott": {
   "domain": "www.lyleandscott.com",
   "gender_prior": "m",
-  "seen": 7
+  "seen": 8
  },
  "M.Gemi": {
   "domain": "www.mgemi.com",
@@ -1337,7 +1337,7 @@
  "Montirex": {
   "domain": "montirex.com",
   "gender_prior": "f",
-  "seen": 32
+  "seen": 33
  },
  "Motel Rocks": {
   "domain": "www.motelrocks.com",
@@ -1347,7 +1347,7 @@
  "Mott & Bow": {
   "domain": "mottandbow.com",
   "gender_prior": "u",
-  "seen": 36
+  "seen": 37
  },
  "Mr Simple": {
   "domain": "mrsimple.com.au",
@@ -1357,7 +1357,7 @@
  "Muji": {
   "domain": "www.muji.us",
   "gender_prior": "m",
-  "seen": 2
+  "seen": 3
  },
  "Muscle Nation": {
   "domain": "musclenation.org",
@@ -1389,6 +1389,11 @@
   "gender_prior": "m",
   "seen": 3
  },
+ "NYC Collection": {
+  "domain": "onlyny.com",
+  "gender_prior": "m",
+  "seen": 1
+ },
  "Nagnata": {
   "domain": "nagnata.com",
   "gender_prior": "f",
@@ -1412,7 +1417,7 @@
  "Nena and Pasadena": {
   "domain": "nenaandpasadena.com",
   "gender_prior": "m",
-  "seen": 5
+  "seen": 6
  },
  "Nena and Pasadena AFL": {
   "domain": "nenaandpasadena.com",
@@ -1457,7 +1462,7 @@
  "Nisolo": {
   "domain": "nisolo.com",
   "gender_prior": "f",
-  "seen": 22
+  "seen": 23
  },
  "No Problemo": {
   "domain": "www.ariesarise.com",
@@ -1477,7 +1482,7 @@
  "Nobody's Child": {
   "domain": "www.nobodyschild.com",
   "gender_prior": "f",
-  "seen": 27
+  "seen": 28
  },
  "Noon Goons": {
   "domain": "noongoons.com",
@@ -1488,6 +1493,11 @@
   "domain": "www.norseprojects.com",
   "gender_prior": "m",
   "seen": 5
+ },
+ "Notre": {
+  "domain": "www.notre-shop.com",
+  "gender_prior": "m",
+  "seen": 1
  },
  "Nude Lucy": {
   "domain": "www.nudelucy.com.au",
@@ -1522,17 +1532,17 @@
  "Oliver Spencer": {
   "domain": "oliverspencer.co.uk",
   "gender_prior": "m",
-  "seen": 26
+  "seen": 27
  },
  "Omnes": {
   "domain": "omnes.com",
   "gender_prior": "f",
-  "seen": 22
+  "seen": 23
  },
  "Oner Active": {
   "domain": "oneractive.com",
   "gender_prior": "f",
-  "seen": 29
+  "seen": 30
  },
  "Onia": {
   "domain": "onia.com",
@@ -1582,7 +1592,7 @@
  "P.E Nation Global": {
   "domain": "www.pe-nation.com",
   "gender_prior": "f",
-  "seen": 6
+  "seen": 7
  },
  "PATTA": {
   "domain": "undefeated.com",
@@ -1652,7 +1662,7 @@
  "Pistola Denim": {
   "domain": "www.pistoladenim.com",
   "gender_prior": "f",
-  "seen": 1
+  "seen": 2
  },
  "Places Plus Faces": {
   "domain": "placesplusfaces.com",
@@ -1722,7 +1732,7 @@
  "Pursue Fitness": {
   "domain": "pursuefitness.com",
   "gender_prior": "f",
-  "seen": 32
+  "seen": 33
  },
  "Quasi Skateboards": {
   "domain": "quasiskateboards.com",
@@ -1844,15 +1854,20 @@
   "gender_prior": "m",
   "seen": 25
  },
- "Richer Poorer": {
-  "domain": "richer-poorer.com",
+ "Represent Clo": {
+  "domain": "representclo.com",
   "gender_prior": "f",
-  "seen": 2
+  "seen": 1
+ },
+ "Richer Poorer": {
+  "domain": "andieswim.com",
+  "gender_prior": "f",
+  "seen": 3
  },
  "Rip Curl": {
   "domain": "www.ripcurl.com",
   "gender_prior": "u",
-  "seen": 31
+  "seen": 32
  },
  "Rip N Dip": {
   "domain": "ripndip.com",
@@ -1897,7 +1912,7 @@
  "Runaway The Label": {
   "domain": "www.runawaythelabel.com",
   "gender_prior": "f",
-  "seen": 28
+  "seen": 29
  },
  "Runway Scout": {
   "domain": "www.runwayscout.com",
@@ -2172,7 +2187,7 @@
  "Sunsets": {
   "domain": "pinklily.com",
   "gender_prior": "f",
-  "seen": 1
+  "seen": 2
  },
  "Sunspel": {
   "domain": "www.sunspel.com",
@@ -2362,7 +2377,7 @@
  "Vissla": {
   "domain": "vissla.com",
   "gender_prior": "m",
-  "seen": 36
+  "seen": 37
  },
  "Vitamin A": {
   "domain": "www.vitaminaswim.com",
@@ -2487,7 +2502,7 @@
  "Zanerobe": {
   "domain": "www.zanerobe.com",
   "gender_prior": "m",
-  "seen": 48
+  "seen": 49
  },
  "Zulu & Zephyr": {
   "domain": "zuluandzephyr.com",
@@ -2522,6 +2537,6 @@
  "lack of color": {
   "domain": "lackofcolor.com",
   "gender_prior": "f",
-  "seen": 3
+  "seen": 4
  }
 }

@@ -2,6 +2,27 @@
 <script src="https://accounts.google.com/gsi/client" async defer></script>
 </head>
 <body>
+
+<!-- Boot screen. Everything above the catalog is ~50KB, so this paints within the
+     first packets while the ~7MB catalog is still streaming in below. Removed by
+     90-boot.js once the app has actually started. -->
+<div id="boot">
+  <h1 class="boot-logo">MAISON<span class="leaf">&nbsp;/&nbsp;</span>EDIT</h1>
+  <div class="boot-bar" role="progressbar" aria-label="Loading the catalogue"><i></i></div>
+  <p class="boot-sub">Loading the catalogue &mdash; the whole app is one file, so this takes a moment on the first visit.</p>
+</div>
+<script>
+/* Watchdog: if the app's own scripts throw, 90-boot.js never runs and the visitor
+   would be stranded on the boot screen forever. A broken app is still more useful
+   than an eternal loading bar, so uncover it either way. */
+(function(){
+  function bail(){ if(window.__bootDone) return; try{ window.hideBoot && window.hideBoot(); }catch(e){}
+    var b=document.getElementById('boot'); if(b&&b.parentNode) b.parentNode.removeChild(b); }
+  window.addEventListener('error', bail);
+  window.addEventListener('load', function(){ setTimeout(bail, 1500); });
+})();
+</script>
+
 <div class="wrap">
   <div id="appbar" class="appbar hidden">
     <button class="ab-btn ab-restart" onclick="askReset()" title="Clear everything and set up from scratch">

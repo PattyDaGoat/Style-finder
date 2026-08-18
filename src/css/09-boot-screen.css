@@ -1,0 +1,27 @@
+
+  /* ---------- BOOT SCREEN ----------
+     The app ships as one ~7MB file: markup first, then a single enormous
+     `const CATALOG = [...]` line. The browser paints the markup as it streams
+     and then blocks on that script, so without this the visitor stares at a
+     bare header for several seconds on a phone. This overlay is part of that
+     first ~50KB, so it is on screen almost immediately and covers the gap.
+
+     Deliberately indeterminate: the catalog is an inline script, so there is
+     no download event to measure and any percentage would be invented. */
+  #boot{position:fixed;inset:0;z-index:9000;display:flex;flex-direction:column;
+    align-items:center;justify-content:center;gap:22px;padding:24px;
+    background:radial-gradient(1200px 600px at 50% -10%,#ffffff, var(--bg) 55%, var(--bg2));
+    transition:opacity .32s ease;}
+  #boot.boot-done{opacity:0;pointer-events:none;}
+  .boot-logo{font-family:var(--display);font-size:30px;font-weight:600;color:var(--ink);letter-spacing:.2px;margin:0;}
+  .boot-logo .leaf{color:var(--green);font-weight:500;}
+  .boot-sub{margin:0;color:var(--ink-soft);font-size:16px;text-align:center;max-width:30ch;line-height:1.5;}
+  .boot-bar{width:min(240px,60vw);height:5px;border-radius:5px;background:var(--mint-2);overflow:hidden;}
+  .boot-bar i{display:block;width:40%;height:100%;border-radius:5px;background:var(--green);
+    animation:bootslide 1.15s ease-in-out infinite;}
+  @keyframes bootslide{0%{transform:translateX(-105%)}100%{transform:translateX(255%)}}
+  /* Respect reduced-motion: hold a calm static bar rather than sliding it. */
+  @media (prefers-reduced-motion:reduce){
+    .boot-bar i{animation:none;width:100%;opacity:.55;}
+    #boot{transition:none;}
+  }

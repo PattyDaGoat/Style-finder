@@ -1,7 +1,8 @@
 # MAISON / EDIT — Style Finder
 
-Swipe real clothing from 367 niche labels; the app learns your taste and recommends pieces you
-didn't see. 9,306 products, menswear and womenswear, no backend required.
+**Tinder for clothes.** Swipe right on what you like, left on what you don't, and the app learns
+your taste and recommends pieces you never saw. 19,355 products from 530 niche labels, menswear
+and womenswear, no backend required.
 
 **Live preview:** [`pattydagoat.github.io/Style-finder`](https://pattydagoat.github.io/Style-finder/) —
 the real, working app, no install. Auto-updates within a minute or two of every push to `main`.
@@ -13,8 +14,8 @@ the real, working app, no install. Auto-updates within a minute or two of every 
 
 ## Why there's a build step
 
-The shipped app is deliberately a single 3.6MB file you can double-click. That's lovely to use
-and impossible to collaborate on: 3.5MB of it is one line of JSON, so every edit collides and a
+The shipped app is deliberately a single 7.5MB file you can double-click. That's lovely to use
+and impossible to collaborate on: 7.5MB of it is one line of JSON, so every edit collides and a
 merge conflict inside that line cannot be resolved by hand or by git.
 
 So the **source** is modular and the **output** is one file.
@@ -22,7 +23,7 @@ So the **source** is modular and the **output** is one file.
 ```
 npm install          # once, for playwright (tests only)
 npm run build        # src/ + data/  ->  dist/style-finder.html
-npm test             # build, then 221 assertions across 5 suites
+npm test             # build, then 366 assertions across 7 suites
 npm run serve        # serve dist/ on http://localhost:8000 (needed for Google sign-in)
 ```
 
@@ -71,12 +72,12 @@ if it clears the margin of error. See `docs/UPGRADE-1-REVIEW.md`.
 
 ```
 build.mjs               src/ + data/ -> dist/
-data/catalog.json       9,306 products, one per line
+data/catalog.json       19,355 products, one per line
 dist/style-finder.html  the app (generated — never edit)
 src/shell/              html around the css and js
 src/css/                8 stylesheets, concatenated in order
 src/js/                 17 modules, concatenated in order
-test/                   5 suites + run-all.mjs
+test/                   7 suites + run-all.mjs
 tools/                  the scripts that produced the data
 docs/                   design notes, change reviews, setup guides
 fast-fashion-waste-chart.html   standalone chart on fast-fashion waste

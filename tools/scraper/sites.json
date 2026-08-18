@@ -7409,13 +7409,13 @@
     "https://silenttheory.com.au/collections/mens-tees-tanks"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 4,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1786304988.868358,
-   "last_found": 117,
-   "ok": 1,
+   "last": 1787016898.139127,
+   "last_found": 120,
+   "ok": 2,
    "status": "ok"
   },
   "host": "silenttheory.com.au",
@@ -7433,9 +7433,9 @@
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1786305069.2620642,
-   "last_found": 25,
-   "ok": 1,
+   "last": 1787016966.5501063,
+   "last_found": 20,
+   "ok": 2,
    "status": "ok"
   },
   "host": "www.sinnersattire.com",
@@ -7474,13 +7474,13 @@
     "https://www.sisterjane.com/collections/menswear-jackets"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 1,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1786305213.0315232,
-   "last_found": 57,
-   "ok": 1,
+   "last": 1787017047.9573147,
+   "last_found": 44,
+   "ok": 2,
    "status": "ok"
   },
   "host": "www.sisterjane.com",
@@ -7500,13 +7500,13 @@
     "https://www.sixthjune.com/collections/men-one-piece"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 4,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1786305344.4981515,
-   "last_found": 14,
-   "ok": 1,
+   "last": 1787017164.5157104,
+   "last_found": 30,
+   "ok": 2,
    "status": "ok"
   },
   "host": "www.sixthjune.com",
@@ -7551,9 +7551,9 @@
   "gender_source": "collection-handle",
   "health": {
    "fail": 0,
-   "last": 1786305540.1647232,
-   "last_found": 40,
-   "ok": 1,
+   "last": 1787017266.334218,
+   "last_found": 43,
+   "ok": 2,
    "status": "ok"
   },
   "host": "www.sneakersnstuff.com",
@@ -7592,13 +7592,14 @@
    ],
    "m": []
   },
-  "entry_cursor": 2,
+  "entry_cursor": 0,
   "gender_source": "prior",
   "health": {
    "fail": 0,
-   "last": 1786305734.610603,
-   "last_found": 43,
-   "ok": 1,
+   "last": 1787017327.1867986,
+   "last_found": 41,
+   "note": "rate-limited (429) \u2014 stopping this shop for now",
+   "ok": 2,
    "status": "ok"
   },
   "host": "www.solidandstriped.com",
@@ -7617,7 +7618,16 @@
     "https://soulland.com/collections/shop-app-men"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 1,
+   "last": 1787017411.6974897,
+   "last_found": 0,
+   "note": "no products found on the page; no products found on the page",
+   "ok": 0,
+   "status": "blocked"
+  },
   "host": "soulland.com",
   "note": "auto-discovered"
  },
@@ -7635,7 +7645,15 @@
     "https://southerntide.com/collections/mens-sail-shop"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1787017463.1513028,
+   "last_found": 36,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "southerntide.com",
   "note": "auto-discovered"
  },
@@ -7649,7 +7667,16 @@
    ],
    "m": []
   },
+  "entry_cursor": 2,
   "gender_source": "prior",
+  "health": {
+   "fail": 1,
+   "last": 1787017535.2096698,
+   "last_found": 0,
+   "note": "no products found on the page; no products found on the page",
+   "ok": 0,
+   "status": "blocked"
+  },
   "host": "spell.co",
   "note": "auto-discovered"
  },
@@ -7663,7 +7690,15 @@
    ],
    "m": []
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1787017621.2372425,
+   "last_found": 49,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "www.splendid.com",
   "note": "auto-discovered"
  },
@@ -7677,14 +7712,14 @@
    ],
    "m": []
   },
-  "entry_cursor": 2,
+  "entry_cursor": 1,
   "gender_source": "prior",
   "health": {
    "fail": 0,
-   "last": 1786314765.619149,
-   "last_found": 60,
+   "last": 1787017772.1091383,
+   "last_found": 117,
    "note": "no products found on the page",
-   "ok": 1,
+   "ok": 2,
    "status": "ok"
   },
   "host": "splits59.com",
@@ -7700,13 +7735,13 @@
     "https://stanray.com/collections/tops-ss26"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 1,
   "gender_source": "prior",
   "health": {
    "fail": 0,
-   "last": 1786314843.5829432,
-   "last_found": 28,
-   "ok": 1,
+   "last": 1787017856.4137866,
+   "last_found": 31,
+   "ok": 2,
    "status": "ok"
   },
   "host": "stanray.com",
@@ -7724,9 +7759,9 @@
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1786314901.6800318,
+   "last": 1787017913.5021868,
    "last_found": 9,
-   "ok": 1,
+   "ok": 2,
    "status": "ok"
   },
   "host": "stateandliberty.com",
@@ -7765,14 +7800,14 @@
    ],
    "m": []
   },
-  "entry_cursor": 2,
+  "entry_cursor": 1,
   "gender_source": "prior",
   "health": {
    "fail": 0,
-   "last": 1786315130.9236176,
-   "last_found": 60,
+   "last": 1787018125.2606666,
+   "last_found": 114,
    "note": "no products found on the page",
-   "ok": 1,
+   "ok": 2,
    "status": "ok"
   },
   "host": "www.storets.com",
@@ -7815,14 +7850,14 @@
     "https://www.stussy.com/collections/tops-shirts"
    ]
   },
-  "entry_cursor": 1,
+  "entry_cursor": 0,
   "gender_note": "guessed menswear (only 0% dresses and 5% read womenswear); registered as a prior, so any evidence on a piece overrides it",
   "gender_source": "prior",
   "health": {
    "fail": 0,
-   "last": 1786315347.255891,
-   "last_found": 120,
-   "ok": 2,
+   "last": 1787018281.690624,
+   "last_found": 111,
+   "ok": 3,
    "status": "ok"
   },
   "host": "www.stussy.com",

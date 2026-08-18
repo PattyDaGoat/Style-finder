@@ -7998,13 +7998,13 @@
    ],
    "m": []
   },
-  "entry_cursor": 2,
+  "entry_cursor": 1,
   "gender_source": "prior",
   "health": {
    "fail": 0,
-   "last": 1786316208.624042,
-   "last_found": 101,
-   "ok": 1,
+   "last": 1787027668.4048827,
+   "last_found": 119,
+   "ok": 2,
    "status": "ok"
   },
   "host": "www.wearetala.com",
@@ -8022,14 +8022,14 @@
     "https://www.taylorstitch.com/collections/mens-limited-outerwear"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 0,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1786316325.966579,
-   "last_found": 22,
+   "last": 1787027770.771563,
+   "last_found": 7,
    "note": "no products found on the page",
-   "ok": 2,
+   "ok": 3,
    "status": "ok"
   },
   "host": "www.taylorstitch.com",
@@ -8049,13 +8049,14 @@
     "https://www.tedbaker.com/collections/mens-offers-uk"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 4,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1786316957.8745902,
-   "last_found": 107,
-   "ok": 1,
+   "last": 1787027994.6019466,
+   "last_found": 47,
+   "note": "no products found on the page",
+   "ok": 2,
    "status": "ok"
   },
   "host": "www.tedbaker.com",
@@ -8071,7 +8072,16 @@
     "https://www.tenthousand.cc/collections/mens-zip-up-hoodies"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 1,
+   "last": 1787028081.9764614,
+   "last_found": 0,
+   "note": "no products found on the page; no products found on the page",
+   "ok": 0,
+   "status": "blocked"
+  },
   "host": "www.tenthousand.cc",
   "note": "auto-discovered"
  },
@@ -8089,7 +8099,15 @@
     "https://www.tentree.com/collections/mens-best-sellers"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1787028220.5471547,
+   "last_found": 114,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "www.tentree.com",
   "note": "auto-discovered"
  },
@@ -8107,7 +8125,16 @@
     "https://thefrankieshop.com/collections/mens-the-seasonal-shift"
    ]
   },
+  "entry_cursor": 1,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1787028273.8585362,
+   "last_found": 52,
+   "note": "rate-limited (429) \u2014 stopping this shop for now",
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "thefrankieshop.com",
   "note": "auto-discovered"
  },
@@ -8121,7 +8148,16 @@
     "https://thehundreds.com/collections/apparel"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "prior",
+  "health": {
+   "fail": 0,
+   "last": 1787028353.0030625,
+   "last_found": 27,
+   "note": "no products found on the page",
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "thehundreds.com",
   "note": "auto-discovered"
  },
@@ -8139,7 +8175,16 @@
     "https://www.theraggedpriest.com/collections/mens-new-arrivals"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1787028419.3863735,
+   "last_found": 5,
+   "note": "no products found on the page",
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "www.theraggedpriest.com",
   "note": "auto-discovered"
  },
@@ -8155,13 +8200,14 @@
     "https://threads4thought.com/collections/mens-activewear"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 0,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1786325537.3168025,
-   "last_found": 46,
-   "ok": 1,
+   "last": 1787028481.813657,
+   "last_found": 10,
+   "note": "no products found on the page",
+   "ok": 2,
    "status": "ok"
   },
   "host": "threads4thought.com",
@@ -8181,13 +8227,13 @@
     "https://thrills.co/collections/mens-tees"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 4,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1786325652.2315373,
-   "last_found": 99,
-   "ok": 1,
+   "last": 1787028597.858413,
+   "last_found": 113,
+   "ok": 2,
    "status": "ok"
   },
   "host": "thrills.co",
@@ -8207,13 +8253,14 @@
     "https://thursdayboots.com/collections/loop-mens-boots-do-not-delete"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 4,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1786325802.4134429,
-   "last_found": 75,
-   "ok": 1,
+   "last": 1787028685.7764177,
+   "last_found": 30,
+   "note": "nav failed: Page.goto: net::ERR_FAILED at https://thursdayboots.com/collections/klaviyo-women-s-footwear",
+   "ok": 2,
    "status": "ok"
   },
   "host": "thursdayboots.com",
@@ -8250,14 +8297,14 @@
     "https://www.toddsnyder.com/collections/all-tops-sport-coats-suit-jackets"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 1,
   "gender_note": "no women's collection on the whole site and 0/100 womenswear in a sample",
   "gender_source": "inferred",
   "health": {
    "fail": 0,
-   "last": 1786326026.7286716,
-   "last_found": 72,
-   "ok": 1,
+   "last": 1787028891.744533,
+   "last_found": 38,
+   "ok": 2,
    "status": "ok"
   },
   "host": "www.toddsnyder.com",
@@ -8276,13 +8323,13 @@
     "https://tommyjohn.com/collections/mens-packs-promo-excl-usf-and-best-of-tj"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 4,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1786326159.482916,
-   "last_found": 51,
-   "ok": 1,
+   "last": 1787029000.445831,
+   "last_found": 62,
+   "ok": 2,
    "status": "ok"
   },
   "host": "tommyjohn.com",
@@ -8302,13 +8349,14 @@
     "https://www.toms.com/collections/mens-leather-shoes"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 3,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1786326265.6317012,
-   "last_found": 44,
-   "ok": 1,
+   "last": 1787029073.5361643,
+   "last_found": 27,
+   "note": "rate-limited (429) \u2014 stopping this shop for now",
+   "ok": 2,
    "status": "ok"
   },
   "host": "www.toms.com",
@@ -8324,16 +8372,16 @@
    ],
    "m": []
   },
-  "entry_cursor": 1,
+  "entry_cursor": 0,
   "gender_note": "13/100 read as womenswear, 7% dresses",
   "gender_source": "inferred",
   "health": {
-   "fail": 0,
-   "last": 1786326323.4348662,
-   "last_found": 2,
+   "fail": 1,
+   "last": 1787029176.6376865,
+   "last_found": 0,
    "note": "rate-limited (429) \u2014 stopping this shop for now",
    "ok": 1,
-   "status": "ok"
+   "status": "blocked"
   },
   "host": "toteme-studio.com",
   "note": "found by find_brands.py \u2014 designer"

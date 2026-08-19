@@ -328,6 +328,11 @@
   .ab-btn{border:1.5px solid var(--line);background:#fff;color:var(--ink);font-family:inherit;font-size:14px;font-weight:700;padding:9px 16px;border-radius:40px;cursor:pointer;display:inline-flex;align-items:center;gap:7px;box-shadow:var(--shadow-sm);transition:.12s;}
   .ab-btn:hover{border-color:var(--green);color:var(--green-2);background:#f4fbf7;}
   .ab-btn svg{display:block;}
+  /* Niche toggle. Filled green when on, so the mode is legible at a glance —
+     the two modes hold different swipes and carts, and a visitor who cannot see
+     which one is active would read the swapped cart as lost data. */
+  .ab-niche.on{background:var(--green);border-color:var(--green);color:#fff;}
+  .ab-niche.on:hover{background:var(--green-deep);border-color:var(--green-deep);color:#fff;}
   .ab-acct{border:1.5px solid var(--line);background:#fff;font-family:inherit;font-size:14px;font-weight:600;color:var(--ink-soft);padding:5px 15px 5px 5px;border-radius:40px;cursor:pointer;display:inline-flex;align-items:center;gap:8px;max-width:240px;transition:.12s;}
   .ab-acct:hover{border-color:var(--green);}
   .ab-avatar{width:28px;height:28px;border-radius:50%;object-fit:cover;background:var(--mint);color:var(--green-2);display:inline-flex;align-items:center;justify-content:center;font-weight:800;font-size:13px;flex:0 0 auto;overflow:hidden;}
@@ -377,7 +382,12 @@
   .btn.danger:hover{background:#c92b37;}
   .toast{position:fixed;left:50%;bottom:26px;transform:translateX(-50%);z-index:95;background:var(--ink);color:#fff;font-size:14.5px;font-weight:600;padding:12px 22px;border-radius:40px;box-shadow:var(--shadow);max-width:88vw;text-align:center;}
   .toast.hidden{display:none;}
-  @media(max-width:520px){.ab-acct{max-width:132px;}.appbar{padding-right:118px;}.ab-btn{font-size:13.5px;padding:9px 14px;}}
+  /* Do NOT reclaim this padding to fit another control on one row: it is what
+     keeps the account chip clear of the floating cart button at top right, and
+     02-layout-and-google.js asserts they never overlap. With three controls the
+     bar wraps to two lines at phone width, which is the intended outcome — the
+     wrapped chip sits below the cart button, not under it. */
+  @media(max-width:520px){.ab-acct{max-width:132px;}.appbar{padding-right:118px;}.ab-btn{font-size:13.5px;padding:9px 14px;}.ab-niche{padding:9px 12px;}}
 
   /* ---------- BOOT SCREEN ----------
      The app ships as one ~7MB file: markup first, then a single enormous
@@ -435,6 +445,10 @@
     <button class="ab-btn ab-restart" onclick="askReset()" title="Clear everything and set up from scratch">
       <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg>
       <span>Start over</span>
+    </button>
+    <button id="nicheBtn" class="ab-btn ab-niche" onclick="toggleNiche()" aria-pressed="false">
+      <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.3 5.9 6.2.4-4.8 4 1.6 6-5.3-3.4L6.7 19.3l1.6-6-4.8-4 6.2-.4z"/></svg>
+      <span>Niche</span>
     </button>
     <button id="acctChip" class="ab-acct" onclick="toggleAcctMenu(event)" title="Your account"></button>
     <div id="acctMenu" class="ab-menu hidden"></div>
@@ -1009,7 +1023,27 @@ const ACC_KEY="styleDNA_accounts", LAST_KEY="styleDNA_lastAccount", SEED_KEY="st
 let ACCOUNT=null;
 const GUEST={id:"guest",name:"Guest",email:"",picture:"",kind:"guest"};
 
-function storeKey(){return KEY+"::"+((ACCOUNT&&ACCOUNT.id)||"guest");}
+/* ---------- niche mode ----------
+   "Niche" hides the labels most people could already name and deals only the
+   lesser-known ones (isWellKnown in 50-taste-model.js).
+
+   The recommender is untouched: same features, same scoring, same batching.
+   What changes is WHERE the profile is written. storeKey() grows a "::niche"
+   suffix, so the two modes keep entirely separate swipes, likes, carts and
+   seen-lists, and the taste model each one builds is trained only on its own
+   swipes. Liking six skate labels in Niche cannot drag your main feed around,
+   and the mainstream profile you already built does not bias the niche one.
+
+   The flag lives outside S — S is the thing being swapped, so a flag stored
+   inside it would vanish the moment the other profile loaded. */
+let NICHE=false;
+const NICHE_KEY="styleDNA_niche";
+function acctId(){return (ACCOUNT&&ACCOUNT.id)||"guest";}
+function nicheFlagKey(){return NICHE_KEY+"::"+acctId();}
+function loadNicheFlag(){try{return localStorage.getItem(nicheFlagKey())==="1";}catch(e){return false;}}
+function saveNicheFlag(){try{localStorage.setItem(nicheFlagKey(),NICHE?"1":"0");}catch(e){}}
+
+function storeKey(){return KEY+"::"+acctId()+(NICHE?"::niche":"");}
 function save(){try{localStorage.setItem(storeKey(),JSON.stringify(S));}catch(e){}}
 function load(){try{const s=localStorage.getItem(storeKey());if(s)return JSON.parse(s);}catch(e){}return null;}
 
@@ -1018,7 +1052,11 @@ function saveAccounts(a){try{localStorage.setItem(ACC_KEY,JSON.stringify(a));}ca
 function upsertAccount(a){const all=accounts();const i=all.findIndex(x=>x.id===a.id);
   if(i>=0)all[i]=Object.assign({},all[i],a);else all.push(a);saveAccounts(all);}
 function findAccount(id){return accounts().filter(x=>x.id===id)[0]||null;}
-function forgetAccount(id){saveAccounts(accounts().filter(x=>x.id!==id));try{localStorage.removeItem(KEY+"::"+id);}catch(e){}}
+function forgetAccount(id){saveAccounts(accounts().filter(x=>x.id!==id));
+  /* both profiles, or the niche one is orphaned in localStorage forever */
+  try{localStorage.removeItem(KEY+"::"+id);}catch(e){}
+  try{localStorage.removeItem(KEY+"::"+id+"::niche");}catch(e){}
+  try{localStorage.removeItem(NICHE_KEY+"::"+id);}catch(e){}}
 
 /* One-time courtesy: an existing profile saved by an older version of this file
    (before accounts existed) is handed to whoever signs in first, so nobody
@@ -2265,6 +2303,65 @@ const FAST_FASHION=new Set(['white fox','oh polly','princess polly','motel rocks
 'sinners attire','aybl','kulani kinis','iam gia','jaded london']);
 function isFastFashion(p){return FAST_FASHION.has((p.b||'').toLowerCase());}
 
+/* ---------- niche mode: which labels are already well known? ----------
+   There is no popularity field in the catalog and no honest way to derive one.
+   Product count is not a proxy — the biggest row count here is "BB Exclusive"
+   (188 pieces, nobody has heard of it) while Stussy sits on 141. So this is an
+   explicit list, exactly like FAST_FASHION above, and it is meant to be edited:
+   add a name and it disappears from Niche, remove one and it comes back.
+
+   Names are normalised (lower case, accents stripped, & spaced) and matched
+   either exactly or as a whole-word prefix, which is what catches the sub-labels
+   and collabs without listing each one: "Nike SB", "Adidas Originals",
+   "Kith Women", "HUF Worldwide", "Todd Snyder + Champion", "Drakes - UK/ROW"
+   and "Billionaire Boys Club x New York Yankees" all resolve to their parent.
+   Prefix matching is whole-word on purpose — otherwise "Vanquish Fitness"
+   would be swallowed by "Vans".
+
+   Fast fashion counts as well known too: those labels are mass-market by
+   definition, so Niche implies "No fast fashion" whether or not that separate
+   toggle is on. */
+const WELL_KNOWN=new Set(['nike','adidas','air jordan','jordan brand','new balance','asics',
+'reebok','saucony','converse','vans','onitsuka tiger','superga','birkenstock','toms','oakley',
+'new era','puma','under armour','champion','gap','uniqlo','levis',"levi's",'madewell','everlane',
+'allbirds','scotch & soda','original penguin','lyle & scott','quiksilver','billabong','rip curl',
+'volcom','rvca','body glove','carhartt wip',"rothy's",'vessi','outdoor voices',
+'girlfriend collective','true classic','tommy john','saxx','chubbies','cotopaxi','thursday boots',
+'greats','koio','nobull','hylete','gymshark','alphalete','stussy','bape','a bathing ape','obey',
+'huf','brixton','kith','fear of god','essentials','anti social social club',
+'billionaire boys club','bbc ice cream','icecream','odd future','golf wang','corteiz','hellstar',
+'aime leon dore','amiri','rick owens','golden goose','casablanca','undefeated','represent',
+'daily paper','the hundreds','patta','human made','noah','brain dead','staple','pleasures',
+'market','ksubi','john elliott','todd snyder','norse projects','apc','a.p.c.','reigning champ',
+'saturdays nyc','deus ex machina','gramicci','snow peak',"drake's",'drakes','sunspel','ymc','folk',
+'universal works','percival','farah','weekend offender','pretty green','members only','salt life',
+'neff','globe','rusty','vissla','katin','roark','jetty','rains','outerknown','faherty',
+'marine layer','taylor stitch','mack weldon','untuckit','bonobos','lululemon','athleta','patagonia',
+'the north face','columbia','timberland','dr martens']);
+
+function brandNorm(b){
+  return (b||'').toLowerCase().normalize('NFKD').replace(/[\u0300-\u036f]/g,'')
+                .replace(/&/g,' & ').replace(/\s+/g,' ').trim();
+}
+function isWellKnown(p){
+  const n=brandNorm(p.b);
+  if(!n) return false;
+  if(WELL_KNOWN.has(n) || FAST_FASHION.has(n)) return true;
+  for(const m of WELL_KNOWN) if(n.startsWith(m+' ')) return true;
+  for(const m of FAST_FASHION) if(n.startsWith(m+' ')) return true;
+  return false;
+}
+/* Precomputed for the same reason genderLock is: passesFilters runs over the
+   whole catalog on every batch, and doing 150-odd startsWith calls per row in
+   that loop is a measurable stall. Built once, lazily. 1 = well known. */
+let NICHELOCK=null;
+function nicheLock(){
+  if(NICHELOCK) return NICHELOCK;
+  NICHELOCK=new Uint8Array(CATALOG.length);
+  for(let i=0;i<CATALOG.length;i++) NICHELOCK[i]=isWellKnown(CATALOG[i])?1:0;
+  return NICHELOCK;
+}
+
 /* the master feed filter: underwear + section + budget + categories + occasion + fast-fashion */
 function passesFilters(i){
   const p=CATALOG[i], st=S.settings||{};
@@ -2278,6 +2375,7 @@ function passesFilters(i){
   if(lock===2 && GENDER!=='m') return false;
   if(lock===0 && STRICT_SECT) return false;   // unplaceable: held back from both decks
   if(S.noFast && isFastFashion(p)) return false;  // "No fast fashion" toggle
+  if(NICHE && nicheLock()[i]) return false;       // Niche: lesser-known labels only
   if(st.maxBudget && p.usd>st.maxBudget) return false;
   /* "Show me" groups. `swim` is the one group that is not a set of categories —
      it is p.swim (see isSwim) — so it is matched separately, and the two sides
@@ -3189,11 +3287,18 @@ function activateAccount(acct){
   if(!acct)return;
   ACCOUNT=acct;
   try{localStorage.setItem(LAST_KEY,acct.id);}catch(e){}
+  /* Before bootProfile: NICHE is part of storeKey(), so restoring the mode after
+     the profile was read would load one mode's data and label it the other's. */
+  NICHE=loadNicheFlag();
   seedFromLegacy();
   bootProfile();
 }
 
-function bootProfile(){
+/* `carry` is used only when switching into a mode that has never been used:
+   sizes and section are not taste data, so they come across rather than making
+   you fill the setup form in again. Swipes, likes, cart and seen-list never
+   carry — that separation is the whole point of the mode. */
+function bootProfile(carry){
   /* fresh in-memory state, then merge in whatever this account has saved */
   S={seeds:[],i:0,order:[],reactions:{},tags:{},picks:[],likes:[],byGender:{}};
   const s=load();
@@ -3214,8 +3319,10 @@ function bootProfile(){
   if(S.settings&&S.settings.gender&&!S.byGender[S.settings.gender]){
     S.byGender[S.settings.gender]={top:S.settings.top,waist:S.settings.waist,shoe:S.settings.shoe,cats:S.settings.cats,occ:S.settings.occ,maxBudget:S.settings.maxBudget};
   }
+  if(!s && carry){ if(carry.settings)S.settings=carry.settings; if(carry.byGender)S.byGender=carry.byGender; }
   initSizeChips();
   renderAcctChip();
+  syncNicheBtn();
   if(S.settings&&S.settings.gender){ GENDER=S.settings.gender; startDeck(); }
   else { GENDER='m'; const mb=document.querySelector('.seg-btn[data-g="m"]'); if(mb)mb.classList.add('on'); loadFormFromGender('m'); show('settings'); }
   updateCartFab();
@@ -3270,6 +3377,27 @@ function doReset(){
   try{localStorage.removeItem(storeKey());}catch(e){}
   try{sessionStorage.setItem("styleDNA_justReset","1");}catch(e){}
   location.reload();
+}
+/* ---------- Niche mode ----------
+   Same recommender, different filing cabinet. See storeKey() in
+   25-state-accounts.js for why the profiles are kept apart, and isWellKnown()
+   in 50-taste-model.js for what counts as a label people already know. */
+function toggleNiche(){
+  const carry={settings:S.settings,byGender:S.byGender};
+  save();                                  /* park the mode we are leaving */
+  NICHE=!NICHE;
+  saveNicheFlag();
+  const existing=load();                   /* has this mode ever been used? */
+  bootProfile(existing?null:carry);        /* rebuilds S, re-deals, re-renders */
+  toast(NICHE ? "Niche on — lesser-known labels only. This mode keeps its own swipes."
+              : "Niche off — back to your main profile.");
+}
+function syncNicheBtn(){
+  const b=document.getElementById("nicheBtn"); if(!b)return;
+  b.classList.toggle("on",!!NICHE);
+  b.setAttribute("aria-pressed",NICHE?"true":"false");
+  b.title=NICHE ? "Showing only lesser-known labels, with a profile kept separate from your main one. Click to go back."
+                : "Show only lesser-known labels — hides the names most people could already reel off. Keeps its own swipes and cart.";
 }
 function toast(t,ms){
   const el=document.getElementById("toast"); if(!el)return;

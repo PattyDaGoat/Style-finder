@@ -268,6 +268,65 @@ const FAST_FASHION=new Set(['white fox','oh polly','princess polly','motel rocks
 'sinners attire','aybl','kulani kinis','iam gia','jaded london']);
 function isFastFashion(p){return FAST_FASHION.has((p.b||'').toLowerCase());}
 
+/* ---------- niche mode: which labels are already well known? ----------
+   There is no popularity field in the catalog and no honest way to derive one.
+   Product count is not a proxy — the biggest row count here is "BB Exclusive"
+   (188 pieces, nobody has heard of it) while Stussy sits on 141. So this is an
+   explicit list, exactly like FAST_FASHION above, and it is meant to be edited:
+   add a name and it disappears from Niche, remove one and it comes back.
+
+   Names are normalised (lower case, accents stripped, & spaced) and matched
+   either exactly or as a whole-word prefix, which is what catches the sub-labels
+   and collabs without listing each one: "Nike SB", "Adidas Originals",
+   "Kith Women", "HUF Worldwide", "Todd Snyder + Champion", "Drakes - UK/ROW"
+   and "Billionaire Boys Club x New York Yankees" all resolve to their parent.
+   Prefix matching is whole-word on purpose — otherwise "Vanquish Fitness"
+   would be swallowed by "Vans".
+
+   Fast fashion counts as well known too: those labels are mass-market by
+   definition, so Niche implies "No fast fashion" whether or not that separate
+   toggle is on. */
+const WELL_KNOWN=new Set(['nike','adidas','air jordan','jordan brand','new balance','asics',
+'reebok','saucony','converse','vans','onitsuka tiger','superga','birkenstock','toms','oakley',
+'new era','puma','under armour','champion','gap','uniqlo','levis',"levi's",'madewell','everlane',
+'allbirds','scotch & soda','original penguin','lyle & scott','quiksilver','billabong','rip curl',
+'volcom','rvca','body glove','carhartt wip',"rothy's",'vessi','outdoor voices',
+'girlfriend collective','true classic','tommy john','saxx','chubbies','cotopaxi','thursday boots',
+'greats','koio','nobull','hylete','gymshark','alphalete','stussy','bape','a bathing ape','obey',
+'huf','brixton','kith','fear of god','essentials','anti social social club',
+'billionaire boys club','bbc ice cream','icecream','odd future','golf wang','corteiz','hellstar',
+'aime leon dore','amiri','rick owens','golden goose','casablanca','undefeated','represent',
+'daily paper','the hundreds','patta','human made','noah','brain dead','staple','pleasures',
+'market','ksubi','john elliott','todd snyder','norse projects','apc','a.p.c.','reigning champ',
+'saturdays nyc','deus ex machina','gramicci','snow peak',"drake's",'drakes','sunspel','ymc','folk',
+'universal works','percival','farah','weekend offender','pretty green','members only','salt life',
+'neff','globe','rusty','vissla','katin','roark','jetty','rains','outerknown','faherty',
+'marine layer','taylor stitch','mack weldon','untuckit','bonobos','lululemon','athleta','patagonia',
+'the north face','columbia','timberland','dr martens']);
+
+function brandNorm(b){
+  return (b||'').toLowerCase().normalize('NFKD').replace(/[\u0300-\u036f]/g,'')
+                .replace(/&/g,' & ').replace(/\s+/g,' ').trim();
+}
+function isWellKnown(p){
+  const n=brandNorm(p.b);
+  if(!n) return false;
+  if(WELL_KNOWN.has(n) || FAST_FASHION.has(n)) return true;
+  for(const m of WELL_KNOWN) if(n.startsWith(m+' ')) return true;
+  for(const m of FAST_FASHION) if(n.startsWith(m+' ')) return true;
+  return false;
+}
+/* Precomputed for the same reason genderLock is: passesFilters runs over the
+   whole catalog on every batch, and doing 150-odd startsWith calls per row in
+   that loop is a measurable stall. Built once, lazily. 1 = well known. */
+let NICHELOCK=null;
+function nicheLock(){
+  if(NICHELOCK) return NICHELOCK;
+  NICHELOCK=new Uint8Array(CATALOG.length);
+  for(let i=0;i<CATALOG.length;i++) NICHELOCK[i]=isWellKnown(CATALOG[i])?1:0;
+  return NICHELOCK;
+}
+
 /* the master feed filter: underwear + section + budget + categories + occasion + fast-fashion */
 function passesFilters(i){
   const p=CATALOG[i], st=S.settings||{};
@@ -281,6 +340,7 @@ function passesFilters(i){
   if(lock===2 && GENDER!=='m') return false;
   if(lock===0 && STRICT_SECT) return false;   // unplaceable: held back from both decks
   if(S.noFast && isFastFashion(p)) return false;  // "No fast fashion" toggle
+  if(NICHE && nicheLock()[i]) return false;       // Niche: lesser-known labels only
   if(st.maxBudget && p.usd>st.maxBudget) return false;
   /* "Show me" groups. `swim` is the one group that is not a set of categories —
      it is p.swim (see isSwim) — so it is matched separately, and the two sides

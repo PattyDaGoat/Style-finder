@@ -23,7 +23,7 @@ So the **source** is modular and the **output** is one file.
 ```
 npm install          # once, for playwright (tests only)
 npm run build        # src/ + data/  ->  dist/style-finder.html
-npm test             # build, then 366 assertions across 7 suites
+npm test             # build, then 389 assertions across 8 suites
 npm run serve        # serve dist/ on http://localhost:8000 (needed for Google sign-in)
 ```
 
@@ -43,6 +43,12 @@ byte-for-byte identical to the original monolith.
 - **Two carts** — super-liked pieces and a separate liked list, with a best-effort sold-out check.
 - **Inspiration** — point it at a Pinterest board or drop in photos; it reads their colours on
   your device and uses them to shape the first ~20 swipes.
+- **Niche** — a toggle in the top bar that hides the labels most people could already name and
+  deals only the lesser-known ones (373 of the 530 brands, 71% of the catalogue). The recommender
+  is untouched — same features, same scoring. What changes is where the profile is written: Niche
+  keeps its own swipes, likes, cart and trained model, so liking six skate labels there cannot
+  drag your main feed around. What counts as "well known" is an editable list, `WELL_KNOWN` in
+  `src/js/50-taste-model.js`.
 - **Accounts** — sign in with Google (see `docs/GOOGLE-SIGNIN-SETUP.md`) or continue as guest.
   Each account keeps its own profile.
 - **Start over** — clears the algorithm, likes, cart and sizes, back to first-run.
@@ -77,7 +83,7 @@ dist/style-finder.html  the app (generated — never edit)
 src/shell/              html around the css and js
 src/css/                8 stylesheets, concatenated in order
 src/js/                 17 modules, concatenated in order
-test/                   7 suites + run-all.mjs
+test/                   8 suites + run-all.mjs
 tools/                  the scripts that produced the data
 docs/                   design notes, change reviews, setup guides
 fast-fashion-waste-chart.html   standalone chart on fast-fashion waste

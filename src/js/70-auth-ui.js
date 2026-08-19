@@ -120,11 +120,18 @@ function activateAccount(acct){
   if(!acct)return;
   ACCOUNT=acct;
   try{localStorage.setItem(LAST_KEY,acct.id);}catch(e){}
+  /* Before bootProfile: NICHE is part of storeKey(), so restoring the mode after
+     the profile was read would load one mode's data and label it the other's. */
+  NICHE=loadNicheFlag();
   seedFromLegacy();
   bootProfile();
 }
 
-function bootProfile(){
+/* `carry` is used only when switching into a mode that has never been used:
+   sizes and section are not taste data, so they come across rather than making
+   you fill the setup form in again. Swipes, likes, cart and seen-list never
+   carry — that separation is the whole point of the mode. */
+function bootProfile(carry){
   /* fresh in-memory state, then merge in whatever this account has saved */
   S={seeds:[],i:0,order:[],reactions:{},tags:{},picks:[],likes:[],byGender:{}};
   const s=load();
@@ -145,8 +152,10 @@ function bootProfile(){
   if(S.settings&&S.settings.gender&&!S.byGender[S.settings.gender]){
     S.byGender[S.settings.gender]={top:S.settings.top,waist:S.settings.waist,shoe:S.settings.shoe,cats:S.settings.cats,occ:S.settings.occ,maxBudget:S.settings.maxBudget};
   }
+  if(!s && carry){ if(carry.settings)S.settings=carry.settings; if(carry.byGender)S.byGender=carry.byGender; }
   initSizeChips();
   renderAcctChip();
+  syncNicheBtn();
   if(S.settings&&S.settings.gender){ GENDER=S.settings.gender; startDeck(); }
   else { GENDER='m'; const mb=document.querySelector('.seg-btn[data-g="m"]'); if(mb)mb.classList.add('on'); loadFormFromGender('m'); show('settings'); }
   updateCartFab();
@@ -201,6 +210,27 @@ function doReset(){
   try{localStorage.removeItem(storeKey());}catch(e){}
   try{sessionStorage.setItem("styleDNA_justReset","1");}catch(e){}
   location.reload();
+}
+/* ---------- Niche mode ----------
+   Same recommender, different filing cabinet. See storeKey() in
+   25-state-accounts.js for why the profiles are kept apart, and isWellKnown()
+   in 50-taste-model.js for what counts as a label people already know. */
+function toggleNiche(){
+  const carry={settings:S.settings,byGender:S.byGender};
+  save();                                  /* park the mode we are leaving */
+  NICHE=!NICHE;
+  saveNicheFlag();
+  const existing=load();                   /* has this mode ever been used? */
+  bootProfile(existing?null:carry);        /* rebuilds S, re-deals, re-renders */
+  toast(NICHE ? "Niche on — lesser-known labels only. This mode keeps its own swipes."
+              : "Niche off — back to your main profile.");
+}
+function syncNicheBtn(){
+  const b=document.getElementById("nicheBtn"); if(!b)return;
+  b.classList.toggle("on",!!NICHE);
+  b.setAttribute("aria-pressed",NICHE?"true":"false");
+  b.title=NICHE ? "Showing only lesser-known labels, with a profile kept separate from your main one. Click to go back."
+                : "Show only lesser-known labels — hides the names most people could already reel off. Keeps its own swipes and cart.";
 }
 function toast(t,ms){
   const el=document.getElementById("toast"); if(!el)return;

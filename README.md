@@ -92,3 +92,14 @@ file-ownership map that keeps concurrent edits from colliding.
 four in the queue: category weight instead of a hard ban, category quotas in results, fixing a
 similarity term that contributes 19% of the score while carrying almost no information, and a
 negative-neighbour term.
+
+---
+
+## License
+
+MIT — see [`LICENSE`](LICENSE). Use it, fork it, build on it.
+
+The code is mine to license; the catalogue is not. `data/catalog.json` holds product
+names, prices and image URLs scraped from third-party retailers, and those belong to
+the shops and brands they came from. The MIT grant covers this repository's own code,
+not the merchandise data or the imagery it points at.

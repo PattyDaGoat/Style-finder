@@ -35,6 +35,9 @@ jobs:
           mkdir -p _site
           cp dist/style-finder.html _site/index.html
           cp dist/style-finder.html _site/style-finder.html
+          # The og:image meta tag points at /og.png on this host. If this copy is
+          # dropped the tag 404s and every shared link loses its preview card.
+          cp assets/og.png _site/og.png
 
       - name: Configure Pages
         uses: actions/configure-pages@v5

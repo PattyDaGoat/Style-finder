@@ -2669,15 +2669,15 @@
    ],
    "m": []
   },
-  "entry_cursor": 2,
+  "entry_cursor": 1,
   "gender_source": "collection",
   "health": {
    "fail": 1,
-   "last": 1785357271.7143164,
-   "last_found": 0,
+   "last": 1787103120.7394917,
+   "last_found": 11,
    "note": "rate-limited (429) \u2014 stopping this shop for now",
-   "ok": 1,
-   "status": "blocked"
+   "ok": 2,
+   "status": "ok"
   },
   "host": "crosscolours.com",
   "note": "auto-discovered"
@@ -2692,15 +2692,15 @@
    ],
    "m": []
   },
-  "entry_cursor": 2,
+  "entry_cursor": 1,
   "gender_source": "collection",
   "health": {
    "fail": 2,
-   "last": 1785492781.4336166,
-   "last_found": 0,
+   "last": 1787103211.9924896,
+   "last_found": 19,
    "note": "rate-limited (429) \u2014 stopping this shop for now",
-   "ok": 1,
-   "status": "blocked"
+   "ok": 2,
+   "status": "ok"
   },
   "host": "www.cue.cc",
   "note": "auto-discovered"
@@ -2719,6 +2719,15 @@
     "https://cutsclothing.com/collections/mens-alpha-sizing-review"
    ]
   },
+  "entry_cursor": 2,
+  "health": {
+   "fail": 0,
+   "last": 1787103264.7738457,
+   "last_found": 33,
+   "note": "nav failed: Page.goto: net::ERR_FAILED at https://cutsclothing.com/collections/klaviyo-mens-non-alpha",
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "cutsclothing.com",
   "note": "auto-registered from probe (379 eligible)"
  },
@@ -2734,11 +2743,11 @@
   "gender_source": "collection",
   "health": {
    "fail": 3,
-   "last": 1785492781.7031388,
-   "last_found": 0,
+   "last": 1787103295.547199,
+   "last_found": 6,
    "note": "rate-limited (429) \u2014 stopping this shop for now",
-   "ok": 1,
-   "status": "blocked"
+   "ok": 2,
+   "status": "ok"
   },
   "host": "www.cuyana.com",
   "note": "auto-discovered"
@@ -2757,13 +2766,13 @@
     "https://dfyne.com/collections/best-sellers-mens"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 4,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1785492914.5070937,
+   "last": 1787103434.0733418,
    "last_found": 120,
-   "ok": 4,
+   "ok": 5,
    "status": "ok"
   },
   "host": "dfyne.com",
@@ -2783,13 +2792,13 @@
     "https://us.dfyne.com/collections/best-sellers-mens"
    ]
   },
-  "entry_cursor": 4,
+  "entry_cursor": 0,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1785493046.2094946,
+   "last": 1787103571.409473,
    "last_found": 120,
-   "ok": 2,
+   "ok": 3,
    "status": "ok"
   },
   "host": "us.dfyne.com",
@@ -2809,15 +2818,15 @@
     "https://www.dl1961.com/collections/mens-best-sellers"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 4,
   "gender_source": "collection",
   "health": {
    "fail": 3,
-   "last": 1785493046.4204702,
-   "last_found": 0,
+   "last": 1787103809.0966387,
+   "last_found": 12,
    "note": "rate-limited (429) \u2014 stopping this shop for now",
-   "ok": 1,
-   "status": "blocked"
+   "ok": 2,
+   "status": "ok"
   },
   "host": "www.dl1961.com",
   "note": "auto-discovered"
@@ -2880,6 +2889,14 @@
     "https://dailypaperclothing.com/collections/men-all"
    ]
   },
+  "entry_cursor": 0,
+  "health": {
+   "fail": 0,
+   "last": 1787103887.623453,
+   "last_found": 57,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "dailypaperclothing.com",
   "note": "auto-registered from probe (416 eligible)"
  },
@@ -2893,15 +2910,15 @@
    ],
    "m": []
   },
-  "entry_cursor": 2,
+  "entry_cursor": 1,
   "gender_source": "prior",
   "health": {
    "fail": 3,
-   "last": 1785493046.7850573,
-   "last_found": 0,
+   "last": 1787103992.760347,
+   "last_found": 46,
    "note": "rate-limited (429) \u2014 stopping this shop for now",
-   "ok": 1,
-   "status": "blocked"
+   "ok": 2,
+   "status": "ok"
   },
   "host": "www.daisystreet.co.uk",
   "note": "auto-discovered"
@@ -2916,15 +2933,15 @@
    ],
    "m": []
   },
-  "entry_cursor": 2,
+  "entry_cursor": 0,
   "gender_source": "prior",
   "health": {
    "fail": 2,
-   "last": 1785493047.060544,
-   "last_found": 0,
+   "last": 1787104062.831426,
+   "last_found": 37,
    "note": "rate-limited (429) \u2014 stopping this shop for now",
-   "ok": 1,
-   "status": "blocked"
+   "ok": 2,
+   "status": "ok"
   },
   "host": "damsonmadder.com",
   "note": "auto-discovered"
@@ -2943,15 +2960,15 @@
     "https://dandydelmar.com/collections/mens-leisure-wear"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 4,
   "gender_source": "collection",
   "health": {
    "fail": 3,
-   "last": 1785493047.188424,
-   "last_found": 0,
+   "last": 1787104256.273552,
+   "last_found": 95,
    "note": "rate-limited (429) \u2014 stopping this shop for now",
-   "ok": 1,
-   "status": "blocked"
+   "ok": 2,
+   "status": "ok"
   },
   "host": "dandydelmar.com",
   "note": "auto-discovered"
@@ -2966,15 +2983,15 @@
     "https://debonnefacture.fr/collections/fall-winter-edition-2024"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 1,
   "gender_source": "prior",
   "health": {
    "fail": 3,
-   "last": 1785493047.4754858,
-   "last_found": 0,
+   "last": 1787104373.2155144,
+   "last_found": 12,
    "note": "rate-limited (429) \u2014 stopping this shop for now",
-   "ok": 1,
-   "status": "blocked"
+   "ok": 2,
+   "status": "ok"
   },
   "host": "debonnefacture.fr",
   "note": "auto-discovered"
@@ -3015,11 +3032,11 @@
     "https://deltoroshoes.com/collections/all-mens-new-arrivals"
    ]
   },
-  "entry_cursor": 1,
+  "entry_cursor": 3,
   "gender_source": "collection",
   "health": {
-   "fail": 3,
-   "last": 1785493047.6423273,
+   "fail": 4,
+   "last": 1787104437.9483366,
    "last_found": 0,
    "note": "rate-limited (429) \u2014 stopping this shop for now",
    "ok": 1,
@@ -3038,16 +3055,16 @@
     "https://denimtears.com/collections/sweats-old-ba616a"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 1,
   "gender_note": "no women's collection on the whole site and 0/100 womenswear in a sample",
   "gender_source": "inferred",
   "health": {
    "fail": 4,
-   "last": 1785501037.726313,
-   "last_found": 0,
+   "last": 1787104488.5473528,
+   "last_found": 1,
    "note": "rate-limited (429) \u2014 stopping this shop for now",
-   "ok": 1,
-   "status": "blocked"
+   "ok": 2,
+   "status": "ok"
   },
   "host": "denimtears.com",
   "note": "found by find_brands.py \u2014 streetwear"
@@ -3161,6 +3178,14 @@
     "https://districtvision.com/collections/mens-new-arrivals",
     "https://districtvision.com/collections/mens-tees"
    ]
+  },
+  "entry_cursor": 2,
+  "health": {
+   "fail": 0,
+   "last": 1787104621.6056306,
+   "last_found": 46,
+   "ok": 1,
+   "status": "ok"
   },
   "host": "districtvision.com",
   "note": "auto-registered from probe (273 eligible)"

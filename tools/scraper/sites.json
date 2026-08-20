@@ -3297,6 +3297,14 @@
     "https://dumbgood.com/collections/men"
    ]
   },
+  "entry_cursor": 0,
+  "health": {
+   "fail": 0,
+   "last": 1787113904.7959754,
+   "last_found": 23,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "dumbgood.com",
   "note": "auto-registered from probe (86 eligible)"
  },
@@ -3313,6 +3321,14 @@
     "https://duvindesign.com/collections/tops",
     "https://duvindesign.com/collections/summer-2026-mens"
    ]
+  },
+  "entry_cursor": 2,
+  "health": {
+   "fail": 0,
+   "last": 1787113994.3740482,
+   "last_found": 47,
+   "ok": 1,
+   "status": "ok"
   },
   "host": "duvindesign.com",
   "note": "auto-registered from probe (431 eligible)"
@@ -3501,6 +3517,14 @@
     "https://ericemanuel.com/collections/all"
    ]
   },
+  "entry_cursor": 2,
+  "health": {
+   "fail": 0,
+   "last": 1787114115.1142578,
+   "last_found": 110,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "ericemanuel.com",
   "note": "auto-registered from probe (244 eligible)"
  },
@@ -3518,15 +3542,15 @@
     "https://www.everlane.com/collections/mens-tees-and-tanks"
    ]
   },
-  "entry_cursor": 5,
+  "entry_cursor": 1,
   "gender_source": "collection",
   "health": {
    "fail": 4,
-   "last": 1785501038.0011215,
-   "last_found": 0,
+   "last": 1787114322.0491254,
+   "last_found": 120,
    "note": "rate-limited (429) \u2014 stopping this shop for now",
-   "ok": 5,
-   "status": "blocked"
+   "ok": 6,
+   "status": "ok"
   },
   "host": "www.everlane.com",
   "note": ""
@@ -3790,6 +3814,14 @@
     "https://florencemarinex.com/collections/mens-wetsuits"
    ]
   },
+  "entry_cursor": 2,
+  "health": {
+   "fail": 0,
+   "last": 1787114381.9548364,
+   "last_found": 3,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "florencemarinex.com",
   "note": "auto-registered from probe (106 eligible)"
  },
@@ -3926,6 +3958,14 @@
     "https://freeflyapparel.com/collections/tops-men-all"
    ]
   },
+  "entry_cursor": 2,
+  "health": {
+   "fail": 0,
+   "last": 1787114636.17454,
+   "last_found": 63,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "freeflyapparel.com",
   "note": "auto-registered from probe (445 eligible)"
  },
@@ -4009,6 +4049,14 @@
     "https://gx1000.com/collections/products"
    ]
   },
+  "entry_cursor": 2,
+  "health": {
+   "fail": 0,
+   "last": 1787114703.266677,
+   "last_found": 66,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "gx1000.com",
   "note": "auto-registered from probe (78 eligible)"
  },
@@ -4075,9 +4123,9 @@
   "entry_cursor": 0,
   "health": {
    "fail": 0,
-   "last": 1785501085.7204077,
+   "last": 1787114745.7180543,
    "last_found": 2,
-   "ok": 3,
+   "ok": 4,
    "status": "ok"
   },
   "host": "www.gap.com",
@@ -4183,6 +4231,14 @@
     "https://globebrand.com/collections/shoes",
     "https://globebrand.com/collections/black-friday-free-socks-with-shoes"
    ]
+  },
+  "entry_cursor": 2,
+  "health": {
+   "fail": 0,
+   "last": 1787115061.226102,
+   "last_found": 89,
+   "ok": 1,
+   "status": "ok"
   },
   "host": "globebrand.com",
   "note": "auto-registered from probe (128 eligible)"
@@ -4372,6 +4428,14 @@
     "https://hylete.com/collections/men-tops"
    ]
   },
+  "entry_cursor": 2,
+  "health": {
+   "fail": 0,
+   "last": 1787115194.0841675,
+   "last_found": 119,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "hylete.com",
   "note": "auto-registered from probe (112 eligible)"
  },
@@ -4437,6 +4501,14 @@
     "https://hikerkind.com/collections/tax-clothing-1"
    ]
   },
+  "entry_cursor": 2,
+  "health": {
+   "fail": 0,
+   "last": 1787115375.833381,
+   "last_found": 70,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "hikerkind.com",
   "note": "auto-registered from probe (67 eligible)"
  },
@@ -4473,6 +4545,14 @@
     "https://hoddleskateboards.com/collections/tees",
     "https://hoddleskateboards.com/collections/bottoms"
    ]
+  },
+  "entry_cursor": 2,
+  "health": {
+   "fail": 0,
+   "last": 1787115466.736259,
+   "last_found": 93,
+   "ok": 1,
+   "status": "ok"
   },
   "host": "hoddleskateboards.com",
   "note": "auto-registered from probe (145 eligible)"
@@ -4518,6 +4598,14 @@
     "https://houseofsunny.co.uk/collections/mens-new-in"
    ]
   },
+  "entry_cursor": 2,
+  "health": {
+   "fail": 0,
+   "last": 1787115545.4738815,
+   "last_found": 20,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "houseofsunny.co.uk",
   "note": "auto-registered from probe (77 eligible)"
  },
@@ -4530,6 +4618,14 @@
     "https://howlerbros.com/collections/mens-outerwear",
     "https://howlerbros.com/collections/mens-t-shirts"
    ]
+  },
+  "entry_cursor": 2,
+  "health": {
+   "fail": 0,
+   "last": 1787115806.5038967,
+   "last_found": 106,
+   "ok": 1,
+   "status": "ok"
   },
   "host": "howlerbros.com",
   "note": "auto-registered from probe (301 eligible)"
@@ -4644,12 +4740,12 @@
     "https://www.jcrew.com/plp/mens/categories/clothing/sweaters"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 0,
   "health": {
    "fail": 0,
-   "last": 1785501151.1321585,
-   "last_found": 26,
-   "ok": 4,
+   "last": 1787115902.1815622,
+   "last_found": 37,
+   "ok": 5,
    "status": "ok"
   },
   "host": "www.jcrew.com",

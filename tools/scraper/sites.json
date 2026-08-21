@@ -4885,6 +4885,14 @@
     "https://jettylife.com/collections/group-mens-striker-s26"
    ]
   },
+  "entry_cursor": 0,
+  "health": {
+   "fail": 0,
+   "last": 1787200308.2305472,
+   "last_found": 10,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "jettylife.com",
   "note": "auto-registered from probe (366 eligible)"
  },
@@ -4975,6 +4983,14 @@
     "https://kaiiathelabel.com/collections/cotton-shorts"
    ],
    "m": []
+  },
+  "entry_cursor": 2,
+  "health": {
+   "fail": 0,
+   "last": 1787200484.253483,
+   "last_found": 120,
+   "ok": 1,
+   "status": "ok"
   },
   "host": "kaiiathelabel.com",
   "note": "auto-registered from probe (383 eligible)"
@@ -5084,6 +5100,15 @@
     "https://kidsofimmigrants.us/collections/holiday-2022-collection",
     "https://kidsofimmigrants.us/collections/fruits-of-our-labor-collection"
    ]
+  },
+  "entry_cursor": 2,
+  "health": {
+   "fail": 1,
+   "last": 1787200546.8006341,
+   "last_found": 0,
+   "note": "no products found on the page; no products found on the page",
+   "ok": 0,
+   "status": "blocked"
   },
   "host": "kidsofimmigrants.us",
   "note": "auto-registered from probe (46 eligible)"
@@ -5350,6 +5375,14 @@
     "https://lskd.co/collections/mens-tees-tanks"
    ]
   },
+  "entry_cursor": 2,
+  "health": {
+   "fail": 0,
+   "last": 1787200897.1995108,
+   "last_found": 80,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "lskd.co",
   "note": "auto-registered from probe (231 eligible)"
  },
@@ -5508,8 +5541,15 @@
     "https://www.lemaire.fr/collections/spring-summer-2026-collection-men"
    ]
   },
-  "entry_cursor": 0,
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 1,
+   "last": 1787201012.941578,
+   "last_found": 0,
+   "ok": 0,
+   "status": "blocked"
+  },
   "host": "www.lemaire.fr",
   "note": "found by find_brands.py \u2014 designer"
  },
@@ -5522,6 +5562,14 @@
     "https://liraclothing.com/collections/mens-new-arrivals",
     "https://liraclothing.com/collections/mens-bottoms"
    ]
+  },
+  "entry_cursor": 2,
+  "health": {
+   "fail": 0,
+   "last": 1787201075.0766013,
+   "last_found": 26,
+   "ok": 1,
+   "status": "ok"
   },
   "host": "liraclothing.com",
   "note": "auto-registered from probe (55 eligible)"
@@ -5536,7 +5584,16 @@
    ],
    "m": []
   },
+  "entry_cursor": 1,
   "gender_source": "prior",
+  "health": {
+   "fail": 0,
+   "last": 1787201124.136729,
+   "last_found": 42,
+   "note": "rate-limited (429) \u2014 stopping this shop for now",
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "lisasaysgah.com",
   "note": "auto-discovered"
  },
@@ -5550,7 +5607,15 @@
     "https://localauthorityla.com/collections/mens"
    ]
   },
+  "entry_cursor": 0,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1787201161.7078989,
+   "last_found": 11,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "localauthorityla.com",
   "note": "auto-discovered"
  },
@@ -5564,7 +5629,15 @@
    ],
    "m": []
   },
+  "entry_cursor": 2,
   "gender_source": "prior",
+  "health": {
+   "fail": 0,
+   "last": 1787201396.9829605,
+   "last_found": 76,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "www.lornajane.com",
   "note": "auto-discovered"
  },
@@ -5579,6 +5652,15 @@
     "https://lostenterprises.com/collections/shop-all"
    ]
   },
+  "entry_cursor": 1,
+  "health": {
+   "fail": 0,
+   "last": 1787201437.2447917,
+   "last_found": 33,
+   "note": "rate-limited (429) \u2014 stopping this shop for now",
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "lostenterprises.com",
   "note": "auto-registered from probe (413 eligible)"
  },
@@ -5592,7 +5674,16 @@
     "https://loveshackfancy.com/collections/mens-swim"
    ]
   },
+  "entry_cursor": 1,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1787201487.8283563,
+   "last_found": 16,
+   "note": "rate-limited (429) \u2014 stopping this shop for now",
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "loveshackfancy.com",
   "note": "auto-discovered"
  },
@@ -5606,7 +5697,16 @@
    ],
    "m": []
   },
+  "entry_cursor": 1,
   "gender_source": "prior",
+  "health": {
+   "fail": 0,
+   "last": 1787201542.8060737,
+   "last_found": 60,
+   "note": "rate-limited (429) \u2014 stopping this shop for now",
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "lucyandyak.com",
   "note": "auto-discovered"
  },
@@ -5620,7 +5720,15 @@
     "https://www.luke1977.com/collections/mens-plain-t-shirts-1"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1787201670.6169617,
+   "last_found": 80,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "www.luke1977.com",
   "note": "auto-discovered"
  },
@@ -5659,7 +5767,16 @@
     "https://www.lunya.co/collections/mens-accessories"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 1,
+   "last": 1787201764.2378266,
+   "last_found": 0,
+   "note": "no products found on the page; no products found on the page",
+   "ok": 0,
+   "status": "blocked"
+  },
   "host": "www.lunya.co",
   "note": "auto-discovered"
  },
@@ -5677,7 +5794,16 @@
     "https://lurkingclass.com/collections/mens-hoodies"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1787285645.158191,
+   "last_found": 100,
+   "note": "nav failed: Page.goto: Timeout 45000ms exceeded.",
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "lurkingclass.com",
   "note": "auto-discovered"
  },
@@ -5760,13 +5886,14 @@
     "https://www.madewell.com/mens-clothing"
    ]
   },
-  "entry_cursor": 1,
+  "entry_cursor": 0,
   "health": {
-   "fail": 0,
-   "last": 1785241506.5906873,
-   "last_found": 2,
+   "fail": 1,
+   "last": 1787285924.120217,
+   "last_found": 0,
+   "note": "no products found on the page; no products found on the page",
    "ok": 3,
-   "status": "ok"
+   "status": "blocked"
   },
   "host": "www.madewell.com",
   "note": ""
@@ -6074,8 +6201,16 @@
     "https://montirex.com/collections/mens-light-jackets"
    ]
   },
-  "entry_cursor": 0,
+  "entry_cursor": 1,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1787286002.7052882,
+   "last_found": 60,
+   "note": "rate-limited (429) \u2014 stopping this shop for now",
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "montirex.com",
   "note": ""
  },
@@ -6215,6 +6350,15 @@
     "https://museumofpeaceandquiet.com/collections/tops"
    ]
   },
+  "entry_cursor": 1,
+  "health": {
+   "fail": 0,
+   "last": 1787286063.070991,
+   "last_found": 56,
+   "note": "rate-limited (429) \u2014 stopping this shop for now",
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "museumofpeaceandquiet.com",
   "note": "auto-registered from probe (67 eligible)"
  },
@@ -6302,6 +6446,14 @@
     "https://nobullproject.com/collections/mens-black-friday-deals"
    ]
   },
+  "entry_cursor": 2,
+  "health": {
+   "fail": 0,
+   "last": 1787286238.2775738,
+   "last_found": 74,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "nobullproject.com",
   "note": "auto-registered from probe (369 eligible)"
  },
@@ -6312,6 +6464,14 @@
    "m": [
     "https://nvgtn.com/collections/mens"
    ]
+  },
+  "entry_cursor": 0,
+  "health": {
+   "fail": 0,
+   "last": 1787286267.358771,
+   "last_found": 16,
+   "ok": 1,
+   "status": "ok"
   },
   "host": "nvgtn.com",
   "note": "auto-registered from probe (307 eligible)"
@@ -6376,6 +6536,14 @@
     "https://namilia.com/collections/vegan-leathers"
    ]
   },
+  "entry_cursor": 2,
+  "health": {
+   "fail": 0,
+   "last": 1787286479.995765,
+   "last_found": 86,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "namilia.com",
   "note": "auto-registered from probe (192 eligible)"
  },
@@ -6389,6 +6557,15 @@
     "https://naturebacks.com/collections/not-bundle",
     "https://naturebacks.com/collections/short-sleeves"
    ]
+  },
+  "entry_cursor": 2,
+  "health": {
+   "fail": 1,
+   "last": 1787286546.5455463,
+   "last_found": 0,
+   "note": "no products found on the page; no products found on the page",
+   "ok": 0,
+   "status": "blocked"
   },
   "host": "naturebacks.com",
   "note": "auto-registered from probe (193 eligible)"
@@ -6470,8 +6647,15 @@
    ],
    "m": []
   },
-  "entry_cursor": 0,
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1787286785.8353944,
+   "last_found": 108,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "nimbleactivewear.com",
   "note": "auto-discovered"
  },
@@ -6512,7 +6696,16 @@
     "https://noahny.com/collections/continue-shopping"
    ]
   },
+  "entry_cursor": 0,
   "gender_source": "prior",
+  "health": {
+   "fail": 1,
+   "last": 1787286808.041894,
+   "last_found": 0,
+   "note": "rate-limited (429) \u2014 stopping this shop for now",
+   "ok": 0,
+   "status": "blocked"
+  },
   "host": "noahny.com",
   "note": "auto-discovered"
  },
@@ -6652,6 +6845,14 @@
     "https://oosc-clothing.com/collections/mens-baselayers"
    ]
   },
+  "entry_cursor": 2,
+  "health": {
+   "fail": 1,
+   "last": 1787286887.5217206,
+   "last_found": 0,
+   "ok": 0,
+   "status": "blocked"
+  },
   "host": "oosc-clothing.com",
   "note": "auto-registered from probe (338 eligible)"
  },
@@ -6669,8 +6870,15 @@
     "https://www.obeyclothing.com/collections/mens-new-arrivals"
    ]
   },
-  "entry_cursor": 0,
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1787286989.1075904,
+   "last_found": 75,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "www.obeyclothing.com",
   "note": "auto-discovered"
  },
@@ -6681,6 +6889,15 @@
     "https://oddfuture.com/collections/womens"
    ],
    "m": []
+  },
+  "entry_cursor": 0,
+  "health": {
+   "fail": 1,
+   "last": 1787287027.7828503,
+   "last_found": 0,
+   "note": "no products found on the page",
+   "ok": 0,
+   "status": "blocked"
   },
   "host": "oddfuture.com",
   "note": "auto-registered from probe (111 eligible)"
@@ -6840,6 +7057,14 @@
     "https://online-ceramics.com/collections/white-background"
    ]
   },
+  "entry_cursor": 2,
+  "health": {
+   "fail": 0,
+   "last": 1787287144.6044636,
+   "last_found": 101,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "online-ceramics.com",
   "note": "auto-registered from probe (80 eligible)"
  },
@@ -6853,8 +7078,15 @@
     "https://onlyny.com/collections/shop-all"
    ]
   },
-  "entry_cursor": 0,
+  "entry_cursor": 2,
   "gender_source": "prior",
+  "health": {
+   "fail": 0,
+   "last": 1787287199.4916093,
+   "last_found": 90,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "onlyny.com",
   "note": "auto-discovered"
  },
@@ -6895,6 +7127,14 @@
     "https://originalpenguin.com/collections/back-to-campus",
     "https://originalpenguin.com/collections/beanies-gloves-scarves"
    ]
+  },
+  "entry_cursor": 2,
+  "health": {
+   "fail": 0,
+   "last": 1787287256.1751466,
+   "last_found": 13,
+   "ok": 1,
+   "status": "ok"
   },
   "host": "originalpenguin.com",
   "note": "auto-registered from probe (454 eligible)"

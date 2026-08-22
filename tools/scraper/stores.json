@@ -297,7 +297,7 @@
  "Bather": {
   "domain": "bather.com",
   "gender_prior": "m",
-  "seen": 99
+  "seen": 100
  },
  "Battenwear": {
   "domain": "battenwear.com",
@@ -307,7 +307,7 @@
  "Baukjen": {
   "domain": "www.baukjen.com",
   "gender_prior": "f",
-  "seen": 70
+  "seen": 71
  },
  "Baukjen Womenswear": {
   "domain": "www.baukjen.com",
@@ -927,7 +927,7 @@
  "Fresh Clean Threads": {
   "domain": "freshcleanthreads.com",
   "gender_prior": "m",
-  "seen": 40
+  "seen": 41
  },
  "Frog Skateboards": {
   "domain": "frogskateboards.com",
@@ -942,7 +942,7 @@
  "Gabicci": {
   "domain": "www.gabicci.com",
   "gender_prior": "m",
-  "seen": 30
+  "seen": 31
  },
  "Gap": {
   "domain": "www.gap.com",
@@ -1157,7 +1157,7 @@
  "Kaiia": {
   "domain": "www.kaiiathelabel.com",
   "gender_prior": "f",
-  "seen": 2
+  "seen": 4
  },
  "Kaiia The Label": {
   "domain": "kaiiathelabel.com",
@@ -1332,7 +1332,7 @@
  "Luke 1977": {
   "domain": "www.luke1977.com",
   "gender_prior": "m",
-  "seen": 21
+  "seen": 22
  },
  "Lunya": {
   "domain": "www.lunya.co",
@@ -1352,7 +1352,7 @@
  "Lyle and Scott": {
   "domain": "www.lyleandscott.com",
   "gender_prior": "m",
-  "seen": 3
+  "seen": 4
  },
  "M.Gemi": {
   "domain": "www.mgemi.com",
@@ -1442,7 +1442,7 @@
  "Montirex": {
   "domain": "montirex.com",
   "gender_prior": "f",
-  "seen": 29
+  "seen": 30
  },
  "Motel Rocks": {
   "domain": "www.motelrocks.com",
@@ -1452,7 +1452,7 @@
  "Mott & Bow": {
   "domain": "mottandbow.com",
   "gender_prior": "u",
-  "seen": 30
+  "seen": 31
  },
  "Mr Simple": {
   "domain": "mrsimple.com.au",
@@ -1462,7 +1462,7 @@
  "Muji": {
   "domain": "www.muji.us",
   "gender_prior": "m",
-  "seen": 3
+  "seen": 4
  },
  "Muscle Nation": {
   "domain": "musclenation.org",
@@ -1527,7 +1527,7 @@
  "New Era": {
   "domain": "extrabutterny.com",
   "gender_prior": "m",
-  "seen": 11
+  "seen": 12
  },
  "Nike": {
   "domain": "www.nike.com",
@@ -1582,7 +1582,7 @@
  "Nude Lucy": {
   "domain": "www.nudelucy.com.au",
   "gender_prior": "f",
-  "seen": 32
+  "seen": 33
  },
  "OOSC Clothing": {
   "domain": "oosc-clothing.com",
@@ -1687,7 +1687,7 @@
  "P.E Nation Global": {
   "domain": "www.pe-nation.com",
   "gender_prior": "f",
-  "seen": 2
+  "seen": 3
  },
  "PATTA": {
   "domain": "undefeated.com",
@@ -1732,7 +1732,7 @@
  "Peppermayo Exclusive": {
   "domain": "us.peppermayo.com",
   "gender_prior": "f",
-  "seen": 2
+  "seen": 3
  },
  "Percival": {
   "domain": "www.percivalclo.com",
@@ -1817,7 +1817,7 @@
  "Pretty Green Store": {
   "domain": "www.prettygreen.com",
   "gender_prior": "m",
-  "seen": 3
+  "seen": 4
  },
  "Primitive": {
   "domain": "primitiveskate.com",
@@ -1827,7 +1827,7 @@
  "Princess Polly": {
   "domain": "us.princesspolly.com",
   "gender_prior": "f",
-  "seen": 30
+  "seen": 31
  },
  "Profound": {
   "domain": "profoundco.com",
@@ -1947,7 +1947,12 @@
  "Reebok": {
   "domain": "www.reebok.com",
   "gender_prior": "f",
-  "seen": 20
+  "seen": 21
+ },
+ "Reformation": {
+  "domain": "www.thereformation.com",
+  "gender_prior": "f",
+  "seen": 2
  },
  "Reigning Champ": {
   "domain": "reigningchamp.com",
@@ -1972,7 +1977,7 @@
  "Represent Clo": {
   "domain": "representclo.com",
   "gender_prior": "f",
-  "seen": 2
+  "seen": 3
  },
  "Rhythm": {
   "domain": "rhythmlivin.com",
@@ -2097,7 +2102,7 @@
  "Salty Crew": {
   "domain": "saltycrew.com",
   "gender_prior": "m",
-  "seen": 108
+  "seen": 109
  },
  "Sami Miro Vintage": {
   "domain": "samimirovintage.com",
@@ -2107,7 +2112,7 @@
  "Sant And Abel": {
   "domain": "santandabel.com",
   "gender_prior": "f",
-  "seen": 20
+  "seen": 21
  },
  "Sarah Flint": {
   "domain": "www.sarahflint.com",
@@ -2172,7 +2177,7 @@
  "Set Active": {
   "domain": "setactive.co",
   "gender_prior": "f",
-  "seen": 131
+  "seen": 132
  },
  "Shoe Palace": {
   "domain": "www.shoepalace.com",
@@ -2287,7 +2292,7 @@
  "Storets": {
   "domain": "www.storets.com",
   "gender_prior": "f",
-  "seen": 31
+  "seen": 32
  },
  "Story MFG": {
   "domain": "storymfg.com",
@@ -2597,7 +2602,7 @@
  "Weekend Offender": {
   "domain": "www.weekendoffender.com",
   "gender_prior": "m",
-  "seen": 29
+  "seen": 30
  },
  "Welcome Skateboards": {
   "domain": "welcomeskateboards.com",
@@ -2672,7 +2677,7 @@
  "Zanerobe": {
   "domain": "www.zanerobe.com",
   "gender_prior": "m",
-  "seen": 37
+  "seen": 38
  },
  "Zulu & Zephyr": {
   "domain": "zuluandzephyr.com",
@@ -2702,6 +2707,6 @@
  "lack of color": {
   "domain": "lackofcolor.com",
   "gender_prior": "f",
-  "seen": 2
+  "seen": 3
  }
 }

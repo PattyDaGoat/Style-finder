@@ -9887,7 +9887,15 @@
     "https://www.sunspel.com/collections/mens-clothing"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1787459622.4144228,
+   "last_found": 22,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "www.sunspel.com",
   "note": "auto-discovered"
  },
@@ -9905,7 +9913,16 @@
     "https://www.superga-usa.com/collections/platforms-copy-1"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 1,
+   "last": 1787459700.756293,
+   "last_found": 0,
+   "note": "no products found on the page; no products found on the page",
+   "ok": 0,
+   "status": "blocked"
+  },
   "host": "www.superga-usa.com",
   "note": "auto-discovered"
  },
@@ -9919,7 +9936,15 @@
    ],
    "m": []
   },
+  "entry_cursor": 2,
   "gender_source": "prior",
+  "health": {
+   "fail": 0,
+   "last": 1787506002.6707864,
+   "last_found": 108,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "www.wearetala.com",
   "note": "auto-discovered"
  },
@@ -9935,12 +9960,14 @@
     "https://www.taylorstitch.com/collections/mens-limited-outerwear"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1784998379.000129,
-   "last_found": 52,
-   "ok": 1,
+   "last": 1787506096.579412,
+   "last_found": 19,
+   "note": "no products found on the page",
+   "ok": 2,
    "status": "ok"
   },
   "host": "www.taylorstitch.com",
@@ -9960,7 +9987,15 @@
     "https://www.tedbaker.com/collections/mens-offers-uk"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1787506456.7734601,
+   "last_found": 102,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "www.tedbaker.com",
   "note": ""
  },
@@ -9974,7 +10009,16 @@
     "https://www.tenthousand.cc/collections/mens-zip-up-hoodies"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 1,
+   "last": 1787506542.6064482,
+   "last_found": 0,
+   "note": "no products found on the page; no products found on the page",
+   "ok": 0,
+   "status": "blocked"
+  },
   "host": "www.tenthousand.cc",
   "note": "auto-discovered"
  },
@@ -9992,7 +10036,15 @@
     "https://www.tentree.com/collections/mens-best-sellers"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1787506690.3303866,
+   "last_found": 114,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "www.tentree.com",
   "note": "auto-discovered"
  },
@@ -10005,6 +10057,14 @@
    "m": [
     "https://territoryrun.co/collections/mens"
    ]
+  },
+  "entry_cursor": 0,
+  "health": {
+   "fail": 0,
+   "last": 1787506770.9264483,
+   "last_found": 47,
+   "ok": 1,
+   "status": "ok"
   },
   "host": "territoryrun.co",
   "note": "auto-registered from probe (49 eligible)"
@@ -10019,6 +10079,15 @@
     "https://thecriticalslidesociety.com/collections/hats-caps",
     "https://thecriticalslidesociety.com/collections/boardshorts"
    ]
+  },
+  "entry_cursor": 2,
+  "health": {
+   "fail": 1,
+   "last": 1787506873.1739786,
+   "last_found": 0,
+   "note": "no products found on the page; no products found on the page",
+   "ok": 0,
+   "status": "blocked"
   },
   "host": "thecriticalslidesociety.com",
   "note": "auto-registered from probe (258 eligible)"
@@ -10037,7 +10106,15 @@
     "https://thefrankieshop.com/collections/mens-new-arrivals"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1787506980.9158201,
+   "last_found": 70,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "thefrankieshop.com",
   "note": "auto-discovered"
  },
@@ -10051,7 +10128,16 @@
     "https://thehundreds.com/collections/apparel"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "prior",
+  "health": {
+   "fail": 0,
+   "last": 1787507060.9071503,
+   "last_found": 27,
+   "note": "no products found on the page",
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "thehundreds.com",
   "note": "auto-discovered"
  },
@@ -10062,6 +10148,14 @@
     "https://thelandmarkproject.com/collections/womens-apparel"
    ],
    "m": []
+  },
+  "entry_cursor": 0,
+  "health": {
+   "fail": 0,
+   "last": 1787507091.3472362,
+   "last_found": 12,
+   "ok": 1,
+   "status": "ok"
   },
   "host": "thelandmarkproject.com",
   "note": "auto-registered from probe (142 eligible)"
@@ -10080,6 +10174,14 @@
     "https://themadhueys.com/collections/mens-boxing-day-deal"
    ]
   },
+  "entry_cursor": 2,
+  "health": {
+   "fail": 0,
+   "last": 1787507220.304969,
+   "last_found": 86,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "themadhueys.com",
   "note": "auto-registered from probe (417 eligible)"
  },
@@ -10097,7 +10199,16 @@
     "https://www.theraggedpriest.com/collections/mens-new-arrivals"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1787507285.5081506,
+   "last_found": 5,
+   "note": "no products found on the page",
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "www.theraggedpriest.com",
   "note": "auto-discovered"
  },
@@ -10211,15 +10322,15 @@
     "https://www.toddsnyder.com/collections/all-tops-sport-coats-suit-jackets"
    ]
   },
-  "entry_cursor": 1,
+  "entry_cursor": 0,
   "gender_note": "no women's collection on the whole site and 0/100 womenswear in a sample",
   "gender_source": "inferred",
   "health": {
    "fail": 0,
-   "last": 1785300839.0596125,
-   "last_found": 43,
+   "last": 1787507563.796744,
+   "last_found": 31,
    "note": "rate-limited (429) \u2014 stopping this shop for now",
-   "ok": 1,
+   "ok": 2,
    "status": "ok"
   },
   "host": "www.toddsnyder.com",

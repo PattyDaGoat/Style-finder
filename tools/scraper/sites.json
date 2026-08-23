@@ -8717,6 +8717,14 @@
     "https://saltgypsy.com/collections/surfwear"
    ]
   },
+  "entry_cursor": 2,
+  "health": {
+   "fail": 0,
+   "last": 1787448737.0166335,
+   "last_found": 8,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "saltgypsy.com",
   "note": "auto-registered from probe (47 eligible)"
  },
@@ -8734,6 +8742,14 @@
     "https://saltlife.com/collections/mens-best-sellers"
    ]
   },
+  "entry_cursor": 2,
+  "health": {
+   "fail": 1,
+   "last": 1787448887.2159774,
+   "last_found": 0,
+   "ok": 0,
+   "status": "blocked"
+  },
   "host": "saltlife.com",
   "note": "auto-registered from probe (382 eligible)"
  },
@@ -8750,6 +8766,15 @@
     "https://saltrock.com/collections/mens-clothing",
     "https://saltrock.com/collections/40-off-t-shirts-mens"
    ]
+  },
+  "entry_cursor": 1,
+  "health": {
+   "fail": 0,
+   "last": 1787448954.1224284,
+   "last_found": 59,
+   "note": "rate-limited (429) \u2014 stopping this shop for now",
+   "ok": 1,
+   "status": "ok"
   },
   "host": "saltrock.com",
   "note": "auto-registered from probe (433 eligible)"
@@ -8788,6 +8813,14 @@
    "m": [
     "https://samimirovintage.com/collections/mens"
    ]
+  },
+  "entry_cursor": 0,
+  "health": {
+   "fail": 0,
+   "last": 1787448987.4778419,
+   "last_found": 8,
+   "ok": 1,
+   "status": "ok"
   },
   "host": "samimirovintage.com",
   "note": "auto-registered from probe (97 eligible)"
@@ -8853,6 +8886,14 @@
     "https://satisfyrunning.com/collections/desert-rats-men"
    ]
   },
+  "entry_cursor": 2,
+  "health": {
+   "fail": 0,
+   "last": 1787449107.126546,
+   "last_found": 50,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "satisfyrunning.com",
   "note": "auto-registered from probe (148 eligible)"
  },
@@ -8897,7 +8938,16 @@
     "https://savekhaki.com/collections/mens-lounge"
    ]
   },
+  "entry_cursor": 1,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1787449144.310692,
+   "last_found": 21,
+   "note": "rate-limited (429) \u2014 stopping this shop for now",
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "savekhaki.com",
   "note": "auto-discovered"
  },
@@ -8961,8 +9011,16 @@
     "https://seagerco.com/collections/clothing"
    ]
   },
-  "entry_cursor": 0,
+  "entry_cursor": 1,
   "gender_source": "prior",
+  "health": {
+   "fail": 0,
+   "last": 1787449198.1562896,
+   "last_found": 40,
+   "note": "rate-limited (429) \u2014 stopping this shop for now",
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "seagerco.com",
   "note": "auto-discovered"
  },
@@ -8999,6 +9057,14 @@
     "https://theseea.com/collections/bikinis",
     "https://theseea.com/collections/2017-collection"
    ]
+  },
+  "entry_cursor": 2,
+  "health": {
+   "fail": 0,
+   "last": 1787449388.516728,
+   "last_found": 57,
+   "ok": 1,
+   "status": "ok"
   },
   "host": "theseea.com",
   "note": "auto-registered from probe (318 eligible)"
@@ -9251,6 +9317,15 @@
     "https://sisstrevolution.com/collections/all-excludes-wetsuits-curated"
    ]
   },
+  "entry_cursor": 1,
+  "health": {
+   "fail": 0,
+   "last": 1787449506.7300236,
+   "last_found": 28,
+   "note": "rate-limited (429) \u2014 stopping this shop for now",
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "sisstrevolution.com",
   "note": "auto-registered from probe (396 eligible)"
  },
@@ -9291,8 +9366,15 @@
     "https://www.sixthjune.com/collections/men-tops"
    ]
   },
-  "entry_cursor": 0,
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1787449624.5502694,
+   "last_found": 26,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "www.sixthjune.com",
   "note": "auto-discovered"
  },
@@ -9353,6 +9435,14 @@
     "https://snowpeak.com/collections/50-200",
     "https://snowpeak.com/collections/100-300"
    ]
+  },
+  "entry_cursor": 2,
+  "health": {
+   "fail": 0,
+   "last": 1787449742.3140178,
+   "last_found": 73,
+   "ok": 1,
+   "status": "ok"
   },
   "host": "snowpeak.com",
   "note": "auto-registered from probe (179 eligible)"
@@ -9539,6 +9629,15 @@
     "https://sportyandrich.com/collections/sets-men"
    ]
   },
+  "entry_cursor": 1,
+  "health": {
+   "fail": 1,
+   "last": 1787449800.7243326,
+   "last_found": 0,
+   "note": "no products found on the page; rate-limited (429) \u2014 stopping this shop for now",
+   "ok": 0,
+   "status": "blocked"
+  },
   "host": "sportyandrich.com",
   "note": "auto-registered from probe (366 eligible)"
  },
@@ -9575,6 +9674,15 @@
     "https://staplepigeon.com/collections/collaborations",
     "https://staplepigeon.com/collections/pigeon-day-2026"
    ]
+  },
+  "entry_cursor": 2,
+  "health": {
+   "fail": 0,
+   "last": 1787449860.829932,
+   "last_found": 7,
+   "note": "no products found on the page",
+   "ok": 1,
+   "status": "ok"
   },
   "host": "staplepigeon.com",
   "note": "auto-registered from probe (355 eligible)"
@@ -9683,9 +9791,16 @@
     "https://www.stussy.com/collections/mens-swim"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 0,
   "gender_note": "guessed menswear (only 0% dresses and 5% read womenswear); registered as a prior, so any evidence on a piece overrides it",
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1787449990.957937,
+   "last_found": 63,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "www.stussy.com",
   "note": "found by find_brands.py \u2014 streetwear"
  },
@@ -9699,7 +9814,16 @@
    ],
    "m": []
   },
+  "entry_cursor": 2,
   "gender_source": "prior",
+  "health": {
+   "fail": 1,
+   "last": 1787450091.8423986,
+   "last_found": 0,
+   "note": "no products found on the page; no products found on the page",
+   "ok": 0,
+   "status": "blocked"
+  },
   "host": "suboo.com.au",
   "note": "auto-discovered"
  },

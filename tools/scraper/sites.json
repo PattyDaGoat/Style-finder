@@ -9,13 +9,13 @@
     "https://10deep.com/collections/t-shirts-tank-tops"
    ]
   },
-  "entry_cursor": 1,
+  "entry_cursor": 0,
   "gender_source": "prior",
   "health": {
-   "fail": 3,
-   "last": 1785130226.197912,
+   "fail": 4,
+   "last": 1787514785.3690283,
    "last_found": 0,
-   "note": "rate-limited (429) \u2014 stopping this shop for now",
+   "note": "no products found on the page; no products found on the page",
    "ok": 2,
    "status": "blocked"
   },
@@ -32,15 +32,15 @@
     "https://18east.co/collections/all"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 1,
   "gender_source": "prior",
   "health": {
    "fail": 1,
-   "last": 1785130226.3890693,
-   "last_found": 0,
-   "note": "rate-limited (429) \u2014 stopping this shop for now",
-   "ok": 4,
-   "status": "blocked"
+   "last": 1787514872.9217741,
+   "last_found": 33,
+   "note": "no products found on the page",
+   "ok": 5,
+   "status": "ok"
   },
   "host": "18east.co",
   "note": "auto-discovered"
@@ -55,15 +55,15 @@
     "https://www.3sixteen.com/collections/complete-the-fit-tops"
    ]
   },
-  "entry_cursor": 0,
+  "entry_cursor": 2,
   "gender_source": "prior",
   "health": {
    "fail": 1,
-   "last": 1785130226.5420105,
-   "last_found": 0,
+   "last": 1787514962.3116138,
+   "last_found": 37,
    "note": "rate-limited (429) \u2014 stopping this shop for now",
-   "ok": 3,
-   "status": "blocked"
+   "ok": 4,
+   "status": "ok"
   },
   "host": "www.3sixteen.com",
   "note": "auto-discovered"
@@ -78,7 +78,16 @@
     "https://www.a-ma-maniere.com/collections/comme-des-garcons-homme"
    ]
   },
+  "entry_cursor": 1,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1787515018.6373498,
+   "last_found": 15,
+   "note": "rate-limited (429) \u2014 stopping this shop for now",
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "www.a-ma-maniere.com",
   "note": "auto-discovered"
  },
@@ -10568,13 +10577,13 @@
     "https://www.uniqlo.com/us/en/men/outerwear"
    ]
   },
-  "entry_cursor": 3,
+  "entry_cursor": 5,
   "health": {
    "fail": 0,
-   "last": 1785434621.6172318,
-   "last_found": 60,
+   "last": 1787513644.3203218,
+   "last_found": 120,
    "note": "no products found on the page",
-   "ok": 5,
+   "ok": 6,
    "status": "ok"
   },
   "host": "www.uniqlo.com",
@@ -10808,13 +10817,13 @@
    ],
    "m": []
   },
-  "entry_cursor": 2,
+  "entry_cursor": 1,
   "gender_source": "prior",
   "health": {
    "fail": 0,
-   "last": 1785434759.7713082,
-   "last_found": 66,
-   "ok": 1,
+   "last": 1787513764.1727939,
+   "last_found": 63,
+   "ok": 2,
    "status": "ok"
   },
   "host": "www.vitaminaswim.com",
@@ -10833,6 +10842,14 @@
     "https://volcom.com/collections/mens-clothing",
     "https://volcom.com/collections/mens-t-shirts-tanks"
    ]
+  },
+  "entry_cursor": 2,
+  "health": {
+   "fail": 0,
+   "last": 1787513891.8515298,
+   "last_found": 77,
+   "ok": 1,
+   "status": "ok"
   },
   "host": "volcom.com",
   "note": "auto-registered from probe (425 eligible)"
@@ -10945,6 +10962,14 @@
     "https://warrenlotas.com/collections/black-friday"
    ]
   },
+  "entry_cursor": 2,
+  "health": {
+   "fail": 0,
+   "last": 1787513963.9916818,
+   "last_found": 18,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "warrenlotas.com",
   "note": "auto-registered from probe (250 eligible)"
  },
@@ -10961,6 +10986,14 @@
     "https://waterlust.com/collections/mens-tops",
     "https://waterlust.com/collections/mens-sun-shirts"
    ]
+  },
+  "entry_cursor": 2,
+  "health": {
+   "fail": 0,
+   "last": 1787514068.2786849,
+   "last_found": 69,
+   "ok": 1,
+   "status": "ok"
   },
   "host": "waterlust.com",
   "note": "auto-registered from probe (149 eligible)"
@@ -11044,7 +11077,16 @@
     "https://welcomeskateboards.com/collections/hardgoods"
    ]
   },
+  "entry_cursor": 1,
   "gender_source": "prior",
+  "health": {
+   "fail": 0,
+   "last": 1787514113.6472557,
+   "last_found": 60,
+   "note": "rate-limited (429) \u2014 stopping this shop for now",
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "welcomeskateboards.com",
   "note": "auto-discovered"
  },
@@ -11102,6 +11144,14 @@
     "https://wild-rye.com/collections/womens-bike-bottoms"
    ],
    "m": []
+  },
+  "entry_cursor": 2,
+  "health": {
+   "fail": 0,
+   "last": 1787514234.0023649,
+   "last_found": 36,
+   "ok": 1,
+   "status": "ok"
   },
   "host": "wild-rye.com",
   "note": "auto-registered from probe (94 eligible)"
@@ -11268,8 +11318,15 @@
     "https://www.youmustcreate.com/collections/mens-core-collection"
    ]
   },
-  "entry_cursor": 0,
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1787514382.5650775,
+   "last_found": 19,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "www.youmustcreate.com",
   "note": "auto-discovered"
  },
@@ -11306,6 +11363,14 @@
     "https://youngla.com/collections/all-for-her",
     "https://youngla.com/collections/all-products-1"
    ]
+  },
+  "entry_cursor": 2,
+  "health": {
+   "fail": 0,
+   "last": 1787514532.0674293,
+   "last_found": 92,
+   "ok": 1,
+   "status": "ok"
   },
   "host": "youngla.com",
   "note": "auto-registered from probe (328 eligible)"
@@ -11439,7 +11504,15 @@
     "https://nordarun.com/collections/gnorda-men"
    ]
   },
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1787514655.5417871,
+   "last_found": 3,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "nordarun.com",
   "note": "found by find_brands.py \u2014 footwear"
  },
@@ -11457,7 +11530,16 @@
     "https://www.sacai.jp/collections/men-blousons-jackets"
    ]
   },
+  "entry_cursor": 1,
   "gender_source": "collection",
+  "health": {
+   "fail": 1,
+   "last": 1787514703.7318134,
+   "last_found": 0,
+   "note": "rate-limited (429) \u2014 stopping this shop for now",
+   "ok": 0,
+   "status": "blocked"
+  },
   "host": "www.sacai.jp",
   "note": "found by find_brands.py \u2014 designer"
  }

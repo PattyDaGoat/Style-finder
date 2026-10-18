@@ -9,11 +9,11 @@
     "https://10deep.com/collections/t-shirts-tank-tops"
    ]
   },
-  "entry_cursor": 0,
+  "entry_cursor": 2,
   "gender_source": "prior",
   "health": {
-   "fail": 12,
-   "last": 1791673006.386626,
+   "fail": 13,
+   "last": 1792274476.521886,
    "last_found": 0,
    "note": "no products found on the page; no products found on the page",
    "ok": 2,
@@ -32,7 +32,7 @@
     "https://18east.co/collections/bottoms"
    ]
   },
-  "entry_cursor": 0,
+  "entry_cursor": 1,
   "gender_source": "prior",
   "health": {
    "fail": 0,
@@ -55,14 +55,14 @@
     "https://www.3sixteen.com/collections/complete-the-fit-tops"
    ]
   },
-  "entry_cursor": 1,
+  "entry_cursor": 0,
   "gender_source": "prior",
   "health": {
    "fail": 1,
-   "last": 1791673184.846176,
-   "last_found": 27,
+   "last": 1792282685.6513557,
+   "last_found": 60,
    "note": "rate-limited (429) \u2014 stopping this shop for now",
-   "ok": 12,
+   "ok": 13,
    "status": "ok"
   },
   "host": "www.3sixteen.com",
@@ -82,10 +82,10 @@
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1791673319.5598462,
+   "last": 1792282819.961506,
    "last_found": 28,
    "note": "rate-limited (429) \u2014 stopping this shop for now",
-   "ok": 8,
+   "ok": 9,
    "status": "ok"
   },
   "host": "www.a-ma-maniere.com",
@@ -105,13 +105,13 @@
     "https://akindofguise.com/collections/men-essentials"
    ]
   },
-  "entry_cursor": 0,
+  "entry_cursor": 2,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1791673419.911394,
-   "last_found": 10,
-   "ok": 2,
+   "last": 1792282949.743814,
+   "last_found": 13,
+   "ok": 3,
    "status": "ok"
   },
   "host": "akindofguise.com",
@@ -131,14 +131,14 @@
     "https://www.akindofguise.com/collections/men-essentials"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 4,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1791673547.9172876,
-   "last_found": 12,
+   "last": 1792283055.9785697,
+   "last_found": 44,
    "note": "no products found on the page",
-   "ok": 2,
+   "ok": 3,
    "status": "ok"
   },
   "host": "www.akindofguise.com",
@@ -158,10 +158,10 @@
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1791673679.330922,
+   "last": 1792283185.347605,
    "last_found": 28,
    "note": "rate-limited (429) \u2014 stopping this shop for now",
-   "ok": 10,
+   "ok": 11,
    "status": "ok"
   },
   "host": "www.amamaniere.com",
@@ -181,8 +181,15 @@
     "https://www.apc-us.com/collections/men-coats-jackets"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 4,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1792283290.3534482,
+   "last_found": 7,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "www.apc-us.com",
   "note": "found by find_brands.py \u2014 designer"
  },
@@ -196,13 +203,13 @@
    ],
    "m": []
   },
-  "entry_cursor": 0,
+  "entry_cursor": 2,
   "gender_source": "prior",
   "health": {
    "fail": 0,
-   "last": 1791673924.938095,
-   "last_found": 112,
-   "ok": 9,
+   "last": 1792283457.4191759,
+   "last_found": 109,
+   "ok": 10,
    "status": "ok"
   },
   "host": "www.aimn.com",
@@ -218,7 +225,7 @@
    ],
    "m": []
   },
-  "entry_cursor": 0,
+  "entry_cursor": 1,
   "gender_source": "prior",
   "health": {
    "fail": 0,
@@ -244,15 +251,15 @@
     "https://www.amiri.com/collections/mens-accessories"
    ]
   },
-  "entry_cursor": 3,
+  "entry_cursor": 5,
   "gender_note": "found only men's collections by name; the shop also lists women's ones, so its general collections are registered for that side as a guess",
   "gender_source": "collection",
   "health": {
-   "fail": 0,
-   "last": 1791705033.4948974,
-   "last_found": 5,
+   "fail": 1,
+   "last": 1792305353.7816625,
+   "last_found": 0,
    "ok": 1,
-   "status": "ok"
+   "status": "blocked"
   },
   "host": "www.amiri.com",
   "note": "found by find_brands.py \u2014 designer"
@@ -290,8 +297,15 @@
    ],
    "m": []
   },
-  "entry_cursor": 1,
+  "entry_cursor": 0,
   "gender_source": "prior",
+  "health": {
+   "fail": 0,
+   "last": 1792305461.1190763,
+   "last_found": 94,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "www.adanola.com",
   "note": "auto-discovered"
  },
@@ -330,13 +344,13 @@
     "https://aelfriceden.com/collections/breezy-mens"
    ]
   },
-  "entry_cursor": 0,
+  "entry_cursor": 2,
   "gender_source": "prior",
   "health": {
    "fail": 0,
-   "last": 1791705297.3027594,
-   "last_found": 99,
-   "ok": 6,
+   "last": 1792305553.6693048,
+   "last_found": 67,
+   "ok": 7,
    "status": "ok"
   },
   "host": "aelfriceden.com",
@@ -356,13 +370,13 @@
     "https://afends.com/collections/mens-tops-tees"
    ]
   },
-  "entry_cursor": 5,
+  "entry_cursor": 1,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1791705479.4810243,
-   "last_found": 120,
-   "ok": 1,
+   "last": 1792305722.711051,
+   "last_found": 87,
+   "ok": 2,
    "status": "ok"
   },
   "host": "afends.com",
@@ -403,7 +417,7 @@
     "https://www.aimeleondore.com/collections/shorts"
    ]
   },
-  "entry_cursor": 4,
+  "entry_cursor": 2,
   "gender_note": "guessed menswear (only 4% dresses and 4% read womenswear); registered as a prior, so any evidence on a piece overrides it",
   "gender_source": "collection",
   "host": "www.aimeleondore.com",
@@ -463,14 +477,14 @@
     "https://www.albamclothing.com/collections/knitwear"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 1,
   "gender_source": "prior",
   "health": {
    "fail": 3,
-   "last": 1791705572.908659,
-   "last_found": 13,
+   "last": 1792305881.7661426,
+   "last_found": 10,
    "note": "rate-limited (429) \u2014 stopping this shop for now",
-   "ok": 11,
+   "ok": 12,
    "status": "ok"
   },
   "host": "www.albamclothing.com",
@@ -482,19 +496,12 @@
    "f": [
     "https://www.albaray.co.uk/collections/non-reloved",
     "https://www.albaray.co.uk/collections/view-all",
-    "https://www.albaray.co.uk/collections/full-price-styles"
+    "https://www.albaray.co.uk/collections/agentic-storefront"
    ],
    "m": []
   },
-  "entry_cursor": 2,
+  "entry_cursor": 1,
   "gender_source": "prior",
-  "health": {
-   "fail": 0,
-   "last": 1791705687.2368722,
-   "last_found": 77,
-   "ok": 1,
-   "status": "ok"
-  },
   "host": "albaray.co.uk",
   "note": "auto-discovered"
  },
@@ -510,13 +517,13 @@
     "https://alexcrane.co/collections/men"
    ]
   },
-  "entry_cursor": 3,
+  "entry_cursor": 1,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1791705813.9554873,
-   "last_found": 82,
-   "ok": 4,
+   "last": 1792306120.8191147,
+   "last_found": 57,
+   "ok": 5,
    "status": "ok"
   },
   "host": "alexcrane.co",
@@ -533,8 +540,8 @@
   "entry_cursor": 0,
   "gender_source": "collection",
   "health": {
-   "fail": 13,
-   "last": 1791705835.3412795,
+   "fail": 14,
+   "last": 1792306142.747538,
    "last_found": 0,
    "note": "rate-limited (429) \u2014 stopping this shop for now",
    "ok": 2,
@@ -555,10 +562,10 @@
   "gender_source": "collection",
   "health": {
    "fail": 2,
-   "last": 1791705860.065015,
+   "last": 1792306167.9455981,
    "last_found": 6,
    "note": "nav failed: Page.goto: Timeout 45000ms exceeded.",
-   "ok": 11,
+   "ok": 12,
    "status": "ok"
   },
   "host": "aligne.co",
@@ -574,7 +581,7 @@
    ],
    "m": []
   },
-  "entry_cursor": 0,
+  "entry_cursor": 2,
   "gender_source": "prior",
   "health": {
    "fail": 0,
@@ -600,14 +607,14 @@
     "https://www.allbirds.com/collections/mens-active-shoes"
    ]
   },
-  "entry_cursor": 4,
+  "entry_cursor": 0,
   "gender_source": "collection",
   "health": {
    "fail": 2,
-   "last": 1791735932.1412883,
+   "last": 1792325496.018607,
    "last_found": 12,
    "note": "no products found on the page",
-   "ok": 11,
+   "ok": 12,
    "status": "ok"
   },
   "host": "www.allbirds.com",
@@ -627,10 +634,10 @@
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1791736052.16199,
-   "last_found": 41,
+   "last": 1792325630.7841692,
+   "last_found": 40,
    "note": "rate-limited (429) \u2014 stopping this shop for now",
-   "ok": 6,
+   "ok": 7,
    "status": "ok"
   },
   "host": "almondsurfboards.com",
@@ -649,13 +656,13 @@
     "https://www.aloyoga.com/collections/mens-black"
    ]
   },
-  "entry_cursor": 1,
+  "entry_cursor": 3,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1791736157.8183851,
-   "last_found": 48,
-   "ok": 10,
+   "last": 1792325781.5564325,
+   "last_found": 71,
+   "ok": 11,
    "status": "ok"
   },
   "host": "www.aloyoga.com",
@@ -671,14 +678,14 @@
     "https://alohabeachclub.store/collections/accessories"
    ]
   },
-  "entry_cursor": 0,
+  "entry_cursor": 2,
   "gender_source": "prior",
   "health": {
    "fail": 3,
-   "last": 1791736194.1044824,
-   "last_found": 16,
-   "note": "no products found on the page; no products found on the page",
-   "ok": 6,
+   "last": 1792325826.8825147,
+   "last_found": 12,
+   "note": "no products found on the page",
+   "ok": 7,
    "status": "ok"
   },
   "host": "alohabeachclub.store",
@@ -694,14 +701,14 @@
     "https://alohasunday.com/collections/all"
    ]
   },
-  "entry_cursor": 0,
+  "entry_cursor": 2,
   "gender_source": "prior",
   "health": {
    "fail": 0,
-   "last": 1791736251.3367329,
-   "last_found": 16,
+   "last": 1792325873.7293222,
+   "last_found": 32,
    "note": "no products found on the page",
-   "ok": 9,
+   "ok": 10,
    "status": "ok"
   },
   "host": "alohasunday.com",
@@ -721,14 +728,14 @@
     "https://www.alphaleteathletics.com/collections/mens-shirts"
    ]
   },
-  "entry_cursor": 0,
+  "entry_cursor": 2,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1791736322.4867551,
+   "last": 1792325943.0107524,
    "last_found": 50,
    "note": "no products found on the page",
-   "ok": 4,
+   "ok": 5,
    "status": "ok"
   },
   "host": "www.alphaleteathletics.com",
@@ -746,13 +753,13 @@
     "https://alpkit.com/collections/mens-featured-products"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 0,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1791736451.6814036,
-   "last_found": 49,
-   "ok": 9,
+   "last": 1792326070.9833596,
+   "last_found": 65,
+   "ok": 10,
    "status": "ok"
   },
   "host": "alpkit.com",
@@ -770,10 +777,10 @@
   "gender_source": "collection",
   "health": {
    "fail": 2,
-   "last": 1791736476.0584786,
+   "last": 1792326097.5449686,
    "last_found": 7,
    "note": "rate-limited (429) \u2014 stopping this shop for now",
-   "ok": 12,
+   "ok": 13,
    "status": "ok"
   },
   "host": "americantrench.com",
@@ -793,14 +800,14 @@
     "https://amiri.com/collections/mens-accessories"
    ]
   },
-  "entry_cursor": 3,
+  "entry_cursor": 5,
   "gender_source": "collection",
   "health": {
-   "fail": 0,
-   "last": 1791736634.024502,
-   "last_found": 4,
+   "fail": 1,
+   "last": 1792326184.0725548,
+   "last_found": 0,
    "ok": 1,
-   "status": "ok"
+   "status": "blocked"
   },
   "host": "amiri.com",
   "note": "auto-discovered"
@@ -837,8 +844,15 @@
     "https://antisocialsocialclub.com/collections/assc-x-hello-kitty-x-nfl"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 1,
   "gender_source": "prior",
+  "health": {
+   "fail": 0,
+   "last": 1792326311.6556356,
+   "last_found": 116,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "antisocialsocialclub.com",
   "note": "auto-discovered"
  },
@@ -879,7 +893,7 @@
     "https://www.ariesarise.com/collections/accessories-mens"
    ]
   },
-  "entry_cursor": 4,
+  "entry_cursor": 0,
   "gender_source": "collection",
   "host": "ariesarise.com",
   "note": "auto-discovered"
@@ -895,8 +909,8 @@
   },
   "entry_cursor": 0,
   "health": {
-   "fail": 7,
-   "last": 1791736850.8243093,
+   "fail": 8,
+   "last": 1792326429.2782826,
    "last_found": 0,
    "note": "no products found on the page; no products found on the page",
    "ok": 7,
@@ -938,13 +952,13 @@
     "https://www.armsofeve.com/collections/necklaces-mens"
    ]
   },
-  "entry_cursor": 0,
+  "entry_cursor": 2,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1791736893.1857004,
-   "last_found": 5,
-   "ok": 7,
+   "last": 1792326477.0424325,
+   "last_found": 6,
+   "ok": 8,
    "status": "ok"
   },
   "host": "www.armsofeve.com",
@@ -960,7 +974,7 @@
     "https://www.arpenteur.fr/collections/outerwear"
    ]
   },
-  "entry_cursor": 0,
+  "entry_cursor": 1,
   "gender_source": "prior",
   "health": {
    "fail": 1,
@@ -985,10 +999,10 @@
   "gender_source": "collection",
   "health": {
    "fail": 3,
-   "last": 1791040001.7955143,
+   "last": 1792332595.4345796,
    "last_found": 44,
    "note": "rate-limited (429) \u2014 stopping this shop for now",
-   "ok": 11,
+   "ok": 12,
    "status": "ok"
   },
   "host": "ashanderie.com",
@@ -1008,8 +1022,15 @@
     "https://int.assemblylabel.com/collections/mens-accessories"
    ]
   },
-  "entry_cursor": 0,
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1792332747.9361093,
+   "last_found": 95,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "assemblylabel.com",
   "note": "auto-discovered"
  },
@@ -1023,13 +1044,13 @@
    ],
    "m": []
   },
-  "entry_cursor": 2,
+  "entry_cursor": 1,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1791743449.2477512,
-   "last_found": 12,
-   "ok": 2,
+   "last": 1792332874.1857407,
+   "last_found": 9,
+   "ok": 3,
    "status": "ok"
   },
   "host": "augustethelabel.com",
@@ -1046,13 +1067,13 @@
     "https://aviatornation.com/collections/cotton-luxe-mens-shorts"
    ]
   },
-  "entry_cursor": 0,
+  "entry_cursor": 2,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1791743578.9316745,
+   "last": 1792333020.8187711,
    "last_found": 12,
-   "ok": 7,
+   "ok": 8,
    "status": "ok"
   },
   "host": "aviatornation.com",
@@ -1071,13 +1092,13 @@
     "https://aybl.com/collections/active-mens"
    ]
   },
-  "entry_cursor": 3,
+  "entry_cursor": 0,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1791743624.011261,
-   "last_found": 18,
-   "ok": 3,
+   "last": 1792333074.2295206,
+   "last_found": 19,
+   "ok": 4,
    "status": "ok"
   },
   "host": "aybl.com",
@@ -1097,10 +1118,10 @@
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1791743689.6603503,
+   "last": 1792333139.8812945,
    "last_found": 6,
    "note": "no products found on the page",
-   "ok": 9,
+   "ok": 10,
    "status": "ok"
   },
   "host": "b-cools.com",
@@ -1120,13 +1141,13 @@
     "https://bbcicecream.com/collections/mens-accessories"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 4,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1791743835.5140524,
-   "last_found": 92,
-   "ok": 2,
+   "last": 1792333283.3210003,
+   "last_found": 115,
+   "ok": 3,
    "status": "ok"
   },
   "host": "bbcicecream.com",
@@ -1136,9 +1157,9 @@
   "brand": "Bad Birdie",
   "entries": {
    "f": [
-    "https://badbirdiegolf.com/collections/spring-26-womens-polos",
     "https://badbirdiegolf.com/collections/new-womens-golf-apparel",
-    "https://badbirdiegolf.com/collections/bad-weekend-womens"
+    "https://badbirdiegolf.com/collections/bad-weekend-womens",
+    "https://badbirdiegolf.com/collections/paint-splatter-womens"
    ],
    "m": [
     "https://badbirdiegolf.com/collections/mens",
@@ -1146,14 +1167,13 @@
     "https://badbirdiegolf.com/collections/mens-tops"
    ]
   },
-  "entry_cursor": 5,
+  "entry_cursor": 1,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1791743949.74942,
-   "last_found": 56,
-   "note": "rate-limited (429) \u2014 stopping this shop for now",
-   "ok": 8,
+   "last": 1792333410.9965074,
+   "last_found": 70,
+   "ok": 1,
    "status": "ok"
   },
   "host": "badbirdiegolf.com",
@@ -1194,7 +1214,7 @@
     "https://banditrunning.com/collections/bandit-mens"
    ]
   },
-  "entry_cursor": 4,
+  "entry_cursor": 0,
   "gender_source": "collection",
   "health": {
    "fail": 0,
@@ -11245,14 +11265,14 @@
    ],
    "m": []
   },
-  "entry_cursor": 0,
+  "entry_cursor": 2,
   "gender_source": "prior",
   "health": {
    "fail": 0,
-   "last": 1791648379.5508173,
-   "last_found": 87,
+   "last": 1792255564.2181754,
+   "last_found": 68,
    "note": "rate-limited (429) \u2014 stopping this shop for now",
-   "ok": 6,
+   "ok": 7,
    "status": "ok"
   },
   "host": "whitefoxboutique.com",
@@ -11268,13 +11288,13 @@
    ],
    "m": []
   },
-  "entry_cursor": 2,
+  "entry_cursor": 1,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1791648497.8430772,
-   "last_found": 33,
-   "ok": 8,
+   "last": 1792255670.51806,
+   "last_found": 40,
+   "ok": 9,
    "status": "ok"
   },
   "host": "wild-rye.com",
@@ -11290,13 +11310,13 @@
    ],
    "m": []
   },
-  "entry_cursor": 0,
+  "entry_cursor": 2,
   "gender_source": "prior",
   "health": {
    "fail": 0,
-   "last": 1791648619.848108,
-   "last_found": 67,
-   "ok": 6,
+   "last": 1792255787.854033,
+   "last_found": 55,
+   "ok": 7,
    "status": "ok"
   },
   "host": "withjean.com",
@@ -11312,13 +11332,13 @@
    ],
    "m": []
   },
-  "entry_cursor": 2,
+  "entry_cursor": 1,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1790975110.4022717,
-   "last_found": 33,
-   "ok": 3,
+   "last": 1792256113.805192,
+   "last_found": 26,
+   "ok": 4,
    "status": "ok"
   },
   "host": "www.withnothingunderneath.com",
@@ -11413,7 +11433,7 @@
    ],
    "m": []
   },
-  "entry_cursor": 1,
+  "entry_cursor": 0,
   "gender_source": "prior",
   "health": {
    "fail": 0,
@@ -11439,13 +11459,13 @@
     "https://www.youmustcreate.com/collections/mens-accessories"
    ]
   },
-  "entry_cursor": 1,
+  "entry_cursor": 3,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1791655511.5880644,
-   "last_found": 25,
-   "ok": 1,
+   "last": 1792273551.3006942,
+   "last_found": 39,
+   "ok": 2,
    "status": "ok"
   },
   "host": "www.youmustcreate.com",
@@ -11461,14 +11481,14 @@
    ],
    "m": []
   },
-  "entry_cursor": 2,
+  "entry_cursor": 1,
   "gender_source": "prior",
   "health": {
    "fail": 0,
-   "last": 1791655696.4909432,
+   "last": 1792273727.5411265,
    "last_found": 99,
    "note": "rate-limited (429) \u2014 stopping this shop for now",
-   "ok": 9,
+   "ok": 10,
    "status": "ok"
   },
   "host": "www.yearofours.com",
@@ -11484,13 +11504,13 @@
    ],
    "m": []
   },
-  "entry_cursor": 0,
+  "entry_cursor": 2,
   "gender_source": "prior",
   "health": {
    "fail": 0,
-   "last": 1791655839.107677,
+   "last": 1792273886.8764677,
    "last_found": 94,
-   "ok": 8,
+   "ok": 9,
    "status": "ok"
   },
   "host": "youngla.com",
@@ -11529,13 +11549,13 @@
    ],
    "m": []
   },
-  "entry_cursor": 2,
+  "entry_cursor": 1,
   "gender_source": "prior",
   "health": {
    "fail": 0,
-   "last": 1791656144.7365656,
-   "last_found": 120,
-   "ok": 1,
+   "last": 1792274152.3157055,
+   "last_found": 119,
+   "ok": 2,
    "status": "ok"
   },
   "host": "zsupply.com",
@@ -11551,13 +11571,13 @@
     "https://www.zanerobe.com/collections/box-ls-tee"
    ]
   },
-  "entry_cursor": 1,
+  "entry_cursor": 0,
   "gender_source": "prior",
   "health": {
    "fail": 0,
-   "last": 1791656262.4993415,
-   "last_found": 89,
-   "ok": 4,
+   "last": 1792274276.8395808,
+   "last_found": 82,
+   "ok": 5,
    "status": "ok"
   },
   "host": "www.zanerobe.com",
@@ -11623,8 +11643,15 @@
     "https://nordarun.com/collections/mens-black-trail-running-shoes-1"
    ]
   },
-  "entry_cursor": 1,
+  "entry_cursor": 3,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1792274372.5913074,
+   "last_found": 12,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "nordarun.com",
   "note": "found by find_brands.py \u2014 footwear"
  },

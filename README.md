@@ -63,7 +63,11 @@ Details and the honest limits: `docs/SECTIONING-REVIEW.md`.
 There is a dev-only harness: open with `?eval=1` or press **Shift+E** three times. It hides the
 last part of a swipe session, rebuilds the model from the rest, and checks whether the pieces you
 actually liked come out on top — with baselines and a noise floor, so a change is only "better"
-if it clears the margin of error. See `docs/UPGRADE-1-REVIEW.md`.
+if it clears the margin of error. See `docs/UPGRADE-1-REVIEW.md`, and `docs/ALGORITHM-V4.md`
+for the current algorithm: a learned logistic layer on top of the counting profile, repulsion
+from recently skipped pieces, and a deck that spaces garments, explores on purpose and notices
+when you have gone off something. `node tools/measure-scorer.mjs` and
+`node tools/measure-deck.mjs` print the numbers at the terminal.
 
 ---
 
@@ -75,8 +79,8 @@ data/catalog.json       9,306 products, one per line
 dist/style-finder.html  the app (generated — never edit)
 src/shell/              html around the css and js
 src/css/                8 stylesheets, concatenated in order
-src/js/                 17 modules, concatenated in order
-test/                   5 suites + run-all.mjs
+src/js/                 18 modules, concatenated in order
+test/                   8 suites + run-all.mjs
 tools/                  the scripts that produced the data
 docs/                   design notes, change reviews, setup guides
 fast-fashion-waste-chart.html   standalone chart on fast-fashion waste

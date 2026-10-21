@@ -1,4 +1,4 @@
-/* ---------- taste model (v3: IDF-weighted + hybrid item-kNN) ---------- */
+/* ---------- taste model (v4: IDF-weighted + hybrid item-kNN + skipped-neighbour repulsion + shrunk category affinity) ---------- */
 const N=CATALOG.length;
 function _count(key){const m={};CATALOG.forEach(p=>{const v=p[key];(Array.isArray(v)?v:[v]).forEach(x=>{if(x!=null)m[x]=(m[x]||0)+1;});});return m;}
 const MScnt=_count('ms'), FABcnt=_count('fab'), BRcnt=_count('b'),
@@ -265,7 +265,9 @@ const FAST_FASHION=new Set(['white fox','oh polly','princess polly','motel rocks
 'peppermayo','beginning boutique','tiger mist','selfie leslie','edikted','storets','in the style',
 'sabo','petal & pup','verge girl','runway scout','rebellious fashion','public desire','daisy street',
 'minga london','runaway the label','pink lily','red dress','buddy love','sik silk','mnml','gym king',
-'sinners attire','aybl','kulani kinis','iam gia','jaded london']);
+'sinners attire','aybl','kulani kinis','iam gia','jaded london',
+'boohoo','fashion nova','brandy melville','shein','zara','h&m','forever 21','cider','romwe',
+'pretty little thing','prettylittlething','nasty gal','missguided']);
 function isFastFashion(p){return FAST_FASHION.has((p.b||'').toLowerCase());}
 
 /* the master feed filter: underwear + section + budget + categories + occasion + fast-fashion */
@@ -403,7 +405,7 @@ function reactW(r){
    on, and brand affinity genuinely travels across garments — you like the label
    — while per-group brand counts would be far too thin to learn from. */
 function newBag(){return {ms:{},color:{},pat:{},fab:{},fit:{}};}
-function newModel(){return {ms:{},color:{},pat:{},cat:{},fab:{},fit:{},brand:{},grp:{},n:{}};}
+function newModel(){return {ms:{},color:{},pat:{},cat:{},catN:{},fab:{},fit:{},brand:{},grp:{},n:{},neg:[]};}
 /* every write THROUGH HERE goes to the global bag and to the piece's group bag at
    once, so the two cannot drift apart. The only writes that skip it are the ones
    with no garment to attribute — warm-up seeds and inspiration, both global by
@@ -422,6 +424,7 @@ function addTo(W,p,w){
   (p.fab||[]).forEach(f=>bumpW(W,p,'fab',f,w*idf(f,FABcnt)));
   bumpW(W,p,'fit',p.fit,w*idfFit(p.fit));
   W.cat[p.cat]=(W.cat[p.cat]||0)+w;                        // global: this is the condition itself
+  W.catN[p.cat]=(W.catN[p.cat]||0)+Math.abs(w);             // ...and how much evidence sits behind it
   W.brand[p.b]=(W.brand[p.b]||0)+w*0.6*idf(p.b,BRcnt);     // global: brand taste crosses garments
 }
 /* ---------- how much evidence is in the model ----------
@@ -500,6 +503,20 @@ function buildModel(){
     const sTot=Object.values(insp.styles||{}).reduce((a,b)=>a+b,0)||1;
     for(const m in (insp.styles||{})) W.ms[m]=(W.ms[m]||0)+strength*(insp.styles[m]/sTot)*3*idf(m,MScnt);
   }
+  /* The pieces you most recently said NO to, newest first (negScore below).
+     Read off the ordered history rather than the reactions map so "recent"
+     means what it says; capped so the term stays cheap and stays current. */
+  W.neg=[];
+  for(let k=hist.length-1;k>=0&&W.neg.length<NEG_K;k--){
+    const pi=hist[k]; if(S.reactions[pi]==="skip") W.neg.push(pi);
+  }
+  /* the learned layer, on the same swipes with the same recency weights */
+  const samples=[];
+  hist.forEach((pi,k)=>{ const r=S.reactions[pi]; if(r===undefined||!CATALOG[pi]) return;
+    const rec=nH>1?(0.75+0.65*(k/(nH-1))):1;
+    samples.push({i:pi, y:r==="skip"?0:1, w:(r==="love"?1.5:1)*rec}); });
+  W.lrN=samples.length;
+  W.lr=samples.length>=4?trainLR(samples):null;
   MODEL=sealModel(W);
 }
 function positiveCats(){return Object.keys(MODEL.cat).filter(c=>MODEL.cat[c]>0);}
@@ -718,7 +735,126 @@ let YOUTH_ON=true;         /* eval hook: false measures the pure taste model */
 function youthBoost(p){ return (YOUTH_ON?YOUTH_W:0)*(p.youth||0)*ADVP[ADV].wp; }
 /* hybrid = overall taste profile blended with closeness to your favorites, then
    nudged toward youth-leaning pieces (see the youth tilt above) */
-function hybrid(p,W,Lset){const a=ADVP[ADV];return profileScore(p,W)*a.wp + knnScore(p,Lset)*a.wk*2.4 + youthBoost(p);}
+/* ---------- the skipped neighbourhood ----------
+   knnScore pulls a candidate toward the specific pieces you loved. Nothing pulled
+   it AWAY from the specific pieces you skipped: a skip only ever reached the
+   model as a small negative smear across the profile's weights, so a candidate
+   that was a near-twin of something you had just rejected — same label, same
+   colour, same graphic, different colourway — still scored on everything else
+   it had going for it and came straight back. This is the mirror term: the
+   average similarity to the closest three of your most recent NEG_K skips, in
+   the same units as knnScore, subtracted.
+
+   Recent on purpose. Skips are noisier than likes (people skip for a dozen
+   reasons that have nothing to do with taste) and tastes move during a
+   session, so the term reads the last NEG_K rejections rather than all of them,
+   and uses the top-3 average rather than the sum so that one unlucky skip of a
+   whole lane cannot bury the lane — only a cluster of them can.
+
+   Measured against the harness protocol (12 seeds x 1280 swipes) before being
+   switched on: see docs/ALGORITHM-V4.md for the table. NEG_ON is the ablation
+   hook, matching COND_ON / PROF_SCALE / YOUTH_ON. */
+const NEG_K=40;            /* most recent skips the term reads */
+let NEG_W=1.0;             /* calibrated — docs/ALGORITHM-V4.md */
+let NEG_ON=true;           /* eval hook: false measures without the term */
+function negScore(cand,W){
+  const Nset=(W&&W.neg)||[]; if(!Nset.length) return 0;
+  let a=0,b=0,c=0;                                   /* top-3 without a sort */
+  for(let j=0;j<Nset.length;j++){
+    const s=simItem(cand,CATALOG[Nset[j]]);
+    if(s>a){c=b;b=a;a=s;} else if(s>b){c=b;b=s;} else if(s>c){c=s;}
+  }
+  const k=Math.min(3,Nset.length);
+  return (a+b+c)/k;
+}
+/* ---------- category affinity, shrunk by evidence ----------
+   docs/ALGORITHM-UPGRADES.md #1: the results page gates on categories you reacted
+   positively to, and the ranking itself never read W.cat at all — so category
+   was either a yes/no door or nothing. This feeds it into the score as a
+   weight-per-unit-of-evidence, pulled toward zero by CAT_K pseudo-swipes so that
+   one skipped cap is a shrug and eight skipped caps are a verdict. The ratio
+   lives in [-1,1] (all skips .. all loves); CAT_W puts it on hybrid's scale. */
+const CAT_K=3;
+let CAT_W=8;               /* calibrated — docs/ALGORITHM-V4.md */
+let CAT_ON=true;           /* eval hook */
+function catAffinity(p,W){
+  if(!W||!W.catN) return 0;
+  const n=W.catN[p.cat]||0; if(!n) return 0;
+  return (W.cat[p.cat]||0)/(n+CAT_K);
+}
+/* ---------- the learned layer: an online logistic model over the swipes ----------
+   Everything above is a COUNTING model: a swipe adds (or subtracts) a fixed
+   amount to every tag on the piece, and the score is the sum. That is fast and
+   explainable, and it is also what limits it — it cannot tell that you like
+   linen BECAUSE of the linen and not because of the beige it usually comes in,
+   because it credits both tags equally every time they arrive together. The
+   garment-conditional bags above were one hand-built correction for one such
+   confound (colour depends on garment); this is the general one.
+
+   This fits a logistic regression on the session's own swipes: y=1 for a like or
+   love, 0 for a skip, over one-hot features of the piece — each micro-style,
+   colour, pattern, fabric, fit, category, brand — plus the garment-group x
+   colour / pattern / fit crosses that the conditional model exists for. A few
+   passes of weighted gradient descent with L2 shrinkage, in swipe order so the
+   result is deterministic (the harness's reproducibility check depends on
+   that). Recency weights are the same ones buildModel gives the counting model,
+   so both halves agree on what "recent" means.
+
+   Why keep the counting model at all, then? Cold start. Forty swipes is ~400
+   feature observations spread over a few hundred features; the counting model
+   with its IDF prior is a far better guess at that point than a regression,
+   whose weights are still mostly zero. The two are blended, and the regression
+   earns its share with evidence: LR_W is scaled by n/(n+LR_SHRINK) swipes, so a
+   first session is still ranked by the model that has been measured on first
+   sessions, and the learned weights take over as they become trustworthy.
+
+   Measured on the harness protocol (12 seeds x 1280 swipes) and on short
+   sessions; table in docs/ALGORITHM-V4.md. LR_ON is the ablation hook. */
+let LR_ON=true;            /* eval hook */
+let LR_W=48;               /* logit units -> hybrid units; calibrated, see the doc */
+const LR_SHRINK=60;        /* swipes at which the learned layer carries half weight */
+const LR_EPOCHS=8, LR_RATE=0.12, LR_L2=0.004;
+function lrFeatures(p){
+  if(p._f) return p._f;
+  const g=groupOf(p), f=["bias","cat:"+p.cat,"br:"+p.b,"col:"+p.color,"pat:"+p.pat,"fit:"+p.fit,
+                         g+"|col:"+p.color, g+"|pat:"+p.pat, g+"|fit:"+p.fit];
+  p.ms.forEach(m=>f.push("ms:"+m));
+  (p.fab||[]).forEach(x=>f.push("fab:"+x));
+  return (p._f=f);
+}
+/* samples: [{i, y, w}] in swipe order */
+function trainLR(samples){
+  const w={};
+  if(samples.length<4) return w;
+  for(let e=0;e<LR_EPOCHS;e++){
+    const rate=LR_RATE/(1+e*0.35);                     /* a gentle decay keeps late passes from thrashing */
+    for(let k=0;k<samples.length;k++){
+      const smp=samples[k], f=lrFeatures(CATALOG[smp.i]);
+      let z=0; for(let j=0;j<f.length;j++) z+=(w[f[j]]||0);
+      const pr=1/(1+Math.exp(-z));
+      const gradient=(pr-smp.y)*smp.w;
+      for(let j=0;j<f.length;j++){ const key=f[j]; w[key]=(w[key]||0)-rate*(gradient+LR_L2*(w[key]||0)); }
+    }
+  }
+  return w;
+}
+function lrScore(p,W){
+  const w=W&&W.lr; if(!w) return 0;
+  const f=lrFeatures(p); let z=0;
+  for(let j=0;j<f.length;j++) z+=(w[f[j]]||0);
+  return z-(w.bias||0);                                /* the intercept ranks nothing */
+}
+function lrWeight(W){ const n=(W&&W.lrN)||0; return LR_ON&&n? LR_W*n/(n+LR_SHRINK) : 0; }
+
+/* hybrid = overall taste profile blended with closeness to your favorites, pushed
+   away from your recent rejections, tilted by category, then nudged toward
+   youth-leaning pieces (see the youth tilt above) */
+function hybrid(p,W,Lset){const a=ADVP[ADV];
+  return profileScore(p,W)*a.wp + knnScore(p,Lset)*a.wk*2.4
+       - (NEG_ON?negScore(p,W)*a.wk*NEG_W:0)
+       + (CAT_ON?catAffinity(p,W)*CAT_W*a.wp:0)
+       + lrScore(p,W)*lrWeight(W)*a.wp
+       + youthBoost(p);}
 
 /* the throwaway model behind "find more like my picks" — same machinery as the
    real one so it gets the conditioning, the IDF and the mass for free */

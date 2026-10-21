@@ -28,7 +28,7 @@ files you're taking. The map is below.
 ### 3. `npm test` before every commit
 
 ```
-npm test          # builds, then runs all 7 suites (337 assertions)
+npm test          # builds, then runs all 8 suites (388 assertions)
 ```
 
 It takes a few minutes and it has caught eight real bugs that code review missed — a drag
@@ -47,7 +47,7 @@ dist/style-finder.html generated. Never edit.
 src/shell/*.html       the HTML around the CSS and JS (head, body, tail)
 src/css/*.css          concatenated in filename order
 src/js/*.js            concatenated in filename order
-test/                  seven suites + run-all.mjs
+test/                  eight suites + run-all.mjs
 tools/                 one-off scripts that generated the data
 docs/                  design notes and change reviews
 ```
@@ -68,9 +68,9 @@ renumber, run the tests.**
 | `25-state-accounts.js` | `S`, storage keys, per-account profiles | saving, accounts, migrations |
 | `30-settings.js` | sizes, categories, occasion, budget, filters | the two setup screens, `passesFilters` |
 | `35-inspiration.js` | Pinterest / photo colour reading | the inspiration board |
-| `40-deck.js` | the endless queue, `nextBatch`, card rendering | the swipe feed and exploration |
+| `40-deck.js` | the endless queue, `nextBatch` / `dealV4`, fatigue, card rendering | the swipe feed, exploration and spacing |
 | `45-swipe-drag.js` | drag, stamps, animation | swipe feel |
-| `50-taste-model.js` | **the scoring engine** — `buildModel`, `profileScore`, `simItem`, `knnScore`, `hybrid`, `diversify` | any algorithm change |
+| `50-taste-model.js` | **the scoring engine** — `buildModel`, `profileScore`, `trainLR`, `simItem`, `knnScore`, `negScore`, `hybrid`, `diversify` | any algorithm change |
 | `55-results.js` | the results page, `computeRec`, `whyMatch` | recommendations and explanations |
 | `60-cart-and-stock.js` | the two carts, sold-out checks | cart behaviour |
 | `65-brand-links-export.js` | brand links, DNA export | small utilities |
@@ -112,16 +112,28 @@ Don't claim a change improved recommendations. Show it.
 3. Make your change, rebuild, re-run.
 4. A change only counts if AUC moves by more than the **noise floor** printed under each table.
 
-The current baseline, for reference:
+The current baseline, for reference (algorithm v4 — `docs/ALGORITHM-V4.md`):
 
 | Scenario | AUC | P@10 | run-to-run spread |
 |---|---|---|---|
-| Neutral minimalist | 0.840 | 88% | ±0.021 |
-| Bold streetwear | 0.738 | 83% | ±0.038 |
-| Earthy womenswear | 0.737 | 82% | ±0.040 |
-| **overall** | **0.772** | | |
+| Neutral minimalist | 0.850 | 81% | ±0.010 |
+| Bold streetwear | 0.826 | 85% | ±0.010 |
+| Earthy womenswear | 0.714 | 91% | ±0.013 |
+| Split wardrobe | 0.823 | 87% | ±0.010 |
+| **overall** | **0.804** | | |
 
-Measured at 10,369 products. **Quote the catalogue size with the number or the number means
+Measured at 19,355 products, 12 seeds × 1280 swipes. At the terminal:
+`node tools/measure-scorer.mjs` prints the same table, and `--flags LR_ON` (or any other
+switch) prints it on-vs-off on identical sessions.
+
+**The deck has its own measurement.** The harness above deals the shopper a random deck, so
+it cannot see what `nextBatch()` decides. `node tools/measure-deck.mjs` drives the real deck
+with simulated shoppers who get bored, and reports hit rate, garment spacing and how fast the
+deck notices someone has gone off a group. Baseline: mean hit rate 0.647, longest same-group
+run ≈ 3. `test/08-deck-variety.js` guards the parts that must not regress.
+
+The pre-v4 baseline, for the record, was 0.840 / 0.738 / 0.737, overall 0.772, at 10,369
+products. **Quote the catalogue size with the number or the number means
 nothing** — this table is only comparable against itself.
 
 **These numbers move when the data moves, and the recommender does not.** They read

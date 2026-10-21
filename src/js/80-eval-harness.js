@@ -51,11 +51,14 @@ function evPrecAt(scored,k){
    can be scored every way in the same replay — which is what makes the variant
    rows below an honest comparison rather than several separate runs. */
 function evWith(opts,fn){
-  const c=COND_ON, s=PROF_SCALE, y=YOUTH_ON;
+  const c=COND_ON, s=PROF_SCALE, y=YOUTH_ON, l=LR_ON, n=NEG_ON, k=CAT_ON;
   if("cond"  in opts) COND_ON=opts.cond;
   if("scale" in opts) PROF_SCALE=opts.scale;
   if("youth" in opts) YOUTH_ON=opts.youth;
-  try{ return fn(); } finally { COND_ON=c; PROF_SCALE=s; YOUTH_ON=y; }
+  if("lr"    in opts) LR_ON=opts.lr;
+  if("neg"   in opts) NEG_ON=opts.neg;
+  if("cat"   in opts) CAT_ON=opts.cat;
+  try{ return fn(); } finally { COND_ON=c; PROF_SCALE=s; YOUTH_ON=y; LR_ON=l; NEG_ON=n; CAT_ON=k; }
 }
 /* Every taste row is measured with the youth tilt OFF, deliberately. The tilt is
    a product decision that lifts young-leaning pieces for everyone; it is NOT a
@@ -73,6 +76,12 @@ const EV_SCORERS = [
    fn:(i,W,L)=>knnScore(CATALOG[i],L)},
   /* ---- ablations: how much worse WITHOUT this? A variant that scores the same
      as "current" is a change that bought nothing. All hold youth off. */
+  {key:"no-lr", label:"Ablation: no learned layer (logistic model off)", kind:"real",
+   fn:(i,W,L)=>evWith({lr:false,youth:false},()=>hybrid(CATALOG[i],W,L))},
+  {key:"no-neg", label:"Ablation: no skipped-neighbour repulsion", kind:"real",
+   fn:(i,W,L)=>evWith({neg:false,youth:false},()=>hybrid(CATALOG[i],W,L))},
+  {key:"v3", label:"Ablation: the v3 scorer (learned layer, repulsion, category all off)", kind:"real",
+   fn:(i,W,L)=>evWith({lr:false,neg:false,cat:false,youth:false},()=>hybrid(CATALOG[i],W,L))},
   {key:"flat-traits", label:"Ablation: flat traits (garment conditioning off)", kind:"real",
    fn:(i,W,L)=>evWith({cond:false,scale:true,youth:false},()=>hybrid(CATALOG[i],W,L))},
   {key:"unscaled-blend", label:"Ablation: unscaled blend (profile swamps kNN)", kind:"real",

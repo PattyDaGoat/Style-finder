@@ -42,7 +42,7 @@ red, don't commit.
 
 ```
 build.mjs              glues src/ + data/ into dist/. Read the comment at the top before touching.
-data/catalog.json      21,151 products, ONE PER LINE. Generated data — see the warning below.
+data/catalog.json      22,043 products, ONE PER LINE. Generated data — see the warning below.
 dist/style-finder.html generated. Never edit.
 src/shell/*.html       the HTML around the CSS and JS (head, body, tail)
 src/css/*.css          concatenated in filename order

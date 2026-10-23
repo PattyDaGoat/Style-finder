@@ -332,14 +332,6 @@
   },
   "entry_cursor": 0,
   "gender_source": "manual",
-  "health": {
-   "fail": 1,
-   "last": 1792726004.297664,
-   "last_found": 0,
-   "note": "nothing usable \u2014 page title: 'Sites-aeropostale-Site'",
-   "ok": 0,
-   "status": "blocked"
-  },
   "host": "www.aeropostale.com",
   "note": ""
  },
@@ -386,7 +378,7 @@
     "https://agolde.com/collections/agolde-mens-bottoms"
    ]
   },
-  "entry_cursor": 0,
+  "entry_cursor": 6,
   "gender_source": "manual",
   "host": "agolde.com",
   "note": "found by find_brands.py \u2014 from list file"
@@ -761,7 +753,7 @@
     "https://www.ae.com/us/en/c/men/bottoms/jeans/cat6430041"
    ]
   },
-  "entry_cursor": 0,
+  "entry_cursor": 6,
   "gender_source": "manual",
   "host": "www.ae.com",
   "note": ""
@@ -1585,14 +1577,6 @@
   },
   "entry_cursor": 0,
   "gender_source": "manual",
-  "health": {
-   "fail": 1,
-   "last": 1792725985.724695,
-   "last_found": 0,
-   "note": "nothing usable \u2014 page title: 'Access Denied'",
-   "ok": 0,
-   "status": "blocked"
-  },
   "host": "www.bershka.com",
   "note": ""
  },
@@ -1960,7 +1944,7 @@
     "https://bonobos.com/collections/crew-neck"
    ]
   },
-  "entry_cursor": 0,
+  "entry_cursor": 6,
   "gender_source": "manual",
   "host": "bonobos.com",
   "note": "found by find_brands.py \u2014 from list file"
@@ -2012,7 +1996,7 @@
     "https://us.boohoo.com/mens/jackets-coats"
    ]
   },
-  "entry_cursor": 0,
+  "entry_cursor": 2,
   "gender_source": "manual",
   "host": "us.boohoo.com",
   "note": ""
@@ -2106,7 +2090,7 @@
    ],
    "m": []
   },
-  "entry_cursor": 0,
+  "entry_cursor": 6,
   "gender_note": "guessed menswear (only 2% dresses and 5% read womenswear); registered as a prior, so any evidence on a piece overrides it",
   "gender_source": "manual",
   "host": "us.brandymelville.com",
@@ -2451,7 +2435,7 @@
     "https://www.champion.com/collections/mens-jackets"
    ]
   },
-  "entry_cursor": 0,
+  "entry_cursor": 6,
   "gender_source": "manual",
   "host": "www.champion.com",
   "note": "found by find_brands.py \u2014 from list file"
@@ -2808,14 +2792,6 @@
   },
   "entry_cursor": 0,
   "gender_source": "manual",
-  "health": {
-   "fail": 1,
-   "last": 1792726054.5454102,
-   "last_found": 0,
-   "note": "nothing usable \u2014 page title: 'Access Denied'",
-   "ok": 0,
-   "status": "blocked"
-  },
   "host": "www.converse.com",
   "note": ""
  },
@@ -2907,14 +2883,6 @@
   },
   "entry_cursor": 0,
   "gender_source": "manual",
-  "health": {
-   "fail": 1,
-   "last": 1792725992.867348,
-   "last_found": 0,
-   "note": "nothing usable \u2014 page title: 'Men\u2019s Jeans | Everyday Denim Fits & Washes | Cotton On Men'",
-   "ok": 0,
-   "status": "blocked"
-  },
   "host": "cottonon.com",
   "note": ""
  },
@@ -3406,6 +3374,14 @@
   },
   "entry_cursor": 0,
   "gender_source": "manual",
+  "health": {
+   "fail": 1,
+   "last": 1792727349.929018,
+   "last_found": 0,
+   "note": "no products found on the page",
+   "ok": 11,
+   "status": "blocked"
+  },
   "host": "www.depop.com",
   "note": "marketplace \u2014 Cloudflare lets each browser context read ONE search page, so entries are visited one per run (see the crawl loop)"
  },
@@ -3475,16 +3451,8 @@
     "https://www.dickies.com/men/shirts-and-tops"
    ]
   },
-  "entry_cursor": 0,
+  "entry_cursor": 6,
   "gender_source": "manual",
-  "health": {
-   "fail": 1,
-   "last": 1792726048.221546,
-   "last_found": 0,
-   "note": "nothing usable \u2014 page title: '404 Not Found - Dickies\u00ae US'",
-   "ok": 0,
-   "status": "blocked"
-  },
   "host": "www.dickies.com",
   "note": ""
  },
@@ -3689,14 +3657,6 @@
   },
   "entry_cursor": 0,
   "gender_source": "manual",
-  "health": {
-   "fail": 1,
-   "last": 1792726020.809071,
-   "last_found": 0,
-   "note": "nothing usable \u2014 page title: 'Access Denied'",
-   "ok": 0,
-   "status": "blocked"
-  },
   "host": "www.dynamiteclothing.com",
   "note": ""
  },
@@ -4238,14 +4198,6 @@
   },
   "entry_cursor": 0,
   "gender_source": "manual",
-  "health": {
-   "fail": 1,
-   "last": 1792726014.749238,
-   "last_found": 0,
-   "note": "nothing usable \u2014 page title: '404 Not Found'",
-   "ok": 0,
-   "status": "blocked"
-  },
   "host": "www.forever21.com",
   "note": ""
  },
@@ -5228,7 +5180,7 @@
     "https://jadedldn.com/collections/mens-colossus-jeans"
    ]
   },
-  "entry_cursor": 0,
+  "entry_cursor": 6,
   "gender_source": "manual",
   "host": "jadedldn.com",
   "note": "auto-discovered"
@@ -5686,7 +5638,7 @@
     "https://ksubi.com/collections/mens-denim-shorts"
    ]
   },
-  "entry_cursor": 0,
+  "entry_cursor": 6,
   "gender_source": "manual",
   "host": "ksubi.com",
   "note": "auto-discovered"
@@ -6298,7 +6250,7 @@
     "https://www.madhappy.com/collections/knitwear"
    ]
   },
-  "entry_cursor": 0,
+  "entry_cursor": 6,
   "gender_source": "manual",
   "host": "www.madhappy.com",
   "note": "found by find_brands.py \u2014 streetwear"
@@ -6978,14 +6930,6 @@
   },
   "entry_cursor": 0,
   "gender_source": "manual",
-  "health": {
-   "fail": 1,
-   "last": 1792726036.615603,
-   "last_found": 0,
-   "note": "nothing usable \u2014 page title: 'New Balance Shoes & Apparel | Official New Balance\u00c2\u00ae Site'",
-   "ok": 0,
-   "status": "blocked"
-  },
   "host": "www.newbalance.com",
   "note": ""
  },
@@ -7007,7 +6951,7 @@
     "https://www.nike.com/w/mens-tops-t-shirts-9om13znik1"
    ]
   },
-  "entry_cursor": 0,
+  "entry_cursor": 3,
   "gender_source": "manual",
   "host": "www.nike.com",
   "note": ""
@@ -7293,14 +7237,6 @@
   },
   "entry_cursor": 0,
   "gender_source": "manual",
-  "health": {
-   "fail": 1,
-   "last": 1792726066.4183471,
-   "last_found": 0,
-   "note": "nothing usable \u2014 page title: ''",
-   "ok": 0,
-   "status": "blocked"
-  },
   "host": "oldnavy.gap.com",
   "note": ""
  },
@@ -8161,14 +8097,6 @@
   },
   "entry_cursor": 0,
   "gender_source": "manual",
-  "health": {
-   "fail": 1,
-   "last": 1792725979.4614751,
-   "last_found": 0,
-   "note": "nothing usable \u2014 page title: 'Access Denied'",
-   "ok": 0,
-   "status": "blocked"
-  },
   "host": "www.pullandbear.com",
   "note": ""
  },
@@ -8184,14 +8112,6 @@
   },
   "entry_cursor": 0,
   "gender_source": "manual",
-  "health": {
-   "fail": 0,
-   "last": 1792726029.7024949,
-   "last_found": 38,
-   "note": "dropped: 4 over the $200 cap",
-   "ok": 1,
-   "status": "ok"
-  },
   "host": "us.puma.com",
   "note": ""
  },
@@ -10522,14 +10442,6 @@
   },
   "entry_cursor": 0,
   "gender_source": "manual",
-  "health": {
-   "fail": 1,
-   "last": 1792725972.315156,
-   "last_found": 0,
-   "note": "nothing usable \u2014 page title: 'Sites-tillys-Site'",
-   "ok": 0,
-   "status": "blocked"
-  },
   "host": "www.tillys.com",
   "note": ""
  },
@@ -11717,14 +11629,6 @@
   },
   "entry_cursor": 0,
   "gender_source": "manual",
-  "health": {
-   "fail": 1,
-   "last": 1792725961.319817,
-   "last_found": 0,
-   "note": "nothing usable \u2014 page title: 'Jeans | Zumiez'",
-   "ok": 0,
-   "status": "blocked"
-  },
   "host": "www.zumiez.com",
   "note": ""
  },

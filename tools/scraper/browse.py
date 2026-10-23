@@ -136,7 +136,9 @@ MONEY = re.compile(
 # What a product URL looks like across the shops in the registry.
 PRODUCT_HREF = re.compile(
     r"/(products?|prd|item|itm|dp|pd)/|/p/|product[-._]\d|/shop/[^?]*/p/|"
-    r"\.product\.|/product\.", re.I)
+    r"\.product\.|/product\."
+    # Nike: /t/<slug>/<style-colour code>, e.g. /t/tech-fleece-hoodie-Mo2tFGrl/IM6227-010
+    r"|/t/[^/?]+/[A-Z0-9]{5,}-\d{3}(?:[/?]|$)", re.I)
 
 # Links that match PRODUCT_HREF but are not a product.
 NOT_PRODUCT_HREF = re.compile(
@@ -809,6 +811,36 @@ def pick_name(candidates):
     return max(good, key=score)
 
 
+# Depop is a marketplace: every card is a different seller's listing, and the
+# brand is whatever the seller filed it under ("Levi's", "Other"). The accessible
+# name on the card link is the only full title ("Levi's men's navy and blue
+# jeans"); the visible text is just brand / size / price. So the title comes
+# from the aria-label and the brand from the first short, non-size line — and a
+# listing the seller could not attribute stays branded by the marketplace.
+_DEPOP_SIZE = re.compile(r"^\s*(\d{1,2}(\.\d)?\"?|XXS|XS|S|M|L|XL|XXL|XXXL|\d?XL|"
+                         r"one size|os|free size|w\d{2}|uk ?\d+|us ?\d+|eu ?\d+)\s*$", re.I)
+_DEPOP_TITLE_BRAND = re.compile(
+    r"^(?P<brand>[A-Za-z0-9&'’.\- ]{2,30}?)\s+(?:men'?s|women'?s|unisex|mens|womens)\b", re.I)
+_DEPOP_NO_BRAND = {"other", "unbranded", "no brand", "vintage", "handmade", "custom",
+                   "none", "n/a", "depop"}
+def depop_card(names, picked):
+    names = [n for n in (names or []) if n]
+    title = max(names, key=len) if names else picked
+    brand = ""
+    # the visible brand line sits outside the card link, so it is not among the
+    # candidates; Depop's generated titles lead with it instead:
+    # "Levi's men's navy and blue jeans", "American eagle women's blue jeans"
+    m = _DEPOP_TITLE_BRAND.match(title or "")
+    if m:
+        b = m.group("brand").strip()
+        if (b.lower() not in _DEPOP_NO_BRAND and re.search(r"[A-Za-z]{2}", b)
+                and not re.search(r"\b(vintage|retro|y2k|\d{2,4}s?|new|used|preloved|"
+                                  r"authentic|genuine|rare|nwt|size)\b", b, re.I)):
+            brand = " ".join(w if w.isupper() and len(w) <= 4 else w[:1].upper() + w[1:]
+                             for w in b.split())
+    return (title or picked), brand
+
+
 async def dom_sweep(page, base):
     try:
         rows = await page.evaluate(DOM_SWEEP_JS, {
@@ -816,11 +848,15 @@ async def dom_sweep(page, base):
     except PWError:
         return []
     out = []
+    depop = "depop.com" in (base or "")
     for r in rows or []:
         price, sym = parse_money(r.get("priceText"))
         name = pick_name(r.get("names"))
+        if depop:
+            name, r["brand"] = depop_card(r.get("names"), name)
         out.append({
             "n": name or "",
+            "brand": r.get("brand") or "",
             "u": (absolutise(r["u"], base) or "").split("?")[0],
             "img": (absolutise(r["img"], base) or "").split("?")[0],
             "price": price, "sym": sym or "$",

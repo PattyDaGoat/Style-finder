@@ -24,6 +24,7 @@ import json
 import os
 import re
 import sys
+import time
 from collections import defaultdict
 
 import db
@@ -384,7 +385,8 @@ def eligible(row, exclude_titles):
             and (row["b"], base_title(row["n"])) not in exclude_titles)
 
 
-def pick(gender, want, exclude_titles, per_brand=None):
+def pick(gender, want, exclude_titles, per_brand=None, only_brands=None, per_brand_cap=None,
+         since_hours=0):
     """Choose `want` varied browser-scraped products for one section.
 
     Draws from every browser-scraped row in the pool. The per-title exclusion
@@ -400,6 +402,13 @@ def pick(gender, want, exclude_titles, per_brand=None):
     rows = [db.decode(r) for r in db.conn().execute(
         "SELECT * FROM products WHERE g = ? "
         "AND via IS NOT NULL AND via != 'feed' ORDER BY RANDOM()", (gender,))]
+    cap = per_brand_cap or GLOBAL_PER_BRAND
+    if since_hours:
+        cutoff = time.time() - since_hours * 3600
+        rows = [r for r in rows if (r.get("first_seen") or 0) >= cutoff]
+    if only_brands:
+        wanted = {b.lower() for b in only_brands}
+        rows = [r for r in rows if (r.get("b") or "").lower() in wanted]
     buckets = defaultdict(lambda: defaultdict(list))
     seen_titles = set()
     if per_brand is None:
@@ -410,7 +419,7 @@ def pick(gender, want, exclude_titles, per_brand=None):
         key = (r["b"], base_title(r["n"]))
         if key in seen_titles:
             continue
-        if per_brand[r["b"]] >= GLOBAL_PER_BRAND:
+        if per_brand[r["b"]] >= cap:
             continue
         seen_titles.add(key)
         per_brand[r["b"]] += 1
@@ -692,6 +701,13 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     ap.add_argument("--promote", type=int, default=0, metavar="N",
                     help="pick N per gender fresh from the crawler pool")
+    ap.add_argument("--brands", metavar="A,B,C",
+                    help="with --promote: draw only from these brands (case-insensitive)")
+    ap.add_argument("--per-brand", type=int, default=0, metavar="N",
+                    help="with --promote: override the global per-brand cap "
+                         "(default {})".format(GLOBAL_PER_BRAND))
+    ap.add_argument("--since-hours", type=float, default=0, metavar="H",
+                    help="with --promote: only rows first seen in the last H hours")
     ap.add_argument("--shipped", action="store_true",
                     help="export the already-curated set instead")
     ap.add_argument("--prune", action="store_true",
@@ -721,7 +737,10 @@ def main():
         rows = []
         per_brand = defaultdict(int)     # shared across both sections — see pick()
         for g in ("m", "f"):
-            got = pick(g, args.promote, existing, per_brand)
+            got = pick(g, args.promote, existing, per_brand,
+                       only_brands=[b.strip() for b in args.brands.split(",")] if args.brands else None,
+                       per_brand_cap=args.per_brand or None,
+                       since_hours=args.since_hours)
             for r in got:
                 existing.add((r["b"], base_title(r["n"])))
             rows.extend(got)

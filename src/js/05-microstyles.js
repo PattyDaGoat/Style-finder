@@ -7,7 +7,8 @@ const MS = {
   "elevated-basics":"Elevated Basics","monochrome-minimal":"Monochrome Minimal","british-mod":"British Mod",
   "eclectic-pattern":"Eclectic Pattern","skate-street":"Skate Street","band-graphic":"Band / Graphic",
   "earthy-heritage":"Earthy Heritage","knitwear-forward":"Knitwear-Forward","linen-resort":"Linen Resort",
-  "texture-craft":"Textured Craft","surf-sport":"Surf / Sport"
+  "texture-craft":"Textured Craft","surf-sport":"Surf / Sport",
+  "vintage-thrift":"Vintage / Thrift"
 };
 const MS_BLURB = {
   "ivy-prep":"oxford shirts, rugbys, chinos, loafers — collegiate and pulled-together",
@@ -29,7 +30,8 @@ const MS_BLURB = {
   "knitwear-forward":"sweaters and cardigans as the hero of the outfit",
   "linen-resort":"linen, camp collars, vacation-ready and relaxed",
   "texture-craft":"corduroy, waffle, herringbone — tactile, crafted fabrics",
-  "surf-sport":"beachy, active, easy pieces made to move"
+  "surf-sport":"beachy, active, easy pieces made to move",
+  "vintage-thrift":"true vintage, 90s and Y2K finds, second-hand and thrifted — one-offs with a past"
 };
 const CATN={tee:"T-shirts",knit:"Knitwear",sweat:"Sweats & hoodies",shirt:"Shirts",outer:"Jackets & outerwear",trouser:"Trousers",short:"Shorts",cap:"Caps & hats",shoe:"Shoes",acc:"Accessories"};
 const COLORN={neutral:"neutrals",earth:"earth tones",dark:"dark & moody",blue:"blues & navy",green:"greens",bold:"bold color"};

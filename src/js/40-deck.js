@@ -92,6 +92,7 @@ const GROUP_SHARE_MAX=0.5;  /* of a batch from one garment group */
 const MMR_LAMBDA=0.6;       /* how hard near-twins are pushed apart within a batch */
 const SIM_REF=8;            /* a "very similar" simItem() score, for the MMR term */
 const UCB_C=0.5, UCB_PRIOR=2;
+const TREND_SLOT_MIN=0.66;  /* a piece has to be this current to take the batch's trend slot */
 let LAST_DEALT=null;        /* tail of the previous batch: the seam is spaced too */
 
 /* what the recent swipes say about the session: fatigue per lane, the like-rate
@@ -163,8 +164,9 @@ function dealV4(k,pool,L,haveSignal){
 
     const f=exploitShare(k,ctx);
     const nWild=k>=6?1:0;
+    const nTrend=k>=6?1:0;          /* one card per batch that is current first, matched second */
     const nExploit=Math.max(1,Math.round(k*f));
-    const nExplore=Math.max(0,k-nExploit-nWild);
+    const nExplore=Math.max(0,k-nExploit-nWild-nTrend);
 
     /* 1. exploit, with the MMR step over a window of the best remaining */
     const WINDOW=40;
@@ -180,6 +182,16 @@ function dealV4(k,pool,L,haveSignal){
       }
       if(!best) break;
       take(best.i,'x');
+    }
+    /* 1b. the trend slot: the best-matched piece among the genuinely current
+       ones (trendScore >= TREND_SLOT_MIN) — what people are into right now,
+       dealt every batch whatever the profile says, so the feed always carries
+       the season. Vintage counts as current (TREND_MS). */
+    if(nTrend){
+      for(const o of scored){ if(origin[o.i]!==undefined) continue;
+        if((CATALOG[o.i].trend||0)<TREND_SLOT_MIN) continue;
+        if(!ok(o.i,true,true)) continue;
+        take(o.i,'t'); break; }
     }
     /* 2. explore: lanes by upper confidence bound, best unseen piece of each */
     if(nExplore>0){
@@ -238,7 +250,7 @@ function arrangeSpaced(list,origin){
     for(let j=0;j<rest.length;j++){
       const p=CATALOG[rest[j]]; let pen=0;
       if(prev){ if(groupOf(p)===groupOf(prev)) pen+=2; if(p.b===prev.b) pen+=3; if(p.ms[0]===prev.ms[0]) pen+=1; }
-      if(prevO && origin[rest[j]]===prevO && prevO!=='w') pen+=0.5;
+      if(prevO && origin[rest[j]]===prevO && prevO!=='w' && prevO!=='t') pen+=0.5;
       if(pen<bp){bp=pen;bi=j;}
       if(pen===0) break;
     }

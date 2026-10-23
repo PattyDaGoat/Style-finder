@@ -229,7 +229,8 @@ async function addPinLinks(){
 /* seed chips: the most common micro-styles */
 (function initSeeds(){
   const counts={}; CATALOG.forEach(p=>p.ms.forEach(m=>counts[m]=(counts[m]||0)+1));
-  const top=Object.keys(MS).sort((a,b)=>(counts[b]||0)-(counts[a]||0)).slice(0,12);
+  const top=Object.keys(MS).filter(k=>k!=="vintage-thrift").sort((a,b)=>(counts[b]||0)-(counts[a]||0)).slice(0,11);
+  top.push("vintage-thrift");    /* always offered: it is a sourcing choice as much as a look */
   document.getElementById("seedChips").innerHTML=top.map(k=>`<div class="chip" onclick="toggleSeed('${k}',this)">${MS[k]}</div>`).join("");
 })();
 function toggleSeed(k,el){const i=S.seeds.indexOf(k);if(i>=0){S.seeds.splice(i,1);el.classList.remove("on");}else{S.seeds.push(k);el.classList.add("on");}}

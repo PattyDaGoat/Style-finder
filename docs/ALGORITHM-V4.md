@@ -193,12 +193,19 @@ jackets), and those carry a **"Trending now"** tag on the card.
 Where it acts:
 
 1. `hybrid()` adds `TREND_W · trend · wp`, exactly as the youth tilt does. At the shipped
-   `TREND_W = 24` the shipped ranking (taste + youth + trend) scores **within 0.001 AUC of
-   the pure taste model on all four harness personas** (test/04's tilt-budget check now
-   covers both tilts).
-2. The opening hand — the only cards dealt before a single swipe — leads each micro-style
+   `TREND_W = 40` the shipped ranking (taste + youth + trend) scores **within 0.003 AUC of
+   the pure taste model on all four harness personas** (0.850 / 0.824 / 0.738 / 0.833 vs
+   0.849 / 0.827 / 0.740 / 0.834; test/04's tilt-budget check now covers both tilts). 24
+   was measured first and cost 0.001; 40 buys a visibly more current deck for 0.002 more.
+2. **A trend slot in every batch** (`dealV4`, origin `t`): the best-matched piece among the
+   genuinely current ones (`trendScore >= 0.66`), dealt whatever the profile says, so the
+   feed always carries the season. It takes one of the discovery slots, not an exploit one.
+3. The opening hand — the only cards dealt before a single swipe — leads each micro-style
    lane with a current piece, with enough jitter that it is not the same twelve pieces for
    everyone.
+4. **"What's in right now"** on the results page: the season's pieces (`trend >= 0.62`) and
+   the vintage finds, each ranked by the shopper's own taste model, ahead of the general
+   "New pieces you'd wear" grid.
 
 On the deck simulator (shoppers who do not care about trends, so this is the cost side):
 
@@ -207,10 +214,37 @@ On the deck simulator (shoppers who do not care about trends, so this is the cos
 | catalogue | 0.296 | | |
 | tilt off (`TREND_ON=false`, opening hand still led by trend) | 0.416 | 0.742 | 0.621 |
 | tilt on, opening-hand jitter 0.45 | 0.424 | 0.742 | 0.600 |
-| **tilt on, jitter 0.8 (shipped)** | **0.433** | **0.726** | **0.616** |
+| tilt on, jitter 0.8 | 0.433 | 0.726 | 0.616 |
+| **TREND_W 40 + trend slot (shipped)** | **0.484** | **0.740** | **0.629** |
 
-The dealt deck runs ~45% more current than the catalogue; the hit-rate cost to a shopper
-with no interest in trends is half a point, inside the run-to-run spread.
+The dealt deck runs ~60% more current than the catalogue, and the trend slot costs these
+shoppers nothing on hit rate (it displaces a discovery card, not a matched one).
+
+---
+
+## 4. Vintage / Thrift (`09-vintage.js`)
+
+A 21st micro-style, derived at load rather than carried in the data, so it lands on every
+second-hand piece already in the catalogue and on everything the vintage crawl adds:
+
+- **find** — a second-hand listing (Depop, ThredUp, Thrilling, Beyond Retro, Rokit and the
+  other hosts in `SECONDHAND_HOST`) whose name says vintage / retro / 90s / Y2K / archive,
+  or any piece that says thrifted / pre-loved / pre-owned / deadstock / reworked /
+  upcycled. The tag goes FIRST: it is the piece's lane for the deck's exploration and the
+  lead chip on the card.
+- **thrift** — a second-hand listing without those words (a used Nike hoodie). Tag last.
+- **look** — a new piece borrowing the words ("Vintage Wash Western Shirt"). Tag last, and
+  *not* offered under "Vintage & thrift finds for you".
+
+`vintage-thrift` is always one of the warm-up chips, scores 0.9 in `TREND_MS` and 0.85 in
+`YOUTH_MS` (second-hand is where the youngest shoppers actually buy), and the finds average
+0.70 on `trendScore`. `enrich.MS_RULES` carries the mirror rule for new crawls. At 22,043
+products the split was 55 finds / 185 thrift / 458 looks before the vintage crawl.
+
+Sources: Depop vintage searches (one page per browser context, run twenty times across
+rotating queries — vintage Levi's, Carhartt, Nike windbreakers, Ralph Lauren, leather and
+denim jackets, band tees, 90s jeans, Y2K tops, slip dresses, mini skirts, blazers) and the
+vintage shops that let the crawler in.
 
 ---
 

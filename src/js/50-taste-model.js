@@ -190,7 +190,7 @@ function occasionsOf(p){
    changed; the classifier just got something to read.
    So: when adding a streetwear brand, run tools/scraper/backfill_desc.py before
    exporting, or the tilt cannot see what you added. */
-const YOUTH_MS={"skate-street":1.0,"band-graphic":0.95,"surf-sport":0.70,
+const YOUTH_MS={"skate-street":1.0,"band-graphic":0.95,"vintage-thrift":0.85,"surf-sport":0.70,
                 "collegiate-athletic":0.55,"eclectic-pattern":0.45,"gorpcore-utility":0.35};
 const YOUTH_FIT={oversized:1.0,cropped:0.85,wide:0.60,relaxed:0.55};
 const YOUTH_CAT={sweat:0.90,cap:0.80,tee:0.70,short:0.50};
@@ -230,10 +230,11 @@ const TREND_WORDS = [
   [0.8, /\b(corduroy|velvet|tweed|tartan|plaid|check(ed)?|houndstooth|prince of wales)\b/i],
   [0.8, /\b(mini ?skirt|pleated skirt|bandage dress|slip dress|sheer|capelet|cape)\b/i],
   [0.7, /\b(chocolate|espresso|mocha|burgundy|oxblood|cherry|olive|camel|toffee|taupe|mustard)\b/i],
-  [0.7, /\b(vintage|retro|90s|y2k|oversized|boxy|relaxed)\b/i],
+  [0.85, /\b(vintage|retro|thrift(ed)?|second[- ]?hand|pre[- ]?loved|deadstock|reworked|90s|80s|00s|y2k)\b/i],
+  [0.7, /\b(oversized|boxy|relaxed)\b/i],
   [0.6, /\b(hoodie|fleece|denim jacket|trucker|windbreaker|blazer|polo|loafer|ankle boot|chelsea)\b/i]
 ];
-const TREND_MS = {"gorpcore-utility":0.85,"rugged-workwear":0.85,"knitwear-forward":0.75,"collegiate-athletic":0.7,
+const TREND_MS = {"vintage-thrift":0.9,"gorpcore-utility":0.85,"rugged-workwear":0.85,"knitwear-forward":0.75,"collegiate-athletic":0.7,
                   "raw-denim":0.6,"skate-street":0.6,"texture-craft":0.55,"flannel-cabincore":0.5,"band-graphic":0.5,
                   "military-surplus":0.5,"british-mod":0.45,"ivy-prep":0.4,"earthy-heritage":0.4};
 const TREND_FIT = {wide:0.9,oversized:0.7,relaxed:0.5,cropped:0.5,tapered:0.2,slim:0.25,regular:0.3};
@@ -791,7 +792,7 @@ function youthBoost(p){ return (YOUTH_ON?YOUTH_W:0)*(p.youth||0)*ADVP[ADV].wp; }
    one surfaces first. Calibrated the same way — the AUC cost on every harness
    persona has to stay inside its noise floor while the deck visibly tilts; the
    sweep is in docs/ALGORITHM-V4.md. Rides on wp for the reason youthBoost does. */
-let TREND_W=24;            /* eval hook: calibrated in docs/ALGORITHM-V4.md; 0 disables */
+let TREND_W=40;            /* eval hook: calibrated in docs/ALGORITHM-V4.md; 0 disables */
 let TREND_ON=true;         /* eval hook */
 function trendBoost(p){ return (TREND_ON?TREND_W:0)*(p.trend||0)*ADVP[ADV].wp; }
 /* hybrid = overall taste profile blended with closeness to your favorites, then

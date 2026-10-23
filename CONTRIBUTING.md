@@ -28,7 +28,7 @@ files you're taking. The map is below.
 ### 3. `npm test` before every commit
 
 ```
-npm test          # builds, then runs all 8 suites (392 assertions)
+npm test          # builds, then runs all 8 suites (398 assertions)
 ```
 
 It takes a few minutes and it has caught eight real bugs that code review missed — a drag
@@ -61,7 +61,8 @@ renumber, run the tests.**
 | File | Contains | Touch it when |
 |---|---|---|
 | `00-catalog-alias.js` | `PIECES` alias | almost never |
-| `05-microstyles.js` | the 20 micro-style names, blurbs, category labels | adding a style or renaming labels |
+| `05-microstyles.js` | the 21 micro-style names, blurbs, category labels | adding a style or renaming labels |
+| `09-vintage.js` | **Vintage / Thrift** — derived at load: find / thrift / look | second-hand sources, the vintage chip. Must stay before `10-helpers.js`, whose tail opens a comment that `15-sectioning.js` closes |
 | `10-helpers.js` | formatting, image URL helpers, `baseTitle` dedupe | shared utilities |
 | `15-sectioning.js` | **menswear/womenswear detection** — name, URL, filename, brand tiers, strict toggle | anything about which section a piece belongs in |
 | `20-photo-focus.js` | which part of the photo is the product; the highlight frame | the on-card highlight |

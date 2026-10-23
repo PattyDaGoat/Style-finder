@@ -12,6 +12,23 @@ function computeRec(){
     .sort((x,y)=>y.s-x.s).map(o=>o.i);
   REC=diversify(scored,a.perBrand,a.perMs,36,REC_GROUP_MAX);SUGGESTED=new Set(REC);REC_N=18;
 }
+/* the season's pieces, by taste: unswiped, in section, current, best hybrid first */
+function trendingFor(n){
+  const W=MODEL; if(!W) return [];
+  const swiped=new Set(Object.keys(S.reactions).map(Number)); const L=lovedPicks(); const a=ADVP[ADV];
+  const scored=[]; for(let i=0;i<CATALOG.length;i++){ const p=CATALOG[i];
+    if(swiped.has(i)||(p.trend||0)<0.62||!genderOK(i)) continue; scored.push({i,s:hybrid(p,W,L)}); }
+  scored.sort((x,y)=>y.s-x.s);
+  return diversify(scored.map(o=>o.i),2,4,n,Math.ceil(n*0.5));
+}
+function vintageFor(n){
+  const W=MODEL; if(!W) return [];
+  const swiped=new Set(Object.keys(S.reactions).map(Number)); const L=lovedPicks();
+  const scored=[]; for(let i=0;i<CATALOG.length;i++){ const p=CATALOG[i];
+    if(swiped.has(i)||!p.vintage||p.vintage==="look"||!genderOK(i)) continue; scored.push({i,s:hybrid(p,W,L)}); }
+  scored.sort((x,y)=>y.s-x.s);
+  return diversify(scored.map(o=>o.i),3,0,n,Math.ceil(n*0.6));
+}
 function buildResults(){
   const W=MODEL;
   const topMs=topKeys(W.ms,4,true);const primary=topMs[0]||"elevated-basics";
@@ -40,6 +57,16 @@ function buildResults(){
     <p class="kv"><b>Brands that clicked:</b> ${topKeys(W.brand,4,true).join(", ")||"a spread"}.</p>
   </div></div>`;
 
+  /* what's in right now — the season's pieces and the vintage finds, ranked by
+     YOUR taste, so the trend panel is still personal */
+  const inNow=trendingFor(12), vint=vintageFor(8);
+  if(inNow.length||vint.length){
+    html+=`<div class="panel"><h3 class="section-title">What's in right now</h3>
+      <p class="section-note">The pieces that read as this season — wide and baggy cuts, cargo and workwear, cable knits, leather and suede, chocolate and burgundy — plus vintage and second-hand finds, each ranked by how well it matches <i>your</i> swipes.</p>
+      ${inNow.length?`<div class="grid">${inNow.map(sugCardHTML).join("")}</div>`:""}
+      ${vint.length?`<h4 style="margin:18px 0 6px;color:var(--green-2)">Vintage &amp; thrift finds for you</h4><div class="grid">${vint.map(sugCardHTML).join("")}</div>`:""}
+    </div>`;
+  }
   html+=`<div class="panel"><h3 class="section-title">New pieces you'd wear</h3>
     <p class="section-note">Brand-new pieces you didn't swipe, blended from your micro-styles <i>and</i> how close they are to your favorites — only in categories you liked. Each says why it matched. Tick pieces you like and hit <b>Refine</b> to teach it more.</p>
     <div style="display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-bottom:6px">

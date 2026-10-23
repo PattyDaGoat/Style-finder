@@ -79,7 +79,7 @@ data/catalog.json       22,043 products, one per line
 dist/style-finder.html  the app (generated — never edit)
 src/shell/              html around the css and js
 src/css/                8 stylesheets, concatenated in order
-src/js/                 18 modules, concatenated in order
+src/js/                 19 modules, concatenated in order
 test/                   8 suites + run-all.mjs
 tools/                  the scripts that produced the data
 docs/                   design notes, change reviews, setup guides

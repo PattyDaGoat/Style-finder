@@ -119,6 +119,21 @@ const chk = (n, c, e) => (c ? ok : bad).push(n + (e ? ' :: ' + e : ''));
   chk('between 1% and 15% of pieces earn the Trending now tag', trend.tagged >= 0.01 && trend.tagged <= 0.15, (trend.tagged * 100).toFixed(1) + '%');
   chk('the opening hand runs well above the catalogue mean on trend', trend.hand >= trend.mean + 0.15, 'hand ' + trend.hand.toFixed(3) + ' vs catalogue ' + trend.mean.toFixed(3));
 
+  // ---- 4c. vintage / thrift: a real lane, and the chip is always offered ----
+  const vint = await p.evaluate(() => ({
+    finds: CATALOG.filter(x => x.vintage === 'vintage').length, thrift: CATALOG.filter(x => x.vintage === 'thrift').length,
+    looks: CATALOG.filter(x => x.vintage === 'look').length, lane: CATALOG.filter(x => x.ms[0] === 'vintage-thrift').length,
+    chip: document.getElementById('seedChips').textContent.includes('Vintage / Thrift'),
+    newNotFind: vintageKind({ n: 'Vintage Wash Western Shirt', u: 'https://percivalclo.com/products/x' }),
+    depopFind: vintageKind({ n: "Levi's men's vintage 90s jeans", u: 'https://www.depop.com/products/x' }),
+    trendy: CATALOG.filter(x => x.vintage === 'vintage').reduce((a, x) => a + x.trend, 0) / Math.max(1, CATALOG.filter(x => x.vintage === 'vintage').length) }));
+  chk('the catalogue carries real vintage finds (50+)', vint.finds >= 50, 'finds=' + vint.finds + ' thrift=' + vint.thrift + ' looks=' + vint.looks);
+  chk('every real find leads with the Vintage / Thrift lane', vint.lane === vint.finds, vint.lane + ' vs ' + vint.finds);
+  chk('a new piece with a vintage wash is a look, not a find', vint.newNotFind === 'look', String(vint.newNotFind));
+  chk('a 90s listing on Depop is a find', vint.depopFind === 'vintage', String(vint.depopFind));
+  chk('Vintage / Thrift is always offered as a warm-up chip', vint.chip === true);
+  chk('vintage finds read as current (mean trend >= 0.55)', vint.trendy >= 0.55, vint.trendy.toFixed(3));
+
   // ---- 5. the v3 dealer is still reachable for measurement ----
   const v3 = await p.evaluate(() => { DECK_V4 = false; try { QUEUE = []; return nextBatch(10).length; } finally { DECK_V4 = true; } });
   chk('DECK_V4=false still deals a full v3 batch', v3 === 10, 'n=' + v3);

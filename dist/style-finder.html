@@ -500,12 +500,13 @@ https://i.pinimg.com/564x/....jpg"></textarea>
     <div style="max-width:660px;margin:0 auto;">
       <h2 style="color:var(--green-2);margin:6px 0 8px;">Find your taste by reaction</h2>
       <p style="color:var(--ink-soft);font-size:17px;">
-        You'll swipe real pieces from <b>16 niche menswear labels</b> — hit
+        You'll swipe real pieces from <b>hundreds of labels</b> — the big names, the niche ones, and
+        <b>vintage and second-hand finds</b> — tilted toward <b>what's in right now</b>. Hit
         <b style="color:var(--green-2)">Love</b>, <b style="color:var(--green)">Like</b>, or
         <b style="color:var(--nope)">Skip</b>. It <b>keeps serving new pieces that match your
         evolving taste</b>, so swipe as long as you like. Tap <b>🛒 Save</b> on anything you'd
         wear to drop it in your cart, and hit <b>Done</b> anytime to see your <b>micro-styles</b>
-        (think "Ivy / Prep", "Gorpcore", "Raw Denim") and a set of brand-new matches.
+        (think "Ivy / Prep", "Gorpcore", "Vintage / Thrift") and a set of brand-new matches.
       </p>
       <p style="color:var(--ink-soft);font-size:15px;margin-top:12px;">Warm up — tap any micro-styles that sound like you (optional):</p>
       <div id="seedChips" class="chips"></div>
@@ -619,7 +620,8 @@ const MS = {
   "elevated-basics":"Elevated Basics","monochrome-minimal":"Monochrome Minimal","british-mod":"British Mod",
   "eclectic-pattern":"Eclectic Pattern","skate-street":"Skate Street","band-graphic":"Band / Graphic",
   "earthy-heritage":"Earthy Heritage","knitwear-forward":"Knitwear-Forward","linen-resort":"Linen Resort",
-  "texture-craft":"Textured Craft","surf-sport":"Surf / Sport"
+  "texture-craft":"Textured Craft","surf-sport":"Surf / Sport",
+  "vintage-thrift":"Vintage / Thrift"
 };
 const MS_BLURB = {
   "ivy-prep":"oxford shirts, rugbys, chinos, loafers — collegiate and pulled-together",
@@ -641,12 +643,53 @@ const MS_BLURB = {
   "knitwear-forward":"sweaters and cardigans as the hero of the outfit",
   "linen-resort":"linen, camp collars, vacation-ready and relaxed",
   "texture-craft":"corduroy, waffle, herringbone — tactile, crafted fabrics",
-  "surf-sport":"beachy, active, easy pieces made to move"
+  "surf-sport":"beachy, active, easy pieces made to move",
+  "vintage-thrift":"true vintage, 90s and Y2K finds, second-hand and thrifted — one-offs with a past"
 };
 const CATN={tee:"T-shirts",knit:"Knitwear",sweat:"Sweats & hoodies",shirt:"Shirts",outer:"Jackets & outerwear",trouser:"Trousers",short:"Shorts",cap:"Caps & hats",shoe:"Shoes",acc:"Accessories"};
 const COLORN={neutral:"neutrals",earth:"earth tones",dark:"dark & moody",blue:"blues & navy",green:"greens",bold:"bold color"};
 const PATN={solid:"solids",textured:"rich textures",plaid:"checks & plaids",stripe:"stripes",graphic:"graphics & prints"};
 const REACT_TAGS=["the color","the fit/cut","the fabric","the pattern","the brand"];
+
+/* ---------- vintage / thrift ----------
+   A micro-style the catalogue does not carry in its data, derived here at load
+   from what a listing says about itself, so it lands on every second-hand
+   piece — the Depop finds and the vintage shops — without a re-scrape, and so
+   the scraper's own classifier (enrich.MS_RULES has the mirror rule) and this
+   one cannot drift apart for the rows that predate it.
+
+   Three strengths. A second-hand listing that says vintage / 90s / Y2K, or any
+   piece that says thrifted / pre-loved / deadstock / reworked, is a real find:
+   the tag goes FIRST, so it becomes the piece's lane for the deck's exploration
+   and the lead chip on the card. A second-hand listing that does not say so (a
+   used Nike hoodie on Depop) is thrift, and a NEW piece that only borrows the
+   words ("Vintage Wash Western Shirt") is a look: for both the tag goes last,
+   so the piece keeps its own style as its lane but still answers to
+   the Vintage / Thrift chip. Runs before 10-helpers.js (whose tail opens a comment that 15-sectioning.js closes, so nothing can sit between those two) and before the taste
+   model counts tags, which is why this file sits at 09. */
+/* second-hand for certain, whoever is selling it */
+const SECONDHAND_WORD=/\b(thrift(ed)?|pre[- ]?loved|pre[- ]?owned|second[- ]?hand|deadstock|upcycled|reworked)\b/i;
+/* era words: TRUE vintage on a second-hand listing, a vintage LOOK on a new piece
+   ("Vintage Wash Western Shirt" from a current label is a finish, not a find) */
+const ERA_WORD=/\b(vintage|retro|y2k|'?[6789]0s|00s|1[89][0-9]0s|archive)\b/i;
+const SECONDHAND_HOST=/(depop\.com|thredup\.com|shopthrilling\.com|beyondretro\.com|rokit\.co\.uk|ragstock\.com|vintage-threads\.com|thrifted\.com|goodfair\.com|thevintagetwin\.com|shopwasteland\.com|shoproundtwo\.com|procell\.com|glassonionvintage\.com|messinahembry\.com|retrothreads\.com|vintagefolk\.co\.uk|coolclothesforcoolpeople\.com)/i;
+/* "vintage": a real find, leads the piece's lane. "thrift": second-hand without the
+   words. "look": a new piece styled after the past — answers to the chip, is not
+   offered as a find. */
+function vintageKind(p){
+  const n=p.n||"", sh=SECONDHAND_HOST.test(p.u||"");
+  if(SECONDHAND_WORD.test(n)) return "vintage";
+  if(sh) return ERA_WORD.test(n) ? "vintage" : "thrift";
+  if(ERA_WORD.test(n)) return "look";
+  return null;
+}
+CATALOG.forEach(p=>{
+  const k=vintageKind(p); if(!k) return;
+  p.ms=(p.ms||[]).filter(m=>m!=="vintage-thrift");
+  if(k==="vintage") p.ms.unshift("vintage-thrift"); else p.ms.push("vintage-thrift");   /* thrift and look: last */
+  if(p.ms.length>4) p.ms.length=4;
+  p.vintage=k;
+});
 
 /* ---------- helpers ---------- */
 function pImg(url,w){return url+(url.includes('?')?'&':'?')+'width='+(w||700);}
@@ -1264,7 +1307,8 @@ async function addPinLinks(){
 /* seed chips: the most common micro-styles */
 (function initSeeds(){
   const counts={}; CATALOG.forEach(p=>p.ms.forEach(m=>counts[m]=(counts[m]||0)+1));
-  const top=Object.keys(MS).sort((a,b)=>(counts[b]||0)-(counts[a]||0)).slice(0,12);
+  const top=Object.keys(MS).filter(k=>k!=="vintage-thrift").sort((a,b)=>(counts[b]||0)-(counts[a]||0)).slice(0,11);
+  top.push("vintage-thrift");    /* always offered: it is a sourcing choice as much as a look */
   document.getElementById("seedChips").innerHTML=top.map(k=>`<div class="chip" onclick="toggleSeed('${k}',this)">${MS[k]}</div>`).join("");
 })();
 function toggleSeed(k,el){const i=S.seeds.indexOf(k);if(i>=0){S.seeds.splice(i,1);el.classList.remove("on");}else{S.seeds.push(k);el.classList.add("on");}}
@@ -1363,6 +1407,7 @@ const GROUP_SHARE_MAX=0.5;  /* of a batch from one garment group */
 const MMR_LAMBDA=0.6;       /* how hard near-twins are pushed apart within a batch */
 const SIM_REF=8;            /* a "very similar" simItem() score, for the MMR term */
 const UCB_C=0.5, UCB_PRIOR=2;
+const TREND_SLOT_MIN=0.66;  /* a piece has to be this current to take the batch's trend slot */
 let LAST_DEALT=null;        /* tail of the previous batch: the seam is spaced too */
 
 /* what the recent swipes say about the session: fatigue per lane, the like-rate
@@ -1434,8 +1479,9 @@ function dealV4(k,pool,L,haveSignal){
 
     const f=exploitShare(k,ctx);
     const nWild=k>=6?1:0;
+    const nTrend=k>=6?1:0;          /* one card per batch that is current first, matched second */
     const nExploit=Math.max(1,Math.round(k*f));
-    const nExplore=Math.max(0,k-nExploit-nWild);
+    const nExplore=Math.max(0,k-nExploit-nWild-nTrend);
 
     /* 1. exploit, with the MMR step over a window of the best remaining */
     const WINDOW=40;
@@ -1451,6 +1497,16 @@ function dealV4(k,pool,L,haveSignal){
       }
       if(!best) break;
       take(best.i,'x');
+    }
+    /* 1b. the trend slot: the best-matched piece among the genuinely current
+       ones (trendScore >= TREND_SLOT_MIN) — what people are into right now,
+       dealt every batch whatever the profile says, so the feed always carries
+       the season. Vintage counts as current (TREND_MS). */
+    if(nTrend){
+      for(const o of scored){ if(origin[o.i]!==undefined) continue;
+        if((CATALOG[o.i].trend||0)<TREND_SLOT_MIN) continue;
+        if(!ok(o.i,true,true)) continue;
+        take(o.i,'t'); break; }
     }
     /* 2. explore: lanes by upper confidence bound, best unseen piece of each */
     if(nExplore>0){
@@ -1509,7 +1565,7 @@ function arrangeSpaced(list,origin){
     for(let j=0;j<rest.length;j++){
       const p=CATALOG[rest[j]]; let pen=0;
       if(prev){ if(groupOf(p)===groupOf(prev)) pen+=2; if(p.b===prev.b) pen+=3; if(p.ms[0]===prev.ms[0]) pen+=1; }
-      if(prevO && origin[rest[j]]===prevO && prevO!=='w') pen+=0.5;
+      if(prevO && origin[rest[j]]===prevO && prevO!=='w' && prevO!=='t') pen+=0.5;
       if(pen<bp){bp=pen;bi=j;}
       if(pen===0) break;
     }
@@ -2325,7 +2381,7 @@ function occasionsOf(p){
    changed; the classifier just got something to read.
    So: when adding a streetwear brand, run tools/scraper/backfill_desc.py before
    exporting, or the tilt cannot see what you added. */
-const YOUTH_MS={"skate-street":1.0,"band-graphic":0.95,"surf-sport":0.70,
+const YOUTH_MS={"skate-street":1.0,"band-graphic":0.95,"vintage-thrift":0.85,"surf-sport":0.70,
                 "collegiate-athletic":0.55,"eclectic-pattern":0.45,"gorpcore-utility":0.35};
 const YOUTH_FIT={oversized:1.0,cropped:0.85,wide:0.60,relaxed:0.55};
 const YOUTH_CAT={sweat:0.90,cap:0.80,tee:0.70,short:0.50};
@@ -2365,10 +2421,11 @@ const TREND_WORDS = [
   [0.8, /\b(corduroy|velvet|tweed|tartan|plaid|check(ed)?|houndstooth|prince of wales)\b/i],
   [0.8, /\b(mini ?skirt|pleated skirt|bandage dress|slip dress|sheer|capelet|cape)\b/i],
   [0.7, /\b(chocolate|espresso|mocha|burgundy|oxblood|cherry|olive|camel|toffee|taupe|mustard)\b/i],
-  [0.7, /\b(vintage|retro|90s|y2k|oversized|boxy|relaxed)\b/i],
+  [0.85, /\b(vintage|retro|thrift(ed)?|second[- ]?hand|pre[- ]?loved|deadstock|reworked|90s|80s|00s|y2k)\b/i],
+  [0.7, /\b(oversized|boxy|relaxed)\b/i],
   [0.6, /\b(hoodie|fleece|denim jacket|trucker|windbreaker|blazer|polo|loafer|ankle boot|chelsea)\b/i]
 ];
-const TREND_MS = {"gorpcore-utility":0.85,"rugged-workwear":0.85,"knitwear-forward":0.75,"collegiate-athletic":0.7,
+const TREND_MS = {"vintage-thrift":0.9,"gorpcore-utility":0.85,"rugged-workwear":0.85,"knitwear-forward":0.75,"collegiate-athletic":0.7,
                   "raw-denim":0.6,"skate-street":0.6,"texture-craft":0.55,"flannel-cabincore":0.5,"band-graphic":0.5,
                   "military-surplus":0.5,"british-mod":0.45,"ivy-prep":0.4,"earthy-heritage":0.4};
 const TREND_FIT = {wide:0.9,oversized:0.7,relaxed:0.5,cropped:0.5,tapered:0.2,slim:0.25,regular:0.3};
@@ -2926,7 +2983,7 @@ function youthBoost(p){ return (YOUTH_ON?YOUTH_W:0)*(p.youth||0)*ADVP[ADV].wp; }
    one surfaces first. Calibrated the same way — the AUC cost on every harness
    persona has to stay inside its noise floor while the deck visibly tilts; the
    sweep is in docs/ALGORITHM-V4.md. Rides on wp for the reason youthBoost does. */
-let TREND_W=24;            /* eval hook: calibrated in docs/ALGORITHM-V4.md; 0 disables */
+let TREND_W=40;            /* eval hook: calibrated in docs/ALGORITHM-V4.md; 0 disables */
 let TREND_ON=true;         /* eval hook */
 function trendBoost(p){ return (TREND_ON?TREND_W:0)*(p.trend||0)*ADVP[ADV].wp; }
 /* hybrid = overall taste profile blended with closeness to your favorites, then
@@ -3176,6 +3233,23 @@ function computeRec(){
     .sort((x,y)=>y.s-x.s).map(o=>o.i);
   REC=diversify(scored,a.perBrand,a.perMs,36,REC_GROUP_MAX);SUGGESTED=new Set(REC);REC_N=18;
 }
+/* the season's pieces, by taste: unswiped, in section, current, best hybrid first */
+function trendingFor(n){
+  const W=MODEL; if(!W) return [];
+  const swiped=new Set(Object.keys(S.reactions).map(Number)); const L=lovedPicks(); const a=ADVP[ADV];
+  const scored=[]; for(let i=0;i<CATALOG.length;i++){ const p=CATALOG[i];
+    if(swiped.has(i)||(p.trend||0)<0.62||!genderOK(i)) continue; scored.push({i,s:hybrid(p,W,L)}); }
+  scored.sort((x,y)=>y.s-x.s);
+  return diversify(scored.map(o=>o.i),2,4,n,Math.ceil(n*0.5));
+}
+function vintageFor(n){
+  const W=MODEL; if(!W) return [];
+  const swiped=new Set(Object.keys(S.reactions).map(Number)); const L=lovedPicks();
+  const scored=[]; for(let i=0;i<CATALOG.length;i++){ const p=CATALOG[i];
+    if(swiped.has(i)||!p.vintage||p.vintage==="look"||!genderOK(i)) continue; scored.push({i,s:hybrid(p,W,L)}); }
+  scored.sort((x,y)=>y.s-x.s);
+  return diversify(scored.map(o=>o.i),3,0,n,Math.ceil(n*0.6));
+}
 function buildResults(){
   const W=MODEL;
   const topMs=topKeys(W.ms,4,true);const primary=topMs[0]||"elevated-basics";
@@ -3204,6 +3278,16 @@ function buildResults(){
     <p class="kv"><b>Brands that clicked:</b> ${topKeys(W.brand,4,true).join(", ")||"a spread"}.</p>
   </div></div>`;
 
+  /* what's in right now — the season's pieces and the vintage finds, ranked by
+     YOUR taste, so the trend panel is still personal */
+  const inNow=trendingFor(12), vint=vintageFor(8);
+  if(inNow.length||vint.length){
+    html+=`<div class="panel"><h3 class="section-title">What's in right now</h3>
+      <p class="section-note">The pieces that read as this season — wide and baggy cuts, cargo and workwear, cable knits, leather and suede, chocolate and burgundy — plus vintage and second-hand finds, each ranked by how well it matches <i>your</i> swipes.</p>
+      ${inNow.length?`<div class="grid">${inNow.map(sugCardHTML).join("")}</div>`:""}
+      ${vint.length?`<h4 style="margin:18px 0 6px;color:var(--green-2)">Vintage &amp; thrift finds for you</h4><div class="grid">${vint.map(sugCardHTML).join("")}</div>`:""}
+    </div>`;
+  }
   html+=`<div class="panel"><h3 class="section-title">New pieces you'd wear</h3>
     <p class="section-note">Brand-new pieces you didn't swipe, blended from your micro-styles <i>and</i> how close they are to your favorites — only in categories you liked. Each says why it matched. Tick pieces you like and hit <b>Refine</b> to teach it more.</p>
     <div style="display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-bottom:6px">

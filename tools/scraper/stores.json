@@ -62,7 +62,7 @@
  "Abercrombie & Fitch": {
   "domain": "www.depop.com",
   "gender_prior": "f",
-  "seen": 7
+  "seen": 12
  },
  "Adanola": {
   "domain": "www.adanola.com",
@@ -72,11 +72,16 @@
  "Adidas": {
   "domain": "kith.com",
   "gender_prior": "m",
-  "seen": 28
+  "seen": 38
  },
  "Adidas Originals": {
   "domain": "feature.com",
   "gender_prior": "f",
+  "seen": 1
+ },
+ "Adobe Rose": {
+  "domain": "www.thrifted.com",
+  "gender_prior": "m",
   "seen": 1
  },
  "Adsum": {
@@ -96,13 +101,18 @@
  },
  "Aeropostale": {
   "domain": "www.depop.com",
-  "gender_prior": "m",
-  "seen": 4
+  "gender_prior": "f",
+  "seen": 7
  },
  "Afends": {
   "domain": "afends.com",
   "gender_prior": "f",
   "seen": 156
+ },
+ "Affliction": {
+  "domain": "www.depop.com",
+  "gender_prior": "f",
+  "seen": 1
  },
  "Ag Jeans": {
   "domain": "www.depop.com",
@@ -222,12 +232,12 @@
  "Alstyle": {
   "domain": "www.depop.com",
   "gender_prior": "m",
-  "seen": 1
+  "seen": 2
  },
  "American Eagle": {
   "domain": "www.ae.com",
   "gender_prior": "m",
-  "seen": 71
+  "seen": 75
  },
  "American Trench": {
   "domain": "americantrench.com",
@@ -239,10 +249,30 @@
   "gender_prior": "m",
   "seen": 35
  },
+ "Anchor Blue": {
+  "domain": "www.depop.com",
+  "gender_prior": "f",
+  "seen": 1
+ },
+ "Anderson - Little Co": {
+  "domain": "www.thrifted.com",
+  "gender_prior": "m",
+  "seen": 1
+ },
  "Andie Swim": {
   "domain": "andieswim.com",
   "gender_prior": "f",
   "seen": 29
+ },
+ "Animaniacs": {
+  "domain": "ragstock.com",
+  "gender_prior": "m",
+  "seen": 1
+ },
+ "Ann Taylor": {
+  "domain": "www.depop.com",
+  "gender_prior": "f",
+  "seen": 2
  },
  "Anthropologie": {
   "domain": "www.depop.com",
@@ -254,6 +284,16 @@
   "gender_prior": "m",
   "seen": 31
  },
+ "Apt. 9": {
+  "domain": "www.depop.com",
+  "gender_prior": "f",
+  "seen": 1
+ },
+ "Arc'teryx": {
+  "domain": "www.rokit.co.uk",
+  "gender_prior": "f",
+  "seen": 2
+ },
  "Aries": {
   "domain": "www.ariesarise.com",
   "gender_prior": "f",
@@ -263,6 +303,21 @@
   "domain": "www.ariesarise.com",
   "gender_prior": "f",
   "seen": 24
+ },
+ "Armani": {
+  "domain": "www.rokit.co.uk",
+  "gender_prior": "m",
+  "seen": 1
+ },
+ "Armani Exchange": {
+  "domain": "www.thrifted.com",
+  "gender_prior": "m",
+  "seen": 3
+ },
+ "Armani Jeans": {
+  "domain": "www.thrifted.com",
+  "gender_prior": "m",
+  "seen": 1
  },
  "Arms of Eve": {
   "domain": "www.armsofeve.com",
@@ -344,6 +399,11 @@
   "gender_prior": "m",
   "seen": 111
  },
+ "Bape": {
+  "domain": "www.rokit.co.uk",
+  "gender_prior": "m",
+  "seen": 1
+ },
  "Barbell Apparel": {
   "domain": "barbellapparel.com",
   "gender_prior": "m",
@@ -389,6 +449,16 @@
   "gender_prior": "f",
   "seen": 4
  },
+ "Bay Island": {
+  "domain": "www.depop.com",
+  "gender_prior": "m",
+  "seen": 2
+ },
+ "Beach Gear": {
+  "domain": "ragstock.com",
+  "gender_prior": "f",
+  "seen": 1
+ },
  "Beach Riot": {
   "domain": "www.beachriot.com",
   "gender_prior": "f",
@@ -403,6 +473,11 @@
   "domain": "bearbottomclothing.com",
   "gender_prior": "m",
   "seen": 43
+ },
+ "Bebe": {
+  "domain": "www.depop.com",
+  "gender_prior": "f",
+  "seen": 1
  },
  "Bec + Bridge": {
   "domain": "becandbridge.com.au",
@@ -429,6 +504,16 @@
   "gender_prior": "m",
   "seen": 34
  },
+ "Bermans": {
+  "domain": "www.depop.com",
+  "gender_prior": "f",
+  "seen": 1
+ },
+ "Better": {
+  "domain": "www.depop.com",
+  "gender_prior": "f",
+  "seen": 1
+ },
  "Better Gift Shop": {
   "domain": "bettergiftshop.com",
   "gender_prior": "u",
@@ -439,10 +524,15 @@
   "gender_prior": "m",
   "seen": 12
  },
+ "Bill Blass": {
+  "domain": "www.depop.com",
+  "gender_prior": "m",
+  "seen": 1
+ },
  "Billabong": {
   "domain": "billabong.com",
   "gender_prior": "m",
-  "seen": 114
+  "seen": 115
  },
  "Billionaire Boys Club": {
   "domain": "www.bbcicecream.com",
@@ -549,6 +639,11 @@
   "gender_prior": "f",
   "seen": 25
  },
+ "Bozzolo": {
+  "domain": "ragstock.com",
+  "gender_prior": "f",
+  "seen": 1
+ },
  "Brain Dead": {
   "domain": "wearebraindead.com",
   "gender_prior": "m",
@@ -557,7 +652,7 @@
  "Brandy Melville": {
   "domain": "us.brandymelville.com",
   "gender_prior": "f",
-  "seen": 124
+  "seen": 126
  },
  "Bridge & Burn": {
   "domain": "bridgeandburn.com",
@@ -573,6 +668,11 @@
   "domain": "www.brixton.com",
   "gender_prior": "m",
   "seen": 29
+ },
+ "Brooklyn Cloth": {
+  "domain": "ragstock.com",
+  "gender_prior": "m",
+  "seen": 1
  },
  "Brunotti": {
   "domain": "brunotti.com",
@@ -599,6 +699,11 @@
   "gender_prior": "m",
   "seen": 20
  },
+ "CM Ricky Singh": {
+  "domain": "ragstock.com",
+  "gender_prior": "m",
+  "seen": 3
+ },
  "COLLAB26": {
   "domain": "ciaolucia.com",
   "gender_prior": "f",
@@ -608,6 +713,11 @@
   "domain": "www.depop.com",
   "gender_prior": "f",
   "seen": 1
+ },
+ "Calvin Klein": {
+  "domain": "messinahembry.com",
+  "gender_prior": "m",
+  "seen": 24
  },
  "Camilla and Marc": {
   "domain": "www.camillaandmarc.com",
@@ -622,7 +732,7 @@
  "Carhartt": {
   "domain": "www.depop.com",
   "gender_prior": "m",
-  "seen": 28
+  "seen": 38
  },
  "Carhartt WIP": {
   "domain": "us.carhartt-wip.com",
@@ -634,13 +744,28 @@
   "gender_prior": "m",
   "seen": 2
  },
+ "Cato": {
+  "domain": "www.depop.com",
+  "gender_prior": "f",
+  "seen": 1
+ },
  "Champion": {
   "domain": "www.champion.com",
   "gender_prior": "f",
-  "seen": 42
+  "seen": 43
  },
  "Champs Sports": {
   "domain": "www.depop.com",
+  "gender_prior": "m",
+  "seen": 1
+ },
+ "Chaps": {
+  "domain": "www.depop.com",
+  "gender_prior": "m",
+  "seen": 2
+ },
+ "Chaps Ralph Lauren": {
+  "domain": "www.thrifted.com",
   "gender_prior": "m",
   "seen": 1
  },
@@ -649,10 +774,30 @@
   "gender_prior": "f",
   "seen": 1
  },
+ "Cherokee": {
+  "domain": "www.depop.com",
+  "gender_prior": "m",
+  "seen": 1
+ },
  "Cherry LA": {
   "domain": "www.cherryla.com",
   "gender_prior": "u",
   "seen": 36
+ },
+ "Chesterfield": {
+  "domain": "ragstock.com",
+  "gender_prior": "f",
+  "seen": 1
+ },
+ "Chic": {
+  "domain": "www.depop.com",
+  "gender_prior": "f",
+  "seen": 1
+ },
+ "Christopher & Banks": {
+  "domain": "www.depop.com",
+  "gender_prior": "f",
+  "seen": 1
  },
  "Christy Dawn": {
   "domain": "christydawn.com",
@@ -702,7 +847,7 @@
  "Columbia Sportswear": {
   "domain": "www.depop.com",
   "gender_prior": "f",
-  "seen": 1
+  "seen": 2
  },
  "Community Clothing": {
   "domain": "communityclothing.co.uk",
@@ -724,10 +869,20 @@
   "gender_prior": "u",
   "seen": 5
  },
+ "Coogi": {
+  "domain": "www.depop.com",
+  "gender_prior": "m",
+  "seen": 1
+ },
  "Corridor NYC": {
   "domain": "www.corridornyc.com",
   "gender_prior": "m",
   "seen": 30
+ },
+ "Cortefiel": {
+  "domain": "www.depop.com",
+  "gender_prior": "m",
+  "seen": 1
  },
  "Corteiz": {
   "domain": "crtz.xyz",
@@ -749,6 +904,11 @@
   "gender_prior": "m",
   "seen": 27
  },
+ "Croft & Barrow": {
+  "domain": "www.depop.com",
+  "gender_prior": "f",
+  "seen": 1
+ },
  "Crooks and Castles": {
   "domain": "crooksncastles.com",
   "gender_prior": "m",
@@ -763,6 +923,11 @@
   "domain": "crosscolours.com",
   "gender_prior": "u",
   "seen": 26
+ },
+ "Crossings": {
+  "domain": "www.depop.com",
+  "gender_prior": "m",
+  "seen": 1
  },
  "Cue": {
   "domain": "www.cue.cc",
@@ -829,6 +994,11 @@
   "gender_prior": "m",
   "seen": 4
  },
+ "Def Leppard": {
+  "domain": "www.depop.com",
+  "gender_prior": "f",
+  "seen": 1
+ },
  "Dehen 1920": {
   "domain": "dehen.com",
   "gender_prior": "m",
@@ -844,10 +1014,15 @@
   "gender_prior": "m",
   "seen": 1
  },
+ "Denim & Flower": {
+  "domain": "ragstock.com",
+  "gender_prior": "m",
+  "seen": 1
+ },
  "Depop": {
   "domain": "www.depop.com",
-  "gender_prior": "m",
-  "seen": 53
+  "gender_prior": "f",
+  "seen": 138
  },
  "Deus Ex Machina": {
   "domain": "us.deuscustoms.com",
@@ -862,7 +1037,12 @@
  "Dickies": {
   "domain": "www.depop.com",
   "gender_prior": "m",
-  "seen": 1
+  "seen": 5
+ },
+ "Diesel": {
+  "domain": "messinahembry.com",
+  "gender_prior": "m",
+  "seen": 35
  },
  "Dime": {
   "domain": "dimemtl.com",
@@ -877,7 +1057,7 @@
  "Disney": {
   "domain": "www.depop.com",
   "gender_prior": "m",
-  "seen": 1
+  "seen": 2
  },
  "Dissh": {
   "domain": "dissh.com",
@@ -893,6 +1073,16 @@
   "domain": "www.disturbia.co.uk",
   "gender_prior": "f",
   "seen": 26
+ },
+ "Ditch Plains": {
+  "domain": "ragstock.com",
+  "gender_prior": "m",
+  "seen": 1
+ },
+ "Dollhouse": {
+  "domain": "www.depop.com",
+  "gender_prior": "f",
+  "seen": 1
  },
  "Doyoueven": {
   "domain": "www.doyoueven.com",
@@ -912,6 +1102,11 @@
  "Dreamers": {
   "domain": "www.depop.com",
   "gender_prior": "f",
+  "seen": 1
+ },
+ "Dreamworks Shrek": {
+  "domain": "ragstock.com",
+  "gender_prior": "m",
   "seen": 1
  },
  "Duke": {
@@ -954,6 +1149,11 @@
   "gender_prior": "f",
   "seen": 28
  },
+ "Ecko": {
+  "domain": "www.rokit.co.uk",
+  "gender_prior": "m",
+  "seen": 1
+ },
  "Eddie Bauer": {
   "domain": "www.depop.com",
   "gender_prior": "f",
@@ -989,6 +1189,11 @@
   "gender_prior": "m",
   "seen": 4
  },
+ "Epic Threads": {
+  "domain": "www.depop.com",
+  "gender_prior": "f",
+  "seen": 1
+ },
  "Eric Emanuel": {
   "domain": "ericemanuel.com",
   "gender_prior": "m",
@@ -999,7 +1204,17 @@
   "gender_prior": "m",
   "seen": 2
  },
+ "Esprit": {
+  "domain": "www.rokit.co.uk",
+  "gender_prior": "f",
+  "seen": 1
+ },
  "Eton": {
+  "domain": "www.depop.com",
+  "gender_prior": "f",
+  "seen": 1
+ },
+ "Evan Picone": {
   "domain": "www.depop.com",
   "gender_prior": "f",
   "seen": 1
@@ -1009,6 +1224,16 @@
   "gender_prior": "f",
   "seen": 35
  },
+ "Express": {
+  "domain": "www.depop.com",
+  "gender_prior": "f",
+  "seen": 2
+ },
+ "Expressions": {
+  "domain": "www.depop.com",
+  "gender_prior": "f",
+  "seen": 2
+ },
  "Extra Butter": {
   "domain": "extrabutterny.com",
   "gender_prior": "m",
@@ -1017,7 +1242,7 @@
  "Faded Glory": {
   "domain": "www.depop.com",
   "gender_prior": "f",
-  "seen": 1
+  "seen": 3
  },
  "Faherty": {
   "domain": "fahertybrand.com",
@@ -1029,10 +1254,20 @@
   "gender_prior": "m",
   "seen": 109
  },
+ "Fairy Girls": {
+  "domain": "www.depop.com",
+  "gender_prior": "f",
+  "seen": 1
+ },
  "Faithfull the Brand": {
   "domain": "faithfullthebrand.com",
   "gender_prior": "f",
   "seen": 24
+ },
+ "Fanatics": {
+  "domain": "www.thrifted.com",
+  "gender_prior": "m",
+  "seen": 1
  },
  "Farah": {
   "domain": "www.farah.co.uk",
@@ -1064,6 +1299,11 @@
   "gender_prior": "f",
   "seen": 4
  },
+ "Fender": {
+  "domain": "www.depop.com",
+  "gender_prior": "f",
+  "seen": 1
+ },
  "Figs": {
   "domain": "www.depop.com",
   "gender_prior": "f",
@@ -1073,6 +1313,11 @@
   "domain": "finisterre.com",
   "gender_prior": "m",
   "seen": 191
+ },
+ "Fishbone": {
+  "domain": "www.depop.com",
+  "gender_prior": "f",
+  "seen": 1
  },
  "Flag & Anthem": {
   "domain": "flagandanthem.com",
@@ -1122,7 +1367,7 @@
  "Free People": {
   "domain": "www.depop.com",
   "gender_prior": "f",
-  "seen": 1
+  "seen": 2
  },
  "Freenote Cloth": {
   "domain": "freenotecloth.com",
@@ -1139,6 +1384,11 @@
   "gender_prior": "m",
   "seen": 42
  },
+ "Fresh Produce": {
+  "domain": "ragstock.com",
+  "gender_prior": "f",
+  "seen": 1
+ },
  "Frog Skateboards": {
   "domain": "frogskateboards.com",
   "gender_prior": "u",
@@ -1148,6 +1398,16 @@
   "domain": "www.depop.com",
   "gender_prior": "m",
   "seen": 2
+ },
+ "Fruit of the Loom": {
+  "domain": "ragstock.com",
+  "gender_prior": "f",
+  "seen": 2
+ },
+ "GM": {
+  "domain": "ragstock.com",
+  "gender_prior": "m",
+  "seen": 1
  },
  "GX1000": {
   "domain": "gx1000.com",
@@ -1162,14 +1422,24 @@
  "Gap": {
   "domain": "www.depop.com",
   "gender_prior": "m",
-  "seen": 4
+  "seen": 9
  },
  "Garage": {
   "domain": "www.depop.com",
   "gender_prior": "f",
   "seen": 1
  },
+ "Garfield": {
+  "domain": "ragstock.com",
+  "gender_prior": "m",
+  "seen": 1
+ },
  "Gear For Sports": {
+  "domain": "www.depop.com",
+  "gender_prior": "m",
+  "seen": 1
+ },
+ "Geoffrey Beene": {
   "domain": "www.depop.com",
   "gender_prior": "m",
   "seen": 1
@@ -1182,12 +1452,17 @@
  "Gildan": {
   "domain": "www.depop.com",
   "gender_prior": "m",
-  "seen": 1
+  "seen": 5
  },
  "Ginew": {
   "domain": "ginewusa.com",
   "gender_prior": "u",
   "seen": 5
+ },
+ "Gino Rossi": {
+  "domain": "www.depop.com",
+  "gender_prior": "f",
+  "seen": 1
  },
  "Girlfriend Collective": {
   "domain": "girlfriend.com",
@@ -1224,6 +1499,11 @@
   "gender_prior": "m",
   "seen": 142
  },
+ "Graphic Tees": {
+  "domain": "vintage-threads.com",
+  "gender_prior": "m",
+  "seen": 18
+ },
  "Grayers": {
   "domain": "grayers.com",
   "gender_prior": "f",
@@ -1239,9 +1519,29 @@
   "gender_prior": "u",
   "seen": 19
  },
+ "Green Day": {
+  "domain": "www.depop.com",
+  "gender_prior": "m",
+  "seen": 1
+ },
+ "Gucci": {
+  "domain": "www.rokit.co.uk",
+  "gender_prior": "f",
+  "seen": 1
+ },
+ "Guess": {
+  "domain": "www.thrifted.com",
+  "gender_prior": "f",
+  "seen": 3
+ },
  "Guinness": {
   "domain": "www.depop.com",
   "gender_prior": "m",
+  "seen": 1
+ },
+ "Gunther Jaeckel": {
+  "domain": "www.depop.com",
+  "gender_prior": "f",
   "seen": 1
  },
  "Gym King": {
@@ -1279,10 +1579,20 @@
   "gender_prior": "m",
   "seen": 2
  },
+ "Hanes Her Way": {
+  "domain": "ragstock.com",
+  "gender_prior": "f",
+  "seen": 1
+ },
+ "Hard Rock Cafe": {
+  "domain": "www.rokit.co.uk",
+  "gender_prior": "m",
+  "seen": 1
+ },
  "Harley Davidson": {
   "domain": "www.depop.com",
   "gender_prior": "m",
-  "seen": 4
+  "seen": 8
  },
  "Helas": {
   "domain": "helascaps.com",
@@ -1293,6 +1603,16 @@
   "domain": "hellstar.com",
   "gender_prior": "m",
   "seen": 17
+ },
+ "Henry White": {
+  "domain": "ragstock.com",
+  "gender_prior": "f",
+  "seen": 1
+ },
+ "Herschel": {
+  "domain": "www.rokit.co.uk",
+  "gender_prior": "f",
+  "seen": 1
  },
  "Hikerdelic": {
   "domain": "hikerdelic.com",
@@ -1316,13 +1636,18 @@
  },
  "Hollister Co.": {
   "domain": "www.depop.com",
-  "gender_prior": "m",
-  "seen": 10
+  "gender_prior": "f",
+  "seen": 14
  },
  "Homecore": {
   "domain": "www.homecore.com",
   "gender_prior": "m",
   "seen": 25
+ },
+ "Hooters": {
+  "domain": "ragstock.com",
+  "gender_prior": "m",
+  "seen": 1
  },
  "House of Sunny": {
   "domain": "houseofsunny.co.uk",
@@ -1333,6 +1658,11 @@
   "domain": "howlerbros.com",
   "gender_prior": "m",
   "seen": 82
+ },
+ "Hudson": {
+  "domain": "www.depop.com",
+  "gender_prior": "f",
+  "seen": 1
  },
  "Huf": {
   "domain": "hufworldwide.com",
@@ -1349,6 +1679,16 @@
   "gender_prior": "m",
   "seen": 1
  },
+ "Hurley": {
+  "domain": "www.depop.com",
+  "gender_prior": "f",
+  "seen": 1
+ },
+ "Hybrid Apparel": {
+  "domain": "ragstock.com",
+  "gender_prior": "f",
+  "seen": 1
+ },
  "Icecream Europe": {
   "domain": "www.bbcicecream.com",
   "gender_prior": "m",
@@ -1359,6 +1699,11 @@
   "gender_prior": "m",
   "seen": 1
  },
+ "Impermeable": {
+  "domain": "ragstock.com",
+  "gender_prior": "f",
+  "seen": 1
+ },
  "In The Style": {
   "domain": "www.inthestyle.com",
   "gender_prior": "f",
@@ -1367,6 +1712,11 @@
  "Inc International Concepts": {
   "domain": "www.depop.com",
   "gender_prior": "f",
+  "seen": 1
+ },
+ "Independant Trading Co.": {
+  "domain": "ragstock.com",
+  "gender_prior": "m",
   "seen": 1
  },
  "Intime Knits": {
@@ -1385,6 +1735,11 @@
   "seen": 3
  },
  "Izod": {
+  "domain": "www.depop.com",
+  "gender_prior": "m",
+  "seen": 2
+ },
+ "J.crew": {
   "domain": "www.depop.com",
   "gender_prior": "m",
   "seen": 1
@@ -1409,6 +1764,11 @@
   "gender_prior": "m",
   "seen": 7
  },
+ "Jaeger": {
+  "domain": "www.rokit.co.uk",
+  "gender_prior": "f",
+  "seen": 1
+ },
  "Janessa Leone": {
   "domain": "janessaleone.com",
   "gender_prior": "f",
@@ -1419,6 +1779,16 @@
   "gender_prior": "m",
   "seen": 72
  },
+ "Jansport": {
+  "domain": "ragstock.com",
+  "gender_prior": "f",
+  "seen": 1
+ },
+ "Jeanne Pierre": {
+  "domain": "www.depop.com",
+  "gender_prior": "m",
+  "seen": 1
+ },
  "Jenni Kayne": {
   "domain": "www.jennikayne.com",
   "gender_prior": "f",
@@ -1427,16 +1797,26 @@
  "Jerzees": {
   "domain": "www.depop.com",
   "gender_prior": "m",
-  "seen": 2
+  "seen": 3
  },
  "Jetty": {
   "domain": "jettylife.com",
   "gender_prior": "m",
   "seen": 2
  },
+ "Jlc": {
+  "domain": "www.depop.com",
+  "gender_prior": "m",
+  "seen": 1
+ },
  "Jockey": {
   "domain": "www.depop.com",
   "gender_prior": "f",
+  "seen": 1
+ },
+ "John Ashford": {
+  "domain": "www.depop.com",
+  "gender_prior": "m",
   "seen": 1
  },
  "John Elliott": {
@@ -1454,6 +1834,16 @@
   "gender_prior": "m",
   "seen": 13
  },
+ "Journeys": {
+  "domain": "www.depop.com",
+  "gender_prior": "m",
+  "seen": 1
+ },
+ "Junk Food": {
+  "domain": "www.depop.com",
+  "gender_prior": "f",
+  "seen": 1
+ },
  "KEEN": {
   "domain": "www.keenfootwear.com",
   "gender_prior": "m",
@@ -1463,6 +1853,21 @@
   "domain": "kaiiathelabel.com",
   "gender_prior": "f",
   "seen": 102
+ },
+ "Kangol": {
+  "domain": "www.rokit.co.uk",
+  "gender_prior": "m",
+  "seen": 1
+ },
+ "Kasper": {
+  "domain": "www.depop.com",
+  "gender_prior": "f",
+  "seen": 1
+ },
+ "Kathie Lee": {
+  "domain": "ragstock.com",
+  "gender_prior": "f",
+  "seen": 1
  },
  "Katin": {
   "domain": "katinusa.com",
@@ -1509,6 +1914,11 @@
   "gender_prior": "f",
   "seen": 27
  },
+ "Knightsbridge": {
+  "domain": "www.depop.com",
+  "gender_prior": "m",
+  "seen": 1
+ },
  "Koio": {
   "domain": "www.koio.co",
   "gender_prior": "u",
@@ -1534,6 +1944,11 @@
   "gender_prior": "f",
   "seen": 22
  },
+ "Kut From The Kloth": {
+  "domain": "www.depop.com",
+  "gender_prior": "f",
+  "seen": 1
+ },
  "L'Estrange": {
   "domain": "lestrangelondon.com",
   "gender_prior": "m",
@@ -1542,7 +1957,7 @@
  "L.l.bean": {
   "domain": "www.depop.com",
   "gender_prior": "f",
-  "seen": 2
+  "seen": 5
  },
  "LEVIS": {
   "domain": "www.a-ma-maniere.com",
@@ -1567,7 +1982,12 @@
  "Lacoste": {
   "domain": "www.depop.com",
   "gender_prior": "m",
-  "seen": 1
+  "seen": 2
+ },
+ "Ladies": {
+  "domain": "www.thevintagetwin.com",
+  "gender_prior": "f",
+  "seen": 23
  },
  "Lady White Co": {
   "domain": "ladywhiteco.com",
@@ -1614,10 +2034,20 @@
   "gender_prior": "f",
   "seen": 24
  },
+ "Legendary Whitetails": {
+  "domain": "www.thrifted.com",
+  "gender_prior": "m",
+  "seen": 1
+ },
  "Levi's": {
   "domain": "www.depop.com",
   "gender_prior": "m",
-  "seen": 15
+  "seen": 33
+ },
+ "Levis": {
+  "domain": "www.thrifted.com",
+  "gender_prior": "f",
+  "seen": 5
  },
  "Lira Clothing": {
   "domain": "liraclothing.com",
@@ -1633,6 +2063,11 @@
   "domain": "localauthorityla.com",
   "gender_prior": "u",
   "seen": 11
+ },
+ "Looney Tunes": {
+  "domain": "ragstock.com",
+  "gender_prior": "f",
+  "seen": 1
  },
  "Lorna Jane": {
   "domain": "www.lornajane.com",
@@ -1654,6 +2089,11 @@
   "gender_prior": "u",
   "seen": 14
  },
+ "Lucky Brand": {
+  "domain": "www.depop.com",
+  "gender_prior": "f",
+  "seen": 1
+ },
  "Lucy & Yak": {
   "domain": "lucyandyak.com",
   "gender_prior": "f",
@@ -1663,6 +2103,11 @@
   "domain": "www.luke1977.com",
   "gender_prior": "m",
   "seen": 22
+ },
+ "Lululemon": {
+  "domain": "www.depop.com",
+  "gender_prior": "f",
+  "seen": 1
  },
  "Lunya": {
   "domain": "www.lunya.co",
@@ -1678,6 +2123,11 @@
   "domain": "www.lyleandscott.com",
   "gender_prior": "m",
   "seen": 27
+ },
+ "M&O Knits": {
+  "domain": "ragstock.com",
+  "gender_prior": "f",
+  "seen": 1
  },
  "M.Gemi": {
   "domain": "www.mgemi.com",
@@ -1724,6 +2174,11 @@
   "gender_prior": "m",
   "seen": 75
  },
+ "Magellan Sportswear": {
+  "domain": "ragstock.com",
+  "gender_prior": "f",
+  "seen": 1
+ },
  "Maison Margiela Replica": {
   "domain": "kith.com",
   "gender_prior": "f",
@@ -1752,17 +2207,37 @@
  "Members Only": {
   "domain": "membersonlyoriginal.com",
   "gender_prior": "m",
-  "seen": 30
+  "seen": 31
  },
  "Men's": {
   "domain": "communityclothing.co.uk",
   "gender_prior": "m",
   "seen": 2
  },
+ "Merona": {
+  "domain": "www.depop.com",
+  "gender_prior": "f",
+  "seen": 1
+ },
  "Meshki": {
   "domain": "meshki.com",
   "gender_prior": "f",
   "seen": 26
+ },
+ "Messina Hembry": {
+  "domain": "messinahembry.com",
+  "gender_prior": "m",
+  "seen": 40
+ },
+ "Metallica": {
+  "domain": "www.depop.com",
+  "gender_prior": "f",
+  "seen": 1
+ },
+ "Michael Gerald": {
+  "domain": "www.depop.com",
+  "gender_prior": "m",
+  "seen": 1
  },
  "Michael Stars": {
   "domain": "www.michaelstars.com",
@@ -1784,6 +2259,16 @@
   "gender_prior": "m",
   "seen": 11
  },
+ "Mitchell & Ness": {
+  "domain": "www.thrifted.com",
+  "gender_prior": "m",
+  "seen": 1
+ },
+ "Modelo": {
+  "domain": "ragstock.com",
+  "gender_prior": "m",
+  "seen": 1
+ },
  "Montce": {
   "domain": "www.montce.com",
   "gender_prior": "f",
@@ -1793,6 +2278,11 @@
   "domain": "montirex.com",
   "gender_prior": "f",
   "seen": 26
+ },
+ "Mossy Oak": {
+  "domain": "www.thrifted.com",
+  "gender_prior": "m",
+  "seen": 1
  },
  "Motel Rocks": {
   "domain": "www.motelrocks.com",
@@ -1824,10 +2314,20 @@
   "gender_prior": "f",
   "seen": 26
  },
+ "My Chemical Romance": {
+  "domain": "www.depop.com",
+  "gender_prior": "f",
+  "seen": 1
+ },
  "Myles Apparel": {
   "domain": "mylesapparel.com",
   "gender_prior": "m",
   "seen": 26
+ },
+ "NBA": {
+  "domain": "www.thrifted.com",
+  "gender_prior": "m",
+  "seen": 2
  },
  "NOBULL": {
   "domain": "nobullproject.com",
@@ -1857,7 +2357,7 @@
  "Nautica": {
   "domain": "www.depop.com",
   "gender_prior": "m",
-  "seen": 1
+  "seen": 2
  },
  "Neff": {
   "domain": "neffheadwear.com",
@@ -1897,7 +2397,7 @@
  "Nike": {
   "domain": "www.nike.com",
   "gender_prior": "m",
-  "seen": 190
+  "seen": 219
  },
  "Nike SB": {
   "domain": "extrabutterny.com",
@@ -1909,6 +2409,11 @@
   "gender_prior": "f",
   "seen": 24
  },
+ "Nirvana": {
+  "domain": "www.depop.com",
+  "gender_prior": "m",
+  "seen": 2
+ },
  "Nisolo": {
   "domain": "nisolo.com",
   "gender_prior": "u",
@@ -1918,6 +2423,16 @@
   "domain": "www.depop.com",
   "gender_prior": "f",
   "seen": 3
+ },
+ "No Brand": {
+  "domain": "www.depop.com",
+  "gender_prior": "f",
+  "seen": 2
+ },
+ "No Comment": {
+  "domain": "ragstock.com",
+  "gender_prior": "f",
+  "seen": 4
  },
  "No Problemo": {
   "domain": "www.ariesarise.com",
@@ -1953,6 +2468,11 @@
   "domain": "www.notre-shop.com",
   "gender_prior": "m",
   "seen": 4
+ },
+ "Nouveau": {
+  "domain": "ragstock.com",
+  "gender_prior": "f",
+  "seen": 1
  },
  "Nude Lucy": {
   "domain": "www.nudelucy.com.au",
@@ -1991,8 +2511,8 @@
  },
  "Old Navy": {
   "domain": "www.depop.com",
-  "gender_prior": "m",
-  "seen": 5
+  "gender_prior": "f",
+  "seen": 11
  },
  "Oliver Cabell": {
   "domain": "olivercabell.com",
@@ -2104,6 +2624,11 @@
   "gender_prior": "m",
   "seen": 32
  },
+ "Paris Blues": {
+  "domain": "www.depop.com",
+  "gender_prior": "f",
+  "seen": 1
+ },
  "Parks Project": {
   "domain": "parksproject.us",
   "gender_prior": "m",
@@ -2124,10 +2649,15 @@
   "gender_prior": "m",
   "seen": 147
  },
- "Peanuts": {
-  "domain": "www.depop.com",
+ "Patagonia": {
+  "domain": "www.rokit.co.uk",
   "gender_prior": "m",
-  "seen": 1
+  "seen": 3
+ },
+ "Peanuts": {
+  "domain": "ragstock.com",
+  "gender_prior": "m",
+  "seen": 6
  },
  "Peppermayo": {
   "domain": "www.peppermayo.com",
@@ -2153,6 +2683,11 @@
   "domain": "petitestudionyc.com",
   "gender_prior": "f",
   "seen": 20
+ },
+ "Phool": {
+  "domain": "ragstock.com",
+  "gender_prior": "f",
+  "seen": 1
  },
  "Pink Floyd": {
   "domain": "www.depop.com",
@@ -2204,6 +2739,21 @@
   "gender_prior": "u",
   "seen": 28
  },
+ "Polo Ralph Lauren": {
+  "domain": "www.depop.com",
+  "gender_prior": "m",
+  "seen": 1
+ },
+ "Polo by Ralph Lauren": {
+  "domain": "www.thrifted.com",
+  "gender_prior": "m",
+  "seen": 6
+ },
+ "Poof": {
+  "domain": "www.depop.com",
+  "gender_prior": "f",
+  "seen": 1
+ },
  "Pop Trading Company": {
   "domain": "poptradingcompany.com",
   "gender_prior": "u",
@@ -2218,6 +2768,11 @@
   "domain": "possethelabel.com",
   "gender_prior": "f",
   "seen": 12
+ },
+ "Prana": {
+  "domain": "www.depop.com",
+  "gender_prior": "f",
+  "seen": 1
  },
  "Pretty Green": {
   "domain": "www.prettygreen.com",
@@ -2237,7 +2792,7 @@
  "Princess Polly": {
   "domain": "us.princesspolly.com",
   "gender_prior": "f",
-  "seen": 33
+  "seen": 34
  },
  "Pro Club": {
   "domain": "www.depop.com",
@@ -2309,6 +2864,16 @@
   "gender_prior": "m",
   "seen": 25
  },
+ "Ragstock": {
+  "domain": "ragstock.com",
+  "gender_prior": "f",
+  "seen": 137
+ },
+ "Ragtown Trading": {
+  "domain": "ragstock.com",
+  "gender_prior": "m",
+  "seen": 1
+ },
  "Railcar Fine Goods": {
   "domain": "railcarfinegoods.com",
   "gender_prior": "m",
@@ -2331,8 +2896,8 @@
  },
  "Ralph Lauren": {
   "domain": "www.depop.com",
-  "gender_prior": "f",
-  "seen": 1
+  "gender_prior": "m",
+  "seen": 32
  },
  "Ramy Brook": {
   "domain": "www.ramybrook.com",
@@ -2348,6 +2913,11 @@
   "domain": "ratandboa.com",
   "gender_prior": "f",
   "seen": 19
+ },
+ "Rave": {
+  "domain": "www.depop.com",
+  "gender_prior": "f",
+  "seen": 1
  },
  "Real Bad Man": {
   "domain": "realbadman.com",
@@ -2369,10 +2939,15 @@
   "gender_prior": "f",
   "seen": 24
  },
+ "Redhead Clothing": {
+  "domain": "www.depop.com",
+  "gender_prior": "m",
+  "seen": 1
+ },
  "Reebok": {
   "domain": "www.reebok.com",
   "gender_prior": "f",
-  "seen": 20
+  "seen": 25
  },
  "Reformation": {
   "domain": "www.thereformation.com",
@@ -2388,6 +2963,11 @@
   "domain": "reistor.com",
   "gender_prior": "f",
   "seen": 29
+ },
+ "Relativity": {
+  "domain": "www.depop.com",
+  "gender_prior": "f",
+  "seen": 1
  },
  "Religion": {
   "domain": "www.depop.com",
@@ -2419,6 +2999,11 @@
   "gender_prior": "u",
   "seen": 27
  },
+ "Rising International": {
+  "domain": "ragstock.com",
+  "gender_prior": "f",
+  "seen": 1
+ },
  "Rixo": {
   "domain": "www.rixo.co.uk",
   "gender_prior": "f",
@@ -2434,10 +3019,25 @@
   "gender_prior": "m",
   "seen": 20
  },
+ "Rokit": {
+  "domain": "www.rokit.co.uk",
+  "gender_prior": "m",
+  "seen": 81
+ },
+ "Romwe": {
+  "domain": "www.depop.com",
+  "gender_prior": "f",
+  "seen": 1
+ },
  "Rothy's": {
   "domain": "rothys.com",
   "gender_prior": "f",
   "seen": 18
+ },
+ "Roundtree & Yorke": {
+  "domain": "www.depop.com",
+  "gender_prior": "m",
+  "seen": 1
  },
  "Rowie": {
   "domain": "www.rowiethelabel.com",
@@ -2448,6 +3048,11 @@
   "domain": "rowingblazers.com",
   "gender_prior": "m",
   "seen": 151
+ },
+ "Royal Bones": {
+  "domain": "www.depop.com",
+  "gender_prior": "f",
+  "seen": 1
  },
  "Rsq": {
   "domain": "www.depop.com",
@@ -2472,7 +3077,7 @@
  "Russell Athletic": {
   "domain": "www.depop.com",
   "gender_prior": "m",
-  "seen": 1
+  "seen": 2
  },
  "Rusty": {
   "domain": "www.rusty.com.au",
@@ -2513,6 +3118,11 @@
   "domain": "saboskirt.com",
   "gender_prior": "f",
   "seen": 26
+ },
+ "Sag Harbor": {
+  "domain": "www.depop.com",
+  "gender_prior": "f",
+  "seen": 1
  },
  "Saigon Wool": {
   "domain": "ashanderie.com",
@@ -2574,6 +3184,11 @@
   "gender_prior": "m",
   "seen": 31
  },
+ "Saved By The Bell": {
+  "domain": "ragstock.com",
+  "gender_prior": "m",
+  "seen": 1
+ },
  "Scotch & Soda": {
   "domain": "www.scotch-soda.com",
   "gender_prior": "f",
@@ -2598,6 +3213,11 @@
   "domain": "www.seagerco.com",
   "gender_prior": "m",
   "seen": 1
+ },
+ "Sears": {
+  "domain": "www.thrifted.com",
+  "gender_prior": "m",
+  "seen": 2
  },
  "Second Female": {
   "domain": "secondfemale.com",
@@ -2627,7 +3247,7 @@
  "Shein": {
   "domain": "www.depop.com",
   "gender_prior": "f",
-  "seen": 3
+  "seen": 4
  },
  "Shoe Palace": {
   "domain": "www.shoepalace.com",
@@ -2689,6 +3309,16 @@
   "gender_prior": "u",
   "seen": 36
  },
+ "Skyr": {
+  "domain": "www.depop.com",
+  "gender_prior": "f",
+  "seen": 1
+ },
+ "Slipknot": {
+  "domain": "www.depop.com",
+  "gender_prior": "m",
+  "seen": 1
+ },
  "Smoke Rise": {
   "domain": "www.depop.com",
   "gender_prior": "m",
@@ -2704,15 +3334,40 @@
   "gender_prior": "f",
   "seen": 30
  },
+ "Sonoma": {
+  "domain": "www.depop.com",
+  "gender_prior": "f",
+  "seen": 2
+ },
+ "Soul Star": {
+  "domain": "ragstock.com",
+  "gender_prior": "m",
+  "seen": 2
+ },
  "Soulland": {
   "domain": "soulland.com",
   "gender_prior": "u",
   "seen": 22
  },
+ "Source Unknown": {
+  "domain": "www.depop.com",
+  "gender_prior": "m",
+  "seen": 1
+ },
  "Southern Tide": {
   "domain": "southerntide.com",
   "gender_prior": "m",
   "seen": 32
+ },
+ "Southpole": {
+  "domain": "www.thrifted.com",
+  "gender_prior": "f",
+  "seen": 1
+ },
+ "Spalding": {
+  "domain": "www.depop.com",
+  "gender_prior": "m",
+  "seen": 1
  },
  "Spell": {
   "domain": "spell.co",
@@ -2734,6 +3389,11 @@
   "gender_prior": "m",
   "seen": 77
  },
+ "St. John's Bay": {
+  "domain": "www.depop.com",
+  "gender_prior": "f",
+  "seen": 1
+ },
  "Stan Ray": {
   "domain": "stanray.com",
   "gender_prior": "m",
@@ -2744,10 +3404,15 @@
   "gender_prior": "m",
   "seen": 97
  },
+ "Star City": {
+  "domain": "www.depop.com",
+  "gender_prior": "f",
+  "seen": 1
+ },
  "Starter": {
   "domain": "www.depop.com",
   "gender_prior": "m",
-  "seen": 1
+  "seen": 2
  },
  "State and Liberty": {
   "domain": "stateandliberty.com",
@@ -2758,6 +3423,11 @@
   "domain": "staud.clothing",
   "gender_prior": "f",
   "seen": 13
+ },
+ "Stoosh": {
+  "domain": "www.depop.com",
+  "gender_prior": "f",
+  "seen": 1
  },
  "Storets": {
   "domain": "www.storets.com",
@@ -2774,6 +3444,11 @@
   "gender_prior": "m",
   "seen": 32
  },
+ "Studio": {
+  "domain": "www.depop.com",
+  "gender_prior": "f",
+  "seen": 1
+ },
  "Studio Skateboards": {
   "domain": "studioskateboards.com",
   "gender_prior": "u",
@@ -2784,10 +3459,15 @@
   "gender_prior": "m",
   "seen": 141
  },
+ "Subdued": {
+  "domain": "www.depop.com",
+  "gender_prior": "f",
+  "seen": 1
+ },
  "Sublime": {
   "domain": "www.depop.com",
   "gender_prior": "m",
-  "seen": 1
+  "seen": 2
  },
  "Suboo": {
   "domain": "suboo.com.au",
@@ -2839,6 +3519,11 @@
   "gender_prior": "f",
   "seen": 5
  },
+ "Talbots": {
+  "domain": "www.depop.com",
+  "gender_prior": "f",
+  "seen": 1
+ },
  "Taylor Stitch": {
   "domain": "www.taylorstitch.com",
   "gender_prior": "m",
@@ -2854,10 +3539,25 @@
   "gender_prior": "u",
   "seen": 32
  },
+ "Terrifier": {
+  "domain": "ragstock.com",
+  "gender_prior": "m",
+  "seen": 1
+ },
  "Territory Run Co": {
   "domain": "territoryrun.co",
   "gender_prior": "m",
   "seen": 20
+ },
+ "The Beatles": {
+  "domain": "www.depop.com",
+  "gender_prior": "f",
+  "seen": 1
+ },
+ "The Cranberries": {
+  "domain": "ragstock.com",
+  "gender_prior": "m",
+  "seen": 1
  },
  "The Critical Slide Society": {
   "domain": "thecriticalslidesociety.com",
@@ -2889,6 +3589,16 @@
   "gender_prior": "m",
   "seen": 101
  },
+ "The Mountain": {
+  "domain": "ragstock.com",
+  "gender_prior": "m",
+  "seen": 2
+ },
+ "The Muppets": {
+  "domain": "ragstock.com",
+  "gender_prior": "m",
+  "seen": 2
+ },
  "The North Face": {
   "domain": "www.depop.com",
   "gender_prior": "f",
@@ -2909,6 +3619,11 @@
   "gender_prior": "m",
   "seen": 1
  },
+ "The Vintage Twin": {
+  "domain": "www.thevintagetwin.com",
+  "gender_prior": "f",
+  "seen": 55
+ },
  "Theories": {
   "domain": "theoriesofatlantis.com",
   "gender_prior": "u",
@@ -2918,6 +3633,11 @@
   "domain": "threads4thought.com",
   "gender_prior": "u",
   "seen": 34
+ },
+ "Thrifted": {
+  "domain": "www.thrifted.com",
+  "gender_prior": "m",
+  "seen": 103
  },
  "Thrills": {
   "domain": "thrills.co",
@@ -2949,6 +3669,11 @@
   "gender_prior": "m",
   "seen": 90
  },
+ "Tommy Hilfiger": {
+  "domain": "www.thrifted.com",
+  "gender_prior": "m",
+  "seen": 10
+ },
  "Tommy John": {
   "domain": "tommyjohn.com",
   "gender_prior": "f",
@@ -2979,6 +3704,11 @@
   "gender_prior": "m",
   "seen": 32
  },
+ "True Religion": {
+  "domain": "www.thrifted.com",
+  "gender_prior": "f",
+  "seen": 10
+ },
  "Tuckernuck": {
   "domain": "www.tnuck.com",
   "gender_prior": "f",
@@ -2987,7 +3717,7 @@
  "Tultex": {
   "domain": "www.depop.com",
   "gender_prior": "m",
-  "seen": 1
+  "seen": 2
  },
  "U.s. Polo Assn.": {
   "domain": "www.depop.com",
@@ -3009,6 +3739,11 @@
   "gender_prior": "m",
   "seen": 29
  },
+ "Unbranded": {
+  "domain": "www.thrifted.com",
+  "gender_prior": "m",
+  "seen": 2
+ },
  "Under Armour": {
   "domain": "www.depop.com",
   "gender_prior": "m",
@@ -3018,6 +3753,11 @@
   "domain": "www.uniqlo.com",
   "gender_prior": "f",
   "seen": 42
+ },
+ "Unisex": {
+  "domain": "www.thevintagetwin.com",
+  "gender_prior": "f",
+  "seen": 20
  },
  "United By Blue": {
   "domain": "unitedbyblue.com",
@@ -3034,6 +3774,16 @@
   "gender_prior": "m",
   "seen": 27
  },
+ "Unknown": {
+  "domain": "ragstock.com",
+  "gender_prior": "f",
+  "seen": 3
+ },
+ "Urban Outfitters": {
+  "domain": "www.depop.com",
+  "gender_prior": "f",
+  "seen": 1
+ },
  "Urban Pipeline": {
   "domain": "www.depop.com",
   "gender_prior": "m",
@@ -3044,6 +3794,26 @@
   "gender_prior": "f",
   "seen": 2
  },
+ "Valentino": {
+  "domain": "www.rokit.co.uk",
+  "gender_prior": "m",
+  "seen": 1
+ },
+ "Van Heusen": {
+  "domain": "www.thrifted.com",
+  "gender_prior": "m",
+  "seen": 1
+ },
+ "Vanilla Star": {
+  "domain": "www.depop.com",
+  "gender_prior": "f",
+  "seen": 1
+ },
+ "Vanity Fair": {
+  "domain": "www.depop.com",
+  "gender_prior": "f",
+  "seen": 1
+ },
  "Vanquish Fitness": {
   "domain": "vqfit.com",
   "gender_prior": "m",
@@ -3053,6 +3823,16 @@
   "domain": "www.vans.com",
   "gender_prior": "u",
   "seen": 5
+ },
+ "Vassarette": {
+  "domain": "www.depop.com",
+  "gender_prior": "f",
+  "seen": 1
+ },
+ "Velva Sheen": {
+  "domain": "www.thrifted.com",
+  "gender_prior": "m",
+  "seen": 1
  },
  "Verge Girl": {
   "domain": "www.vergegirl.com",
@@ -3069,10 +3849,20 @@
   "gender_prior": "f",
   "seen": 28
  },
+ "Victoria's Secret": {
+  "domain": "www.depop.com",
+  "gender_prior": "f",
+  "seen": 7
+ },
  "Viktoria & Woods": {
   "domain": "www.viktoriaandwoods.com.au",
   "gender_prior": "f",
   "seen": 26
+ },
+ "Vintage Threads": {
+  "domain": "vintage-threads.com",
+  "gender_prior": "m",
+  "seen": 15
  },
  "Vissla": {
   "domain": "vissla.com",
@@ -3154,6 +3944,11 @@
   "gender_prior": "f",
   "seen": 187
  },
+ "White Stag": {
+  "domain": "www.depop.com",
+  "gender_prior": "f",
+  "seen": 1
+ },
  "Wild Fable": {
   "domain": "www.depop.com",
   "gender_prior": "f",
@@ -3164,10 +3959,25 @@
   "gender_prior": "f",
   "seen": 41
  },
+ "Wilson": {
+  "domain": "ragstock.com",
+  "gender_prior": "f",
+  "seen": 1
+ },
  "Wilson\u2019s Leather": {
   "domain": "www.depop.com",
   "gender_prior": "f",
-  "seen": 2
+  "seen": 3
+ },
+ "Winchester": {
+  "domain": "www.thrifted.com",
+  "gender_prior": "m",
+  "seen": 1
+ },
+ "Winterland": {
+  "domain": "ragstock.com",
+  "gender_prior": "f",
+  "seen": 1
  },
  "With Jean": {
   "domain": "withjean.com",
@@ -3189,6 +3999,21 @@
   "gender_prior": "f",
   "seen": 1
  },
+ "Woolrich": {
+  "domain": "www.depop.com",
+  "gender_prior": "f",
+  "seen": 1
+ },
+ "World Tour": {
+  "domain": "ragstock.com",
+  "gender_prior": "f",
+  "seen": 1
+ },
+ "World Wide Sportsman": {
+  "domain": "www.thrifted.com",
+  "gender_prior": "m",
+  "seen": 1
+ },
  "Worthington": {
   "domain": "www.depop.com",
   "gender_prior": "f",
@@ -3197,7 +4022,7 @@
  "Wrangler": {
   "domain": "www.depop.com",
   "gender_prior": "m",
-  "seen": 5
+  "seen": 10
  },
  "Xhibition": {
   "domain": "www.xhibition.co",
@@ -3208,6 +4033,11 @@
   "domain": "www.xirena.com",
   "gender_prior": "f",
   "seen": 25
+ },
+ "Xtraordinary": {
+  "domain": "ragstock.com",
+  "gender_prior": "f",
+  "seen": 1
  },
  "YMC": {
   "domain": "www.youmustcreate.com",
@@ -3234,6 +4064,11 @@
   "gender_prior": "m",
   "seen": 1
  },
+ "Yves Saint Laurent": {
+  "domain": "www.rokit.co.uk",
+  "gender_prior": "m",
+  "seen": 1
+ },
  "Z Supply": {
   "domain": "zsupply.com",
   "gender_prior": "f",
@@ -3247,7 +4082,7 @@
  "Zara": {
   "domain": "www.depop.com",
   "gender_prior": "m",
-  "seen": 2
+  "seen": 3
  },
  "Zulu & Zephyr": {
   "domain": "zuluandzephyr.com",

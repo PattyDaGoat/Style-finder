@@ -75,7 +75,7 @@ when you have gone off something. `node tools/measure-scorer.mjs` and
 
 ```
 build.mjs               src/ + data/ -> dist/
-data/catalog.json       22,559 products, one per line
+data/catalog.json       23,591 products, one per line
 dist/style-finder.html  the app (generated — never edit)
 src/shell/              html around the css and js
 src/css/                8 stylesheets, concatenated in order

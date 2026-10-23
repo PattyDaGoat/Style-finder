@@ -380,6 +380,13 @@
   },
   "entry_cursor": 6,
   "gender_source": "manual",
+  "health": {
+   "fail": 0,
+   "last": 1792777456.655533,
+   "last_found": 35,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "agolde.com",
   "note": "found by find_brands.py \u2014 from list file"
  },
@@ -1580,6 +1587,29 @@
   "host": "www.bershka.com",
   "note": ""
  },
+ "Beyond Retro": {
+  "brand": "Beyond Retro",
+  "entries": {
+   "f": [
+    "https://www.beyondretro.com/collections/womens-vintage-clothing"
+   ],
+   "m": [
+    "https://www.beyondretro.com/collections/mens-vintage-clothing"
+   ]
+  },
+  "entry_cursor": 0,
+  "gender_source": "manual",
+  "health": {
+   "fail": 2,
+   "last": 1792778625.7604322,
+   "last_found": 0,
+   "note": "no products found on the page; no products found on the page",
+   "ok": 0,
+   "status": "blocked"
+  },
+  "host": "www.beyondretro.com",
+  "note": ""
+ },
  "Big Bud Press": {
   "brand": "Big Bud Press",
   "entries": {
@@ -1944,7 +1974,7 @@
     "https://bonobos.com/collections/crew-neck"
    ]
   },
-  "entry_cursor": 6,
+  "entry_cursor": 9,
   "gender_source": "manual",
   "host": "bonobos.com",
   "note": "found by find_brands.py \u2014 from list file"
@@ -2090,7 +2120,7 @@
    ],
    "m": []
   },
-  "entry_cursor": 6,
+  "entry_cursor": 5,
   "gender_note": "guessed menswear (only 2% dresses and 5% read womenswear); registered as a prior, so any evidence on a piece overrides it",
   "gender_source": "manual",
   "host": "us.brandymelville.com",
@@ -2435,7 +2465,7 @@
     "https://www.champion.com/collections/mens-jackets"
    ]
   },
-  "entry_cursor": 6,
+  "entry_cursor": 13,
   "gender_source": "manual",
   "host": "www.champion.com",
   "note": "found by find_brands.py \u2014 from list file"
@@ -3372,18 +3402,58 @@
     "https://www.depop.com/search/?q=mens+track+jacket"
    ]
   },
-  "entry_cursor": 0,
+  "entry_cursor": 6,
   "gender_source": "manual",
   "health": {
    "fail": 1,
-   "last": 1792727349.929018,
-   "last_found": 0,
+   "last": 1792777806.742211,
+   "last_found": 24,
    "note": "no products found on the page",
-   "ok": 11,
-   "status": "blocked"
+   "ok": 17,
+   "status": "ok"
   },
   "host": "www.depop.com",
   "note": "marketplace \u2014 Cloudflare lets each browser context read ONE search page, so entries are visited one per run (see the crawl loop)"
+ },
+ "Depop Vintage": {
+  "brand": "Depop Vintage",
+  "entries": {
+   "f": [
+    "https://www.depop.com/search/?q=vintage+levis+womens",
+    "https://www.depop.com/search/?q=y2k+top+womens",
+    "https://www.depop.com/search/?q=vintage+leather+jacket+womens",
+    "https://www.depop.com/search/?q=vintage+cardigan+womens",
+    "https://www.depop.com/search/?q=90s+womens+jeans",
+    "https://www.depop.com/search/?q=vintage+denim+jacket+womens",
+    "https://www.depop.com/search/?q=vintage+slip+dress",
+    "https://www.depop.com/search/?q=vintage+mini+skirt",
+    "https://www.depop.com/search/?q=vintage+blazer+womens",
+    "https://www.depop.com/search/?q=vintage+band+tee+womens"
+   ],
+   "m": [
+    "https://www.depop.com/search/?q=vintage+levis+mens",
+    "https://www.depop.com/search/?q=vintage+carhartt+jacket+mens",
+    "https://www.depop.com/search/?q=vintage+nike+windbreaker+mens",
+    "https://www.depop.com/search/?q=vintage+ralph+lauren+mens",
+    "https://www.depop.com/search/?q=vintage+leather+jacket+mens",
+    "https://www.depop.com/search/?q=vintage+band+tee+mens",
+    "https://www.depop.com/search/?q=90s+mens+jeans",
+    "https://www.depop.com/search/?q=vintage+sweater+mens",
+    "https://www.depop.com/search/?q=vintage+denim+jacket+mens",
+    "https://www.depop.com/search/?q=vintage+track+jacket+mens"
+   ]
+  },
+  "entry_cursor": 0,
+  "gender_source": "manual",
+  "health": {
+   "fail": 0,
+   "last": 1792778419.163987,
+   "last_found": 23,
+   "ok": 20,
+   "status": "ok"
+  },
+  "host": "www.depop.com",
+  "note": "Depop vintage searches \u2014 one page per run, see the crawl loop"
  },
  "Deus Ex Machina": {
   "brand": "Deus Ex Machina",
@@ -4041,6 +4111,13 @@
   },
   "entry_cursor": 0,
   "gender_source": "manual",
+  "health": {
+   "fail": 0,
+   "last": 1792773300.145232,
+   "last_found": 67,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "www.fashionnova.com",
   "note": ""
  },
@@ -4752,6 +4829,14 @@
   },
   "entry_cursor": 0,
   "gender_source": "manual",
+  "health": {
+   "fail": 0,
+   "last": 1792773420.3927722,
+   "last_found": 80,
+   "note": "no products found on the page",
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "www.gymshark.com",
   "note": ""
  },
@@ -5180,7 +5265,7 @@
     "https://jadedldn.com/collections/mens-colossus-jeans"
    ]
   },
-  "entry_cursor": 6,
+  "entry_cursor": 13,
   "gender_source": "manual",
   "host": "jadedldn.com",
   "note": "auto-discovered"
@@ -5638,7 +5723,7 @@
     "https://ksubi.com/collections/mens-denim-shorts"
    ]
   },
-  "entry_cursor": 6,
+  "entry_cursor": 18,
   "gender_source": "manual",
   "host": "ksubi.com",
   "note": "auto-discovered"
@@ -6250,7 +6335,7 @@
     "https://www.madhappy.com/collections/knitwear"
    ]
   },
-  "entry_cursor": 6,
+  "entry_cursor": 11,
   "gender_source": "manual",
   "host": "www.madhappy.com",
   "note": "found by find_brands.py \u2014 streetwear"
@@ -6402,6 +6487,28 @@
   },
   "host": "meshki.com",
   "note": "auto-discovered"
+ },
+ "Messina Hembry": {
+  "brand": "Messina Hembry",
+  "entries": {
+   "f": [],
+   "m": [
+    "https://messinahembry.com/collections/calvin-klein-mens-vintage-jeans",
+    "https://messinahembry.com/collections/mens-diesel-jeans",
+    "https://messinahembry.com/collections/mens-diesel-t-shirts"
+   ]
+  },
+  "entry_cursor": 0,
+  "gender_source": "collection-handle",
+  "health": {
+   "fail": 0,
+   "last": 1792783516.0232298,
+   "last_found": 157,
+   "ok": 1,
+   "status": "ok"
+  },
+  "host": "messinahembry.com",
+  "note": "found by find_brands.py \u2014 from list file"
  },
  "Michael Stars": {
   "brand": "Michael Stars",
@@ -8112,6 +8219,13 @@
   },
   "entry_cursor": 0,
   "gender_source": "manual",
+  "health": {
+   "fail": 0,
+   "last": 1792777667.447776,
+   "last_found": 136,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "us.puma.com",
   "note": ""
  },
@@ -8269,6 +8383,33 @@
   },
   "host": "radmorgolf.com",
   "note": "auto-discovered"
+ },
+ "Ragstock": {
+  "brand": "Ragstock",
+  "entries": {
+   "f": [
+    "https://www.ragstock.com/collections/all-vintage-tops",
+    "https://www.ragstock.com/collections/discount-eligible-products-1",
+    "https://www.ragstock.com/collections/halloween-sale"
+   ],
+   "m": [
+    "https://www.ragstock.com/collections/mens-tops",
+    "https://www.ragstock.com/collections/sale-mens-tops",
+    "https://www.ragstock.com/collections/mens-tees-tanks"
+   ]
+  },
+  "entry_cursor": 0,
+  "gender_note": "found only men's collections by name; the shop also lists women's ones, so its general collections are registered for that side as a guess",
+  "gender_source": "prior",
+  "health": {
+   "fail": 0,
+   "last": 1792779139.995341,
+   "last_found": 288,
+   "ok": 1,
+   "status": "ok"
+  },
+  "host": "www.ragstock.com",
+  "note": "found by find_brands.py \u2014 from list file"
  },
  "Railcar Fine Goods": {
   "brand": "Railcar Fine Goods",
@@ -8740,6 +8881,28 @@
   "gender_source": "prior",
   "host": "www.rogueterritory.com",
   "note": "auto-discovered"
+ },
+ "Rokit": {
+  "brand": "Rokit",
+  "entries": {
+   "f": [
+    "https://www.rokit.co.uk/womens"
+   ],
+   "m": [
+    "https://www.rokit.co.uk/mens"
+   ]
+  },
+  "entry_cursor": 0,
+  "gender_source": "manual",
+  "health": {
+   "fail": 0,
+   "last": 1792778813.111559,
+   "last_found": 124,
+   "ok": 2,
+   "status": "ok"
+  },
+  "host": "www.rokit.co.uk",
+  "note": ""
  },
  "Rothy's": {
   "brand": "Rothy's",
@@ -10328,6 +10491,29 @@
   "host": "www.theraggedpriest.com",
   "note": "auto-discovered"
  },
+ "The Vintage Twin": {
+  "brand": "The Vintage Twin",
+  "entries": {
+   "f": [
+    "https://thevintagetwin.com/collections/all-outerwear",
+    "https://thevintagetwin.com/collections/all-shorts",
+    "https://thevintagetwin.com/collections/all-tops"
+   ],
+   "m": []
+  },
+  "entry_cursor": 0,
+  "gender_note": "17/100 read as womenswear, 14% dresses",
+  "gender_source": "inferred",
+  "health": {
+   "fail": 0,
+   "last": 1792779872.814419,
+   "last_found": 125,
+   "ok": 1,
+   "status": "ok"
+  },
+  "host": "thevintagetwin.com",
+  "note": "found by find_brands.py \u2014 from list file"
+ },
  "Threads 4 Thought": {
   "brand": "Threads 4 Thought",
   "entries": {
@@ -10352,6 +10538,72 @@
   },
   "host": "threads4thought.com",
   "note": "auto-discovered"
+ },
+ "ThredUp": {
+  "brand": "ThredUp",
+  "entries": {
+   "f": [
+    "https://www.thredup.com/women/clothing"
+   ],
+   "m": [
+    "https://www.thredup.com/men/clothing"
+   ]
+  },
+  "entry_cursor": 0,
+  "gender_source": "manual",
+  "health": {
+   "fail": 2,
+   "last": 1792778462.473377,
+   "last_found": 0,
+   "note": "no products found on the page; no products found on the page",
+   "ok": 0,
+   "status": "blocked"
+  },
+  "host": "www.thredup.com",
+  "note": ""
+ },
+ "Thrifted": {
+  "brand": "Thrifted",
+  "entries": {
+   "f": [
+    "https://www.thrifted.com/collections/retro-womens-ski-trousers",
+    "https://www.thrifted.com/collections/all-vintage-womens-bottoms",
+    "https://www.thrifted.com/collections/all-vintage-womens-jackets-coats"
+   ],
+   "m": [
+    "https://www.thrifted.com/collections/all-vintage-mens-trousers-jeans-shorts-tracksuits",
+    "https://www.thrifted.com/collections/mens-vintage-football-shirts-retro-sports-shirts",
+    "https://www.thrifted.com/collections/mens-vintage-shirts"
+   ]
+  },
+  "entry_cursor": 0,
+  "gender_source": "collection-handle",
+  "host": "www.thrifted.com",
+  "note": "found by find_brands.py \u2014 from list file"
+ },
+ "Thrilling": {
+  "brand": "Thrilling",
+  "entries": {
+   "f": [
+    "https://shopthrilling.com/collections/womens"
+   ],
+   "m": [
+    "https://shopthrilling.com/collections/mens"
+   ]
+  },
+  "entry_cursor": 0,
+  "gender_note": "36/100 read as womenswear, 32% dresses",
+  "gender_source": "manual",
+  "health": {
+   "fail": 2,
+   "last": 1792778557.957359,
+   "last_found": 0,
+   "note": "no products found on the page; no products found on the page",
+   "ok": 0,
+   "status": "blocked"
+  },
+  "host": "shopthrilling.com",
+  "note": ""
  },
  "Thrills": {
   "brand": "Thrills",
@@ -10931,6 +11183,29 @@
   },
   "host": "www.viktoriaandwoods.com.au",
   "note": "auto-discovered"
+ },
+ "Vintage Threads": {
+  "brand": "Vintage Threads",
+  "entries": {
+   "f": [],
+   "m": [
+    "https://www.vintage-threads.com/collections/tees",
+    "https://www.vintage-threads.com/collections/clothing",
+    "https://www.vintage-threads.com/collections/tops"
+   ]
+  },
+  "entry_cursor": 0,
+  "gender_note": "guessed menswear (only 3% dresses and 5% read womenswear); registered as a prior, so any evidence on a piece overrides it",
+  "gender_source": "prior",
+  "health": {
+   "fail": 0,
+   "last": 1792779375.422364,
+   "last_found": 38,
+   "ok": 1,
+   "status": "ok"
+  },
+  "host": "www.vintage-threads.com",
+  "note": "found by find_brands.py \u2014 from list file"
  },
  "Vissla": {
   "brand": "Vissla",

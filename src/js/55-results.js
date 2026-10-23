@@ -1,12 +1,16 @@
 /* ---------- results ---------- */
 let REC=[], REC_CAT='all', REC_N=18, POSCATS=[], SUGGESTED=new Set(), MORE=[], MORE_N=0;
+/* at most this many of the 36 "New pieces" from one garment group (45%) — the
+   soft quota of docs/ALGORITHM-UPGRADES.md #2; diversify() relaxes it when the
+   filters leave nothing else */
+const REC_GROUP_MAX=16;
 function computeRec(){
   const W=MODEL;const swiped=new Set(Object.keys(S.reactions).map(Number));
   POSCATS=positiveCats();const L=lovedPicks();const a=ADVP[ADV];
   const scored=CATALOG.map((p,i)=>({i,c:p.cat,s:hybrid(p,W,L)}))
     .filter(o=>!swiped.has(o.i)&&genderOK(o.i)&&POSCATS.includes(o.c)&&o.s>0)
     .sort((x,y)=>y.s-x.s).map(o=>o.i);
-  REC=diversify(scored,a.perBrand,a.perMs,36);SUGGESTED=new Set(REC);REC_N=18;
+  REC=diversify(scored,a.perBrand,a.perMs,36,REC_GROUP_MAX);SUGGESTED=new Set(REC);REC_N=18;
 }
 function buildResults(){
   const W=MODEL;
@@ -114,7 +118,7 @@ function seedSet(){const loved=Object.keys(S.reactions).filter(k=>S.reactions[k]
    0.8 scaled by the measured seed-model mass at 8 picks, i.e. the same blend
    users get today, now stable whether they tick 3 pieces or 30.
    Re-measure with `node tools/measure-prof-ref.mjs`. */
-const FINDMORE_WP=0.215;
+const FINDMORE_WP=0.209;   /* re-measured 2026-10-22 at 21,151 products */
 function findMore(){
   const seeds=seedSet();
   if(!seeds.length){note2("Tick a few pieces above (or Love some while swiping) first.");return;}

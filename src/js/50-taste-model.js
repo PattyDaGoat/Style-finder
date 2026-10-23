@@ -151,7 +151,15 @@ function occasionsOf(p){
   /* day to day — deliberately broad, it is the "just show me clothes" option */
   if(!OCC.notDaily.test(n)) o.add('daily');
 
-  if(!o.size)o.add('daily');
+  /* Nothing qualified. The old fallback was 'daily' unconditionally, which put a
+     satin sports bra — vetoed from active by the satin, from daily by being a
+     sports bra — straight into the day-to-day feed. Sports bras, rash guards and
+     swim pieces that every door refused are beachwear-adjacent and go there;
+     everything else still falls back to daily (a "Black Tie Dye Tee" is a tee). */
+  if(!o.size){
+    if(/sports? ?bra|rash ?guard|swim|bikini|trunk|board ?short|one.?piece/.test(n) && !OCC.cold.test(n)) o.add('beach');
+    else o.add('daily');
+  }
   return [...o];
 }
 /* ---------- youth signal (aesthetic-only) ----------
@@ -446,6 +454,7 @@ function sealModel(W){
   W.nTot=0; for(const g in W.n) W.nTot+=W.n[g];
   W.mass=modelMass(W);
   W.lev={};                     // traitLevels caches off nTot and the bags: both just moved
+  W.lrLev=null;                 // lrLevels caches off W.lr, which buildModel just replaced
   return W;
 }
 
@@ -650,12 +659,12 @@ function traitW(W,g,kind,key){
    makes this a deliberate no-op for a typical first session and a correction
    only where the blend had actually drifted.
 
-   894 is the median mass of a 40-swipe model over 32 synthetic sessions spanning
-   all four harness personas (688-1272 across them, so the reference sits inside
-   the spread rather than on one persona's shoulder). Re-run
+   1035 is the median mass of a 40-swipe model over 32 synthetic sessions spanning
+   all four harness personas (measured at 21,151 products on 2026-10-22; it was
+   894 at 10,369 — the IDF values move as the catalogue grows). Re-run
    `node tools/measure-prof-ref.mjs` after a catalogue change big enough to move
    the IDF values, and paste the number it prints back here. */
-const PROF_REF=894;
+const PROF_REF=1035;
 let PROF_SCALE=true;       /* eval hook: false restores the un-normalised blend */
 /* content score of a candidate against a taste model */
 function profileScore(p,W){
@@ -838,11 +847,38 @@ function trainLR(samples){
   }
   return w;
 }
+function lrRaw(p,w){ const f=lrFeatures(p); let z=0; for(let j=0;j<f.length;j++) z+=(w[f[j]]||0); return z; }
+/* LEVEL-MATCHED per garment group, for the reason traitW is (see "choosing
+   COND_SHRINK" above): a pooled AUC is nearly blind to a group-level offset, and
+   this layer produces one almost by construction. Bottoms are mostly neutral,
+   so for a shopper who likes neutral solids everywhere the bottoms x neutral
+   cross learns a large weight that every pair of trousers then carries — and
+   the 36-piece results grid came out 24 bottoms / 1 top for a persona with no
+   garment preference at all (test/04, seed 3311), while AUC moved not at all.
+   Subtracting each group's mean learned score over the catalogue leaves the
+   layer free to reorder WITHIN a group and unable to shift the group's
+   standing, which W.cat, POSCATS and catAffinity already carry. */
+/* Level alone was not enough (measured: 26 bottoms / 36 with the mean matched
+   and AUC unchanged). The crosses also give the groups different SPREADS — for
+   a neutral-solids shopper the learned score over bottoms is bimodal, neutral
+   ones high and the rest low, while tops sit in a narrow band — so the top tail
+   of the ranking was still all bottoms. So each group is standardised: its mean
+   taken out and its spread put onto the catalogue-wide one. */
+function lrLevels(W){
+  if(W.lrLev) return W.lrLev;
+  const w=W.lr, sum={}, sq={}, n={}; let S1=0, S2=0, N=0;
+  for(let i=0;i<CATALOG.length;i++){ const p=CATALOG[i], g=groupOf(p), z=lrRaw(p,w);
+    sum[g]=(sum[g]||0)+z; sq[g]=(sq[g]||0)+z*z; n[g]=(n[g]||0)+1; S1+=z; S2+=z*z; N++; }
+  const gm=S1/Math.max(1,N), gsd=Math.sqrt(Math.max(1e-9,S2/Math.max(1,N)-gm*gm));
+  const lev={};
+  for(const g in sum){ const m=sum[g]/n[g], sd=Math.sqrt(Math.max(1e-9,sq[g]/n[g]-m*m));
+    lev[g]={m:m, k: n[g]>=20 ? gsd/sd : 1}; }          /* a tiny group keeps its own scale */
+  return (W.lrLev=lev);
+}
 function lrScore(p,W){
   const w=W&&W.lr; if(!w) return 0;
-  const f=lrFeatures(p); let z=0;
-  for(let j=0;j<f.length;j++) z+=(w[f[j]]||0);
-  return z-(w.bias||0);                                /* the intercept ranks nothing */
+  const L=lrLevels(W)[groupOf(p)]; if(!L) return lrRaw(p,w);
+  return (lrRaw(p,w)-L.m)*L.k;
 }
 function lrWeight(W){ const n=(W&&W.lrN)||0; return LR_ON&&n? LR_W*n/(n+LR_SHRINK) : 0; }
 
@@ -864,21 +900,26 @@ function modelFromSeeds(seedIdx){
   return sealModel(W);
 }
 /* diverse pick: dedupe styles, cap per brand & micro-style */
-function diversify(idxList,perBrand,perMs,limit){
-  const bc={},mc={},seenT={},out=[];
-  const run=(pb,pm)=>{
+/* `perGroup` is the soft garment-group quota docs/ALGORITHM-UPGRADES.md #2 asked
+   for: the grid is called "New pieces you'd wear", and twenty tops is not an
+   outfit. Soft, because the second pass doubles it and a third drops it, so a
+   shopper who filtered the deck to one group still gets a full grid. */
+function diversify(idxList,perBrand,perMs,limit,perGroup){
+  const bc={},mc={},gc={},seenT={},out=[];
+  const run=(pb,pm,pg)=>{
     for(const i of idxList){
       if(out.includes(i))continue;
-      const p=CATALOG[i],bt=baseTitle(p.n);
+      const p=CATALOG[i],bt=baseTitle(p.n),g=groupOf(p);
       if(seenT[bt])continue;
       if((bc[p.b]||0)>=pb)continue;
       if(pm&&(mc[p.ms[0]]||0)>=pm)continue;
-      out.push(i);seenT[bt]=1;bc[p.b]=(bc[p.b]||0)+1;mc[p.ms[0]]=(mc[p.ms[0]]||0)+1;
+      if(pg&&(gc[g]||0)>=pg)continue;
+      out.push(i);seenT[bt]=1;bc[p.b]=(bc[p.b]||0)+1;mc[p.ms[0]]=(mc[p.ms[0]]||0)+1;gc[g]=(gc[g]||0)+1;
       if(out.length>=limit)return true;
     }
     return out.length>=limit;
   };
-  if(!run(perBrand,perMs))run(perBrand*2,perMs?perMs*2:0);
+  if(!run(perBrand,perMs,perGroup)&&!run(perBrand*2,perMs?perMs*2:0,perGroup?perGroup*2:0))run(perBrand*2,perMs?perMs*2:0,0);
   return out;
 }
 /* explain why a piece was recommended. Reads through traitW, the same door the

@@ -42,7 +42,7 @@ red, don't commit.
 
 ```
 build.mjs              glues src/ + data/ into dist/. Read the comment at the top before touching.
-data/catalog.json      10,369 products, ONE PER LINE. Generated data — see the warning below.
+data/catalog.json      21,151 products, ONE PER LINE. Generated data — see the warning below.
 dist/style-finder.html generated. Never edit.
 src/shell/*.html       the HTML around the CSS and JS (head, body, tail)
 src/css/*.css          concatenated in filename order
@@ -129,7 +129,7 @@ switch) prints it on-vs-off on identical sessions.
 **The deck has its own measurement.** The harness above deals the shopper a random deck, so
 it cannot see what `nextBatch()` decides. `node tools/measure-deck.mjs` drives the real deck
 with simulated shoppers who get bored, and reports hit rate, garment spacing and how fast the
-deck notices someone has gone off a group. Baseline: mean hit rate 0.647, longest same-group
+deck notices someone has gone off a group. Baseline: mean hit rate 0.624, longest same-group
 run ≈ 3. `test/08-deck-variety.js` guards the parts that must not regress.
 
 The pre-v4 baseline, for the record, was 0.840 / 0.738 / 0.737, overall 0.772, at 10,369

@@ -56,6 +56,20 @@ Short sessions, where a regression could plausibly hurt:
 where the curve flattens; 96 starts to swamp the terms the Safe / Balanced / Adventurous dial
 is calibrated against, for +0.001.
 
+**Level- and scale-matched per garment group.** The first build of this layer passed every
+AUC check and failed the grid-composition test in `test/04`: the "Neutral minimalist" results
+grid came out 24 bottoms / 1 top (seed 3311) for a persona with no garment preference at all.
+Bottoms are mostly neutral, so the bottoms × neutral cross learned a large weight that every
+pair of trousers carried — a group-level offset a pooled AUC cannot see. Subtracting each
+group's catalogue-mean learned score fixed the level and *still* left 26 bottoms, because the
+crosses also give the groups different spreads (bottoms bimodal, tops in a narrow band), so
+the top tail of the ranking was still all bottoms. The score is therefore standardised within
+each group — mean out, spread put onto the catalogue-wide one — and the grid reads
+16 tops / 8 shoes / 6 bottoms / 6 accessories, with AUC unchanged (0.805 on the suite's
+protocol). The results grid also gained the soft garment quota `ALGORITHM-UPGRADES.md` #2
+asked for: at most 16 of its 36 pieces from one group, relaxed by `diversify()` when the
+filters leave nothing else.
+
 ### 1b. Skipped-neighbour repulsion (`negScore`)
 
 `knnScore` pulls a candidate toward the specific pieces you loved. Nothing pulled it away from
@@ -103,9 +117,12 @@ the next one) and one who goes off tops entirely at swipe 50:
 | v3 deck, v3 scorer | 0.444 | 0.471 | 3.07 | 9 – 31 | 17.5 – 18.5 | 0.42 → 0.27 |
 | v3 deck, v4 scorer | 0.513 | 0.601 | 3.19 | 5 – 11 | 17.3 – 18.8 | 0.42 → 0.18 |
 | v4 deck, v3 scorer | 0.587 | 0.642 | 3.72 | 2.7 – 3.5 | 20 | 0.33 → 0.17 |
-| **v4 deck, v4 scorer** | **0.647** | **0.729** | **3.59** | **2.7 – 3.7** | **20** | **0.36 → 0.12** |
+| **v4 deck, v4 scorer** | **0.624** | **0.703** | **3.78** | **2.8 – 3.5** | **20** | **0.36 → 0.24** |
 
-Brands were already perfectly spaced in v3 (10 distinct per 10 cards) and still are.
+Brands were already perfectly spaced in v3 (10 distinct per 10 cards) and still are. (The last
+row is after the per-group standardisation of the learned layer; before it the same run read
+0.647 / 0.729 / 0.36 → 0.12 — the un-standardised layer was buying some of that by pushing
+whole groups, which is the thing the grid test caught.)
 
 What v4 does, in dealing order:
 
@@ -144,8 +161,10 @@ was produced.
 ## What was NOT done, and why
 
 - **Price in the ranking.** Still out, per `ALGORITHM-UPGRADES.md` #3.
-- **A results-page quota by category.** `computeRec` still gates on positively-reacted
-  categories. The shrunk category term now feeds the ranking, which was the first half of
-  that recommendation; the grid composition is guarded by test/04 and was not touched.
+- **Opening the results-page category gate.** `computeRec` still gates on positively-reacted
+  categories. The shrunk category term now feeds the ranking, and the grid has the soft
+  per-group quota, which were the two halves of `ALGORITHM-UPGRADES.md` #1 and #2 that
+  could be measured; the gate itself was left, because the grid composition test is the only
+  guard on that page and it should not be loosened in the same change.
 - **Weights the learned layer could not justify.** NEG_W and CAT_W were left modest rather
   than tuned to a number the harness cannot distinguish from noise.

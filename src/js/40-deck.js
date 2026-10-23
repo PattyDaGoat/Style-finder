@@ -212,7 +212,14 @@ function dealV4(k,pool,L,haveSignal){
     /* cold start: one piece from each micro-style in turn, as before, but with
        the garment cap so the opening hand is not all t-shirts */
     const byMs={}; pool.forEach(i=>{const m=CATALOG[i].ms[0];(byMs[m]=byMs[m]||[]).push(i);});
-    const keys=Object.keys(byMs); shuffle(keys); keys.forEach(m=>shuffle(byMs[m]));
+    const keys=Object.keys(byMs); shuffle(keys);
+    /* each lane is shuffled, then nudged so the piece that leads it tends to be a
+       current one: the opening hand is the shopper's first impression of the
+       deck, and "what people are into right now" is the best guess available
+       before a single swipe. A jitter keeps it from being the same twelve
+       pieces for everyone. */
+    keys.forEach(m=>{ const arr=shuffle(byMs[m]); arr.forEach(i=>{CATALOG[i]._t=(CATALOG[i].trend||0)+Math.random()*0.8;});
+      arr.sort((a,b)=>CATALOG[b]._t-CATALOG[a]._t); });
     let added=true;
     while(picked.length<k&&added){ added=false; for(const m of keys){ if(picked.length>=k)break; const arr=byMs[m];
       while(arr.length){ const i=arr.shift(); if(ok(i,true,true)){take(i,'e');added=true;break;} } } }
@@ -361,7 +368,7 @@ function renderCard(){
         <button class="swipe-cart ${inCart?'in':''}" title="Add to cart" onclick="saveToCartCurrent(event)"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" style="vertical-align:-2px;margin-right:5px"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8a3 3 0 0 1 6 0"/></svg>${inCart?'In cart':'Add to cart'}</button>
         <div class="stamp s-like">Like</div><div class="stamp s-nope">Nope</div><div class="stamp s-love">Love</div>
         <div class="card-overlay">
-          <div class="mstags">${p.ms.slice(0,3).map(m=>`<span class="mstag">${MS[m]||m}</span>`).join("")}</div>
+          <div class="mstags">${(p.trend||0)>=0.72?'<span class="mstag trend">Trending now</span>':''}${p.ms.slice(0,(p.trend||0)>=0.72?2:3).map(m=>`<span class="mstag">${MS[m]||m}</span>`).join("")}</div>
           <div class="piece-brand">${p.b}</div>
           <div class="piece-name">${p.n}</div>
           <div class="piece-price">${price}</div>

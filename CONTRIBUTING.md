@@ -28,7 +28,7 @@ files you're taking. The map is below.
 ### 3. `npm test` before every commit
 
 ```
-npm test          # builds, then runs all 8 suites (388 assertions)
+npm test          # builds, then runs all 8 suites (392 assertions)
 ```
 
 It takes a few minutes and it has caught eight real bugs that code review missed — a drag

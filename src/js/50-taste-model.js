@@ -204,7 +204,50 @@ function youthScore(p){
   return b.ms*ms + b.fit*(YOUTH_FIT[p.fit]||0) + b.pat*(p.pat==="graphic"?1:0)
        + b.cat*(YOUTH_CAT[p.cat]||0) + b.price*youthPrice(p.usd);
 }
-CATALOG.forEach(p=>{p.fit=fitOf(p);p.occ=occasionsOf(p);p.youth=youthScore(p);p.swim=isSwim(p);});
+/* ---------- the trend signal (what people are into right now) ----------
+   A second global tilt beside youthScore: how much a piece looks like what is
+   being worn and searched for THIS season, read off the piece itself. The
+   lexicon below is hand-written from the Fall/Winter 2026 trend reporting
+   (Esquire, Numéro, Style Arcade, JOOR, Who What Wear), Gen Z wardrobe
+   coverage and Depop's 2026 "The Edited Self" report — see
+   docs/ALGORITHM-V4.md for the sources. It WILL date: revisit it each season,
+   which is the one piece of hand-kept data in this file and is kept small and
+   obvious for that reason.
+
+   Same shape as youthScore: each cue normalised to 0..1, blended by weights
+   that sum to 1, so trend(p) is a 0..1 "how current is this piece". The name is
+   the richest cue (it says "barrel jean", "chore jacket", "cable knit"); the
+   micro-style, fit, pattern and colour fill in where the name is terse. */
+const TREND_WORDS = [
+  /* [weight, pattern] — strongest first; the best match wins, they do not sum */
+  [1.0, /\b(baggy|barrel|balloon|puddle|wide[- ]?leg|jorts?|jnco)\b/i],
+  [1.0, /\b(cargo|carpenter|chore|workwear|utility|field jacket|work ?jacket|double[- ]knee)\b/i],
+  [1.0, /\b(leather|suede|biker|bomber|flight jacket|moto)\b/i],
+  [1.0, /\b(cable|fair ?isle|intarsia|argyle|jacquard|chunky knit|rollneck|roll[- ]neck|turtleneck|cardigan|sweater vest|knit polo)\b/i],
+  [0.9, /\b(quarter[- ]?zip|half[- ]?zip|track ?(jacket|pant|top)|varsity|letterman|rugby|football jersey|jersey|ski)\b/i],
+  [0.9, /\b(baby tee|velour|rhinestone|low[- ]?rise|bike ?shorts?|biker shorts?|ribbed tank|cropped zip|zip[- ]?up)\b/i],
+  [0.9, /\b(peacoat|pea coat|trench|parka|puffer|barn jacket|wax(ed)? jacket|shearling|aviator)\b/i],
+  [0.8, /\b(corduroy|velvet|tweed|tartan|plaid|check(ed)?|houndstooth|prince of wales)\b/i],
+  [0.8, /\b(mini ?skirt|pleated skirt|bandage dress|slip dress|sheer|capelet|cape)\b/i],
+  [0.7, /\b(chocolate|espresso|mocha|burgundy|oxblood|cherry|olive|camel|toffee|taupe|mustard)\b/i],
+  [0.7, /\b(vintage|retro|90s|y2k|oversized|boxy|relaxed)\b/i],
+  [0.6, /\b(hoodie|fleece|denim jacket|trucker|windbreaker|blazer|polo|loafer|ankle boot|chelsea)\b/i]
+];
+const TREND_MS = {"gorpcore-utility":0.85,"rugged-workwear":0.85,"knitwear-forward":0.75,"collegiate-athletic":0.7,
+                  "raw-denim":0.6,"skate-street":0.6,"texture-craft":0.55,"flannel-cabincore":0.5,"band-graphic":0.5,
+                  "military-surplus":0.5,"british-mod":0.45,"ivy-prep":0.4,"earthy-heritage":0.4};
+const TREND_FIT = {wide:0.9,oversized:0.7,relaxed:0.5,cropped:0.5,tapered:0.2,slim:0.25,regular:0.3};
+const TREND_PAT = {plaid:0.8,textured:0.5,stripe:0.3,solid:0.3,graphic:0.4};
+const TREND_COL = {earth:0.7,dark:0.4,neutral:0.4,green:0.5,blue:0.35,bold:0.3};
+const TREND_BLEND = {words:0.45, ms:0.25, fit:0.15, pat:0.08, col:0.07};
+function trendScore(p){
+  const n=p.n||""; let w=0;
+  for(const [v,rx] of TREND_WORDS){ if(rx.test(n)){ w=v; break; } }     // strongest first, so the first hit is the best
+  let ms=0; (p.ms||[]).forEach(m=>{ if((TREND_MS[m]||0)>ms) ms=TREND_MS[m]; });
+  const b=TREND_BLEND;
+  return b.words*w + b.ms*ms + b.fit*(TREND_FIT[p.fit]||0.3) + b.pat*(TREND_PAT[p.pat]||0.3) + b.col*(TREND_COL[p.color]||0.3);
+}
+CATALOG.forEach(p=>{p.fit=fitOf(p);p.occ=occasionsOf(p);p.youth=youthScore(p);p.swim=isSwim(p);p.trend=trendScore(p);});
 const FITcnt=_count('fit');   /* has to come after the line above — `fit` does not exist before it */
 
 /* ---------- inverse-frequency for colour, pattern and fit ----------
@@ -742,6 +785,15 @@ let YOUTH_ON=true;         /* eval hook: false measures the pure taste model */
    explicitly rejected as too strong. Riding on wp keeps the tilt a fixed
    fraction of the taste signal at all three settings. */
 function youthBoost(p){ return (YOUTH_ON?YOUTH_W:0)*(p.youth||0)*ADVP[ADV].wp; }
+/* ---------- the trend tilt ----------
+   The same kind of additive prior as the youth tilt, for "what people are into
+   right now": among pieces the taste model rates similarly, the more current
+   one surfaces first. Calibrated the same way — the AUC cost on every harness
+   persona has to stay inside its noise floor while the deck visibly tilts; the
+   sweep is in docs/ALGORITHM-V4.md. Rides on wp for the reason youthBoost does. */
+let TREND_W=24;            /* eval hook: calibrated in docs/ALGORITHM-V4.md; 0 disables */
+let TREND_ON=true;         /* eval hook */
+function trendBoost(p){ return (TREND_ON?TREND_W:0)*(p.trend||0)*ADVP[ADV].wp; }
 /* hybrid = overall taste profile blended with closeness to your favorites, then
    nudged toward youth-leaning pieces (see the youth tilt above) */
 /* ---------- the skipped neighbourhood ----------
@@ -890,7 +942,7 @@ function hybrid(p,W,Lset){const a=ADVP[ADV];
        - (NEG_ON?negScore(p,W)*a.wk*NEG_W:0)
        + (CAT_ON?catAffinity(p,W)*CAT_W*a.wp:0)
        + lrScore(p,W)*lrWeight(W)*a.wp
-       + youthBoost(p);}
+       + youthBoost(p) + trendBoost(p);}
 
 /* the throwaway model behind "find more like my picks" — same machinery as the
    real one so it gets the conditioning, the IDF and the mass for free */

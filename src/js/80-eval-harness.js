@@ -51,14 +51,15 @@ function evPrecAt(scored,k){
    can be scored every way in the same replay — which is what makes the variant
    rows below an honest comparison rather than several separate runs. */
 function evWith(opts,fn){
-  const c=COND_ON, s=PROF_SCALE, y=YOUTH_ON, l=LR_ON, n=NEG_ON, k=CAT_ON;
+  const c=COND_ON, s=PROF_SCALE, y=YOUTH_ON, l=LR_ON, n=NEG_ON, k=CAT_ON, t=TREND_ON;
+  if("trend" in opts) TREND_ON=opts.trend;
   if("cond"  in opts) COND_ON=opts.cond;
   if("scale" in opts) PROF_SCALE=opts.scale;
   if("youth" in opts) YOUTH_ON=opts.youth;
   if("lr"    in opts) LR_ON=opts.lr;
   if("neg"   in opts) NEG_ON=opts.neg;
   if("cat"   in opts) CAT_ON=opts.cat;
-  try{ return fn(); } finally { COND_ON=c; PROF_SCALE=s; YOUTH_ON=y; LR_ON=l; NEG_ON=n; CAT_ON=k; }
+  try{ return fn(); } finally { COND_ON=c; PROF_SCALE=s; YOUTH_ON=y; LR_ON=l; NEG_ON=n; CAT_ON=k; TREND_ON=t; }
 }
 /* Every taste row is measured with the youth tilt OFF, deliberately. The tilt is
    a product decision that lifts young-leaning pieces for everyone; it is NOT a
@@ -66,10 +67,12 @@ function evWith(opts,fn){
    these numbers off the baseline the taste model is regression-guarded against.
    Its cost is measured on its own row instead. */
 const EV_SCORERS = [
-  {key:"current", label:"Current taste model (youth tilt off)", kind:"real",
-   fn:(i,W,L)=>evWith({youth:false},()=>hybrid(CATALOG[i],W,L))},
-  {key:"with-youth", label:"Shipped ranking (taste + youth tilt)", kind:"real",
-   fn:(i,W,L)=>evWith({youth:true},()=>hybrid(CATALOG[i],W,L))},
+  {key:"current", label:"Current taste model (youth + trend tilts off)", kind:"real",
+   fn:(i,W,L)=>evWith({youth:false,trend:false},()=>hybrid(CATALOG[i],W,L))},
+  {key:"with-youth", label:"Shipped ranking (taste + youth + trend tilts)", kind:"real",
+   fn:(i,W,L)=>evWith({youth:true,trend:true},()=>hybrid(CATALOG[i],W,L))},
+  {key:"with-trend", label:"Taste + trend tilt only", kind:"real",
+   fn:(i,W,L)=>evWith({youth:false,trend:true},()=>hybrid(CATALOG[i],W,L))},
   {key:"profile-only", label:"Taste profile only (no nearest-neighbour)", kind:"real",
    fn:(i,W,L)=>profileScore(CATALOG[i],W)},
   {key:"knn-only", label:"Nearest-neighbour only (no profile)", kind:"real",
@@ -77,17 +80,17 @@ const EV_SCORERS = [
   /* ---- ablations: how much worse WITHOUT this? A variant that scores the same
      as "current" is a change that bought nothing. All hold youth off. */
   {key:"no-lr", label:"Ablation: no learned layer (logistic model off)", kind:"real",
-   fn:(i,W,L)=>evWith({lr:false,youth:false},()=>hybrid(CATALOG[i],W,L))},
+   fn:(i,W,L)=>evWith({lr:false,youth:false,trend:false},()=>hybrid(CATALOG[i],W,L))},
   {key:"no-neg", label:"Ablation: no skipped-neighbour repulsion", kind:"real",
-   fn:(i,W,L)=>evWith({neg:false,youth:false},()=>hybrid(CATALOG[i],W,L))},
+   fn:(i,W,L)=>evWith({neg:false,youth:false,trend:false},()=>hybrid(CATALOG[i],W,L))},
   {key:"v3", label:"Ablation: the v3 scorer (learned layer, repulsion, category all off)", kind:"real",
-   fn:(i,W,L)=>evWith({lr:false,neg:false,cat:false,youth:false},()=>hybrid(CATALOG[i],W,L))},
+   fn:(i,W,L)=>evWith({lr:false,neg:false,cat:false,youth:false,trend:false},()=>hybrid(CATALOG[i],W,L))},
   {key:"flat-traits", label:"Ablation: flat traits (garment conditioning off)", kind:"real",
-   fn:(i,W,L)=>evWith({cond:false,scale:true,youth:false},()=>hybrid(CATALOG[i],W,L))},
+   fn:(i,W,L)=>evWith({cond:false,scale:true,youth:false,trend:false},()=>hybrid(CATALOG[i],W,L))},
   {key:"unscaled-blend", label:"Ablation: unscaled blend (profile swamps kNN)", kind:"real",
-   fn:(i,W,L)=>evWith({cond:true,scale:false,youth:false},()=>hybrid(CATALOG[i],W,L))},
+   fn:(i,W,L)=>evWith({cond:true,scale:false,youth:false,trend:false},()=>hybrid(CATALOG[i],W,L))},
   {key:"both-off", label:"Ablation: both off (IDF re-weighting alone)", kind:"real",
-   fn:(i,W,L)=>evWith({cond:false,scale:false,youth:false},()=>hybrid(CATALOG[i],W,L))},
+   fn:(i,W,L)=>evWith({cond:false,scale:false,youth:false,trend:false},()=>hybrid(CATALOG[i],W,L))},
   {key:"popularity", label:"Baseline: most common brands", kind:"base",
    fn:(i)=>(BRcnt[CATALOG[i].b]||0)},
   {key:"random", label:"Baseline: random order", kind:"base",

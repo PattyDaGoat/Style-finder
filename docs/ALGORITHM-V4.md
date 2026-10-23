@@ -158,6 +158,62 @@ was produced.
 
 ---
 
+## 3. The trend tilt (`trendScore`, `trendBoost`) — what people are into right now
+
+A second product tilt beside the youth tilt. `trendScore(p)` is a 0..1 "how current is this
+piece", read off the piece itself: a lexicon over the name (strongest match wins), the
+micro-style, the fit, the pattern and the colour, blended 0.45 / 0.25 / 0.15 / 0.08 / 0.07.
+The lexicon was written on 2026-10-22 from the season's reporting and **will date — revisit
+it each season**:
+
+- Fall/Winter 2026-27 runway and trade reports: slimmer tailoring over relaxed trousers;
+  cable, Fair Isle, intarsia and argyle knits, rollnecks, cardigans and sweater vests;
+  leather and suede (biker, bomber, flight jackets); parkas, trenches, peacoats, barn and
+  waxed jackets; corduroy, velvet, tweed; tartan, checks, Prince of Wales; chocolate,
+  espresso, burgundy, cherry, olive, camel, "toffee"; retro and vintage mixed in.
+  ([Esquire ME](https://www.esquireme.com/style/7-mens-fall-winter-2026-2027-trends-to-know),
+  [Numéro](https://numero.com/en/fashion/fashion-week-en/11-trends-spotted-at-the-fall-winter-2026-2027-mens-fashion-week/),
+  [Style Arcade](https://www.stylearcade.com/blog/mens-fashion-week-fall-winter-2026-27-trend-report),
+  [JOOR](https://www.joor.com/insights/womens-fall-fashion-trend-report),
+  [Who What Wear](https://www.whowhatwear.com/fashion/shopping/fall-2026-fashion-trends))
+- What younger shoppers are wearing: baggy / wide-leg / "puddle" jeans, cargo, oversized
+  hoodies, baby tees, velour, rhinestones, low-rise, bike shorts, ribbed tanks, cropped
+  zip-ups, varsity, gorpcore, dark academia (tweed, pleated skirts).
+  ([Who What Wear back-to-school](https://www.whowhatwear.com/fashion/trends/back-to-school-fashion-trends-2026),
+  [Apparel Factory](https://theapparelfactory.com/blog/gen-z-fashion-trends-2026/))
+- Depop's 2026 report "The Edited Self": workwear jackets, peacoats and office shirts;
+  bandage dresses, JNCO jorts; vintage sportswear, jerseys, ski wear, bike shorts;
+  structured blazers. ([Depop](https://news.depop.com/company-news/depop-unveils-2026-fashion-trends-report-the-edited-self/),
+  [WWD](https://wwd.com/sourcing-journal/industry-news/gen-z-fashion-depop-2026-trends-ed-hardy-1238860671/))
+
+Over the 21,151-product catalogue the score averages 0.296; 3.6% of pieces sit at 0.72 or
+above (wide-leg and cargo trousers, cable and Fair Isle knits, fleeces, chore and leather
+jackets), and those carry a **"Trending now"** tag on the card.
+
+Where it acts:
+
+1. `hybrid()` adds `TREND_W · trend · wp`, exactly as the youth tilt does. At the shipped
+   `TREND_W = 24` the shipped ranking (taste + youth + trend) scores **within 0.001 AUC of
+   the pure taste model on all four harness personas** (test/04's tilt-budget check now
+   covers both tilts).
+2. The opening hand — the only cards dealt before a single swipe — leads each micro-style
+   lane with a current piece, with enough jitter that it is not the same twelve pieces for
+   everyone.
+
+On the deck simulator (shoppers who do not care about trends, so this is the cost side):
+
+| | mean trend of dealt cards | opening hand | hit rate |
+|---|---|---|---|
+| catalogue | 0.296 | | |
+| tilt off (`TREND_ON=false`, opening hand still led by trend) | 0.416 | 0.742 | 0.621 |
+| tilt on, opening-hand jitter 0.45 | 0.424 | 0.742 | 0.600 |
+| **tilt on, jitter 0.8 (shipped)** | **0.433** | **0.726** | **0.616** |
+
+The dealt deck runs ~45% more current than the catalogue; the hit-rate cost to a shopper
+with no interest in trends is half a point, inside the run-to-run spread.
+
+---
+
 ## What was NOT done, and why
 
 - **Price in the ranking.** Still out, per `ALGORITHM-UPGRADES.md` #3.

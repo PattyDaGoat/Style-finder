@@ -105,6 +105,20 @@ const chk = (n, c, e) => (c ? ok : bad).push(n + (e ? ' :: ' + e : ''));
   });
   chk('liking a top resets the tops fatigue streak', cleared === 0, 'streak=' + cleared);
 
+  // ---- 4b. the trend signal: a 0..1 score, and an opening hand that leads with it ----
+  await fresh(505, 'm');                     /* a fresh deck: the hand measured is an OPENING hand */
+  const trend = await p.evaluate(() => {
+    const t = CATALOG.map(x => x.trend);
+    const mean = t.reduce((a, b) => a + b, 0) / t.length;
+    const hand = QUEUE.slice(0, 14).reduce((a, i) => a + CATALOG[i].trend, 0) / Math.min(14, QUEUE.length);
+    return { min: Math.min(...t), max: Math.max(...t), mean, hand, tagged: CATALOG.filter(x => x.trend >= 0.72).length / t.length,
+             sample: trendScore({ n: 'Barrel Leg Cargo Pant', ms: ['rugged-workwear'], fit: 'wide', pat: 'solid', color: 'earth', cat: 'trouser' }) };
+  });
+  chk('trendScore stays within 0..1 over the whole catalogue', trend.min >= 0 && trend.max <= 1, trend.min + '..' + trend.max);
+  chk('a wide cargo pant in workwear olive reads as very current', trend.sample >= 0.8, String(trend.sample));
+  chk('between 1% and 15% of pieces earn the Trending now tag', trend.tagged >= 0.01 && trend.tagged <= 0.15, (trend.tagged * 100).toFixed(1) + '%');
+  chk('the opening hand runs well above the catalogue mean on trend', trend.hand >= trend.mean + 0.15, 'hand ' + trend.hand.toFixed(3) + ' vs catalogue ' + trend.mean.toFixed(3));
+
   // ---- 5. the v3 dealer is still reachable for measurement ----
   const v3 = await p.evaluate(() => { DECK_V4 = false; try { QUEUE = []; return nextBatch(10).length; } finally { DECK_V4 = true; } });
   chk('DECK_V4=false still deals a full v3 batch', v3 === 10, 'n=' + v3);

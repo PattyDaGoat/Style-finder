@@ -109,7 +109,7 @@ const out = await p.evaluate(({ SWIPES, SEEDS, SETS }) => {
         }
         let sameBrandAdj = 0, sameMsAdj = 0;
         for (let k = 1; k < n; k++) { if (CATALOG[dealt[k]].b === CATALOG[dealt[k - 1]].b) sameBrandAdj++; if (CATALOG[dealt[k]].ms[0] === CATALOG[dealt[k - 1]].ms[0]) sameMsAdj++; }
-        runs.push({ n, hit1: win(0, 30), hit2: win(30, 70), hit3: win(70, n), hitAll: win(0, n),
+        runs.push({ n, hit1: win(0, 30), hit2: win(30, 70), hit3: win(70, n), hitAll: win(0, n), trend: dealt.reduce((a, i) => a + (CATALOG[i].trend || 0), 0) / Math.max(1, n), trend14: dealt.slice(0, 14).reduce((a, i) => a + (CATALOG[i].trend || 0), 0) / Math.max(1, Math.min(14, n)),
                     grp10: per10(i => groupOf(CATALOG[i])), brand10: per10(i => CATALOG[i].b), run: best,
                     msSeen: new Set(dealt.map(i => CATALOG[i].ms[0])).size,
                     sameBrandAdj: sameBrandAdj / Math.max(1, n - 1), sameMsAdj: sameMsAdj / Math.max(1, n - 1),
@@ -117,7 +117,7 @@ const out = await p.evaluate(({ SWIPES, SEEDS, SETS }) => {
       });
       const mean = k => { const v = runs.map(r => r[k]).filter(x => x != null); return v.length ? v.reduce((a, b) => a + b, 0) / v.length : null; };
       const adapt = runs[0].adapt ? { before: runs.reduce((a, r) => a + r.adapt.before, 0) / runs.length, after: runs.reduce((a, r) => a + r.adapt.after, 0) / runs.length } : null;
-      results.push({ name: per.name, seeds: runs.length, hit1: mean('hit1'), hit2: mean('hit2'), hit3: mean('hit3'), hitAll: mean('hitAll'),
+      results.push({ name: per.name, seeds: runs.length, hit1: mean('hit1'), hit2: mean('hit2'), hit3: mean('hit3'), hitAll: mean('hitAll'), trend: mean('trend'), trend14: mean('trend14'),
                      grp10: mean('grp10'), brand10: mean('brand10'), run: mean('run'), msSeen: mean('msSeen'),
                      sameBrandAdj: mean('sameBrandAdj'), sameMsAdj: mean('sameMsAdj'), adapt, msPerBatch: mean('msPerBatch') });
     });
@@ -138,5 +138,6 @@ else {
       (r.adapt ? f(r.adapt.before) + ' -> ' + f(r.adapt.after) : '      —      ') + '       | ' + f(r.msPerBatch, 0));
   });
   const avg = k => out.reduce((a, r) => a + (r[k] || 0), 0) / out.length;
+  console.log('  mean trend of dealt cards ' + avg('trend').toFixed(3) + ' · opening hand ' + avg('trend14').toFixed(3) + ' (catalogue mean printed by --json)');
   console.log('\n  mean hit rate ' + avg('hitAll').toFixed(3) + ' · late-session hit ' + avg('hit3').toFixed(3) + ' · groups/10 ' + avg('grp10').toFixed(2) + ' · brands/10 ' + avg('brand10').toFixed(2) + '\n');
 }

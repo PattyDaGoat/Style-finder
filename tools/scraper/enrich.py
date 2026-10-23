@@ -78,9 +78,6 @@ PAT_RULES = [
 
 # micro-style -> keyword pattern. A product can pick up to 3.
 MS_RULES = [
-    # mirror of src/js/12-vintage.js VINTAGE_NAME — the app re-derives this tag at
-    # load, so the two must agree
-    ("vintage-thrift",      r"\b(vintage|retro|thrift(ed)?|pre[- ]?loved|pre[- ]?owned|second[- ]?hand|deadstock|archive|upcycled|reworked|y2k|'?[6789]0s|00s|1[89][0-9]0s)\b"),
     ("raw-denim",           r"\b(selvedge|selvage|raw denim|indigo|rigid denim|japanese denim|13oz|14oz)\b"),
     ("flannel-cabincore",   r"\b(flannel|plaid|tartan|cabin|buffalo|sherpa|shearling|lumberjack)\b"),
     ("gorpcore-utility",    r"\b(gorp|technical|shell|gore-?tex|packable|ripstop|hike|hiking|trail|utility|waterproof|primaloft|puffer|windbreaker|cargo|tactical)\b"),
@@ -101,6 +98,10 @@ MS_RULES = [
     ("earthy-heritage",     r"\b(brown|olive|rust|clay|earth|natural dye|botanical|hemp|undyed|heritage)\b"),
     ("eclectic-pattern",    r"\b(floral|paisley|abstract|patchwork|contrast|colou?r ?block|psychedelic|mixed print|leopard)\b"),
     ("elevated-basics",     r"\b(essential|premium|basic|classic|everyday|staple|heavyweight|garment ?dye|pima|supima)\b"),
+    # mirror of src/js/09-vintage.js — the app re-derives this tag at load and
+    # decides whether it leads (a second-hand find) or trails (a vintage LOOK on
+    # a new piece), so it sits last here and never displaces a real style
+    ("vintage-thrift",      r"\b(vintage|retro|thrift(ed)?|pre[- ]?loved|pre[- ]?owned|second[- ]?hand|deadstock|archive|upcycled|reworked|y2k|'?[6789]0s|00s|1[89][0-9]0s)\b"),
 ]
 
 FABRICS = ["cotton", "linen", "wool", "cashmere", "merino", "corduroy", "cord",

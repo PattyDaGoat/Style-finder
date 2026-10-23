@@ -31,8 +31,16 @@ function vintageKind(p){
   return null;
 }
 CATALOG.forEach(p=>{
-  const k=vintageKind(p); if(!k) return;
+  /* the scraper reads the whole description, this reads the name: a row that
+     arrives already tagged by enrich.py but says nothing in its name is a look
+     the description vouched for — kept, but never in the lead */
+  const k=vintageKind(p) || ((p.ms||[]).includes("vintage-thrift") ? "look" : null);
+  if(!k) return;
   p.ms=(p.ms||[]).filter(m=>m!=="vintage-thrift");
+  /* a row the scraper could only file under the vintage rule arrives with that as
+     its ONLY tag; a look or a thrift piece still needs a style of its own in
+     front, or "last" and "first" are the same slot */
+  if(!p.ms.length && k!=="vintage") p.ms.push("elevated-basics");
   if(k==="vintage") p.ms.unshift("vintage-thrift"); else p.ms.push("vintage-thrift");   /* thrift and look: last */
   if(p.ms.length>4) p.ms.length=4;
   p.vintage=k;

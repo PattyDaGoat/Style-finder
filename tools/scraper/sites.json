@@ -1789,8 +1789,8 @@
   "entries": {
    "f": [
     "https://birdies.com/collections/all",
-    "https://birdies.com/collections/women-shoes-vegan-collection",
-    "https://birdies.com/collections/womens-work-shoes"
+    "https://birdies.com/collections/womens-work-shoes",
+    "https://birdies.com/collections/womens-flats-velvet"
    ],
    "m": []
   },
@@ -1859,20 +1859,12 @@
    ],
    "m": [
     "https://birdwell.com/collections/mens",
-    "https://birdwell.com/collections/last-wave-mens",
-    "https://birdwell.com/collections/mens-flexify-collection"
+    "https://birdwell.com/collections/mens-flexify-collection",
+    "https://birdwell.com/collections/last-wave-mens"
    ]
   },
   "entry_cursor": 1,
   "gender_source": "collection",
-  "health": {
-   "fail": 3,
-   "last": 1793760156.783364,
-   "last_found": 22,
-   "note": "rate-limited (429) \u2014 stopping this shop for now",
-   "ok": 14,
-   "status": "ok"
-  },
   "host": "birdwell.com",
   "note": "auto-discovered"
  },
@@ -1886,20 +1878,12 @@
    ],
    "m": [
     "https://www.birdwell.com/collections/mens",
-    "https://www.birdwell.com/collections/last-wave-mens",
-    "https://www.birdwell.com/collections/mens-flexify-collection"
+    "https://www.birdwell.com/collections/mens-flexify-collection",
+    "https://www.birdwell.com/collections/last-wave-mens"
    ]
   },
   "entry_cursor": 0,
   "gender_source": "collection",
-  "health": {
-   "fail": 1,
-   "last": 1785168151.0869415,
-   "last_found": 0,
-   "note": "rate-limited (429) \u2014 stopping this shop for now",
-   "ok": 0,
-   "status": "blocked"
-  },
   "host": "www.birdwell.com",
   "note": "auto-discovered"
  },
@@ -2020,13 +2004,6 @@
   },
   "entry_cursor": 2,
   "gender_source": "collection",
-  "health": {
-   "fail": 0,
-   "last": 1793760542.3574529,
-   "last_found": 26,
-   "ok": 1,
-   "status": "ok"
-  },
   "host": "bdgastore.com",
   "note": "found by find_brands.py \u2014 sneaker boutique"
  },
@@ -2116,18 +2093,11 @@
    "m": [
     "https://bornprimitive.com/collections/mens-tops",
     "https://bornprimitive.com/collections/mens-shop-all",
-    "https://bornprimitive.com/collections/mens-training"
+    "https://bornprimitive.com/collections/mens-shirts-tanks"
    ]
   },
   "entry_cursor": 4,
   "gender_source": "collection",
-  "health": {
-   "fail": 0,
-   "last": 1793761131.7125828,
-   "last_found": 117,
-   "ok": 2,
-   "status": "ok"
-  },
   "host": "bornprimitive.com",
   "note": "auto-discovered"
  },
@@ -2303,7 +2273,7 @@
    "f": [
     "https://buffbunny.com/collections/shop-all",
     "https://buffbunny.com/collections/in-stock",
-    "https://buffbunny.com/collections/new-releases"
+    "https://buffbunny.com/collections/mobility"
    ],
    "m": []
   },
@@ -2435,21 +2405,12 @@
   "brand": "Camilla and Marc",
   "entries": {
    "f": [
-    "https://www.camillaandmarc.com/collections/all-clothing",
-    "https://www.camillaandmarc.com/collections/all-accessories",
-    "https://www.camillaandmarc.com/collections/t-shirts-tanks"
+    "https://www.camillaandmarc.com/collections/work"
    ],
    "m": []
   },
   "entry_cursor": 1,
-  "gender_source": "prior",
-  "health": {
-   "fail": 0,
-   "last": 1793816113.3601985,
-   "last_found": 47,
-   "ok": 1,
-   "status": "ok"
-  },
+  "gender_source": "collection",
   "host": "www.camillaandmarc.com",
   "note": "auto-discovered"
  },
@@ -2716,10 +2677,10 @@
    "m": [
     "https://coalatree.com/collections/men",
     "https://coalatree.com/collections/mens-tops",
-    "https://coalatree.com/collections/mens-sweatshirts-hoodies"
+    "https://coalatree.com/collections/mens-pants"
    ]
   },
-  "entry_cursor": 3,
+  "entry_cursor": 5,
   "gender_source": "collection",
   "host": "coalatree.com",
   "note": "auto-discovered"
@@ -2734,13 +2695,13 @@
     "https://colebuxton.com/collections/all"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 1,
   "gender_source": "prior",
   "health": {
    "fail": 0,
-   "last": 1791842759.1187325,
-   "last_found": 23,
-   "ok": 3,
+   "last": 1793824515.7685409,
+   "last_found": 31,
+   "ok": 4,
    "status": "ok"
   },
   "host": "colebuxton.com",
@@ -2760,13 +2721,13 @@
     "https://colorfulstandard.com/collections/mens-sweatshirts-hoodies"
    ]
   },
-  "entry_cursor": 1,
+  "entry_cursor": 3,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1793049220.3775258,
-   "last_found": 100,
-   "ok": 6,
+   "last": 1793824662.0299344,
+   "last_found": 120,
+   "ok": 7,
    "status": "ok"
   },
   "host": "colorfulstandard.com",
@@ -2786,13 +2747,13 @@
     "https://communityclothing.co.uk/collections/mens-jersey"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 4,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1793049324.2183447,
-   "last_found": 64,
-   "ok": 2,
+   "last": 1793824752.6484685,
+   "last_found": 56,
+   "ok": 3,
    "status": "ok"
   },
   "host": "communityclothing.co.uk",
@@ -2839,14 +2800,14 @@
     "https://coneyislandpicnic.com/collections/mens-collection"
    ]
   },
-  "entry_cursor": 4,
+  "entry_cursor": 0,
   "gender_source": "collection",
   "health": {
    "fail": 3,
-   "last": 1793049377.5771039,
+   "last": 1793824808.3932934,
    "last_found": 48,
    "note": "rate-limited (429) \u2014 stopping this shop for now",
-   "ok": 14,
+   "ok": 15,
    "status": "ok"
   },
   "host": "coneyislandpicnic.com",
@@ -2862,13 +2823,13 @@
     "https://www.corridornyc.com/collections/tops"
    ]
   },
-  "entry_cursor": 0,
+  "entry_cursor": 2,
   "gender_source": "prior",
   "health": {
    "fail": 0,
-   "last": 1793049511.8222177,
-   "last_found": 43,
-   "ok": 2,
+   "last": 1793824938.8318398,
+   "last_found": 51,
+   "ok": 3,
    "status": "ok"
   },
   "host": "www.corridornyc.com",
@@ -2914,13 +2875,13 @@
     "https://www.cotopaxi.com/collections/full-price-mens"
    ]
   },
-  "entry_cursor": 4,
+  "entry_cursor": 0,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1793049709.2108822,
-   "last_found": 63,
-   "ok": 11,
+   "last": 1793825073.8049092,
+   "last_found": 61,
+   "ok": 12,
    "status": "ok"
   },
   "host": "www.cotopaxi.com",
@@ -2939,13 +2900,13 @@
     "https://cozyearth.com/collections/mens-best-sellers"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 4,
   "gender_source": "prior",
   "health": {
    "fail": 0,
-   "last": 1793049829.8420005,
-   "last_found": 43,
-   "ok": 5,
+   "last": 1793825217.6803775,
+   "last_found": 41,
+   "ok": 6,
    "status": "ok"
   },
   "host": "cozyearth.com",
@@ -2961,14 +2922,14 @@
     "https://criquetshirts.com/collections/view-all-men"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 1,
   "gender_source": "collection",
   "health": {
    "fail": 1,
-   "last": 1793049945.3625422,
-   "last_found": 34,
+   "last": 1793825339.031234,
+   "last_found": 35,
    "note": "rate-limited (429) \u2014 stopping this shop for now",
-   "ok": 28,
+   "ok": 29,
    "status": "ok"
   },
   "host": "criquetshirts.com",
@@ -2984,7 +2945,7 @@
     "https://crooksncastles.com/collections/tops"
    ]
   },
-  "entry_cursor": 1,
+  "entry_cursor": 0,
   "gender_source": "prior",
   "health": {
    "fail": 3,
@@ -3007,8 +2968,15 @@
    ],
    "m": []
   },
-  "entry_cursor": 2,
+  "entry_cursor": 1,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1793846919.8465521,
+   "last_found": 105,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "shopcsb.com",
   "note": "auto-discovered"
  },
@@ -3022,14 +2990,14 @@
    ],
    "m": []
   },
-  "entry_cursor": 2,
+  "entry_cursor": 1,
   "gender_source": "collection",
   "health": {
    "fail": 1,
-   "last": 1793065065.400046,
-   "last_found": 17,
+   "last": 1793846969.4022775,
+   "last_found": 10,
    "note": "rate-limited (429) \u2014 stopping this shop for now",
-   "ok": 41,
+   "ok": 42,
    "status": "ok"
   },
   "host": "crosscolours.com",
@@ -3045,14 +3013,14 @@
    ],
    "m": []
   },
-  "entry_cursor": 2,
+  "entry_cursor": 1,
   "gender_source": "collection",
   "health": {
    "fail": 2,
-   "last": 1793065169.726393,
-   "last_found": 25,
+   "last": 1793847083.4277556,
+   "last_found": 18,
    "note": "rate-limited (429) \u2014 stopping this shop for now",
-   "ok": 65,
+   "ok": 66,
    "status": "ok"
   },
   "host": "www.cue.cc",
@@ -3072,7 +3040,7 @@
     "https://cutsclothing.com/collections/mens-alpha-sizing-review"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 4,
   "gender_source": "collection",
   "host": "cutsclothing.com",
   "note": "auto-discovered"
@@ -3089,10 +3057,10 @@
   "gender_source": "collection",
   "health": {
    "fail": 3,
-   "last": 1793065252.7225554,
-   "last_found": 6,
+   "last": 1793847193.6352627,
+   "last_found": 8,
    "note": "rate-limited (429) \u2014 stopping this shop for now",
-   "ok": 99,
+   "ok": 100,
    "status": "ok"
   },
   "host": "www.cuyana.com",
@@ -3112,14 +3080,14 @@
     "https://dfyne.com/collections/best-sellers-mens"
    ]
   },
-  "entry_cursor": 3,
+  "entry_cursor": 5,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1793065322.093355,
-   "last_found": 60,
+   "last": 1793847259.8843682,
+   "last_found": 35,
    "note": "no products found on the page",
-   "ok": 106,
+   "ok": 107,
    "status": "ok"
   },
   "host": "dfyne.com",
@@ -3139,14 +3107,14 @@
     "https://us.dfyne.com/collections/best-sellers-mens"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 4,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1793065390.576414,
-   "last_found": 60,
+   "last": 1793847316.3855913,
+   "last_found": 35,
    "note": "no products found on the page",
-   "ok": 74,
+   "ok": 75,
    "status": "ok"
   },
   "host": "us.dfyne.com",
@@ -3166,14 +3134,14 @@
     "https://www.dl1961.com/collections/mens-best-sellers"
    ]
   },
-  "entry_cursor": 3,
+  "entry_cursor": 5,
   "gender_source": "collection",
   "health": {
    "fail": 3,
-   "last": 1793065762.3361557,
-   "last_found": 28,
+   "last": 1793847660.1933098,
+   "last_found": 3,
    "note": "rate-limited (429) \u2014 stopping this shop for now",
-   "ok": 111,
+   "ok": 112,
    "status": "ok"
   },
   "host": "www.dl1961.com",
@@ -3241,9 +3209,9 @@
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1793065794.7739458,
-   "last_found": 10,
-   "ok": 120,
+   "last": 1793847694.921153,
+   "last_found": 15,
+   "ok": 121,
    "status": "ok"
   },
   "host": "dailypaperclothing.com",
@@ -3259,13 +3227,13 @@
    ],
    "m": []
   },
-  "entry_cursor": 1,
+  "entry_cursor": 0,
   "gender_source": "prior",
   "health": {
    "fail": 0,
-   "last": 1793065886.3879397,
-   "last_found": 59,
-   "ok": 1,
+   "last": 1793847782.0405746,
+   "last_found": 43,
+   "ok": 2,
    "status": "ok"
   },
   "host": "www.daisystreet.co.uk",
@@ -3305,14 +3273,14 @@
     "https://dandydelmar.com/collections/mens-leisure-wear"
    ]
   },
-  "entry_cursor": 4,
+  "entry_cursor": 0,
   "gender_source": "collection",
   "health": {
    "fail": 3,
-   "last": 1792430684.8177404,
-   "last_found": 77,
+   "last": 1793882706.1251671,
+   "last_found": 60,
    "note": "rate-limited (429) \u2014 stopping this shop for now",
-   "ok": 12,
+   "ok": 13,
    "status": "ok"
   },
   "host": "dandydelmar.com",
@@ -3328,8 +3296,15 @@
     "https://debonnefacture.fr/collections/all"
    ]
   },
-  "entry_cursor": 0,
+  "entry_cursor": 2,
   "gender_source": "prior",
+  "health": {
+   "fail": 1,
+   "last": 1793882909.5942497,
+   "last_found": 0,
+   "ok": 0,
+   "status": "blocked"
+  },
   "host": "debonnefacture.fr",
   "note": "auto-discovered"
  },
@@ -3369,13 +3344,13 @@
     "https://deltoroshoes.com/collections/all-mens-new-arrivals"
    ]
   },
-  "entry_cursor": 5,
+  "entry_cursor": 1,
   "gender_source": "collection",
   "health": {
    "fail": 2,
-   "last": 1793083946.512013,
-   "last_found": 30,
-   "ok": 4,
+   "last": 1793883019.6574984,
+   "last_found": 9,
+   "ok": 5,
    "status": "ok"
   },
   "host": "deltoroshoes.com",
@@ -3391,15 +3366,15 @@
     "https://denimtears.com/collections/sweats-old-ba616a"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 1,
   "gender_note": "no women's collection on the whole site and 0/100 womenswear in a sample",
   "gender_source": "inferred",
   "health": {
    "fail": 8,
-   "last": 1793083997.2228942,
+   "last": 1793883068.5705664,
    "last_found": 2,
    "note": "no products found on the page; rate-limited (429) \u2014 stopping this shop for now",
-   "ok": 9,
+   "ok": 10,
    "status": "ok"
   },
   "host": "denimtears.com",
@@ -3419,13 +3394,13 @@
     "https://us.deuscustoms.com/collections/season-sp22-mens"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 4,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1793084139.332885,
-   "last_found": 93,
-   "ok": 11,
+   "last": 1793883181.9872727,
+   "last_found": 90,
+   "ok": 12,
    "status": "ok"
   },
   "host": "us.deuscustoms.com",
@@ -3514,13 +3489,13 @@
     "https://districtvision.com/collections/mens-tees"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 4,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1793084262.527693,
-   "last_found": 41,
-   "ok": 12,
+   "last": 1793883290.7966697,
+   "last_found": 71,
+   "ok": 13,
    "status": "ok"
   },
   "host": "districtvision.com",
@@ -3536,13 +3511,13 @@
    ],
    "m": []
   },
-  "entry_cursor": 1,
+  "entry_cursor": 0,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1793084408.9654691,
-   "last_found": 90,
-   "ok": 1,
+   "last": 1793883415.6263056,
+   "last_found": 47,
+   "ok": 2,
    "status": "ok"
   },
   "host": "www.disturbia.co.uk",
@@ -3562,14 +3537,14 @@
     "https://shop.doverstreetmarket.com/collections/jewellery-space-mens"
    ]
   },
-  "entry_cursor": 1,
+  "entry_cursor": 3,
   "gender_note": "found only men's collections by name; the shop also lists women's ones, so its general collections are registered for that side as a guess",
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1793084572.7399006,
-   "last_found": 2,
-   "ok": 2,
+   "last": 1793883560.5068839,
+   "last_found": 4,
+   "ok": 3,
    "status": "ok"
   },
   "host": "shop.doverstreetmarket.com",
@@ -3638,10 +3613,10 @@
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1793084649.5894694,
+   "last": 1793883636.0186756,
    "last_found": 23,
    "note": "no products found on the page",
-   "ok": 11,
+   "ok": 12,
    "status": "ok"
   },
   "host": "dumbgood.com",
@@ -3661,8 +3636,16 @@
     "https://duvindesign.com/collections/fall-holiday-26-copy-1"
    ]
   },
-  "entry_cursor": 0,
+  "entry_cursor": 1,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1793883682.8717704,
+   "last_found": 24,
+   "note": "rate-limited (429) \u2014 stopping this shop for now",
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "duvindesign.com",
   "note": "auto-discovered"
  },
@@ -3676,7 +3659,7 @@
    ],
    "m": []
   },
-  "entry_cursor": 2,
+  "entry_cursor": 0,
   "gender_source": "prior",
   "health": {
    "fail": 0,
@@ -3729,14 +3712,14 @@
     "https://eberjey.com/collections/mens-lounge"
    ]
   },
-  "entry_cursor": 5,
+  "entry_cursor": 1,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1793109061.3368247,
-   "last_found": 76,
+   "last": 1793968646.1342158,
+   "last_found": 85,
    "note": "rate-limited (429) \u2014 stopping this shop for now",
-   "ok": 12,
+   "ok": 16,
    "status": "ok"
   },
   "host": "eberjey.com",
@@ -3746,18 +3729,24 @@
   "brand": "Echt",
   "entries": {
    "f": [
-    "https://echt.com.au/collections/core-styles",
     "https://echt.com.au/collections/click-frenzy-november-2020-womens-collections",
     "https://echt.com.au/collections/club-gradient-tee-womens"
    ],
    "m": [
     "https://echt.com.au/collections/best-sellers-mens",
-    "https://echt.com.au/collections/core-styles-men-catalogue",
-    "https://echt.com.au/collections/bella-mens-payday-wip"
+    "https://echt.com.au/collections/bella-mens-payday-wip",
+    "https://echt.com.au/collections/july-frenzy-mens-2021"
    ]
   },
-  "entry_cursor": 4,
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1793968733.1540258,
+   "last_found": 51,
+   "ok": 4,
+   "status": "ok"
+  },
   "host": "echt.com.au",
   "note": "auto-discovered"
  },
@@ -3771,13 +3760,14 @@
    ],
    "m": []
   },
-  "entry_cursor": 1,
+  "entry_cursor": 0,
   "gender_source": "prior",
   "health": {
    "fail": 0,
-   "last": 1793109279.1232193,
-   "last_found": 119,
-   "ok": 22,
+   "last": 1793968798.2560222,
+   "last_found": 60,
+   "note": "rate-limited (429) \u2014 stopping this shop for now",
+   "ok": 26,
    "status": "ok"
   },
   "host": "edikted.com",
@@ -3839,14 +3829,14 @@
     "https://ericemanuel.com/collections/all"
    ]
   },
-  "entry_cursor": 1,
+  "entry_cursor": 0,
   "gender_source": "prior",
   "health": {
    "fail": 0,
-   "last": 1793109389.900936,
-   "last_found": 57,
+   "last": 1793968900.0939605,
+   "last_found": 56,
    "note": "no products found on the page",
-   "ok": 32,
+   "ok": 36,
    "status": "ok"
   },
   "host": "ericemanuel.com",
@@ -3866,13 +3856,13 @@
     "https://www.everlane.com/collections/mens-tshirts"
    ]
   },
-  "entry_cursor": 3,
+  "entry_cursor": 5,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1793109574.2962847,
-   "last_found": 94,
-   "ok": 3,
+   "last": 1793969082.6339257,
+   "last_found": 102,
+   "ok": 7,
    "status": "ok"
   },
   "host": "www.everlane.com",
@@ -3892,9 +3882,16 @@
     "https://extrabutterny.com/collections/260_ftw_apr23"
    ]
   },
-  "entry_cursor": 4,
+  "entry_cursor": 0,
   "gender_note": "no women's collection on the whole site and 2/100 womenswear in a sample; entered via its largest collections",
   "gender_source": "prior",
+  "health": {
+   "fail": 0,
+   "last": 1793969309.5020096,
+   "last_found": 119,
+   "ok": 4,
+   "status": "ok"
+  },
   "host": "extrabutterny.com",
   "note": "found by find_brands.py \u2014 sneaker boutique"
  },
@@ -3935,8 +3932,15 @@
     "https://fairharborclothing.com/collections/friends-family-mens-tops"
    ]
   },
-  "entry_cursor": 0,
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1793969431.669605,
+   "last_found": 117,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "fairharborclothing.com",
   "note": "auto-discovered"
  },
@@ -3973,14 +3977,14 @@
     "https://www.farah.co.uk/collections/clothing"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 1,
   "gender_source": "collection",
   "health": {
    "fail": 1,
-   "last": 1793128271.0482013,
-   "last_found": 48,
+   "last": 1793969502.741574,
+   "last_found": 47,
    "note": "rate-limited (429) \u2014 stopping this shop for now",
-   "ok": 8,
+   "ok": 9,
    "status": "ok"
   },
   "host": "www.farah.co.uk",
@@ -4000,9 +4004,9 @@
   "gender_source": "prior",
   "health": {
    "fail": 0,
-   "last": 1793128583.7965403,
-   "last_found": 71,
-   "ok": 3,
+   "last": 1793987700.655979,
+   "last_found": 76,
+   "ok": 4,
    "status": "ok"
   },
   "host": "www.farmrio.com",
@@ -4022,13 +4026,13 @@
     "https://fearofgod.com/collections/essentials-2025"
    ]
   },
-  "entry_cursor": 4,
+  "entry_cursor": 0,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1793128711.9591992,
-   "last_found": 87,
-   "ok": 4,
+   "last": 1793987828.9952846,
+   "last_found": 83,
+   "ok": 5,
    "status": "ok"
   },
   "host": "fearofgod.com",
@@ -4046,14 +4050,14 @@
     "https://feature.com/collections/accessories"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 0,
   "gender_note": "guessed menswear (only 0% dresses and 17% read womenswear); registered as a prior, so any evidence on a piece overrides it",
   "gender_source": "prior",
   "health": {
    "fail": 0,
-   "last": 1793128854.685161,
-   "last_found": 49,
-   "ok": 5,
+   "last": 1793987976.58987,
+   "last_found": 96,
+   "ok": 6,
    "status": "ok"
   },
   "host": "feature.com",
@@ -4120,14 +4124,14 @@
     "https://florencemarinex.com/collections/mens-wetsuits"
    ]
   },
-  "entry_cursor": 0,
+  "entry_cursor": 2,
   "gender_source": "collection",
   "health": {
    "fail": 1,
-   "last": 1793128908.9809575,
-   "last_found": 6,
+   "last": 1793988029.8842185,
+   "last_found": 5,
    "note": "rate-limited (429) \u2014 stopping this shop for now",
-   "ok": 10,
+   "ok": 11,
    "status": "ok"
   },
   "host": "florencemarinex.com",
@@ -4147,8 +4151,15 @@
     "https://www.folkclothing.com/collections/overshirts"
    ]
   },
-  "entry_cursor": 3,
+  "entry_cursor": 5,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1793988215.4836533,
+   "last_found": 31,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "www.folkclothing.com",
   "note": "auto-discovered"
  },
@@ -4189,13 +4200,13 @@
     "https://www.frankandoak.com/collections/mens-shirts"
    ]
   },
-  "entry_cursor": 4,
+  "entry_cursor": 0,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1793142737.2247279,
-   "last_found": 102,
-   "ok": 4,
+   "last": 1793988421.4778562,
+   "last_found": 68,
+   "ok": 5,
    "status": "ok"
   },
   "host": "www.frankandoak.com",
@@ -4258,19 +4269,11 @@
    "m": [
     "https://freeflyapparel.com/collections/mens",
     "https://freeflyapparel.com/collections/men-shop-all",
-    "https://freeflyapparel.com/collections/tops-men-all"
+    "https://freeflyapparel.com/collections/mens-tops"
    ]
   },
-  "entry_cursor": 1,
+  "entry_cursor": 2,
   "gender_source": "collection",
-  "health": {
-   "fail": 1,
-   "last": 1793143156.7765048,
-   "last_found": 98,
-   "note": "rate-limited (429) \u2014 stopping this shop for now",
-   "ok": 8,
-   "status": "ok"
-  },
   "host": "freeflyapparel.com",
   "note": "auto-discovered"
  },
@@ -4330,14 +4333,14 @@
    ],
    "m": []
   },
-  "entry_cursor": 0,
+  "entry_cursor": 2,
   "gender_source": "collection",
   "health": {
    "fail": 1,
-   "last": 1793143477.0294921,
-   "last_found": 45,
+   "last": 1793996316.9281843,
+   "last_found": 42,
    "note": "rate-limited (429) \u2014 stopping this shop for now",
-   "ok": 10,
+   "ok": 11,
    "status": "ok"
   },
   "host": "freshcleanthreads.com",
@@ -4353,13 +4356,13 @@
     "https://gx1000.com/collections/products"
    ]
   },
-  "entry_cursor": 1,
+  "entry_cursor": 0,
   "gender_source": "prior",
   "health": {
    "fail": 0,
-   "last": 1793143566.3510592,
-   "last_found": 89,
-   "ok": 11,
+   "last": 1793996413.216063,
+   "last_found": 120,
+   "ok": 12,
    "status": "ok"
   },
   "host": "gx1000.com",
@@ -4375,13 +4378,13 @@
     "https://www.gabicci.com/collections/shop-all"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 1,
   "gender_source": "prior",
   "health": {
    "fail": 0,
-   "last": 1792501508.7370079,
+   "last": 1793996531.356066,
    "last_found": 115,
-   "ok": 3,
+   "ok": 4,
    "status": "ok"
   },
   "host": "www.gabicci.com",
@@ -4427,10 +4430,10 @@
   "entry_cursor": 0,
   "health": {
    "fail": 1,
-   "last": 1793172189.79783,
+   "last": 1793996575.7627072,
    "last_found": 2,
    "note": "no products found on the page; no products found on the page",
-   "ok": 14,
+   "ok": 15,
    "status": "ok"
   },
   "host": "www.gap.com",
@@ -4446,14 +4449,14 @@
    ],
    "m": []
   },
-  "entry_cursor": 0,
+  "entry_cursor": 2,
   "gender_source": "prior",
   "health": {
    "fail": 0,
-   "last": 1793172263.6462286,
-   "last_found": 48,
+   "last": 1793996660.6470397,
+   "last_found": 24,
    "note": "no products found on the page",
-   "ok": 11,
+   "ok": 12,
    "status": "ok"
   },
   "host": "ghospell.com",
@@ -4536,13 +4539,13 @@
     "https://globebrand.com/collections/end-of-season"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 1,
   "gender_source": "prior",
   "health": {
    "fail": 0,
-   "last": 1793172599.8194525,
-   "last_found": 95,
-   "ok": 10,
+   "last": 1793996847.6395621,
+   "last_found": 57,
+   "ok": 11,
    "status": "ok"
   },
   "host": "globebrand.com",
@@ -4554,20 +4557,12 @@
    "f": [],
    "m": [
     "https://golfwang.com/collections/all",
-    "https://golfwang.com/collections/fall-winter-2025-all",
-    "https://golfwang.com/collections/music-copy-1"
+    "https://golfwang.com/collections/new",
+    "https://golfwang.com/collections/fall-winter-2025-all"
    ]
   },
-  "entry_cursor": 1,
+  "entry_cursor": 0,
   "gender_source": "prior",
-  "health": {
-   "fail": 1,
-   "last": 1790612011.0580823,
-   "last_found": 0,
-   "note": "no products found on the page; no products found on the page",
-   "ok": 0,
-   "status": "blocked"
-  },
   "host": "golfwang.com",
   "note": "auto-discovered"
  },
@@ -4608,14 +4603,14 @@
     "https://gramicci.com/collections/mens-accessories"
    ]
   },
-  "entry_cursor": 5,
+  "entry_cursor": 1,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1793172723.4550352,
-   "last_found": 52,
+   "last": 1793996999.1192877,
+   "last_found": 36,
    "note": "rate-limited (429) \u2014 stopping this shop for now",
-   "ok": 11,
+   "ok": 12,
    "status": "ok"
   },
   "host": "gramicci.com",
@@ -4631,13 +4626,14 @@
     "https://vintage-threads.com/collections/mens"
    ]
   },
-  "entry_cursor": 0,
+  "entry_cursor": 1,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1793172865.7112994,
-   "last_found": 28,
-   "ok": 1,
+   "last": 1793997045.9569907,
+   "last_found": 9,
+   "note": "rate-limited (429) \u2014 stopping this shop for now",
+   "ok": 2,
    "status": "ok"
   },
   "host": "vintage-threads.com",
@@ -4697,9 +4693,9 @@
   "brand": "Gym King",
   "entries": {
    "f": [
+    "https://www.gymking.com/collections/womens-365-collection",
     "https://www.gymking.com/collections/womens-1-4-zip-tops",
-    "https://www.gymking.com/collections/womens-established",
-    "https://www.gymking.com/collections/classics-women"
+    "https://www.gymking.com/collections/womens-established"
    ],
    "m": [
     "https://www.gymking.com/collections/mens",
@@ -4707,7 +4703,7 @@
     "https://www.gymking.com/collections/mens-tracksuit-bottoms"
    ]
   },
-  "entry_cursor": 4,
+  "entry_cursor": 5,
   "gender_source": "collection",
   "host": "www.gymking.com",
   "note": ""
@@ -4769,14 +4765,14 @@
     "https://hellstar.com/collections/hoodies-crewnecks"
    ]
   },
-  "entry_cursor": 0,
+  "entry_cursor": 2,
   "gender_note": "no women's collection on the whole site and 2/100 womenswear in a sample",
   "gender_source": "prior",
   "health": {
    "fail": 0,
-   "last": 1793197833.0760646,
-   "last_found": 30,
-   "ok": 5,
+   "last": 1794018232.3169022,
+   "last_found": 29,
+   "ok": 6,
    "status": "ok"
   },
   "host": "hellstar.com",
@@ -4821,9 +4817,9 @@
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1793197903.6343293,
-   "last_found": 44,
-   "ok": 12,
+   "last": 1794018300.513983,
+   "last_found": 45,
+   "ok": 13,
    "status": "ok"
   },
   "host": "hikerkind.com",
@@ -4866,14 +4862,14 @@
     "https://www.homecore.com/collections/collection-homme"
    ]
   },
-  "entry_cursor": 3,
+  "entry_cursor": 5,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1793198000.3135986,
-   "last_found": 32,
+   "last": 1794018369.1520553,
+   "last_found": 6,
    "note": "no products found on the page",
-   "ok": 3,
+   "ok": 4,
    "status": "ok"
   },
   "host": "www.homecore.com",
@@ -4893,8 +4889,15 @@
     "https://houseofsunny.co.uk/collections/collections-mens-aw25-fashion"
    ]
   },
-  "entry_cursor": 5,
+  "entry_cursor": 1,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1794018474.070843,
+   "last_found": 49,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "houseofsunny.co.uk",
   "note": "auto-discovered"
  },
@@ -4908,13 +4911,13 @@
     "https://howlerbros.com/collections/mens-t-shirts"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 1,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1793198334.6695201,
-   "last_found": 105,
-   "ok": 9,
+   "last": 1794018724.899732,
+   "last_found": 110,
+   "ok": 10,
    "status": "ok"
   },
   "host": "howlerbros.com",
@@ -4934,14 +4937,14 @@
     "https://hufworldwide.com/collections/mens-t-shirts"
    ]
   },
-  "entry_cursor": 5,
+  "entry_cursor": 1,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1793198432.6128492,
-   "last_found": 58,
+   "last": 1794018804.9830842,
+   "last_found": 60,
    "note": "no products found on the page",
-   "ok": 4,
+   "ok": 5,
    "status": "ok"
   },
   "host": "hufworldwide.com",
@@ -4984,10 +4987,10 @@
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1793198502.55049,
-   "last_found": 5,
+   "last": 1794018877.9185455,
+   "last_found": 4,
    "note": "no products found on the page",
-   "ok": 5,
+   "ok": 6,
    "status": "ok"
   },
   "host": "ironandresin.com",
@@ -5028,12 +5031,12 @@
     "https://www.jcrew.com/plp/mens/categories/clothing/sweaters"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 0,
   "health": {
    "fail": 0,
-   "last": 1793198570.3994792,
-   "last_found": 33,
-   "ok": 16,
+   "last": 1794019023.1702905,
+   "last_found": 30,
+   "ok": 17,
    "status": "ok"
   },
   "host": "www.jcrew.com",
@@ -5053,13 +5056,13 @@
     "https://www.jackerwin.com/collections/mens-new-arrivals"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 4,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1793198682.7353358,
-   "last_found": 17,
-   "ok": 1,
+   "last": 1794019115.069229,
+   "last_found": 11,
+   "ok": 2,
    "status": "ok"
   },
   "host": "www.jackerwin.com",
@@ -5076,10 +5079,10 @@
    "m": [
     "https://www.jadedldn.com/collections/mens-all",
     "https://www.jadedldn.com/collections/all-mens-bottoms",
-    "https://www.jadedldn.com/collections/all-mens-denim"
+    "https://www.jadedldn.com/collections/mens-bestsellers"
    ]
   },
-  "entry_cursor": 4,
+  "entry_cursor": 0,
   "gender_source": "collection",
   "host": "www.jadedldn.com",
   "note": "auto-discovered"
@@ -5095,11 +5098,18 @@
    "m": [
     "https://jadedldn.com/collections/mens-all",
     "https://jadedldn.com/collections/all-mens-bottoms",
-    "https://jadedldn.com/collections/all-mens-denim"
+    "https://jadedldn.com/collections/mens-bestsellers"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 4,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1794050485.564545,
+   "last_found": 92,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "jadedldn.com",
   "note": "auto-discovered"
  },
@@ -5113,13 +5123,13 @@
    ],
    "m": []
   },
-  "entry_cursor": 1,
+  "entry_cursor": 0,
   "gender_source": "prior",
   "health": {
    "fail": 0,
-   "last": 1793206335.659797,
-   "last_found": 18,
-   "ok": 1,
+   "last": 1794050594.9428358,
+   "last_found": 14,
+   "ok": 2,
    "status": "ok"
   },
   "host": "janessaleone.com",
@@ -5136,16 +5146,16 @@
    "m": [
     "https://janji.com/collections/mens",
     "https://janji.com/collections/mens-tops",
-    "https://janji.com/collections/mens-pants"
+    "https://janji.com/collections/mens-outerwear"
    ]
   },
-  "entry_cursor": 0,
+  "entry_cursor": 2,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1793206435.9412973,
-   "last_found": 35,
-   "ok": 2,
+   "last": 1794050733.2328598,
+   "last_found": 50,
+   "ok": 1,
    "status": "ok"
   },
   "host": "janji.com",
@@ -5183,13 +5193,13 @@
     "https://jettylife.com/collections/group-mens-garwood-s26"
    ]
   },
-  "entry_cursor": 1,
+  "entry_cursor": 0,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1793206526.3532815,
-   "last_found": 18,
-   "ok": 11,
+   "last": 1794050818.7415388,
+   "last_found": 19,
+   "ok": 12,
    "status": "ok"
   },
   "host": "jettylife.com",
@@ -5256,17 +5266,17 @@
    "m": [
     "https://www.keenfootwear.com/collections/mens",
     "https://www.keenfootwear.com/collections/mens-accessories",
-    "https://www.keenfootwear.com/collections/mens-athletic-work"
+    "https://www.keenfootwear.com/collections/mens-american-built"
    ]
   },
-  "entry_cursor": 1,
+  "entry_cursor": 3,
   "gender_note": "found only men's collections by name; the shop also lists women's ones, so its general collections are registered for that side as a guess",
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1793206782.5585918,
-   "last_found": 69,
-   "ok": 4,
+   "last": 1794050930.187419,
+   "last_found": 40,
+   "ok": 1,
    "status": "ok"
   },
   "host": "www.keenfootwear.com",
@@ -5276,14 +5286,21 @@
   "brand": "Kaiia The Label",
   "entries": {
    "f": [
-    "https://kaiiathelabel.com/collections/cotton-shorts",
-    "https://kaiiathelabel.com/collections/hoodies",
-    "https://kaiiathelabel.com/collections/grey-tracksuits"
+    "https://kaiiathelabel.com/collections/grey-tracksuits",
+    "https://kaiiathelabel.com/collections/co-ords",
+    "https://kaiiathelabel.com/collections/hoodie-short-sets"
    ],
    "m": []
   },
-  "entry_cursor": 2,
+  "entry_cursor": 1,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1794051027.2536623,
+   "last_found": 96,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "kaiiathelabel.com",
   "note": "auto-discovered"
  },
@@ -5322,13 +5339,13 @@
     "https://www.kavu.com/collections/inseason-mens"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 4,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1793206870.2859995,
-   "last_found": 44,
-   "ok": 1,
+   "last": 1794051121.6917725,
+   "last_found": 67,
+   "ok": 2,
    "status": "ok"
   },
   "host": "www.kavu.com",
@@ -5344,13 +5361,13 @@
     "https://kestin.co/collections/all-products"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 1,
   "gender_source": "prior",
   "health": {
    "fail": 0,
-   "last": 1793207048.265331,
-   "last_found": 13,
-   "ok": 9,
+   "last": 1794051288.90933,
+   "last_found": 18,
+   "ok": 10,
    "status": "ok"
   },
   "host": "kestin.co",
@@ -5421,12 +5438,12 @@
     "https://kith.com/collections/a-cold-wall"
    ]
   },
-  "entry_cursor": 1,
+  "entry_cursor": 3,
   "gender_note": "found only women's collections by name; the shop also lists men's ones, so its general collections are registered for that side as a guess",
   "gender_source": "collection",
   "health": {
-   "fail": 2,
-   "last": 1792001484.420431,
+   "fail": 3,
+   "last": 1794051363.5265827,
    "last_found": 0,
    "note": "no products found on the page; no products found on the page",
    "ok": 4,
@@ -5466,13 +5483,14 @@
    ],
    "m": []
   },
-  "entry_cursor": 1,
+  "entry_cursor": 0,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1793222580.0079937,
-   "last_found": 39,
-   "ok": 1,
+   "last": 1794069497.409322,
+   "last_found": 29,
+   "note": "rate-limited (429) \u2014 stopping this shop for now",
+   "ok": 2,
    "status": "ok"
   },
   "host": "kivari.com.au",
@@ -5515,13 +5533,13 @@
    ],
    "m": []
   },
-  "entry_cursor": 2,
+  "entry_cursor": 1,
   "gender_source": "prior",
   "health": {
    "fail": 0,
-   "last": 1793222736.752822,
-   "last_found": 78,
-   "ok": 1,
+   "last": 1794069606.5045133,
+   "last_found": 55,
+   "ok": 2,
    "status": "ok"
   },
   "host": "www.kookai.com.au",
@@ -5541,13 +5559,13 @@
     "https://ksubi.com/collections/mens-accessories-season-one"
    ]
   },
-  "entry_cursor": 4,
+  "entry_cursor": 0,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1793222827.4616978,
-   "last_found": 38,
-   "ok": 2,
+   "last": 1794069709.4406617,
+   "last_found": 21,
+   "ok": 3,
    "status": "ok"
   },
   "host": "ksubi.com",
@@ -5566,8 +5584,16 @@
     "https://kulanikinis.com/collections/loop-returns-mens"
    ]
   },
-  "entry_cursor": 4,
+  "entry_cursor": 1,
   "gender_source": "collection",
+  "health": {
+   "fail": 1,
+   "last": 1794069818.8631146,
+   "last_found": 0,
+   "note": "no products found on the page; no products found on the page",
+   "ok": 0,
+   "status": "blocked"
+  },
   "host": "kulanikinis.com",
   "note": "auto-discovered"
  },
@@ -5604,13 +5630,13 @@
     "https://lestrangelondon.com/collections/all-fp"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 1,
   "gender_source": "prior",
   "health": {
    "fail": 0,
-   "last": 1793222891.294982,
-   "last_found": 3,
-   "ok": 7,
+   "last": 1794069914.641261,
+   "last_found": 38,
+   "ok": 8,
    "status": "ok"
   },
   "host": "lestrangelondon.com",
@@ -5630,8 +5656,15 @@
     "https://lskd.co/collections/mens-comp-sets"
    ]
   },
-  "entry_cursor": 5,
+  "entry_cursor": 1,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1794070231.8823168,
+   "last_found": 120,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "lskd.co",
   "note": "auto-discovered"
  },
@@ -5649,14 +5682,14 @@
     "https://www.lapaz.pt/collections/permanent-collection"
    ]
   },
-  "entry_cursor": 4,
+  "entry_cursor": 0,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1793223322.680078,
-   "last_found": 49,
+   "last": 1794070272.3244052,
+   "last_found": 16,
    "note": "rate-limited (429) \u2014 stopping this shop for now",
-   "ok": 8,
+   "ok": 9,
    "status": "ok"
   },
   "host": "www.lapaz.pt",
@@ -5676,13 +5709,13 @@
     "https://www.lackofcolor.com/collections/mens-straw-hats"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 4,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1793223383.9782653,
-   "last_found": 18,
-   "ok": 4,
+   "last": 1794070356.9091995,
+   "last_found": 63,
+   "ok": 5,
    "status": "ok"
   },
   "host": "www.lackofcolor.com",
@@ -5698,8 +5731,15 @@
    ],
    "m": []
   },
-  "entry_cursor": 1,
+  "entry_cursor": 0,
   "gender_source": "prior",
+  "health": {
+   "fail": 0,
+   "last": 1794070446.769398,
+   "last_found": 85,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "www.thevintagetwin.com",
   "note": "auto-discovered"
  },
@@ -5713,7 +5753,7 @@
     "https://ladywhiteco.com/collections/books"
    ]
   },
-  "entry_cursor": 0,
+  "entry_cursor": 1,
   "gender_source": "prior",
   "health": {
    "fail": 0,
@@ -5795,12 +5835,12 @@
   "entries": {
    "f": [
     "https://leftonfriday.com/collections/thelineup",
-    "https://leftonfriday.com/collections/all-swim",
-    "https://leftonfriday.com/collections/neutrals"
+    "https://leftonfriday.com/collections/smoothing-dream-fabric",
+    "https://leftonfriday.com/collections/all-swim"
    ],
    "m": []
   },
-  "entry_cursor": 1,
+  "entry_cursor": 0,
   "gender_source": "prior",
   "host": "leftonfriday.com",
   "note": "auto-discovered"
@@ -5843,14 +5883,14 @@
     "https://liraclothing.com/collections/mens-bottoms"
    ]
   },
-  "entry_cursor": 3,
+  "entry_cursor": 1,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1793239232.2289672,
-   "last_found": 30,
+   "last": 1794075543.9925635,
+   "last_found": 14,
    "note": "no products found on the page",
-   "ok": 11,
+   "ok": 12,
    "status": "ok"
   },
   "host": "liraclothing.com",
@@ -5866,14 +5906,14 @@
    ],
    "m": []
   },
-  "entry_cursor": 2,
+  "entry_cursor": 0,
   "gender_source": "prior",
   "health": {
    "fail": 0,
-   "last": 1793239445.3197062,
-   "last_found": 83,
+   "last": 1794075602.0140927,
+   "last_found": 43,
    "note": "rate-limited (429) \u2014 stopping this shop for now",
-   "ok": 12,
+   "ok": 13,
    "status": "ok"
   },
   "host": "lisasaysgah.com",
@@ -5889,14 +5929,14 @@
     "https://localauthorityla.com/collections/mens"
    ]
   },
-  "entry_cursor": 0,
+  "entry_cursor": 1,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1793239479.9438725,
-   "last_found": 11,
+   "last": 1794075624.0162601,
+   "last_found": 6,
    "note": "rate-limited (429) \u2014 stopping this shop for now",
-   "ok": 12,
+   "ok": 13,
    "status": "ok"
   },
   "host": "localauthorityla.com",
@@ -5915,11 +5955,12 @@
   "entry_cursor": 2,
   "gender_source": "prior",
   "health": {
-   "fail": 0,
-   "last": 1793239588.1994417,
-   "last_found": 62,
+   "fail": 1,
+   "last": 1794075646.729257,
+   "last_found": 0,
+   "note": "rate-limited (429) \u2014 stopping this shop for now",
    "ok": 4,
-   "status": "ok"
+   "status": "blocked"
   },
   "host": "www.lornajane.com",
   "note": "auto-discovered"
@@ -5934,14 +5975,14 @@
     "https://lostenterprises.com/collections/gwp-qualifying-products"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 0,
   "gender_source": "prior",
   "health": {
    "fail": 0,
-   "last": 1793239685.2316313,
-   "last_found": 58,
+   "last": 1794075682.1893518,
+   "last_found": 31,
    "note": "rate-limited (429) \u2014 stopping this shop for now",
-   "ok": 11,
+   "ok": 12,
    "status": "ok"
   },
   "host": "lostenterprises.com",
@@ -5957,14 +5998,14 @@
     "https://loveshackfancy.com/collections/mens-swim"
    ]
   },
-  "entry_cursor": 0,
+  "entry_cursor": 1,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1793239764.873221,
-   "last_found": 11,
+   "last": 1794075716.3050432,
+   "last_found": 10,
    "note": "rate-limited (429) \u2014 stopping this shop for now",
-   "ok": 12,
+   "ok": 13,
    "status": "ok"
   },
   "host": "loveshackfancy.com",
@@ -5980,13 +6021,14 @@
    ],
    "m": []
   },
-  "entry_cursor": 2,
+  "entry_cursor": 0,
   "gender_source": "prior",
   "health": {
    "fail": 0,
-   "last": 1792565269.7504942,
-   "last_found": 114,
-   "ok": 1,
+   "last": 1794075761.9383929,
+   "last_found": 32,
+   "note": "rate-limited (429) \u2014 stopping this shop for now",
+   "ok": 2,
    "status": "ok"
   },
   "host": "lucyandyak.com",
@@ -6002,8 +6044,16 @@
     "https://www.luke1977.com/collections/all-mens-polo-shirts"
    ]
   },
-  "entry_cursor": 0,
+  "entry_cursor": 1,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1794075815.2517753,
+   "last_found": 34,
+   "note": "rate-limited (429) \u2014 stopping this shop for now",
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "www.luke1977.com",
   "note": "auto-discovered"
  },
@@ -6034,7 +6084,7 @@
    "f": [
     "https://www.lunya.co/collections/womens-all",
     "https://www.lunya.co/collections/womens-tops",
-    "https://www.lunya.co/collections/womens-washable-silk"
+    "https://www.lunya.co/collections/womens-new-arrivals"
    ],
    "m": [
     "https://www.lunya.co/collections/mens-all",
@@ -6042,8 +6092,16 @@
     "https://www.lunya.co/collections/mens-accessories"
    ]
   },
-  "entry_cursor": 0,
+  "entry_cursor": 1,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1794075849.7290204,
+   "last_found": 9,
+   "note": "rate-limited (429) \u2014 stopping this shop for now",
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "www.lunya.co",
   "note": "auto-discovered"
  },
@@ -6061,14 +6119,14 @@
     "https://lurkingclass.com/collections/mens-hoodies"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 3,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1793272216.9114156,
-   "last_found": 100,
+   "last": 1794075897.3991926,
+   "last_found": 50,
    "note": "rate-limited (429) \u2014 stopping this shop for now",
-   "ok": 11,
+   "ok": 12,
    "status": "ok"
   },
   "host": "lurkingclass.com",
@@ -6086,13 +6144,13 @@
     "https://www.lyleandscott.com/collections/mens-all-knitwear"
    ]
   },
-  "entry_cursor": 3,
+  "entry_cursor": 1,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1793272410.5211148,
-   "last_found": 118,
-   "ok": 3,
+   "last": 1794076094.9432402,
+   "last_found": 81,
+   "ok": 4,
    "status": "ok"
   },
   "host": "www.lyleandscott.com",
@@ -6179,14 +6237,14 @@
     "https://www.madewell.com/mens-clothing"
    ]
   },
-  "entry_cursor": 1,
+  "entry_cursor": 0,
   "health": {
-   "fail": 5,
-   "last": 1793272470.1181345,
-   "last_found": 1,
+   "fail": 6,
+   "last": 1794076202.7970552,
+   "last_found": 0,
    "note": "no products found on the page; no products found on the page",
    "ok": 10,
-   "status": "ok"
+   "status": "blocked"
   },
   "host": "www.madewell.com",
   "note": ""
@@ -6204,13 +6262,14 @@
     "https://www.madhappy.com/collections/mens-hoodies"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 3,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1793272660.4495723,
-   "last_found": 101,
-   "ok": 1,
+   "last": 1794076262.9583833,
+   "last_found": 55,
+   "note": "rate-limited (429) \u2014 stopping this shop for now",
+   "ok": 2,
    "status": "ok"
   },
   "host": "www.madhappy.com",
@@ -6230,8 +6289,15 @@
     "https://malbongolf.com/collections/tops"
    ]
   },
-  "entry_cursor": 1,
+  "entry_cursor": 3,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1794076394.9944081,
+   "last_found": 75,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "malbongolf.com",
   "note": "auto-discovered"
  },
@@ -6272,8 +6338,15 @@
     "https://www.marinelayer.com/collections/mens-california-naturals"
    ]
   },
-  "entry_cursor": 0,
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1794092377.7823796,
+   "last_found": 48,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "www.marinelayer.com",
   "note": "auto-discovered"
  },
@@ -6477,8 +6550,15 @@
     "https://montirex.com/collections/mens-active-sets"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 4,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1794092668.5117083,
+   "last_found": 119,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "montirex.com",
   "note": ""
  },
@@ -6492,8 +6572,15 @@
    ],
    "m": []
   },
-  "entry_cursor": 2,
+  "entry_cursor": 1,
   "gender_source": "prior",
+  "health": {
+   "fail": 0,
+   "last": 1794092744.1925054,
+   "last_found": 22,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "www.motelrocks.com",
   "note": "auto-discovered"
  },
@@ -6511,8 +6598,15 @@
     "https://mottandbow.com/collections/mens-tees"
    ]
   },
-  "entry_cursor": 0,
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1794092886.620881,
+   "last_found": 27,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "mottandbow.com",
   "note": "auto-discovered"
  },
@@ -6528,9 +6622,9 @@
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1793294011.9282804,
-   "last_found": 12,
-   "ok": 4,
+   "last": 1794092924.2299082,
+   "last_found": 19,
+   "ok": 5,
    "status": "ok"
   },
   "host": "mrsimple.com.au",
@@ -6548,13 +6642,14 @@
     "https://www.muji.us/collections/mens-new-arrivals"
    ]
   },
-  "entry_cursor": 0,
+  "entry_cursor": 1,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1793294317.1165416,
-   "last_found": 67,
-   "ok": 5,
+   "last": 1794093019.346046,
+   "last_found": 52,
+   "note": "rate-limited (429) \u2014 stopping this shop for now",
+   "ok": 6,
    "status": "ok"
   },
   "host": "www.muji.us",
@@ -6574,8 +6669,15 @@
     "https://musclenation.org/collections/dpa-bf26-mens"
    ]
   },
-  "entry_cursor": 5,
+  "entry_cursor": 1,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1794093248.4942331,
+   "last_found": 95,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "musclenation.org",
   "note": "auto-discovered"
  },
@@ -6589,13 +6691,13 @@
    ],
    "m": []
   },
-  "entry_cursor": 1,
+  "entry_cursor": 0,
   "gender_source": "prior",
   "health": {
    "fail": 0,
-   "last": 1793301181.5229611,
-   "last_found": 13,
-   "ok": 2,
+   "last": 1794093293.469107,
+   "last_found": 10,
+   "ok": 3,
    "status": "ok"
   },
   "host": "musier-paris.com",
@@ -6662,7 +6764,7 @@
     "https://nobullproject.com/collections/mens-accessories"
    ]
   },
-  "entry_cursor": 4,
+  "entry_cursor": 5,
   "gender_source": "collection",
   "health": {
    "fail": 0,
@@ -6686,11 +6788,11 @@
   "gender_source": "collection",
   "health": {
    "fail": 1,
-   "last": 1793301445.80203,
-   "last_found": 0,
+   "last": 1794124619.2812738,
+   "last_found": 16,
    "note": "no products found on the page",
-   "ok": 11,
-   "status": "blocked"
+   "ok": 12,
+   "status": "ok"
   },
   "host": "nvgtn.com",
   "note": "auto-discovered"
@@ -6731,14 +6833,14 @@
     "https://www.nakedandfamousdenim.com/collections/men-jeans"
    ]
   },
-  "entry_cursor": 1,
+  "entry_cursor": 2,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1793301531.5968323,
-   "last_found": 31,
+   "last": 1794124673.1455936,
+   "last_found": 22,
    "note": "rate-limited (429) \u2014 stopping this shop for now",
-   "ok": 8,
+   "ok": 9,
    "status": "ok"
   },
   "host": "www.nakedandfamousdenim.com",
@@ -6754,13 +6856,13 @@
    ],
    "m": []
   },
-  "entry_cursor": 1,
+  "entry_cursor": 0,
   "gender_source": "prior",
   "health": {
    "fail": 0,
-   "last": 1793301675.0161247,
+   "last": 1794124817.4610581,
    "last_found": 87,
-   "ok": 1,
+   "ok": 2,
    "status": "ok"
   },
   "host": "namilia.com",
@@ -6820,14 +6922,14 @@
    ],
    "m": []
   },
-  "entry_cursor": 1,
+  "entry_cursor": 0,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1793301826.0496798,
-   "last_found": 109,
+   "last": 1794124949.3225365,
+   "last_found": 112,
    "note": "rate-limited (429) \u2014 stopping this shop for now",
-   "ok": 9,
+   "ok": 10,
    "status": "ok"
   },
   "host": "neverfullydressed.com",
@@ -6843,13 +6945,13 @@
    ],
    "m": []
   },
-  "entry_cursor": 2,
+  "entry_cursor": 1,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1793302050.0263665,
-   "last_found": 107,
-   "ok": 3,
+   "last": 1794125170.1301832,
+   "last_found": 111,
+   "ok": 4,
    "status": "ok"
   },
   "host": "nimbleactivewear.com",
@@ -6869,13 +6971,13 @@
     "https://nisolo.com/collections/mens-accessories"
    ]
   },
-  "entry_cursor": 0,
+  "entry_cursor": 2,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1793302126.0791132,
-   "last_found": 27,
-   "ok": 5,
+   "last": 1794125276.0543382,
+   "last_found": 42,
+   "ok": 6,
    "status": "ok"
   },
   "host": "nisolo.com",
@@ -6942,8 +7044,8 @@
   "entry_cursor": 0,
   "gender_source": "collection",
   "health": {
-   "fail": 1,
-   "last": 1793302170.2305014,
+   "fail": 2,
+   "last": 1794125319.7501316,
    "last_found": 0,
    "note": "no products found on the page",
    "ok": 9,
@@ -6962,14 +7064,14 @@
     "https://www.norseprojects.com/collections/shorts"
    ]
   },
-  "entry_cursor": 1,
+  "entry_cursor": 0,
   "gender_source": "prior",
   "health": {
    "fail": 0,
-   "last": 1792622645.3050368,
-   "last_found": 12,
+   "last": 1794125387.9013631,
+   "last_found": 17,
    "note": "rate-limited (429) \u2014 stopping this shop for now",
-   "ok": 10,
+   "ok": 11,
    "status": "ok"
   },
   "host": "www.norseprojects.com",
@@ -6989,14 +7091,14 @@
     "https://www.notre-shop.com/collections/nike-mens"
    ]
   },
-  "entry_cursor": 0,
+  "entry_cursor": 2,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1793316916.1629367,
-   "last_found": 14,
+   "last": 1794125454.995529,
+   "last_found": 37,
    "note": "no products found on the page",
-   "ok": 1,
+   "ok": 2,
    "status": "ok"
   },
   "host": "www.notre-shop.com",
@@ -7035,8 +7137,15 @@
     "https://www.quiksilver.com/collections/athleisure-surf-clothing-for-men-0akz00a"
    ]
   },
-  "entry_cursor": 1,
+  "entry_cursor": 0,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1794125583.2761579,
+   "last_found": 114,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "www.quiksilver.com",
   "note": "auto-discovered"
  },
@@ -7054,11 +7163,11 @@
     "https://oosc-clothing.com/collections/mens-thermals"
    ]
   },
-  "entry_cursor": 0,
+  "entry_cursor": 2,
   "gender_source": "collection",
   "health": {
-   "fail": 5,
-   "last": 1793317091.2026808,
+   "fail": 6,
+   "last": 1794125655.8470888,
    "last_found": 0,
    "note": "no products found on the page; no products found on the page",
    "ok": 3,
@@ -7081,7 +7190,7 @@
     "https://www.obeyclothing.com/collections/fall-26-mens"
    ]
   },
-  "entry_cursor": 0,
+  "entry_cursor": 1,
   "gender_source": "collection",
   "host": "www.obeyclothing.com",
   "note": "auto-discovered"
@@ -7132,18 +7241,25 @@
   "brand": "Oliver Cabell",
   "entries": {
    "f": [
-    "https://olivercabell.com/collections/low-1-womens",
-    "https://olivercabell.com/collections/jabbar-high-womens",
-    "https://olivercabell.com/collections/low-2-womens"
+    "https://olivercabell.com/collections/discontinued-style-womens-only",
+    "https://olivercabell.com/collections/orthopedic-women",
+    "https://olivercabell.com/collections/low-1-orthopedic-womens"
    ],
    "m": [
-    "https://olivercabell.com/collections/sneakers-mens",
-    "https://olivercabell.com/collections/gat-men",
-    "https://olivercabell.com/collections/low-1-mens"
+    "https://olivercabell.com/collections/wide-toe-box-shoes-for-men",
+    "https://olivercabell.com/collections/orthopedic-men",
+    "https://olivercabell.com/collections/nursing-shoes-for-men"
    ]
   },
-  "entry_cursor": 0,
+  "entry_cursor": 2,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1794156529.6048481,
+   "last_found": 21,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "olivercabell.com",
   "note": "auto-discovered"
  },
@@ -7203,14 +7319,14 @@
    ],
    "m": []
   },
-  "entry_cursor": 2,
+  "entry_cursor": 0,
   "gender_source": "prior",
   "health": {
    "fail": 1,
-   "last": 1793317415.0984888,
+   "last": 1794156590.0055277,
    "last_found": 60,
-   "note": "no products found on the page",
-   "ok": 10,
+   "note": "rate-limited (429) \u2014 stopping this shop for now",
+   "ok": 11,
    "status": "ok"
   },
   "host": "oneractive.com",
@@ -7230,13 +7346,13 @@
     "https://onia.com/collections/the-linen-shop"
    ]
   },
-  "entry_cursor": 1,
+  "entry_cursor": 3,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1793317682.1798663,
-   "last_found": 81,
-   "ok": 3,
+   "last": 1794156830.7522497,
+   "last_found": 40,
+   "ok": 4,
    "status": "ok"
   },
   "host": "onia.com",
@@ -7252,13 +7368,13 @@
     "https://online-ceramics.com/collections/new"
    ]
   },
-  "entry_cursor": 1,
+  "entry_cursor": 0,
   "gender_source": "prior",
   "health": {
    "fail": 0,
-   "last": 1793317795.8806162,
-   "last_found": 97,
-   "ok": 1,
+   "last": 1794156948.7618847,
+   "last_found": 115,
+   "ok": 2,
    "status": "ok"
   },
   "host": "online-ceramics.com",
@@ -7274,14 +7390,14 @@
     "https://onlyny.com/collections/coming-soon"
    ]
   },
-  "entry_cursor": 0,
+  "entry_cursor": 2,
   "gender_source": "prior",
   "health": {
    "fail": 1,
-   "last": 1793317847.1344395,
-   "last_found": 49,
+   "last": 1794157004.7533922,
+   "last_found": 90,
    "note": "no products found on the page; no products found on the page",
-   "ok": 10,
+   "ok": 11,
    "status": "ok"
   },
   "host": "onlyny.com",
@@ -7301,13 +7417,13 @@
     "https://organicbasics.com/collections/socks"
    ]
   },
-  "entry_cursor": 5,
+  "entry_cursor": 1,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1792651014.9137874,
+   "last": 1794157145.7102187,
    "last_found": 120,
-   "ok": 3,
+   "ok": 4,
    "status": "ok"
   },
   "host": "organicbasics.com",
@@ -7323,13 +7439,13 @@
     "https://originalpenguin.com/collections/beanies-gloves-scarves"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 1,
   "gender_source": "prior",
   "health": {
    "fail": 0,
-   "last": 1793346282.8202038,
-   "last_found": 24,
-   "ok": 1,
+   "last": 1794157261.3694732,
+   "last_found": 25,
+   "ok": 2,
    "status": "ok"
   },
   "host": "originalpenguin.com",
@@ -7395,13 +7511,14 @@
     "https://www.outerknown.com/collections/mens-coats-jackets"
    ]
   },
-  "entry_cursor": 1,
+  "entry_cursor": 2,
   "gender_source": "collection",
   "health": {
    "fail": 0,
-   "last": 1793346485.7909815,
-   "last_found": 42,
-   "ok": 2,
+   "last": 1794157302.4808357,
+   "last_found": 8,
+   "note": "rate-limited (429) \u2014 stopping this shop for now",
+   "ok": 3,
    "status": "ok"
   },
   "host": "www.outerknown.com",
@@ -7413,16 +7530,23 @@
    "f": [
     "https://outlanddenim.com/collections/womens",
     "https://outlanddenim.com/collections/skirts-and-shorts",
-    "https://outlanddenim.com/collections/womens-high-rise-jeans"
+    "https://outlanddenim.com/collections/womens-new-arrivals"
    ],
    "m": [
     "https://outlanddenim.com/collections/mens",
-    "https://outlanddenim.com/collections/best-sellers-mens",
-    "https://outlanddenim.com/collections/mens-jeans"
+    "https://outlanddenim.com/collections/mens-new-arrivals",
+    "https://outlanddenim.com/collections/mens-tees"
    ]
   },
-  "entry_cursor": 2,
+  "entry_cursor": 4,
   "gender_source": "collection",
+  "health": {
+   "fail": 0,
+   "last": 1794157383.917145,
+   "last_found": 11,
+   "ok": 1,
+   "status": "ok"
+  },
   "host": "outlanddenim.com",
   "note": "auto-discovered"
  },
@@ -7436,7 +7560,7 @@
    ],
    "m": []
   },
-  "entry_cursor": 1,
+  "entry_cursor": 2,
   "gender_source": "collection",
   "health": {
    "fail": 0,
@@ -8071,7 +8195,7 @@
    "f": [
     "https://rvca.com/collections/womens",
     "https://rvca.com/collections/womens-clothing",
-    "https://rvca.com/collections/womens-tees-tanks"
+    "https://rvca.com/collections/womens-new-arrivals"
    ],
    "m": [
     "https://rvca.com/collections/mens",
@@ -8081,14 +8205,6 @@
   },
   "entry_cursor": 0,
   "gender_source": "collection",
-  "health": {
-   "fail": 0,
-   "last": 1792683963.0903764,
-   "last_found": 96,
-   "note": "rate-limited (429) \u2014 stopping this shop for now",
-   "ok": 7,
-   "status": "ok"
-  },
   "host": "rvca.com",
   "note": "auto-discovered"
  },
@@ -8729,7 +8845,6 @@
   "entries": {
    "f": [
     "https://www.runawaythelabel.com/collections/formal-dresses",
-    "https://www.runawaythelabel.com/collections/womens-race-day-dresses",
     "https://www.runawaythelabel.com/collections/festival"
    ],
    "m": [
@@ -8740,14 +8855,6 @@
   },
   "entry_cursor": 0,
   "gender_source": "collection",
-  "health": {
-   "fail": 1,
-   "last": 1785271672.9139416,
-   "last_found": 0,
-   "note": "rate-limited (429) \u2014 stopping this shop for now",
-   "ok": 0,
-   "status": "blocked"
-  },
   "host": "www.runawaythelabel.com",
   "note": "auto-discovered"
  },
@@ -8922,8 +9029,8 @@
   "entries": {
    "f": [
     "https://sabah.am/collections/babas-women",
-    "https://sabah.am/collections/auto-womens-bestsellers",
-    "https://sabah.am/collections/fall-earth-tones-copy-1"
+    "https://sabah.am/collections/fall-earth-tones-copy-1",
+    "https://sabah.am/collections/auto-womens-bestsellers"
    ],
    "m": [
     "https://sabah.am/collections/men",
@@ -8961,8 +9068,8 @@
   "brand": "Salt Gypsy",
   "entries": {
    "f": [
-    "https://saltgypsy.com/collections/shop-all",
     "https://saltgypsy.com/collections/product-display-homepage",
+    "https://saltgypsy.com/collections/shop-all",
     "https://saltgypsy.com/collections/surfwear"
    ],
    "m": []
@@ -9092,8 +9199,8 @@
   "entries": {
    "f": [
     "https://www.sarahflint.com/collections/full-price-styles",
-    "https://www.sarahflint.com/collections/all-styles-minus-mto",
-    "https://www.sarahflint.com/collections/all"
+    "https://www.sarahflint.com/collections/all",
+    "https://www.sarahflint.com/collections/all-shoes"
    ],
    "m": []
   },
@@ -9135,21 +9242,13 @@
     "https://www.saturdaysnyc.com/collections/category-womens-sweats"
    ],
    "m": [
-    "https://www.saturdaysnyc.com/collections/mens-apparel",
     "https://www.saturdaysnyc.com/collections/category-mens-tops",
-    "https://www.saturdaysnyc.com/collections/category-mens-sweats"
+    "https://www.saturdaysnyc.com/collections/category-mens-sweats",
+    "https://www.saturdaysnyc.com/collections/category-mens-pants"
    ]
   },
   "entry_cursor": 4,
   "gender_source": "collection",
-  "health": {
-   "fail": 1,
-   "last": 1793455727.3742008,
-   "last_found": 0,
-   "note": "no products found on the page; no products found on the page",
-   "ok": 0,
-   "status": "blocked"
-  },
   "host": "www.saturdaysnyc.com",
   "note": "auto-discovered"
  },
@@ -9359,21 +9458,14 @@
   "brand": "Set Active",
   "entries": {
    "f": [
+    "https://setactive.co/collections/all-bike-shorts",
     "https://setactive.co/collections/500k-applicable-product",
-    "https://setactive.co/collections/all-clothing",
-    "https://setactive.co/collections/activewear"
+    "https://setactive.co/collections/all-clothing"
    ],
    "m": []
   },
   "entry_cursor": 0,
   "gender_source": "prior",
-  "health": {
-   "fail": 0,
-   "last": 1793462463.8556173,
-   "last_found": 117,
-   "ok": 7,
-   "status": "ok"
-  },
   "host": "setactive.co",
   "note": "auto-discovered"
  },
@@ -9527,7 +9619,11 @@
  "Sir the Label": {
   "brand": "Sir the Label",
   "entries": {
-   "f": [],
+   "f": [
+    "https://us.sirthelabel.com/collections/all-for-fb-catalog",
+    "https://us.sirthelabel.com/collections/full-price-shop-all",
+    "https://us.sirthelabel.com/collections/all-ready-to-wear"
+   ],
    "m": [
     "https://us.sirthelabel.com/collections/mens",
     "https://us.sirthelabel.com/collections/mens-tops",
@@ -9535,15 +9631,7 @@
    ]
   },
   "entry_cursor": 0,
-  "gender_source": "collection",
-  "health": {
-   "fail": 1,
-   "last": 1785425722.415177,
-   "last_found": 0,
-   "note": "rate-limited (429) \u2014 stopping this shop for now",
-   "ok": 0,
-   "status": "blocked"
-  },
+  "gender_source": "prior",
   "host": "us.sirthelabel.com",
   "note": "auto-discovered"
  },
@@ -9737,24 +9825,17 @@
   "entries": {
    "f": [
     "https://southerntide.com/collections/womens-clothing",
-    "https://southerntide.com/collections/womens-sail-shop",
-    "https://southerntide.com/collections/womens-endless-summer-collection"
+    "https://southerntide.com/collections/womens-endless-summer-collection",
+    "https://southerntide.com/collections/womens-resort"
    ],
    "m": [
     "https://southerntide.com/collections/mens-clothing",
     "https://southerntide.com/collections/men",
-    "https://southerntide.com/collections/mens-sail-shop"
+    "https://southerntide.com/collections/mens-tops"
    ]
   },
   "entry_cursor": 1,
   "gender_source": "collection",
-  "health": {
-   "fail": 0,
-   "last": 1793478091.0677314,
-   "last_found": 48,
-   "ok": 1,
-   "status": "ok"
-  },
   "host": "southerntide.com",
   "note": "auto-discovered"
  },
@@ -9873,20 +9954,13 @@
   "entries": {
    "f": [],
    "m": [
+    "https://staplepigeon.com/collections/new-arrivals-1",
     "https://staplepigeon.com/collections/bestsellers",
-    "https://staplepigeon.com/collections/all",
-    "https://staplepigeon.com/collections/new-arrivals-1"
+    "https://staplepigeon.com/collections/all"
    ]
   },
   "entry_cursor": 2,
   "gender_source": "prior",
-  "health": {
-   "fail": 0,
-   "last": 1793478303.1101835,
-   "last_found": 90,
-   "ok": 1,
-   "status": "ok"
-  },
   "host": "staplepigeon.com",
   "note": "auto-discovered"
  },
@@ -10028,20 +10102,13 @@
   "entries": {
    "f": [],
    "m": [
-    "https://sundae.school/collections/all",
     "https://sundae.school/collections/all-outerwear",
+    "https://sundae.school/collections/all",
     "https://sundae.school/collections/in-session"
    ]
   },
   "entry_cursor": 1,
   "gender_source": "prior",
-  "health": {
-   "fail": 0,
-   "last": 1793478840.5383708,
-   "last_found": 70,
-   "ok": 1,
-   "status": "ok"
-  },
   "host": "sundae.school",
   "note": "auto-discovered"
  },
@@ -10359,9 +10426,9 @@
   "brand": "The Gym King",
   "entries": {
    "f": [
+    "https://thegymking.com/collections/womens-365-collection",
     "https://thegymking.com/collections/womens-1-4-zip-tops",
-    "https://thegymking.com/collections/womens-established",
-    "https://thegymking.com/collections/classics-women"
+    "https://thegymking.com/collections/womens-established"
    ],
    "m": [
     "https://thegymking.com/collections/mens",
@@ -10371,13 +10438,6 @@
   },
   "entry_cursor": 4,
   "gender_source": "collection",
-  "health": {
-   "fail": 0,
-   "last": 1793520600.4803607,
-   "last_found": 62,
-   "ok": 1,
-   "status": "ok"
-  },
   "host": "thegymking.com",
   "note": "auto-discovered"
  },
@@ -10684,19 +10744,12 @@
    ],
    "m": [
     "https://topodesigns.com/collections/all-mens",
-    "https://topodesigns.com/collections/mens-tops",
-    "https://topodesigns.com/collections/mens-apparel"
+    "https://topodesigns.com/collections/mens-apparel",
+    "https://topodesigns.com/collections/mens-travel-apparel"
    ]
   },
   "entry_cursor": 2,
   "gender_source": "collection",
-  "health": {
-   "fail": 0,
-   "last": 1793521401.7033513,
-   "last_found": 3,
-   "ok": 6,
-   "status": "ok"
-  },
   "host": "topodesigns.com",
   "note": "auto-discovered"
  },
@@ -10959,9 +11012,9 @@
     "https://vqfit.com/collections/ladies-spring-25"
    ],
    "m": [
-    "https://vqfit.com/collections/mens",
     "https://vqfit.com/collections/collection-box-logo-mens",
-    "https://vqfit.com/collections/waffle-heritage-and-strength-essential-navy"
+    "https://vqfit.com/collections/waffle-heritage-and-strength-essential-navy",
+    "https://vqfit.com/collections/best-sellers-mens-t-shirts-tops"
    ]
   },
   "entry_cursor": 5,
@@ -11730,6 +11783,24 @@
    "status": "blocked"
   },
   "host": "iamgia.com",
+  "note": "auto-discovered"
+ },
+ "lack of color": {
+  "brand": "lack of color",
+  "entries": {
+   "f": [
+    "https://lackofcolor.com/collections/all-womens-hats",
+    "https://lackofcolor.com/collections/womens-bucket-hats",
+    "https://lackofcolor.com/collections/womens-straw-hats"
+   ],
+   "m": [
+    "https://lackofcolor.com/collections/all-mens-hats",
+    "https://lackofcolor.com/collections/mens-fedora-hats",
+    "https://lackofcolor.com/collections/mens-straw-hats"
+   ]
+  },
+  "gender_source": "collection",
+  "host": "lackofcolor.com",
   "note": "auto-discovered"
  },
  "norda": {

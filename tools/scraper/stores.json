@@ -259,6 +259,11 @@
   "gender_prior": "m",
   "seen": 1
  },
+ "Andie": {
+  "domain": "andieswim.com",
+  "gender_prior": "f",
+  "seen": 1
+ },
  "Andie Swim": {
   "domain": "andieswim.com",
   "gender_prior": "f",
@@ -337,7 +342,7 @@
  "Assembly Label": {
   "domain": "int.assemblylabel.com",
   "gender_prior": "f",
-  "seen": 106
+  "seen": 107
  },
  "Athletic Works": {
   "domain": "www.depop.com",
@@ -377,7 +382,7 @@
  "BB Exclusive": {
   "domain": "www.beginningboutique.com",
   "gender_prior": "f",
-  "seen": 194
+  "seen": 195
  },
  "BBC Ice Cream": {
   "domain": "bbcicecream.com",
@@ -432,7 +437,7 @@
  "Bather": {
   "domain": "bather.com",
   "gender_prior": "m",
-  "seen": 121
+  "seen": 122
  },
  "Battenwear": {
   "domain": "battenwear.com",
@@ -692,7 +697,7 @@
  "Butter Goods": {
   "domain": "buttergoods.com",
   "gender_prior": "m",
-  "seen": 176
+  "seen": 177
  },
  "CDLP": {
   "domain": "cdlp.com",
@@ -717,7 +722,7 @@
  "Calvin Klein": {
   "domain": "messinahembry.com",
   "gender_prior": "m",
-  "seen": 36
+  "seen": 37
  },
  "Camilla and Marc": {
   "domain": "www.camillaandmarc.com",
@@ -1277,7 +1282,7 @@
  "Farah": {
   "domain": "www.farah.co.uk",
   "gender_prior": "m",
-  "seen": 50
+  "seen": 51
  },
  "Farm Rio": {
   "domain": "www.farmrio.com",
@@ -1384,10 +1389,15 @@
   "gender_prior": "m",
   "seen": 24
  },
+ "Fresh Clean Tees": {
+  "domain": "freshcleantees.com",
+  "gender_prior": "f",
+  "seen": 1
+ },
  "Fresh Clean Threads": {
   "domain": "freshcleanthreads.com",
   "gender_prior": "m",
-  "seen": 46
+  "seen": 47
  },
  "Fresh Produce": {
   "domain": "ragstock.com",
@@ -1422,7 +1432,7 @@
  "Gabicci": {
   "domain": "www.gabicci.com",
   "gender_prior": "m",
-  "seen": 45
+  "seen": 46
  },
  "Gap": {
   "domain": "www.depop.com",
@@ -1862,7 +1872,7 @@
  "Kaiia The Label": {
   "domain": "kaiiathelabel.com",
   "gender_prior": "f",
-  "seen": 106
+  "seen": 107
  },
  "Kangol": {
   "domain": "www.rokit.co.uk",
@@ -2112,7 +2122,7 @@
  "Luke 1977": {
   "domain": "www.luke1977.com",
   "gender_prior": "m",
-  "seen": 22
+  "seen": 23
  },
  "Lululemon": {
   "domain": "www.depop.com",
@@ -2302,7 +2312,7 @@
  "Mott & Bow": {
   "domain": "mottandbow.com",
   "gender_prior": "u",
-  "seen": 38
+  "seen": 39
  },
  "Mr Simple": {
   "domain": "mrsimple.com.au",
@@ -2547,7 +2557,7 @@
  "Oner Active": {
   "domain": "oneractive.com",
   "gender_prior": "f",
-  "seen": 178
+  "seen": 179
  },
  "Onia": {
   "domain": "onia.com",
@@ -2712,7 +2722,7 @@
  "Pink Lily": {
   "domain": "www.pinklily.com",
   "gender_prior": "f",
-  "seen": 41
+  "seen": 42
  },
  "Pink Rose": {
   "domain": "www.depop.com",
@@ -2967,7 +2977,7 @@
  "Reformation": {
   "domain": "www.thereformation.com",
   "gender_prior": "f",
-  "seen": 3
+  "seen": 4
  },
  "Reigning Champ": {
   "domain": "reigningchamp.com",
@@ -3247,7 +3257,7 @@
  "Second Female": {
   "domain": "secondfemale.com",
   "gender_prior": "f",
-  "seen": 53
+  "seen": 55
  },
  "Seea": {
   "domain": "theseea.com",
@@ -3267,7 +3277,7 @@
  "Set Active": {
   "domain": "setactive.co",
   "gender_prior": "f",
-  "seen": 139
+  "seen": 140
  },
  "Shein": {
   "domain": "www.depop.com",
@@ -3502,12 +3512,12 @@
  "Sundae School": {
   "domain": "sundae.school",
   "gender_prior": "m",
-  "seen": 25
+  "seen": 26
  },
  "Sunday Swagger": {
   "domain": "sundayswagger.com",
   "gender_prior": "m",
-  "seen": 31
+  "seen": 32
  },
  "Sundry": {
   "domain": "sundryclothing.com",
@@ -3547,7 +3557,7 @@
  "Tailoria": {
   "domain": "pinklily.com",
   "gender_prior": "f",
-  "seen": 8
+  "seen": 9
  },
  "Talbots": {
   "domain": "www.depop.com",
@@ -3672,7 +3682,7 @@
  "Thrills": {
   "domain": "thrills.co",
   "gender_prior": "m",
-  "seen": 172
+  "seen": 173
  },
  "Thrills Co.": {
   "domain": "thrills.co",
@@ -3717,7 +3727,7 @@
  "Toms": {
   "domain": "www.toms.com",
   "gender_prior": "f",
-  "seen": 21
+  "seen": 22
  },
  "Topo Designs": {
   "domain": "topodesigns.com",
@@ -3947,7 +3957,7 @@
  "Warp + Weft": {
   "domain": "warpweftworld.com",
   "gender_prior": "f",
-  "seen": 49
+  "seen": 51
  },
  "Waterlust": {
   "domain": "waterlust.com",
@@ -4067,7 +4077,7 @@
  "Xero Shoes": {
   "domain": "xeroshoes.com",
   "gender_prior": "m",
-  "seen": 6
+  "seen": 7
  },
  "Xhibition": {
   "domain": "www.xhibition.co",
@@ -4167,6 +4177,6 @@
  "secondfemale.com": {
   "domain": "secondfemale.com",
   "gender_prior": "f",
-  "seen": 22
+  "seen": 23
  }
 }
